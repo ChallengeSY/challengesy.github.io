@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>Campaign Tech Bonus Material - VGA Planets 3.0 Emulation</title>
+	<link type="text/css" href="../planets.css" rel="stylesheet" />
+	<style text="text/css">
+		div {display: none;}
+	</style>
+	<script type="text/javascript" src="story.js"></script>
+</head>
+<body>
+
+<p id="banner"><a href="../index.htm"><img src="../banner.png" alt="" /></a></p>
+
+<h2>Walkthrough on VGA Planets 3.0 Emulation</h2>
+
+<h3>Summary</h3>
+<p>It is possible to emulate VGA Planets 3.0 on any modern system. However, it can be tricky sometimes to get it started.</p>
+<p>Installation of Winplan 3.5 is outside the scope of this document, as you need a 16-bit Windows to install Winplan, which cannot be easily worked around.</p>
+
+<div id="stop1" style="display: block;">
+<p>When you are ready, tap <q>Continue Walkthrough</q> to begin.</p>
+
+<h3>Prerequisites</h3>
+<ul>
+<li>VGA Planets 3.0 installer (Shareware or Registered)</li>
+<li>Floppy Disk Drive (if Registered)</li>
+<li>DOSBox</li>
+</ul>
+</div>
+
+<div id="ch1">
+<h3>Step 1: Rally the Prerequesites</h3>
+<h4>Acquiring DOSBox</h4>
+<p>If you are using GNU/Linux, then you may be able to acquire it via a package manager. Otherwise, you will have to visit the  <a href="http://www.dosbox.com">official DOSBox website</a> to download and install a binary package.</p>
+
+<p>If no binary package is available for your platform, then you will have to compile the source code, or find some other way to get DOS running.</p>
+
+<table style="float:right;margin-left:15px" border="1">
+<caption>Shareware comparisons</caption>
+<tbody>
+<tr>
+<th>Elements</th>
+<th>Host 3.22<br>
+</th>
+<th>NuHost</th>
+</tr>
+<tr>
+<td>Max Tech Level</td>
+<td>6</td>
+<td style="background:rgb(64,128,64)" title="Homeworlds can always upgrade to tech 10">7*</td>
+</tr>
+<tr>
+<td>Registration cost</td>
+<td>$15/copy</td>
+<td>$8/quarter or $30/year<br>
+</td>
+</tr>
+<tr>
+<td>Keep excess tech?</td>
+<td title="Only excess tech granted by natives remain">No*</td>
+<td style="background:rgb(64,128,64)">Yes</td>
+</tr>
+<tr>
+<td>Special friendly codes</td>
+<td title="Example: No control over minefields (meaning you must lay ALL in your own identity)">Some</td>
+<td style="background:rgb(64,128,64)">All</td>
+</tr>
+<tr>
+<td>Hull functions</td>
+<td title="Only the Loki and Aries functions don't work">Most</td>
+<td style="background:rgb(64,128,64)">All</td>
+</tr>
+<tr>
+<td>Active game limit</td>
+<td style="background:rgb(64,128,64)" title="Host sites may impose a limit independent of your registration">None*</td>
+<td>3<br>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h4>Acquiring VGA Planets</h4>
+<p>If you have previously purchased VGA Planets 3.0 (not Winplan 3.5) on a 
+floppy disk, then use it and install the full registered game. If you do not have a floppy disk drive, then you will need to purchase an external floppy drive if you want to use the registered version.<br>
+</p>
+
+<p>If you have never purchased VGA Planets 3.0, then you will need to download the <a href="http://www.mediafire.com/file/pe173ti4nfwxeh3/vp320.zip/file">shareware version</a>. A registered floppy disk is easily obtainable for $15, with a 50% discount available if five or more are bought, as of this post on the <a href="http://darkforestmagic.com/planets4/index.htm">official VGA Planets website</a>.</p>
+<p>Host 3.22 and NuHost have some interesting differences with respect to shareware limitations. Additional differences can be read from the <a href="http://help.planets.nu/VGAP-3-differences">Planets Nu documentation</a>.<br>
+</p>
+</div>
+
+<div id="ch2">
+<h3 style="clear: both;">Step 2: The first steps</h3>
+<h4>Learn DOSBox</h4>
+<p>Use the <b>intro</b> and <b>help</b> commands to learn DOSBox's mechanics. In particular, learn how to <b>mount</b> a virtual "drive", change directories with <b>cd</b>, and view files with <b>dir</b>.</p>
+<p>Once you have mounted a drive, you can change the active drive by typing in the mounted letter, followed by one colon (for example, <b>C:</b>).</p>
+
+<h4>Installing VGA Planets</h4>
+<p>Before VGA Planets can be played, it must be installed first. Once you become familiar with DOSBox, navigate your way to where the installer (named INSTALL.EXE) is located and run it by typing in <b>install</b> in DOSBox. Applications are invoked (run) by typing in the name of the application (optionally with the file extension). You can use the tab key after typing in the first letter (or more) to find files faster and reduce odds of spelling errors.</p>
+<p>You will be asked if you meet the specifications required. Since DOSBox supports all of what VGA Planets requires, type <b>y</b>. You'll be asked to type in your drive letter next. This is one of the drive letter(s) you used to mount your local drive. Then you will be asked to type in the directory (or path) that you want VGA Planets installed. A recognizable name (8 characters max), such as <b>planets3</b>, is fine. You'll be asked to confirm installation. If you are satisfied, type <b>y</b>.</p>
+<p>The next section is available only to users of a registered disk. You will be asked which files you would like to install. If the client is involved (host programs are freeware), you'll then be asked if you wish to register that copy. If you do, then you will be warned that you can only install it on one computer. Read the terms carefully.</p>
+<p>You most assuredly do not want to break the terms and then find out that you are under attack by the <b>Tim Continuum</b> as the results are nasty. The important thing to remember is that as long as you play multiple player turns from the <b>same game</b> from the <b>same directory</b>, then you will be fine in that game.<br>
+</p>
+
+<h4>The numerous host versions</h4>
+<p><b>TimHost</b> (or, THost, or simply HOST) has evolved significantly during its lifetime and, as a result, it has received a wide variety of patches to fix bugs and enhance functionality.</p>
+
+<p>The current version of <b>TimHost</b> is version <a href="http://www.mediafire.com/file/qtjg7k0u8osy8c5/hst32247.zip/file">3.22.047</a>, and it is dependent on a set of <a href="http://www.mediafire.com/file/xji7ff5vukl3tsv/hstsup32.zip/file">support files</a> to serve its additional enhancements.</p>
+
+<h4>Making the first game</h4>
+<p>This section and the rest of the walkthrough (up to the online play step) is catered to players who have never played this iteration of Planets before. If one has played 
+Planets 3 in the past, then they may skip ahead by tapping <q>Finish Walkthrough</q>.</p>
+<p>Go to the VGA Planets directory and type in <b>master [%GAMENAME%]</b>, where you replace %GAMENAME% with the name of the game you wish to assign (8 characters maximum with no spaces). First you'll be asked to choose which races will be in the game. You decide which races.</p>
+<p>If you intend to play by yourself or trust your friends that will be also in this game, then use no passwords. It's usually a good idea to randomize planetary friendly codes. Various universe options determine the overall richness, with the last three options excluding natives and removing randomization from the start of the game.</p>
+<p>It's usually a good idea to arrange homeworlds in a circle, using at least Medium range and using the center of the universe. The rest of the choices, including starbases and free ships, are yours.</p>
+
+<h4>Playing the first turn</h4>
+<p>Before you can even play your newly created game, you have to process it via host. Use <b>host [%GAMENAME%]</b> to process the first turn. The raw data of <b>turn 0</b> is not ready to play, thus the initial host run is needed.</p>
+<p>Then, you need to make a separate directory (e.g. PlayerX, with X being replaced with 1-9,a,b according to the race being playerid) inside your game containing your player data. Copy the RST of the ID of the race you wish to play as (1 for Feds, through 11 for Colonies), and then run <b>unpack [%GAMENAME%]\PlayerX</b>.</p>
+<p>There are varying points in the game that requires applications of both the letters and the numbers for slots 10 and 11. These include the numbers for the files and for VPA (which you will learn about in the next step), and the letters for the <b>gsX</b> (give ship to X)<b> </b>and <b>miX</b> (lay mines in X's identity) special friendly codes (both of which only apply to registered players). There are other uses for these differences, which will be added as they are needed in later documentation.</p>
+<p>Once the data has been unpacked, all you have to do is type in <b>planets [%GAMENAME%]\PlayerX</b> and select the race you chose. Playing the game is simple. You give your ships, planets, and bases orders, and then host processes those orders to make a new turn.</p>
+<p>Once the orders are completed, all you have to do now is run <b>maketurn [%GAMENAME%]\PlayerX</b>, then copy (or move) the new TRN file to the parent game directory.</p>
+</div>
+
+<div id="ch3">
+<h3>Step 3: The war continues locally</h3>
+<h4>Playing a full-fledged local game</h4>
+<p>If you intend the computer player to play one or more of the slots, then use <b>cplayer /[123456789ab]</b>, using the appropriate characters for the players you wish the computer to play as (with <i>a</i> being <b>The Rebel Confederation</b>, and <i>b</i> being <b>The Missing Colonies of Man</b>).</p>
+
+<p>The process repeats with <b>host</b>, <b>unpack</b>, <b>planets</b>, and <b>maketurn</b>. Since there is no defined victory conditions, the game is finished only when the player(s) agree it is finished.</p>
+
+<p>It might be a good idea to (semi-)automate this process with batch files. These files have a .bat extension and are used to execute several commands at once. Unfortunately, DOSBox does not come with a text editor, so you must supply an external editor.<br>
+</p>
+
+<p>Need to start another local game? No problem. Just run <b>master</b> once more, and you are good to go. If you are looking forward to playing online, however, then advance to the next step.</p>
+
+<h4>Planets.exe too hard to use?</h4>
+<p>Truth be told, <b>planets.exe</b> is an archaic client. It does not support undo, and most obstacles (ion storms, minefields) are not even remotely rendered, and the client does not even give you complete info.<br>
+</p>
+
+<p><a href="http://vpa.sf.net/">VGA Planets Assistant</a> (VPA) and <a href="http://www.phost.de/~stefan/pcc2.html">Planets Command Center</a> (PCC) are both excellent third party clients. In addition to being easier to use, these clients are much more powerful than <b>planets.exe</b>, allow you to undo mistakes, giving you much more information, and do not require use of the official <b>unpack</b> and <b>maketurn</b> programs.</p>
+
+<p>If you have not already ran <b>planets.exe</b> upon installing PCC, then you need to run it once. Just to the select race and then you can quit. PCC needs <b>fizz.bin</b> to verify your registration, or lack thereof.</p>
+</div>
+
+<div id="ch4">
+<h3>Step 4: Live with other players</h3>
+<h4>How online is different</h4>
+<p>First off, you are no longer hosting the game locally, but rather playing it online where somebody else hosts the game. Thus, you will no longer be using <b>master</b>, <b>host</b>, and <b>cplayer</b>.</p>
+<p>All you have to do is sign up for the race you want to play, and then play normally. Unlike locally, when you are finished, you submit the TRN file to the host, who will then process it when everyone is in or time expires. Player actions are processed simultaneously according to a system dubbed the <q>host order</q>.</p>
+<p>That is all this document is going to cover regarding getting <b>Planets 3</b> to work on any modern system.</p>
+
+<h4>Recommended Sites</h4>
+<p>It is difficult to recommend a site to play Legacy Planets, because the author has only played one game on such a host site, as a replacement. Another reason why it is difficult to recommend such a site is because more and more host sites closed every year. The author only knows of one site (<a href="http://www.planetscentral.com/">PlanetsCentral</a>) that is still operational at this time.</p>
+<p>Another part of the issue is that there is alternate host software called <a href="http://www.phost.de">Portable Host</a> (or simply PHost), which alters the rules quite significantly. It is generally well documented, though. This is another reason why it is a good idea to switch to an updated third party client.</p>
+</div>
+
+<p style="clear: both;" id="stop4" class="center"><button class="interact" onclick="continueStory();">Continue Walkthrough</button> <button class="interact" onclick="finishStory();">Finish Walkthrough</button></p>
+
+</body>
+</html>

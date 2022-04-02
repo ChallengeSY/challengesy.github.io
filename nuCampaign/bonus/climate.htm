@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>Campaign Tech Bonus Material - Climate calculator</title>
+	<link type="text/css" href="../planets.css" rel="stylesheet" />
+	<script type="text/javascript" src="climate.js"></script>
+</head>
+<body onload="compute()">
+
+<p id="banner"><a href="../index.htm"><img src="../banner.png" alt="" /></a></p>
+
+<div id="results" style="width: 50%; float: right; border: 1px dashed #FFF; margin-left: 10px; margin-bottom: 10px; background: #101;"></div>
+
+<h2>Climate calculator Instructions</h2>
+
+<p>This program will provide detailed specifications for a specific climate. Population growth is broken into steps in terms of the number of clans needed to grow a specific number (up to a certain amount as defined in configuration).</p>
+
+<p>These numbers assume the following:</p>
+
+<ul>
+<li>The colonists are not taxed. Taxation slows growth</li>
+<li>The colonist population is 66,000 clans or less at the beginning of the growth step. Growth is otherwise halved, rounded up</li>
+<li>There are no amorphous natives present. Otherwise, apply a subtraction from all the growth counts and the maximum population based on Amorphous happiness<ul>
+	<li>Five clans are subtracted, plus one more for each percentage of happiness below 90%</li>
+</ul></li>
+<li>Supplies are not being factored into the maximums</li>
+</ul>
+
+<table style="margin-left: auto; margin-right: auto;">
+<caption>Script settings</caption>
+<tr>
+<th>Climate</th>
+<td class="numeric"><input class="text" id="temp" size="2" maxlength="3" onblur="compute()" value="50" /></td>
+</tr>
+<tr>
+<td colspan="2" style="font-size: 75%;">Enter planetary climate (0 - 100)</td>
+</tr>
+<tr>
+<th>Grow target</th>
+<td class="numeric"><input class="text" id="grow" size="2" maxlength="4" onblur="compute()" value="25" /></td>
+</tr>
+<tr>
+<td colspan="2" style="font-size: 75%;">The first six growth steps will be displayed even if this is higher</td>
+</tr>
+<tr>
+<th>Colonist Type</th>
+<td><select id="race" onchange="compute()">
+<option>Normal</option>
+<option title="Without Improved Desert Habitation">Crystalline</option>
+<option title="With Improved Desert Habitation">Crystalline IDH</option>
+<option style="display: none">Academy</option>
+</select></td>
+</tr>
+<tr>
+<td colspan="2" style="font-size: 75%;">Each type uses different growth and maximum formulas</td>
+</tr>
+</table>
+
+</body>
+</html>

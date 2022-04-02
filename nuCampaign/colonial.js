@@ -1,0 +1,23 @@
+simRace = 11;
+commonTech(true);
+addDesign("Taurus Class Scout",true,0,0,false);
+addDesign("Taurus Class Transport",true,500,0,false);
+addDesign("Little Joe Class Escort",true,0,0,false);
+addDesign("Little Joe Light Escort",true,500,0,false);
+addDesign("Cobol Class Research Cruiser",true,0,70,false);
+addDesign("Lady Royale Class Cruiser",true,0,10,false);
+addDesign("Aries Class Transport",true,0,20,false);
+addDesign("Tranquility Class Cruiser",true,0,10,false);
+addDesign("Scorpius Class Light Carrier",true,0,0,false);
+addDesign("Scorpius Class Carrier",true,2870,0,false);
+addDesign("Scorpius Class Heavy Carrier",true,3870,20,false);
+addDesign("Tantrum Liner",true,1200,30,false);
+addDesign("Iron Lady Class Frigate",true,0,0,false);
+addDesign("Iron Lady Class Command Ship",true,2900,50,false);
+addDesign("Virgo Class Battlestar",true,0,45,false);
+
+addDesign("Build Fighters",false,0,100,true);
+addDesign("Fighter Mine Sweep",false,0,70,true);
+cloneShips();
+addDesign("Starbase Fighter Sweeping",false,3800,25,false);
+addDesign("Starbase Mine Laying",false,4400,30,false);

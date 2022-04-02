@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>Campaign Tech Simulator Index</title>
+	<link type="text/css" href="planets.css" rel="stylesheet" />
+</head>
+<script type="text/javascript">
+	var onlineEnabled = false;
+
+	function readNews() {
+		if (onlineEnabled) {
+			if (window.XMLHttpRequest) {
+				try {
+					newsRequest = new XMLHttpRequest();
+
+					newsRequest.open("GET","getNews.php",true);
+					newsRequest.send();
+					
+					newsRequest.onreadystatechange = function() {
+						if (newsRequest.readyState === 4) {
+							if (newsRequest.status == 200) {
+								document.getElementById("news").innerHTML = newsRequest.responseText;
+							} else {
+								document.getElementById("news").innerHTML = "Error " + newsRequest.status + " trying to load news.";
+							}
+						}
+					}
+				} catch (e) {
+					document.getElementById("news").innerHTML = "Script Error: " + e.message;
+				}
+			}
+		} else {
+			document.getElementById("heading").innerHTML = "Welcome";
+			document.getElementById("news").innerHTML = "Welcome to the Campaign Tech Simulator.";
+		}
+	}
+	
+	function toggleList(listId) {
+		var getFrag = document.getElementById(listId);
+	
+		getFrag.style.display = (getFrag.style.display == "none" ? "block" : "none");
+	}
+</script>
+<body onload="readNews();">
+
+<p id="banner"><img src="banner.png" alt="" /></p>
+
+<div style="float: left; border: 1px solid rgb(128,64,64); background: rgb(64,64,32); margin-right: 10px; margin-bottom: 10px;">
+<a href="javascript:toggleList('sims');" style="font-weight: bold;">Tech Simulators</a><br />
+<ul id="sims">
+<li><a href="fed.htm">The Feds</a></li>
+<li><a href="lizard.htm">The Lizards</a></li>
+<li><a href="bird.htm">The Bird Men</a></li>
+<li><a href="fascist.htm">The Fascists</a></li>
+<li><a href="privateer.htm">The Privateers</a></li>
+<li><a href="cyborg.htm">The Cyborg</a></li>
+<li><a href="crystal.htm">The Crystal People</a></li>
+<li><a href="empire.htm">The Evil Empire</a></li>
+<li><a href="robotic.htm">The Robots</a></li>
+<li><a href="rebel.htm">The Rebels</a></li>
+<li><a href="colonial.htm">The Colonies</a></li>
+<li><a href="horwasp.htm">The Horwasps</a></li>
+</ul>
+<a href="javascript:toggleList('bonus');" style="font-weight: bold;">Bonus Materials</a><br />
+<ul id="bonus" style="display: none;">
+<li><a href="bonus/climate.htm">Climate calculator</a></li>
+<!--
+<li><a href="bonus/draftsim.htm">Draft simulator</a></li>
+-->
+<li><a href="bonus/emulation.htm">Emulation for VGA Planets 3.0</a></li>
+<li><a href="bonus/ionMerge.htm">Ionic Merge Labs</a></li>
+<li><a href="bonus/partBuild.htm">Parts Builder</a></li>
+<li><a href="bonus/mineEst.htm">Planetary Mine Estimator</a></li>
+<li><a href="bonus/scorpius.htm">Scorpius War Battle Report</a></li>
+</ul>
+<a href="javascript:toggleList('links');" style="font-weight: bold;">Additional Links</a>
+<ul id="links" style="display: none;">
+<li><a href="faq.htm">FAQ</a></li>
+<li><a href="http://planets.nu/#/activity/2623249">Activity thread</a></li>
+<li><a href="http://planets.nu/#/account/challengespaceyard">Planets Nu Profile</a></li>
+</ul>
+</div>
+
+<h2 id="heading">Project News</h2>
+<div id="news">
+</div>
+
+<p class="footer">Campaign Tech Simulator is maintained by Paul Ruediger (Challenge Space Yard)</p>
+
+</body>
+</html>

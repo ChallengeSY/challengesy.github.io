@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>Campaign Tech Bonus Material - Ionic Merge Labs</title>
+	<link type="text/css" href="../planets.css" rel="stylesheet" />
+	<script type="text/javascript" src="ionMerge.js"></script>
+	<style type="text/css">
+		div.compute {text-align: center; margin-top: 25px;}
+	</style>
+</head>
+<body onload="init()">
+
+<p id="banner"><a href="../index.htm"><img src="../banner.png" alt="" /></a></p>
+
+<h2>Ionic Merge Labs Instructions</h2>
+
+<p>This program will simulate growth, movement, and merging of classic ion storms. Calculations are made using Streu's <a href="http://www.phost.de/~stefan/ion.html">Ion Storm Physics</a> as a guide.</p>
+
+<p>Local testing has uncovered that NuHost made an exception towards the formulas with respect to merging ion storms. If a weakening storm is the strongest storm, and it merges with another storm that would cause it to become a growing storm while beyond 200 LY in radius (after merge), then 1 meV is subtracted from the new storm to force it back into weakening state.</p>
+
+<table style="margin-left: auto; margin-right: auto;">
+<caption>Ion Storm specs</caption>
+<thead>
+<tr>
+<td></td>
+<th><input id="ionA" type="checkbox" checked="checked" /> Ion Storm Alpha</th>
+<th><input id="ionB" type="checkbox" checked="checked" /> Ion Storm Bravo</th>
+<th>Ion Storm Charlie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>Position Seen (center)</th>
+<td class="center">(<input id="posAX" class="text numeric" type="text" value="1600" size="3" />,<input id="posAY" class="text numeric" type="text" value="2000" size="3" />)</td>
+<td class="center">(<input id="posBX" class="text numeric" type="text" value="2400" size="3" />,<input id="posBY" class="text numeric" type="text" value="2000" size="3" />)</td>
+</tr>
+<tr>
+<th>Voltage Seen</th>
+<td class="numeric"><input id="mevA" class="text numeric" type="text" value="5" size="3" /></td>
+<td class="numeric"><input id="mevB" class="text numeric" type="text" value="5" size="3" /></td>
+</tr>
+<tr>
+<th>Radius Seen</th>
+<td class="numeric"><input id="radA" class="text numeric" type="text" value="125" size="3" /></td>
+<td class="numeric"><input id="radB" class="text numeric" type="text" value="125" size="3" /></td>
+</tr>
+<tr>
+<th>Heading Seen</th>
+<td class="numeric"><input id="headA" class="text numeric" type="text" value="90" size="3" /></td>
+<td class="numeric"><input id="headB" class="text numeric" type="text" value="270" size="3" /></td>
+</tr>
+<tr>
+<td colspan="4" style="border: none; background: rgb(255,255,255); border-radius: 5px; height: 10px; empty-cells: show;"></td>
+</tr>
+<tr>
+<th>Next Voltage</th>
+<td class="numeric" id="mevAX"></td>
+<td class="numeric" id="mevBX"></td>
+<td class="numeric" id="mevCX"></td>
+</tr>
+<tr>
+<th>Next Radius</th>
+<td class="numeric" id="radAX"></td>
+<td class="numeric" id="radBX"></td>
+<td class="numeric" id="radCX"></td>
+</tr>
+<tr>
+<th>Next Heading</th>
+<td class="numeric" id="headAX"></td>
+<td class="numeric" id="headBX"></td>
+<td class="numeric" id="headCX"></td>
+</tr>
+<tr>
+<th>Next Warp</th>
+<td class="numeric" id="warpAX"></td>
+<td class="numeric" id="warpBX"></td>
+<td class="numeric" id="warpCX"></td>
+</tr>
+<tr>
+<th>Example Position</th>
+<td class="center" id="posAZ"></td>
+<td class="center" id="posBZ"></td>
+<td class="center" id="posCZ"></td>
+</tr>
+</tbody>
+<tfoot id="mergeFooter">
+<tr>
+<th>Distance</th>
+<td colspan="2" class="center" id="distCenters"></td>
+</tr>
+<tr>
+<th>Distance quota</th>
+<td colspan="2" class="center" id="distQuota"></td>
+</tr>
+<tr>
+<th>Ion storms merge?</th>
+<td colspan="2" class="center" id="canMerge"></td>
+</tr>
+</tfoot>
+</table>
+
+<div class="compute">
+<button class="interact" onclick="compute()">Compute current sample</button>
+<button class="interact" onclick="applyResults()">Apply results</button>
+</div>
+
+</body>
+</html>

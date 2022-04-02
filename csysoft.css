@@ -1,0 +1,7 @@
+@import "neverputt.css";
+
+/* Styling specific to the rest of CSYience Softworks */
+body{color: #ffffff; background-color: #404080; background-image: url("csysoft.png"); background-repeat:repeat-x;}
+a:link{color:#00FFFF;}
+a:visited{color:#FF00FF;}
+a:active{color:#FFFF00;}

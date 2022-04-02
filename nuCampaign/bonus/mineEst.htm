@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>Campaign Tech Bonus Material - Planetary mine estimator</title>
+	<link type="text/css" href="../planets.css" rel="stylesheet" />
+	<script type="text/javascript" src="mineEst.js"></script>
+</head>
+<body onload="compute()">
+
+<p id="banner"><a href="../index.htm"><img src="../banner.png" alt="" /></a></p>
+
+<div id="results" style="width: 50%; float: right; border: 1px dashed #FFF; margin-left: 10px; margin-bottom: 10px; background: #101;"></div>
+
+<h2>Planetary Mine Estimator Instructions</h2>
+
+<p>This program will estimate the number of mines needed to achieve a desired quantity of minerals mined per turn.</p>
+
+<table style="margin-left: auto; margin-right: auto;">
+<caption>Script settings</caption>
+<tr>
+<th>Density</th>
+<td class="numeric"><input class="text" id="density" size="2" maxlength="3" onblur="compute()" value="50" /></td>
+</tr>
+<tr>
+<td colspan="2" style="font-size: 75%;">Enter mineral density (10 - 100)</td>
+</tr>
+<tr>
+<th>Harvest target</th>
+<td class="numeric"><input class="text" id="harvest" size="2" maxlength="3" onblur="compute()" value="25" /></td>
+</tr>
+<tr>
+<th>Reptilian natives</th>
+<td><input type="checkbox" id="reptilian" onchange="compute()" /><label style="font-weight: normal;" for="reptilian">Double mining</label></td>
+</tr>
+</table>
+
+</body>
+</html>

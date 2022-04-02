@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="author" contnt="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>Campaign Tech Simulator - The Empire of the Birds</title>
+	<link type="text/css" href="planets.css" rel="stylesheet" />
+	<script type="text/javascript" src="common.js"></script>
+	<script type="text/javascript" src="bird.js"></script>
+</head>
+<body>
+
+<p id="banner"><a href="index.htm"><img src="banner.png" alt="" /></a></p>
+
+<table>
+<caption>The Empire of the Birds</caption>
+<thead>
+<tr>
+<th>Buy</th>
+<th>Use</th>
+<th>Tech Name</th>
+<th class="colLight">Megacredits</th>
+<th>Advantage</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<th>Buy</th>
+<th>Use</th>
+<th>Tech Name</th>
+<th class="colLight">Megacredits</th>
+<th>Advantage</th>
+</tr>
+<tr>
+<th colspan="3">Total Costs</th>
+<td class="numeric colLight" id="totMoney"></td>
+<td class="numeric" id="totAdv"></td>
+</tr>
+<tr>
+<th colspan="3">Your Resources</th>
+<td class="numeric colLight"><input type="text" onchange="calcCosts()" class="text" id="userMoney" value="" maxlength="5" size="3" /></td>
+<td class="numeric"><input type="text" onchange="calcCosts()" class="text" id="userAdv" value="" maxlength="5" size="3" /></td>
+</tr>
+<tr>
+<th colspan="3">Remaining Resources</th>
+<td class="numeric colLight" id="remMoney"></td>
+<td class="numeric" id="remAdv"></td>
+</tr>
+</tfoot>
+<tbody style="font-size: 80%" id="shipDesigns">
+<tr><td colspan="5" id="buttonPanel"></td></tr>
+<tr><th colspan="5">Ship designs</th></tr>
+</tbody>
+<tbody style="font-size: 80%" id="techItems">
+<tr><th colspan="5">Technology upgrades</th></tr>
+</tbody>
+</table>
+
+</body>
+</html>
