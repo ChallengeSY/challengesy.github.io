@@ -22,14 +22,14 @@
 <caption>Script settings</caption>
 <tr>
 <th>Density</th>
-<td class="numeric"><input class="text" id="density" size="2" maxlength="3" onblur="compute()" value="50" /></td>
+<td class="numeric"><input type="number" class="text" id="density" size="4" onchange="compute()" onblur="compute()" value="50" min="10" max="100" /></td>
 </tr>
 <tr>
 <td colspan="2" style="font-size: 75%;">Enter mineral density (10 - 100)</td>
 </tr>
 <tr>
 <th>Harvest target</th>
-<td class="numeric"><input class="text" id="harvest" size="2" maxlength="3" onblur="compute()" value="25" /></td>
+<td class="numeric"><input type="number" class="text" id="harvest" size="4" onchange="compute()" onblur="compute()" value="25" min="0" max="999" /></td>
 </tr>
 <tr>
 <th>Reptilian natives</th>

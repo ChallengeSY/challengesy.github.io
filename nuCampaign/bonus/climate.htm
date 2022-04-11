@@ -33,14 +33,14 @@
 <caption>Script settings</caption>
 <tr>
 <th>Climate</th>
-<td class="numeric"><input class="text" id="temp" size="2" maxlength="3" onblur="compute()" value="50" /></td>
+<td class="numeric"><input type="number" class="text" id="temp" size="5" onchange="compute()" onblur="compute()" value="50" min="0" max="100" /></td>
 </tr>
 <tr>
-<td colspan="2" style="font-size: 75%;">Enter planetary climate (0 - 100)</td>
+<td colspan="2" style="font-size: 75%;">Enter planetary climate</td>
 </tr>
 <tr>
 <th>Grow target</th>
-<td class="numeric"><input class="text" id="grow" size="2" maxlength="4" onblur="compute()" value="25" /></td>
+<td class="numeric"><input type="number" class="text" id="grow" size="5" onchange="compute()" onblur="compute()" value="25" min="1" max="9999" /></td>
 </tr>
 <tr>
 <td colspan="2" style="font-size: 75%;">The first six growth steps will be displayed even if this is higher</td>

@@ -5,9 +5,9 @@ function compute() {
 	
 	minesNeeded = new Array(0, 0, 0);
 	
-	minesNeeded[0] = (harvestTarget - 0.5) / (density / 100) / 0.7; // Fed
-	minesNeeded[1] = (harvestTarget - 0.5) / (density / 100) / 2;  // Lizard
-	minesNeeded[2] = (harvestTarget - 0.5) / (density / 100);     // Others
+	minesNeeded[0] = Math.max((harvestTarget - 0.5) / (density / 100) / 0.7, 0); // Fed
+	minesNeeded[1] = Math.max((harvestTarget - 0.5) / (density / 100) / 2, 0);  // Lizard
+	minesNeeded[2] = Math.max((harvestTarget - 0.5) / (density / 100), 0);     // Others
 	
 	if (reptilians) {
 		for (var i = 0; i < 3; i++) {
