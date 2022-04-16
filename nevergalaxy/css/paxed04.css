@@ -1,0 +1,7 @@
+@import "neverputt.css";
+
+/* Styling specific to the paxed 04 theme */
+body{color: #000000; background-color: #dcec7f; background-image: url("../gfx/paxed04.png"); background-repeat:repeat-x;}
+a:link{color:#000080;}
+a:visited{color:#800080;}
+a:active{color:#008000;}

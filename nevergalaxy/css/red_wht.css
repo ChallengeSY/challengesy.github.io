@@ -1,0 +1,7 @@
+@import "neverputt.css";
+
+/* Styling specific to the red and blue theme */
+body{color: #000000; background-color: #ffffff; background-image: url("../gfx/red_wht.png"); background-repeat:repeat-x;}
+a:link{color:#0000CC;}
+a:visited{color:#800080;}
+a:active{color:#808000;}

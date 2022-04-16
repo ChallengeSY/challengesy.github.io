@@ -1,0 +1,7 @@
+@import "neverputt.css";
+
+/* Styling specific to the purples theme */
+body{color: #000000; background-color: #ff00f0; background-image: url("../gfx/purples.png"); background-repeat:repeat-x;}
+a:link{color:#40FFFF;}
+a:visited{color:#FFB080;}
+a:active{color:#FFFFB0;}

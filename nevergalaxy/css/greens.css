@@ -1,0 +1,8 @@
+@import "neverputt.css";
+
+/* Styling specific to the greens theme */
+body{color: #ffffff; background-color: #0b4400; background-image: url("../gfx/greens.png"); background-repeat:repeat-x;}
+a:link{color:#40FFFF;}
+a:visited{color:#FF40FF;}
+a:active{color:#FFFF40;}
+.invalid{color: #FF0000;}

@@ -1,0 +1,7 @@
+@import "neverputt.css";
+
+/* Styling specific to the cyan and green theme */
+body{color: #000000; background-color: #ffff00; background-image: url("../gfx/grn_yel.png"); background-repeat:repeat-x;}
+a:link{color:#000080;}
+a:visited{color:#800080;}
+a:active{color:#808000;}

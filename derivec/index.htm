@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta name="keywords" content="Derivatives, Differentiation, Calculus" />
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>Differentiation Challenge</title>
+	<link type="text/css" href="../nevergalaxy/css/greens.css" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
+	<link type="text/css" href="derivec.css" rel="stylesheet" />
+	<script src="derivec.js"></script>
+	<script>moduleFile = "arcade";</script>
+</head>
+<body onload="startGame()">
+
+<p id="banner"><a href="../index.htm"><img src="banner.png" style="background: rgb(0,0,0); padding: 5px;" alt="Differentiation Challenge" /></a></p>
+
+<fieldset id="fPanel" style="border-color: blue;">
+<legend>Message</legend>
+<div id="fTxt">Welcome to Differentiation Challenge! Best of luck on your journey!</div>
+</fieldset>
+
+<table style="margin-top: 50px; margin-left: auto; margin-right: auto;" id="scoreboard">
+<tr>
+<th>Score</th>
+<td style="min-width: 70px;" class="numeric" id="score">0 / 100</td>
+<td style="width: 300px;" id="scoreMtr"></td>
+<td style="font-weight: bold; border: none; width: 45px;" id="scoreAux"></td>
+</tr>
+<tr>
+<th>Life</th>
+<td class="numeric" id="life">0 / 10</td>
+<td id="lifeMtr"></td>
+<td style="font-weight: bold; border: none;" id="lifeAux"></td>
+</tr>
+</table>
+
+<fieldset style="margin-top: 50px;">
+<legend id="qNum">Question 1</legend>
+<div id="qTxt">&nbsp;</div>
+
+<form autocomplete="off">
+<input style="font-size: 125%;"type="text" class="text" id="answerBox" size="50" value="" />
+<input style="font-size: 125%;"type="submit" class="interact" id="answerButton" onclick="validateAnswer(); return false;" value="Submit" />
+</form>
+</fieldset>
+
+<fieldset style="margin-top: 50px;">
+<legend>Notation</legend>
+<textarea class="text" id="notation"></textarea>
+</fieldset>
+
+<div id="help"> 
+<h2>Instructions</h2>
+<p>The rules of Differentiation Challenge are somewhat simple. The player is dealt a series of randomly generated questions, and the objective is to answer each one correctly. Correct answers award a point and allow for life regeneration. Incorrect answers deduct a large chunk of life. Difficulty increases as the score increases.</p>
+
+<p>Differentiation Challenge has several point thresholds that, when reached, increase the player's max life. The first increase is granted at 5 points, but each subsequent increase is slightly further than the one before it. Also, new question types are unlocked every 15 points. Once difficulty reaches near maximum at 60 points, no more life upgrades will be provided.</p>
+
+<p>Some questions are timed. Such questions gradually deplete life over the course of 30 seconds. If a correct answer is given, then <q>life loss</q> due to the timer is refunded. However, if an incorrect answer is given, then life loss is the amount lost to the timer, or the amount that would be lost to an untimed question, whichever is greater. Be warned, allowing the 30 seconds to expire with no correct answer given is an automatic game over!</p>
+
+<p>The game is won if the required score goal can be reached. The game is lost if the life pool empties out.</p>
+</div>
+
+</body>
+</html>

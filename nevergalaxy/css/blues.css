@@ -1,0 +1,7 @@
+@import "neverputt.css";
+
+/* Styling specific to the blues theme */
+body{color: #000000; background-color: #00ccf8; background-image: url("../gfx/blues.png"); background-repeat:repeat-x;}
+a:link{color:#006000;}
+a:visited{color:#800080;}
+a:active{color:#808000;}

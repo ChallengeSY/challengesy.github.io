@@ -1,0 +1,7 @@
+@import "neverputt.css";
+
+/* Styling specific to the black and blue theme */
+body{color: #ffffff; background-color: #2020ff; background-image: url("../gfx/blk_blu2.png"); background-repeat:repeat-x;}
+a:link{color:#00FFFF;}
+a:visited{color:#FF00FF;}
+a:active{color:#FFFF00;}

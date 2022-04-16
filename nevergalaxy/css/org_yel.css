@@ -1,0 +1,7 @@
+@import "neverputt.css";
+
+/* Styling specific to the orange and yellow theme */
+body{color: #000000; background-color: #ffff00; background-image: url("../gfx/org_yel.png"); background-repeat:repeat-x;}
+a:link{color:#0000FF;}
+a:visited{color:#FF00FF;}
+a:active{color:#008000;}

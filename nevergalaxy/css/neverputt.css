@@ -19,7 +19,7 @@ h2,h3,h4{text-align: center;}
 .center{text-align:center;}
 .bold{font-weight:bold;}
 .text{background:#004040;color:#FFFFFF;}
-.textLocked{background:#200040;color:#FFFFFF;}
+.text:disabled, input.text:read-only, textarea.text:read-only {background:#200040;color:#E0E0E0;}
 .texterr{background:#800000;color:#FFFFFF;}
 .numeric{text-align:right;}
 .invalid{color: #800; text-decoration:line-through;}

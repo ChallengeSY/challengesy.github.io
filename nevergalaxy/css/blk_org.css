@@ -1,0 +1,7 @@
+@import "neverputt.css";
+
+/* Styling specific to the black and orange theme */
+body{color: #000000; background-color: #f9f7d4; background-image: url("../gfx/blk_org.png"); background-repeat:repeat-x;}
+a:link{color:#000080;}
+a:visited{color:#800080;}
+a:active{color:#808000;}

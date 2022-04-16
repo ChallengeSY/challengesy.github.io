@@ -1,0 +1,8 @@
+@import "neverputt.css";
+
+/* Styling specific to the greys theme */
+body{color: #ffffff; background-color: #0c0623; background-image: url("../gfx/greys.png"); background-repeat:repeat-x;}
+a:link{color:#40FFFF;}
+a:visited{color:#FF40FF;}
+a:active{color:#FFFF40;}
+.invalid{color: #FF0000;}
