@@ -228,9 +228,9 @@ function question(newId) {
 				}
 				
 				if (this.qVars[1] == 2) {
-					this.correctAns[0] = workObj[0]+"x + "+workObj[2];
+					this.correctAns[0] = workObj[0]+"x+"+workObj[2];
 					if (this.qVars[2] < 0) {
-						this.correctAns[1] = workObj[0]+"x - "+Math.abs(workObj[2]);
+						this.correctAns[1] = workObj[0]+"x-"+Math.abs(workObj[2]);
 					}
 					if (this.qVars[3] > 2) {
 						this.correctAns[0] = this.correctAns[0] + "x^"+workObj[3];
@@ -244,9 +244,9 @@ function question(newId) {
 						}
 					}
 				} else {
-					this.correctAns[0] = workObj[0]+"x^"+workObj[1]+" + "+workObj[2];
+					this.correctAns[0] = workObj[0]+"x^"+workObj[1]+"+"+workObj[2];
 					if (this.qVars[2] < 0) {
-						this.correctAns[1] = workObj[0]+"x^"+workObj[1]+" - "+Math.abs(workObj[2]);
+						this.correctAns[1] = workObj[0]+"x^"+workObj[1]+"-"+Math.abs(workObj[2]);
 					}
 					if (this.qVars[3] > 2) {
 						this.correctAns[0] = this.correctAns[0] + "x^"+workObj[3];
@@ -390,9 +390,9 @@ function question(newId) {
 					this.txt = this.txt + "^"+markVar(Math.abs(this.qVars[5]));
 				}
 				
-				this.correctAns[0] = workObj[0]+"x^"+workObj[1]+" + "+workObj[2];
+				this.correctAns[0] = workObj[0]+"x^"+workObj[1]+"+"+workObj[2];
 				if (this.qVars[2] < 0) {
-					this.correctAns.push(workObj[0]+"x^"+workObj[1]+" - "+Math.abs(workObj[2]));
+					this.correctAns.push(workObj[0]+"x^"+workObj[1]+"-"+Math.abs(workObj[2]));
 				}
 				if (this.qVars[3] > 2) {
 					this.correctAns[0] = this.correctAns[0] + "x^"+workObj[3];
@@ -408,13 +408,13 @@ function question(newId) {
 
 				if (this.qVars[4] < 0) {
 					if (this.correctAns[1]) {
-						this.correctAns[1] = this.correctAns[1] + " - "+Math.abs(workObj[4]);
+						this.correctAns[1] = this.correctAns[1] + "-"+Math.abs(workObj[4]);
 					} else {
-						this.correctAns.push(this.correctAns[0] + " - "+Math.abs(workObj[4]));
+						this.correctAns.push(this.correctAns[0] + "-"+Math.abs(workObj[4]));
 					}
 				} else {
 					if (this.correctAns[1]) {
-						this.correctAns[1] = this.correctAns[1] + " + "+Math.abs(workObj[4]);
+						this.correctAns[1] = this.correctAns[1] + "+"+Math.abs(workObj[4]);
 					}
 				}
 				this.correctAns[0] = this.correctAns[0]+" + "+workObj[4];
@@ -477,10 +477,10 @@ function question(newId) {
 				}
 				
 				this.correctAns = new Array(3);
-				this.correctAns[0] = Math.round(workObj[0]/workObj[1]*1000)/1000;
+				this.correctAns[0] = (Math.round(workObj[0]/workObj[1] * 1000) / 1000).toFixed(3);
+				this.correctAns[1] = (Math.trunc(workObj[0]/workObj[1] * 1000) / 1000).toFixed(3);
 				if (workObj[1] > 1) {
-					this.correctAns[1] = workObj[0] + "/" + workObj[1];
-					this.correctAns[2] = workObj[0] + " / " + workObj[1];
+					this.correctAns[2] = workObj[0] + "/" + workObj[1];
 				}
 			} else {
 				if (this.qVars[1] > 1) {
@@ -491,7 +491,6 @@ function question(newId) {
 				
 				this.correctAns = new Array(2);
 				this.correctAns[0] = (this.qVars[0]*this.qVars[1]) + "/x";
-				this.correctAns[1] = (this.qVars[0]*this.qVars[1]) + " / x";
 			}
 			break;
 			
@@ -543,8 +542,8 @@ function question(newId) {
 				}
 			} else {
 				this.txt = "Differentiate f(x) = x*e^x";
-				this.correctAns[0] = "e^x(x + 1)";
-				this.correctAns[1] = "x*e^x + e^x";
+				this.correctAns[0] = "e^x(x+1)";
+				this.correctAns[1] = "x*e^x+e^x";
 			}
 			break;
 			
@@ -564,7 +563,7 @@ function question(newId) {
 			workObj[2] = this.qVars[1]*this.qVars[3]*2;
 
 			this.txt = "Differentiate f(x) = ("+markVar(this.qVars[0])+"x^2 + "+markVar(this.qVars[1])+"x)("+markVar(this.qVars[2])+"x^2 + "+markVar(this.qVars[3])+"x). Simplify.";
-			this.correctAns[0] = workObj[0]+"x^3 + "+workObj[1]+"x^2 + "+workObj[2]+"x";
+			this.correctAns[0] = workObj[0]+"x^3+"+workObj[1]+"x^2+"+workObj[2]+"x";
 			break;
 			
 		case 14:
@@ -577,17 +576,17 @@ function question(newId) {
 			if (this.qVars[0] != 1) {
 				this.txt = "Differentiate f(x) = "+markVar(this.qVars[0])+"x/e^x";
 				this.correctAns = new Array(2);
-				this.correctAns[0] = this.qVars[0]+"(-x + 1)/e^x";
+				this.correctAns[0] = this.qVars[0]+"(-x+1)/e^x";
 				if (this.qVars[0] > 0) {
-					this.correctAns[1] = "(-"+this.qVars[0]+"x + "+this.qVars[0]+")/e^x";
+					this.correctAns[1] = "(-"+this.qVars[0]+"x+"+this.qVars[0]+")/e^x";
 				} else {
-					this.correctAns[1] = "("+Math.abs(this.qVars[0])+"x - "+Math.abs(this.qVars[0])+")/e^x";
-					this.correctAns.push("("+Math.abs(this.qVars[0])+"x + "+this.qVars[0]+")/e^x");
+					this.correctAns[1] = "("+Math.abs(this.qVars[0])+"x-"+Math.abs(this.qVars[0])+")/e^x";
+					this.correctAns.push("("+Math.abs(this.qVars[0])+"x+"+this.qVars[0]+")/e^x");
 				}
 			} else {
 				this.txt = "Differentiate f(x) = x/e^x";
 				this.correctAns = new Array(1);
-				this.correctAns[0] = "(-x + 1)/e^x";
+				this.correctAns[0] = "(-x+1)/e^x";
 			}
 			
 			break;
@@ -623,19 +622,19 @@ function question(newId) {
 			this.txt = "Differentiate f(x) = (x^"+markVar(this.qVars[0])+" + "+markVar(this.qVars[1])+")^"+markVar(this.qVars[2])+". Do not expand.";
 			if (workObj[1] > 1) {
 				if (workObj[2] > 1) {
-					this.correctAns[0] = this.qVars[2]+"(x^"+this.qVars[0]+" + "+this.qVars[1]+")^"+workObj[2]+"*"+this.qVars[0]+"x^"+workObj[1];
-					this.correctAns[1] = workObj[0]+"x^"+workObj[1]+"(x^"+this.qVars[0]+" + "+this.qVars[1]+")^"+workObj[2];
+					this.correctAns[0] = this.qVars[2]+"(x^"+this.qVars[0]+"+"+this.qVars[1]+")^"+workObj[2]+"*"+this.qVars[0]+"x^"+workObj[1];
+					this.correctAns[1] = workObj[0]+"x^"+workObj[1]+"(x^"+this.qVars[0]+"+"+this.qVars[1]+")^"+workObj[2];
 				} else {
-					this.correctAns[0] = this.qVars[2]+"(x^"+this.qVars[0]+" + "+this.qVars[1]+")*"+this.qVars[0]+"x^"+workObj[1];
-					this.correctAns[1] = workObj[0]+"x^"+workObj[1]+"(x^"+this.qVars[0]+" + "+this.qVars[1]+")";
+					this.correctAns[0] = this.qVars[2]+"(x^"+this.qVars[0]+"+"+this.qVars[1]+")*"+this.qVars[0]+"x^"+workObj[1];
+					this.correctAns[1] = workObj[0]+"x^"+workObj[1]+"(x^"+this.qVars[0]+"+"+this.qVars[1]+")";
 				}
 			} else {
 				if (workObj[2] > 1) {
-					this.correctAns[0] = this.qVars[2]+"(x^"+this.qVars[0]+" + "+this.qVars[1]+")^"+workObj[2]+"*"+this.qVars[0]+"x";
-					this.correctAns[1] = workObj[0]+"x(x^"+this.qVars[0]+" + "+this.qVars[1]+")^"+workObj[2];
+					this.correctAns[0] = this.qVars[2]+"(x^"+this.qVars[0]+"+"+this.qVars[1]+")^"+workObj[2]+"*"+this.qVars[0]+"x";
+					this.correctAns[1] = workObj[0]+"x(x^"+this.qVars[0]+"+"+this.qVars[1]+")^"+workObj[2];
 				} else {
-					this.correctAns[0] = this.qVars[2]+"(x^"+this.qVars[0]+" + "+this.qVars[1]+")*"+this.qVars[0]+"x";
-					this.correctAns[1] = workObj[0]+"x(x^"+this.qVars[0]+" + "+this.qVars[1]+")";
+					this.correctAns[0] = this.qVars[2]+"(x^"+this.qVars[0]+"+"+this.qVars[1]+")*"+this.qVars[0]+"x";
+					this.correctAns[1] = workObj[0]+"x(x^"+this.qVars[0]+"+"+this.qVars[1]+")";
 				}
 			}
 			break;
@@ -658,8 +657,8 @@ function question(newId) {
 			this.txt = "If f(x) = "+markVar(this.qVars[2])+"x^"+markVar(this.qVars[3])+", then evaluate the average slope between "+markVar(this.qVars[0])+" and "+markVar(this.qVars[1])+" to the nearest thousandth.";
 			workObj[0] = (this.qVars[2]*Math.pow(this.qVars[1],this.qVars[3]) - this.qVars[2]*Math.pow(this.qVars[0],this.qVars[3]))/(this.qVars[1]-this.qVars[0]);
 			
-			this.correctAns[0] = Math.round(workObj[0] * 1000) / 1000;
-			this.correctAns[1] = Math.trunc(workObj[0] * 1000) / 1000;
+			this.correctAns[0] = (Math.round(workObj[0] * 1000) / 1000).toFixed(3);
+			this.correctAns[1] = (Math.trunc(workObj[0] * 1000) / 1000).toFixed(3);
 			break;
 			
 		case 18:
@@ -679,8 +678,8 @@ function question(newId) {
 					"What is the velocity (nearest thousandth) "+markVar(this.qVars[2])+" seconds after the accident?";
 			workObj[0] = this.qVars[0]*Math.cos(this.qVars[0]*this.qVars[2]) + 2*this.qVars[1]*this.qVars[2];
 			
-			this.correctAns[0] = Math.round(workObj[0] * 1000) / 1000;
-			this.correctAns[1] = Math.trunc(workObj[0] * 1000) / 1000;
+			this.correctAns[0] = (Math.round(workObj[0] * 1000) / 1000).toFixed(3);
+			this.correctAns[1] = (Math.trunc(workObj[0] * 1000) / 1000).toFixed(3);
 			break;
 			
 	}
@@ -853,7 +852,7 @@ function validateAnswer() {
 
 function answerCorrect() {
 	for (var i = 0; i < curQuestion.correctAns.length; i++) {
-		if (playerAnswer == curQuestion.correctAns[i]) {
+		if (playerAnswer.replace(/\s/g, '') == curQuestion.correctAns[i]) {
 			return true;
 		}
 	}
