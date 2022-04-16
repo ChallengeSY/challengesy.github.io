@@ -783,7 +783,7 @@ function lifeDecay() {
 }
 
 function validateAnswer() {
-	playerAnswer = document.getElementById("answerBox").value;
+	playerAnswer = document.getElementById("answerBox").value.replace(/\s/g, '');
 	if (answerCorrect()) {
 		if (curQuestion.timed) {
 			life = lifeOrg;
@@ -852,7 +852,7 @@ function validateAnswer() {
 
 function answerCorrect() {
 	for (var i = 0; i < curQuestion.correctAns.length; i++) {
-		if (playerAnswer.replace(/\s/g, '') == curQuestion.correctAns[i]) {
+		if (playerAnswer == curQuestion.correctAns[i]) {
 			return true;
 		}
 	}
