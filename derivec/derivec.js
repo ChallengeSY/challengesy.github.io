@@ -748,11 +748,11 @@ function rollQuestion() {
 		// The user does not have access to a graphing calculator: Skip questions flagged as such
 		do {
 			curQuestion = new question(irandom(1,questionCount));
-		} while(curQuestion.qDiff > Math.floor(score/goal/5) || curQuestion.graphCalc);
+		} while(curQuestion.qDiff > Math.floor(score/goal*5) || curQuestion.graphCalc);
 	} else {
 		do {
 			curQuestion = new question(irandom(1,questionCount));
-		} while(curQuestion.qDiff > Math.floor(score/goal/5));
+		} while(curQuestion.qDiff > Math.floor(score/goal*5));
 	}
 	
 	if (curQuestion.timed) {
