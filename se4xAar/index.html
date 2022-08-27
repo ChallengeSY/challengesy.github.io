@@ -10,10 +10,18 @@
 	<style>
 		img {max-width: 30%;}
 		a {white-space: nowrap;}
+
+		@media (max-width: 1440px), (max-height: 800px) {
+			#chapters {display: none;}
+		}
+
+		@media (min-width: 1441px) and (min-height: 801px) {
+			#bodyTxt {margin-right: 12.8%;}
+		}
 	</style>
 </head>
 <body onload="setupBox();">
-<div style="position: fixed; width: 12%; top: 10px; right: 10px; border: 1px dashed rgb(255,255,255);">
+<div id="chapters" style="position: fixed; width: 12.3%; top: 10px; right: 10px; border: 1px dashed rgb(255,255,255);">
 <h4>Available chapters</h4>
 <ul>
 <li><a href="#intro">Introduction</a></li>
@@ -29,7 +37,7 @@
 <li><a href="#ep11">Economic Phase 11</a></li>
 </ul>
 </div>
-<div style="margin-right: 12.7%;">
+<div id="bodyTxt" style="margin-right: 12.7%;">
 <h2 id="banner">Space Empires 4X AAR: A doomed journey</h2>
 
 <h2 id="intro">Introduction</h2>
