@@ -97,7 +97,7 @@ function showBox(concept) {
 				"<br />(Exception: "+conceptLink("Base")+"s and "+conceptLink("Ship Yard")+"s require no maintenance.)";
 			break;
 		case "movement turn":
-			displayTxt = "<b>Movement Turn</b><br />A phase in which each player moves their ships, explores systems, and conducts "+conceptLink("battle")+"s; one player at a time." +
+			displayTxt = "<b>Movement Turn</b><br />A phase in which each player moves their ships, and conducts "+conceptLink("battle")+"s, explores systems; one player at a time." +
 				"<br />3 movemenet turns occur in between each "+conceptLink("economic phase")+"." +
 				"<br />The total number of hexes a "+conceptLink("combat ship")+" or "+conceptLink("Decoy")+" may move per economic phase is determined by their "+conceptLink("Movement")+" technology level.";
 			break;
@@ -240,14 +240,14 @@ function showBox(concept) {
 			
 		// Ships
 		case "decoy":
-			displayTxt = "<b>Decoy</b><br />Support ship designed to fool enemies. Can be built at any "+conceptLink("colony")+". Automatically eliminated at ths start of a "+conceptLink("battle")+".";
+			displayTxt = "<b>Decoy</b><br />Support ship designed to fool enemies. Can be built at any "+conceptLink("colony")+". Automatically eliminated at ths start of a "+conceptLink("battle");
 			displayTxt = displayTxt + stats(1, 0, 0, 0);
 			break;
 		case "ship yard":
 			// Fall through
 		case "sy":
-			displayTxt = "<b>Ship Yard</b><br />Immobile space station able to build more ships. Can be built at any "+conceptLink("colony")+" that has produced CP in the past "+conceptLink("economic phase")+
-				"<br />Has a dedicated "+conceptLink("technology")+" that determines how many "+conceptLink("hull size")+"s (1 / 1.5 / 2) can be built per SY per turn.";
+			displayTxt = "<b>Ship Yard</b><br />Space station able to build more ships. Can not move. Can be built at any "+conceptLink("colony")+" that has produced CP this "+conceptLink("economic phase")+
+				"<br />Has a dedicated "+conceptLink("technology")+" that determines how many "+conceptLink("hull size")+"s (1 / 1.5 / 2) can be built per SY per turn in a given hex.";
 			displayTxt = displayTxt + stats(6, "C3", 0, 1);
 			break;
 		case "scout":
@@ -275,7 +275,7 @@ function showBox(concept) {
 			displayTxt = displayTxt + stats(9, "D4", 0, 1) + "<br /><b>Required Tech</b>: "+conceptLink("Ship Size")+" level 2";
 			break;
 		case "base":
-			displayTxt = "<b>Base</b><br />Immobile starbase with powerful long range weaponry. One can be built at any "+conceptLink("colony")+" that has produced CP in the past "+conceptLink("economic phase");
+			displayTxt = "<b>Base</b><br />Starbase with powerful long range weaponry. Can not move. One can be built at any "+conceptLink("colony")+" that has produced CP this "+conceptLink("economic phase");
 			displayTxt = displayTxt + stats(12, "A7", 2, 3) + "<br /><b>Required Tech</b>: "+conceptLink("Ship Size")+" level 2";
 			break;
 		case "cruiser":
@@ -319,7 +319,7 @@ function showBox(concept) {
 			displayTxt = displayTxt + stats(5, "B7", 1, 1) + "<br /><b>Required Tech</b>: "+conceptLink("Fighter")+" level 3";
 			break;
 		case "mines":
-			displayTxt = "<b>Mines</b><br />Small craft that detonates upon contact with enemy ships, destroying them instantly unless "+conceptLink("sw")+"ept";
+			displayTxt = "<b>Mines</b><br />Small craft that detonates upon contact with enemy ships, destroying them instantly unless "+conceptLink("sw")+"ept<br />Limited to 1 hex per "+conceptLink("movement turn")+", and may not enter enemy occupied hexes";
 			displayTxt = displayTxt + stats(5, 1, 0, 0) + "<br /><b>Required Tech</b>: "+conceptLink("Minelaying");
 			break;
 		case "pipeline":
