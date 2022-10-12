@@ -99,7 +99,8 @@ function showBox(concept) {
 		case "movement turn":
 			displayTxt = "<b>Movement Turn</b><br />A phase in which each player moves their ships, and conducts "+conceptLink("battle")+"s, explores systems; one player at a time." +
 				"<br />3 movemenet turns occur in between each "+conceptLink("economic phase")+"." +
-				"<br />The total number of hexes a "+conceptLink("combat ship")+" or "+conceptLink("Decoy")+" may move per economic phase is determined by their "+conceptLink("Movement")+" technology level.";
+				"<br /><br />The total number of hexes a "+conceptLink("combat ship")+" or "+conceptLink("Decoy")+" may move per economic phase is determined by their "+conceptLink("Movement")+" technology level." +
+				"<br />(Other "+conceptLink("non-combat ship")+"s are limited to 1 hex per movement turn, regardless of technology.)";
 			break;
 		case "non-combat ship":
 			displayTxt = "<b>Non-combat ship</b><br />A ship designed to support the empire, but has no weapons to conduct "+conceptLink("battle")+"s or defend itself.";
@@ -162,7 +163,7 @@ function showBox(concept) {
 			break;
 		case "ship size":
 			displayTxt = "<b>Ship Size Technology</b><br />Higher "+conceptLink("tech")+" levels (up to level 6) allow larger and more powerful ships to be built. The starting tech level is 1.<br /><br />" +
-				"Tech level 2 allows the construction of "+conceptLink("Destroyer")+"s and "+conceptLink("Base")+".<br />" +
+				"Tech level 2 allows the construction of "+conceptLink("Destroyer")+"s and "+conceptLink("Base")+"s.<br />" +
 				"Tech level 3 allows the construction of "+conceptLink("Cruiser")+"s.<br />" +
 				"Tech level 4 allows the construction of "+conceptLink("Battlecruiser")+"s.<br />" +
 				"Tech level 5 allows the construction of "+conceptLink("Battleship")+"s.<br />" +
