@@ -177,7 +177,7 @@ function renderBoard() {
 				activeTile.className = "tile";
 				if (minefield[x][y].flagged) {
 					activeTile.innerHTML = "&#9873;";
-					if (minefield[x][y].chained) {
+					if (minefield[x][y].chained && !minefield[x][y].isMine) {
 						activeTile.innerHTML = "&#10006;";
 					}
 				}
