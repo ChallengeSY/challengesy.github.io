@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta name="keywords" content="Wrapsweeper, Minesweeper, Wraparound" />
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>Play Expert - Wrapsweeper</title>
+	<link type="text/css" href="../nevergalaxy/css/blk_org.css" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
+	<link type="text/css" href="wrapsweeper.css" rel="stylesheet" />
+	<script src="wrapsweeper.js"></script>
+	<script>
+	boardWidth = 30;
+	boardHeight = 16;
+	boardMines = 99;
+	</script>
+</head>
+<body onload="setupGame()">
+
+<p id="banner"><a href="index.html"><img src="banner.png" alt="Wrapsweeper" /></a></p>
+
+<table style="margin-left: auto; margin-right: auto; border-spacing: 0px; border: 0px;">
+<thead>
+<tr>
+<td id="scoreboard">Flags: <span id="flags">0</span> / Time: <span id="time">0'00''</span>
+<span id="dmgpanel"><br />Damage: <span id="damage">0</span> / Penalty: <span id="penalty">0</span></span></td>
+</tr>
+</thead>
+<tbody id="gameboard">
+</tbody>
+</table>
+
+<p style="text-align: center;" id="commandBar">
+<input class="button" type="button" id="newGame" onclick="newGame(false)" value="New game" />
+<input class="button" type="button" id="helpButton" onclick="toggleHelp()" value="Show help" />
+</p>
+
+<p id="statusBar">&nbsp;</p>
+
+<div id="helpPanel"> 
+<h2>Instructions</h2>
+<p>The rules of Wrapsweeper are not so simple. The player is given an empty grid. The objective is to sweep the board, uncovering all safe tiles while also detonating as few mines as possible. Each safe tile has a number on it that determines how many adjacent tiles are mines. (Ctrl+Click a tile to mark a flag). Tiles touch other tiles on sides and corners, and <em>will</em> wrap through borders! Wraparound makes it harder to play, but the chances of being forced to guess is reduced.</p>
+
+<p>Mines detonated will cause a time penalty, instead of ending the game. The penalty varies, but generally decreases as more of the board is cleared.</p>
+</div>
+
+</body>
+</html>
