@@ -177,6 +177,9 @@ function renderBoard() {
 				activeTile.className = "tile";
 				if (minefield[x][y].flagged) {
 					activeTile.innerHTML = "&#9873;";
+					if (minefield[x][y].chained) {
+						activeTile.innerHTML = "&#10006;";
+					}
 				}
 			} else {
 				activeTile.className = "tile revealed";
@@ -560,6 +563,8 @@ function endGame(gameWon) {
 			for (x = 0; x < boardWidth; x++) {
 				if (!minefield[x][y].revealed && minefield[x][y].isMine) {
 					minefield[x][y].revealTile();
+					minefield[x][y].chained = true;
+				} else if (minefield[x][y].flagged && !minefield[x][y].isMine) {
 					minefield[x][y].chained = true;
 				}
 			}
