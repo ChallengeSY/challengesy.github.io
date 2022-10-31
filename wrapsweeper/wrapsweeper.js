@@ -12,8 +12,11 @@ var safeLeft = 0;
 var mineCombo = 0;
 var oldMineCombo = 0;
 var damage = 0;
+var numShifts = 0;
 var penalty = 0.0;
 var timeHandle = null;
+
+window.onload = setupGame;
 
 // Tile Object
 function playtile() {
@@ -22,6 +25,7 @@ function playtile() {
 	this.flagged = false;
 	this.chained = false;
 	this.delayChain = false;
+	this.clue = 0;
 	
 	this.resetTile = function() {
 		this.isMine = false;
@@ -29,6 +33,7 @@ function playtile() {
 		this.flagged = false;
 		this.chained = false;
 		this.delayChain = false;
+		this.clue = 0;
 	}
 	
 	this.flagTile = function() {
@@ -84,6 +89,7 @@ function setupGame() {
 		}
 		gameBoard.appendChild(trFrag);
 	}
+	minefield[boardWidth] = new Array();
 	document.getElementById("scoreboard").colSpan = boardWidth;
 	
 	if (boardWidth == 8 && boardHeight == 8 && boardMines == 10) {
@@ -120,6 +126,7 @@ function newGame(newSession) {
 	flags = boardMines;
 	damage = 0;
 	penalty = 0.0;
+	numShifts = 0;
 	safeLeft = boardWidth * boardHeight - boardMines;
 	NFgame = true;
 
@@ -148,6 +155,15 @@ function plantMines(mineCt) {
 		if (!minefield[u][w].isMine) {
 			minefield[u][w].isMine = true;
 			plantedSoFar++;
+		}
+	}
+	
+	for (ny = 0; ny < boardHeight; ny++) {
+		for (nx = 0; nx < boardWidth; nx++) {
+			minefield[nx][ny].clue = 0;
+			if (!minefield[nx][ny].isMine) {
+				minefield[nx][ny].clue = countMines(nx,ny);
+			}
 		}
 	}
 }
@@ -183,7 +199,7 @@ function renderBoard() {
 				}
 			} else {
 				activeTile.className = "tile revealed";
-				clueFound = countMines(x, y);
+				clueFound = minefield[x][y].clue;
 				if (minefield[x][y].isMine) {
 					if (minefield[x][y].chained) {
 						activeTile.style.color = "black";
@@ -214,7 +230,7 @@ function renderBoard() {
 							activeTile.style.color = "#008080";
 							break;
 						case 7:
-							activeTile.style.color = "#808080";
+							activeTile.style.color = "#404040";
 							break;
 						case 8:
 							activeTile.style.color = "#FFFFFF";
@@ -347,6 +363,8 @@ function autoReveal() {
 }
 
 function touchTile(ox, oy) {
+	flagMode = document.getElementById("flagMode");
+	
 	if (gamePlayable) {
 		var baseID = null;
 		var x, y, rerollCt;
@@ -365,7 +383,7 @@ function touchTile(ox, oy) {
 			y = oy;
 		}
 		
-		if (event && event.ctrlKey) {
+		if (baseID && (flagMode.checked || (event && event.ctrlKey))) {
 			minefield[x][y].flagTile();
 			if (!minefield[x][y].revealed) {
 				NFgame = false;
@@ -379,7 +397,7 @@ function touchTile(ox, oy) {
 		} else if (!minefield[x][y].flagged && !minefield[x][y].revealed) {
 			if (!gameActive) {
 				if (forceOpening) {
-					while (minefield[x][y].isMine || countMines(x,y) > 0) {
+					while (minefield[x][y].isMine || minefield[x][y].clue > 0) {
 						rerollCt = 0;
 						for (d = y-1; d <= y+1; d++) {
 							for (c = x-1; c <= x+1; c++) {
@@ -439,7 +457,7 @@ function touchTile(ox, oy) {
 					mineCombo = 0;
 				}
 				safeLeft--;
-				if (countMines(x,y) == 0) {
+				if (minefield[x][y].clue == 0) {
 					minefield[x][y].chained = true;
 				}
 				if (mineCombo <= 0) {
@@ -464,7 +482,7 @@ function touchTile(ox, oy) {
 function chordTile(cx, cy) {
 	var newTiles = 0;
 	
-	if (countFlags(cx, cy) == countMines(cx, cy)) {
+	if (countFlags(cx, cy) == minefield[cx][cy].clue) {
 		for (qy = cy-1; qy <= cy+1; qy++) {
 			for (qx = cx-1; qx <= cx+1; qx++) {
 				choX = qx;
@@ -590,7 +608,7 @@ function exportGame() {
 
 			logRequest.open("POST","logGame.php",true);
 			logRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			logRequest.send("difficulty=" + difficulty + "&time=" + gametime + "&nf=" + converyNFflag + "&damage=" + damage);
+			logRequest.send("difficulty=" + difficulty + "&time=" + gametime + "&nf=" + converyNFflag + "&damage=" + damage + "&shifts=" + numShifts);
 			
 			logRequest.onreadystatechange = function() {
 				if (logRequest.readyState === 4) {
@@ -605,6 +623,103 @@ function exportGame() {
 			appendStatus("<br />Custom games are unranked. Thanks for playing.");
 		}
 	}
+}
+
+// Shifting cells
+function shiftCellsLeft(event) {
+	var numTms = 1;
+	if (event && event.ctrlKey) {
+		numTms = 5;
+	}
+	
+	for (tm = 0; tm < numTms; tm++) {
+		for (py = 0; py < boardHeight; py++) {
+			minefield[boardWidth][py] = minefield[0][py];
+		}
+		
+		for (sy = 0; sy < boardHeight; sy++) {
+			for (sx = 0; sx < boardWidth; sx++) {
+				minefield[sx][sy] = minefield[sx+1][sy];
+			}
+		}
+	}
+	
+	if (gameActive) {
+		numShifts++;
+	}
+	renderBoard();
+}
+
+function shiftCellsDown(event) {
+	var numTms = 1;
+	if (event && event.ctrlKey) {
+		numTms = 5;
+	}
+	
+	for (tm = 0; tm < numTms; tm++) {
+		for (sy = boardHeight; sy > 0; sy--) {
+			for (sx = 0; sx < boardWidth; sx++) {
+				minefield[sx][sy] = minefield[sx][sy-1];
+			}
+		}
+
+		for (px = 0; px < boardWidth; px++) {
+			minefield[px][0] = minefield[px][boardHeight];
+		}
+	}
+	
+	if (gameActive) {
+		numShifts++;
+	}
+	renderBoard();
+}
+
+function shiftCellsUp(event) {
+	var numTms = 1;
+	if (event && event.ctrlKey) {
+		numTms = 5;
+	}
+	
+	for (tm = 0; tm < numTms; tm++) {
+		for (px = 0; px < boardWidth; px++) {
+			minefield[px][boardHeight] = minefield[px][0];
+		}
+		
+		for (sy = 0; sy < boardHeight; sy++) {
+			for (sx = 0; sx < boardWidth; sx++) {
+				minefield[sx][sy] = minefield[sx][sy+1];
+			}
+		}
+	}
+	
+	if (gameActive) {
+		numShifts++;
+	}
+	renderBoard();
+}
+
+function shiftCellsRight(event) {
+	var numTms = 1;
+	if (event && event.ctrlKey) {
+		numTms = 5;
+	}
+	
+	for (tm = 0; tm < numTms; tm++) {
+		for (sy = 0; sy < boardHeight; sy++) {
+			for (sx = boardWidth; sx > 0; sx--) {
+				minefield[sx][sy] = minefield[sx-1][sy];
+			}
+		}
+
+		for (py = 0; py < boardHeight; py++) {
+			minefield[0][py] = minefield[boardWidth][py];
+		}
+	}
+	
+	if (gameActive) {
+		numShifts++;
+	}
+	renderBoard();
 }
 
 function toggleHelp() {

@@ -1,6 +1,6 @@
 #scoreboard {font-family: 'Rajdhani', sans-serif; font-size: 110%; text-transform: uppercase; text-align: center;}
 #helpPanel {display: none;}
 
-td.tile {width: 23px; height: 23px; cursor: pointer; border-width: 1px; empty-cells: show; color: red; border-color: #808080 #000000 #000000 #808080; background: #c0c0c0; text-align: center; vertical-align: middle;}
+td.tile {width: 23px; height: 23px; cursor: pointer; border-width: 1px; padding: 0px; empty-cells: show; color: red; border-color: #808080 #000000 #000000 #808080; background: #c0c0c0; text-align: center; vertical-align: middle;}
 td.revealed {width: 24px; height: 24px; border-width: 0px 1px 1px 0px; border-color: #202020; background: #a0a0a0; font-weight: bold;} 
 td.mine {background: #600000;} 
