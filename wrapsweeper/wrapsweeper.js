@@ -15,6 +15,8 @@ var damage = 0;
 var numShifts = 0;
 var penalty = 0.0;
 var timeHandle = null;
+var shiftHandle = null;
+var shiftCombo = 0;
 
 window.onload = setupGame;
 
@@ -215,10 +217,10 @@ function renderBoard() {
 							activeTile.style.color = "#0000FF";
 							break;
 						case 2:
-							activeTile.style.color = "#00FF00";
+							activeTile.style.color = "#00E800";
 							break;
 						case 3:
-							activeTile.style.color = "#FF0000";
+							activeTile.style.color = "#E80000";
 							break;
 						case 4:
 							activeTile.style.color = "#0000C0";
@@ -626,99 +628,87 @@ function exportGame() {
 }
 
 // Shifting cells
+function startShifting(func) {
+	shiftCombo = 0;
+	shiftHandle = setInterval(func, 200);
+}
+
+function stopShifting(func) {
+	clearInterval(shiftHandle);
+	if (shiftCombo == 0) {
+		setTimeout(func, 1);
+	}
+}
+
 function shiftCellsLeft(event) {
-	var numTms = 1;
-	if (event && event.ctrlKey) {
-		numTms = 5;
+	for (py = 0; py < boardHeight; py++) {
+		minefield[boardWidth][py] = minefield[0][py];
 	}
 	
-	for (tm = 0; tm < numTms; tm++) {
-		for (py = 0; py < boardHeight; py++) {
-			minefield[boardWidth][py] = minefield[0][py];
-		}
-		
-		for (sy = 0; sy < boardHeight; sy++) {
-			for (sx = 0; sx < boardWidth; sx++) {
-				minefield[sx][sy] = minefield[sx+1][sy];
-			}
+	for (sy = 0; sy < boardHeight; sy++) {
+		for (sx = 0; sx < boardWidth; sx++) {
+			minefield[sx][sy] = minefield[sx+1][sy];
 		}
 	}
 	
 	if (gameActive) {
 		numShifts++;
 	}
+	shiftCombo++;
 	renderBoard();
 }
 
 function shiftCellsDown(event) {
-	var numTms = 1;
-	if (event && event.ctrlKey) {
-		numTms = 5;
+	for (sy = boardHeight; sy > 0; sy--) {
+		for (sx = 0; sx < boardWidth; sx++) {
+			minefield[sx][sy] = minefield[sx][sy-1];
+		}
 	}
-	
-	for (tm = 0; tm < numTms; tm++) {
-		for (sy = boardHeight; sy > 0; sy--) {
-			for (sx = 0; sx < boardWidth; sx++) {
-				minefield[sx][sy] = minefield[sx][sy-1];
-			}
-		}
 
-		for (px = 0; px < boardWidth; px++) {
-			minefield[px][0] = minefield[px][boardHeight];
-		}
+	for (px = 0; px < boardWidth; px++) {
+		minefield[px][0] = minefield[px][boardHeight];
 	}
 	
 	if (gameActive) {
 		numShifts++;
 	}
+	shiftCombo++;
 	renderBoard();
 }
 
 function shiftCellsUp(event) {
-	var numTms = 1;
-	if (event && event.ctrlKey) {
-		numTms = 5;
+	for (px = 0; px < boardWidth; px++) {
+		minefield[px][boardHeight] = minefield[px][0];
 	}
 	
-	for (tm = 0; tm < numTms; tm++) {
-		for (px = 0; px < boardWidth; px++) {
-			minefield[px][boardHeight] = minefield[px][0];
-		}
-		
-		for (sy = 0; sy < boardHeight; sy++) {
-			for (sx = 0; sx < boardWidth; sx++) {
-				minefield[sx][sy] = minefield[sx][sy+1];
-			}
+	for (sy = 0; sy < boardHeight; sy++) {
+		for (sx = 0; sx < boardWidth; sx++) {
+			minefield[sx][sy] = minefield[sx][sy+1];
 		}
 	}
 	
 	if (gameActive) {
 		numShifts++;
 	}
+	shiftCombo++;
 	renderBoard();
 }
 
 function shiftCellsRight(event) {
-	var numTms = 1;
-	if (event && event.ctrlKey) {
-		numTms = 5;
+	for (sy = 0; sy < boardHeight; sy++) {
+		for (sx = boardWidth; sx > 0; sx--) {
+			minefield[sx][sy] = minefield[sx-1][sy];
+		}
 	}
-	
-	for (tm = 0; tm < numTms; tm++) {
-		for (sy = 0; sy < boardHeight; sy++) {
-			for (sx = boardWidth; sx > 0; sx--) {
-				minefield[sx][sy] = minefield[sx-1][sy];
-			}
-		}
 
-		for (py = 0; py < boardHeight; py++) {
-			minefield[0][py] = minefield[boardWidth][py];
-		}
+	for (py = 0; py < boardHeight; py++) {
+		minefield[0][py] = minefield[boardWidth][py];
 	}
 	
 	if (gameActive) {
 		numShifts++;
 	}
+	shiftCombo++;
 	renderBoard();
 }
 

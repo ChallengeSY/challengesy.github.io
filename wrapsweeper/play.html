@@ -23,9 +23,9 @@
 		return -1; //not found 
 	}
 	
-	boardWidth = parseInt(getQueryParam("wid") != -1 ? getQueryParam("wid") : 8);
-	boardHeight = parseInt(getQueryParam("hei") != -1 ? getQueryParam("hei") : 8);
-	boardMines = parseInt(getQueryParam("mines") != -1 ? getQueryParam("mines") : 10);
+	boardWidth = Math.min(Math.max(parseInt(getQueryParam("wid") != -1 ? getQueryParam("wid") : 8),2),128);;
+	boardHeight = Math.min(Math.max(parseInt(getQueryParam("hei") != -1 ? getQueryParam("hei") : 8),2),128);;
+	boardMines = Math.min(Math.max(parseInt(getQueryParam("mines") != -1 ? getQueryParam("mines") : 10),1),boardWidth*boardHeight-1);;
 	</script>
 </head>
 <body>
@@ -44,10 +44,10 @@
 <input class="button" type="button" id="newGame" onclick="newGame(false)" value="New game" />
 <input class="button" type="button" id="helpButton" onclick="toggleHelp()" value="Show help" />
 <span class="smScreen"><input type="checkbox" id="flagMode" name="flagMode" /> <label for="flagMode">Flag mode</label></span>
-<input class="button" type="button" id="shiftL" onclick="shiftCellsLeft(event)" value="Shift left" />
-<input class="button" type="button" id="shiftD" onclick="shiftCellsDown(event)" value="Shift down" />
-<input class="button" type="button" id="shiftU" onclick="shiftCellsUp(event)" value="Shift up" />
-<input class="button" type="button" id="shiftR" onclick="shiftCellsRight(event)" value="Shift right" />
+<input class="button" type="button" id="shiftL" onmousedown="startShifting(shiftCellsLeft)" onmouseup="stopShifting(shiftCellsLeft)" value="Shift left" />
+<input class="button" type="button" id="shiftD" onmousedown="startShifting(shiftCellsDown)" onmouseup="stopShifting(shiftCellsDown)" value="Shift down" />
+<input class="button" type="button" id="shiftU" onmousedown="startShifting(shiftCellsUp)" onmouseup="stopShifting(shiftCellsUp)" value="Shift up" />
+<input class="button" type="button" id="shiftR" onmousedown="startShifting(shiftCellsRight)" onmouseup="stopShifting(shiftCellsRight)" value="Shift right" />
 </p>
 
 <p id="statusBar">&nbsp;</p>
