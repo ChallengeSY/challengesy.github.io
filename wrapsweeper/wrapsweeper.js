@@ -74,10 +74,49 @@ function setupGame() {
 	var gameBoard, trFrag, tdFrag;
 	gameBoard = document.getElementById("gameboard");
 	
+	//Top border
+	trFrag = document.createElement("tr");
+
+	tdFrag = document.createElement("td");
+	tdFrag.className = "border";
+	tdFrag.id = "cornerTL";
+	trFrag.appendChild(tdFrag);
+
+	tdFrag = document.createElement("td");
+	tdFrag.colSpan = boardWidth;
+	tdFrag.className = "border edge";
+	tdFrag.id = "borderTop";
+	addEvent(tdFrag, "mousedown", startShifting, false);
+	addEvent(tdFrag, "mouseup", stopShifting, false);
+	addEvent(tdFrag, "mouseout", stopShifting, false);
+	tdFrag.innerHTML = "&uArr;";
+	trFrag.appendChild(tdFrag);
+
+	tdFrag = document.createElement("td");
+	tdFrag.className = "border";
+	tdFrag.id = "cornerTR";
+	trFrag.appendChild(tdFrag);
+
+	gameBoard.appendChild(trFrag);
+	
+	// Game board
 	for (y = 0; y < boardHeight; y++) {
 		trFrag = document.createElement("tr");
 		
 		for (x = 0; x < boardWidth; x++) {
+			if (x == 0 && y == 0) {
+				//Left border
+				tdFrag = document.createElement("td");
+				tdFrag.rowSpan = boardHeight;
+				tdFrag.className = "border edge";
+				tdFrag.id = "borderLeft";
+				addEvent(tdFrag, "mousedown", startShifting, false);
+				addEvent(tdFrag, "mouseup", stopShifting, false);
+				addEvent(tdFrag, "mouseout", stopShifting, false);
+				tdFrag.innerHTML = "&lArr;";
+				trFrag.appendChild(tdFrag);
+			}
+			
 			if (y == 0) {
 				minefield[x] = new Array();
 			}
@@ -88,11 +127,47 @@ function setupGame() {
 			addEvent(tdFrag, "click", touchTile, false);
 			trFrag.appendChild(tdFrag);
 
+			if (x == boardWidth - 1 && y == 0) {
+				//Right border
+				tdFrag = document.createElement("td");
+				tdFrag.rowSpan = boardHeight;
+				tdFrag.className = "border edge";
+				tdFrag.id = "borderRight";
+				addEvent(tdFrag, "mousedown", startShifting, false);
+				addEvent(tdFrag, "mouseup", stopShifting, false);
+				addEvent(tdFrag, "mouseout", stopShifting, false);
+				tdFrag.innerHTML = "&rArr;";
+				trFrag.appendChild(tdFrag);
+			}
 		}
 		gameBoard.appendChild(trFrag);
 	}
 	minefield[boardWidth] = new Array();
-	document.getElementById("scoreboard").colSpan = boardWidth;
+	
+	//Bottom border
+	trFrag = document.createElement("tr");
+
+	tdFrag = document.createElement("td");
+	tdFrag.className = "border";
+	tdFrag.id = "cornerBL";
+	trFrag.appendChild(tdFrag);
+
+	tdFrag = document.createElement("td");
+	tdFrag.colSpan = boardWidth;
+	tdFrag.className = "border edge";
+	tdFrag.id = "borderBottom";
+	addEvent(tdFrag, "mousedown", startShifting, false);
+	addEvent(tdFrag, "mouseup", stopShifting, false);
+	addEvent(tdFrag, "mouseout", stopShifting, false);
+	tdFrag.innerHTML = "&dArr;";
+	trFrag.appendChild(tdFrag);
+
+	tdFrag = document.createElement("td");
+	tdFrag.className = "border";
+	tdFrag.id = "cornerBR";
+	trFrag.appendChild(tdFrag);
+
+	gameBoard.appendChild(trFrag);
 	
 	if (boardWidth == 8 && boardHeight == 8 && boardMines == 10) {
 		difficulty = 1;
@@ -129,6 +204,7 @@ function newGame(newSession) {
 	damage = 0;
 	penalty = 0.0;
 	numShifts = 0;
+	shiftCombo = 1;
 	safeLeft = boardWidth * boardHeight - boardMines;
 	NFgame = true;
 
@@ -628,87 +704,124 @@ function exportGame() {
 }
 
 // Shifting cells
-function startShifting(func) {
-	shiftCombo = 0;
-	shiftHandle = setInterval(func, 200);
+function startShifting() {
+	var func = null;
+	switch (this.id) {
+		case "borderLeft":
+			func = shiftCellsLeft;
+			break;
+		case "borderBottom":
+			func = shiftCellsDown;
+			break;
+		case "borderTop":
+			func = shiftCellsUp;
+			break;
+		case "borderRight":
+			func = shiftCellsRight;
+			break;
+	}
+	
+	shiftCombo = -1;
+	shiftHandle = setInterval(func, 100);
 }
 
-function stopShifting(func) {
+function stopShifting() {
+	var func = null;
+	switch (this.id) {
+		case "borderLeft":
+			func = shiftCellsLeft;
+			break;
+		case "borderBottom":
+			func = shiftCellsDown;
+			break;
+		case "borderTop":
+			func = shiftCellsUp;
+			break;
+		case "borderRight":
+			func = shiftCellsRight;
+			break;
+	}
+	
 	clearInterval(shiftHandle);
-	if (shiftCombo == 0) {
+	if (shiftCombo <= 0) {
+		shiftCombo = 1;
 		setTimeout(func, 1);
 	}
 }
 
 function shiftCellsLeft(event) {
-	for (py = 0; py < boardHeight; py++) {
-		minefield[boardWidth][py] = minefield[0][py];
-	}
-	
-	for (sy = 0; sy < boardHeight; sy++) {
-		for (sx = 0; sx < boardWidth; sx++) {
-			minefield[sx][sy] = minefield[sx+1][sy];
+	if (shiftCombo++ >= 0) {
+		for (sy = 0; sy < boardHeight; sy++) {
+			for (sx = boardWidth; sx > 0; sx--) {
+				minefield[sx][sy] = minefield[sx-1][sy];
+			}
+		}
+
+		for (py = 0; py < boardHeight; py++) {
+			minefield[0][py] = minefield[boardWidth][py];
+		}
+		
+		if (gameActive) {
+			numShifts++;
 		}
 	}
-	
-	if (gameActive) {
-		numShifts++;
-	}
-	shiftCombo++;
 	renderBoard();
 }
 
 function shiftCellsDown(event) {
-	for (sy = boardHeight; sy > 0; sy--) {
-		for (sx = 0; sx < boardWidth; sx++) {
-			minefield[sx][sy] = minefield[sx][sy-1];
+	if (shiftCombo++ >= 0) {
+		for (px = 0; px < boardWidth; px++) {
+			minefield[px][boardHeight] = minefield[px][0];
+		}
+		
+		for (sy = 0; sy < boardHeight; sy++) {
+			for (sx = 0; sx < boardWidth; sx++) {
+				minefield[sx][sy] = minefield[sx][sy+1];
+			}
+		}
+		
+		if (gameActive) {
+			numShifts++;
 		}
 	}
-
-	for (px = 0; px < boardWidth; px++) {
-		minefield[px][0] = minefield[px][boardHeight];
-	}
-	
-	if (gameActive) {
-		numShifts++;
-	}
-	shiftCombo++;
 	renderBoard();
 }
 
 function shiftCellsUp(event) {
-	for (px = 0; px < boardWidth; px++) {
-		minefield[px][boardHeight] = minefield[px][0];
-	}
-	
-	for (sy = 0; sy < boardHeight; sy++) {
-		for (sx = 0; sx < boardWidth; sx++) {
-			minefield[sx][sy] = minefield[sx][sy+1];
+	if (shiftCombo++ >= 0) {
+		for (sy = boardHeight; sy > 0; sy--) {
+			for (sx = 0; sx < boardWidth; sx++) {
+				minefield[sx][sy] = minefield[sx][sy-1];
+			}
+		}
+
+		for (px = 0; px < boardWidth; px++) {
+			minefield[px][0] = minefield[px][boardHeight];
+		}
+		
+		if (gameActive) {
+			numShifts++;
 		}
 	}
-	
-	if (gameActive) {
-		numShifts++;
-	}
-	shiftCombo++;
 	renderBoard();
 }
 
 function shiftCellsRight(event) {
-	for (sy = 0; sy < boardHeight; sy++) {
-		for (sx = boardWidth; sx > 0; sx--) {
-			minefield[sx][sy] = minefield[sx-1][sy];
+	if (shiftCombo++ >= 0) {
+		for (py = 0; py < boardHeight; py++) {
+			minefield[boardWidth][py] = minefield[0][py];
+		}
+		
+		for (sy = 0; sy < boardHeight; sy++) {
+			for (sx = 0; sx < boardWidth; sx++) {
+				minefield[sx][sy] = minefield[sx+1][sy];
+			}
+		}
+		
+		if (gameActive) {
+			numShifts++;
 		}
 	}
-
-	for (py = 0; py < boardHeight; py++) {
-		minefield[0][py] = minefield[boardWidth][py];
-	}
-	
-	if (gameActive) {
-		numShifts++;
-	}
-	shiftCombo++;
 	renderBoard();
 }
 
