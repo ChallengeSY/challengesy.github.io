@@ -705,6 +705,9 @@ function exportGame() {
 
 // Shifting cells
 function startShifting() {
+	if (shiftHandle != null) {
+		clearInterval(shiftHandle);
+	}
 	var func = null;
 	switch (this.id) {
 		case "borderLeft":
