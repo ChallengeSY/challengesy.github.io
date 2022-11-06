@@ -6,27 +6,37 @@
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 	
 	<title>Wrapsweeper</title>
-	<link type="text/css" href="../nevergalaxy/css/greys.css" rel="stylesheet" />
+	<link type="text/css" href="../nevergalaxy/css/csysoft.css" rel="stylesheet" />
 	<script>
 		function openMenu(submenu) {
-			var hideMenu = (submenu == "play" ? "custom" : "play");
+			var hideMenu = (submenu == "standard" ? "custom" : "standard");
 			
 			document.getElementById(hideMenu).style.display = "none";
 			document.getElementById(submenu).style.display = "";
 		}
+		
+		function updateDensity() {
+			denseMeter = document.getElementById("density");
+			var percentage = parseInt(document.forms[0]["mines"].value)*100/
+				(parseInt(document.forms[0]["wid"].value)*parseInt(document.forms[0]["hei"].value));
+			
+			denseMeter.value = percentage;
+			denseMeter.innerHTML = percentage.toFixed(3)+"%";
+			denseMeter.title = denseMeter.innerHTML;
+		}
 	</script>
 </head>
-<body>
+<body onload="updateDensity()">
 
 <p id="banner"><img src="banner.png" alt="Wrapsweeper" /></p>
 <p>Welcome to <span class="bold">Wrapsweeper</span>, a project that puts your wraparound minesweeping to the test. No downloads required; just play!</p>
 
 <!-- Main menu -->
-<p class="center"><button class="interact" onclick="openMenu('play')">Play Mode</button>
+<p class="center"><button class="interact" onclick="openMenu('standard')">Standard Mode</button>
 <button class="interact" onclick="openMenu('custom')">Custom Mode</button></p>
 
-<!-- Play Mode menu -->
-<div class="center" style="display: none;" id="play">
+<!-- Standard Mode menu -->
+<div class="center" style="display: none;" id="standard">
 The main experience of Wrapsweeper<br />
 <a class="interact" href="play.html?wid=8&hei=8&mines=10">Beginner</a>
 <a class="interact" href="play.html?wid=16&hei=16&mines=40">Intermediate</a>
@@ -37,12 +47,21 @@ The main experience of Wrapsweeper<br />
 <!-- Custom Mode menu -->
 <div class="center" style="display: none;" id="custom">
 Customize your experience<br />
-<form action="play.html" method="get">
-<label for="wid">Width</label>: <input class="text" id="wid" name="wid" type="number" min="2" max="128" value="8" size="4" /> /
-<label for="hei">Height</label>: <input class="text" id="hei" name="hei" type="number" min="2" max="128" value="8" size="4" /> /
-<label for="mines">Mines</label>: <input class="text" id="mines" name="mines" type="number" min="1" max="9999" value="10" size="5" /><br />
+<form id="customForm" action="play.html" method="get">
+<label for="wid">Width</label>: <input class="text" id="wid" name="wid" type="number" min="2" max="299" value="8" size="4" onchange="updateDensity()" onblur="updateDensity()" /> /
+<label for="hei">Height</label>: <input class="text" id="hei" name="hei" type="number" min="2" max="299" value="8" size="4" onchange="updateDensity()" onblur="updateDensity()" /> /
+<label for="mines">Mines</label>: <input class="text" id="mines" name="mines" type="number" min="1" max="99999" value="10" size="5" onchange="updateDensity()" onblur="updateDensity()" />
+<br />
+<label for="density">Density:</label> <meter style="width: 100px;" id="density" min="0.0" max="33.3" low="16.0" high="25.0" optimum="12.0"></meter> /
 
+<label for="module">Ruleset</label>:
+<select class="text" id="module" name="module">
+<option id="wrapsweeper" name="wrapsweeper">Wrapsweeper</option>
+<option id="earthsweeper" name="earthsweeper" title="Board wraps horizontally, but not vertically">Earthsweeper</option>
+</select>
+<br />
 <input class="button" type="submit" value="Play custom game" />
+</form>
 </div>
 
 <hr />

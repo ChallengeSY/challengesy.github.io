@@ -18,6 +18,8 @@ var timeHandle = null;
 var shiftHandle = null;
 var shiftCombo = 0;
 
+const defaultModule = "wrapsweeper";
+
 window.onload = setupGame;
 
 // Tile Object
@@ -74,6 +76,10 @@ function setupGame() {
 	var gameBoard, trFrag, tdFrag;
 	gameBoard = document.getElementById("gameboard");
 	
+	if (typeof gameModule === "undefined") {
+		gameModule = defaultModule;
+	}
+
 	//Top border
 	trFrag = document.createElement("tr");
 
@@ -84,12 +90,16 @@ function setupGame() {
 
 	tdFrag = document.createElement("td");
 	tdFrag.colSpan = boardWidth;
-	tdFrag.className = "border edge";
 	tdFrag.id = "borderTop";
-	addEvent(tdFrag, "mousedown", startShifting, false);
-	addEvent(tdFrag, "mouseup", stopShifting, false);
-	addEvent(tdFrag, "mouseout", stopShifting, false);
-	tdFrag.innerHTML = "&uArr;";
+	if (gameModule == "earthsweeper") {
+		tdFrag.className = "border";
+	} else {
+		tdFrag.className = "border edge";
+		addEvent(tdFrag, "mousedown", startShifting, false);
+		addEvent(tdFrag, "mouseup", stopShifting, false);
+		addEvent(tdFrag, "mouseout", stopShifting, false);
+		tdFrag.innerHTML = "&uArr;";
+	}
 	trFrag.appendChild(tdFrag);
 
 	tdFrag = document.createElement("td");
@@ -154,12 +164,16 @@ function setupGame() {
 
 	tdFrag = document.createElement("td");
 	tdFrag.colSpan = boardWidth;
-	tdFrag.className = "border edge";
 	tdFrag.id = "borderBottom";
-	addEvent(tdFrag, "mousedown", startShifting, false);
-	addEvent(tdFrag, "mouseup", stopShifting, false);
-	addEvent(tdFrag, "mouseout", stopShifting, false);
-	tdFrag.innerHTML = "&dArr;";
+	if (gameModule == "earthsweeper") {
+		tdFrag.className = "border";
+	} else {
+		tdFrag.className = "border edge";	
+		addEvent(tdFrag, "mousedown", startShifting, false);
+		addEvent(tdFrag, "mouseup", stopShifting, false);
+		addEvent(tdFrag, "mouseout", stopShifting, false);
+		tdFrag.innerHTML = "&dArr;";
+	}
 	trFrag.appendChild(tdFrag);
 
 	tdFrag = document.createElement("td");
@@ -169,14 +183,16 @@ function setupGame() {
 
 	gameBoard.appendChild(trFrag);
 	
-	if (boardWidth == 8 && boardHeight == 8 && boardMines == 10) {
-		difficulty = 1;
-	} else if (boardWidth == 16 && boardHeight == 16 && boardMines == 40) {
-		difficulty = 2;
-	} else if (boardWidth == 30 && boardHeight == 16 && boardMines == 99) {
-		difficulty = 3;
-	} else if (boardWidth == 40 && boardHeight == 24 && boardMines == 215) {
-		difficulty = 4;
+	if (gameModule == defaultModule) {
+		if (boardWidth == 8 && boardHeight == 8 && boardMines == 10) {
+			difficulty = 1;
+		} else if (boardWidth == 16 && boardHeight == 16 && boardMines == 40) {
+			difficulty = 2;
+		} else if (boardWidth == 30 && boardHeight == 16 && boardMines == 99) {
+			difficulty = 3;
+		} else if (boardWidth == 40 && boardHeight == 24 && boardMines == 215) {
+			difficulty = 4;
+		}
 	}
 	forceOpening = (boardMines <= boardWidth*boardHeight-9);
 	loadSoundEffects();
@@ -189,8 +205,8 @@ function newGame(newSession) {
 	gamePlayable = true;
 
 	// Empty the board of mines
-	for (y = 0; y < boardHeight; y++) {
-		for (x = 0; x < boardWidth; x++) {
+	for (var y = 0; y < boardHeight; y++) {
+		for (var x = 0; x < boardWidth; x++) {
 			if (newSession) {
 				minefield[x][y] = new playtile();
 			} else {
@@ -236,11 +252,11 @@ function plantMines(mineCt) {
 		}
 	}
 	
-	for (ny = 0; ny < boardHeight; ny++) {
-		for (nx = 0; nx < boardWidth; nx++) {
-			minefield[nx][ny].clue = 0;
-			if (!minefield[nx][ny].isMine) {
-				minefield[nx][ny].clue = countMines(nx,ny);
+	for (var y = 0; y < boardHeight; y++) {
+		for (var x = 0; x < boardWidth; x++) {
+			minefield[x][y].clue = 0;
+			if (!minefield[x][y].isMine) {
+				minefield[x][y].clue = countMines(x,y);
 			}
 		}
 	}
@@ -259,8 +275,8 @@ function renderBoard() {
 		endGame(false);
 	}
 	
-	for (y = 0; y < boardHeight; y++) {
-		for (x = 0; x < boardWidth; x++) {
+	for (var y = 0; y < boardHeight; y++) {
+		for (var x = 0; x < boardWidth; x++) {
 			minefield[x][y].delayChain = false;
 			activeTile = document.getElementById("x"+x+"y"+y);
 			activeTile.style.color = "";
@@ -337,8 +353,8 @@ function countFlags(fx, fy) {
 	var refX, refY;
 	var flagsFound = 0;
 	
-	for (b = fy-1; b <= fy+1; b++) {
-		for (a = fx-1; a <= fx+1; a++) {
+	for (var b = fy-1; b <= fy+1; b++) {
+		for (var a = fx-1; a <= fx+1; a++) {
 			refX = a;
 			refY = b;
 			
@@ -349,11 +365,17 @@ function countFlags(fx, fy) {
 			if (refX >= boardWidth) {
 				refX = refX - boardWidth;
 			}
-			if (refY < 0) {
-				refY = refY + boardHeight;
-			}
-			if (refY >= boardHeight) {
-				refY = refY - boardHeight;
+			if (gameModule == "earthsweeper") {
+				if (refY < 0 || refY >= boardHeight) {
+					continue;
+				}
+			} else {
+				if (refY < 0) {
+					refY = refY + boardHeight;
+				}
+				if (refY >= boardHeight) {
+					refY = refY - boardHeight;
+				}
 			}
 			
 			if (minefield[refX][refY].flagged || (minefield[refX][refY].isMine && minefield[refX][refY].revealed)) {
@@ -369,8 +391,8 @@ function countMines(mx, my) {
 	var refX, refY;
 	var minesFound = 0;
 	
-	for (b = my-1; b <= my+1; b++) {
-		for (a = mx-1; a <= mx+1; a++) {
+	for (var b = my-1; b <= my+1; b++) {
+		for (var a = mx-1; a <= mx+1; a++) {
 			refX = a;
 			refY = b;
 			
@@ -381,11 +403,17 @@ function countMines(mx, my) {
 			if (refX >= boardWidth) {
 				refX = refX - boardWidth;
 			}
-			if (refY < 0) {
-				refY = refY + boardHeight;
-			}
-			if (refY >= boardHeight) {
-				refY = refY - boardHeight;
+			if (gameModule == "earthsweeper") {
+				if (refY < 0 || refY >= boardHeight) {
+					continue;
+				}
+			} else {
+				if (refY < 0) {
+					refY = refY + boardHeight;
+				}
+				if (refY >= boardHeight) {
+					refY = refY - boardHeight;
+				}
 			}
 			
 			if (minefield[refX][refY].isMine) {
@@ -398,6 +426,7 @@ function countMines(mx, my) {
 }
 
 function autoReveal() {
+	var refX, refY;
 	var rerender = false;
 	
 	for (ay = 0; ay < boardHeight; ay++) {
@@ -405,26 +434,32 @@ function autoReveal() {
 			if (minefield[ax][ay].chained && !minefield[ax][ay].delayChain) {
 				for (d = ay-1; d <= ay+1; d++) {
 					for (c = ax-1; c <= ax+1; c++) {
-						wrapX = c;
-						wrapY = d;
+						refX = c;
+						refY = d;
 						
 						//Wraparound as need be
-						if (wrapX < 0) {
-							wrapX = wrapX + boardWidth;
+						if (refX < 0) {
+							refX = refX + boardWidth;
 						}
-						if (wrapX >= boardWidth) {
-							wrapX = wrapX - boardWidth;
+						if (refX >= boardWidth) {
+							refX = refX - boardWidth;
 						}
-						if (wrapY < 0) {
-							wrapY = wrapY + boardHeight;
-						}
-						if (wrapY >= boardHeight) {
-							wrapY = wrapY - boardHeight;
+						if (gameModule == "earthsweeper") {
+							if (refY < 0 || refY >= boardHeight) {
+								continue;
+							}
+						} else {
+							if (refY < 0) {
+								refY = refY + boardHeight;
+							}
+							if (refY >= boardHeight) {
+								refY = refY - boardHeight;
+							}
 						}
 						
-						if (!minefield[wrapX][wrapY].revealed) {
-							touchTile(wrapX,wrapY);
-							minefield[wrapX][wrapY].delayChain = true;
+						if (!minefield[refX][refY].revealed) {
+							touchTile(refX,refY);
+							minefield[refX][refY].delayChain = true;
 						}
 					}
 				}
@@ -477,8 +512,8 @@ function touchTile(ox, oy) {
 				if (forceOpening) {
 					while (minefield[x][y].isMine || minefield[x][y].clue > 0) {
 						rerollCt = 0;
-						for (d = y-1; d <= y+1; d++) {
-							for (c = x-1; c <= x+1; c++) {
+						for (var d = y-1; d <= y+1; d++) {
+							for (var c = x-1; c <= x+1; c++) {
 								wrapX = c;
 								wrapY = d;
 								
@@ -489,11 +524,17 @@ function touchTile(ox, oy) {
 								if (wrapX >= boardWidth) {
 									wrapX = wrapX - boardWidth;
 								}
-								if (wrapY < 0) {
-									wrapY = wrapY + boardHeight;
-								}
-								if (wrapY >= boardHeight) {
-									wrapY = wrapY - boardHeight;
+								if (gameModule == "earthsweeper") {
+									if (wrapY < 0 || wrapY >= boardHeight) {
+										continue;
+									}
+								} else {
+									if (wrapY < 0) {
+										wrapY = wrapY + boardHeight;
+									}
+									if (wrapY >= boardHeight) {
+										wrapY = wrapY - boardHeight;
+									}
 								}
 								
 								if (minefield[wrapX][wrapY].isMine) {
@@ -561,28 +602,34 @@ function chordTile(cx, cy) {
 	var newTiles = 0;
 	
 	if (countFlags(cx, cy) == minefield[cx][cy].clue) {
-		for (qy = cy-1; qy <= cy+1; qy++) {
-			for (qx = cx-1; qx <= cx+1; qx++) {
-				choX = qx;
-				choY = qy;
+		for (var y = cy-1; y <= cy+1; y++) {
+			for (var x = cx-1; x <= cx+1; x++) {
+				refX = x;
+				refY = y;
 				
 				//Wraparound as need be
-				if (choX < 0) {
-					choX = choX + boardWidth;
+				if (refX < 0) {
+					refX = refX + boardWidth;
 				}
-				if (choX >= boardWidth) {
-					choX = choX - boardWidth;
+				if (refX >= boardWidth) {
+					refX = refX - boardWidth;
 				}
-				if (choY < 0) {
-					choY = choY + boardHeight;
-				}
-				if (choY >= boardHeight) {
-					choY = choY - boardHeight;
+				if (gameModule == "earthsweeper") {
+					if (refY < 0 || refY >= boardHeight) {
+						continue;
+					}
+				} else {
+					if (refY < 0) {
+						refY = refY + boardHeight;
+					}
+					if (refY >= boardHeight) {
+						refY = refY - boardHeight;
+					}
 				}
 				
-				if (!minefield[choX][choY].revealed) {
+				if (!minefield[refX][refY].revealed) {
 					newTiles++;
-					touchTile(choX, choY);
+					touchTile(refX, refY);
 				}
 			}
 		}

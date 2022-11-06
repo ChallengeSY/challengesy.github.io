@@ -6,7 +6,7 @@
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 	
 	<title>Play - Wrapsweeper</title>
-	<link type="text/css" href="../nevergalaxy/css/greys.css" rel="stylesheet" />
+	<link type="text/css" href="../nevergalaxy/css/csysoft.css" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
 	<link type="text/css" href="wrapsweeper.css" rel="stylesheet" />
 	<script src="wrapsweeper.js"></script>
@@ -23,9 +23,10 @@
 		return -1; //not found 
 	}
 	
-	boardWidth = Math.min(Math.max(parseInt(getQueryParam("wid") != -1 ? getQueryParam("wid") : 8),2),128);;
-	boardHeight = Math.min(Math.max(parseInt(getQueryParam("hei") != -1 ? getQueryParam("hei") : 8),2),128);;
-	boardMines = Math.min(Math.max(parseInt(getQueryParam("mines") != -1 ? getQueryParam("mines") : 10),1),boardWidth*boardHeight-1);;
+	boardWidth = Math.min(Math.max(parseInt(getQueryParam("wid") != -1 ? getQueryParam("wid") : 8),2),128);
+	boardHeight = Math.min(Math.max(parseInt(getQueryParam("hei") != -1 ? getQueryParam("hei") : 8),2),128);
+	boardMines = Math.min(Math.max(parseInt(getQueryParam("mines") != -1 ? getQueryParam("mines") : 10),1),boardWidth*boardHeight-1);
+	gameModule = (getQueryParam("module") != -1 ? getQueryParam("module").toLowerCase() : defaultModule);
 	</script>
 </head>
 <body>
