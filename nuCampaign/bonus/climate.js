@@ -8,7 +8,7 @@ function compute() {
 	selected = document.getElementById("race").options;
 	ruleset = selected[simRace].index + 1;
 
-	var output, maxClans, testClans, previousClans, growth, growthStopped, insertOther;
+	var output, maxClans, absoluteMax, testClans, previousClans, growth, growthStopped, insertOther;
 	
 	if (climate < 0 || climate > 100 || !isFinite(climate) || climate == "") {
 		output = "Please insert a number between 0 and 100";
@@ -54,7 +54,7 @@ function compute() {
 				}
 
 				if (climate < 20) {
-					insertOther = "generic ";
+					insertOther = "otherwise ";
 					output += "<li>Maximum Rebel colonist population is 90000 clans</li>";
 				}
 				if (climate < 15) {
@@ -63,13 +63,13 @@ function compute() {
 				} else if (climate >= 85) {
 					maxClans = Math.floor((20099.9-200*climate)/cdr);
 					if (maxClans < 60) {
-						insertOther = "generic ";
+						insertOther = "otherwise ";
 						output += "<li>Maximum Fascist/Robotic/Rebel/Colonial colonist population is 60 clans</li>";
 					}
-					output += "<li>Maximum "+insertOther+"colonist population is "+maxClans+" clans<br /><br /></li>";
+					output += "<li>Maximum colonist population "+insertOther+"is "+maxClans+" clans<br /><br /></li>";
 				} else {
 					maxClans = Math.round(Math.sin(3.14*(100-climate)/100)*100000);
-					output += "<li>Maximum "+insertOther+"colonist population is "+maxClans+" clans<br /><br /></li>";
+					output += "<li>Maximum colonist population "+insertOther+"is "+maxClans+" clans<br /><br /></li>";
 				}
 				break;
 			case 2:
@@ -214,9 +214,19 @@ function compute() {
 		
 		if (ruleset < 5) {
 			maxClans = 1000*climate;
-			output += "<li>Siliconoid native population will grow until they exceed "+maxClans+" clans</li>";
+			growth = Math.max(Math.round(climate/100 * maxClans/25),0);
+			if (maxClans > 66000) {
+				growth = Math.round(growth / 2);
+			}				
+			absoluteMax = maxClans + growth;
+			output += "<li>Siliconoid native population will grow until they exceed "+maxClans+" clans. (Absolute growth max "+absoluteMax+" clans)</li>";
 			maxClans = Math.round(Math.sin(3.14*(100-climate)/100)*150000);
-			output += "<li>Generic native population will grow until they exceed "+maxClans+" clans</li>";
+			growth = Math.max(Math.round(Math.sin(3.14*(100-climate)/100) * maxClans/25),0);
+			if (maxClans > 66000) {
+				growth = Math.round(growth / 2);
+			}				
+			absoluteMax = maxClans + growth;
+			output += "<li>Other native populations will grow until they exceed "+maxClans+" clans. (Absolute growth max "+absoluteMax+" clans)</li>";
 		}
 		output += "</ul>";
 	}
