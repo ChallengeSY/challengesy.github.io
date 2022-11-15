@@ -227,7 +227,7 @@ var nuStaticData;
 function connectNuAPI() {
 	if (XMLHttpRequest) {
 		var apiRequest = new XMLHttpRequest();
-		apiRequest.open("GET", "http://api.planets.nu/static/all", true);
+		apiRequest.open("GET", "https://api.planets.nu/static/all", true);
 		
 		apiRequest.send();
 		
