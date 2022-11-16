@@ -7,6 +7,7 @@
 	<title>Campaign Tech Bonus Material - Space Dock</title>
 	<link type="text/css" href="../planets.css" rel="stylesheet" />
 	<script type="text/javascript" src="spaceDock.js"></script>
+	<script type="text/javascript" src="../common.js"></script>
 </head>
 <body onload="init()">
 
@@ -36,7 +37,7 @@
 </tfoot>
 <tbody id="components">
 <tr id="noParts">
-<td colspan="7" style="text-align: center;">You have no components registered right now.</td>
+<td id="noPtsTxt" colspan="7" style="text-align: center;">Acquiring data from Planets Nu...</td>
 </tr>
 </tbody>
 </table>
@@ -46,6 +47,30 @@
 <fieldset id="insertHull" style="width: 50%; margin-left: auto; margin-right: auto; text-align: center;">
 <legend>Insert new hull</legend>
 <select id="newHulls" class="text">
+	<optgroup label="The Feds" id="newHulls1">
+	</optgroup>
+	<optgroup label="The Lizards" id="newHulls2">
+	</optgroup>
+	<optgroup label="The Bird Men" id="newHulls3">
+	</optgroup>
+	<optgroup label="The Fascists" id="newHulls4">
+	</optgroup>
+	<optgroup label="The Privateers" id="newHulls5">
+	</optgroup>
+	<optgroup label="The Cyborg" id="newHulls6">
+	</optgroup>
+	<optgroup label="The Crystals" id="newHulls7">
+	</optgroup>
+	<optgroup label="The Evil Empire" id="newHulls8">
+	</optgroup>
+	<optgroup label="The Robots" id="newHulls9">
+	</optgroup>
+	<optgroup label="The Rebels" id="newHulls10">
+	</optgroup>
+	<optgroup label="The Colonies" id="newHulls11">
+	</optgroup>
+	<optgroup label="The Horwasp" id="newHulls12">
+	</optgroup>
 </select>
 
 <input type="button" class="interact" value="Insert into Space Dock" onclick="addPart('newHulls')" />

@@ -4,17 +4,20 @@
 	<meta name="author" content="Paul Ruediger" />
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 	
-	<title>Campaign Tech Simulator - The Crystal Confederation</title>
+	<title>Campaign Tech Simulator</title>
 	<link type="text/css" href="planets.css" rel="stylesheet" />
 	<script type="text/javascript" src="common.js"></script>
-	<script type="text/javascript" src="crystal.js"></script>
+	<script type="text/javascript" src="simulator.js"></script>
+	<script type="text/javascript">
+		simulatorRace = parseInt(getQueryParam("race"));
+	</script>
 </head>
 <body>
 
 <p id="banner"><a href="index.htm"><img src="banner.png" alt="" /></a></p>
 
 <table>
-<caption>The Crystal Confederation</caption>
+<caption id="captionRace">Loading simulator and modules...</caption>
 <thead>
 <tr>
 <th>Buy</th>
