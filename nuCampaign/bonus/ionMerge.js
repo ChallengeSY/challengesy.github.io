@@ -290,3 +290,152 @@ function applyResults() {
 	
 	compute();
 }
+
+/* ------------------------------------------------------------------------ */
+
+fetchedGames = new Array();
+nuImportedGame = null;
+nuImportedStorms = null;
+gameId = 0;
+
+function fetchStorms() {
+	gameId = document.getElementById("gameId").value;
+	var fetchButton = document.getElementById("importStorms");
+	
+	if (fetchedGames.indexOf(gameId) >= 0) {
+		readStorms(false);
+	} else if (isFinite(gameId) && XMLHttpRequest) {
+		var apiRequest = new XMLHttpRequest();
+		apiRequest.open("GET", "https://api.planets.nu/game/loadturn?gameid="+gameId+"&forsave=false&activity=false", true);
+		fetchButton.disabled = true;
+		
+		apiRequest.send();
+		
+		apiRequest.onreadystatechange = function() {
+			if (apiRequest.readyState === 4) {
+				if (apiRequest.status == 200) {
+					nuImportedGame = JSON.parse(apiRequest.responseText);
+					readStorms(true);
+				}
+				fetchButton.disabled = false;
+				fetchedGames.push(gameId);
+			}
+		}
+	}
+}
+
+function readStorms(newData) {
+	if (nuImportedGame.success === false) {
+		console.error("Import of game "+gameId+" unsuccessful.")
+	} else if (newData) {
+		nuImportedStorms = nuImportedGame.rst.ionstorms;
+		importedTable = document.getElementById("importedStorms");
+		
+		for (var i in nuImportedStorms) {
+			var stormId = nuImportedStorms[i].id;
+			var baseId = "g"+gameId+"s"+stormId;
+			var findRow = document.getElementById(baseId);
+			
+			if (findRow) {
+				findRow.style.display = "";
+			} else {
+				trFrag = document.createElement("tr");
+				trFrag.id = baseId;
+				
+				tdFrag = document.createElement("td");
+				tdFrag.className = "numeric";
+				tdFrag.innerHTML = gameId;
+				trFrag.appendChild(tdFrag);
+				
+				tdFrag = document.createElement("td");
+				tdFrag.className = "numeric";
+				tdFrag.innerHTML = stormId;
+				trFrag.appendChild(tdFrag);
+				
+				tdFrag = document.createElement("td");
+				tdFrag.innerHTML = "(<span id=\"" + baseId + "x\">"+nuImportedStorms[i].x+"</span>, <span id=\"" + baseId + "y\">"+nuImportedStorms[i].y+"</span>)";
+				trFrag.appendChild(tdFrag);
+
+				tdFrag = document.createElement("td");
+				tdFrag.className = "numeric";
+				tdFrag.id = baseId+"v";
+				tdFrag.innerHTML = nuImportedStorms[i].voltage;
+				trFrag.appendChild(tdFrag);
+
+				tdFrag = document.createElement("td");
+				tdFrag.className = "numeric";
+				tdFrag.id = baseId+"r";
+				tdFrag.innerHTML = nuImportedStorms[i].radius;
+				trFrag.appendChild(tdFrag);
+
+				tdFrag = document.createElement("td");
+				tdFrag.className = "numeric";
+				tdFrag.id = baseId+"h";
+				tdFrag.innerHTML = nuImportedStorms[i].heading;
+				trFrag.appendChild(tdFrag);
+
+				tdFrag = document.createElement("td");
+				tdFrag.className = "numeric";
+				tdFrag.innerHTML = nuImportedStorms[i].warp;
+				trFrag.appendChild(tdFrag);
+
+				tdFrag = document.createElement("td");
+				buttonFrag = document.createElement("input");
+				buttonFrag.id = baseId+"toA";
+				buttonFrag.className = "button";
+				buttonFrag.type = "button";
+				buttonFrag.value = "Apply to Alpha";
+				addEvent(buttonFrag, "click", applytoSimStorm, false);
+				tdFrag.appendChild(buttonFrag);
+				buttonFrag = document.createElement("input");
+				buttonFrag.id = baseId+"toB";
+				buttonFrag.className = "button";
+				buttonFrag.type = "button";
+				buttonFrag.value = "Apply to Bravo";
+				addEvent(buttonFrag, "click", applytoSimStorm, false);
+				tdFrag.appendChild(buttonFrag);
+				buttonFrag = document.createElement("input");
+				buttonFrag.id = baseId+"hide";
+				buttonFrag.className = "button";
+				buttonFrag.type = "button";
+				buttonFrag.value = "Hide storm";
+				addEvent(buttonFrag, "click", hideRow, false);
+				tdFrag.appendChild(buttonFrag);
+				trFrag.appendChild(tdFrag);
+				
+				importedTable.appendChild(trFrag);
+			}
+		}	
+	} else {
+		allRows = document.getElementsByTagName("tr");
+		
+		for (r in allRows) {
+			if (allRows[r].id.substr(0, 1+gameId.length) == "g"+gameId) {
+				allRows[r].style.display = "";
+			}
+		}
+	}
+}
+
+function applytoSimStorm() {
+	var useId = this.id;
+	var readData = useId.substr(0, useId.length - 3);
+	var applyToColumn = useId.substr(-1);
+	
+	document.getElementById("ion"+applyToColumn).checked = true;
+	document.getElementById("pos"+applyToColumn+"X").value = document.getElementById(readData+"x").innerHTML;
+	document.getElementById("pos"+applyToColumn+"Y").value = document.getElementById(readData+"y").innerHTML;
+	document.getElementById("mev"+applyToColumn).value = document.getElementById(readData+"v").innerHTML;
+	document.getElementById("rad"+applyToColumn).value = document.getElementById(readData+"r").innerHTML;
+	document.getElementById("head"+applyToColumn).value = document.getElementById(readData+"h").innerHTML;
+}
+
+function hideRow(hideId) {
+	var useId = this.id;
+	useId = useId.substr(0, useId.length - 4);
+	findRow = document.getElementById(useId);
+	
+	if (findRow) {
+		findRow.style.display = "none";
+	}
+}

@@ -7,6 +7,7 @@
 	<title>Campaign Tech Bonus Material - Ionic Merge Labs</title>
 	<link type="text/css" href="../planets.css" rel="stylesheet" />
 	<script type="text/javascript" src="ionMerge.js"></script>
+	<script type="text/javascript" src="../common.js"></script>
 	<style type="text/css">
 		div.compute {text-align: center; margin-top: 25px;}
 	</style>
@@ -21,21 +22,43 @@
 
 <p>Local testing has uncovered that NuHost made an exception towards the formulas with respect to merging ion storms. If a weakening storm is the strongest storm, and it merges with another storm that would cause it to become a growing storm while beyond 200 LY in radius (after merge), then 1 meV is subtracted from the new storm to force it back into weakening state.</p>
 
+<fieldset>
+<legend>Imported ion storms</legend>
+You can now import ion storms from a Planets Nu game. Just type in the ID, and ion storms will be fetched from the API.
+<input type="text" class="text" id="gameId" value="" /> <input type="button" class="button" id="importStorms" onclick="fetchStorms()" value="Import storms" /><br /><br />
+
 <table style="margin-left: auto; margin-right: auto;">
-<caption>Ion Storm specs</caption>
+<thead>
+<th>Game ID</th>
+<th>Storm ID</th>
+<th>Position</th>
+<th>Voltage</th>
+<th>Radius</th>
+<th>Heading</th>
+<th>Warp</th>
+<th>Actions</th>
+</thead>
+<tbody id="importedStorms">
+</tbody>
+</table>
+</fieldset>
+
+
+<table style="margin-left: auto; margin-right: auto;">
+<caption>Ion Storm simulation</caption>
 <thead>
 <tr>
 <td></td>
-<th><input id="ionA" type="checkbox" checked="checked" /> Ion Storm Alpha</th>
-<th><input id="ionB" type="checkbox" checked="checked" /> Ion Storm Bravo</th>
+<th><input id="ionA" name="ionA" type="checkbox" /> <label for="ionA">Ion Storm Alpha</label></th>
+<th><input id="ionB" name="ionB" type="checkbox" /> <label for="ionB">Ion Storm Bravo</label></th>
 <th>Ion Storm Charlie</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <th>Position Seen (center)</th>
-<td class="center">(<input id="posAX" class="text numeric" type="text" value="1600" size="3" />,<input id="posAY" class="text numeric" type="text" value="2000" size="3" />)</td>
-<td class="center">(<input id="posBX" class="text numeric" type="text" value="2400" size="3" />,<input id="posBY" class="text numeric" type="text" value="2000" size="3" />)</td>
+<td class="center">(<input id="posAX" class="text numeric" type="text" value="1000" size="3" />,<input id="posAY" class="text numeric" type="text" value="2000" size="3" />)</td>
+<td class="center">(<input id="posBX" class="text numeric" type="text" value="3000" size="3" />,<input id="posBY" class="text numeric" type="text" value="2000" size="3" />)</td>
 </tr>
 <tr>
 <th>Voltage Seen</th>
