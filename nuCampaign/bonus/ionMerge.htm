@@ -24,12 +24,15 @@
 
 <fieldset>
 <legend>Imported ion storms</legend>
-You can now import ion storms from a Planets Nu game. Just type in the ID, and ion storms will be fetched from the API.
-<input type="text" class="text" id="gameId" value="" /> <input type="button" class="button" id="importStorms" onclick="fetchStorms()" value="Import storms" /><br /><br />
+You can now import ion storms from a Planets Nu game. Just fill in the fields below, and ion storms will be fetched from the API.<br />
+<label for="gameId">Game ID</label> <input type="text" class="text" id="gameId" name="gameId" size="9" value="" />
+<label for="turnNum">Turn (optional)</label> <input type="text" class="text" id="turnNum" name="turnNum" size="5" value="" />
+<input type="button" class="button" id="importStorms" onclick="fetchStorms()" value="Import storms" /><br /><br />
 
 <table style="margin-left: auto; margin-right: auto;">
 <thead>
 <th>Game ID</th>
+<th>Turn</th>
 <th>Storm ID</th>
 <th>Position</th>
 <th>Voltage</th>

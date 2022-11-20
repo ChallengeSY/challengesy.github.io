@@ -297,16 +297,26 @@ fetchedGames = new Array();
 nuImportedGame = null;
 nuImportedStorms = null;
 gameId = 0;
+turnNum = 0;
 
 function fetchStorms() {
 	gameId = document.getElementById("gameId").value;
+	turnNum = document.getElementById("turnNum").value;
+	if (turnNum == "") {
+		turnNum = "Last";
+	}
+	var combo = "g"+ gameId + "t" + turnNum
 	var fetchButton = document.getElementById("importStorms");
 	
 	if (fetchedGames.indexOf(gameId) >= 0) {
 		readStorms(false);
 	} else if (isFinite(gameId) && XMLHttpRequest) {
 		var apiRequest = new XMLHttpRequest();
-		apiRequest.open("GET", "https://api.planets.nu/game/loadturn?gameid="+gameId+"&forsave=false&activity=false", true);
+		if (turnNum == "Last") {
+			apiRequest.open("GET", "https://api.planets.nu/game/loadturn?gameid="+gameId+"&forsave=false&activity=false", true);
+		} else {
+			apiRequest.open("GET", "https://api.planets.nu/game/loadturn?gameid="+gameId+"&turn="+turnNum+"&forsave=false&activity=false", true);
+		}
 		fetchButton.disabled = true;
 		
 		apiRequest.send();
@@ -326,14 +336,14 @@ function fetchStorms() {
 
 function readStorms(newData) {
 	if (nuImportedGame.success === false) {
-		console.error("Import of game "+gameId+" unsuccessful.")
+		console.error("Import of Game "+gameId+" Turn "+turnNum+" unsuccessful.")
 	} else if (newData) {
 		nuImportedStorms = nuImportedGame.rst.ionstorms;
 		importedTable = document.getElementById("importedStorms");
 		
 		for (var i in nuImportedStorms) {
 			var stormId = nuImportedStorms[i].id;
-			var baseId = "g"+gameId+"s"+stormId;
+			var baseId = "g"+gameId+"t"+turnNum+"s"+stormId;
 			var findRow = document.getElementById(baseId);
 			
 			if (findRow) {
@@ -345,6 +355,11 @@ function readStorms(newData) {
 				tdFrag = document.createElement("td");
 				tdFrag.className = "numeric";
 				tdFrag.innerHTML = gameId;
+				trFrag.appendChild(tdFrag);
+				
+				tdFrag = document.createElement("td");
+				tdFrag.className = "numeric";
+				tdFrag.innerHTML = nuImportedGame.rst.settings.turn;
 				trFrag.appendChild(tdFrag);
 				
 				tdFrag = document.createElement("td");
