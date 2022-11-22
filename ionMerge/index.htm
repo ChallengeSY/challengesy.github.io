@@ -4,25 +4,24 @@
 	<meta name="author" content="Paul Ruediger" />
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 	
-	<title>Campaign Tech Bonus Material - Ionic Merge Labs</title>
-	<link type="text/css" href="../planets.css" rel="stylesheet" />
+	<title>Ionic Merge Labs</title>
+	<link type="text/css" href="../nuCampaign/planets.css" rel="stylesheet" />
 	<script type="text/javascript" src="ionMerge.js"></script>
-	<script type="text/javascript" src="../common.js"></script>
 	<style type="text/css">
 		div.compute {text-align: center; margin-top: 25px;}
 	</style>
 </head>
 <body onload="init()">
 
-<p id="banner"><a href="../index.htm"><img src="../banner.png" alt="" /></a></p>
+<p id="banner"><img src="banner.png" alt="" /></a></p>
 
-<h2>Ionic Merge Labs Instructions</h2>
+<h2>Instructions</h2>
 
 <p>This program will simulate growth, movement, and merging of classic ion storms. Calculations are made using Streu's <a href="http://www.phost.de/~stefan/ion.html">Ion Storm Physics</a> as a guide.</p>
 
 <p>Local testing has uncovered that NuHost made an exception towards the formulas with respect to merging ion storms. If a weakening storm is the strongest storm, and it merges with another storm that would cause it to become a growing storm while beyond 200 LY in radius (after merge), then 1 meV is subtracted from the new storm to force it back into weakening state.</p>
 
-<fieldset>
+<fieldset style="margin-bottom: 40px;">
 <legend>Imported ion storms</legend>
 You can now import ion storms from a Planets Nu game. Just fill in the fields below, and ion storms will be fetched from the API.<br />
 <label for="gameId">Game ID</label> <input type="text" class="text" id="gameId" name="gameId" size="9" value="" />
@@ -45,7 +44,6 @@ You can now import ion storms from a Planets Nu game. Just fill in the fields be
 </tbody>
 </table>
 </fieldset>
-
 
 <table style="margin-left: auto; margin-right: auto;">
 <caption>Ion Storm simulation</caption>
@@ -131,6 +129,7 @@ You can now import ion storms from a Planets Nu game. Just fill in the fields be
 <div class="compute">
 <button class="interact" onclick="compute()">Compute current sample</button>
 <button class="interact" onclick="applyResults()">Apply results</button>
+<a class="interact" href="../spaceYard.php">Return to Space Yard</a>
 </div>
 
 </body>

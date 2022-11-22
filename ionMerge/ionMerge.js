@@ -299,6 +299,28 @@ nuImportedStorms = null;
 gameId = 0;
 turnNum = 0;
 
+function addEvent(object, evName, fnName, cap) {
+	try {
+		if (object.addEventListener) {
+			object.addEventListener(evName, fnName, cap);
+			/*
+		} else if (object.attachEvent) {
+			object.attachEvent("on" + evName, fnName);
+			*/
+		} else {
+			if (evName = "click") {
+				object.onclick = fnName;
+			} else if (evName = "change") {
+				object.onchange = fnName;
+			} else if (evName = "blur") {
+				object.onblur = fnName;
+			}
+		}
+	} catch(err) {
+		throwError(err);
+	}
+}
+
 function fetchStorms() {
 	gameId = document.getElementById("gameId").value;
 	turnNum = document.getElementById("turnNum").value;
