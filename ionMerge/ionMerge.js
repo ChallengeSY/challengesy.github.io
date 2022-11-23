@@ -330,7 +330,7 @@ function fetchStorms() {
 	var combo = "g"+ gameId + "t" + turnNum
 	var fetchButton = document.getElementById("importStorms");
 	
-	if (fetchedGames.indexOf(gameId) >= 0) {
+	if (fetchedGames.indexOf(combo) >= 0) {
 		readStorms(false);
 	} else if (isFinite(gameId) && XMLHttpRequest) {
 		var apiRequest = new XMLHttpRequest();
@@ -350,7 +350,7 @@ function fetchStorms() {
 					readStorms(true);
 				}
 				fetchButton.disabled = false;
-				fetchedGames.push(gameId);
+				fetchedGames.push(combo);
 			}
 		}
 	}
@@ -447,7 +447,7 @@ function readStorms(newData) {
 		allRows = document.getElementsByTagName("tr");
 		
 		for (r in allRows) {
-			if (allRows[r].id.substr(0, 1+gameId.length) == "g"+gameId) {
+			if (allRows[r].id && allRows[r].id.substr(0, 2+gameId.length+turnNum.length) == "g"+gameId+"t"+turnNum) {
 				allRows[r].style.display = "";
 			}
 		}
