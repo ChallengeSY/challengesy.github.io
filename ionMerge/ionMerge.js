@@ -335,9 +335,9 @@ function fetchStorms() {
 	} else if (isFinite(gameId) && XMLHttpRequest) {
 		var apiRequest = new XMLHttpRequest();
 		if (turnNum == "Last") {
-			apiRequest.open("GET", "https://api.planets.nu/game/loadturn?gameid="+gameId+"&forsave=false&activity=false", true);
+			apiRequest.open("GET", "https://api.planets.nu/game/loadturn?gameid="+gameId+"", true);
 		} else {
-			apiRequest.open("GET", "https://api.planets.nu/game/loadturn?gameid="+gameId+"&turn="+turnNum+"&forsave=false&activity=false", true);
+			apiRequest.open("GET", "https://api.planets.nu/game/loadturn?gameid="+gameId+"&turn="+turnNum+"&playerid=1", true);
 		}
 		fetchButton.disabled = true;
 		
