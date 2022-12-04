@@ -232,13 +232,13 @@ function startProgram() {
 	if (document.getElementById("userAdv").value == "") {
 		var advUsed = document.getElementById("totAdv").innerHTML;
 		var advRem = maxAdvantage - advUsed;
-		var startMC = 0;
+		var startGC = 0;
 		
-		if (getCookie("megacredits")) {
-			startMC = getCookie("megacredits");
+		if (getCookie("gigacredits")) {
+			startGC = getCookie("gigacredits");
 		}
 		
-		document.getElementById("userMoney").value = startMC;
+		document.getElementById("userMoney").value = startGC;
 		document.getElementById("userAdv").value = maxAdvantage;
 	}
 	calcCosts();
@@ -430,174 +430,199 @@ function initShips() {
 	var firstDash = 0;
 	
 	for (var h in hullsObj) {
-		special = null;
-		firstDash = hullsObj[h].special.indexOf("-");
-		if (firstDash > 0) {
-			special = shipAbility(hullsObj[h].special.substr(0, firstDash - 1));
-			if (special == shipAbility("Pod")) {
-				special = null;
+		if (hullsObj[h].cost < 5000000) {
+			special = null;
+			firstDash = hullsObj[h].special.indexOf("-");
+			if (firstDash > 0) {
+				special = shipAbility(hullsObj[h].special.substr(0, firstDash - 1));
+				if (special == shipAbility("Pod")) {
+					special = null;
+				}
+			} else if (hullsObj[h].cancloak) {
+				special = shipAbility("Cloak");
 			}
-		} else if (hullsObj[h].cancloak) {
-			special = shipAbility("Cloak");
+
+			switch (hullsObj[h].name) {
+				case "Neutronic Refinery Ship":
+					special = shipAbility("Refinery");
+					break;
+				case "Merlin Class Alchemy Ship":
+					special = shipAbility("Alchemy");
+					break;
+					
+				case "Bohemian Class Survey Ship":
+					special = shipAbility("Heats to 50");
+					break;
+				case "Eros Class Research Vessel":
+					special = shipAbility("Cools to 50");
+					break;
+				case "Brynhild Class Escort":
+					special = shipAbility("Bioscanning");
+					break;
+					
+				case "Zilla Class Battlecarrier":
+					special = shipAbility("Emork's Spirit Bonus") + " and " + shipAbility("Tidal Force Shield");
+					break;
+					
+				case "Swift Heart Class Scout":
+					special = shipAbility("Cloak") + " and " + shipAbility("Nebula Scanner");
+					break;
+				case "Deth Specula Heavy Frigate":
+					special = shipAbility("Advanced Cloak") + " and " + shipAbility("Radiation Shielding");
+					break;
+				case "Red Wind Storm-Carrier":
+					special = shipAbility("Advanced Cloak") + " and " + shipAbility("Cloaked Fighter Bay");
+					break;
+				case "Resolute Class Battlecruiser":
+					// Fall through
+				case "Dark Wing Class Battleship":
+					special = shipAbility("Advanced Cloak");
+					break;
+					
+				case "D7b Painmaker Class Cruiser":
+					special = shipAbility("Radiation Shielding") + " and " + shipAbility("Glory Device (50-20)");
+					break;
+				case "D7 Coldpain Class Cruiser":
+					// Series of fall throughs
+				case "Deth Specula Class Frigate":
+				case "Deth Specula Armoured Frigate":
+				case "D3 Thorn Class Destroyer":
+				case "D3 Thorn Class Frigate":
+				case "D3 Thorn Class Cruiser":
+					// Stop right there
+					special = shipAbility("Cloak") + " and " + shipAbility("Radiation Shielding");
+					break;
+				case "D19b Nefarious Class Destroyer":
+					// Fall through
+				case "D19c Nefarious Class Destroyer":
+					special = shipAbility("Radiation Shielding") + " and " + shipAbility("Glory Device (100-20)");
+					break;
+				case "Deth Specula Stealth":
+					special = shipAbility("Cloak") + ", " + shipAbility("Radiation Shielding") + ", and " + shipAbility("Recloak Intercept");
+					break;
+				case "Saber Class Frigate":
+					special = shipAbility("Radiation Shielding") + " and " + shipAbility("Glory Device (100-10)");
+					break;
+				case "Saber Class Shield Generator":
+					special = shipAbility("Radiation Shielding") + ", " + shipAbility("Glory Device (100-10)") + ", and " + shipAbility("Shield Generator");
+					break;
+				case "D9 Usva Class Stealth Raider":
+					special = shipAbility("Radiation Shielding") + " and " + shipAbility("Stealth Armor");
+					break;
+					
+				case "Br4 Class Gunship":
+					// Fall through... twice
+				case "Br5 Kaye Class Torpedo Boat":
+				case "Meteor Class Blockade Runner":
+					// Stop right there
+					special = shipAbility("Cloak") + " and " + shipAbility("Gravitonic Acceleration");
+					break;
+					
+				case "B200 Class Probe":
+					// Series of fall throughs
+				case "Sapphire Class Space Ship":
+				case "Pl21 Probe":
+				case "Falcon Class Escort":
+					// Stop right there
+					special = shipAbility("Hyperdrive");
+					break;
+
+				case "B41b Explorer":
+					special = shipAbility("Chunnel Target") + " and " + shipAbility("Nebula Scanner");
+					break;
+				case "B222b Destroyer":
+					special = shipAbility("Chunnel Self (B200)");
+					break;
+				case "Deep Watcher":
+					special = shipAbility("Deep Scan");
+					break;
+				case "Firecloud Class Cruiser":
+					special = shipAbility("Chunnel Initiator") + " and " + shipAbility("Chunnel Target");
+					break;
+				case "Lorean Class Temporal Lance":
+					special = shipAbility("Temporal Lance") + " and " + shipAbility("Chunnel Target");
+					break;
+				case "Dungeon Class Stargate":
+					special = shipAbility("Stargate") + " and " + shipAbility("Chunnel Stabilizer");
+					break;
+					
+				case "Topaz Class Gunboats":
+					// Series of fall throughs
+				case "Imperial Topaz Class Gunboats":
+				case "Ru25 Gunboats":
+				case "Ru30 Gunboats":
+					// Stop right there
+					special = shipAbility("Squadron") + ", " + shipAbility("Elusive") + ", and " + shipAbility("Planet Immunity");
+					break;
+					
+				case "Onyx Class Frigate":
+					special = shipAbility("Heats to 100");
+					break;
+
+				case "Super Star Cruiser":
+					// Fall through
+				case "Super Star Cruiser II":
+					special = shipAbility("Intercept Interference");
+					break;
+
+				case "Pawn Class Baseship":
+					// Fall through
+				case "Pawn B Class Baseship":
+					special = shipAbility("Advanced Bioscanning");
+					break;
+					
+				case "Aries Class Transport":
+					special = shipAbility("Advanced Refinery");
+					break;
+				case "Cobol Class Research Cruiser":
+					special = shipAbility("Bioscanning") + " and " + shipAbility("Ramscooping");
+					break;
+				case "Lady Royale Class Cruiser":
+					special = shipAbility("Gambling");
+					break;
+
+				case "Taurus Class Scout":
+					// Stackable fallthrough
+				case "Cygnus Class Destroyer":
+				case "Little Joe Class Escort":
+				case "Sagittarius Class Transport":
+				case "Gemini Class Transport":
+				case "Patriot Class Light Carrier":
+				case "Scorpius Class Light Carrier":
+					special = shipAbility("Stackable");
+					break;
+					
+				case "Hive":
+					special = "Hives affect happiness of planets within 100 LY. Can scatter their clans to planets within 100 LY, destroying the Hive in the process.<br /> \
+						These ships count as starbases for scoreboard and combat purposes.<br />" + shipAbility("Tow Immunity (>5000)") + " and " + shipAbility("Chunnel Immunity");
+					break;
+				case "Jacker":
+					special = shipAbility("Heavy Armor");
+					break;
+				case "Sentry":
+					special = "Reconnaissance pod will relay information and sweep mines while stationary in space. " + shipAbility("Recharge Station (5)");
+					break;
+				case "Accelerator":
+					special = "Support pod that will boost the distance of pods travelling through it by 50% while stationary in space while changing direction. Increased speed lasts until negated. " + shipAbility("Recharge Station (25)") + " and " + shipAbility("Tow Immunity");
+					break;
+				case "Protofield":
+					special = "When it arrives at its destination or is <q>destroyed</q> in combat, it will explode and create a proto-minefield at a rate of 1 proto-unit per clan. Enemies suffer " + shipAbility("Protoinfection") + " just by moving through.";
+					break;
+				case "Red Mite":
+					special = shipAbility("Mite") + ". If it intercepts its victim, it deals 100kT of damage";
+					break;
+				case "Blue Mite":
+					special = shipAbility("Mite") + ". If it intercepts its victim, it adds 27 points of " + shipAbility("Protoinfection");
+					break;
+				case "Green Mite":
+					special = shipAbility("Mite") + ". If it intercepts its victim, it attaches itself and relays recon information to its owner";
+					break;
+			}
+			
+			shipDb.push(new shipDesign(hullsObj[h].name, hullsObj[h].techlevel, hullsObj[h].mass,hullsObj[h].engines, hullsObj[h].crew,
+				hullsObj[h].beams, hullsObj[h].launchers, hullsObj[h].fighterbays, hullsObj[h].fueltank, hullsObj[h].cargo,
+				hullsObj[h].duranium, hullsObj[h].tritanium, hullsObj[h].molybdenum, hullsObj[h].cost, special));
 		}
-
-		switch (hullsObj[h].name) {
-			case "Neutronic Refinery Ship":
-				special = shipAbility("Refinery");
-				break;
-			case "Merlin Class Alchemy Ship":
-				special = shipAbility("Alchemy");
-				break;
-				
-			case "Bohemian Class Survey Ship":
-				special = shipAbility("Heats to 50");
-				break;
-			case "Eros Class Research Vessel":
-				special = shipAbility("Cools to 50");
-				break;
-			case "Brynhild Class Escort":
-				special = shipAbility("Bioscanning");
-				break;
-				
-			case "Zilla Class Battlecarrier":
-				special = shipAbility("Emork's Spirit Bonus") + " and " + shipAbility("Tidal Force Shield");
-				break;
-				
-			case "Swift Heart Class Scout":
-				special = shipAbility("Cloak") + " and " + shipAbility("Nebula Scanner");
-				break;
-			case "Deth Specula Heavy Frigate":
-				special = shipAbility("Advanced Cloak") + " and " + shipAbility("Radiation Shielding");
-				break;
-			case "Red Wind Storm-Carrier":
-				special = shipAbility("Advanced Cloak") + " and " + shipAbility("Cloaked Fighter Bay");
-				break;
-			case "Resolute Class Battlecruiser":
-				// Fall through
-			case "Dark Wing Class Battleship":
-				special = shipAbility("Advanced Cloak");
-				break;
-				
-			case "D7b Painmaker Class Cruiser":
-				special = shipAbility("Radiation Shielding") + " and " + shipAbility("Glory Device (50-20)");
-				break;
-			case "D7 Coldpain Class Cruiser":
-				// Series of fall throughs
-			case "Deth Specula Class Frigate":
-			case "Deth Specula Armoured Frigate":
-			case "D3 Thorn Class Destroyer":
-			case "D3 Thorn Class Frigate":
-			case "D3 Thorn Class Cruiser":
-				// Stop right there
-				special = shipAbility("Cloak") + " and " + shipAbility("Radiation Shielding");
-				break;
-			case "D19b Nefarious Class Destroyer":
-				// Fall through
-			case "D19c Nefarious Class Destroyer":
-				special = shipAbility("Radiation Shielding") + " and " + shipAbility("Glory Device (100-20)");
-				break;
-			case "Deth Specula Stealth":
-				special = shipAbility("Cloak") + ", " + shipAbility("Radiation Shielding") + ", and " + shipAbility("Recloak Intercept");
-				break;
-			case "Saber Class Frigate":
-				special = shipAbility("Radiation Shielding") + " and " + shipAbility("Glory Device (100-10)");
-				break;
-			case "Saber Class Shield Generator":
-				special = shipAbility("Radiation Shielding") + ", " + shipAbility("Glory Device (100-10)") + ", and " + shipAbility("Shield Generator");
-				break;
-			case "D9 Usva Class Stealth Raider":
-				special = shipAbility("Radiation Shielding") + " and " + shipAbility("Stealth Armor");
-				break;
-				
-			case "Br4 Class Gunship":
-				// Fall through... twice
-			case "Br5 Kaye Class Torpedo Boat":
-			case "Meteor Class Blockade Runner":
-				// Stop right there
-				special = shipAbility("Cloak") + " and " + shipAbility("Gravitonic Acceleration");
-				break;
-				
-			case "B200 Class Probe":
-				// Series of fall throughs
-			case "Sapphire Class Space Ship":
-			case "Pl21 Probe":
-			case "Falcon Class Escort":
-				// Stop right there
-				special = shipAbility("Hyperdrive");
-				break;
-
-			case "B41b Explorer":
-				special = shipAbility("Chunnel Target") + " and " + shipAbility("Nebula Scanner");
-				break;
-			case "B222b Destroyer":
-				special = shipAbility("Chunnel Self (B200)");
-				break;
-			case "Firecloud Class Cruiser":
-				special = shipAbility("Chunnel Initiator") + " and " + shipAbility("Chunnel Target");
-				break;
-			case "Lorean Class Temporal Lance":
-				special = shipAbility("Temporal Lance") + " and " + shipAbility("Chunnel Target");
-				break;
-			case "Dungeon Class Stargate":
-				special = shipAbility("Stargate") + " and " + shipAbility("Chunnel Stabilizer");
-				break;
-				
-			case "Topaz Class Gunboats":
-				// Series of fall throughs
-			case "Imperial Topaz Class Gunboats":
-			case "Ru25 Gunboats":
-			case "Ru30 Gunboats":
-				// Stop right there
-				special = shipAbility("Squadron") + ", " + shipAbility("Elusive") + ", and " + shipAbility("Planet Immunity");
-				break;
-				
-			case "Onyx Class Frigate":
-				special = shipAbility("Heats to 100");
-				break;
-
-			case "Super Star Cruiser":
-				// Fall through
-			case "Super Star Cruiser II":
-				special = shipAbility("Intercept Interference");
-				break;
-
-			case "Pawn Class Baseship":
-				// Fall through
-			case "Pawn B Class Baseship":
-				special = shipAbility("Advanced Bioscanning");
-				break;
-				
-			case "Aries Class Transport":
-				special = shipAbility("Advanced Refinery");
-				break;
-			case "Cobol Class Research Cruiser":
-				special = shipAbility("Bioscanning") + " and " + shipAbility("Ramscooping");
-				break;
-			case "Lady Royale Class Cruiser":
-				special = shipAbility("Gambling");
-				break;
-				
-			case "Hive":
-				special = "Hives affect happiness of planets within 100 LY. Can scatter their clans to planets within 100 LY, destroying the Hive in the process.<br /> \
-					These ships count as starbases for scoreboard and combat purposes.<br />" + shipAbility("Tow Immunity (>5000)") + " and " + shipAbility("Chunnel Immunity");
-				break;
-			case "Jacker":
-				special = shipAbility("Heavy Armor");
-				break;
-			case "Sentry":
-				special = "Reconnaissance pod will relay information and sweep mines while stationary in space. " + shipAbility("Recharge Station (5)");
-				break;
-			case "Accelerator":
-				special = "Support pod that will boost the distance of pods travelling through it by 50% while stationary in space while changing direction. Increased speed lasts until negated. " + shipAbility("Recharge Station (25)") + " and " + shipAbility("Tow Immunity");
-				break;
-			case "Protofield":
-				special = "When it arrives at its destination or is <q>destroyed</q> in combat, it will explode and create a proto-minefield at a rate of 1 proto-unit per clan";
-				break;
-		}
-		
-		shipDb.push(new shipDesign(hullsObj[h].name, hullsObj[h].techlevel, hullsObj[h].mass,hullsObj[h].engines, hullsObj[h].crew,
-			hullsObj[h].beams, hullsObj[h].launchers, hullsObj[h].fighterbays, hullsObj[h].fueltank, hullsObj[h].cargo,
-			hullsObj[h].duranium, hullsObj[h].tritanium, hullsObj[h].molybdenum, hullsObj[h].cost, special));
 	}
 }
 
@@ -710,10 +735,12 @@ function dispInfo(techItem) {
 			displayTxt = displayTxt + ". Does not reveal ownership";
 			break;
 		case "Cloak":
-			displayTxt = "Allows an undamaged starship the ability to cloak, consuming fuel in the process while also reducing radiation damage to 1/2. <span class=\"bindTxt\">Allows " + shipAbility("Priority Intercept Attack") + "s</span>";
+			displayTxt = "Allows an undamaged starship the ability to cloak, consuming fuel in the process while also reducing radiation damage to 1/2. \
+				<span class=\"bindTxt\">Allows " + shipAbility("Priority Intercept Attack") + "s</span>";
 			break;
 		case "Advanced Cloak":
-			displayTxt = "Upgraded <a href=\"javascript:dispInfo('Cloak')\">Cloaking Device</a> that does not consume fuel and can overcome nebulas. While cloaked, radiation damage is reduced to 1/3, and the ship is protected from ion storms";
+			displayTxt = "Upgraded <a href=\"javascript:dispInfo('Cloak')\">Cloaking Device</a> that does not consume fuel and can overcome nebulas. \
+				While cloaked, radiation damage is reduced to 1/3, and the ship is protected from ion storms";
 			break;
 		case "Chameleon Device":
 			displayTxt = "Compatible ships can use this device to appear as any other ship, consuming 10kT of neutronium fuel per turn while active";
@@ -746,20 +773,27 @@ function dispInfo(techItem) {
 			abilityAmt = 50;
 			displayTxt = "Ship will terraform the planet, reducing its temperature by 1 degree after movement per turn, to a minimum of " + abilityAmt;
 			break;
+		case "Deep Scan":
+			displayTxt = "Unique mission that can detect enemy ship movements up to 200 LY away as they move (will not identify them).<br /> \
+				Visible only to ships at the same location while mission is effective (also requires the ship be stationary and not at a planet/warp well).";
+			break;
 		case "Educator":
 			displayTxt = "Raises Native government level by 5% per turn, to a maximum level of Representative (140%)";
 			break;
 		case "Elusive":
 			displayTxt = "Torpedoes targeting this ship have their accuracy reduced to 10% (from 35%)";
 			break;
+		case "Elusive (Quantum)":
+			displayTxt = shipAbility("Quantum Torpedoes") + " targeting this ship have their accuracy reduced to 10% (from 35%)";
+			break;
 		case "Emork's Spirit Bonus":
-			displayTxt = "Complex hull function adds the following abilities and restrictions:<ul style=\"text-align: left;\">" + 
-				"<li>This ship can only be built at a homeworld, with a fixed name assigned to the ship</li>" +
-				"<li>This ship is unclonable, but can still be traded or captured</li>" +
-				"<li>Gains one fighter bay for each homeworld under control. Applies only to the building player</li>" +
-				"<li>Destruction, capture, or trading away decreases the happiness of the homeworld responsible by 100%</li>" +
-				"<li>If the homeworld responsible falls to foreign hands, this ship will self-destruct with a force of a " + shipAbility("Glory Device (100-100)") + "</li>" +
-				"</ul>";
+			displayTxt = "Complex hull function adds the following abilities and restrictions:<ul style=\"text-align: left;\"> \
+				<li>This ship can only be built at a homeworld, with a fixed name assigned to the ship</li> \
+				<li>This ship is unclonable, but can still be traded or captured</li> \
+				<li>Gains one fighter bay for each homeworld under control. Applies only to the building player</li> \
+				<li>Destruction, capture, or trading away decreases the happiness of the homeworld responsible by 100%</li> \
+				<li>If the homeworld responsible falls to foreign hands, this ship will self-destruct with a force of a " + shipAbility("Glory Device (100-100)") + "</li> \
+				</ul>";
 			break;
 		case "Gambling":
 			displayTxt = "Ship will generate megacredits per turn on board at a rate of 1 mc per colonist clan in its cargo hold.";
@@ -780,7 +814,7 @@ function dispInfo(techItem) {
 			displayTxt = "When detonated, this device will deal roughly 50kT worth of damage to all ships. Fascist ships and ships belonging to the owner of the detonator receive 20% of the full damage dealt";
 			break;
 		case "Gravitonic Acceleration":
-			displayTxt = "Ship will move at twice the normal LY per turn while consuming half the normal fuel per LY";
+			displayTxt = "Ship will move at twice the normal LY per turn while consuming half the normal fuel per LY. Gains " + shipAbility("Elusive (Quantum)") + ".";
 			break;
 		case "Heats to 50":
 			abilityAmt = 50;
@@ -840,13 +874,16 @@ function dispInfo(techItem) {
 			displayTxt = "Converts cargo to neutronium at a rate of " + abilityAmt + " to create 1 fuel";
 			break;
 		case "Repair Ship":
-			displayTxt =  "Can repair hull damage and removes proto-infection toward any ship using the <q>Repair Ship</q> mission.";
+			displayTxt =  "Can repair hull damage and remove "+shipAbility("Protoinfection")+" from any ship using the <q>Repair Ship</q> mission.";
 			break;
 		case "Shield Generator":
 			displayTxt = "Adds 25% to the maximum shield strength, provides 25% shield generation in between battles, and adds 50% Engine Shield Bonus worth of combat mass. <span class=\"bindTxt\">(max 2 ships)</span>";
 			break;
 		case "Squadron":
 			displayTxt = "Squadrons are comprised of multiple <q>fighters</q> and are immune to crew loss during combat. If one fighter is destroyed, the survivors escape and return to battle with one <em>less</em> beam";
+			break;
+		case "Stackable":
+			displayTxt = "Can be combined with a different compatible ship using the " + shipAbility("Stack Ships") + " mission";
 			break;
 		case "Stargate":
 			displayTxt = "Allows ANY ship to chunnel to another stargate or any other " + shipAbility("Chunnel Target");
@@ -864,7 +901,8 @@ function dispInfo(techItem) {
 			displayTxt = "Charges in Ion Storms to release a kinetic blast, pushing ALL other ships within 3LY from the ship.";
 			break;
 		case "Temporal Lance":
-			displayTxt = "With a " + shipAbility("Chunnel Target") + " as a guide, can create a wormhole through time and space, allowing it and ships accompanying it to disappear from the map and the ship list. They will reappear at a location beyond the " + shipAbility("Chunnel Target") + "'s initial position several turns into the future.";
+			displayTxt = "With a " + shipAbility("Chunnel Target") + " as a guide, can create a wormhole through time and space, allowing it and ships accompanying it to disappear from the map and the ship list. \
+				They will reappear at a location beyond the " + shipAbility("Chunnel Target") + "'s initial position several turns into the future.";
 			break;
 		case "Tow Immunity (>5000)":
 			abilityAmt = 5000;
@@ -947,7 +985,8 @@ function dispInfo(techItem) {
 			displayTxt = "Allows a Bird starship to initiate combat with other ships even with friendly codes matched. Bird weapons will pierce shields if matched.";
 			break;
 		case "Covert Data Link":
-			displayTxt = "Allows a Bird starship on "+shipAbility("Super Spy")+" and Friendly Code `spy` to match the friendly code of a planet (even if changed).";
+			displayTxt = "Allows "+shipAbility("Super Spy")+" to build a database of friendly codes for each planet. Effectiveness starts at 100%, but decreases by 10% each turn.<br /> \
+				If a code fails once, the enemy discovers the spies knowing the code, and it will no longer work.";
 			break;
 		case "Super Spy Infiltration":
 			displayTxt = "When super spying at a starbase, specificiations (weapons, cargo, friendly code, true hull) for each orbiting starship that matches ownership are revealed to the spying player. Requires " + shipAbility("Super Spy Advanced") + ".";
@@ -955,15 +994,15 @@ function dispInfo(techItem) {
 		case "Red Storm Cloud": // Dummied out. Kept here as a reference
 			displayTxt = "Allows TWO <a href=\"javascript:dispInfo('Red Wind Storm-Carrier')\">Red Wind Storm Carriers</a> to support other carriers with their fighter bays and ammunition.";
 			break;
-		// Fascist bonuses
+		// Fascist/Fury bonuses
 		case "Pillage Planet":
 			displayTxt = "Allows a starship to pillage a planet to generate and scavenge money and supplies, killing 20% of the population(s) in the process. Requires beam(s) to use";
 			break;
 		case "15X Ground Combat":
-			displayTxt = "Fascist clans dropped onto a foreign planet kill 15 times as many foreign colonists as normal clans";
+			displayTxt = "Fury clans dropped onto a foreign planet kill 15 times as many foreign colonists as normal clans";
 			break;
 		case "5X Ground Defense":
-			displayTxt = "Fascist clans defend 5 times better against clans dropped from foreign ships";
+			displayTxt = "Fury clans defend 5 times better against clans dropped from foreign ships";
 			break;
 		case "Plunder Planet":
 			displayTxt = "Upgrades Pillage Planet to generate 2.5X more money and supplies than a normal pillage";
@@ -979,13 +1018,16 @@ function dispInfo(techItem) {
 			displayTxt = "Beams deal three times as much crew kill once the shields are gone";
 			break;
 		case "Pleasure Planets":
-			displayTxt = "50&deg;W planets can become a Pleasure Planet by landing and disassembling a Lady Royale, providing a massive boost in colonist happiness and doubling "+shipAbility("Gambling")+" effects, at the expense of being exposed to foreign races within 250LY, reducing native happiness, and halving mining/factory efficiency.<br /><br />Non-cyborg, non-crystalline, non-robotic, non-horwasp colonists within 250LY will migrate to the planet each turn <span class=\"bindTxt\">(4% if within 100LY; otherwise 2%)</span>";
+			displayTxt = "50&deg;W planets can become a Pleasure Planet by landing and disassembling a Lady Royale; \
+				providing a massive boost in colonist happiness and doubling "+shipAbility("Gambling")+" effects, \
+				at the expense of being exposed to foreign races within 250LY, reducing native happiness, and halving mining/factory efficiency.<br /><br /> \
+				Non-cyborg, non-crystalline, non-robotic, non-horwasp colonists within 250LY will migrate to the planet each turn <span class=\"bindTxt\">(4% if within 100LY; otherwise 2%)</span>";
 			break;
 		case "Rob Fighters":
-			displayTxt = "When using Rob Ship, carriers have a 10% chance to steal each fighter. Stolen fighters each have a 50% of being lost.";
+			displayTxt = "When using Rob Ship, carriers have a 10% chance to steal each fighter from enemy carriers/starbases at the same location. Stolen fighters each have a 50% of being lost.";
 			break;
-		case "Hidden Minefields": //Where is this?
-			displayTxt = "When using Rob Ship, carriers have a 10% chance to steal each fighter. Stolen fighters each have a 50% of being lost.";
+		case "Hidden Minefields":
+			displayTxt = "Minefields laid this way can neither be scanned nor swept until a mine has been hit. Mines laid this way are half as effective.";
 			break;
 		// Cyborg bonuses
 		case "Assimilation":
@@ -1012,7 +1054,8 @@ function dispInfo(techItem) {
 			displayTxt = "Starships set to this mission will detect any foreign planets within 200LY. Picks up minerals, money, and whether there is a starbase present";
 			break;
 		case "Destroy Planet":
-			displayTxt = "Allows an undamaged Gorbie, with weapons (except ammo) and fuel fully maxed out, to charge up a planet buster. Requires a full turn of concentration to succeed";
+			displayTxt = "Allows an undamaged Gorbie, with weapons (except ammo) and fuel fully maxed out, to charge up a planet buster. Requires a full turn of concentration to succeed.<br /> \
+				If successful, a planet becomes destroyed, transforming into a debris disk in the process.<br />ALL Gorbies also spread fear to enemy planets, reducing their happiness.";
 			break;
 		case "Debris Disk Defense":
 			displayTxt = "Allows otherwise illegal starships to navigate through debris disks, at the expense of risking collisions with asteroids";
@@ -1027,14 +1070,16 @@ function dispInfo(techItem) {
 			displayTxt = "Gorbie Battlecarriers will fight on the left side of combat, regardless of battle value";
 			break;
 		case "Fighter Patrol Routes": // NYI
-			displayTxt = "Starbases &lt;200 LY apart can form blockades networks. Any intruders (even cloaked) that pass through are attacked by patrolling fighters. Requires primary order and 10kT fuel per network per turn. Can be detected by Sensor Sweep";
+			displayTxt = "Starbases &lt;200 LY apart can form blockades networks. Any intruders (even cloaked) that pass through are attacked by patrolling fighters. \
+				Requires primary order and 10kT fuel per network per turn. Can be detected by Sensor Sweep";
 			break;
 		// Robotic bonuses
 		case "4X Mine Laying":
 			displayTxt = "Torpedo ships will lay 4X as many mines compared to normal ships when laid in their own identity";
 			break;
 		case "Star Cluster Radiation Immunity":
-			displayTxt = "Robotic starships are unaffected by the radiation emitted by star clusters. They still can not enter star clusters.<br />Robotic colonies inside radiation can build normal starbases, instead of Radiation Shielded starbases.";
+			displayTxt = "Robotic starships are unaffected by the radiation emitted by star clusters. They still can not enter star clusters.<br /> \
+				Robotic colonies inside radiation can build normal starbases, instead of Radiation Shielded starbases.";
 			break;
 		case "Hardened Mines":
 			displayTxt = "Minefields are immune to <a href=\"javascript:dispInfo('Fighter Mine Sweep')\">fighter sweeping</a>";
@@ -1065,6 +1110,9 @@ function dispInfo(techItem) {
 		case "Fighter Mine Sweep":
 			displayTxt = "Allows carriers to use their fighters to sweep NORMAL mines from 100LY away. Stacks with beams";
 			break;
+		case "Stack Ships":
+			displayTxt = "Allows combining two undamaged smaller ships with matching equipment into a larger ship. They must be at the same location, and may not move on the turn they stack.";
+			break;
 		// Horwasp bonuses
 		case "Ship Building Planets":
 			displayTxt = "Horwasp planets can create ships and <a href=\"javascript:dispInfo('Pod')\">pods</a> without the necessity to develop technology";
@@ -1079,13 +1127,22 @@ function dispInfo(techItem) {
 			displayTxt = "Horwasps are permitted to create relationships beyond Safe Passages only with another Horwasp player";
 			break;
 		case "Psychic Scanning":
-			displayTxt = "Horwasps can detect enemy ships regardless of environment or cloaking status. Psychic scanning range is half the normal scanning range <span class=\"bindTxt\">(default: 150 LY)</span>. Cloaked ships still can not be attacked. Robotic ships are resistant to Psychic Scanning, and can only be detected normally within further reduced distance <span class=\"bindTxt\">(default: 75 LY)</span>";
+			displayTxt = "Horwasps can detect enemy ships regardless of environment or cloaking status. Psychic scanning range is half the normal scanning range <span class=\"bindTxt\">(default: 150 LY)</span>. \
+				Cloaked ships still can not be attacked. Robotic ships are resistant to Psychic Scanning, and can only be detected normally within further reduced distance <span class=\"bindTxt\">(default: 75 LY)</span>";
 			break;
 		case "Pod":
-			displayTxt = "A pod is a tiny space object that moves autonomously once it leaves planetary orbit. They have a fixed trajectory, and do not count towards the ship limit. <span class=\"bindTxt\">They can still usually be towed.</span><br /><br />If a pod reaches a planet, it will land and is removed from play. Visibility is limited to 50 LY for pods with weapons, and otherwise 25 LY";
+			displayTxt = "A tiny space object that moves autonomously once it leaves planetary orbit. They have a fixed trajectory, and do not count towards the ship limit. \
+				<span class=\"bindTxt\">They can still usually be towed.</span><br /><br />If a pod reaches a planet, it will land and is removed from play. Visibility is limited to 50 LY for pods with weapons, and otherwise 25 LY";
 			break;
-		case "Call to Hive":
+		case "Call To Hive":
 			displayTxt = "Exclusive mission that allows a Hive to remotely take 1% of clans from each owned planet within 100 LY";
+			break;
+		case "Protoinfection":
+			displayTxt = "Hostile ships which catch this infection take damage over time. Will be removed gradually over time, and can be removed via Starbase Fix or the "+shipAbility("Repair Ship")+" mission";
+			break;
+		case "Mite":
+			displayTxt = "Specialist " + shipAbility("Pod") + "s that intercept enemy ships. If they intercept, they perform the ability outlined on the mite itself.<br /> \
+				Warp 3 mites can intercept indefinitely. Warp 6-7 mites last 10 turns before they expire. Warp 9 mites expire after 1 turn.";
 			break;
 		// Common bonuses
 		case "Lay Minefields":
@@ -1123,7 +1180,8 @@ function dispInfo(techItem) {
 			displayTxt = "Planets can NOT attack Planet Immune starships";
 			break;
 		case "Priority Intercept Attack":
-			displayTxt = "Also known as a Cloak Intercept (Host 3.22) and simply Intercept Attack (PHost), ships can initiate a priority intercept by choosing a victim and setting the correct aggression setting. Requires a " + shipAbility("Cloak") + " to be installed on the ship, but usable regardless of damage level";
+			displayTxt = "Also known as a Cloak Intercept (Host 3.22) and simply Intercept Attack (PHost), ships can initiate a priority intercept by choosing a victim and setting the correct aggression setting. \
+				Requires a " + shipAbility("Cloak") + " to be installed on the ship, but usable regardless of damage level";
 			break;
 		case "Minefields Save Fuel":
 			displayTxt = "Starships travelling through own mine fields spend 20% less neutronium fuel";
