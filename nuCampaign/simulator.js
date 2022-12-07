@@ -3,6 +3,7 @@ var simulatorRace = 0;
 var elementObj = new Array();
 var maxAdvantage = 500;
 var checkFighters = false;
+var saveCookieDate = new Date;
 window.onload = init;
 
 //Campaign technology object
@@ -33,7 +34,6 @@ function startProgram() {
 	var bodyPanel = document.getElementsByTagName("body")[0];
 	var infoFrag;
 
-	var targetDate = new Date;
 	loadRace();
 	initShips();
 	
@@ -62,8 +62,8 @@ function startProgram() {
 	};
 	bodyPanel.appendChild(infoFrag);
 
-	targetDate.setTime(targetDate.getTime() + (30*24*60*60*1000))
-	setCookie("techVisit","1",targetDate,"/",null,false);
+	saveCookieDate.setTime(saveCookieDate.getTime() + (30*24*60*60*1000))
+	setCookie("techVisit","1",saveCookieDate,"/",null,false);
 	
 	buttonFrag = document.createElement("button");
 	buttonFrag.className = "interact";
@@ -288,6 +288,13 @@ function addDesign(name, ship, mc, adv, locked) {
     designIter++;
 }
 
+function saveGigacredits() {
+	saveGC = document.getElementById("userMoney").value;
+	if (isFinite(saveGC)) { 
+		setCookie("gigacredits",saveGC,saveCookieDate,"/",null,false);
+	}
+}
+
 /* ------------------------------------------------------------------------ */
 
 //Calculate costs
@@ -400,7 +407,7 @@ function writeDateString(dateObj) {
 
 function setCookie(cName, cValue, expDate, cPath, cDomain, cSecure) {
 	if (cName && cValue != "") {
-		var cString = cName + "=" + encodeURI(cValue);
+		var cString = cName + "=" + encodeURI(cValue) + ";samesite=lax";
 		cString += (expDate ? ";expires=" + expDate.toUTCString(): "");
 		cString += (cPath ? ";path=" + cPath : "");
 		cString += (cDomain ? ";domain=" + cDomain : "");
