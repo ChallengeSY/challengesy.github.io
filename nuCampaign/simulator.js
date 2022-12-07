@@ -812,13 +812,13 @@ function dispInfo(techItem) {
 			if (!abilityAmt) {
 				abilityAmt = 20;
 			}
-			displayTxt = "When detonated, this device will deal roughly 100kT worth of damage to all ships. Fascist ships and ships belonging to the owner of the detonator receive "+abilityAmt+"% of the full damage dealt";
+			displayTxt = "When detonated, this device will deal roughly 100kT worth of damage to all ships. Fury ships and ships belonging to the owner of the detonator receive "+abilityAmt+"% of the full damage dealt";
 			break;
 		case "Glory Device (100-100)":
 			displayTxt = "When detonated, this device will deal roughly 100kT worth of damage to ALL ships, regardless of owner";
 			break;
 		case "Glory Device (50-20)":
-			displayTxt = "When detonated, this device will deal roughly 50kT worth of damage to all ships. Fascist ships and ships belonging to the owner of the detonator receive 20% of the full damage dealt";
+			displayTxt = "When detonated, this device will deal roughly 50kT worth of damage to all ships. Fury ships and ships belonging to the owner of the detonator receive 20% of the full damage dealt";
 			break;
 		case "Gravitonic Acceleration":
 			displayTxt = "Ship will move at twice the normal LY per turn while consuming half the normal fuel per LY. Gains " + shipAbility("Elusive (Quantum)") + ".";
@@ -1312,7 +1312,7 @@ function detailedReport(targetDesign) {
 			similiarDesign = "Red Wind Class Carrier";
 			break;
 			
-		// Fascist designs
+		// Fascist/Fury designs
 		case "D7b Painmaker Class Cruiser":
 			similiarDesign = "D7a Painmaker Class Cruiser";
 			break;
