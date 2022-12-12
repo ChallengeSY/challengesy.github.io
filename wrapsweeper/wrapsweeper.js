@@ -458,7 +458,7 @@ function autoReveal() {
 						}
 						
 						if (!minefield[refX][refY].revealed) {
-							touchTile(refX,refY);
+							touchTile(null,refX,refY);
 							minefield[refX][refY].delayChain = true;
 						}
 					}
@@ -475,12 +475,12 @@ function autoReveal() {
 	}
 }
 
-function touchTile(ox, oy) {
+function touchTile(event, ox, oy) {
 	flagMode = document.getElementById("flagMode");
+	var baseID = null;
+	var x, y, rerollCt;
 	
 	if (gamePlayable) {
-		var baseID = null;
-		var x, y, rerollCt;
 		if (ox === undefined || oy === undefined) {
 			baseID = this.id;
 			x = parseInt(baseID.substring(1,4));
@@ -629,7 +629,7 @@ function chordTile(cx, cy) {
 				
 				if (!minefield[refX][refY].revealed) {
 					newTiles++;
-					touchTile(refX, refY);
+					touchTile(null, refX, refY);
 				}
 			}
 		}
