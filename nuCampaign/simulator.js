@@ -456,6 +456,11 @@ function initShips() {
 				case "Merlin Class Alchemy Ship":
 					special = shipAbility("Alchemy");
 					break;
+				case "Neutronic Fuel Carrier":
+				case "Large Deep Space Freighter":
+				case "Super Transport Freighter":
+					special = shipAbility("Weak Armor");
+					break;
 					
 				case "Bohemian Class Survey Ship":
 					special = shipAbility("Heats to 50");
@@ -467,6 +472,9 @@ function initShips() {
 					special = shipAbility("Bioscanning");
 					break;
 					
+				case "Chameleon Class Freighter ©":
+					special = shipAbility("Chameleon Device") + " and " + shipAbility("Weak Armor");
+					break;
 				case "Zilla Class Battlecarrier":
 					special = shipAbility("Emork's Spirit Bonus") + " and " + shipAbility("Tidal Force Shield");
 					break;
@@ -600,8 +608,8 @@ function initShips() {
 					break;
 					
 				case "Hive":
-					special = "Hives affect happiness of planets within 100 LY. Can scatter their clans to planets within 100 LY, destroying the Hive in the process.<br /> \
-						These ships count as starbases for scoreboard and combat purposes.<br />" + shipAbility("Tow Immunity (>5000)") + " and " + shipAbility("Chunnel Immunity");
+					special = "Can scatter their clans to planets within 100 LY, destroying the Hive in the process.<br /> \
+						These ships count as starbases for scoreboard and combat purposes.<br />" + shipAbility("Fear") + ", " + shipAbility("Tow Immunity (>5000)") + " and " + shipAbility("Chunnel Immunity");
 					break;
 				case "Jacker":
 					special = shipAbility("Heavy Armor");
@@ -802,6 +810,9 @@ function dispInfo(techItem) {
 				<li>If the homeworld responsible falls to foreign hands, this ship will self-destruct with a force of a " + shipAbility("Glory Device (100-100)") + "</li> \
 				</ul>";
 			break;
+		case "Fear":
+			displayTxt = "Ship will affect the happiness of enemy planets within 100 LY.";
+			break;
 		case "Gambling":
 			displayTxt = "Ship will generate megacredits per turn on board at a rate of 1 mc per colonist clan in its cargo hold.";
 			break;
@@ -926,6 +937,9 @@ function dispInfo(techItem) {
 			break;
 		case "Trailer":
 			displayTxt = "This ship is immobile. It can neither move nor interecept";
+			break;
+		case "Weak Armor":
+			displayTxt = "Ship is unable to safely navigate through a debris disk, despite its small mass.";
 			break;
 		case "Web Cloak":
 			displayTxt = "Ship is passively stealthed if it begins and ends its movement step inside "+shipAbility("Web Mines")+".";
@@ -1061,8 +1075,8 @@ function dispInfo(techItem) {
 			displayTxt = "Starships set to this mission will detect any foreign planets within 200LY. Picks up minerals, money, and whether there is a starbase present";
 			break;
 		case "Destroy Planet":
-			displayTxt = "Allows an undamaged Gorbie, with weapons (except ammo) and fuel fully maxed out, to charge up a planet buster. Requires a full turn of concentration to succeed.<br /> \
-				If successful, a planet becomes destroyed, transforming into a debris disk in the process.<br />ALL Gorbies also spread fear to enemy planets, reducing their happiness.";
+			displayTxt = "Allows an undamaged Gorbie, with weapons (except ammo) and fuel fully maxed out, to charge up a planet buster.<br /> \
+				If successful (requires a full turn of concentration), a planet becomes destroyed, transforming into a debris disk in the process.<br />ALL Gorbies also become equipped with "+shipAbility("Fear");
 			break;
 		case "Debris Disk Defense":
 			displayTxt = "Allows otherwise illegal starships to navigate through debris disks, at the expense of risking collisions with asteroids";
@@ -1278,13 +1292,13 @@ function detailedReport(targetDesign) {
 		case "Saurian Class Heavy Frigate":
 			similiarDesign = "Saurian Class Light Cruiser";
 			break;
-		case "Chameleon Class Freighter":
+		case "Chameleon Class Freighter ©":
 			similiarDesign = "Large Deep Space Freighter";
 			break;
-		case "Madonnzila Class Carrier (C)":
+		case "Madonnzila Class Carrier ©":
 			similiarDesign = "Madonnzila Class Carrier";
 			break;
-		case "T-Rex Class Battleship (C)":
+		case "T-Rex Class Battleship ©":
 			similiarDesign = "T-Rex Class Battleship";
 			break;
 			
