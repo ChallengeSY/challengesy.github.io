@@ -27,7 +27,7 @@
 
 <table class="clean">
 <tr>
-<td rowspan="2">
+<td rowspan="3">
 <fieldset>
 <legend>Player Forces</legend>
 <table class="clean">
@@ -35,10 +35,10 @@
 <tr>
 <td></td>
 <td></td>
-<th>Quantity</th>
-<th>Attack</th>
+<th title="How many ships of this type in the fleet?">Quantity</th>
+<th title="Raw Attack strength">Attack</th>
 <th title="Chance to hit DM">Accuracy</th>
-<th>Defense</th>
+<th title="Raw Defense strength">Defense</th>
 <th title="Chance to avoid a hit by DM">Evasion</th>
 <th title="Target priority by DM">Threat</th>
 </tr>
@@ -86,9 +86,39 @@
 </td>
 </tr>
 <tr>
+<td valign="middle">
+<fieldset>
+<legend>Terrain</legend>
+<input type="radio" name="combatHex" oninput="computeHitChances(true);" id="hexClear" value="hexClear" checked="checked" />
+<label for="hexClear">Clear</label>
+<input type="radio" name="combatHex" oninput="computeHitChances(true);" id="hexAsteroids" value="hexAsteroids"" />
+<label for="hexAsteroids">Asteroids</label> <a href="javascript:showBox('Asteroids')">(?)</a>
+<input type="radio" name="combatHex" oninput="computeHitChances(true);" id="hexNebula" value="hexNebula" />
+<label for="hexNebula">Nebula</label> <a href="javascript:showBox('Nebula')">(?)</a>
+<input type="radio" name="combatHex" oninput="computeHitChances(true);" id="hexBlackHole" value="hexBlackHole" />
+<label for="hexBlackHole">Black Hole</label> <a href="javascript:showBox('Black Hole')">(?)</a>
+</fieldset>
+</td>
+</tr>
+<tr>
 <td valign="bottom">
 <fieldset>
 <legend>Doomsday Machine</legend>
+<table class="clean" style="float: right;">
+<tr>
+<th>Attack</th>
+<td id="dmAtk">0</td>
+<th>Defense</th>
+<td id="dmDef">0</td>
+</tr>
+<tr>
+<th>Size</th>
+<td id="dmSize">0</td>
+<th>Rolls</th>
+<td id="dmRoll">0</td>
+</tr>
+</table>
+
 <label for="dmStr">Strength</label>
 <select class="text" id="dmStr" onchange="computeHitChances(true);" onblur="computeHitChances(true);">
 <option>Multiplayer DM</option>
@@ -119,28 +149,17 @@
 <label for="dmSame">Same Class advantage?</label>
 <input type="checkbox" id="dmSame" checked="checked"/>
 <a href="javascript:showBox('Tactics')">(?)</a>
-<br />
-
-<table class="clean">
-<tr>
-<th>Attack</th>
-<td id="dmAtk">0</td>
-<th>Defense</th>
-<td id="dmDef">0</td>
-</tr>
-<tr>
-<th>Size</th>
-<td id="dmSize">0</td>
-<th>Rolls</th>
-<td id="dmRoll">0</td>
-</tr>
-</table>
 </fieldset>
 </td>
 </tr>
 </table>
 
 <hr />
+
+<div>
+<h2>Instructions</h2>
+<p>This Battle Simulator is designed to estimate battles versus Doomsday Machines. Design your dream fleet (using quantities), apply technology, and simulate away.</p>
+</div>
 
 </body>
 </html>

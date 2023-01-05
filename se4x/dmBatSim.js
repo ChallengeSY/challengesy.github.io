@@ -1,5 +1,3 @@
-var simRound = 0;
-
 function setupSim() {
 	setupBox();
 	
@@ -135,6 +133,12 @@ function getDMspecs() {
 	dmDef = Math.ceil((dmStr+1)/3);
 	dmSize = Math.floor(dmStr/2) + 6;
 	dmSameAdv = document.getElementById("dmSame").checked;
+	var combatChoices = document.getElementsByName("combatHex");
+	for (c in combatChoices) {
+		if (combatChoices[c].checked) {
+			combatHex = combatChoices[c].id;
+		}
+	}
 	
 	switch (dmStr) {
 		case 0:
@@ -171,6 +175,10 @@ function getDMspecs() {
 			break;
 	}
 	
+	if (combatHex == "hexNebula") {
+		dmClass = "E";
+	}
+	
 	document.getElementById("dmAtk").innerHTML = dmClass + dmAtk;
 	document.getElementById("dmDef").innerHTML = dmDef;
 	document.getElementById("dmSize").innerHTML = dmSize;
@@ -202,11 +210,27 @@ function computeHitChances(refreshDM) {
 					bonus = (dmWeak == 2);
 					hitCells[h].innerHTML = hitChance + "%";
 					hitCells[h].className = "numeric" + (bonus ? " bonus" : (readQty > 0 ? "" : " reference"));
+				} else if (hitCells[h].id == "FightersAggro") {
+					dmThreat = document.getElementById("CarrierAggro").innerHTML;
+					if (dmWeak == 1) {
+						dmThreat = dmThreat * 2;
+					}
+					hitCells[h].innerHTML = dmThreat;
 				} else if (hitCells[h].id.substr(-3,3) == "Hit") {
 					readId = hitCells[h].id.substr(0, hitCells[h].id.length - 3) + "Qty";
 					readQty = document.getElementById(readId).value;
 					readId = readId.substr(0, readId.length - 3) + "Atk";
-					readAtk = document.getElementById(readId).value;
+					if (combatHex == "hexAsteroids") {
+						if (readId == "FightersAtk") {
+							readAtk = Math.min(parseInt(document.getElementById(readId).value),parseInt(document.getElementById(readId).max)-1);
+						} else if (readId == "RaiderAtk") {
+							readAtk = Math.min(parseInt(document.getElementById(readId).value),parseInt(document.getElementById(readId).max)-2);
+						} else {
+							readAtk = document.getElementById(readId).min;
+						}
+					} else {
+						readAtk = document.getElementById(readId).value;
+					}
 					
 					hitChance = Math.max((readAtk - dmDef),0) * 10;
 					if (hitChance < 10 && dmStr == 0) {
@@ -220,7 +244,7 @@ function computeHitChances(refreshDM) {
 							bonus = true;
 						}
 					} else if (readId == "RaiderAtk") {
-						bonus = (dmWeak == 3);
+						bonus = (dmWeak == 3 && combatHex != "hexNebula");
 					}
 					
 					hitCells[h].innerHTML = hitChance + "%";
@@ -229,7 +253,11 @@ function computeHitChances(refreshDM) {
 					readId = hitCells[h].id.substr(0, hitCells[h].id.length - 4) + "Qty";
 					readQty = document.getElementById(readId).value;
 					readId = readId.substr(0, readId.length - 3) + "Def";
-					readDef = document.getElementById(readId).value;
+					if (combatHex == "hexNebula") {
+						readDef = document.getElementById(readId).min;
+					} else {
+						readDef = document.getElementById(readId).value;
+					}
 					
 					evaChance = Math.max(100 - (dmAtk - readDef) * 10,0);
 
@@ -321,11 +349,12 @@ function applyAllTech() {
 function playerShip(baseID) {
 	this.namee = baseID;
 	this.quantity = parseInt(document.getElementById(baseID + "Qty").value);
+	this.attackRating = parseInt(document.getElementById(baseID + "Hit").innerHTML) / 10;
 	if (baseID == "Mines") {
 		this.hullSize = 0;
+		this.defenseRating = 0;
 	} else {
-		this.attackRating = parseInt(document.getElementById(baseID + "Atk").value);
-		this.defenseRating = parseInt(document.getElementById(baseID + "Def").value);
+		this.defenseRating = parseInt(document.getElementById(baseID + "Miss").innerHTML) / 10;
 		this.threat = (this.quantity > 0 ? parseInt(document.getElementById(baseID + "Aggro").innerHTML) : 0);
 		this.hullSize = parseInt(document.getElementById(baseID + "Def").max) - parseInt(document.getElementById(baseID + "Def").min);
 	}
@@ -344,6 +373,16 @@ function playerShip(baseID) {
 				break;
 			}
 		}	
+	}
+	
+	this.getEligibleCount = function() {
+		return (this.attackRating > 0 ? this.quantity : 0);
+	}
+	
+	this.toString = function() {
+		let totalHP = this.hullSize * this.quantity - this.damage;
+		
+		return this.namee + " group (" + totalHP + " HP total)";
 	}
 }
 
@@ -368,6 +407,12 @@ function playerFleet() {
 		return this.scouts.quantity + this.destroyers.quantity + this.cruisers.quantity + this.battlecruisers.quantity +
 			this.battleships.quantity + this.dreadnoughts.quantity + this.shipYards.quantity + this.starbases.quantity +
 			this.carriers.quantity + this.fighters.quantity + this.mines.quantity + this.raiders.quantity + this.minesweepers.quantity;
+	}
+	
+	this.totalAtkShips = function() {
+		return this.scouts.getEligibleCount() + this.destroyers.getEligibleCount() + this.cruisers.getEligibleCount() + this.battlecruisers.getEligibleCount() +
+			this.battleships.getEligibleCount() + this.dreadnoughts.getEligibleCount() + this.shipYards.getEligibleCount() + this.starbases.getEligibleCount() +
+			this.carriers.getEligibleCount() + this.fighters.getEligibleCount() + this.mines.getEligibleCount() + this.raiders.getEligibleCount() + this.minesweepers.getEligibleCount();
 	}
 	
 	this.highestAggro = function() {
@@ -415,12 +460,12 @@ function playerFleet() {
 			return this.starbases;
 		}
 
-		if (this.carriers.threat == highestThreat) {
-			return this.carriers;
-		}
-
 		if (this.fighters.threat == highestThreat) {
 			return this.fighters;
+		}
+
+		if (this.carriers.threat == highestThreat) {
+			return this.carriers;
 		}
 
 		return this.minesweepers;
@@ -435,6 +480,10 @@ function doomsdayMachine() {
 	} else {
 		this.weakness = 5;
 	}
+	
+	this.toString = function() {
+		return "Doomsday Machine (" + this.hitPoints + " HP)";
+	}
 }
 
 function rollD10() {
@@ -442,6 +491,10 @@ function rollD10() {
 }
 
 function clearResults() {
+	simRound = 0;
+	largeFleetBonus = 0;
+	largeFleetMemory = 0;
+	
 	roundsCollected = document.getElementsByTagName("div");
 	for (i = 0; i < roundsCollected.length; i++) {
 		if (roundsCollected[i].id != "infobox") {
@@ -465,12 +518,12 @@ function fireDMweps() {
 			
 			targetNamee = targetShip.namee;
 			pFrag = document.createElement("p");
-			pFrag.innerHTML = "Doomsday Machine (" + simDM.hitPoints + " HP) rolls against " + targetNamee + " group:";
+			pFrag.innerHTML = simDM.toString() + " rolls against " + targetShip.toString() + ":";
 		}
 		
 		dieRoll = rollD10();
 		
-		if (dieRoll == 1 || (dieRoll <= dmAtk - targetShip.defenseRating && dieRoll < 10)) {
+		if (dieRoll <= 10 - targetShip.defenseRating) {
 			pFrag.innerHTML = pFrag.innerHTML + " <span class=\"hit\">" + dieRoll + "</span>";
 			targetShip.hitShip();
 		} else {
@@ -503,17 +556,60 @@ function fireDMweps() {
 
 function firePlrWeps(shipObj) {
 	if (shipObj.quantity > 0 && simDM.hitPoints > 0) {
-		hpTotal = shipObj.quantity * shipObj.hullSize - shipObj.damage;
+		if (shipObj.attackRating + largeFleetBonus > 0) {
+			pFrag = document.createElement("p");
+			pFrag.innerHTML = shipObj.toString() + " rolls against " + simDM.toString() + ":";
+			
+			for (i = 0; i < shipObj.quantity; i++) {
+				dieRoll = rollD10();
+				
+				if (dieRoll <= shipObj.attackRating + largeFleetBonus) {
+					pFrag.innerHTML = pFrag.innerHTML + " <span class=\"hit\">" + dieRoll + "</span>";
+					simDM.hitPoints--;
+				} else {
+					pFrag.innerHTML = pFrag.innerHTML + " " + dieRoll + "</span>";
+				}
+			}
+			
+			divFrag.appendChild(pFrag);
 		
+			if (simDM.hitPoints <= 0) {
+				pFrag = document.createElement("p");
+				pFrag.innerHTML = "Doomsday Machine has been destroyed!";
+				divFrag.appendChild(pFrag);
+			}
+		} else {
+			pFrag = document.createElement("p");
+			pFrag.innerHTML = shipObj.toString() + " unable to damage " + simDM.toString() + ".";
+			if (simRound > 1 && shipObj.namee != "Ship Yard" && shipObj.namee != "Fighters" && (shipObj.namee != "Carrier" || simDM.weakness != 1)) {
+				pFrag.innerHTML = pFrag.innerHTML + " Group has retreated";
+				shipObj.quantity = 0;
+				shipObj.threat = 0;
+				
+				if (shipObj == "Carrier") {
+					simFleet.fighters.quantity = 0;
+					simFleet.fighters.threat = 0;
+				}
+			} else {
+				pFrag.innerHTML = pFrag.innerHTML + " Rolls skipped";
+			}
+
+			divFrag.appendChild(pFrag);
+		}
+	}
+}
+
+function rollBHsurvival(shipObj) {
+	if (shipObj.quantity > 0) {
 		pFrag = document.createElement("p");
-		pFrag.innerHTML = shipObj.namee + " group (" + hpTotal + " HP total) rolls against Doomsday Machine:";
+		pFrag.innerHTML = shipObj.toString() + " rolls for Black Hole survival:";
 		
-		for (i = 0; i < shipObj.quantity; i++) {
+		for (i = shipObj.quantity; i > 0; i--) {
 			dieRoll = rollD10();
 			
-			if (dieRoll <= shipObj.attackRating - dmDef + (largeFleetBonus ? 1 : 0)) {
+			if (dieRoll > 6) {
 				pFrag.innerHTML = pFrag.innerHTML + " <span class=\"hit\">" + dieRoll + "</span>";
-				simDM.hitPoints--;
+				shipObj.quantity--;
 			} else {
 				pFrag.innerHTML = pFrag.innerHTML + " " + dieRoll + "</span>";
 			}
@@ -521,12 +617,13 @@ function firePlrWeps(shipObj) {
 		
 		divFrag.appendChild(pFrag);
 	
-		if (simDM.hitPoints <= 0) {
+		if (shipObj.quantity <= 0) {
 			pFrag = document.createElement("p");
-			pFrag.innerHTML = "Doomsday Machine has been destroyed!";
+			pFrag.innerHTML = shipObj.toString() + " has been destroyed!";
 			divFrag.appendChild(pFrag);
 		}
 	}
+	
 }
 
 function runSimRound() {
@@ -536,12 +633,34 @@ function runSimRound() {
 	
 	divFrag = document.createElement("div");
 	
+	if (simRound == 1 && combatHex == "hexBlackHole") {
+		rollBHsurvival(simFleet.mines);
+		
+		rollBHsurvival(simFleet.starbases);
+		rollBHsurvival(simFleet.dreadnoughts);
+		rollBHsurvival(simFleet.battleships);
+		rollBHsurvival(simFleet.raiders);
+		
+		rollBHsurvival(simFleet.battlecruisers);
+
+		rollBHsurvival(simFleet.cruisers);
+		rollBHsurvival(simFleet.shipYards);
+		
+		rollBHsurvival(simFleet.destroyers);
+		
+		rollBHsurvival(simFleet.carriers);
+		rollBHsurvival(simFleet.minesweepers);
+		rollBHsurvival(simFleet.scouts);
+		
+		simFleet.fighters.quantity = Math.min(simFleet.fighters.quantity, simFleet.carriers.quantity * 3);
+	}
+	
 	if (simDM.weakness == 0) {
-		pFrag = document.createElement("p");
 		dieRoll = rollD10();
 		simDM.weakness = Math.ceil(dieRoll/2);
 		
-		pFrag.innerHTML = "Doomsday Machine rolls for weakness: " + dieRoll + " (";
+		pFrag = document.createElement("p");
+		pFrag.innerHTML = simDM.toString() + " rolls for weakness: " + dieRoll + " (";
 		switch (simDM.weakness) {
 			case 1:
 				pFrag.innerHTML = pFrag.innerHTML + "Weak to Fighters)";
@@ -564,25 +683,33 @@ function runSimRound() {
 		divFrag.appendChild(pFrag);
 	}
 
-	largeFleetBonus = (simFleet.totalShips >= 10 && simDM.weakness == 4);
-
-	if (simDM.weakness == 2) {
-		firePlrWeps(simFleet.mines);
+	largeFleetBonus = (simFleet.totalAtkShips() >= 10 && simDM.weakness == 4 ? 1 : 0);
+	if (largeFleetBonus != largeFleetMemory) {
+		if (largeFleetBonus > 0) {
+			pFrag = document.createElement("p");
+			pFrag.innerHTML = "Large fleet detected. Attack Bonus +1 active!";
+			divFrag.appendChild(pFrag);
+		} else {
+			pFrag = document.createElement("p");
+			pFrag.innerHTML = "Fleet has shrunk below the required threshold. Attack Bonus +1 lost";
+			divFrag.appendChild(pFrag);
+		}
+		
+		largeFleetMemory = largeFleetBonus;
 	}
+
+	firePlrWeps(simFleet.mines);
 	simFleet.mines.quantity = 0;
-	
-	if (simDM.weakness == 3 && simRound == 1) {
-		simFleet.raiders.defenseRating = simFleet.raiders.defenseRating + 2;
-	}
 
-	if (dmClass == "A" && dmSameAdv) {
+	if ((dmClass == "A" && dmSameAdv) || combatHex == "hexAsteroids" || (combatHex == "hexNebula" && dmSameAdv)) {
 		fireDMweps();
 	}
 	
+	// Class A ships
 	firePlrWeps(simFleet.starbases);
 	firePlrWeps(simFleet.dreadnoughts);
 	firePlrWeps(simFleet.battleships);
-	if (simDM.weakness == 3) {
+	if (simDM.weakness == 3 && combatHex != "hexNebula") {
 		if (simRound == 1) {
 			simFleet.raiders.attackRating++;
 			firePlrWeps(simFleet.raiders);
@@ -596,15 +723,15 @@ function runSimRound() {
 		fireDMweps();
 	}
 	
+	// Class B ships
 	firePlrWeps(simFleet.battlecruisers);
-	if (simDM.weakness == 1) {
-		firePlrWeps(simFleet.fighters);
-	}
+	firePlrWeps(simFleet.fighters);
 	
 	if ((dmClass == "C" && dmSameAdv) || dmClass == "B") {
 		fireDMweps();
 	}
 	
+	// Class C ships
 	firePlrWeps(simFleet.cruisers);
 	firePlrWeps(simFleet.shipYards);
 	
@@ -612,18 +739,36 @@ function runSimRound() {
 		fireDMweps();
 	}
 	
+	// Class D ships
 	firePlrWeps(simFleet.destroyers);
-	if (simDM.weakness != 3) {
+	if (simDM.weakness != 3 || combatHex == "hexNebula") {
 		firePlrWeps(simFleet.raiders);
 	}
 	
-	if (dmClass == "D") {
+	if ((dmClass == "E" && dmSameAdv) || dmClass == "D") {
 		fireDMweps();
 	}
 	
+	// Class E ships
 	firePlrWeps(simFleet.carriers);
 	firePlrWeps(simFleet.minesweepers);
 	firePlrWeps(simFleet.scouts);
+	
+	if (dmClass == "E") {
+		fireDMweps();
+	}
+	
+	if (simFleet.totalShips() <= 0) {
+		pFrag = document.createElement("p");
+		pFrag.innerHTML = simDM.toString() + " has won the battle.";
+
+		divFrag.appendChild(pFrag);
+	} else if (simDM.hitPoints <= 0) {
+		pFrag = document.createElement("p");
+		pFrag.innerHTML = "Player fleet has won the battle.";
+
+		divFrag.appendChild(pFrag);
+	}
 	
 	grandBody.appendChild(divFrag);
 }
