@@ -206,7 +206,7 @@ function computeHitChances(refreshDM) {
 					readId = hitCells[h].id.substr(0, hitCells[h].id.length - 3) + "Qty";
 					readQty = document.getElementById(readId).value;
 
-					hitChance = (dmWeak == 2 ? 50 : 0);
+					hitChance = (dmWeak == 2 ? 50 : -10);
 					bonus = (dmWeak == 2);
 					hitCells[h].innerHTML = hitChance + "%";
 					hitCells[h].className = "numeric" + (bonus ? " bonus" : (readQty > 0 ? "" : " reference"));
@@ -232,14 +232,14 @@ function computeHitChances(refreshDM) {
 						readAtk = document.getElementById(readId).value;
 					}
 					
-					hitChance = Math.max((readAtk - dmDef),0) * 10;
+					hitChance = (readAtk - dmDef) * 10;
 					if (hitChance < 10 && dmStr == 0) {
 						hitChance = 10;
 					}
 					
 					if (readId == "FightersAtk") {
 						if (dmWeak != 1) {
-							hitChance = 0;
+							hitChance = -10;
 						} else {
 							bonus = true;
 						}
@@ -259,7 +259,7 @@ function computeHitChances(refreshDM) {
 						readDef = document.getElementById(readId).value;
 					}
 					
-					evaChance = Math.max(100 - (dmAtk - readDef) * 10,0);
+					evaChance = (10 - (dmAtk - readDef)) * 10;
 
 					if (readId == "RaiderDef" && dmWeak == 3) {
 						evaChance = Math.min(evaChance + 20,90);
@@ -349,17 +349,22 @@ function applyAllTech() {
 function playerShip(baseID) {
 	this.namee = baseID;
 	this.quantity = parseInt(document.getElementById(baseID + "Qty").value);
-	this.attackRating = parseInt(document.getElementById(baseID + "Hit").innerHTML) / 10;
-	if (baseID == "Mines") {
-		this.hullSize = 0;
-		this.defenseRating = 0;
-	} else {
-		this.defenseRating = parseInt(document.getElementById(baseID + "Miss").innerHTML) / 10;
-		this.threat = (this.quantity > 0 ? parseInt(document.getElementById(baseID + "Aggro").innerHTML) : 0);
-		this.hullSize = parseInt(document.getElementById(baseID + "Def").max) - parseInt(document.getElementById(baseID + "Def").min);
-	}
 	this.damage = 0;
 	this.destroyed = false;
+	
+	this.updateSpecs = function() {
+		this.attackRating = parseInt(document.getElementById(baseID + "Hit").innerHTML) / 10;
+		if (baseID == "Mines") {
+			this.hullSize = 0;
+			this.defenseRating = 0;
+		} else {
+			this.defenseRating = parseInt(document.getElementById(baseID + "Miss").innerHTML) / 10;
+			this.threat = (this.quantity > 0 ? parseInt(document.getElementById(baseID + "Aggro").innerHTML) : 0);
+			this.hullSize = parseInt(document.getElementById(baseID + "Def").max) - parseInt(document.getElementById(baseID + "Def").min);
+		}
+	}
+
+	this.updateSpecs();
 	
 	this.hitShip = function() {
 		this.damage++;
@@ -412,7 +417,7 @@ function playerFleet() {
 	this.totalAtkShips = function() {
 		return this.scouts.getEligibleCount() + this.destroyers.getEligibleCount() + this.cruisers.getEligibleCount() + this.battlecruisers.getEligibleCount() +
 			this.battleships.getEligibleCount() + this.dreadnoughts.getEligibleCount() + this.shipYards.getEligibleCount() + this.starbases.getEligibleCount() +
-			this.carriers.getEligibleCount() + this.fighters.getEligibleCount() + this.mines.getEligibleCount() + this.raiders.getEligibleCount() + this.minesweepers.getEligibleCount();
+			this.carriers.getEligibleCount() + this.fighters.getEligibleCount() + this.raiders.getEligibleCount() + this.minesweepers.getEligibleCount();
 	}
 	
 	this.highestAggro = function() {
@@ -507,30 +512,42 @@ function fireDMweps() {
 	var targetNamee = null;
 	var dieRoll = 0;
 	
-	while (simDM.hitPoints > 0 && numDmAttacks > 0) {
-		if (simFleet.totalShips() > 0) {
-			targetShip = simFleet.targetHighest();
-		}
-		if (targetShip.namee != targetNamee) {
-			if (targetNamee) {
-				divFrag.appendChild(pFrag);
+	if (simDM.hitPoints > 0 && simFleet.totalShips() > 0) {
+		while (numDmAttacks > 0) {
+			if (simFleet.totalShips() > 0) {
+				targetShip = simFleet.targetHighest();
+			}
+			if (targetShip.namee != targetNamee) {
+				if (targetNamee) {
+					divFrag.appendChild(pFrag);
+				}
+				
+				targetNamee = targetShip.namee;
+				pFrag = document.createElement("p");
+				pFrag.innerHTML = simDM.toString() + " rolls against " + targetShip.toString() + ":";
 			}
 			
-			targetNamee = targetShip.namee;
-			pFrag = document.createElement("p");
-			pFrag.innerHTML = simDM.toString() + " rolls against " + targetShip.toString() + ":";
+			dieRoll = rollD10();
+			
+			if (dieRoll <= 10 - targetShip.defenseRating) {
+				pFrag.innerHTML = pFrag.innerHTML + " <span class=\"hit\">" + dieRoll + "</span>";
+				targetShip.hitShip();
+			} else {
+				pFrag.innerHTML = pFrag.innerHTML + " " + dieRoll + "</span>";
+			}
+		
+			if (targetShip.destroyed && simFleet.totalShips() > 0) {
+				targetShip.destroyed = false;
+				
+				divFrag.appendChild(pFrag);
+				pFrag = document.createElement("p");
+				pFrag.innerHTML = targetNamee + " group has been destroyed!";
+			}
+			
+			numDmAttacks--;
 		}
 		
-		dieRoll = rollD10();
-		
-		if (dieRoll <= 10 - targetShip.defenseRating) {
-			pFrag.innerHTML = pFrag.innerHTML + " <span class=\"hit\">" + dieRoll + "</span>";
-			targetShip.hitShip();
-		} else {
-			pFrag.innerHTML = pFrag.innerHTML + " " + dieRoll + "</span>";
-		}
-	
-		if (targetShip.destroyed && simFleet.totalShips() > 0) {
+		if (targetShip.destroyed && simFleet.totalShips() <= 0) {
 			targetShip.destroyed = false;
 			
 			divFrag.appendChild(pFrag);
@@ -538,29 +555,24 @@ function fireDMweps() {
 			pFrag.innerHTML = targetNamee + " group has been destroyed!";
 		}
 		
-		numDmAttacks--;
-	}
-	
-	if (targetShip.destroyed && simFleet.totalShips() <= 0) {
-		targetShip.destroyed = false;
-		
-		divFrag.appendChild(pFrag);
-		pFrag = document.createElement("p");
-		pFrag.innerHTML = targetNamee + " group has been destroyed!";
-	}
-	
-	if (targetNamee) {
-		divFrag.appendChild(pFrag);
+		if (targetNamee) {
+			divFrag.appendChild(pFrag);
+		}
 	}
 }
 
 function firePlrWeps(shipObj) {
 	if (shipObj.quantity > 0 && simDM.hitPoints > 0) {
+		shipObj.updateSpecs();
+		if (simRound == 1 && shipObj.namee == "Raider" && simDM.weakness == 3 && combatHex != "hexNebula") {
+			shipObj.attackRating++
+		}
+		
 		if (shipObj.attackRating + largeFleetBonus > 0) {
 			pFrag = document.createElement("p");
 			pFrag.innerHTML = shipObj.toString() + " rolls against " + simDM.toString() + ":";
 			
-			for (i = 0; i < shipObj.quantity; i++) {
+			for (i = shipObj.quantity; i > 0; i--) {
 				dieRoll = rollD10();
 				
 				if (dieRoll <= shipObj.attackRating + largeFleetBonus) {
@@ -568,6 +580,14 @@ function firePlrWeps(shipObj) {
 					simDM.hitPoints--;
 				} else {
 					pFrag.innerHTML = pFrag.innerHTML + " " + dieRoll + "</span>";
+				}
+				
+				if (shipObj.namee == "Mines") {
+					shipObj.quantity--;
+					
+					if (simDM.hitPoints <= 0) {
+						break;
+					}
 				}
 			}
 			
@@ -586,12 +606,15 @@ function firePlrWeps(shipObj) {
 				shipObj.quantity = 0;
 				shipObj.threat = 0;
 				
-				if (shipObj == "Carrier") {
+				if (shipObj.namee == "Carrier") {
 					simFleet.fighters.quantity = 0;
 					simFleet.fighters.threat = 0;
 				}
 			} else {
 				pFrag.innerHTML = pFrag.innerHTML + " Rolls skipped";
+				if (shipObj.namee == "Mines") {
+					shipObj.quantity = 0;
+				}
 			}
 
 			divFrag.appendChild(pFrag);
@@ -699,7 +722,6 @@ function runSimRound() {
 	}
 
 	firePlrWeps(simFleet.mines);
-	simFleet.mines.quantity = 0;
 
 	if ((dmClass == "A" && dmSameAdv) || combatHex == "hexAsteroids" || (combatHex == "hexNebula" && dmSameAdv)) {
 		fireDMweps();
@@ -710,13 +732,7 @@ function runSimRound() {
 	firePlrWeps(simFleet.dreadnoughts);
 	firePlrWeps(simFleet.battleships);
 	if (simDM.weakness == 3 && combatHex != "hexNebula") {
-		if (simRound == 1) {
-			simFleet.raiders.attackRating++;
-			firePlrWeps(simFleet.raiders);
-			simFleet.raiders.attackRating--;
-		} else {
-			firePlrWeps(simFleet.raiders);
-		}
+		firePlrWeps(simFleet.raiders);
 	}
 	
 	if ((dmClass == "B" && dmSameAdv) || dmClass == "A") {
@@ -758,7 +774,12 @@ function runSimRound() {
 		fireDMweps();
 	}
 	
-	if (simFleet.totalShips() <= 0) {
+	if (simFleet.totalShips() <= 0 && simDM.hitPoints <= 0) {
+		pFrag = document.createElement("p");
+		pFrag.innerHTML = "Both sides have been destroyed!";
+
+		divFrag.appendChild(pFrag);
+	} else if (simFleet.totalShips() <= 0) {
 		pFrag = document.createElement("p");
 		pFrag.innerHTML = simDM.toString() + " has won the battle.";
 

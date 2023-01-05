@@ -140,7 +140,7 @@ function showBox(concept) {
 				"Tech Level 2 upgrades "+conceptLink("Attack")+" to A5/D5 and negates "+conceptLink("Scanning")+" tech level 1.";
 			break;
 		case "exploration":
-			displayTxt = "<b>Exploration Technology</b><br />Allows "+conceptLink("Cruiser")+"s to safely explore an adjacent hex during movement.";
+			displayTxt = "<b>Exploration Technology</b><br />Allows "+conceptLink("Cruiser")+"s to safely explore an adjacent "+conceptLink("unexplored")+" hex during movement.";
 			break;
 		case "fighter":
 			displayTxt = "<b>Fighter Technology</b><br />Allows building "+conceptLink("Carrier")+"s and "+conceptLink("Fighters")+". Subsequent levels increase "+conceptLink("Fighters")+" "+conceptLink("Attack")+" rating";
@@ -149,10 +149,11 @@ function showBox(concept) {
 			displayTxt = "<b>Minelaying Technology</b><br />Allows building "+conceptLink("mines")+".";
 			break;
 		case "minesweeping":
-			displayTxt = "<b>Minesweeping Technology</b><br />Allows building "+conceptLink("minesweeper")+"s. "+conceptLink("Tech")+" level 2 improves the number of mines swept per ship.";
+			displayTxt = "<b>Minesweeping Technology</b><br />Allows building "+conceptLink("minesweeper")+"s. "+conceptLink("Tech")+" level 2 improves the number of mines swept per ship. \
+				<br />"+conceptLink("Alien Player")+" "+conceptLink("Scout")+"s also benefit from this technology.";
 			break;
 		case "movement":
-			displayTxt = "<b>Movement Technology</b><br />Improving this "+conceptLink("technology")+" increases the number of total hexes that "+conceptLink("combat ship")+"s and "+conceptLink("Decoys")+" can move per "+conceptLink("economic phase")+"." +
+			displayTxt = "<b>Movement Technology</b><br />Improving this "+conceptLink("technology")+" increases the number of total hexes that "+conceptLink("combat ship")+"s and "+conceptLink("Decoy")+"s can move per "+conceptLink("economic phase")+"." +
 				"<br />At level 1 (default), ships can move 3 hexes per economic phase (divided into 1 + 1 + 1, for the respective "+conceptLink("movement turn")+"s.)" +
 				"<br />Each subsequent level adds another hex, favoring the later turns, but keeping it as even as possible. <span class=\"bindTxt\">(1 + 1 + 2 for level 2; 1 + 2 + 2 for level 3)</span>.";
 			break;
@@ -213,7 +214,7 @@ function showBox(concept) {
 				"<br />These systems have a much higher risk <span class=\"bindTxt\">(several "+conceptLink("Danger")+"! counters, and less predictability)</span>, but higher reward <span class=\"bindTxt\">("+conceptLink("minerals")+" pay better, and there can be "+conceptLink("space wreck")+"s)</span>.";
 			break;
 		case "homeworld":
-			displayTxt = "<b>Homeworld</b><br />Starting "+conceptLink("colony")+" for an empire. It is the most powerful <span class=\"bindTxt\">(produces 20 "+conceptLink("CP")+" while intact)</span> and most important colony <span class=\"bindTxt\">(destruction will eliminate its owner)</span>.";
+			displayTxt = "<b>Homeworld</b><br />Starting "+conceptLink("colony")+" for an empire. It is the most powerful <span class=\"bindTxt\">(produces 20 "+conceptLink("CP")+" while intact)</span> and most important colony <span class=\"bindTxt\">(destruction ends a game)</span>.";
 			break;
 		case "home system":
 			displayTxt = "<b>Home System</b><br />A set of hexes that surround a "+conceptLink("homeworld")+". These systems are relatively safe, with only a single dangerous counter <span class=\"bindTxt\">(a "+conceptLink("black hole")+")</apan> shuffled among these 25 "+conceptLink("unexplored")+" systems.";
@@ -268,7 +269,7 @@ function showBox(concept) {
 		case "mining ship":
 			// Fall through
 		case "miner":
-			displayTxt = "<b>Mining Ship</b> (miner)<br />Support ship designed to tow "+conceptLink("minerals")+" and "+conceptLink("space wreck")+" to "+conceptLink("colonies");
+			displayTxt = "<b>Mining Ship</b> (miner)<br />Support ship designed to tow "+conceptLink("minerals")+" and "+conceptLink("space wreck")+"s to "+conceptLink("colonies");
 			displayTxt = displayTxt + stats(5, 0, 0, 0);
 			break;
 		case "destroyer":
@@ -386,7 +387,9 @@ function showBox(concept) {
 			displayTxt =  "<b>Alien Empires</b><br />Solitaire scenario that pits the player against 2-3 "+conceptLink("Alien Player")+"s.<br />The player's objective is to destroy all Alien Player "+conceptLink("homeworld")+"s, while protecting their own from destruction.";
 			break;
 		case "alien player":
-			displayTxt =  "<b>Alien Player</b><br />Hostile empire that generates "+conceptLink("CP")+", and dedicates it into building fleets, researching technology, or building defense.<br />Available when playing an "+conceptLink("Alien Empires")+" scenario.";
+			displayTxt =  "<b>Alien Player</b><br />Hostile empire that generates 5-15 "+conceptLink("CP")+" from 1 or more unique economic rolls per "+conceptLink("economic phase")+".<br />\
+				It dedicates this money into budgets for building fleets, researching "+conceptLink("technology")+", or protecting the "+conceptLink("homeworld")+".<br />\
+				Available when playing an "+conceptLink("Alien Empires")+" scenario. Starts the scenario with "+conceptLink("Minelaying")+" developed.";
 			break;
 		
 	}
