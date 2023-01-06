@@ -211,11 +211,14 @@ function computeHitChances(refreshDM) {
 					hitCells[h].innerHTML = hitChance + "%";
 					hitCells[h].className = "numeric" + (bonus ? " bonus" : (readQty > 0 ? "" : " reference"));
 				} else if (hitCells[h].id == "FightersAggro") {
-					dmThreat = document.getElementById("CarrierAggro").innerHTML;
-					if (dmWeak == 1) {
-						dmThreat = dmThreat * 2;
+					dmThreat = parseInt(document.getElementById("CarrierAggro").innerHTML);
+					if (hitChance > 0) {
+						dmThreat = dmThreat + Math.pow(1+Math.floor(hitChance/10),3-(hullSize-1)/2) + Math.pow(10-(Math.max(evaChance,10)/10),2.2);
+						bonus = true;
 					}
-					hitCells[h].innerHTML = dmThreat;
+					
+					hitCells[h].innerHTML = Math.round(dmThreat);
+					hitCells[h].className = "numeric" + (bonus ? " bonus" : (readQty > 0 ? "" : " reference"));
 				} else if (hitCells[h].id.substr(-3,3) == "Hit") {
 					readId = hitCells[h].id.substr(0, hitCells[h].id.length - 3) + "Qty";
 					readQty = document.getElementById(readId).value;
@@ -265,10 +268,6 @@ function computeHitChances(refreshDM) {
 						evaChance = Math.min(evaChance + 20,90);
 						bonus = true;
 					}
-
-					if (evaChance < 10) {
-						evaChance = 10;
-					}
 					
 					hitCells[h].innerHTML = evaChance + "%";
 					hitCells[h].className = "numeric" + (bonus ? " bonus" : (readQty > 0 ? "" : " reference"));
@@ -284,7 +283,7 @@ function computeHitChances(refreshDM) {
 					
 					dmThreat = 10 - hullSize;
 					if (hitChance > 0) {
-						dmThreat = dmThreat + Math.pow(1+Math.floor(hitChance/10),3-(hullSize-1)/2) + Math.pow(10-(evaChance/10),2.2);
+						dmThreat = dmThreat + Math.pow(1+Math.floor(hitChance/10),3-(hullSize-1)/2) + Math.pow(10-(Math.max(evaChance,10)/10),2.2);
 					
 						if (dmWeak == 4) {
 							dmThreat = dmThreat * Math.max(Math.pow(3.5-hullSize,2),1);
@@ -529,7 +528,7 @@ function fireDMweps() {
 			
 			dieRoll = rollD10();
 			
-			if (dieRoll <= 10 - targetShip.defenseRating) {
+			if (dieRoll < 10 && dieRoll <= 10 - targetShip.defenseRating) {
 				pFrag.innerHTML = pFrag.innerHTML + " <span class=\"hit\">" + dieRoll + "</span>";
 				targetShip.hitShip();
 			} else {
@@ -565,7 +564,7 @@ function firePlrWeps(shipObj) {
 	if (shipObj.quantity > 0 && simDM.hitPoints > 0) {
 		shipObj.updateSpecs();
 		if (simRound == 1 && shipObj.namee == "Raider" && simDM.weakness == 3 && combatHex != "hexNebula") {
-			shipObj.attackRating++
+			shipObj.attackRating++;
 		}
 		
 		if (shipObj.attackRating + largeFleetBonus > 0) {
@@ -719,6 +718,14 @@ function runSimRound() {
 		}
 		
 		largeFleetMemory = largeFleetBonus;
+	}
+	
+	if (simDM.weakness == 3 && simFleet.raiders.quantity > 0 && simRound == 1) {
+		pFrag = document.createElement("p");
+		pFrag.innerHTML = simFleet.raiders.toString() + " successfully ambushes " + simDM.toString() + ": Attack Bonus +1 for the first round! Defense Bonus +2 for the battle!";
+		divFrag.appendChild(pFrag);
+		
+		simFleet.raiders.updateSpecs();
 	}
 
 	firePlrWeps(simFleet.mines);
