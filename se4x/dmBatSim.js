@@ -724,9 +724,9 @@ function runSimRound() {
 		pFrag = document.createElement("p");
 		pFrag.innerHTML = simFleet.raiders.toString() + " successfully ambushes " + simDM.toString() + ": Attack Bonus +1 for the first round! Defense Bonus +2 for the battle!";
 		divFrag.appendChild(pFrag);
-		
-		simFleet.raiders.updateSpecs();
 	}
+
+	simFleet.raiders.updateSpecs();
 
 	firePlrWeps(simFleet.mines);
 
