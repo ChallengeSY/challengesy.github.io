@@ -809,7 +809,14 @@ function runSimBattle() {
 	clearResults();
 	
 	if (simFleet.totalShips() == 0) {
-		console.warn("No player ships detected. Sequence aborted.");
+		grandBody = document.getElementsByTagName("body")[0];
+		
+		divFrag = document.createElement("div");
+		pFrag = document.createElement("p");
+		pFrag.innerHTML = "No player ships detected. Sequence aborted.";
+
+		divFrag.appendChild(pFrag);
+		grandBody.appendChild(divFrag);
 	}
 	while (simFleet.totalShips() > 0 && simDM.hitPoints > 0) {
 		runSimRound();
