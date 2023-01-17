@@ -534,15 +534,17 @@ function rollD10() {
 	return 1 + Math.floor(Math.random()*10);
 }
 
-function clearResults() {
+function clearResults(removeDivs) {
 	simRound = 0;
 	largeFleetBonus = 0;
 	largeFleetMemory = 0;
 	
-	roundsCollected = document.getElementsByTagName("div");
-	for (i = 0; i < roundsCollected.length; i++) {
-		if (roundsCollected[i].id != "infobox") {
-			roundsCollected[i--].remove();
+	if (removeDivs) {
+		roundsCollected = document.getElementsByTagName("div");
+		for (i = 0; i < roundsCollected.length; i++) {
+			if (roundsCollected[i].id != "infobox") {
+				roundsCollected[i--].remove();
+			}
 		}
 	}
 }
@@ -578,9 +580,11 @@ function fireDMweps() {
 			if (targetShip.destroyed && simFleet.totalShips() > 0) {
 				targetShip.destroyed = false;
 				
-				divFrag.appendChild(pFrag);
-				pFrag = document.createElement("p");
-				pFrag.innerHTML = targetNamee + " group has been destroyed!";
+				if (!simMulti) {
+					divFrag.appendChild(pFrag);
+					pFrag = document.createElement("p");
+					pFrag.innerHTML = targetNamee + " group has been destroyed!";
+				}
 			}
 			
 			numDmAttacks--;
@@ -589,12 +593,14 @@ function fireDMweps() {
 		if (targetShip.destroyed && simFleet.totalShips() <= 0) {
 			targetShip.destroyed = false;
 			
-			divFrag.appendChild(pFrag);
-			pFrag = document.createElement("p");
-			pFrag.innerHTML = targetNamee + " group has been destroyed!";
+			if (!simMulti) {
+				divFrag.appendChild(pFrag);
+				pFrag = document.createElement("p");
+				pFrag.innerHTML = targetNamee + " group has been destroyed!";
+			}
 		}
 		
-		if (targetNamee) {
+		if (!simMulti && targetNamee) {
 			divFrag.appendChild(pFrag);
 		}
 	}
@@ -633,12 +639,14 @@ function firePlrWeps(shipObj) {
 				}
 			}
 			
-			divFrag.appendChild(pFrag);
-		
-			if (simDM.hitPoints <= 0) {
-				pFrag = document.createElement("p");
-				pFrag.innerHTML = "Doomsday Machine has been destroyed!";
+			if (!simMulti) {
 				divFrag.appendChild(pFrag);
+			
+				if (simDM.hitPoints <= 0) {
+					pFrag = document.createElement("p");
+					pFrag.innerHTML = "Doomsday Machine has been destroyed!";
+					divFrag.appendChild(pFrag);
+				}
 			}
 		} else {
 			pFrag = document.createElement("p");
@@ -659,7 +667,9 @@ function firePlrWeps(shipObj) {
 				}
 			}
 
-			divFrag.appendChild(pFrag);
+			if (!simMulti) {
+				divFrag.appendChild(pFrag);
+			}
 		}
 	}
 }
@@ -680,12 +690,14 @@ function rollBHsurvival(shipObj) {
 			}
 		}
 		
-		divFrag.appendChild(pFrag);
-	
-		if (shipObj.quantity <= 0) {
-			pFrag = document.createElement("p");
-			pFrag.innerHTML = shipObj.toString() + " has been destroyed!";
+		if (!simMulti) {
 			divFrag.appendChild(pFrag);
+	
+			if (shipObj.quantity <= 0) {
+				pFrag = document.createElement("p");
+				pFrag.innerHTML = shipObj.toString() + " has been destroyed!";
+				divFrag.appendChild(pFrag);
+			}
 		}
 	}
 	
@@ -728,46 +740,50 @@ function runSimRound() {
 		dieRoll = rollD10();
 		simDM.weakness = Math.ceil(dieRoll/2);
 		
-		pFrag = document.createElement("p");
-		pFrag.innerHTML = simDM.toString() + " rolls for weakness: " + dieRoll + " (";
-		switch (simDM.weakness) {
-			case 1:
-				pFrag.innerHTML = pFrag.innerHTML + "Weak to Fighters)";
-				break;
-			case 2:
-				pFrag.innerHTML = pFrag.innerHTML + "Weak to Mines)";
-				break;
-			case 3:
-				pFrag.innerHTML = pFrag.innerHTML + "Weak to Cloaking)";
-				break;
-			case 4:
-				pFrag.innerHTML = pFrag.innerHTML + "Weak to Large Fleets)";
-				break;
-			case 5:
-				pFrag.innerHTML = pFrag.innerHTML + "No weakness found)";
-				break;
+		if (!simMulti) {
+			pFrag = document.createElement("p");
+			pFrag.innerHTML = simDM.toString() + " rolls for weakness: " + dieRoll + " (";
+			switch (simDM.weakness) {
+				case 1:
+					pFrag.innerHTML = pFrag.innerHTML + "Weak to Fighters)";
+					break;
+				case 2:
+					pFrag.innerHTML = pFrag.innerHTML + "Weak to Mines)";
+					break;
+				case 3:
+					pFrag.innerHTML = pFrag.innerHTML + "Weak to Cloaking)";
+					break;
+				case 4:
+					pFrag.innerHTML = pFrag.innerHTML + "Weak to Large Fleets)";
+					break;
+				case 5:
+					pFrag.innerHTML = pFrag.innerHTML + "No weakness found)";
+					break;
+			}
+			
+			divFrag.appendChild(pFrag);
 		}
-		
 		computeHitChances(false);
-		divFrag.appendChild(pFrag);
 	}
 
 	largeFleetBonus = (simFleet.totalAtkShips() >= 10 && simDM.weakness == 4 ? 1 : 0);
-	if (largeFleetBonus != largeFleetMemory) {
-		if (largeFleetBonus > 0) {
-			pFrag = document.createElement("p");
-			pFrag.innerHTML = "Large fleet detected. Attack Bonus +1 active!";
-			divFrag.appendChild(pFrag);
-		} else {
-			pFrag = document.createElement("p");
-			pFrag.innerHTML = "Fleet has shrunk below the required threshold. Attack Bonus +1 lost";
-			divFrag.appendChild(pFrag);
+	if (!simMulti) {
+		if (largeFleetBonus != largeFleetMemory) {
+			if (largeFleetBonus > 0) {
+				pFrag = document.createElement("p");
+				pFrag.innerHTML = "Large fleet detected. Attack Bonus +1 active!";
+				divFrag.appendChild(pFrag);
+			} else {
+				pFrag = document.createElement("p");
+				pFrag.innerHTML = "Fleet has shrunk below the required threshold. Attack Bonus +1 lost";
+				divFrag.appendChild(pFrag);
+			}
+			
+			largeFleetMemory = largeFleetBonus;
 		}
-		
-		largeFleetMemory = largeFleetBonus;
 	}
 	
-	if (simDM.weakness == 3 && simFleet.raiders.quantity > 0 && simRound == 1) {
+	if (!simMulti && simDM.weakness == 3 && simFleet.raiders.quantity > 0 && simRound == 1) {
 		pFrag = document.createElement("p");
 		pFrag.innerHTML = simFleet.raiders.toString() + " successfully ambushes " + simDM.toString() + ": Attack Bonus +1 for the first round! Defense Bonus +2 for the battle!";
 		divFrag.appendChild(pFrag);
@@ -834,43 +850,160 @@ function runSimRound() {
 	firePlrWeps(simFleet.boardingShips);
 	
 	if (simFleet.totalShips() <= 0 && simDM.hitPoints <= 0) {
-		pFrag = document.createElement("p");
-		pFrag.innerHTML = "Both sides have been destroyed!";
+		if (simMulti) {
+			multiDraws++;
+		} else {
+			pFrag = document.createElement("p");
+			pFrag.innerHTML = "Both sides have been destroyed!";
 
-		divFrag.appendChild(pFrag);
+			divFrag.appendChild(pFrag);
+		}
 	} else if (simFleet.totalShips() <= 0) {
-		pFrag = document.createElement("p");
-		pFrag.innerHTML = simDM.toString() + " has won the battle.";
+		if (simMulti) {
+			multiLosses++;
+			multiDMhp = multiDMhp + simDM.hitPoints;
+		} else {
+			pFrag = document.createElement("p");
+			pFrag.innerHTML = simDM.toString() + " has won the battle.";
 
-		divFrag.appendChild(pFrag);
+			divFrag.appendChild(pFrag);
+		}
 	} else if (simDM.hitPoints <= 0) {
-		pFrag = document.createElement("p");
-		pFrag.innerHTML = "Player fleet has won the battle.";
+		if (simMulti) {
+			multiWins++;
+			multiPlrShips = multiPlrShips + simFleet.totalShips();
+		} else {
+			pFrag = document.createElement("p");
+			pFrag.innerHTML = "Player fleet has won the battle.";
 
+			divFrag.appendChild(pFrag);
+		}
+	}
+	
+	if (!simMulti) {
+		grandBody.appendChild(divFrag);
+	}
+}
+
+
+//Battle controls
+function startSimSeries() {
+	multiWins = 0;
+	multiPlrShips = 0;
+	multiLosses = 0;
+	multiDMhp = 0;
+	multiDraws = 0;
+	
+	simsDone = 0;
+	totalQuota = parseInt(document.getElementById("numSims").value);
+	
+	lockControls(true);
+	
+	simHandle = setInterval(performSimCycle, 125);
+}
+
+function stopSeriesEarly() {
+	if (totalQuota > simsDone) {
+		totalQuota = Math.min(simsDone + 101,totalQuota); 
+	}
+}
+
+function lockControls(flag) {
+	var inputsCollection = document.getElementsByTagName("input");
+	for (a in inputsCollection) {
+		if (inputsCollection[a].id != "Boarding ShipAtk") {
+			inputsCollection[a].disabled = flag;
+		}
+	}
+
+	inputsCollection = document.getElementsByTagName("button");
+	for (b in inputsCollection) {
+		if (inputsCollection[b].id == "stopSeries") {
+			inputsCollection[b].disabled = !flag;
+		} else {
+			inputsCollection[b].disabled = flag;
+		}
+	}
+
+	inputsCollection = document.getElementsByTagName("select");
+	for (c in inputsCollection) {
+		inputsCollection[c].disabled = flag;
+	}
+}
+
+function performSimCycle() {
+	if (simsDone + 102 <= totalQuota) {
+		simsDone = simsDone + 100;
+		runSimBattles(100);
+	} else {
+		if (simsDone < totalQuota) {
+			runSimBattles(totalQuota - simsDone);
+		}
+		simsDone = totalQuota;
+		clearInterval(simHandle);
+	
+		lockControls(false);
+	}
+	
+	clearResults(true);
+
+	divFrag = document.createElement("div");
+	var successRate = ((multiWins + multiDraws) / simsDone * 100).toFixed(2);
+	
+	pFrag = document.createElement("p");
+	pFrag.innerHTML = "<label for=\"simProg\">"+simsDone+" battles complete.</label> <progress id=\"simProg\" value=\""+simsDone+"\" max=\""+totalQuota+"\"></progress><br />\
+		Summary: "+multiWins+ " wins / "+multiLosses+" losses / "+multiDraws+" draws. Success Rate: "+successRate+"%";
+	divFrag.appendChild(pFrag);
+	
+	if (multiWins > 0) {
+		var avgShips = (multiPlrShips / multiWins).toFixed(2);
+		
+		pFrag = document.createElement("p");
+		pFrag.innerHTML = avgShips + " player ships survive a win on average.";
+		divFrag.appendChild(pFrag);
+	}
+	
+	if (multiLosses > 0) {
+		var avgHP = (multiDMhp / multiLosses).toFixed(2);
+		
+		pFrag = document.createElement("p");
+		pFrag.innerHTML = "The Doomsday Machine has " + avgHP + " HP on average for each win.";
 		divFrag.appendChild(pFrag);
 	}
 	
 	grandBody.appendChild(divFrag);
 }
 
-function runSimBattle() {
-	getDMspecs();
-	simFleet = new playerFleet();
-	simDM = new doomsdayMachine();
+function runSimBattles(simCount) {
+	simMulti = (simCount > 1);
+	grandBody = document.getElementsByTagName("body")[0];
 	
-	clearResults();
-	
-	if (simFleet.totalShips() == 0) {
-		grandBody = document.getElementsByTagName("body")[0];
-		
-		divFrag = document.createElement("div");
-		pFrag = document.createElement("p");
-		pFrag.innerHTML = "No player ships detected. Sequence aborted.";
+	clearResults(true);
 
-		divFrag.appendChild(pFrag);
-		grandBody.appendChild(divFrag);
-	}
-	while (simFleet.totalShips() > 0 && simDM.hitPoints > 0) {
-		runSimRound();
+	for (var x = 0; x < simCount; x++) {
+		getDMspecs();
+		simFleet = new playerFleet();
+		simDM = new doomsdayMachine();
+		
+		clearResults(false);
+		
+		if (simFleet.totalShips() == 0) {
+			divFrag = document.createElement("div");
+			pFrag = document.createElement("p");
+			pFrag.innerHTML = "No player ships detected. Sequence aborted.";
+			
+			if (simMulti) {
+				simsDone = totalQuota;
+				multiDraws = totalQuota;
+			}
+
+			divFrag.appendChild(pFrag);
+			grandBody.appendChild(divFrag);
+			break;
+		}
+		while (simFleet.totalShips() > 0 && simDM.hitPoints > 0) {
+			runSimRound();
+		}
 	}
 }
+

@@ -56,30 +56,37 @@ No matter how low, a DM that rolls a 10 automatically misses">Evasion</th>
 <table class="clean">
 <tfoot>
 <tr>
-<td colspan="3" class="center"><button class="interact" onclick="applyAllTech()">Apply to all ships</button>
-<button class="interact" onclick="runSimBattle()">Run sim battle</button></td>
+<td colspan="3" class="center"><button id="applyAll" class="interact" onclick="applyAllTech()">Apply to all ships</button>
+<button id="runBattle" class="interact" onclick="runSimBattles(1)">Run sim battle</button><br />
+<button id="runSeries" class="interact" onclick="startSimSeries()">Run several</button>
+<button id="stopSeries" class="interact" onclick="stopSeriesEarly()" disabled="disabled">Stop series</button></td>
 </tr>
 </tfoot>
 <tbody>
 <tr>
 <td><label for="techAtk">Attack Tech Level</label></td>
 <td><a href="javascript:showBox('Attack')">(?)</a></td>
-<td><input class="text numeric" type="number" id="techAtk" value="0" min="0" max="3" size="3" /></td>
+<td><input class="text numeric" type="number" id="techAtk" value="0" min="0" max="3" size="5" /></td>
 </tr>
 <tr>
 <td><label for="techDef">Defense Tech Level</label></td>
 <td><a href="javascript:showBox('Defense')">(?)</a></td>
-<td><input class="text numeric" type="number" id="techDef" value="0" min="0" max="3" size="3" /></td>
+<td><input class="text numeric" type="number" id="techDef" value="0" min="0" max="3" size="5" /></td>
 </tr>
 <tr>
 <td><label for="techFtr">Fighter Tech Level</label></td>
 <td><a href="javascript:showBox('Fighter')">(?)</a></td>
-<td><input class="text numeric" type="number" id="techFtr" value="1" min="1" max="3" size="3" /></td>
+<td><input class="text numeric" type="number" id="techFtr" value="1" min="1" max="3" size="5" /></td>
 </tr>
 <tr>
 <td><label for="techClk">Cloaking Tech Level</label></td>
 <td><a href="javascript:showBox('Cloaking')">(?)</a></td>
-<td><input class="text numeric" type="number" id="techClk" value="1" min="1" max="2" size="3" /></td>
+<td><input class="text numeric" type="number" id="techClk" value="1" min="1" max="2" size="5" /></td>
+</tr>
+<tr>
+<td><label for="numSims">Number of simulations</label></td>
+<td><a href="javascript:showBox('numSims')">(?)</a></td>
+<td><input class="text numeric" type="number" id="numSims" value="1" min="1" size="5" /></td>
 </tr>
 </tbody>
 </table>

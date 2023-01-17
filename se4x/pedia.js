@@ -425,6 +425,11 @@ function showBox(concept) {
 		case "troops":
 			displayTxt = "<b>Troops</b><br />Small ground-borne craft that is used to invade enemy "+conceptLink("colonies")+" in a ground "+conceptLink("battle")+"; or to defend friendly colonies";
 			break;
+			
+		// Site exclusive concepts
+		case "numsims":
+			displayTxt = "<b>Number of simulations</b><br />Number of battles to simulate at once. Battles simulated as a series give a short summary of success rate, and average ships/HP survived on each side.";
+			break;
 		
 		
 	}
