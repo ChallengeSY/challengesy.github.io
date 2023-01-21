@@ -862,6 +862,7 @@ function runSimRound() {
 		if (simMulti) {
 			multiLosses++;
 			multiDMhp = multiDMhp + simDM.hitPoints;
+			dmHPcount.push(simDM.hitPoints);
 		} else {
 			pFrag = document.createElement("p");
 			pFrag.innerHTML = simDM.toString() + " has won the battle.";
@@ -872,6 +873,7 @@ function runSimRound() {
 		if (simMulti) {
 			multiWins++;
 			multiPlrShips = multiPlrShips + simFleet.totalShips();
+			plrShipCount.push(simFleet.totalShips());
 		} else {
 			pFrag = document.createElement("p");
 			pFrag.innerHTML = "Player fleet has won the battle.";
@@ -885,6 +887,13 @@ function runSimRound() {
 	}
 }
 
+function getPhrase(word, count) {
+	if (Math.abs(count) > 1 || count == 0) {
+		return count + " " + word + "s"; 
+	}
+	
+	return count + " " + word; 
+}
 
 //Battle controls
 function startSimSeries() {
@@ -894,12 +903,25 @@ function startSimSeries() {
 	multiDMhp = 0;
 	multiDraws = 0;
 	
+	plrShipCount = new Array();
+	dmHPcount = new Array();
+	
+	simFleet = new playerFleet();
+	simDM = new doomsdayMachine();
+	
+	multiHighShips = simFleet.totalShips();
+	multiHighDMhp = simDM.hitPoints;	
+	
 	simsDone = 0;
 	totalQuota = parseInt(document.getElementById("numSims").value);
 	
 	lockControls(true);
 	
 	simHandle = setInterval(performSimCycle, 125);
+}
+
+function getOneValue(arrObj, ct) {
+	return arrObj.filter( function(value) {return value == ct} );
 }
 
 function stopSeriesEarly() {
@@ -960,6 +982,17 @@ function performSimCycle() {
 		
 		pFrag = document.createElement("p");
 		pFrag.innerHTML = avgShips + " player ships survive a win on average.";
+		ulFrag = document.createElement("ul");
+		for (w = 1; w < multiHighShips; w++) {
+			var outcomeCount = getOneValue(plrShipCount, w).length;
+			
+			if (outcomeCount > 0) {
+				liFrag = document.createElement("li");
+				liFrag.innerHTML = getPhrase("ship", w)+" left: "+getPhrase("time", outcomeCount)
+				ulFrag.appendChild(liFrag);
+			}
+		}
+		pFrag.appendChild(ulFrag);
 		divFrag.appendChild(pFrag);
 	}
 	
@@ -967,7 +1000,19 @@ function performSimCycle() {
 		var avgHP = (multiDMhp / multiLosses).toFixed(2);
 		
 		pFrag = document.createElement("p");
-		pFrag.innerHTML = "The Doomsday Machine has " + avgHP + " HP on average for each win.";
+		pFrag.innerHTML = "The Doomsday Machine has " + avgHP + " HP on average for each of its wins.";
+		
+		ulFrag = document.createElement("ul");
+		for (l = 1; l < multiHighDMhp; l++) {
+			var outcomeCount = getOneValue(dmHPcount, l).length;
+			
+			if (outcomeCount > 0) {
+				liFrag = document.createElement("li");
+				liFrag.innerHTML = l+" HP: "+getPhrase("time", outcomeCount)
+				ulFrag.appendChild(liFrag);
+			}
+		}
+		pFrag.appendChild(ulFrag);
 		divFrag.appendChild(pFrag);
 	}
 	

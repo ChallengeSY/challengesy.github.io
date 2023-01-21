@@ -428,7 +428,7 @@ function showBox(concept) {
 			
 		// Site exclusive concepts
 		case "numsims":
-			displayTxt = "<b>Number of simulations</b><br />Number of battles to simulate at once. Battles simulated as a series give a short summary of success rate, and average ships/HP survived on each side.";
+			displayTxt = "<b>Number of simulations</b><br />Number of battles to simulate at once. Battles simulated as a series give a short summary of success rate, followed by detailed ships survived and HP remaining on each side.";
 			break;
 		
 		
