@@ -973,8 +973,8 @@ function performSimCycle() {
 	var successRate = ((multiWins + multiDraws) / simsDone * 100).toFixed(2);
 	
 	pFrag = document.createElement("p");
-	pFrag.innerHTML = "<label for=\"simProg\">"+simsDone+" battles complete.</label> <progress id=\"simProg\" value=\""+simsDone+"\" max=\""+totalQuota+"\"></progress><br />\
-		Summary: "+multiWins+ " wins / "+multiLosses+" losses / "+multiDraws+" draws. Success Rate: "+successRate+"%";
+	pFrag.innerHTML = "<label for=\"simProg\">"+simsDone+" battles complete.</label> Summary: "+multiWins+ " wins / "+multiLosses+" losses / "+multiDraws+" draws. Success Rate: "+successRate+"% <br />\
+		<progress style=\"width: 100%;\" id=\"simProg\" value=\""+simsDone+"\" max=\""+totalQuota+"\"></progress>";
 	divFrag.appendChild(pFrag);
 	
 	if (multiWins > 0) {
@@ -983,7 +983,7 @@ function performSimCycle() {
 		pFrag = document.createElement("p");
 		pFrag.innerHTML = avgShips + " player ships survive a win on average.";
 		ulFrag = document.createElement("ul");
-		for (w = 1; w < multiHighShips; w++) {
+		for (w = 1; w <= multiHighShips; w++) {
 			var outcomeCount = getOneValue(plrShipCount, w).length;
 			
 			if (outcomeCount > 0) {
@@ -1003,7 +1003,7 @@ function performSimCycle() {
 		pFrag.innerHTML = "The Doomsday Machine has " + avgHP + " HP on average for each of its wins.";
 		
 		ulFrag = document.createElement("ul");
-		for (l = 1; l < multiHighDMhp; l++) {
+		for (l = 1; l <= multiHighDMhp; l++) {
 			var outcomeCount = getOneValue(dmHPcount, l).length;
 			
 			if (outcomeCount > 0) {
