@@ -87,7 +87,7 @@ function addPlayerRow(namee, baseAtk, atkClass, baseDef, sizee) {
 		
 		//Hit chance field
 		tdFrag = document.createElement("td");
-		tdFrag.className = "numeric";
+		tdFrag.className = "numeric bigScreen";
 		tdFrag.id = namee+"Hit";
 		trFrag.appendChild(tdFrag);
 		
@@ -108,13 +108,13 @@ function addPlayerRow(namee, baseAtk, atkClass, baseDef, sizee) {
 		
 		//Miss chance field
 		tdFrag = document.createElement("td");
-		tdFrag.className = "numeric";
+		tdFrag.className = "numeric bigScreen";
 		tdFrag.id = namee+"Miss";
 		trFrag.appendChild(tdFrag);
 		
 		//Threat field
 		tdFrag = document.createElement("td");
-		tdFrag.className = "numeric";
+		tdFrag.className = "numeric bigScreen";
 		tdFrag.id = namee+"Aggro";
 		trFrag.appendChild(tdFrag);
 	} else {
@@ -122,16 +122,18 @@ function addPlayerRow(namee, baseAtk, atkClass, baseDef, sizee) {
 		tdFrag = document.createElement("td");
 		trFrag.appendChild(tdFrag);
 		tdFrag = document.createElement("td");
-		tdFrag.className = "numeric";
+		tdFrag.className = "numeric bigScreen";
 		tdFrag.id = namee + "Hit";
 		trFrag.appendChild(tdFrag);
 
 		tdFrag = document.createElement("td");
 		trFrag.appendChild(tdFrag);
 		tdFrag = document.createElement("td");
+		tdFrag.className = "bigScreen";
 		trFrag.appendChild(tdFrag);
 
 		tdFrag = document.createElement("td");
+		tdFrag.className = "bigScreen";
 		trFrag.appendChild(tdFrag);
 	}
 	
@@ -221,7 +223,7 @@ function computeHitChances(refreshDM) {
 					hitChance = (dmWeak == 2 ? 50 : -10);
 					bonus = (dmWeak == 2);
 					hitCells[h].innerHTML = hitChance + "%";
-					hitCells[h].className = "numeric" + (bonus ? " bonus" : (readQty > 0 ? "" : " reference"));
+					hitCells[h].className = "numeric bigScreen" + (bonus ? " bonus" : (readQty > 0 ? "" : " reference"));
 				} else if (hitCells[h].id == "FightersAggro") {
 					dmThreat = parseInt(document.getElementById("CarrierAggro").innerHTML);
 					if (hitChance > 0) {
@@ -230,7 +232,7 @@ function computeHitChances(refreshDM) {
 					}
 					
 					hitCells[h].innerHTML = Math.round(dmThreat);
-					hitCells[h].className = "numeric" + (bonus ? " bonus" : (readQty > 0 ? "" : " reference"));
+					hitCells[h].className = "numeric bigScreen" + (bonus ? " bonus" : (readQty > 0 ? "" : " reference"));
 				} else if (hitCells[h].id.substr(-3,3) == "Hit") {
 					readId = hitCells[h].id.substr(0, hitCells[h].id.length - 3) + "Qty";
 					readQty = document.getElementById(readId).value;
@@ -260,7 +262,7 @@ function computeHitChances(refreshDM) {
 					}
 					
 					hitCells[h].innerHTML = hitChance + "%";
-					hitCells[h].className = "numeric" + (bonus ? " bonus" : (readQty > 0 ? "" : " reference"));
+					hitCells[h].className = "numeric bigScreen" + (bonus ? " bonus" : (readQty > 0 ? "" : " reference"));
 				} else if (hitCells[h].id.substr(-4,4) == "Miss") {
 					readId = hitCells[h].id.substr(0, hitCells[h].id.length - 4) + "Qty";
 					readQty = document.getElementById(readId).value;
@@ -283,7 +285,7 @@ function computeHitChances(refreshDM) {
 					}
 					
 					hitCells[h].innerHTML = evaChance + "%";
-					hitCells[h].className = "numeric" + (bonus ? " bonus" : (readQty > 0 ? "" : " reference"));
+					hitCells[h].className = "numeric bigScreen" + (bonus ? " bonus" : (readQty > 0 ? "" : " reference"));
 				} else if (hitCells[h].id.substr(-5,5) == "Aggro") {
 					readId = hitCells[h].id.substr(0, hitCells[h].id.length - 5) + "Qty";
 					readQty = document.getElementById(readId).value;
@@ -305,7 +307,7 @@ function computeHitChances(refreshDM) {
 					}
 					
 					hitCells[h].innerHTML = Math.round(dmThreat);
-					hitCells[h].className = "numeric" + (bonus ? " bonus" : (readQty > 0 ? "" : " reference"));
+					hitCells[h].className = "numeric bigScreen" + (bonus ? " bonus" : (readQty > 0 ? "" : " reference"));
 				}
 			}
 		} catch(err) {
