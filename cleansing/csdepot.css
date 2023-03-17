@@ -1,0 +1,42 @@
+body {background: #600040; color: #FFFFFF; font-family: sans-serif;}
+h2, .center {text-align: center;}
+h2 {color: #00FF00;}
+#outerFrame {background: #000000; border-radius: 15px; padding: 2px; margin: 50px auto 0px auto;}
+#innerFrame {background: #000060; border-radius: 5px; width: 80%; margin: 0px auto;}
+.hilight {color: #00FFFF;}
+
+/* Links */
+a{text-decoration: underline dashed;}
+a:link{color:#40FFFF;}
+a:visited{color:#FF40FF;}
+a:hover{text-decoration: underline solid;}
+a:active{color:#FFFF40;}
+.interact {text-decoration:none; white-space: nowrap; border: 2px outset #0ff; padding: 1px; background:#FFFFFF; margin: 0px 8px; font-style: normal;}
+.interact:hover {text-decoration:none; cursor: pointer;}
+.interact:link {color:#000080;}
+.interact:visited {color:#800080;}
+.interact:disabled {background: #A0A0A0; color: #000080; font: inherit; display: inline; border-color: #08F;}
+.interact:active {border: 2px inset #0ff;}
+
+/* Database styles */
+.important {color: #FFFF80;}
+.TMfile {color: #40FF40;}
+.SMfile {color: #FF4040;}
+.QMfile {color: #4040FF;}
+#database td {vertical-align: bottom;}
+
+/* File styles */
+#fileDetails {width: 75%; margin: 0px auto;}
+.goldScore {color: gold;}
+.authorScore {color: #80FF80;}
+meter {width: 200px;}
+.fileShotBig {width: 400px; height: 225px;}
+.fileShot {width: 200px; height: 113px; padding: 0px;}
+
+@media (max-width: 1279px), (max-height: 767px) {
+	.titleShotBig, .groupShotBig, .mapShotBig, .appShotBig {width: 200px; height: 113px;}
+	.titleShot, .groupShot, .mapShot, .appShot {width: 100px; height: 62px; padding: 0px;}
+	.itemName {font-size: 50%;}
+	#database {line-height: 50%;}
+	#fileDetails {width: 95%;}
+}
