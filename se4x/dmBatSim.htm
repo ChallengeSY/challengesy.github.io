@@ -129,19 +129,7 @@ No matter how low, a DM that rolls a 10 automatically misses">Evasion</th>
 </table>
 
 <label for="dmStr">Strength</label>
-<select class="text" id="dmStr" onchange="computeHitChances(true);" onblur="computeHitChances(true);">
-<option>Multiplayer DM</option>
-<option>Strength 1 DM</option>
-<option>Strength 2 DM</option>
-<option>Strength 3 DM</option>
-<option>Strength 4 DM</option>
-<option>Strength 5 DM</option>
-<option>Strength 6 DM</option>
-<option>Strength 7 DM</option>
-<option>Strength 8 DM</option>
-<option>Strength 9 DM</option>
-<option>Strength 10 DM</option>
-</select>
+<input type="number" class="text numeric" id="dmStr" min="0" max="999" value="0" size="4" onchange="computeHitChances(true);" onblur="computeHitChances(true);" />
 <br />
 
 <label for="dmWek">Weakness</label> <a href="javascript:showBox('Weakness')">(?)</a>

@@ -141,12 +141,13 @@ function addPlayerRow(namee, baseAtk, atkClass, baseDef, sizee) {
 }
 
 function getDMspecs() {
-	dmStr = document.getElementById("dmStr").selectedIndex;
+	dmStr = parseInt(document.getElementById("dmStr").value);
 	dmWeak = document.getElementById("dmWek").selectedIndex;
 	dmAtk = Math.ceil(dmStr/2) + 6;
-	dmDef = Math.ceil((dmStr+1)/3);
+	dmDef = Math.min(Math.ceil((dmStr+1)/3),7);
 	dmSize = Math.floor(dmStr/2) + 6;
 	dmSameAdv = document.getElementById("dmSame").checked;
+	dmThresh = 11;
 	var combatChoices = document.getElementsByName("combatHex");
 	for (c in combatChoices) {
 		if (combatChoices[c].checked) {
@@ -186,6 +187,9 @@ function getDMspecs() {
 		default:
 			dmClass = "A";
 			dmRolls = 6;
+			while (dmStr >= dmThresh) {
+				dmThresh = dmThresh + dmRolls++;
+			}
 			break;
 	}
 	
