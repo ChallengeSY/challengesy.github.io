@@ -144,10 +144,10 @@ function getDMspecs() {
 	dmStr = parseInt(document.getElementById("dmStr").value);
 	dmWeak = document.getElementById("dmWek").selectedIndex;
 	dmAtk = Math.ceil(dmStr/2) + 6;
-	dmDef = Math.min(Math.ceil((dmStr+1)/3),7);
+	dmDef = Math.min(Math.ceil((dmStr+1)/3),4);
 	dmSize = Math.floor(dmStr/2) + 6;
 	dmSameAdv = document.getElementById("dmSame").checked;
-	dmThresh = 11;
+	dmThresh = [15,11];
 	var combatChoices = document.getElementsByName("combatHex");
 	for (c in combatChoices) {
 		if (combatChoices[c].checked) {
@@ -187,10 +187,20 @@ function getDMspecs() {
 		default:
 			dmClass = "A";
 			dmRolls = 6;
-			while (dmStr >= dmThresh) {
-				dmThresh = dmThresh + dmRolls++;
+			while (dmDef < 7 && dmStr >= dmThresh[0]) {
+				dmThresh[0] = dmThresh[0] + (dmDef++ * 2);
+				dmAtk--;
+			}
+			while (dmStr >= dmThresh[1]) {
+				dmThresh[1] = dmThresh[1] + dmRolls++;
+				dmAtk--;
 			}
 			break;
+	}
+	
+	if (dmAtk > 15) {
+		dmSize = dmSize + dmAtk - 15;
+		dmAtk = 15;
 	}
 	
 	if (combatHex == "hexNebula") {
