@@ -1,0 +1,131 @@
+/*
+ * Styles for playing cards. Copyright 1999-2014 by Mike Hall
+ *
+ * Adapted to CSYience Solitaire by CSYience Softworks
+ */
+
+@import "cssol.css";
+/* @import url("https://fonts.googleapis.com/css?family=Ubuntu"); */
+
+.card {
+  border-color: #808080 #000000 #000000 #808080;
+}
+
+.empty {
+  border-color: #FFFFFF;
+}
+
+.card, .empty {
+  border-width: 1px;
+  border-style: solid;
+  /* font-family: "Ubuntu"; */
+  font-size: 20pt;
+  position: absolute;
+  width:  3.75em;
+  height: 5.00em;
+}
+
+.invis {
+  display: none;
+}
+
+.back0 {
+  background-image: url("../gfx/backBlue.png");
+}
+
+.back1 {
+  background-image: url("../gfx/backYellow.png");
+}
+
+.back2 {
+  background-image: url("../gfx/backRed.png");
+}
+
+.back3 {
+  background-image: url("../gfx/backPurple.png");
+}
+
+.back4 {
+  background-image: url("../gfx/backGreen.png");
+}
+
+.back5 {
+  background-image: url("../gfx/backOrange.png");
+}
+
+.backstack {
+  background: #808080;
+}
+
+.front {
+  background-color: #ffffff;
+  color: #000000;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.facedown {
+	visibility: hidden;
+}
+
+.red, .hearts, .diamonds { color: #ff0000; }
+
+.indexA, .indexB {
+  font-size: 50%;
+  font-weight: bold;
+  text-align: center;
+  position: absolute;
+}
+
+.indexA {
+  left: 0.25em;
+  top:  0.25em;
+}
+
+.indexB {
+  right:  0.25em;
+  bottom: 0.25em;
+}
+
+.ace {
+  font-size: 300%;
+  position: absolute;
+  left: 0.325em;
+  top:  0.250em;
+}
+
+.face {
+  border: 1px solid #000000;
+  position: absolute;
+  left: 0.50em;
+  top:  0.45em;
+  width:  2.6em;
+  height: 4.0em;
+}
+
+.spotA1 { position: absolute; left: 0.60em; top: 0.5em; }
+.spotA2 { position: absolute; left: 0.60em; top: 1.5em; }
+.spotA3 { position: absolute; left: 0.60em; top: 2.0em; }
+.spotA4 { position: absolute; left: 0.60em; top: 2.5em; }
+.spotA5 { position: absolute; left: 0.60em; top: 3.5em; }
+
+.spotB1 { position: absolute; left: 1.55em; top: 0.5em; }
+.spotB2 { position: absolute; left: 1.55em; top: 1.0em; }
+.spotB3 { position: absolute; left: 1.55em; top: 2.0em; }
+.spotB4 { position: absolute; left: 1.55em; top: 3.0em; }
+.spotB5 { position: absolute; left: 1.55em; top: 3.5em; }
+
+.spotC1 { position: absolute; left: 2.50em; top: 0.5em; }
+.spotC2 { position: absolute; left: 2.50em; top: 1.5em; }
+.spotC3 { position: absolute; left: 2.50em; top: 2.0em; }
+.spotC4 { position: absolute; left: 2.50em; top: 2.5em; }
+.spotC5 { position: absolute; left: 2.50em; top: 3.5em; }
+
+@keyframes flashSelect {
+	0% {box-shadow: 0px 0px 2px 2px rgb(96,96,192);}
+	50% {box-shadow: 0px 0px 2px 2px rgb(255,255,255);}
+	100% {box-shadow: 0px 0px 2px 2px rgb(96,96,192);}
+}
+
+.cardSelected {box-shadow: 0px 0px 2px 2px rgb(96,96,192); animation-name: flashSelect; animation-duration: 1000ms; animation-iteration-count: infinite;}

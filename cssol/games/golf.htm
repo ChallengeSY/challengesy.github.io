@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="description" content="JavaScript solitaire games" />
+	<meta name="keywords" content="Golf, Par, Hole" />
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>Golf - CSSol</title>
+
+	<link type="text/css" href="../scripts/cards.css" rel="stylesheet" />
+	<style type="text/css">
+	.spades, .clubs {color: #ff0000;}
+	.hearts, .diamonds {color: #000000;}
+	</style>
+	<link type="image/x-icon" href="../cssol.ico" rel="icon" />
+	<script type="text/javascript" src="../scripts/common.js"></script>
+	<script type="text/javascript" src="../scripts/golf.js"></script>
+</head>
+<body>
+<p id="banner"><a href="index.php"><img src="../gfx/banner.png" alt="" /></a></p>
+<div id="tableau" style="max-height: 445px;">
+<!-- Playfield elements will be made here -->
+</div>
+
+<p><input id="newGame" class="button" type="button" value="New game" onclick="newGame(false,true)" title="Starts a new game" />
+<input id="restartGame" class="button" type="button" value="Restart game" onclick="restartGame(false)" title="Restarts the game using the same password" />
+<input id="helpButton" class="button" type="button" value="Show help" onclick="toggleHelp(false)" title="Toggles game instructions" />
+&mdash; Casual Score: <span id="casualScore">0</span>
+<span style="display: none;">
+ &mdash;
+Ruleset: 
+<select id="gameDiff" class="text" onchange="changeDiff(false)">
+<option>Relaxed</option>
+<option selected="selected">Normal</option>
+<option>Dead King</option>
+</select>
+</span>
+<br />Password: <input id="password" class="text" type="text" size="60" maxlength="104" onchange="newGame(false,false)" />
+
+</p>
+
+<p id="statusBar"></p>
+
+<div id="helpPanel">
+<h2>Instructions</h2>
+<p>Your objective in Golf Solitaire is to remove as much of the tableau as you can using a limited stock pile.</p>
+
+<ul>
+	<li>There is only one foundation, dealt face up from the beginning. No building on the tableau
+	<ul>
+		<li>Build up or down regardless of suit (for example, if the top of the foundation pile is a 10, you can play either a 9 or a Jack on it).</li>
+		<li>Ranking of cards is not continuous: an Ace may be built only on a 2, a King only on a Queen</li>
+	</ul></li>
+	<li>The top card of each pile is available for play to the foundation</li>
+	<li>Whenever there are no possible plays, turn cards up one at a time from the cards remaining in the pack after dealing. No redeal</li>
+</ul>
+
+<p class="footer">Documentation is &copy; <a href="http://en.wikipedia.org">Wikipedia Contributors</a>. Freely distributable under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons (BY SA) license 3.0</a></p>
+</div>
+
+</body>
+</html>
