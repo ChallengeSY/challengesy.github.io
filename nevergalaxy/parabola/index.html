@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Parabola</title>
+
+  <style>
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    document.documentElement.classList.remove('no-js');
+  </script>
+
+  <canvas id="" width="400" height="400">
+  </canvas>
+  
+  <script src="readGetLevel.js"></script>
+
+  <script src="parabola.js?v=3"></script>
+  <script>
+    const parabolas = [];
+
+    const canvases = document.querySelectorAll('canvas');
+
+    for (const canvas of canvases) {
+      const level = readLevelObj.levelFile || 'parabola/test1';
+      const background = readLevelObj.backFile || '';
+      const gradientImage = readLevelObj.gradFile || 'back/alien';
+
+      const parabola = Parabola({
+        canvas: canvas,
+        // isInteractive: false,
+        gradientImage: gradientImage,
+        modelPaths: {
+          level: level,
+          background: background,
+        }
+      });
+
+      parabolas.push(parabola);
+    }
+
+  </script>
+</body>
+
+</html>
