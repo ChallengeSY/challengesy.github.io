@@ -4,6 +4,8 @@ var enableAjax = false;
 var forceOpening = false;
 var NFgame = false;
 
+var gameStart = 0.0;
+var gameEnd = 0.0;
 var gametime = 0.0;
 var gameActive = false;
 var gamePlayable = false;
@@ -17,6 +19,8 @@ var penalty = 0.0;
 var timeHandle = null;
 var shiftHandle = null;
 var shiftCombo = 0;
+var shiftGrid = 1;
+var chainReactionSpeed = (isFinite(getCookie("chainSpeed")) ? parseInt(getCookie("chainSpeed")) : 50);
 
 const defaultModule = "wrapsweeper";
 
@@ -279,59 +283,70 @@ function renderBoard() {
 		for (var x = 0; x < boardWidth; x++) {
 			minefield[x][y].delayChain = false;
 			activeTile = document.getElementById("x"+x+"y"+y);
-			activeTile.style.color = "";
-			activeTile.innerHTML = "";
-			activeTile.style.cursor = "";
-			
-			if (!minefield[x][y].revealed) {
-				activeTile.className = "tile";
-				if (minefield[x][y].flagged) {
-					activeTile.innerHTML = "&#9873;";
-					if (minefield[x][y].chained && !minefield[x][y].isMine) {
-						activeTile.innerHTML = "&#10006;";
+			if (activeTile) {
+				activeTile.style.color = "";
+				activeTile.innerHTML = "";
+				activeTile.style.cursor = "";
+				
+				if (!minefield[x][y].revealed) {
+					if (activeTile.className.endsWith("revealed mine")) {
+						activeTile.className = activeTile.className.slice(0,-14);
+					} else if (activeTile.className.endsWith("revealed")) {
+						activeTile.className = activeTile.className.slice(0,-9);
 					}
-				}
-			} else {
-				activeTile.className = "tile revealed";
-				clueFound = minefield[x][y].clue;
-				if (minefield[x][y].isMine) {
-					if (minefield[x][y].chained) {
-						activeTile.style.color = "black";
-					} else {
-						activeTile.className = "tile revealed mine";
-					}
-					activeTile.innerHTML = "&#9883;";
-					activeTile.style.cursor = "default";
-				} else if (clueFound > 0) {
-					activeTile.innerHTML = clueFound;
-					switch (clueFound) {
-						case 1:
-							activeTile.style.color = "#0000FF";
-							break;
-						case 2:
-							activeTile.style.color = "#00E800";
-							break;
-						case 3:
-							activeTile.style.color = "#E80000";
-							break;
-						case 4:
-							activeTile.style.color = "#0000C0";
-							break;
-						case 5:
-							activeTile.style.color = "#C00000";
-							break;
-						case 6:
-							activeTile.style.color = "#008080";
-							break;
-						case 7:
-							activeTile.style.color = "#404040";
-							break;
-						case 8:
-							activeTile.style.color = "#FFFFFF";
-							break;
+					if (minefield[x][y].flagged) {
+						activeTile.innerHTML = "&#9873;";
+						if (minefield[x][y].chained && !minefield[x][y].isMine) {
+							activeTile.innerHTML = "&#10006;";
+						}
 					}
 				} else {
-					activeTile.style.cursor = "default";
+					if (activeTile.className.endsWith("mine")) {
+						activeTile.className = activeTile.className.slice(0,-5);
+					}
+					if (!activeTile.className.endsWith("revealed")) {
+						activeTile.className = activeTile.className + " revealed";
+					}
+					clueFound = minefield[x][y].clue;
+					if (minefield[x][y].isMine) {
+						if (minefield[x][y].chained) {
+							activeTile.style.color = "black";
+						} else {
+							activeTile.className = "tile revealed mine";
+						}
+						activeTile.innerHTML = "&#9883;";
+						activeTile.style.cursor = "default";
+					} else if (clueFound > 0) {
+						activeTile.innerHTML = clueFound;
+						switch (clueFound) {
+							case 1:
+								activeTile.style.color = "#0000FF";
+								break;
+							case 2:
+								activeTile.style.color = "#00E800";
+								break;
+							case 3:
+								activeTile.style.color = "#E80000";
+								break;
+							case 4:
+								activeTile.style.color = "#0000C0";
+								break;
+							case 5:
+								activeTile.style.color = "#C00000";
+								break;
+							case 6:
+								activeTile.style.color = "#008080";
+								break;
+							case 7:
+								activeTile.style.color = "#404040";
+								break;
+							case 8:
+								activeTile.style.color = "#FFFFFF";
+								break;
+						}
+					} else {
+						activeTile.style.cursor = "default";
+					}
 				}
 			}
 		}
@@ -344,7 +359,7 @@ function renderBoard() {
 }
 
 function incrementTimer() {
-	gametime = gametime + 0.1;
+	gametime = (Date.now() - gameStart)/1000;
 	document.getElementById("time").innerHTML = renderTime(gametime, false);
 	autoReveal();
 }
@@ -554,7 +569,8 @@ function touchTile(event, ox, oy) {
 				}
 				
 				gameActive = true;
-				timeHandle = setInterval(incrementTimer, 100);
+				gameStart = Date.now();
+				timeHandle = setInterval(incrementTimer, Math.max(chainReactionSpeed,1));
 			}
 			
 			minefield[x][y].revealTile();
@@ -656,7 +672,7 @@ function updateStatus(newMessage) {
 function renderTime(amt, dispFrac) {
 	minutes = Math.floor(amt / 60);
 	seconds = (Math.floor(amt) % 60);
-	fraction = Math.round(amt * 10) % 10;
+	fraction = Math.round(amt * 1000) % 1000;
 	
 	if (!dispFrac) {
 		minutes = Math.floor((amt + 0.999) / 60);
@@ -671,6 +687,11 @@ function renderTime(amt, dispFrac) {
 	
 	buildStr = buildStr+seconds+"''"
 	if (dispFrac) {
+		if (fraction < 10) {
+			buildStr = buildStr+"00"
+		} else if (fraction < 100) {
+			buildStr = buildStr+"0"
+		}
 		buildStr = buildStr+fraction;
 	}
 	
@@ -678,6 +699,8 @@ function renderTime(amt, dispFrac) {
 }
 
 function endGame(gameWon) {
+	gameEnd = Date.now();
+	gametime = (gameEnd - gameStart)/1000;
 	clearInterval(timeHandle);
 	gameActive = false;
 	gamePlayable = false;
@@ -801,14 +824,16 @@ function stopShifting() {
 
 function shiftCellsLeft(event) {
 	if (shiftCombo++ >= 0) {
-		for (sy = 0; sy < boardHeight; sy++) {
-			for (sx = boardWidth; sx > 0; sx--) {
-				minefield[sx][sy] = minefield[sx-1][sy];
+		for (times = 0; times < shiftGrid; times++) {
+			for (sy = 0; sy < boardHeight; sy++) {
+				for (sx = boardWidth; sx > 0; sx--) {
+					minefield[sx][sy] = minefield[sx-1][sy];
+				}
 			}
-		}
 
-		for (py = 0; py < boardHeight; py++) {
-			minefield[0][py] = minefield[boardWidth][py];
+			for (py = 0; py < boardHeight; py++) {
+				minefield[0][py] = minefield[boardWidth][py];
+			}
 		}
 		
 		if (gameActive) {
@@ -820,13 +845,15 @@ function shiftCellsLeft(event) {
 
 function shiftCellsDown(event) {
 	if (shiftCombo++ >= 0) {
-		for (px = 0; px < boardWidth; px++) {
-			minefield[px][boardHeight] = minefield[px][0];
-		}
-		
-		for (sy = 0; sy < boardHeight; sy++) {
-			for (sx = 0; sx < boardWidth; sx++) {
-				minefield[sx][sy] = minefield[sx][sy+1];
+		for (times = 0; times < shiftGrid; times++) {
+			for (px = 0; px < boardWidth; px++) {
+				minefield[px][boardHeight] = minefield[px][0];
+			}
+			
+			for (sy = 0; sy < boardHeight; sy++) {
+				for (sx = 0; sx < boardWidth; sx++) {
+					minefield[sx][sy] = minefield[sx][sy+1];
+				}
 			}
 		}
 		
@@ -839,14 +866,16 @@ function shiftCellsDown(event) {
 
 function shiftCellsUp(event) {
 	if (shiftCombo++ >= 0) {
-		for (sy = boardHeight; sy > 0; sy--) {
-			for (sx = 0; sx < boardWidth; sx++) {
-				minefield[sx][sy] = minefield[sx][sy-1];
+		for (times = 0; times < shiftGrid; times++) {
+			for (sy = boardHeight; sy > 0; sy--) {
+				for (sx = 0; sx < boardWidth; sx++) {
+					minefield[sx][sy] = minefield[sx][sy-1];
+				}
 			}
-		}
 
-		for (px = 0; px < boardWidth; px++) {
-			minefield[px][0] = minefield[px][boardHeight];
+			for (px = 0; px < boardWidth; px++) {
+				minefield[px][0] = minefield[px][boardHeight];
+			}
 		}
 		
 		if (gameActive) {
@@ -858,13 +887,15 @@ function shiftCellsUp(event) {
 
 function shiftCellsRight(event) {
 	if (shiftCombo++ >= 0) {
-		for (py = 0; py < boardHeight; py++) {
-			minefield[boardWidth][py] = minefield[0][py];
-		}
-		
-		for (sy = 0; sy < boardHeight; sy++) {
-			for (sx = 0; sx < boardWidth; sx++) {
-				minefield[sx][sy] = minefield[sx+1][sy];
+		for (times = 0; times < shiftGrid; times++) {
+			for (py = 0; py < boardHeight; py++) {
+				minefield[boardWidth][py] = minefield[0][py];
+			}
+			
+			for (sy = 0; sy < boardHeight; sy++) {
+				for (sx = 0; sx < boardWidth; sx++) {
+					minefield[sx][sy] = minefield[sx+1][sy];
+				}
 			}
 		}
 		

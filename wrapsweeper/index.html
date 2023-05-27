@@ -7,12 +7,40 @@
 	
 	<title>Wrapsweeper</title>
 	<link type="text/css" href="../nevergalaxy/css/csysoft.css" rel="stylesheet" />
+	<script src="cookies.js"></script>
 	<script>
-		function openMenu(submenu) {
-			var hideMenu = (submenu == "standard" ? "custom" : "standard");
+		var targetDate = new Date;
+		var findObj, searchElement;
+		var manualSave = false;
+		targetDate.setTime(targetDate.getTime() + (360*24*60*60*1000));
+
+		function initPage() {
+			// Chain speed settings
+			if (getCookie("chainSpeed")) {
+				findObj = document.getElementById("chain" + getCookie("chainSpeed"));
+				if (findObj) {
+					findObj.checked = true;
+				}
+			} else {
+				findObj = document.getElementById("chain50");
+				if (findObj) {
+					findObj.checked = true;
+				}
+			}
 			
-			document.getElementById(hideMenu).style.display = "none";
-			document.getElementById(submenu).style.display = "";
+			updateDensity();
+		}
+
+		function openMenu(submenu) {
+			var menuList = ["standard", "custom", "options"];
+			
+			for (i = 0; i < menuList.length; i++) {
+				if (submenu == menuList[i]) {
+					document.getElementById(menuList[i]).style.display = "";
+				} else {
+					document.getElementById(menuList[i]).style.display = "none";
+				}
+			}
 		}
 		
 		function updateDensity() {
@@ -24,16 +52,60 @@
 			denseMeter.innerHTML = percentage.toFixed(3)+"%";
 			denseMeter.title = denseMeter.innerHTML;
 		}
+
+		function applyConfig(cName, cVal) {
+			if (cName == "pileDensity") {
+				findObj = document.getElementById("vertCard1");
+				
+				if (findObj) {
+					findObj.style.top = cVal+"px";
+				}
+			} else if (cName == "cardback") {
+				findObj = document.getElementById("backSample");
+				
+				if (findObj) {
+					applyBackId = cVal - 1;
+					
+					if (applyBackId >= 0) {
+						findObj.className = "card back"+applyBackId;
+					}
+				}
+			}
+			
+			setCookie(cName, cVal, targetDate, "/");
+			
+			if (!manualSave) {
+				findObj = document.getElementById("saveButton");
+				findObj.disabled = true;
+				findObj.innerHTML = "Changes autosaved";
+			}
+		}
+
+		//Fallback function for older browsers
+		function saveConfigs() {
+			manualSave = true;
+			
+			for (a = 1; a <= 100; a++) {
+				findObj = document.getElementById("chain"+a);
+				if (findObj && findObj.checked) {
+					applyConfig('chainSpeed',a);
+					break;
+				}
+			}
+
+			manualSave = false;
+		}
 	</script>
 </head>
-<body onload="updateDensity()">
+<body onload="initPage()">
 
 <p id="banner"><img src="banner.png" alt="Wrapsweeper" /></p>
 <p>Welcome to <span class="bold">Wrapsweeper</span>, a project that puts your wraparound minesweeping to the test. No downloads required; just play!</p>
 
 <!-- Main menu -->
 <p class="center"><button class="interact" onclick="openMenu('standard')">Standard Mode</button>
-<button class="interact" onclick="openMenu('custom')">Custom Mode</button></p>
+<button class="interact" onclick="openMenu('custom')">Custom Mode</button>
+<button class="interact" onclick="openMenu('options')">Options</button></p>
 
 <!-- Standard Mode menu -->
 <div class="center" style="display: none;" id="standard">
@@ -64,10 +136,25 @@ Customize your experience<br />
 </form>
 </div>
 
+<!-- Options menu -->
+<div class="center" style="display: none;" id="options">
+<fieldset>
+<legend>Chain Reaction Speed</legend>
+<p>This setting determines how quickly chain reactions open up.</p>
+
+<input type="radio" id="chain1" name="chainSpeed" oninput="applyConfig('chainSpeed',1);" /><label for="chain1">Near instant</label>
+<input type="radio" id="chain50" name="chainSpeed" oninput="applyConfig('chainSpeed',50);" /><label for="chain50">Fast</label>
+<input type="radio" id="chain75" name="chainSpeed" oninput="applyConfig('chainSpeed',75);" /><label for="chain75">Medium</label>
+<input type="radio" id="chain100" name="chainSpeed" oninput="applyConfig('chainSpeed',100);" /><label for="chain100">Slow</label>
+</fieldset>
+
+<button class="interact" id="saveButton" onclick="saveConfigs();">Save changes</button>
+</div>
+
 <hr />
 
 <p class="footer">
-Wrapsweeper &copy; 2022 Paul Ruediger<br />
+Wrapsweeper &copy; 2022-2023 Paul Ruediger<br />
 <a class="interact" href="../spaceYard.htm">Return to Space Yard</a>
 </p>
 
