@@ -59,7 +59,7 @@ function compute() {
 				}
 				if (climate < 15) {
 					maxClans = Math.floor((299.9+200*climate)/cdr);
-					output += "<li>Maximum "+insertOther+"colonist population is "+maxClans+" clans<br /><br /></li>";
+					output += "<li>Maximum colonist population "+insertOther+"is "+maxClans+" clans<br /><br /></li>";
 				} else if (climate >= 85) {
 					maxClans = Math.floor((20099.9-200*climate)/cdr);
 					if (maxClans < 60) {
