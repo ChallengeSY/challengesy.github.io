@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="description" content="JavaScript solitaire games" />
+	<meta name="keywords" content="Klondike, FreeCell, Spider, Golf, Yukon, JavaScript, PHP, HTML5" />
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>CSYience Solitaire Options</title>
+
+	<link type="text/css" href="scripts/cards.css" rel="stylesheet" />
+	<link type="image/x-icon" href="cssol.ico" rel="icon" />
+	<script type="text/javascript" src="scripts/common.js"></script>
+	<script type="text/javascript">
+		var targetDate = new Date;
+		var findObj, success, searchElement;
+		var backId = 0;
+		var manualSave = false;
+		targetDate.setTime(targetDate.getTime() + (360*24*60*60*1000));
+		
+		function applyConfig(cName, cVal) {
+			if (cName == "pileDensity") {
+				findObj = document.getElementById("vertCard1");
+				
+				if (findObj) {
+					findObj.style.top = cVal+"px";
+				}
+			} else if (cName == "cardback") {
+				findObj = document.getElementById("backSample");
+				
+				if (findObj) {
+					applyBackId = cVal - 1;
+					
+					if (applyBackId >= 0) {
+						findObj.className = "card back"+applyBackId;
+					}
+				}
+			}
+			
+			setCookie(cName, cVal, targetDate, "/");
+			
+			if (!manualSave) {
+				findObj = document.getElementById("saveButton");
+				findObj.disabled = true;
+				findObj.innerHTML = "Changes autosaved";
+			}
+		}
+		
+		function flipConfig(cName, falseVal, trueVal, parentObj) {
+			cVal = getCookie(cName);
+			
+			if (parentObj.checked) {
+				cVal = trueVal;
+			} else {
+				cVal = falseVal;
+			}
+			
+			applyConfig(cName, cVal);
+		}
+		
+		function initPage() {
+			success = false;
+			
+			// Shuffle and deal deck
+			resetInternals();
+			playDeck = new solDeck(1);
+			shuffleDeck(1);
+			cardsDealt = 0;
+			
+			// Vertical fanning settings
+			vertCard = new Array(2);
+			for (i = 0; i < 2; i++) {
+				vertCard[i] = assignSeedCard();
+				
+				searchElement = document.getElementById("vertCard" + i);
+				if (searchElement) {
+					renderDiv(searchElement, "play0");
+					searchElement.innerHTML = vertCard[i].innerCode();
+					searchElement.title = vertCard[i].nameParse();
+				}
+			}
+			
+			if (getCookie("pileDensity")) {
+				findObj = document.getElementById("v" + getCookie("pileDensity"));
+				if (findObj) {
+					findObj.checked = true;
+					success = true;
+				}
+				
+				if (success) {
+					findObj = document.getElementById("vertCard1");
+					
+					if (findObj) {
+						findObj.style.top = getCookie("pileDensity")+"px";
+					}
+				}
+			} else {
+				findObj = document.getElementById("v30");
+				if (findObj) {
+					findObj.checked = true;
+				}
+			}
+			
+			// Cardback settings
+			if (getCookie("cardback")) {
+				findObj = document.getElementById("back" + getCookie("cardback"));
+				if (findObj) {
+					findObj.checked = true;
+					success = true;
+				}
+				
+				if (success) {
+					findObj = document.getElementById("backSample");
+					applyBackId = getCookie("cardback") - 1;
+					
+					if (applyBackId >= 0 && findObj) {
+						findObj.className = "card back"+applyBackId;
+					}
+				}
+			} else {
+				findObj = document.getElementById("back-1");
+				if (findObj) {
+					findObj.checked = true;
+				}
+			}
+			
+			if (!clockPtr) {
+				clockPtr = setInterval(function(){cycleCardbacks()},3500);
+			}
+			
+			// Abandon game prompt settings
+			if (getCookie("abandonPrompt")) {
+				findObj = document.getElementById("ag" + getCookie("abandonPrompt"));
+				if (findObj) {
+					findObj.checked = true;
+				}
+			} else {
+				findObj = document.getElementById("ag1");
+				if (findObj) {
+					findObj.checked = true;
+				}
+			}
+			
+			// Downturn Hints settings
+			if (getCookie("downturnHints")) {
+				findObj = document.getElementById("fd" + getCookie("downturnHints"));
+				if (findObj) {
+					findObj.checked = true;
+				}
+			} else {
+				findObj = document.getElementById("fd1");
+				if (findObj) {
+					findObj.checked = true;
+				}
+			}
+			
+			// Sound Effects settings
+			if (getCookie("playSfx")) {
+				findObj = document.getElementById("sfx1");
+				if (findObj) {
+					findObj.checked = (getCookie("playSfx") == 1);
+				}
+			} else {
+				findObj = document.getElementById("sfx1");
+				if (findObj) {
+					findObj.checked = true;
+				}
+			}
+			
+			// Holiday Card settings
+			if (getCookie("holidayCards")) {
+				findObj = document.getElementById("holiday1");
+				if (findObj) {
+					findObj.checked = (getCookie("holidayCards") == 1);
+				}
+			} else {
+				findObj = document.getElementById("holiday1");
+				if (findObj) {
+					findObj.checked = true;
+				}
+			}
+		}
+		
+		function cycleCardbacks() {
+			findObj = document.getElementById("back-1");
+			if (findObj && findObj.checked) {
+				backId = (backId + 1) % 6;
+				
+				findObj = document.getElementById("backSample");
+				if (findObj) {
+					findObj.className = "card back"+backId;
+				}
+			}
+		}
+		
+		//Fallback function for older browsers
+		function saveConfigs() {
+			manualSave = true;
+			
+			for (a = 22; a <= 30; a = a + 4) {
+				findObj = document.getElementById("v"+a);
+				if (findObj && findObj.checked) {
+					applyConfig('pileDensity',a);
+					break;
+				}
+			}
+			
+			for (b = -1; b <= 6; b++) {
+				findObj = document.getElementById("back"+b);
+				if (findObj && findObj.checked) {
+					applyConfig('cardback',b);
+					break;
+				}
+			}
+			
+			for (c = 1; c <= 3; c++) {
+				findObj = document.getElementById("ag"+c);
+				if (findObj && findObj.checked) {
+					applyConfig('abandonPrompt',c);
+					break;
+				}
+			}
+			
+			for (d = 1; d <= 3; d++) {
+				findObj = document.getElementById("fd"+d);
+				if (findObj && findObj.checked) {
+					applyConfig('downturnHints',d);
+					break;
+				}
+			}
+
+			findObj = document.getElementById("sfx1");
+			if (findObj && findObj.checked) {
+				applyConfig('playSfx',1);
+			} else {
+				applyConfig('playSfx',-1);
+			}
+
+			findObj = document.getElementById("holiday1");
+			if (findObj && findObj.checked) {
+				applyConfig('holidayCards',1);
+			} else {
+				applyConfig('holidayCards',-1);
+			}
+
+			manualSave = false;
+		}
+	</script>
+</head>
+<body onload="initPage()">
+
+<p id="banner"><a href="index.php"><img src="gfx/banner.png" alt="" /></a></p>
+
+<h3 style="clear: both;">Configuration Options</h3>
+<p>Use the available configuration options to customize your experience. Configurations are saved automatically upon change when possible. There is also a Save button, usable in older browsers which do not support auto-save.</p>
+
+<fieldset>
+<legend>Vertical fanning space</legend>
+
+<div style="margin-top: -35px; width: 125px; float: right; position: relative;">
+	<div id="vertCard0" style="left:0px;top:0px;"></div>
+
+	<div id="vertCard1" style="left:0px;top:29px;"></div>
+</div>
+
+<p style="margin-right: 140px;">This setting determines how densely packed the cards are when fanned vertically.</p>
+
+<input type="radio" id="v22" name="vertfan" oninput="applyConfig('pileDensity',22);" /><label for="v22">Compact</label>
+<input type="radio" id="v30" name="vertfan" oninput="applyConfig('pileDensity',30);" /><label for="v30">Balanced</label>
+<input type="radio" id="v38" name="vertfan" oninput="applyConfig('pileDensity',38);" /><label for="v38">Broad</label>
+</fieldset>
+
+<fieldset style="margin-right: 160px;">
+<legend>Cardback</legend>
+<div style="margin-top: -25px; width: 125px; float: right; position: relative;">
+	<div class="card back0" id="backSample" style="left:0px;top:0px;"></div>
+</div>
+
+<p style="margin-right: 140px;">This setting determines whether to cycle through the available cardbacks (one cardback per deck) each time a new game is started, or use a fixed cardback for <em>all</em> decks.</p>
+
+<input type="radio" id="back-1" name="cardback" oninput="applyConfig('cardback',-1);" /><label for="back-1">Cycle cardbacks</label><br />
+<input type="radio" id="back1" name="cardback" oninput="applyConfig('cardback',1);" /><label for="back1">Blue</label>
+<input type="radio" id="back2" name="cardback" oninput="applyConfig('cardback',2);" /><label for="back2">Yellow</label>
+<input type="radio" id="back3" name="cardback" oninput="applyConfig('cardback',3);" /><label for="back3">Red</label>
+<input type="radio" id="back4" name="cardback" oninput="applyConfig('cardback',4);" /><label for="back4">Purple</label>
+<input type="radio" id="back5" name="cardback" oninput="applyConfig('cardback',5);" /><label for="back5">Green</label>
+<input type="radio" id="back6" name="cardback" oninput="applyConfig('cardback',6);" /><label for="back6">Orange</label>
+</fieldset>
+
+<fieldset>
+<legend>Abandon game confirmation</legend>
+<p>This setting determines under which circumstances an abandon prompt should be given for leaving incomplete games. Golf Solitaire will skip this prompt in case the game is lost as a result of running out of legal moves.</p>
+
+<input type="radio" id="ag1" name="abandonPrompt" oninput="applyConfig('abandonPrompt',1);" /><label for="ag1">Always</label>
+<input type="radio" id="ag3" name="abandonPrompt" oninput="applyConfig('abandonPrompt',3);" /><label for="ag3">Never</label>
+</fieldset>
+
+<fieldset>
+<legend>Downturn hints</legend>
+<p>This setting determines whether face-down cards should be given a hint in their tooltips [Ex: (Ace of Spades)], or not. Effectiveness may vary widely from device to device.</p>
+
+<input type="radio" id="fd1" name="downturnHints" oninput="applyConfig('downturnHints',1);" /><label for="fd1">No hints</label><br />
+<input type="radio" id="fd2" name="downturnHints" oninput="applyConfig('downturnHints',2);" /><label for="fd2">One card per tableau pile</label><br />
+<input type="radio" id="fd3" name="downturnHints" oninput="applyConfig('downturnHints',3);" /><label for="fd3">All facedown cards</label>
+</fieldset>
+
+<fieldset>
+<legend>Sound effects</legend>
+<input type="checkbox" id="sfx1" name="soundEffects" oninput="flipConfig('playSfx',-1,1,this);" /><label for="sfx1">Sound effects active</label><br />
+</fieldset>
+
+<p class="center"><button class="interact" id="saveButton" onclick="saveConfigs();">Save changes</button></p>
+
+</body>
+</html>

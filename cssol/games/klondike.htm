@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="description" content="JavaScript solitaire games" />
+	<meta name="keywords" content="Klondike" />
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>Klondike - CSSol</title>
+
+	<link type="text/css" href="../scripts/cards.css" rel="stylesheet" />
+		<link type="image/x-icon" href="../cssol.ico" rel="icon" />
+	<script type="text/javascript" src="../scripts/common.js"></script>
+	<script type="text/javascript" src="../scripts/homepiles.js"></script>
+	<script type="text/javascript" src="../scripts/klondike.js"></script>
+</head>
+<body>
+<p id="banner"><a href="../index.htm"><img src="../gfx/banner.png" alt="" /></a></p>
+<div id="tableau">
+<!-- Playfield elements will be made here -->
+</div>
+
+<p><input id="newGame" class="button" type="button" value="New game" onclick="newGame(false,true)" title="Starts a new game" />
+<input id="restartGame" class="button" type="button" value="Restart game" onclick="restartGame(false)" title="Restarts the game using the same password" />
+<input id="autoBuild" class="button" type="button" value="Autobuild" onclick="autoFinish(7,0,true)" title="Automatically builds foundations where possible" />
+<input id="helpButton" class="button" type="button" value="Show help" onclick="toggleHelp(false)" title="Toggles game instructions" />
+&mdash; Casual Score: <span id="casualScore">0</span>
+&mdash;
+<select id="gameDiff" class="text" onchange="changeDiff(false)">
+<option selected="selected">Klondike</option>
+<option>Gold Rush</option>
+<option>Klondike by Threes</option>
+<option>Saratoga</option>
+</select>
+<br />Password: <input id="password" class="text" type="text" size="60" maxlength="104" onchange="newGame(false,false)" />
+</p>
+
+<p id="statusBar"></p>
+
+<div id="helpPanel">
+<h2>Instructions</h2>
+<p>Taking a standard 52-card deck of playing cards (without Jokers), deal one upturned card on the left of your playing area, then six downturned cards (from left to right). On top of the downturned cards, deal an upturned card on the left-most downturned pile, and downturned cards on the rest until all piles have an upturned card.</p>
+
+<p>Tableau piles are built down by alternating colors. Foundations are built up by suit. Empty columns may be filled only by a king.</p>
+
+<p>There are three ways to play Klondike. The game can be played old-styled one card at a time with unlimited redeals, using Gold Rush rules (with 2 redeals), or by threes (also with unlimited redeals).</p>
+
+<h3>Additional Variations</h3>
+<p>Gold Rush works differently in that the cards are initially turned over three at a time, but this decreases to two at a time on the second pass, and one at a time on the third and final pass.</p>
+
+<p>Saratoga plays identically to Klondike by Threes, except all cards in the tableau are face up. Movement is limited to builds of cards.</p>
+
+<p class="footer">Documentation is &copy; <a href="http://en.wikipedia.org">Wikipedia Contributors</a>. Freely distributable under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons (BY SA) license 3.0</a></p>
+</div>
+
+</body>
+</html>

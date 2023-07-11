@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="description" content="JavaScript solitaire games" />
+	<meta name="keywords" content="FreeCell" />
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>FreeCell - CSSol</title>
+
+	<link type="text/css" href="../scripts/cards.css" rel="stylesheet" />
+		<link type="image/x-icon" href="../cssol.ico" rel="icon" />
+	<script type="text/javascript" src="../scripts/common.js"></script>
+	<script type="text/javascript" src="../scripts/reserve.js"></script>
+	<script type="text/javascript" src="../scripts/homepiles.js"></script>
+	<script type="text/javascript" src="../scripts/freecell.js"></script>
+</head>
+<body>
+<p id="banner"><a href="../index.htm"><img src="../gfx/banner.png" alt="" /></a></p>
+<div id="tableau">
+<!-- Playfield elements will be made here -->
+</div>
+
+<p><input id="newGame" class="button" type="button" value="New game" onclick="newGame(false,true)" title="Starts a new game" />
+<input id="restartGame" class="button" type="button" value="Restart game" onclick="restartGame(false)" title="Restarts the game using the same password" />
+<input id="autoBuild" class="button" type="button" value="Autobuild" onclick="autoFinish(8,4,false)" title="Automatically builds foundations where possible" />
+<input id="helpButton" class="button" type="button" value="Show help" onclick="toggleHelp(false)" title="Toggles game instructions" />
+&mdash; Casual Score: <span id="casualScore">0</span>
+&mdash;
+<select id="gameDiff" class="text" onchange="changeDiff(false)">
+<option>KingCell</option>
+<option selected="selected">FreeCell</option>
+<option>Challenge FreeCell</option>
+<option>ForeCell</option>
+<option>Baker's Game</option>
+<option style="display: none;">Super Challenge FreeCell</option>
+</select>
+<br />Password: <input id="password" class="text" type="text" size="60" maxlength="104" onchange="newGame(false,false)" />
+</p>
+
+<p id="statusBar"></p>
+
+<div id="helpPanel">
+<h2>Instructions</h2>
+<p>FreeCell is a solitaire-based card game played with a 52-card standard deck. It is fundamentally different from most solitaire games in that nearly all deals can be solved.</p>
+
+<h3>Construction and layout</h3>
+<ul>
+<li>One standard 52-card deck is used.</li>
+<li>There are four open cells and four open foundations. Some alternate rules use between one to ten cells.</li>
+<li>Cards are dealt into eight cascades, four of which comprise seven cards and four of which comprise six. Some alternate rules will use between four to ten cascades.</li>
+</ul>
+<h3>Building during play</h3>
+<ul>
+<li>The top card of each cascade begins a tableau pile.</li>
+<li>Tableaux must be built down by alternating colors.</li>
+<li>Foundations are built up by suit.</li>
+</ul>
+<h3>Moves</h3>
+<ul>
+<li>Any cell card or top card of any cascade may be moved to build on a tableau pile, or moved to an empty cell, an empty cascade, or its foundation.</li>
+<li>Complete or partial tableaus may be moved to build on existing tableaus, or moved to empty cascades, by recursively placing and removing cards through intermediate locations. While computer implementations often show this motion, players using physical decks typically move the tableau at once.</li>
+</ul>
+
+<h3>Victory</h3>
+<P>The game is won after all cards are moved to their foundation piles.</p>
+
+<h3>Ruleset differences</h3>
+<ul>
+<li>KingCell: Build down regardless of suit, at the expense of empty piles being filled only by a King</li>
+<li>Challenge FreeCell: All Aces and Deuces are buried at the deepest piles</li>
+<li>ForeCell: Reserve slots start the game filled, and empty piles can be filled only by a King</li>
+<li>Baker's Game: Build down by suit</li>
+</ul>
+
+<p class="footer">Documentation is &copy; <a href="http://en.wikipedia.org">Wikipedia Contributors</a>. Freely distributable under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons (BY SA) license 3.0</a></p>
+</div>
+
+</body>
+</html>
