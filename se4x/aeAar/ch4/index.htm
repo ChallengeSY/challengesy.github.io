@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>SE4X - Alien Empires Playthrough - Chapter 4</title>
+	<link type="text/css" href="../../../nuCampaign/planets.css" rel="stylesheet" />
+	<script type="text/javascript" src="../../pedia.js"></script>
+	<script type="text/javascript" src="../../alienEmpires.js"></script>
+	<script type="text/javascript">
+		function dispImage(filename, altTxt) {
+			document.write("<p class=\"noKeywords center\"><a href=\"" + filename + "\"><img src=\"" + filename + "\" alt=\"" + altTxt + "\" /></a></p>");
+		}
+		
+		function turnRow(ep) {
+			document.write("<p class=\"noKeywords center\">\
+				<a href=\"ep"+ep+"turn1.png\"><img src=\"ep"+ep+"turn1.png\"\" alt=\"Eco Phase "+ep+" / Trn 1\" /></a>\
+				<a href=\"ep"+ep+"turn2.png\"><img style=\"margin-left: 3%; margin-right: 3%;\" src=\"ep"+ep+"turn2.png\"\" alt=\"Eco Phase "+ep+" / Trn 2\" /></a>\
+				<a href=\"ep"+ep+"turn3.png\"><img src=\"ep"+ep+"turn3.png\"\" alt=\"Eco Phase "+ep+" / Trn 3\" /></a></p>");
+		}
+		
+		function turnPic(ep, turn) {
+			dispImage("ep"+ep+"turn"+turn+".png","Eco Phase "+ep+" / Trn "+turn);
+		}
+
+		alienOpponents = [new alienPlayer("Red"), new alienPlayer("Green"), new alienPlayer("Yellow")];
+
+		// From previous economic phases
+		addRegEcoRoll(alienOpponents);
+		addRegEcoRoll(alienOpponents);
+		addRegEcoRoll(alienOpponents);
+		gameDifficulty = 1; //Temporarily reduce difficulty
+		alienOpponents[0].addFleetCPs(17);
+		alienOpponents[0].addQueuedRoll();
+		alienOpponents[0].applyQueuedRoll();
+		alienOpponents[0].addDefCPs(20);
+		alienOpponents[1].addFleetCPs(22);
+		alienOpponents[1].addQueuedRoll();
+		alienOpponents[1].applyQueuedRoll();
+		alienOpponents[1].addTechCPs(15);
+		alienOpponents[2].addTechCPs(40);
+		alienOpponents[2].addDefCPs(15);
+		alienOpponents[2].addFleetCPs(35);
+		alienOpponents[2].launchRegFleet();
+		alienOpponents[2].addFleetCPs(40);
+		alienOpponents[2].launchRegFleet();
+		alienOpponents[2].addFleetCPs(15);
+		//We are finished. Revert game difficulty and eliminate differences
+		gameDifficulty = 5; 
+		alienOpponents[0].normalizeValues();
+		alienOpponents[1].normalizeValues();
+		alienOpponents[2].normalizeValues();
+	</script>
+	<style type="text/css">
+		img {max-width: 30%;}
+		a {white-space: nowrap;}
+		.increase {color: #00ff00; font-weight: bold;}
+		.decrease {color: #ff8080; font-weight: bold;}
+
+		@media (max-width: 1440px), (max-height: 720px) {
+			#chapters {display: none;}
+		}
+
+		@media (min-width: 1441px) and (min-height: 721px) {
+			#bodyTxt {margin-right: 250px;}
+		}
+		
+		@media only screen and (max-device-width: 640px) {
+			#infobox {font-size: 200%;}
+		}
+	</style>
+</head>
+<body onload="keywordifyDocument();">
+<div id="chapters" style="position: fixed; width: 235px; top: 10px; right: 10px; border: 1px dashed rgb(255,255,255);">
+<h4>Available chapters</h4>
+<ul>
+<li><a href="#intro">Summary</a></li>
+<li><a href="#ep12moves">Movement Turns 34-36</a></li>
+<li><a href="#ep12econ">Economic Phase 12</a></li>
+<li><a href="#ep13moves">Movement Turns 37-39</a><ul>
+<li><a href="#ep13turn2batI3">Battle for Sector I3</a></li>
+<li><a href="#ep13turn3batD7">Battle for Chulak</a></li>
+</ul></li>
+<li><a href="#ep13econ">Economic Phase 13</a></li>
+<li><a href="#ep14moves">Movement Turns 40-42</a><ul>
+<li><a href="#ep14turn3batF7">Battle for Sector F7</a></li>
+</ul></li>
+<li><a href="#ep14econ">Economic Phase 14</a></li>
+<li><a href="#ep15moves">Movement Turns 43-45</a><ul>
+<li><a href="#ep15turn2batE7">Battle for Sector E7</a></li>
+<li><a href="#ep15turn3batD7">Battle for Chulak</a></li>
+<li><a href="#ep15turn3batI3">Battle for Sector I3</a></li>
+</ul></li>
+<li><a href="#ep15econ">Economic Phase 15</a></li>
+<li><a href="#ep16moves">Movement Turns 46-48</a><ul>
+<li><a href="#ep16turn1batI3">Battles for Sector I3</a></li>
+</ul></li>
+<li><a href="#ep16econ">Economic Phase 16</a></li>
+<li><a href="#ep17moves">Movement Turns 49-51</a><ul>
+<li><a href="#ep17turn2batI1">Battle for Sector I1</a></li>
+<li><a href="#ep17turn3batH1">Battle for Altair</a></li>
+</ul></li>
+<li><a href="#ep17econ">Economic Phase 17</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</div>
+<div id="bodyTxt">
+<p id="banner"><a href="../index.htm"><img src="../../banner.png" alt="Space Empires 4X Resourcepedia" /></a></p>
+
+<hr />
+
+<h2 id="intro">Chapter 4 Summary</h2>
+<p>
+<a href="../ch3/">Previously</a> on our current playthrough, we started fending off the Alien Players now that they finally launched their fleets. We also did our first attempt assaulting Chulak, the Green Alien Player homeworld. We will attempt to eliminate it in this chapter.</p>
+
+<table>
+<caption>Alien Summary (EP11)</caption>
+<tr>
+<th>Player</th>
+<th>Eco</th>
+<th>Fleet</th>
+<th>Tech</th>
+<th>Def</th>
+<th>Hidden</th>
+</tr>
+<script>drawRows(alienOpponents)</script>
+</table>
+
+<h2 id="ep12moves">Movement Turns 34-36</h2>
+<p>Although none of the Alien Players launched during the previous economic phase, a single Scout is still floating around from when we did a failed assault attempt on Chulak.</p>
+
+<p>Green's assault plan was diverted when Exploration and otherwise revealed a Supernova and a Black Hole, respectively. We wisely splitted our group of 2 Scouts for revealing the Black Hole. The one straggler rolled a 5 (survived). Yet... the straggler was not meant to brave two hazardous counters back to back.</p>
+
+<script>turnRow(12)</script>
+
+<h2 id="ep12econ">Economic Phase 12</h2>
+<p>Surprise, surprise... We had no battles this time around.</p>
+<ol>
+<li>We had 3 CP leftover from the previous economic phase</li>
+<li>Colony production is +93 CP. We now have 96 CP</li>
+<li>We didn't cash in any minerals this time. We stay at 96 CP</li>
+<li>We <b>did</b> cash in a Space Wreck! This doesn't yield CP. Rather, it yields a random technology. We rolled a 2 (Ship Size Lv4 granted).</li>
+<li>Maintenance cost went way back up (4 &rarr; 13 CP), because we rebuilt our ships. We drop to 83 CP</li>
+<li>We will buy Movement Tech Level 4 (-25 CP) this phase. We drop to 58 CP</li>
+<li>We will buy 4 Cruisers (-48 CP). This knocks us down to 10 CP. We place them at I5</li>
+<li>We finish by growing colonies. We have achieved the maximum production of 95 CP</li>
+</ol>
+
+<script>turnPic(12,"E");
+
+for (a = 0; a < 3; a++) {
+	alienOpponents[a].addFleetCPs(3);
+	alienOpponents[a].addTechCPs(1);
+	if (a < 2) {
+		alienOpponents[a].addDefCPs(1);
+	}
+}
+</script>
+
+<p>Alien Players will narrow their focus soon... If they want to fortify their homeworlds, this is their final economic phase to do so.</p>
+
+<p>Red Player rolled 4,5,5,7,10 for economics. Green Player rolled 2,4,4,7,10. Yellow Player rolled 1,2,3,9.</p>
+
+<table>
+<caption>Alien Economics (EP12)</caption>
+<tr>
+<th>Player</th>
+<th>Eco</th>
+<th>Fleet</th>
+<th>Tech</th>
+<th>Def</th>
+<th>Hidden</th>
+</tr>
+<script>drawRows(alienOpponents)</script>
+<tr>
+<th>(Rolls)</th>
+<td class="numeric">&mdash;</td>
+<td class="numeric">1-6</td>
+<td class="numeric">7-9</td>
+<td class="numeric">10</td>
+<td></td>
+</tr>
+</table>
+
+<p>From here on out, fleet launches will alternate between rolling 1-3 to launch, and (starting on economic phase 14) automatically launching. For this phase, the rolls were 8 (Red) / 5 (Green) / 10 (Yellow). None of these Alien Players will launch this phase.</p>
+
+<h2 id="ep13moves">Movement Turns 37-39</h2>
+<p>Now that more of the deep space is known to us, we have calculated a path that should allow us to consistently pressure Chulak until it is glassed.</p>
+
+<script>turnRow(13)</script>
+
+<h2 id="ep13turn2batI3"> The Battle for Sector I3</h2>
+<p>Once again, our colony at I3 is under assault, only the Green Player is doing it this time. They have just one Scout, but it could still do damage depending on its dice rolls. For Turn 38, it rolls a 3 (hit).</p>
+
+<p>Our nearest combat ship(s) were just 1 hex away. We send in our Cruiser to defend against it. Thanks to Priority Class advantage, we rolled a 1, demolishing their Scout before it even has a chance to counter.</p>
+
+<h2 id="ep13turn3batD7">The Second Battle for Chulak</h2>
+<p>We have reached Chulak again, with 5 Cruisers and 8 Scouts. They were able to rebuild the Def bank a little (to 10 CP), but it is only enough to build 2 Mines, and not a single Base.</p>
+
+<p>Since they are defending, they will not buy Movement tech even <em>if</em> they could afford it. 20 CP is sufficient to buy Ship Size Level 3, but this is not a guaranteed roll. They roll a 5 (success, for -15 CP). That is all they can afford for tech.</p>
+
+<p>The 37 Fleet CP that they have is now spent launching a fleet. Their biggest ship is now a Cruiser (-12 CP). That leaves 25 CP they can spend on these: 2 more Cruisers (Largest Ships) or 4 Scouts (otherwise). They roll an 8 (Largest Ships), so that gives them a total of 3 Cruisers.</p>
+
+<ol>
+<li><b>Round 1</b>: Their 2 Mines instantly destroy 2 of our Cruisers. This consumes them. We still have 3 Cruisers left (along with 8 Scouts), to their 9 defenders. Fleets are equal size</li>
+<li>Their 6 Bases will fire first. They will prioritize our Scouts. 1 of our 8 Scouts is outdated, and is missing Defense +1 (7 to hit). The first Base rolled a 4 (<b>hit</b>)</li>
+<li>The remainig 7 Scouts do have Defense +1, lowering the chance to hit (&lte;6). The remaining 5 Bases rolled 1,2,5,6,9 (4 hits)</li>
+<li>Tactics are equal, so their 3 Cruisers are next. We have 3 Scouts left (4 - 1 = 3 to hit). They roll 1,8,9 (1 hit)</li>
+<li>Our 3 Cruisers can now fire their weapons. We will target their Cruisers (4 to hit). We roll 1,6,7 (1 hit). We damaged a Cruiser</li>
+<li>Our 2 surviving Scouts can also help out against their Cruisers (4 - 1 = 3 to hit). We roll 5,6 (0 hits)</li>
+<li><b>Round 2</b>: Their 6 Bases will fire again. Since there are not enough Scouts, they will roll until 2 hits are scored. They rolled 7,1,4 this way</li>
+<li>3 of their Bases are still available to clean up our 3 Cruisers (7 - 2 = 5 to hit). They rolled 1,1,6 (2 hits). We lost a Cruiser</li>
+<li>Their 3 Cruiser are still available to clean up our 2 Cruisers (4 - 2 = 2 to hit). They rolled 1,8,10 (1 hit). Another Cruiser of ours is damaged</li>
+<li>We have decided that our 2 surviving Crusiers will retreat to Sector E7.</li>
+</ol>
+
+<script>
+turnPic(13,"3batD7");
+
+alienOpponents[1].buildDefenses(1);
+alienOpponents[1].spendTechCPs(15);
+alienOpponents[1].launchDefFleet(36);
+</script>
+
+<p>Those Bases are being extremely persistent. Here is the updated chart now that battles are over.</p>
+
+<table>
+<caption>Alien Combats (EP12)</caption>
+<tr>
+<th>Player</th>
+<th>Eco</th>
+<th>Fleet</th>
+<th>Tech</th>
+<th>Def</th>
+<th>Hidden</th>
+</tr>
+<script>drawRows(alienOpponents)</script>
+</table>
+
+<h2 id="ep13econ">Economic Phase 13</h2>
+<ol>
+<li>We had 10 CP leftover from the previous economic phase</li>
+<li>Colony production stayed at +93 CP, because one of our colonies was damaged within the past 3 turns. We now have 103 CP</li>
+<li>Maintenance cost fell back down (13 &rarr; 6 CP), because of battle losses. We drop to 97 CP</li>
+<li>We will skip tech purchases this phase. We stay at 97 CP</li>
+<li>We will buy 14 Scouts (-84 CP), dropping us to 13 CP. We will place 8 at I5, and 6 at I8</li>
+<li>We will also buy Ship Yards at each of I5 and I8 (-12 CP), dropping us to 1 CP</li>
+<li>We finish by repairing our damaged colony. This brings us back to +95 CP per phase</li>
+</ol>
+
+<script>turnPic(13,"E");
+
+alienOpponents[0].addFleetCPs(3);
+alienOpponents[0].addTechCPs(2);
+alienOpponents[1].addFleetCPs(2);
+alienOpponents[1].addTechCPs(3);
+alienOpponents[2].addFleetCPs(4);
+</script>
+
+<p>Alien Players have narrowed their focus. They can no longer allocate CP into homeworld protection.</p>
+
+<p>Red Player rolled 2,3,6,7,9 for economics. Green Player rolled 1,6,7,7,10. Yellow Player rolled 3,4,5,6.</p>
+
+<table>
+<caption>Alien Economics (EP13)</caption>
+<tr>
+<th>Player</th>
+<th>Eco</th>
+<th>Fleet</th>
+<th>Tech</th>
+<th>Def</th>
+<th>Hidden</th>
+</tr>
+<script>drawRows(alienOpponents)</script>
+<tr>
+<th>(Rolls)</th>
+<td class="numeric">&mdash;</td>
+<td class="numeric">1-6</td>
+<td class="numeric">7-10</td>
+<td class="numeric">&mdash;</td>
+<td></td>
+</tr>
+</table>
+
+<p>For this phase, the rolls were 7 (Red) / 5 (Green) / 6 (Yellow). None of these Alien Players will launch this phase.</p>
+
+<h2 id="ep14moves">Movement Turns 40-42</h2>
+<p>Not much of the deep space is still unexplored. We have a straggler crusing along to clean it up via Exploration. We proceed to take out the Green Cruisers that were launched when we assaulted Chulak for the second time. Citing a need to reinforce and consolidate, we opt to leave Chulak alone once more this time.</p>
+
+<script>turnRow(14)</script>
+
+<h2 id="ep14turn3batF7">The Battle for Sector F7</h2>
+<p>We intercept their 3 Cruisers before they can assault one of our colonies. We bring in 14 Scouts and 2 Cruisers into battle.</p>
+
+<ol>
+<li><b>Round 1</b>: We bring in 16 ships to their 3 defenders. We also will do no screening. We gain a Fleet Size Bonus</li>
+<li>Same Tactics level, so their Cruisers will fire first. They will target our Scouts (4 - 1 = 3 to hit). They rolled 4,5,9 (0 hits).</li>
+<li>Our 2 Cruisers respond with 1,2 (2 hits at 4 + 1 + 1 = 6 to hit). That is 1 Cruiser down.</li>
+<li>Our 14 Scouts respond with 1,2,3,4,5,6,6,7,7,7,9,9,9,10 (at 3 + 1 + 1 = 5 to hit, that is <b>5</b> hits). We finished 'em off!</li>
+</ol>
+
+<h2 id="ep14econ">Economic Phase 14</h2>
+<ol>
+<li>We had 1 CP leftover from the previous economic phase</li>
+<li>Colony production is maxed at +95 CP. We now have 96 CP</li>
+<li>Maintenance cost went <b>way up</b> (6 &rarr; 20 CP), because of construction. We drop to 76 CP</li>
+<li>We will skip tech purchases this phase. We stay at 76 CP</li>
+<li>We will buy 8 Destroyers (-72 CP), dropping us to 4 CP. We will place them at I5</li>
+</ol>
+
+<script>turnPic(14,"E");
+
+alienOpponents[0].addFleetCPs(2);
+alienOpponents[0].addTechCPs(3);
+alienOpponents[1].addFleetCPs(4);
+alienOpponents[1].addTechCPs(1);
+alienOpponents[2].addFleetCPs(3);
+alienOpponents[2].addTechCPs(1);
+</script>
+
+<p>Alien Players will grow in economic strength soon. Red Player rolled 3,3,9,9,10. Green Player rolled 1,1,4,5,7. Yellow Player rolled 2,4,6,10.</p>
+
+<table>
+<caption>Alien Economics (EP14)</caption>
+<tr>
+<th>Player</th>
+<th>Eco</th>
+<th>Fleet</th>
+<th>Tech</th>
+<th>Def</th>
+<th>Hidden</th>
+</tr>
+<script>drawRows(alienOpponents)</script>
+<tr>
+<th>(Rolls)</th>
+<td class="numeric">&mdash;</td>
+<td class="numeric">1-6</td>
+<td class="numeric">7-10</td>
+<td class="numeric">&mdash;</td>
+<td></td>
+</tr>
+</table>
+
+<p>Launch rolls have been skipped because launches are <b>automatic</b>. Instead, each Alien Player will roll on whether to buy the next respective Movement tech level. They rolled 10 (Red) / 5 (Green) / 5 (Yellow). None of these APs will buy Movement tech this time.</p>
+
+<script>turnPic(14,"A");
+
+for (l = 0; l < 3; l++) {
+	alienOpponents[l].launchRegFleet();
+}
+</script>
+
+<table>
+<caption>Alien Fleets (EP14)</caption>
+<tr>
+<th>Player</th>
+<th>Eco</th>
+<th>Fleet</th>
+<th>Tech</th>
+<th>Def</th>
+<th>Hidden</th>
+</tr>
+<script>drawRows(alienOpponents)</script>
+</table>
+
+<h2 id="ep15moves">Movement Turns 43-45</h2>
+<p>We continue to increase the pressure to Chulak as usual, even if it means letting Red hit us from behind.</p>
+
+<script>turnRow(15)</script>
+
+<h2 id="ep15turn2batE7">The Battle for Sector E7</h2>
+<p>We intercept the Green fleet as usual. Since this is their first time, it will be <q>built</q> using the Nanomachine technology the Alien Players got a hold of.</p>
+
+<p>They have enough Tech CP to roll for Ship Size Level 4 (-20 CP). They roll a 2 (success). This exhausts their Tech bank.</p>
+
+<p>Their 31 Fleet CP allows them to build a Battlecruiser (-15 CP) right away. They also roll a 6 (Balanced). Since they have no Attack/Defense technology, they will compliment it with 1 Destroyer 1 Scout (-15 CP).</p>
+
+<ol>
+<li><b>Round 1</b>: We bring in the same 16 ships to their 3 defenders. We also will do no screening. We gain a Fleet Size Bonus</li>
+<li>Their Battlecruiser has the best Priority Class, so it fires first. It will target our Scouts (5 - 1 = 4 to hit). It rolled a 2 (hit)</li>
+<li>Our 2 Cruisers will respond against their Destroyer (4 + 1 + 1 = 6 to hit). We rolled 7,10 (0 hits)</li>
+<li>Their 1 Destroyer will respond against our Scouts (4 - 1 = 3 to hit). It rolled a 3 (hit)</li>
+<li>Their 1 Scout will follow against our Scouts (3 - 1 = 2 to hit). It rolled a 5 (nuss)</li>
+<li>Our 12 surviving Scouts respond. We will roll against the Destroyer (3 + 1 + 1 = 5 to hit) until we score one hit. 8,8,9,7,8,6,2 were rolled this way.</li>
+<li>We have 5 Scouts leftover. Their lone Scout is next. We will roll (5 to hit) until we score 1 hit this way. We rolled a 4 this way.</li>
+<li>4 Scouts are leftover against their final ship... a Battlecruiser (5 - 1 = 4 to hit). We rolled 7,7,8,8 (0 hits)</li>
+<li><b>Round 2</b>: We sill skip screening. We also keep the Fleet Size Bonus</li>
+<li>Their Battlecruiser fires next against our Scouts (4 to hit). It rolled a 2 (hit)</li>
+<li>Our 2 Cruisers will respond against their Battlecruiser (6 - 1 = 5 to hit). We rolled 7,2 (1 hit). We damaged their Battlecruiser</li>
+<li>Our 11 surviving Scouts respond. Since their Battlecruiser is all they have left, we will just roll away. We rolled 2,2,3,3,4,4,6,6,8,9,10 (6 hits). We utterly destroyed their final ship</li>
+</ol>
+
+<script>
+turnPic(15,"2batE7");
+
+alienOpponents[1].spendTechCPs(20);
+alienOpponents[1].buildRegFleet(0, 30);
+alienOpponents[1].apAlive = false;
+</script>
+
+<h2 id="ep15turn3batD7">The Third Battle for Chulak</h2>
+<p>With their fleet gone and their Def CP exhausted, Chulak is now [relatively] vulnerable. 6 Bases is still a lot of potential, but they are unable to reinforce them this time.</p>
+
+<p>We brought in the 11 Scouts that survived the previous battle, along with 8 recently built Destroyers. We snuck in an older Cruiser, allowing for 3 Cruisers total</p>
+
+<ol>
+<li><b>Round 1</b>: We bring in 22 ships to their 6 defenders. We also will do no screening. We gain a Fleet Size Bonus</li>
+<li>Their 6 Bases will target our Destroyers (7 - 1 = 6 to hit). They roll 3,4,4,9,9,9 (3 hits). We lost 3 Destroyers</li>
+<li>We will use our outdated Cruiser next (only has Exploration technology; so 4 + 1 - 2 = 3 to hit). We rolled a 5 (miss)</li>
+<li>Our two updated Cruisers are next (which do have Attack +1 and Defense +1; so 4 + 1 + 1 - 2 = 4 to hit). We rolled a 1,8 (1 hit). One of their Bases is damaged, but still has 2 HP left</li>
+<li>Our 5 surviving Destroyers are next (4 + 1 + 1 - 2 = 4 to hit). We rolled 1,2,3,6,6 (3 hits). We finish one base off, and damage another (2 HP left)</li>
+<li>Our 11 Scouts are next (3 + 1 + 1 - 2 = 3 to hit). We rolled 1,2,3,4,4,5,5,6,7,7,8 (3 hits). We finish another base off, and damage yet another (2 HP left)</li>
+<li><b>Round 2</b>: We will skip screening again. We keep the Fleet Size Bonus</li>
+<li>Their remaining 4 Bases will continue against our Destroyers (7 - 1 = 6 to hit). They rolled 2,7,7,7 (1 hit). We lost 1 Destroyer. That one Defense tech level proved extremely useful</li>
+<li>We will use our outdated Cruiser next (3 to hit). We rolled a 10 (miss)</li>
+<li>Our two updated Cruisers are next (4 to hit). We rolled a 7,8 (0 hits)</li>
+<li>Our 4 surviving Destroyers are next (4 to hit). We rolled 1,1,7,8 (2 hits). We finish a third Base off exactly</li>
+<li>Our 11 Scouts are next (3 to hit). We rolled 1,2,2,3,4,5,5,6,6,8,9 (4 hits). We cleanly destroy the fourth Base, and damage a fifth (2 HP left)</li>
+<li><b>Round 3</b>: Their remaining 2 Bases will continue against our Destroyers (6 to hit). They rolled 2,8 (1 hit)</li>
+<li>Our outdated Cruiser next (3 to hit). We rolled a 7 (miss)</li>
+<li>Our 2 updated Cruisers are next (4 to hit). We rolled a 6,8 (0 hits)</li>
+<li>Our 3 surviving Destroyers are next (4 to hit). We rolled 6,7,9 (0 hits)</li>
+<li>Our 11 Scouts are next (3 to hit). We rolled 1,2,4,5,5,6,7,8,9,10,10 (2 hits). We finish off the fifth Base exactly</li>
+<li><b>Round 4</b>: Their remaining 1 Base will continue against our Destroyers (6 to hit). It rolled a 4 (hit)</li>
+<li>Our outdated Cruiser next (3 to hit). We rolled a 6 (miss)</li>
+<li>Our 2 updated Cruisers are next (4 to hit). We rolled a 10,10 (0 hits)</li>
+<li>Our 2 surviving Destroyers are next (4 to hit). We rolled 3,9 (1 hit). We damaged their final Base (2 HP left)</li>
+<li>Our 11 Scouts are next (3 to hit). We rolled 2,3,3,6,6,7,7,8,9,10,10 (3 hits). We finish off their final Base! Chulak is completely <b>vulnerable</b></li>
+<li><b>Bombardment Round</b>: All that remains is the homeworld. Fleet Size Bonus is ineffective for this round, only Attack technologies are effective</li>
+<li>Our outdated Cruiser is first (4 to hit). We rolled a 9 (miss)</li>
+<li>Our 2 updated Cruisers are next (5 to hit). We rolled a 3,6 (1 hit). We damaged the homeworld (down to its 15 CP stage)</li>
+<li>Our 2 surviving Destroyers are next (5 to hit). We rolled 1,5 (2 hits). We damaged the homeworld further (first to the 10 CP stage, then the 5 CP stage)</li>
+<li>Our 11 Scouts are next (4 to hit). We rolled 2,2,3,4,4,5,6,8,9,10,10 (5 hits). Only 1 more hit would have been needed to finish their homeworld off!!!</li>
+</ol>
+
+<script>
+turnPic(15,"3batD7");
+
+alienOpponents[0].spendTechCPs(15);
+alienOpponents[0].buildRegFleet(0, 57);
+</script>
+
+<h2 id="ep15turn3batI3">The Battle for Sector I3</h2>
+<p>In an effort to eliminate the Green Alien Player, this did mean sacrificing our protection against the Red Player. Their fleet is sizeable, though unidentified.</p>
+
+<p>They have enough Tech CP to research Ship Size level 3 (-15 CP). They rolled a 1 (success). They have 10 CP leftover, which is not enough for anything else.</p>
+
+<p>Now for the fun part. They have 57 CP left over. They just unlocked Cruisers for construction, so their first ship will be such (-12 CP). For composition, they rolled a 2 (Largest Fleet). The remaining CP will be spent on 6 Scouts (-36 CP) and 1 Destroyer (-9 CP). This spends all their money. Now to commence the bombardment round.</p>
+
+<ol>
+<li><b>Bombardment Round</b>: Their Cruiser is first (4 to hit). It rolled a 1 (<b>hit</b>). Our colony got damaged to 3 CP</li>
+<li>Their Destroyer is next (4 to hit). It rolled a 7 (miss)</li>
+<li>Finally their 6 Scouts will fire (3 to hit). They rolled 2,5,5,6,7,8 (1 hit). Our colony got damaged further, to 1 CP</li>
+</ol>
+
+<table>
+<caption>Alien Combats (EP14)</caption>
+<tr>
+<th>Player</th>
+<th>Eco</th>
+<th>Fleet</th>
+<th>Tech</th>
+<th>Def</th>
+<th>Hidden</th>
+</tr>
+<script>drawRows(alienOpponents)</script>
+</table>
+
+<h2 id="ep15econ">Economic Phase 15</h2>
+<ol>
+<li>We had 4 CP leftover from the previous economic phase</li>
+<li>Colony production is at +90 CP, because a blockade is in effect. We now have 94 CP</li>
+<li>We opt to scuttle our oldest Cruiser. It has served us well</li>
+<li>Maintenance cost dropped somewhat (20 &rarr; 17 CP). We drop to 77 CP</li>
+<li>We will skip tech purchases this phase. We stay at 77 CP</li>
+<li>We will buy 5 Cruisers (-60 CP), dropping us to 17 CP. We will place them at I5</li>
+<li>We will buy 5 Pipelines (-15 CP), dropping us to 2 CP. We will place 4 at I8, and the fifth at Terra (L7 / our homeworld)</li>
+<li>We finish by repairing our damaged colony at I3. Potential production is back up to +93 CP</li>
+</ol>
+
+<script>turnPic(15,"E");
+
+addRegEcoRoll(alienOpponents);
+alienOpponents[0].addFleetCPs(4);
+alienOpponents[0].addTechCPs(2);
+alienOpponents[2].addFleetCPs(4);
+alienOpponents[2].addTechCPs(1);
+</script>
+
+<p>The Alien Players which are still alive have grown in economic strength, and have shifted their focus. Red Player rolled 6,6,7,7,8,9. Yellow Player rolled 2,4,5,7,10.</p>
+
+<table>
+<caption>Alien Economics (EP15)</caption>
+<tr>
+<th>Player</th>
+<th>Eco</th>
+<th>Fleet</th>
+<th>Tech</th>
+<th>Def</th>
+<th>Hidden</th>
+</tr>
+<script>drawRows(alienOpponents)</script>
+<tr>
+<th>(Rolls)</th>
+<td class="numeric">&mdash;</td>
+<td class="numeric">1-7</td>
+<td class="numeric">8-10</td>
+<td class="numeric">&mdash;</td>
+<td></td>
+</tr>
+</table>
+
+<p>Since this is our downtime phase, launch rolls were made. The rolls were 5 (Red) / 7 (Yellow). None of these Alien Players will launch this phase.</p>
+
+<h2 id="ep16moves">Movement Turns 46-48</h2>
+<p>With the Green Alien Player eliminated, the time is now to shift our focus to the Red homeworld of Altair.</p>
+
+<script>turnRow(16)</script>
+
+<h2 id="ep16turn1batI3">The Battles for Sector I3</h2>
+<p>Red Player's bombardment continues in turn 1.</p>
+
+<ol>
+<li><b>Bombardment Round</b>: Their Cruiser is first (4 to hit). It rolled a 9 (miss). Our colony got damaged to 3 CP</li>
+<li>Their Destroyer is next (4 to hit). It rolled a 10 (miss)</li>
+<li>Finally their 6 Scouts will fire (3 to hit). They rolled 1,3,4,4,7,10 (2 hits). They glassed our colony!</li>
+</ol>
+
+<hr />
+
+<p>Although late to the party, our 5 Cruisers arrive to battle the victors.</p>
+
+<ol>
+<li><b>Round 1</b>: Red outnumbers us decently, but not enough to achieve a Fleet Size Bonus</li>
+<li>Equal Tactics means their Cruiser gets to fire first (4 - 1 = 3 to hit). It rolled a 6 (miss)</li>
+<li>Our 5 Cruisers will respond against their Scouts (4 + 1 - 1 = 4 to hit). We rolled 2,4,4,6,7 (3 hits). They lost 3 Scouts</li>
+<li>Their Destroyer responds next (4 - 1 = 3 to hit). It rolled a 10 (miss)</li>
+<li>Their 3 surviving Scouts respond (3 - 1 = 2 to hit). They rolled 2,3,10 (1 hit). One of our Cruisers is damaged</li>
+<li><b>Round 2</b>: Their Cruiser fires again. It rolled a 9 (miss)</li>
+<li>Our 5 Cruisers will respond against their Scouts. We will roll until we score 3 hits or run out of <q>ammo</q>. We rolled 2,2,7,7,6 (2 hits)</li>
+<li>Their Destroyer responds next. It rolled a 6 (miss)</li>
+<li>Their 1 surviving Scout responds. It rolled a 5 (miss)</li>
+<li><b>Round 3</b>: Their Cruiser fires again. It rolled a 7 (miss)</li>
+<li>Our 5 Cruisers will respond next. First, we will roll until we score 1 hit against the Scout. We rolled 8,6,7,2 this way</li>
+<li>We have 1 Cruiser left over, which we will designate against their Destroyer (4 + 1 - 1 = 4 to hit). We rolled a 3 (<b>hit</b>)</li>
+<li><b>Round 4</b>: Their Cruiser fires again. It rolled a 2 (<b>hit</b>). We lost a Cruiser</li>
+<li>Our 4 surviving Cruisers will respond. Their Cruiser is all that remains (4 + 1 - 1 - 1 = 3 to hit). We rolled 2,4,4,8 (1 hit). We damaged them</li>
+<li><b>Round 5</b>: Their Cruiser fires again. It rolled a 5 (miss). We lost a Cruiser</li>
+<li>Our 4 Cruisers respond once more. We rolled 1,1,7,8 (2 hits). We finished them off their fleet</li>
+</ol>
+
+<script>turnPic(16,"2batI3");</script>
+
+<h2 id="ep16econ">Economic Phase 16</h2>
+<ol>
+<li>We had 2 CP leftover from the previous economic phase</li>
+<li>Colony production stayed at +90 CP, because we lost one of our colonies. We now have 92 CP</li>
+<li>We cashed in the last of the minerals (+10 CP), bringing us to 102 CP. Since there are neither minerals nor space wrecks left, there is no sense in keeping our Mining Ships</li>
+<li>We have also started our Pipeline network at last. We get a bonus 3 CP for connecting our colonies to our homeworld of Terra. Now at 105 CP</li>
+<li>Maintenance cost increased (17 &rarr; 25 CP), thanks to construction. We drop to 80 CP</li>
+<li>We will buy Minesweeping tech level 1 (-10 CP) this phase. We drop to 70 CP</li>
+<li>We will buy 2 Minesweepers (-12 CP), 6 Scouts (-36 CP), 1 Destroyer (-9 CP), and 1 Colony Ship (-8 CP); dropping us to 7 CP. We will place them all at I5</li>
+<li>We will buy 2 Pipelines (-6 CP), dropping us to 1 CP. We will place them at I8</li>
+<li>We have no growth left at this time. We stay at +90 CP production</li>
+</ol>
+
+<script>turnPic(16,"E");
+
+alienOpponents[0].addFleetCPs(1);
+alienOpponents[0].addTechCPs(5);
+alienOpponents[2].addFleetCPs(4);
+alienOpponents[2].addTechCPs(1);
+</script>
+
+<p>Not much has changed this time. Red Player rolled 5,8,8,9,9,10. Yellow Player rolled 3,3,4,4,10.</p>
+
+<table>
+<caption>Alien Economics (EP16)</caption>
+<tr>
+<th>Player</th>
+<th>Eco</th>
+<th>Fleet</th>
+<th>Tech</th>
+<th>Def</th>
+<th>Hidden</th>
+</tr>
+<script>drawRows(alienOpponents)</script>
+<tr>
+<th>(Rolls)</th>
+<td class="numeric">&mdash;</td>
+<td class="numeric">1-7</td>
+<td class="numeric">8-10</td>
+<td class="numeric">&mdash;</td>
+<td></td>
+</tr>
+</table>
+
+<p>We have reached another automatic launch phase. Each Alien Player (that is still alive) will roll on whether to buy the next respective Movement tech level. Red rolled 3 (buy for 20 CP), Yellow 7 (skip).</p>
+
+
+<script>turnPic(16,"A");
+
+for (l = 0; l < 3; l++) {
+	alienOpponents[l].launchRegFleet();
+}
+alienOpponents[0].spendTechCPs(20);
+</script>
+
+<table>
+<caption>Alien Fleets (EP16)</caption>
+<tr>
+<th>Player</th>
+<th>Eco</th>
+<th>Fleet</th>
+<th>Tech</th>
+<th>Def</th>
+<th>Hidden</th>
+</tr>
+<script>drawRows(alienOpponents)</script>
+</table>
+
+<h2 id="ep17moves">Movement Turns 49-51</h2>
+<p>We move in to asssault Altair for the first time.</p>
+
+<script>turnRow(17)</script>
+
+<h2 id="ep17turn2batI1">The Battle for Sector I1</h2>
+<p>Before we assault Altair, we intercept the fleet that was launched recently. They have 30 Tech CP, which is enough to buy Ship Size level 4 (-20 CP). They roll a 2 (buy). That is all they can afford, so we will end it at that.</p>
+
+<p>Since Red just unlocked Battlecruisers for purchase, their first ship is built as such (-15 CP). Since a Scout/Destroyer is all they can afford afterwards, we skip the composition roll and just give them a Destroyer (-9 CP).</p>
+
+<ol>
+<li><b>Round 1</b>: We have a massive ship count (19 : 2) advantage over them. We get the Fleet Size Bonus</li>
+<li>Their Battlecruiser fires first. They will attempt to take out our Destroyers (5 - 1 = 4 to hit). It rolled a 9 (miss)</li>
+<li>Our 6 Cruisers will respond. We will roll until we take out their Destroyer (4 + 1 + 1 - 1 = 5 to hit). We rolled a 3 this way</li>
+<li>This leaves 5 Cruisers left over against their Battlecruiser (4 + 1 + 1 - 1 - 1 = 4 to hit). We rolled 4,4,6,6,10 (2 hits). We destroyed their Battlecruiser cleanly</li>
+</ol>
+
+<script>
+turnPic(17,"2batI1");
+
+alienOpponents[0].spendTechCPs(20);
+alienOpponents[0].buildRegFleet(0, 24);
+</script>
+
+<h2 id="ep17turn3batH1">The First Battle for Altair</h2>
+<p>We have started our assault against the Red homeworld of Altair,  with a fleet comprising of 7 Cruisers, 3 Destroyers, 17 Scouts, and 2 Minesweepers. Since this is its first time in battle, they can spend their 50 Def CP to defend their homeworld. They roll a 5 for composition (Balanced). This gives them 3 more Bases and 2 Mines.</p>
+
+<p>They have no Fleet CP left to build another fleet. Whatever was built from the Def budget is all they have to defend their homeworld.</p>
+
+<ol>
+<li><b>Round 1</b>: Their 2 Mines try to detonate... except we have Minesweepers that have neutralized them</li>
+<li>We have 29 ships total versus their 4 Bases. We will screen no ships. We gain a Fleet Size Bonus</li>
+<li>Their 4 Bases will go first, against our 3 Destroyers (7 - 1 = 6 to hit). They rolled 2,3,9,4 (in that order; 3 hits). They wiped our Destroyers out</li>
+<li>We still have 7 Cruisers that can respond (4 + 1 + 1 - 2 = 4 to hit). We rolled 1,1,2,2,3,4,8 (6 hits). We cleaned destroyed 2 of their Bases</li>
+<li>Our 17 Scouts are next (3 + 1 + 1 - 2 = 3 to hit). We rolled 1,2,2,2,2,3,4,5,6,6,6,7,8,8,8,8,9 (6 hits). We finished off the orbital protection already!</li>
+<li><b>Bombardment Round</b>: Our 7 Cruisers will go first (4 + 1 = 5 to hit). We rolled 1,2,6,6,7,8,10 (2 hits). We damaged their homeworld to stage 10 CP</li>
+<li>Our 17 Scouts are next (3 + 1 = 4 to hit). We rolled 1,1,2,3,3,3,5,5,5,6,6,6,7,7,8,9,10 (6 hits). Altair has been glassed!</li>
+</ol>
+
+<script>
+turnPic(17,"3batH1");
+
+alienOpponents[0].buildDefenses(5);
+alienOpponents[0].apAlive = false;
+</script>
+
+<h2 id="ep17econ">Economic Phase 17</h2>
+<ol>
+<li>We had 1 CP leftover from the previous economic phase</li>
+<li>Colony production is +90 CP. We now have 91 CP</li>
+<li>We get a Pipeline bonus of +4 CP. We are up to 95 CP</li>
+<li>Maintenance cost continues to climb (25 &rarr; 33 CP). We drop to 62 CP</li>
+<li>We will skip tech purchases this phase. We stay at 62 CP</li>
+<li>We will buy 4 Cruisers (-48 CP) at I8. We will also buy 4 Pipelines (-12 CP). This knocks us down to 2 CP.</li>
+</ol>
+
+<script>
+turnPic(17,"E");
+
+alienOpponents[2].addFleetCPs(3);
+alienOpponents[2].addTechCPs(2);
+</script>
+
+<p>The one Alien Player that is still alive has narrowed their focus some more. Yellow Player rolled 3,3,8,10,10.</p>
+
+<table>
+<caption>Alien Economics (EP17)</caption>
+<tr>
+<th>Player</th>
+<th>Eco</th>
+<th>Fleet</th>
+<th>Tech</th>
+<th>Def</th>
+<th>Hidden</th>
+</tr>
+<script>drawRows(alienOpponents)</script>
+<tr>
+<th>(Rolls)</th>
+<td class="numeric">&mdash;</td>
+<td class="numeric">1-8</td>
+<td class="numeric">9-10</td>
+<td class="numeric">&mdash;</td>
+<td></td>
+</tr>
+</table>
+
+<p>This is our soft downtime phase. Yellow Player rolled a 2 (launch). Since launch was successful, it also rolled an 8 for Movement tech (skip).</p>
+
+<script>
+turnPic(17,"A");
+
+alienOpponents[2].launchRegFleet();
+</script>
+
+<table>
+<caption>Alien Fleets (EP17)</caption>
+<tr>
+<th>Player</th>
+<th>Eco</th>
+<th>Fleet</th>
+<th>Tech</th>
+<th>Def</th>
+<th>Hidden</th>
+</tr>
+<script>drawRows(alienOpponents)</script>
+</table>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>With both Red and Green Alien Players eliminated, this efffectively concludes the scenario from a victory condition standpoint. Thanks to black holes, Yellow Player can never hurt us.</p>
+
+<p>We may still do a bonus chapter against the Yellow Player, though we will definitely take advantage of one of the Pipeline perks if we ever assault Vasyr.</p>
+
+<p class="footer">This document was written by Paul Ruediger</p>
+</div>
+</body>
+</html>

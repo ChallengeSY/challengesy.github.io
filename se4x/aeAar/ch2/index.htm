@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>SE4X - Alien Empires Playthrough - Chapter 2</title>
+	<link type="text/css" href="../../../nuCampaign/planets.css" rel="stylesheet" />
+	<script type="text/javascript" src="../../pedia.js"></script>
+	<script type="text/javascript" src="../../alienEmpires.js"></script>
+	<script type="text/javascript">
+		function dispImage(filename, altTxt) {
+			document.write("<p class=\"noKeywords center\"><a href=\"" + filename + "\"><img src=\"" + filename + "\" alt=\"" + altTxt + "\" /></a></p>");
+		}
+		
+		function turnRow(ep) {
+			document.write("<p class=\"noKeywords center\">\
+				<a href=\"ep"+ep+"turn1.png\"><img src=\"ep"+ep+"turn1.png\"\" alt=\"Eco Phase "+ep+" / Trn 1\" /></a>\
+				<a href=\"ep"+ep+"turn2.png\"><img style=\"margin-left: 3%; margin-right: 3%;\" src=\"ep"+ep+"turn2.png\"\" alt=\"Eco Phase "+ep+" / Trn 2\" /></a>\
+				<a href=\"ep"+ep+"turn3.png\"><img src=\"ep"+ep+"turn3.png\"\" alt=\"Eco Phase "+ep+" / Trn 3\" /></a></p>");
+		}
+		
+		function turnPic(ep, turn) {
+			dispImage("ep"+ep+"turn"+turn+".png","Eco Phase "+ep+" / Trn "+turn);
+		}
+
+		alienOpponents = [new alienPlayer("Red"), new alienPlayer("Green"), new alienPlayer("Yellow")];
+
+		// From previous economic phases
+		alienOpponents[0].addTechCPs(1);
+		alienOpponents[1].addQueuedRoll();
+		alienOpponents[2].addTechCPs(2);
+		alienOpponents[0].addFleetCPs(1);
+		alienOpponents[1].addTechCPs(1);
+		alienOpponents[0].normalizeValues();
+		alienOpponents[1].normalizeValues();
+		alienOpponents[2].normalizeValues();
+	</script>
+	<style type="text/css">
+		img {max-width: 30%;}
+		a {white-space: nowrap;}
+		.increase {color: #00ff00; font-weight: bold;}
+		.decrease {color: #ff8080; font-weight: bold;}
+
+		@media (max-width: 1440px), (max-height: 720px) {
+			#chapters {display: none;}
+		}
+
+		@media (min-width: 1441px) and (min-height: 721px) {
+			#bodyTxt {margin-right: 250px;}
+		}
+		
+		@media only screen and (max-device-width: 640px) {
+			#infobox {font-size: 200%;}
+		}
+	</style>
+</head>
+<body onload="keywordifyDocument();">
+<div id="chapters" style="position: fixed; width: 235px; top: 10px; right: 10px; border: 1px dashed rgb(255,255,255);">
+<h4>Available chapters</h4>
+<ul>
+<li><a href="#intro">Summary</a></li>
+<li><a href="#ep3turn1">Movement Turns 7-9</a></li>
+<li><a href="#ep3econ">Economic Phase 3</a></li>
+<li><a href="#ep4moves">Movement Turns 10-12</a></li>
+<li><a href="#ep4econ">Economic Phase 4</a></li>
+<li><a href="#ep5moves">Movement Turns 13-15</a></li>
+<li><a href="#ep5econ">Economic Phase 5</a></li>
+<li><a href="#ep6moves">Movement Turns 16-18</a></li>
+<li><a href="#ep6econ">Economic Phase 6</a></li>
+<li><a href="#ep7moves">Movement Turns 19-21</a></li>
+<li><a href="#ep7econ">Economic Phase 7</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</div>
+<div id="bodyTxt">
+<p id="banner"><a href="../index.htm"><img src="../../banner.png" alt="Space Empires 4X Resourcepedia" /></a></p>
+
+<hr />
+
+<h2 id="intro">Chapter 2 Summary</h2>
+<p>This playthrough document builds upon the <a href="../ch1/">Early Economics</a> chapter. Previously, we got started exploring our home systems, having already ran into our first black hole.</p>
+
+<table>
+<caption>Alien Summary (EP2)</caption>
+<tr>
+<th>Player</th>
+<th>Eco</th>
+<th>Fleet</th>
+<th>Tech</th>
+<th>Def</th>
+<th>Hidden</th>
+</tr>
+<script>drawRows(alienOpponents)</script>
+</table>
+
+<h2 id="ep3turn1">Movement Turn 7</h2>
+<p>We continue to explore and expand our horizons. We are almost done with our home systems; only a single counter remains unexplored. But, this also means our <q>safety net</q> is gone. This is one of the reasons we pushed for a Ship Size level up.</p>
+
+<p>We have also found our first nebula. Just something to keep in mind in case we need to conduct a battle in there (or in asteroids), or buy Movement tech.</p>
+
+<script>turnPic(3,1)</script>
+
+<h2 id="ep3turn2">Movement Turn 8</h2>
+<p>Disaster struck this turn! 2 of our Scouts ran into danger markers, causing them to be destroyed. Additionally, a third Scout ran into a black hole. Counterbalanced, as it rolled a 3, allowing it to survive the black hole.</p>
+
+<p>We also opted to colonize Eden early, to allow unloading minerals.</p>
+
+<script>turnPic(3,2)</script>
+
+<h2 id="ep3turn3">Movement Turn 9</h2>
+<p>We ran into yet another danger marker, claiming a third Scout. We also found another barren planet. We sent the other Colony Ship to Orion, colonizing it as well.</p>
+
+<script>turnPic(3,3)</script>
+
+<h2 id="ep3econ">Economic Phase 3</h2>
+<p>In case you need a refresher, economic phases are conducted in a fixed order.</p>
+
+<ol>
+<li>We had 2 CP leftover from the previous economic phase</li>
+<li>Our colony production increased to +27 CP in the last growth step. We now have 29 CP</li>
+<li>We cash in another 10 minerals. This brings us up to 39 CP</li>
+<li>We have no pipelines... yet. We stay at 39 CP</li>
+<li>Maintenance cost has decreased sharply thanks to losses (4 &rarr; 1 CP). We drop to 38 CP</li>
+<li>We can safely bid 0 CP. We stay at 38 CP</li>
+<li>We will buy Ship Size Level 3 (-15 CP) this phase. This drops us to 23 CP</li>
+<li>We will buy 1 Colony Ship (-8 CP) and 2 Scouts (-12 CP). This knocks us down to 3 CP</li>
+<li>We place our new ships at our Homeworld, as usual</li>
+<li>We finish by growing colonies. This will increase our production potential to 35 CP</li>
+</ol>
+
+<script>
+turnPic(3,"E");
+
+addRegEcoRoll(alienOpponents);
+alienOpponents[0].addTechCPs(2);
+alienOpponents[1].addTechCPs(2);
+alienOpponents[2].addTechCPs(1);
+alienOpponents[2].addDefCPs(1);
+</script>
+
+<p>Now for the fun part. Alien Players grow in strength this phase. Each AP gets 2 economic rolls by default this time. Also, all four possibilities (columns) are open starting with this phase.</p>
+
+<p>Red Player rolled 7,7. Green Player rolled 6,7. Yellow Player rolled 6,10. These fellows are going Tech-heavy this phase.</p>
+
+<table>
+<caption>Alien Economics (EP3)</caption>
+<tr>
+<th>Player</th>
+<th>Eco</th>
+<th>Fleet</th>
+<th>Tech</th>
+<th>Def</th>
+<th>Hidden</th>
+</tr>
+<script>drawRows(alienOpponents)</script>
+<tr>
+<th>(Rolls)</th>
+<td class="numeric">1</td>
+<td class="numeric">2-4</td>
+<td class="numeric">5-8</td>
+<td class="numeric">9-10</td>
+</tr>
+</table>
+
+<p>None of the Alien Players <em>still</em> has the required 6 CP to launch a combat fleet. This ends the Alien Players' involvement until the next economic phase.</p>
+
+<h2 id="ep4moves">Movement Turns 10-12</h2>
+<p>We uncover one last danger marker from the previous expedition, eliminating yet another Scout. Since there is not much new material yet, we will accelerate this process to save time. For the rest of this economic phase, just observe how the counters move.</p>
+
+<script>turnRow(4)</script>
+
+<h2 id="ep4econ">Economic Phase 4</h2>
+<ol>
+<li>We had 3 CP leftover from the previous economic phase</li>
+<li>Our colony production increased to +35 CP in the last growth step. We now have 38 CP</li>
+<li>We cash in another 10 minerals. This brings us up to 48 CP</li>
+<li>Maintenance cost has increased (1 &rarr; 2 CP), because we replaced some of our losses. We drop to 46 CP</li>
+<li>We will buy Exploration (-15 CP) this phase. This drops us to 31 CP</li>
+<li>We will buy 1 Cruiser (-12 CP), and 1 Colony Ship (-8 CP). This knocks us down to 11 CP</li>
+<li>We place our new ships at our Homeworld, as usual</li>
+<li>We will buy a forward Ship Yard (-6 CP) at a recently founded colony. This knocks us down to 5 CP</li>
+<li>We finish by growing colonies. This will increase our production potential to 42 CP</li>
+</ol>
+
+<script>
+turnPic(4,"E");
+
+alienOpponents[0].addFleetCPs(1);
+alienOpponents[0].addDefCPs(1);
+alienOpponents[1].applyQueuedRoll();
+alienOpponents[1].addFleetCPs(1);
+alienOpponents[1].addDefCPs(2);
+alienOpponents[2].addFleetCPs(1);
+alienOpponents[2].addTechCPs(1);
+</script>
+
+<p>Alien Player economic rolls become a little complicated this time around. Green Player's extra economic roll from the first economic phase now takes effect at this phase.</p>
+
+<p>Red Player rolled 3,9. Green Player rolled 3,9,10. Yellow Player rolled 4,7. Increases have been noted in the table below.</p>
+
+<table>
+<caption>Alien Economics (EP4)</caption>
+<tr>
+<th>Player</th>
+<th>Eco</th>
+<th>Fleet</th>
+<th>Tech</th>
+<th>Def</th>
+<th>Hidden</th>
+</tr>
+<script>drawRows(alienOpponents)</script>
+<tr>
+<th>(Rolls)</th>
+<td class="numeric">1</td>
+<td class="numeric">2-5</td>
+<td class="numeric">6-8</td>
+<td class="numeric">9-10</td>
+</tr>
+</table>
+
+<p>Red Player has enough CP to launch a fleet, as small as it will be. If it rolls 1-5, it gets to launch with this much CP assigned. Otherwise, it will keep its money in the bank.</p>
+
+<p>In this case, Red Player rolled a 9. No launch takes place, so it keeps its 10 CP in the bank for a future launch.</p>
+
+<h2 id="ep5moves">Movement Turns 13-15</h2>
+<p>Now that we are in a position to explore deep space once more, we opted to slow the pace down. We did our moves as usual, when we suddenly ran into our first supernova hex. This hex is purely an obstacle.</p>
+
+<p>Next, we found rich minerals (worth 10 CP) and more barren planets. Finally, we are closing in on the systems surrounding the Yellow Alien Player, while also getting our Cruiser in position, complete with its Exploration equipment. We will be able to use it soon.</p>
+
+<script>turnRow(5)</script>
+
+<h2 id="ep5econ">Economic Phase 5</h2>
+<ol>
+<li>We had 5 CP leftover from the previous economic phase</li>
+<li>Our colony production increased to +42 CP in the last growth step. We now have 47 CP</li>
+<li>We cash in 15 minerals this time. This brings us up to 62 CP</li>
+<li>Maintenance cost has increased (2 &rarr; 4 CP). We drop to 58 CP</li>
+<li>We will buy Terraforming (-20 CP) this phase. This drops us to 38 CP</li>
+<li>We will buy 1 Cruiser (-12 CP), and 3 Colony Ships (-24 CP). This knocks us down to 2 CP</li>
+<li>We place 1 Colony Ship at our forward Ship Yard, and the rest at our Homeworld</li>
+<li>We finish by growing colonies. This will increase our production potential to 48 CP</li>
+</ol>
+
+<script>
+turnPic(5,"E");
+
+alienOpponents[0].addQueuedRoll();
+alienOpponents[0].addFleetCPs(1);
+alienOpponents[1].addFleetCPs(1);
+alienOpponents[1].addTechCPs(1);
+alienOpponents[1].addDefCPs(1);
+alienOpponents[2].addFleetCPs(2);
+</script>
+
+<p>Alien Player economic rolls are about the same this time around.</p>
+
+<p>Red Player rolled 1,3. Green Player rolled 5,7,10. Yellow Player rolled 3,4. Red's economic boost will take effect on economic phase <b>8</b>.</p>
+
+<table>
+<caption>Alien Economics (EP5)</caption>
+<tr>
+<th>Player</th>
+<th>Eco</th>
+<th>Fleet</th>
+<th>Tech</th>
+<th>Def</th>
+<th>Hidden</th>
+</tr>
+<script>drawRows(alienOpponents)</script>
+<tr>
+<th>(Rolls)</th>
+<td class="numeric">1</td>
+<td class="numeric">2-5</td>
+<td class="numeric">6-9</td>
+<td class="numeric">10</td>
+</tr>
+</table>
+
+<p>All APs each have enough CP to launch a fleet. If one rolls 1-3, it gets to launch with its CP assigned.</p>
+
+<p>Red Player rolled 5. Green Player rolled 6. Yellow Player rolled 4. None of these players will launch a fleet this time.</p>
+
+<h2 id="ep6moves">Movement Turns 16-18</h2>
+<p>Our Cruiser is now in a position to use its technology. It has remotely revealed a danger marker, nullifying its destructive effects entirely. A Scout also ran into a black hole. It rolled a 3, allowing it to survive.</p>
+
+<p>In a more hilarious turn of events, the very same Scout ran into a <b>second</b> black hole. It rolled a 9 this time, destroying it in the process. As per Alien Empires rules in the <a href="https://s3-us-west-2.amazonaws.com/gmtwebsiteassets/spaceemp/Space_Empires_Scenarios_1.2.pdf">scenario book</a>, an Alien Player will never move ships through a black hole. Yellow Player has been <b>trapped</b> by this rule!</p>
+
+<p>And now the <em>other</em> Scout ran into a <b>third</b> black hole for this set of turns. It <em>also</em> rolled a 9 (destroyed). The map layout really does not want Yellow Player to threaten us.</p>
+
+<script>turnRow(6)</script>
+
+<h2 id="ep6econ">Economic Phase 6</h2>
+<ol>
+<li>We had 2 CP leftover from the previous economic phase</li>
+<li>Our colony production increased to +48 CP in the last growth step. We now have 50 CP</li>
+<li>We cash in 10 minerals this time. This brings us up to 60 CP</li>
+<li>Maintenance cost unchanged (4 &rarr; 4 CP). We drop to 56 CP</li>
+<li>We will skip tech purchases this phase. We stay at 56 CP</li>
+<li>We will buy 2 Cruisers (-24 CP), and 1 Colony Ships (-8 CP). This knocks us down to 24 CP</li>
+<li>We place 1 Colony Ship at our forward Ship Yard, and the Cruisers at our Homeworld</li>
+<li>We will buy 2 forward Ship Yards (-12 CP). This knocks us down to 12 CP</li>
+<li>We finish by growing colonies. This will increase our production potential to 53 CP</li>
+</ol>
+
+<script>
+turnPic(6,"E");
+
+addRegEcoRoll(alienOpponents);
+alienOpponents[0].addFleetCPs(1);
+alienOpponents[0].addTechCPs(2);
+alienOpponents[1].addFleetCPs(1);
+alienOpponents[1].addTechCPs(1);
+alienOpponents[1].addDefCPs(2);
+alienOpponents[2].addFleetCPs(3);
+</script>
+
+<p>Alien Player economics have grown in strength this round... at the expense of this being the final round in which additinoal economy can be added.</p>
+
+<p>Red Player rolled 4,7,7. Green Player rolled 5,7,10,10. Yellow Player rolled 3,5,6.</p>
+
+<table>
+<caption>Alien Economics (EP6)</caption>
+<tr>
+<th>Player</th>
+<th>Eco</th>
+<th>Fleet</th>
+<th>Tech</th>
+<th>Def</th>
+<th>Hidden</th>
+</tr>
+<script>drawRows(alienOpponents)</script>
+<tr>
+<th>(Rolls)</th>
+<td class="numeric">1</td>
+<td class="numeric">2-6</td>
+<td class="numeric">7-9</td>
+<td class="numeric">10</td>
+</tr>
+</table>
+
+<p>For each AP that rolls 1-4 on their fleet launch, it gets to do so with its CP assigned. They rolled 8 (Red) / 9 (Green) / 9 (Yellow). These APs sure are killing the suspense...</p>
+
+<h2 id="ep7moves">Movement Turns 19-21</h2>
+<p>Our Cruisers continue to explore remotely. Exploration is an exceptionally powerful tech, because we do not have to risk the Cruiser into hazardous hexes if we do not want to. This also makes it less expensive long-term, not to mention frees up construction capacity for other uses; both as a result of not needing to replace losses to deep space.</p>
+
+<p>We avoided the effects of 1 danger marker this way. That is 12 CP and 2 Hull Size construction capacity we do not have to spend on potential replacements. (Though counterbalanced by having to pay an extra 2 on maintenance.)</p>
+
+<script>turnRow(7)</script>
+
+<h2 id="ep7econ">Economic Phase 7</h2>
+<ol>
+<li>We had 12 CP leftover from the previous economic phase</li>
+<li>Our colony production increased to +53 CP in the last growth step. We now have 65 CP</li>
+<li>We cash in 10 minerals this time. This brings us up to 75 CP</li>
+<li>Maintenance cost increased (4 &rarr; 8 CP). We drop to 67 CP</li>
+<li>We will buy Attack Tech Level 1 (-20 CP) this phase. We drop to 47 CP</li>
+<li>We will buy 4 Colony Ships (-32 CP). This knocks us down to 15 CP. We place one at our forward site of I5, and the rest at our Homeworld</li>
+<li>We will buy a Defensive Base (-12 CP) at J3. This knocks us down to 3 CP</li>
+<li>We finish by growing colonies. This will increase our production potential to 61 CP</li>
+</ol>
+
+<p>It is worth mentioning we have exhausted our stock of Colony Ships. We won't be able to build any more until we lose such a ship, or a colony it founds.</p>
+
+<script>turnPic(7,"E");
+
+alienOpponents[0].addFleetCPs(2);
+alienOpponents[0].addTechCPs(1);
+alienOpponents[1].addFleetCPs(2);
+alienOpponents[1].addTechCPs(1);
+alienOpponents[1].addDefCPs(1);
+alienOpponents[2].addFleetCPs(1);
+alienOpponents[2].addTechCPs(2);
+</script>
+
+<p>Alien Player economics have narrowed their focus recently. It is no longer possible to roll for extra economic rolls. (Although Red Player's queued economic roll will still take effect starting with phase 8.)</p>
+
+<p>Red Player rolled 3,4,7. Green Player rolled 2,3,8,10. Yellow Player rolled 2,6,8.</p>
+
+<table>
+<caption>Alien Economics (EP7)</caption>
+<tr>
+<th>Player</th>
+<th>Eco</th>
+<th>Fleet</th>
+<th>Tech</th>
+<th>Def</th>
+<th>Hidden</th>
+</tr>
+<script>drawRows(alienOpponents)</script>
+<tr>
+<th>(Rolls)</th>
+<td class="numeric">&mdash;</td>
+<td class="numeric">1-5</td>
+<td class="numeric">6-9</td>
+<td class="numeric">10</td>
+<td></td>
+</tr>
+</table>
+
+<p>For this phase, it still takes a roll of 1-4 to launch a fleet. They rolled 2 (Red) / 3 (Green) / 4 (Yellow). They <b>all</b> will launch a fleet!!!</p>
+
+<script>
+turnPic(7,"A");
+
+alienOpponents[0].launchRegFleet();
+alienOpponents[1].launchRegFleet();
+alienOpponents[1].spendTechCPs(20);
+alienOpponents[2].launchRegFleet();
+</script>
+
+<p>It is because fleets have launched that an additional step is needed. Each AP will roll for Movement tech. On a roll of 1-4, they will buy the next tech level. Otherwise, they will keep their tech CP.</p>
+
+<p>They rolled 9 (Red) / 2 (Green) / 9 (Yellow). Yellow Player rolled 9. Green Player will spend 20 CP for Movement Level 2.</p>
+
+<table>
+<caption>Alien Fleets (EP7)</caption>
+<tr>
+<th>Player</th>
+<th>Eco</th>
+<th>Fleet</th>
+<th>Tech</th>
+<th>Def</th>
+<th>Hidden</th>
+</tr>
+<script>drawRows(alienOpponents)</script>
+</table>
+
+<h2 id="conclusion">To be continued</h2>
+<p>The Alien Players have launched at last. But, the action they present will be for <a href="../ch3/">another chapter</a> of the current playthrough.</p>
+
+<p class="footer">This document was written by Paul Ruediger</p>
+</div>
+</body>
+</html>

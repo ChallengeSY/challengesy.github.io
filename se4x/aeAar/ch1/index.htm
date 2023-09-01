@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>SE4X - Alien Empires Playthrough - Chapter 1</title>
+	<link type="text/css" href="../../../nuCampaign/planets.css" rel="stylesheet" />
+	<script type="text/javascript" src="../../pedia.js"></script>
+	<script type="text/javascript" src="../../alienEmpires.js"></script>
+	<script type="text/javascript">
+		function dispImage(filename, altTxt) {
+			document.write("<p class=\"noKeywords center\"><a href=\"" + filename + "\"><img src=\"" + filename + "\" alt=\"" + altTxt + "\" /></a></p>");
+		}
+		
+		function turnPic(ep, turn) {
+			dispImage("ep"+ep+"turn"+turn+".png","Economic Phase "+ep+" / Turn "+turn);
+		}
+		
+		alienOpponents = [new alienPlayer("Red"), new alienPlayer("Green"), new alienPlayer("Yellow")];
+	</script>
+	<style type="text/css">
+		img {max-width: 30%;}
+		a {white-space: nowrap;}
+		.increase {color: #00ff00; font-weight: bold;}
+		.decrease {color: #ff8080; font-weight: bold;}
+
+		@media (max-width: 1440px), (max-height: 720px) {
+			#chapters {display: none;}
+		}
+
+		@media (min-width: 1441px) and (min-height: 721px) {
+			#bodyTxt {margin-right: 220px;}
+		}
+		
+		@media only screen and (max-device-width: 640px) {
+			#infobox {font-size: 200%;}
+		}
+	</style>
+</head>
+<body onload="keywordifyDocument();">
+<div id="chapters" style="position: fixed; width: 200px; top: 10px; right: 10px; border: 1px dashed rgb(255,255,255);">
+<h4>Available chapters</h4>
+<ul>
+<li><a href="#intro">Introduction</a></li>
+<li><a href="#ep1turn1">Movement Turn 1</a></li>
+<li><a href="#ep1turn2">Movement Turn 2</a></li>
+<li><a href="#ep1turn3">Movement Turn 3</a></li>
+<li><a href="#ep1econ">Economic Phase 1</a></li>
+<li><a href="#ep2turn1">Movement Turn 4</a></li>
+<li><a href="#ep2turn2">Movement Turn 5</a></li>
+<li><a href="#ep2turn3">Movement Turn 6</a></li>
+<li><a href="#ep2econ">Economic Phase 2</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</div>
+<div id="bodyTxt">
+<p id="banner"><a href="../index.php"><img src="../../banner.png" alt="Space Empires 4X Resourcepedia" /></a></p>
+
+<hr />
+
+<h2 id="intro">Chapter 1 Intro</h2>
+<p>Welcome to the Space Empires 4X Alien Empires playthrough. This playthrough showcases beating down the Alien Players, hopefully without losing one's own homeworld.</p>
+
+<p>The first chapter of this playthrough also doubles as a walkthrough on playing the first economic phase(s) of a Space Empires 4X game. The objective of this chapter is to cover ship movement, reconnaissance, and economic management of the early stages of a typical game.</p>
+
+<p>A typical homeworld setup consists of the homeworld, 4 Ship Yards, 3 Scouts, 3 Colony Ships, and 1 Mining Ship (shown on the board as a Miner). Surrounding their home hex (in this case, L7) is a series of unexplored systems. Early on, that is where the Scouts come in, as they are the least expensive combat ship to build.</p>
+
+<p>Some of these unexplored systems have a border matching a player's color <span class="bindTxt">(in this case, blue)</span>. These represent the home systems</a> surrounding a homeworld. Past this neighborhood is a series of deep space systems, depicted with a white border. (Small tip: Starting forces counters can be packed together with the home system markers in between games to save setup time.)</p>
+
+<script>dispImage("HomeworldSetup.png","Homeworld Setup")</script>
+
+<p>In a multiplayer scenario, players use d10 dice to determine who goes first. This applies <b>only</b> to the first economic phase's worth of turns. A player may attempt to steal (or keep) the initiative by placing a bid during the next closest economic phase.</p>
+
+<p>Since this playthrough follows an Alien Empires solo scenario (Normal difficulty), the player strictly goes first. Alien Players always bid 0 CP.</p>
+
+<h2 id="ep1turn1">Movement Turn 1</h2>
+<p>The first turn is the most hazardous turn, because there is always a decent possibility (in this case, 4 in 25) of there being a black hole right next to the homeworld. We recommend moving <b>only</b> Scouts during this turn. The lower the risk during the earliest stages, the better.</p>
+
+<p>Sure enough, a black hole did show itself right next to the homeworld, along with a handful of minerals and an empty planet. The black hole decently hinders movement for the rest of the game.</p>
+
+<p>If we had accompanied the Scout with a Mining Ship or a Colony Ship, this would have greatly increased our risk. <b>All</b> ships that enter such a hex must roll a d10 for survival. We wisely risked just a Scout this way. It rolled a 3, allowing it to survive the black hole. Any mates it brought along could just as easily be destroyed...</p>
+
+<script>turnPic(1,1)</script>
+
+<h3 id="ep1turn2">Movement Turn 2</h3>
+<p>Since we found the black hole extremely early, we can use this to our advantage. Home Systems each have just one black hole among their 25 counters.</p>
+
+<p>We have moved our Scouts to more unexplored systems, a Mining Ship to the location where the minerals were found, and two Colony Ships towards potential planets.</p>
+
+<p>We have found our first asteroid belt, along with more minerals and another empty planet. Next to one of the Scouts is a deep space system. Exploring systems are not advisable at first, due to the greatly increased risk.</p>
+
+<script>turnPic(1,2)</script>
+
+<h3 id="ep1turn3">Movement Turn 3</h3>
+
+<p>We move Scouts into more systems to uncover more resources that we can exploit. We also moved all Colony Ships, and two of them have been ordered to colonize the empty planets they have ended their movement on.</p>
+
+<p>We have used our Mining Ship to pick up the minerals that were closest to it, and towed it to the homeworld. Little did we know the Scouts would <b>uncover</b> a lot of minerals.</p>
+
+<script>turnPic(1,3)</script>
+
+<h2 id="ep1econ">Economic Phase 1</h2>
+
+<p>The conclusion of our third turn transitioned us to the economic phase itself. In a multiplayer scenario, this phase is done simultaneously by all players (and secretly at that). Here is how we handled it.</p>
+
+<ol>
+<li>We start a fresh game with 0 CP</li>
+<li>Now for our colony production: Since we have only the homeworld, we get +20 CP. Planets that have just been colonized produce 0 this phase</li>
+<li>Next, any minerals we tow to any colony can be cashed in for a one time bonus: In this case, we cashed in a single 5. This brings us up to 25 CP</li>
+<li>Any pipeline that connects our colonies to our homeworld produces additional CP: Since none are provided at game start, we stay at 25 CP</li>
+<li>We need to support our combat ships: Maintenance cost is 3 CP. We drop to 22 CP</li>
+<li>We can safely bid 0 CP. We stay at 22 CP</li>
+<li>We will skip technology purchases this phase. We stay at 22 CP</li>
+<li>We will buy 2 Scouts (-12 CP) and 1 Miner (-5 CP). These expenses knock us down to 5 CP</li>
+<li>We can place our new ships <b>only</b> at our Homeworld. It is the only colony with Ship Yards. A colony needs to have already produced CP to be eligible to build a Ship Yard</li>
+<li>Finally, we conclude our part of the economic phase by growing colonies. This will increase our production potential to 22 CP</li>
+</ol>
+
+<script>
+turnPic(1,"E");
+
+alienOpponents[0].addTechCPs(1);
+alienOpponents[1].addQueuedRoll();
+alienOpponents[2].addTechCPs(1);
+</script>
+
+<p>Normally, we would be done with this economic phase. But, because this is an Alien Empires scenario, we must do their economics as well. The selected difficulty gives us 3 Alien Players (AP). Economic rolls are also worth 5 CP each by default.</p>
+
+<p>At least this first phase is simple enough; each AP gets <b>1</b> economic roll. If they roll a 1-2, they <b>permanently</b> get an <em>extra</em> economic roll starting with economic phase <b>4</b>. 3-10 would instead allow them 5 CP into Technology.</p>
+
+<p>Red Player rolled a 6 (Tech). Green Player rolled a <b>1</b> (Eco). Yellow Player rolled a 3 (Tech).</p>
+
+<table>
+<caption>Alien Economics (EP1)</caption>
+<tr>
+<th>Player</th>
+<th>Eco</th>
+<th>Fleet</th>
+<th>Tech</th>
+<th>Def</th>
+<th>Hidden</th>
+</tr>
+<script>drawRows(alienOpponents)</script>
+<tr>
+<th>(Rolls)</th>
+<td class="numeric">1-2</td>
+<td class="numeric">&ndash;</td>
+<td class="numeric">3-10</td>
+<td class="numeric">&ndash;</td>
+</tr>
+</table>
+
+<p>Since this is the first economic  phase, it is impossible for Alien Players to launch a fleet. This ends the Alien Players' involvement until the next economic phase.</p>
+
+<h2 id="ep2turn1">Movement Turn 4</h2>
+<p>Now that our fleet has been expanded, we can start transitioning to deep space systems. We will commit just one Scout to this expedition until we start exhausting our remaining unexplored home systems. We also opted to move both of our Mining Ships to help collect minerals.</p>
+
+<p>Our expedition into deep space is short lived, as we ran into our first Danger! hex in this game. These nasty hexes <b>instantly</b> destroy any ship that enters them when revealed. No dice rolling for these occasions (by default). No wonder Close Encounters introduced an optional rule to make these hexes far less effective (by making it so that only a 9-10 roll does the destruction as usual).</p>
+
+<script>turnPic(2,1)</script>
+
+<h2 id="ep2turn2">Movement Turn 5</h2>
+<p>Although that incident slowed us down, we still got 4 Scouts cleaning up the rest of the home systems.</p>
+
+<p>Hopeful that the hex at J7 would be a planet, we opted to keep our Colony Ship still. Of course, we would be wrong. Time to send it west...</p>
+
+<script>turnPic(2,2)</script>
+
+<h2 id="ep2turn3">Movement Turn 6</h2>
+<p>Yet... we still had one last hex we could try before sending the Colony Ship to Vulcan. We opted to move it there together with a Scout, to see what could come from it. Since the Black Hole was previously exposed, there is no risk to doing this manuever. We also opted to tow some minerals to our newly founded colony. We can safely unload it, and give us another boost in CP.</p>
+
+<p>Reconnaissance proved fruitful, as the hex our Colony Ship moved to has a planet after all. We can order a colonize on the spot this way. We also found a barren planet next to it, but nothing we can do... yet.</p>
+
+<script>turnPic(2,3)</script>
+
+<h2 id="ep2econ">Economic Phase 2</h2>
+
+<p>We have reached another economic phase. The steps are always the same, so we will simply recap the bullets.</p>
+
+<ol>
+<li>We had 5 CP leftover from the previous economic phase</li>
+<li>Our colony production increased to +22 CP in the last growth step. We now have 27 CP</li>
+<li>We cash in another 5 minerals. This brings us up to 32 CP</li>
+<li>We still have no pipelines. We stay at 32 CP</li>
+<li>Maintenance cost has increased a little (3 &rarr; 4 CP). We drop to 28 CP</li>
+<li>As per the scenario we are playing, we bid 0 CP throughout. We stay at 28 CP</li>
+<li>We will buy Ship Size Level 2 (-10 CP) this phase. This drops us to 18 CP</li>
+<li>We will buy 2 Colony Ships (-16 CP). These expenses knock us down to 2 CP</li>
+<li>We place our new ships at our Homeworld, as usual</li>
+<li>We finish by growing colonies. This will increase our production potential to 27 CP</li>
+</ol>
+
+<script>
+turnPic(2,"E");
+
+alienOpponents[0].addFleetCPs(1);
+alienOpponents[1].addTechCPs(1);
+alienOpponents[2].addTechCPs(1);
+</script>
+
+<p>Now we do Alien Player economics. This second phase is a little more complicated than the previous. Still, each AP gets 1 economic roll. If they roll a 1, they permanently get an extra economic roll starting with economic phase <b>5</b>. 2-3 would instead allow them to invest in a Fleet. 4-10 to Tech.</p>
+
+<p>Red Player rolled a 3 (Fleet). Green Player rolled a 10 (Tech). Yellow Player rolled an 8 (Tech).</p>
+
+<table>
+<caption>Alien Economics (EP2)</caption>
+<tr>
+<th>Player</th>
+<th>Eco</th>
+<th>Fleet</th>
+<th>Tech</th>
+<th>Def</th>
+<th>Hidden</th>
+</tr>
+<script>drawRows(alienOpponents)</script>
+<tr>
+<th>(Rolls)</th>
+<td class="numeric">1</td>
+<td class="numeric">2-3</td>
+<td class="numeric">4-10</td>
+<td class="numeric">&ndash;</td>
+</tr>
+</table>
+
+<p>An Alien Player needs at least 6 CP to launch a combat fleet. None of the players have the required CP, so launch rolls are skipped for this phase. This ends the Alien Players' involvement until the next economic phase.</p>
+
+<h2 id="conclusion">To be continued</h2>
+<p>Due to the huge size of the Alien Empires playthrough, it has been split into a <a href="../">chapter list</a>. <a href="../ch2/">Next chapter</a> we will venture deeper into deep space, while also being wary of any Alien Player fleets that launch.</p>
+
+<p class="footer">This document was written by Paul Ruediger</p>
+</div>
+</body>
+</html>

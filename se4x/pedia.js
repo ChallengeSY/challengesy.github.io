@@ -75,18 +75,27 @@ function showBox(concept) {
 				"<br />(Exception: If one side has only "+conceptLink("non-combat ship")+"s, those ships get destroyed instead; without impeding movement.)" +
 				"<br /><br />Battles are dividied into "+conceptLink("round")+"s, lasting until only one side still has combat ships.";
 			break;
+		case "bid":
+			displayTxt = "<b>Bid</b><br />During each "+conceptLink("economic phase")+", players secretly bid any "+conceptLink("CP")+" they wish to set aside\
+				to try to steal the initative for the next 3 "+conceptLink("turn")+"s.<br />\
+				Bids are revealed after "+conceptLink("colonies")+" have grown. CP spent this way is consumed whether or not a given player wins the bid.";
+			break;
+		case "blockade":
+			displayTxt = "<b>Blockade</b><br />A "+conceptLink("colony")+" is blockaded if there are enemy "+conceptLink("combat ship")+"(s) in orbit.\
+				Produces no "+conceptLink("CP")+" until the hex is clear.";
+			break;
 		case "combat ship":
-			displayTxt = "<b>Combat ship</b><br />A ship able to conduct "+conceptLink("battle")+"s. Has at least an "+conceptLink("Attack")+" rating to represent its weaponry.";
+			displayTxt = "<b>Combat ship</b><br />A ship able to conduct "+conceptLink("battle")+"s and enter "+conceptLink("unexplored")+" systems unassisted. Has at least an "+conceptLink("Attack")+" rating. Can "+conceptLink("blockade")+" "+conceptLink("colonies")+".";
 			break;
 		case "cp":
-			displayTxt = "<b>Construction Points</b><br />Monetary currency. Earned by developing "+conceptLink("colonies")+", towing "+conceptLink("minerals")+", and connecting "+conceptLink("pipeline")+"s. Used to buy technology and build ships.";
+			displayTxt = "<b>Construction Points</b><br />Monetary currency. Earned by developing "+conceptLink("colonies")+", towing "+conceptLink("minerals")+", and connecting "+conceptLink("pipeline")+"s. Used to buy "+conceptLink("technology")+" and build ships.";
 			break;
 		case "defense":
-			displayTxt = "<b>Defense</b><br />Decreases the maximum d10 roll allowed by an attacker to score a hit on this ship, to a minimum "+conceptLink("Attack")+" rating of 1<br />(Exception: It is possible to be unable to hit a "+conceptLink("DM")+".)" +
+			displayTxt = "<b>Defense</b><br />Decreases the maximum d10 roll allowed by an attacker to score a hit on this ship, to a minimum "+conceptLink("Attack")+" rating of 1.<br />(Exception: Minimum Attack versus a "+conceptLink("DM")+" or a "+conceptLink("Titan")+" is instead 0.)" +
 				"<br /><br />Defense "+conceptLink("technology")+" adds directly to this rating, up to the maximum "+conceptLink("Hull Size")+".";
 			break;
 		case "economic phase":
-			displayTxt = "<b>Economic Phase</b><br />A simultaneous phase in which all production and spending takes place. There are 3 "+conceptLink("movement turn")+"s per economic phase.";
+			displayTxt = "<b>Economic Phase</b><br />A simultaneous phase in which all production and spending takes place. There are 3 regular "+conceptLink("turn")+"s in between each economic phase.";
 			break;
 		case "fleet size bonus":
 			displayTxt = "<b>Fleet Size Bonus</b><br />If one player has at least twice as many un"+conceptLink("screen")+"ed ships as their opponent at the start of a battle "+conceptLink("round")+", all their ships get an additional "+conceptLink("Attack")+" +1 for that round.";
@@ -99,11 +108,11 @@ function showBox(concept) {
 			displayTxt = "<b>Maintenance</b><br />The upkeep cost ("+conceptLink("CP")+") that must be paid each "+conceptLink("economic phase")+" to maintain existing "+conceptLink("combat ship")+"s. Based on "+conceptLink("Hull Size")+"." +
 				"<br />(Exception: "+conceptLink("Base")+"s and "+conceptLink("Ship Yard")+"s require no maintenance.)";
 			break;
-		case "movement turn":
-			displayTxt = "<b>Movement Turn</b><br />A phase in which each player moves their ships, conducts "+conceptLink("battle")+"s, and explores systems; one player at a time." +
-				"<br />3 movemenet turns occur in between each "+conceptLink("economic phase")+"." +
-				"<br /><br />The total number of hexes a "+conceptLink("combat ship")+" or "+conceptLink("Decoy")+" may move per economic phase is determined by their "+conceptLink("Movement")+" technology level." +
-				"<br />(Other "+conceptLink("non-combat ship")+"s are limited to 1 hex per movement turn, regardless of technology.)";
+		case "movement":
+			displayTxt = "<b>Movement</b><br />The process of moving ships through space.<br /><br />\
+				As a "+conceptLink("technology")+", improving this increases the number of total hexes that "+conceptLink("combat ship")+"s and "+conceptLink("Decoy")+"s can move per "+conceptLink("economic phase")+".<br />\
+				At level 1 (default), ships can move 3 hexes per economic phase (divided into 1 + 1 + 1, for the respective "+conceptLink("turn")+"s.)<br />\
+				Each subsequent level adds another hex, favoring the later turns, but keeping it as even as possible. <span class=\"bindTxt\">(1 + 1 + 2 for level 2; 1 + 2 + 2 for level 3)</span>.";
 			break;
 		case "non-combat ship":
 			displayTxt = "<b>Non-combat ship</b><br />A ship designed to support the empire, but has no weapons to conduct "+conceptLink("battle")+"s or defend itself.";
@@ -126,8 +135,20 @@ function showBox(concept) {
 				"<br />Screened ships may neither fire, nor be fired upon. Screen choices last for a full battle round." +
 				"<br /><br />"+conceptLink("Non-combat ship")+"s are automatically screened for the entire battle, and are eliminated if their protection has been destroyed and/or "+conceptLink("retreat")+"ed.";
 			break;
+		case "scuttle":
+			displayTxt = "<b>Scuttling</b><br />A player may choose to voluntarily remove ships from the board without refund, referred to as scuttling.<br />\
+				This process is useful for freeing up counters for reconstruction, and/or to reduce "+conceptLink("maintenance")+" costs.";
+			break;
 		case "space empires 4x":
 			displayTxt = "<b>Space Empires 4X</b><br />The base board game. Includes a variety of system counters, ship counters, numeric counters. Also includes multiplayer scenarios <span class=\"bindTxt\">(2 - 4 players)</span>, plus two solitaire scenarios ("+conceptLink("doomsday machine")+" / "+conceptLink("alien empires")+").";
+			break;
+		case "movement turn":
+			// Fall through
+		case "turn":
+			displayTxt = "<b>Turn</b><br />Technically a regular turn. A phase in which each player moves their ships, conducts "+conceptLink("battle")+"s, and explores systems;\
+				one player at a time.<br />3 turns occur in between each "+conceptLink("economic phase")+".<br /><br />\
+				The total number of hexes a "+conceptLink("combat ship")+" or "+conceptLink("Decoy")+" may move per economic phase is determined by their "+conceptLink("Movement")+" technology level.<br />\
+				(Other "+conceptLink("non-combat ship")+"s are limited to 1 hex per turn, regardless of technology.)";
 			break;
 		case "weakness":
 			displayTxt = "<b>Weakness</b><br />In the corresponding solitaire scenario, a "+conceptLink("Doomsday Machine")+" may have a weakness, depending on a d10 roll:" +
@@ -155,11 +176,6 @@ function showBox(concept) {
 		case "minesweeping":
 			displayTxt = "<b>Minesweeping Technology</b><br />Allows building "+conceptLink("minesweeper")+"s. "+conceptLink("Tech")+" levels 2/3 improves the number of mines swept per ship. \
 				<br />"+conceptLink("Alien Player")+" "+conceptLink("Scout")+"s also benefit from this technology.";
-			break;
-		case "movement":
-			displayTxt = "<b>Movement Technology</b><br />Improving this "+conceptLink("technology")+" increases the number of total hexes that "+conceptLink("combat ship")+"s and "+conceptLink("Decoy")+"s can move per "+conceptLink("economic phase")+"." +
-				"<br />At level 1 (default), ships can move 3 hexes per economic phase (divided into 1 + 1 + 1, for the respective "+conceptLink("movement turn")+"s.)" +
-				"<br />Each subsequent level adds another hex, favoring the later turns, but keeping it as even as possible. <span class=\"bindTxt\">(1 + 1 + 2 for level 2; 1 + 2 + 2 for level 3)</span>.";
 			break;
 		case "point-defense":
 			displayTxt = "<b>Point-Defense Technology</b><br />"+conceptLink("Scout")+"s equipped with this "+conceptLink("technology")+" gain an improved "+conceptLink("Attack")+" rating versus "+conceptLink("Fighters")+"." +
@@ -193,6 +209,8 @@ function showBox(concept) {
 			break;
 			
 		// Terrain
+		case "asteroid belt":
+			// Fall through
 		case "asteroids":
 			displayTxt = "<b>Asteroid Belt</b><br />Inhibits movement of ships, unless following a "+conceptLink("Pipeline")+" network. Nullifies "+conceptLink("Attack")+" "+conceptLink("technology")+" and reduces "+conceptLink("Priority Class")+" to <b>E</b>.";
 			break;
@@ -225,6 +243,8 @@ function showBox(concept) {
 			displayTxt = "<b>Home System</b><br />A set of hexes that surround a "+conceptLink("homeworld")+". These systems are relatively safe, with only a single dangerous counter <span class=\"bindTxt\">(a "+conceptLink("black hole")+")</apan> shuffled among these 25 "+conceptLink("unexplored")+" systems.";
 			break;
 		case "lost":
+			// Fall through
+		case "lost in space":
 			displayTxt = "<b>Lost in Space</b><br />If discovered, this system sends ships in a different, involuntary direction. A die roll is used in a solitaire game. In a regular game, another player directs these ships. The counter is then removed afterwards.";
 			break;
 		case "planet":
@@ -249,14 +269,15 @@ function showBox(concept) {
 			
 		// Ships
 		case "decoy":
-			displayTxt = "<b>Decoy</b><br />Support ship designed to fool enemies. Can be built at any "+conceptLink("colony")+". Automatically eliminated at ths start of a "+conceptLink("battle");
+			displayTxt = "<b>Decoy</b><br />Support ship designed to fool enemies. Can be built at any "+conceptLink("colony")+". Automatically eliminated at the start of a "+conceptLink("battle");
 			displayTxt = displayTxt + stats(1, 0, 0, 0);
 			break;
 		case "ship yard":
 			// Fall through
 		case "sy":
 			displayTxt = "<b>Ship Yard</b><br />Space station able to build more ships. Can not move. Can be built at any "+conceptLink("colony")+" that has produced CP this "+conceptLink("economic phase")+
-				"<br />Has a dedicated "+conceptLink("technology")+" that determines how many "+conceptLink("hull size")+"s (1 / 1.5 / 2) can be built per SY per turn in a given hex.";
+				"<br />Has a dedicated "+conceptLink("technology")+" that determines how many "+conceptLink("hull size")+"s (1 / 1.5 / 2) can be built per SY per "+conceptLink("economic phase")+
+				" in a given hex.";
 			displayTxt = displayTxt + stats(6, "C3", 0, 1);
 			break;
 		case "scout":
@@ -392,9 +413,14 @@ function showBox(concept) {
 			displayTxt =  "<b>Alien Empires</b><br />Solitaire scenario that pits the player against 2-3 "+conceptLink("Alien Player")+"s.<br />The player's objective is to destroy all Alien Player "+conceptLink("homeworld")+"s, while protecting their own from destruction.";
 			break;
 		case "alien player":
-			displayTxt =  "<b>Alien Player</b><br />Hostile empire that generates 5-15 "+conceptLink("CP")+" from 1 or more unique economic rolls per "+conceptLink("economic phase")+".<br />\
-				It dedicates this money into budgets for building fleets, researching "+conceptLink("technology")+", or protecting the "+conceptLink("homeworld")+".<br />\
-				Available when playing an "+conceptLink("Alien Empires")+" scenario. Starts the scenario with "+conceptLink("Minelaying")+" developed.";
+			displayTxt =  "<b>Alien Player</b><br />Hostile empire that generates "+conceptLink("CP")+" from 1 or more unique "+conceptLink("economic roll")+"s per "+conceptLink("economic phase")+".<br />\
+				Available when playing an "+conceptLink("Alien Empires")+" scenario. Starts with "+conceptLink("Minelaying")+" developed, and with a single "+conceptLink("base")+".";
+			break;
+		case "economic roll":
+			displayTxt =  "<b>Economic Roll</b><br />Determines where an "+conceptLink("Alien Player")+" should allocate its "+conceptLink("CP")+" \
+				(Fleets, "+conceptLink("Technology")+", or "+conceptLink("Homeworld")+" Defense),<br />\
+				or if it permanently gains an <em>extra</em> economic roll 3 "+conceptLink("economic phase")+"s from the current phase.<br />\
+				CP allocated into Defense are applied with twice the standard effectiveness.";
 			break;
 			
 		// Close Encounters concepts
@@ -437,4 +463,42 @@ function showBox(concept) {
 	displayTxt = displayTxt + "<br /><br /><a class=\"interact\" href=\"javascript:closeBox();\">Close</a>";
 	infoPanel.innerHTML = displayTxt;
 	infoPanel.style.display = "";
+}
+
+function keywordifyDocument() {
+	setupBox();
+	keywordifyCollection(document.getElementsByTagName("p"));
+	keywordifyCollection(document.getElementsByTagName("li"));
+}
+
+function keywordifyCollection(collObj) {
+	const keyTerms = ["Space Empires 4X", "Close Encounters",
+		"Barren", "Bid", "Colonies", "CP", "Economic Phase", "Homeworld", "Hull Size", "Maintenance", "Planet", "Scuttle", "Turn",
+		"Battle", "Blockade", "Fleet Size Bonus", "Priority Class", "Retreat", "Screen", "Weakness",
+		"Alien Empires", "Alien Player", "Doomsday Machine", "Economic Roll",
+		"Scout", "Destroyer", "Cruiser", "Ship Yard", "Base", "Minesweeper", "Colony Ship", "Mining Ship", "Pipeline",
+		"Asteroid Belt", "Asteroids", "Black Hole", "Danger", "Deep Space", "Home System", "Lost in Space", "Minerals", "Nebula", "Space Wreck", "Supernova", "Unexplored",
+		"Technology", "Attack", "Defense", "Exploration", "Minelaying", "Minesweeping", "Movement", "Scanning", "Ship Size", "Tactics", "Terraforming"];
+		
+	const keyExpressions = [
+		{regex: conceptLink("battle")+conceptLink("cruiser"), newTxt: conceptLink("battlecruiser")},
+		{regex: conceptLink("Battle")+conceptLink("cruiser"), newTxt: conceptLink("Battlecruiser")},
+		{regex: "re"+conceptLink("turn"), newTxt: "return"},
+		{regex: conceptLink("turn")+"ed", newTxt: "turned"}
+		];
+	
+	for (var e of collObj) {
+		if (!e.innerHTML.startsWith("<a") && !e.className.startsWith("noKeywords")) {
+			for (var h = 0; h < keyTerms.length; h++) {
+				if (keyTerms[h].toLowerCase() != keyTerms[h]) {
+					e.innerHTML = e.innerHTML.replaceAll(keyTerms[h].toLowerCase(), conceptLink(keyTerms[h].toLowerCase()));
+				}
+				e.innerHTML = e.innerHTML.replaceAll(keyTerms[h], conceptLink(keyTerms[h]));
+			}
+			
+			for (var g = 0; g < keyExpressions.length; g++) {
+				e.innerHTML = e.innerHTML.replaceAll(keyExpressions[g].regex, keyExpressions[g].newTxt);
+			}
+		}
+	}
 }

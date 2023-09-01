@@ -157,6 +157,7 @@ function getDMspecs() {
 	
 	switch (dmStr) {
 		case 0:
+			// Multiplayer specs
 			dmAtk = 9;
 			dmClass = "C";
 			dmDef = 2;
@@ -187,6 +188,8 @@ function getDMspecs() {
 		default:
 			dmClass = "A";
 			dmRolls = 6;
+			
+			// Diminishing returns on Def and number of rolls
 			while (dmDef < 7 && dmStr >= dmThresh[0]) {
 				dmThresh[0] = dmThresh[0] + (dmDef++ * 2);
 				dmAtk--;
@@ -195,6 +198,7 @@ function getDMspecs() {
 				dmThresh[1] = dmThresh[1] + dmRolls++;
 				dmAtk--;
 			}
+			
 			break;
 	}
 	
@@ -970,9 +974,12 @@ function lockControls(flag) {
 }
 
 function performSimCycle() {
-	if (simsDone + 102 <= totalQuota) {
-		simsDone = simsDone + 100;
-		runSimBattles(100);
+	// Slightly reduce the number of sims per cycle with bigger DMs; make it more responsive
+	var simsPerCycle = Math.max(130 - Math.floor(Math.pow(dmSize,0.85)),4);
+	
+	if (simsDone + simsPerCycle + 2 <= totalQuota) {
+		simsDone = simsDone + simsPerCycle;
+		runSimBattles(simsPerCycle);
 	} else {
 		if (simsDone < totalQuota) {
 			runSimBattles(totalQuota - simsDone);
