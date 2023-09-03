@@ -67,25 +67,31 @@ function showBox(concept) {
 			displayTxt = "<b>Alien Ship</b><br />Non-aligned ship that guards a "+conceptLink("barren planet")+". If any are found, they must be defeated before the planet can be colonized.";
 			break;
 		case "attack":
-			displayTxt = "<b>Attack</b><br />Determines the "+conceptLink("Priority Class")+" this ship has in "+conceptLink("battle")+" (A-F), followed by the maximum d10 roll allowed to score a hit.<br />(Assuming no enemy "+conceptLink("Defense")+" modifiers.)" +
-				"<br /><br />Attack "+conceptLink("technology")+" adds directly to this rating, up to the maximum "+conceptLink("Hull Size")+".";
+			displayTxt = "<b>Attack</b><br />Determines the "+conceptLink("Priority Class")+" this ship has in "+conceptLink("battle")+" (A-F), followed by the maximum d10 roll allowed to score a hit.<br />\
+				(Assuming no enemy "+conceptLink("Defense")+" modifiers.)<br /><br />\
+				Attack "+conceptLink("technology")+" adds directly to this rating, up to the maximum "+conceptLink("Hull Size")+".";
 			break;
 		case "battle":
-			displayTxt = "<b>Battle</b><br />Whenever "+conceptLink("combat ship")+"s from two opposing sides meet in a single hex, a battle will start, ceasing movement of the invading ships."+
-				"<br />(Exception: If one side has only "+conceptLink("non-combat ship")+"s, those ships get destroyed instead; without impeding movement.)" +
-				"<br /><br />Battles are dividied into "+conceptLink("round")+"s, lasting until only one side still has combat ships.";
+			displayTxt = "<b>Battle</b><br />Whenever "+conceptLink("combat ship")+"s from two opposing sides meet in a single hex, a battle will start, ceasing movement of the invading ships.<br />\
+				(Exception: If one side has only "+conceptLink("non-combat ship")+"s, those ships get destroyed instead; without impeding movement.)<br /><br />\
+				Battles are dividied into "+conceptLink("round")+"s, lasting until only one side still has combat ships.";
 			break;
 		case "bid":
 			displayTxt = "<b>Bid</b><br />During each "+conceptLink("economic phase")+", players secretly bid any "+conceptLink("CP")+" they wish to set aside\
 				to try to steal the initative for the next 3 "+conceptLink("turn")+"s.<br />\
-				Bids are revealed after "+conceptLink("colonies")+" have grown. CP spent this way is consumed whether or not a given player wins the bid.";
+				Bids are revealed after "+conceptLink("colonies")+" have grown. CP spent this way is consumed whether or not a given player wins the bid.<br /><br />\
+				The player that wins the initative determines <b>who</b> goes first.";
 			break;
 		case "blockade":
 			displayTxt = "<b>Blockade</b><br />A "+conceptLink("colony")+" is blockaded if there are enemy "+conceptLink("combat ship")+"(s) in orbit.\
 				Produces no "+conceptLink("CP")+" until the hex is clear.";
 			break;
+		case "bombard":
+			displayTxt = "<b>Bombardment</b><br />A process in which "+conceptLink("combat ship")+"s can damage an enemy "+conceptLink("colony")+".<br />\
+				Each hit scored reduces colony growth by one stage until its production reaches 0 "+conceptLink("CP")+". Limit 1 roll per ship per "+conceptLink("turn");
+			break;
 		case "combat ship":
-			displayTxt = "<b>Combat ship</b><br />A ship able to conduct "+conceptLink("battle")+"s and enter "+conceptLink("unexplored")+" systems unassisted. Has at least an "+conceptLink("Attack")+" rating. Can "+conceptLink("blockade")+" "+conceptLink("colonies")+".";
+			displayTxt = "<b>Combat ship</b><br />A ship able to conduct "+conceptLink("battle")+"s and enter "+conceptLink("unexplored")+" systems unassisted. Has at least an "+conceptLink("Attack")+" rating. Can "+conceptLink("blockade")+" and "+conceptLink("bombard")+" "+conceptLink("colonies")+".";
 			break;
 		case "cp":
 			displayTxt = "<b>Construction Points</b><br />Monetary currency. Earned by developing "+conceptLink("colonies")+", towing "+conceptLink("minerals")+", and connecting "+conceptLink("pipeline")+"s. Used to buy "+conceptLink("technology")+" and build ships.";
@@ -363,7 +369,7 @@ function showBox(concept) {
 		case "minesweeper":
 			// Fall through
 		case "sw":
-			displayTxt = "<b>Minesweeper</b><br />Utility "+conceptLink("combat ship")+" that sweeps "+conceptLink("mines");
+			displayTxt = "<b>Minesweeper</b><br />Utility "+conceptLink("combat ship")+" that sweeps "+conceptLink("mines")+" and researches "+conceptLink("space amoeba");
 			displayTxt = displayTxt + stats(6, "E1", 0, 1) + "<br /><b>Required Tech</b>: "+conceptLink("Minesweeping")+" level 1";
 			break;
 		
@@ -425,7 +431,7 @@ function showBox(concept) {
 			
 		// Close Encounters concepts
 		case "close encounters":
-			displayTxt =  "<b>Close Encounters</b><br />First expansion to the base "+conceptLink("Space Empires 4X")+" board game. Adds new concepts, and extends existing concepts.";
+			displayTxt =  "<b>Close Encounters</b><br />First expansion to the base "+conceptLink("Space Empires 4X")+" board game. Adds new ships, new tech, co-op scenarios, and "+conceptLink("space amoeba");
 			break;
 		case "tn":
 			// Fall through
@@ -442,6 +448,11 @@ function showBox(concept) {
 			displayTxt = "<b>Boarding Ship</b><br />Specialist ship designed to capture enemy ships. Reduced to F1 versus immune targets. No benefit from "+conceptLink("Attack")+" tech";
 			displayTxt = displayTxt + stats(12, "F5", 0, 2) + "<br /><b>Required Tech</b>: "+conceptLink("Boarding")+" level 1";
 			break;
+		case "space amoeba":
+			displayTxt = "<b>Space Amoeba</b><br />Hazardous species that will multiply themselves and attempt to destroy human player(s).<br />\
+				Automatically destroys <b>all</b> attackers, until researched via "+conceptLink("Minesweeper")+"s<br /><br />\
+				Also both a solitaire scenario and competitive scenario, where researching and eliminating them are the objective in the former.";
+			break;
 		case "tran":
 			// Fall through
 		case "transport":
@@ -450,6 +461,12 @@ function showBox(concept) {
 			break;
 		case "troops":
 			displayTxt = "<b>Troops</b><br />Small ground-borne craft that is used to invade enemy "+conceptLink("colonies")+" in a ground "+conceptLink("battle")+"; or to defend friendly colonies";
+			break;
+			
+		// Replicators concepts
+		case "replicators":
+			displayTxt =  "<b>Replicators</b><br />Second expansion to the base "+conceptLink("Space Empires 4X")+" board game.<br />\
+				Adds the titular replicators as a new faction, playable by a human, or as the antagonists in a unique solitaire scenario.";
 			break;
 			
 		// Site exclusive concepts
@@ -474,7 +491,7 @@ function keywordifyDocument() {
 function keywordifyCollection(collObj) {
 	const keyTerms = ["Space Empires 4X", "Close Encounters",
 		"Barren", "Bid", "Colonies", "CP", "Economic Phase", "Homeworld", "Hull Size", "Maintenance", "Planet", "Scuttle", "Turn",
-		"Battle", "Blockade", "Fleet Size Bonus", "Priority Class", "Retreat", "Screen", "Weakness",
+		"Battle", "Blockade", "Bombard", "Fleet Size Bonus", "Priority Class", "Retreat", "Screen", "Weakness",
 		"Alien Empires", "Alien Player", "Doomsday Machine", "Economic Roll",
 		"Scout", "Destroyer", "Cruiser", "Ship Yard", "Base", "Minesweeper", "Colony Ship", "Mining Ship", "Pipeline",
 		"Asteroid Belt", "Asteroids", "Black Hole", "Danger", "Deep Space", "Home System", "Lost in Space", "Minerals", "Nebula", "Space Wreck", "Supernova", "Unexplored",
