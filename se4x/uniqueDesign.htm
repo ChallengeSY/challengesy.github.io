@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta name="description" content="Space Empires 4X Resourcepedia" />
+	<meta name="keywords" content="Space, Empires, Space Empires" />
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>SE4X - Unique Ship Designer</title>
+
+	<link type="text/css" href="../nuCampaign/planets.css" rel="stylesheet" />
+	<style>
+		td.error {color: #FF8000; font-weight: bold;}
+	</style>
+	<script src="uniqueDesign.js"></script>
+	<script src="pedia.js"></script>
+</head>
+<body onload="setupDesign()">
+<p id="banner"><a href="index.php"><img src="banner.png" alt="Space Empires 4X Resourcepedia" /></a></p>
+
+<hr />
+
+<h2>Unique Ship Designer</h2>
+
+<form>
+<table class="clean">
+<tr>
+<td valign="top"><fieldset>
+<legend>Basic stats</legend>
+<table class="clean">
+<tr>
+<td colspan="3"></td>
+<th>Cost</th>
+</tr>
+<tr>
+<th>Priority Class</th>
+<td><a href="javascript:showBox('Priority Class')">(?)</a></td>
+<td><select class="text" id="atkClass" onchange="calcCost()" onblur="calcCost()">
+<option value="1">E</option>
+<option value="2">D</option>
+<option value="3">C</option>
+<option value="4">B</option>
+<option value="6">A</option>
+</select>
+</td>
+<td class="numeric" id="cost0"></td>
+</tr>
+<tr>
+<th>Attack Rating</th>
+<td><a href="javascript:showBox('Attack')">(?)</a></td>
+<td><input class="text" type="number" id="atkStr" onchange="calcCost()" onblur="calcCost()" min="1" max="8" value="3" size="4" /></td>
+<td class="numeric" id="cost1"></td>
+</tr>
+<tr>
+<th>Defense Rating</th>
+<td><a href="javascript:showBox('Defense')">(?)</a></td>
+<td><input class="text" type="number" id="defStr" onchange="calcCost()" onblur="calcCost()" min="0" max="3" value="0" size="4" /></td>
+<td class="numeric" id="cost2"></td>
+</tr>
+<tr>
+<th>Hull Size</th>
+<td><a href="javascript:showBox('Hull Size')">(?)</a></td>
+<td><input class="text" type="number" id="hullSize" onchange="calcCost()" onblur="calcCost()" min="1" max="3" value="1" size="4" /></td>
+<td class="numeric" id="cost3"></td>
+</tr>
+</table>
+</fieldset></td>
+<td rowspan="2" valign="top"><fieldset>
+<legend>Ship abilities</legend>
+<input type="checkbox" id="skill0" name="skill0" onchange="calcCost()" onblur="calcCost()" />
+<label for="skill0">Point-Defense</label> <a href="javascript:showBox('Point-Defense')">(?)</a> (Cost: 1 + tech)<br />
+<input type="checkbox" id="skill1" name="skill1" onchange="calcCost()" onblur="calcCost()" />
+<label for="skill1">Scanners</label> <a href="javascript:showBox('Scanning')">(?)</a> (Cost: 1 + tech)<br />
+<input type="checkbox" id="skill2" name="skill2" onchange="calcCost()" onblur="calcCost()" />
+<label for="skill2">Exploration</label> <a href="javascript:showBox('Exploration')">(?)</a> (Cost: 1 + tech)<br />
+<input type="checkbox" id="skill3" name="skill3" onchange="calcCost()" onblur="calcCost()" />
+<label for="skill3">Fast One</label> <a href="javascript:showBox('Fast One')">(?)</a> (Cost: 2 + tech)<br />
+<input type="checkbox" id="skill4" name="skill4" onchange="calcCost()" onblur="calcCost()" />
+<label for="skill4">Mini-Fighter Bay</label> <a href="javascript:showBox('Mini-Fighter Bay')">(?)</a> (Cost: 2 + tech)<br />
+<hr />
+<input type="checkbox" id="skill5" name="skill5" onchange="calcCost()" onblur="calcCost()" />
+<label for="skill5">Anti-Sensor Hull</label> <a href="javascript:showBox('Anti-Sensor Hull')">(?)</a> (Cost: 3)<br />
+<input type="checkbox" id="skill6" name="skill6" onchange="calcCost()" onblur="calcCost()" />
+<label for="skill6">Shield Projector</label> <a href="javascript:showBox('Shield Projector')">(?)</a> (Cost: 3)<br />
+<input type="checkbox" id="skill7" name="skill7" onchange="calcCost()" onblur="calcCost()" />
+<label for="skill7">Design Weakness</label> <a href="javascript:showBox('Design Weakness')">(?)</a> (Cost: -?)<br />
+<input type="checkbox" id="skill8" name="skill8" onchange="calcCost()" onblur="calcCost()" />
+<label for="skill8">Construction Bay</label> <a href="javascript:showBox('Construction Bay')">(?)</a> (Cost: 4)<br />
+<hr />
+<input type="checkbox" id="skill9" name="skill9" onchange="calcCost()" onblur="calcCost()" />
+<label for="skill9">Tractor Beam</label> <a href="javascript:showBox('Tractor Beam')">(?)</a> (Cost: 2)<br />
+<input type="checkbox" id="skill10" name="skill10" onchange="calcCost()" onblur="calcCost()" />
+<label for="skill10">Warp Gates</label> <a href="javascript:showBox('Warp Gates')">(?)</a> (Cost: 5)<br />
+<input type="checkbox" id="skill11" name="skill11" onchange="calcCost()" onblur="calcCost()" />
+<label for="skill11">Second Salvo</label> <a href="javascript:showBox('Second Salvo')">(?)</a> (Cost: 4)<br />
+<input type="checkbox" id="skill12" name="skill12" onchange="calcCost()" onblur="calcCost()" />
+<label for="skill12">Heavy Warheads</label> <a href="javascript:showBox('Heavy Warheads')">(?)</a> (Cost: 2)<br />
+</fieldset></td>
+</tr>
+<tr>
+<td valign="bottom"><fieldset>
+<legend>Design summary</legend>
+<table class="clean">
+<tr>
+<th>Total cost</th>
+<td><a href="javascript:showBox('CP')">(?)</a></td>
+<td class="numeric" id="costTotal"></td>
+</tr>
+<tr>
+<th>Minimum Ship Size</th>
+<td><a href="javascript:showBox('Ship Size')">(?)</a></td>
+<td class="numeric" id="shipSizeLv"></td>
+</tr>
+<tr>
+<th>Minimum Priority Class</th>
+<td><a href="javascript:showBox('Priority Class')">(?)</a></td>
+<td class="numeric" id="minAtkClass"></td>
+</tr>
+</table>
+</fieldset></td>
+</tr>
+</table>
+
+<p class="center"><input class="button" type="reset" onmouseout="calcCost()" onblur="calcCost()" value="Reset" /></p>
+</form>
+
+<hr />
+
+<h2>Instructions</h2>
+<p>Simply play around with this program and design your own unique ship, as if you were using it in a Close Encounters game.</p>
+
+<p>The Summary Box lists how expensive your ship is, and what Ship Size and minimum Priority Class are also required. Abilities which are shared with another ship must also be researched before the ship can be bought.</p>
+
+</body>
+</html>

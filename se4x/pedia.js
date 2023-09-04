@@ -87,7 +87,7 @@ function showBox(concept) {
 				Produces no "+conceptLink("CP")+" until the hex is clear.";
 			break;
 		case "bombard":
-			displayTxt = "<b>Bombardment</b><br />A process in which "+conceptLink("combat ship")+"s can damage an enemy "+conceptLink("colony")+".<br />\
+			displayTxt = "<b>Bombardment</b><br />A process in which "+conceptLink("combat ship")+"s can damage an enemy "+conceptLink("colony")+", using its "+conceptLink("Attack")+" rating and tech.<br />\
 				Each hit scored reduces colony growth by one stage until its production reaches 0 "+conceptLink("CP")+". Limit 1 roll per ship per "+conceptLink("turn");
 			break;
 		case "combat ship":
@@ -191,7 +191,7 @@ function showBox(concept) {
 			displayTxt = "<b>Scanning Technology</b><br />"+conceptLink("Destroyer")+"s equipped with this "+conceptLink("technology")+" will detect "+conceptLink("Raider")+"s with an equal or lower "+conceptLink("cloaking")+" level.";
 			break;
 		case "ship size":
-			displayTxt = "<b>Ship Size Technology</b><br />Higher "+conceptLink("tech")+" levels (up to level 6) allow larger and more powerful ships to be built. The starting tech level is 1.<br /><br />\
+			displayTxt = "<b>Ship Size Technology</b><br />Higher "+conceptLink("tech")+" levels allow larger and more powerful ships to be built. The starting tech level is 1.<br /><br />\
 				Tech level 2 allows the construction of "+conceptLink("Destroyer")+"s and "+conceptLink("Base")+"s.<br />\
 				Tech level 3 allows the construction of "+conceptLink("Cruiser")+"s.<br />\
 				Tech level 4 allows the construction of "+conceptLink("Battlecruiser")+"s.<br />\
@@ -323,7 +323,7 @@ function showBox(concept) {
 		case "battlecruiser":
 			// Fall through
 		case "bc":
-			displayTxt = "<b>Battlecruiser</b><br />Medium-Heavy "+conceptLink("combat ship");
+			displayTxt = "<b>Battlecruiser</b><br />Medium-Heavy "+conceptLink("combat ship")+", theoretically equippable with "+conceptLink("Fast One")+" technology";
 			displayTxt = displayTxt + stats(15, "B5", 1, 2) + "<br /><b>Required Tech</b>: "+conceptLink("Ship Size")+" level 4";
 			break;
 		case "battleship":
@@ -448,9 +448,13 @@ function showBox(concept) {
 			displayTxt = "<b>Boarding Ship</b><br />Specialist ship designed to capture enemy ships. Reduced to F1 versus immune targets. No benefit from "+conceptLink("Attack")+" tech";
 			displayTxt = displayTxt + stats(12, "F5", 0, 2) + "<br /><b>Required Tech</b>: "+conceptLink("Boarding")+" level 1";
 			break;
+		case "fast one":
+			displayTxt = "<b>Fast One</b><br />"+conceptLink("Close Encounters")+" exclusive technology that allows "+conceptLink("Battlecruiser")+"s to move an extra hex,\
+				on the first "+conceptLink("turn")+" of each "+conceptLink("economic phase");
+			break;
 		case "space amoeba":
 			displayTxt = "<b>Space Amoeba</b><br />Hazardous species that will multiply themselves and attempt to destroy human player(s).<br />\
-				Automatically destroys <b>all</b> attackers, until researched via "+conceptLink("Minesweeper")+"s<br /><br />\
+				Automatically destroys <b>all</b> ships (except "+conceptLink("Minesweeper")+"s), until fully researched<br /><br />\
 				Also both a solitaire scenario and competitive scenario, where researching and eliminating them are the objective in the former.";
 			break;
 		case "tran":
@@ -461,6 +465,41 @@ function showBox(concept) {
 			break;
 		case "troops":
 			displayTxt = "<b>Troops</b><br />Small ground-borne craft that is used to invade enemy "+conceptLink("colonies")+" in a ground "+conceptLink("battle")+"; or to defend friendly colonies";
+			break;
+			
+		// Unique ship-exclusive concepts
+		case "unique ship":
+			displayTxt = "<b>Unique Ship</b><br />Fully customizable "+conceptLink("combat ship")+" whose specifications are completely up to the designer";
+			break;
+		case "mini-fighter bay":
+			displayTxt = "<b>Mini-Fighter Bay</b><br />Allows the "+conceptLink("Unique Ship")+" to carry 1 "+conceptLink("Fighters")+" with it";
+			break;
+		case "anti-sensor hull":
+			displayTxt = "<b>Anti-Sensor Hull</b><br />Allows the "+conceptLink("Unique Ship")+" to be optionally immune to "+conceptLink("mines");
+			break;
+		case "shield projector":
+			displayTxt = "<b>Shield Projector</b><br />Allows the "+conceptLink("Unique Ship")+" to protect another ship, allowing its mate to fire without fear of being targeted";
+			break;
+		case "design weakness":
+			displayTxt = "<b>Design Weakness</b><br />The "+conceptLink("Unique Ship")+" is weak to one of three types ("+conceptLink("SC")+" / "+conceptLink("DD")+" / "+conceptLink("CA")+"),\
+				partially chosen at random. That type gets Attack +2 against this ship.<br />\
+				In return, build cost is reduced by 1-2 CP, depending on build cost before applying this ability";
+			break;
+		case "construction bay":
+			displayTxt = "<b>Construction Bay</b><br />Allows the "+conceptLink("Unique Ship")+" to contribute to "+conceptLink("Ship Yard")+" capacity while stationed at a "+conceptLink("colony")+". Counts as a SY for construction purposes by colonies";
+			break;
+		case "tractor beam":
+			displayTxt = "<b>Tractor Beam</b><br />Allows the "+conceptLink("Unique Ship")+" to pull an enemy ship to it each "+conceptLink("round")+", prohibiting the victim from "+conceptLink("retreat")+"ing";
+			break;
+		case "warp gates":
+			displayTxt = "<b>Warp Gates</b><br />Two "+conceptLink("Unique Ship")+"s within 3 hexes of each other are considered connected (1 hex apart). Supporting craft may use only one warp gate per "+conceptLink("turn");
+			break;
+		case "second salvo":
+			displayTxt = "<b>Second Salvo</b><br />The first time a "+conceptLink("Unique Ship")+" hits its victim in a "+conceptLink("round")+", it gets to shoot again towards the same hull type.";
+			break;
+		case "heavy warheads":
+			displayTxt = "<b>Heavy Warheads</b><br />"+conceptLink("Unique Ship")+"s' minimum "+conceptLink("Attack")+" rating increased to 2, after "+conceptLink("Defense")+" modifiers.\
+				(Against a "+conceptLink("Titan")+", the minimum Attack is instead 1)";
 			break;
 			
 		// Replicators concepts
@@ -493,7 +532,7 @@ function keywordifyCollection(collObj) {
 		"Barren", "Bid", "Colonies", "CP", "Economic Phase", "Homeworld", "Hull Size", "Maintenance", "Planet", "Scuttle", "Turn",
 		"Battle", "Blockade", "Bombard", "Fleet Size Bonus", "Priority Class", "Retreat", "Screen", "Weakness",
 		"Alien Empires", "Alien Player", "Doomsday Machine", "Economic Roll",
-		"Scout", "Destroyer", "Cruiser", "Ship Yard", "Base", "Minesweeper", "Colony Ship", "Mining Ship", "Pipeline",
+		"Scout", "Destroyer", "Cruiser", "Ship Yard", "Base", "Minesweeper", "Colony Ship", "Mining Ship", "Pipeline", "Unique Ship",
 		"Asteroid Belt", "Asteroids", "Black Hole", "Danger", "Deep Space", "Home System", "Lost in Space", "Minerals", "Nebula", "Space Wreck", "Supernova", "Unexplored",
 		"Technology", "Attack", "Defense", "Exploration", "Minelaying", "Minesweeping", "Movement", "Scanning", "Ship Size", "Tactics", "Terraforming"];
 		
