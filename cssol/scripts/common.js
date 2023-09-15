@@ -1,4 +1,4 @@
-var inactiveReset = new Date();
+var scriptTime = new Date();
 var seedSlot = new Array(312);
 var selectX, selectDepth, finishPtr, highestHeight, canFillColumn, seedPassword, oldPassword, cardsDealt;
 var baseStatFile, passField, clockPtr, forceRender, rectangularTableau, divFrag;
@@ -923,6 +923,7 @@ solCard.prototype.innerCode = function() {
 	var suitPip = "&" + this.suit.toLowerCase() + "s;";
 	var faceImg = "";
 	var cornerRank = this.rank.charAt(0);
+	var filepath = window.location.pathname;
 	if (this.rank == "10") {
 		cornerRank = "10";
 	}
@@ -933,7 +934,11 @@ solCard.prototype.innerCode = function() {
 	var cornerIndex = cornerRank + "<br />" + suitPip;
 	
 	if (this.rank == "King" || this.rank == "Queen" || this.rank == "Jack") {
-		faceImg = "../gfx/" + this.rank.toLowerCase() + ".gif";
+		if (filepath.startsWith("/cssol/games/") || filepath.startsWith("/cssol/wizard/")) {
+			faceImg = "../gfx/" + this.rank.toLowerCase() + ".gif";
+		} else {
+			faceImg = "gfx/" + this.rank.toLowerCase() + ".gif";
+		}
 		innerShell = "<div class=\"indexA\">" + cornerIndex + "</div>\n" +
 			"<div class=\"indexB\">" + cornerIndex + "</div>\n" +
 			"<img class=\"face\" src=\"" + faceImg + "\" alt=\"\" width=\"80\" height=\"130\" draggable=\"false\" />\n" +

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="description" content="JavaScript solitaire games" />
+	<meta name="keywords" content="FreeCell" />
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>Blackjack - CSSol</title>
+
+	<link type="text/css" href="../scripts/cards.css" rel="stylesheet" />
+		<link type="image/x-icon" href="../cssol.ico" rel="icon" />
+	<script type="text/javascript" src="../scripts/common.js"></script>
+	<script type="text/javascript" src="../scripts/blackjack.js"></script>
+</head>
+<body>
+<p id="banner"><a href="index.php"><img src="../gfx/banner.png" alt="" /></a></p>
+<div id="tableau">
+<hr style="position: absolute; width: 582px; left: 200px; top: 151.5px; margin: 0px;" />
+<!-- Playfield elements will be made here -->
+</div>
+
+<p>
+<input id="newRound" class="button" type="button" value="New Round" onclick="newRound()" title="[Spacebar] Starts a new round" />
+<input id="hit" class="button" type="button" value="Hit" onclick="hitHand()" title="[H] Adds a card" disabled="disabled" />
+<input id="stand" class="button" type="button" value="Stand" onclick="standHand()" title="[S] Ends the current hand" disabled="disabled" />
+<input id="double" class="button" type="button" value="Double Down" onclick="doubleDown()" title="[D] Doubles the wager, and adds exactly one card" disabled="disabled" />
+<input id="split" class="button" type="button" value="Split" onclick="splitHand()" title="[P] Splits a hand of identical value cards into two hands" disabled="disabled" />
+<input id="surrender" class="button" type="button" value="Surrender" onclick="surrenderHand()" title="[U] Forfeits the current hand and half the bet" disabled="disabled" />
+<input id="helpButton" class="button" type="button" value="Show help" onclick="toggleHelp(false)" title="[F1] Toggles game instructions" />
+<br /> Casual Score: <span id="casualScore">0</span>
+&mdash; Money Score: $<span id="moneyScore">0</span>
+&mdash; Base Bet: <input id="bet" class="text" type="number" min="1" value="10" size="5" />
+&mdash; Starting Hands: <input id="numHands" class="text" type="number" min="1" max="20" value="1" size="3" />
+</p>
+
+<p id="statusBar"></p>
+
+<div id="helpPanel">
+<h2>Instructions</h2>
+<p>Blackjack is a casino banking game, using (usually) multiple decks of 52 cards. Player do not compete against each other. The game is a comparing card game where each player competes against the dealer.</p>
+
+<p>To start each round, players place bets in the "betting box" at each position. The dealer deals from top (<q>first base</q>) to bottom (<q>third base</q>). Each player hand gets an initial hand of two cards visible to the people playing on it. The dealer's hand gets its first card face up and their second card face down (the hole card), which the dealer peeks at but only reveals when it makes the dealer's hand a blackjack.</p>
+
+<h3>Play</h3>
+<p>The object of the game is to win money by creating card totals higher than those of the dealer's hand but not exceeding 21, or by stopping at a total in the hope that dealer will bust. On their turn, players choose to hit, stand, double, split, or surrender. Number cards count as their number, the jack, queen, and king count as 10, and aces count as either 1 or 11 according to the player's choice. If the total exceeds 21 points, it busts, and all bets on it immediately lose.</p>
+
+<p>If Aces are split, each hand split this way gets exactly <b>one</b> additional card (for 2 total), and then those hands are over.</p>
+
+<p>After the player hands have finished, the dealer's hand is resolved by drawing cards (hitting) until the hand achieves a total of 17 or higher. If the dealer busts, all remaining player hands win. If the dealer does not bust, each remaining player hand wins if its hand is higher than the dealer's and loses if it is lower.</p>
+
+<p>A player total of 21 on the first two cards is a <q>blackjack</q>, and the player wins immediately unless dealer also has one, in which case the hand ties. In the case of a tie (<q>push</q>), bets are returned without adjustment. A blackjack beats any hand that is not a blackjack, even one with a value of 21. </p>
+
+<p>If the dealer shows an ace, an <q>insurance</q> bet is allowed. Insurance is a side bet that the dealer has a blackjack. The dealer asks for insurance bets before the first player plays. Insurance bets of half the player's current bet are placed on the "insurance bar" above player's cards. If the dealer has a blackjack, insurance pays 2 to 1. Players with blackjack can also take insurance.</p>
+
+<p class="footer">Documentation is &copy; <a href="http://en.wikipedia.org">Wikipedia Contributors</a>. Freely distributable under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons (BY SA) license 3.0</a></p>
+
+<h3>Unique mechanics</h3>
+<p>This project keeps track of both money score (how much cash the player has on hand) and casual score (total amount of money won in a single "credit"). The minimum bet increases as casual score increases. If the money score is exhausted, a fresh batch can always be acquired, but doing so will reset the casual score.</p>
+
+<p>Also, this project has a daily <q>mutation</q> system, repeated weekly. The table below indicates how the mechanics are laid down each week:</p>
+<table style="margin-left: auto; margin-right: auto;">
+<tr>
+<td></td>
+<th id="d0">Sun</th>
+<th id="d1">Mon</th>
+<th id="d2">Tue</th>
+<th id="d3">Wed</th>
+<th id="d4">Thu</th>
+<th id="d5">Fri</th>
+<th id="d6">Sat</th>
+</tr>
+<tr>
+<th>Decks</th>
+<td class="numeric">6</td>
+<td class="numeric">4</td>
+<td class="numeric">6</td>
+<td class="numeric">4</td>
+<td class="numeric">6</td>
+<td class="numeric">4</td>
+<td class="numeric">6</td>
+</tr>
+<tr>
+<th>Dealer 17s</th>
+<td title="Hits on Soft 17s">HS17</td>
+<td title="Stands on all 17s">SA17</td>
+<td title="Hits on Soft 17s">HS17</td>
+<td title="Stands on all 17s">SA17</td>
+<td title="Stands on all 17s">SA17</td>
+<td title="Hits on Soft 17s">HS17</td>
+<td title="Stands on all 17s">SA17</td>
+</tr>
+<tr>
+<th>Surrenders</th>
+<td>&#10006;</td>
+<td>&#10004;</td>
+<td>&#10004;</td>
+<td>&#10006;</td>
+<td>&#10004;</td>
+<td>&#10004;</td>
+<td>&#10006;</td>
+</tr>
+</table>
+</div>
+
+</body>
+</html>
