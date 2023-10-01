@@ -6,37 +6,10 @@
 	
 	<title>SE4X - Alien Empires Playthrough - Chapter 1</title>
 	<link type="text/css" href="../../../nuCampaign/planets.css" rel="stylesheet" />
+	<link type="text/css" href="../playthrough.css" rel="stylesheet" />
 	<script type="text/javascript" src="../../pedia.js"></script>
 	<script type="text/javascript" src="../../alienEmpires.js"></script>
-	<script type="text/javascript">
-		function dispImage(filename, altTxt) {
-			document.write("<p class=\"noKeywords center\"><a href=\"" + filename + "\"><img src=\"" + filename + "\" alt=\"" + altTxt + "\" /></a></p>");
-		}
-		
-		function turnPic(ep, turn) {
-			dispImage("ep"+ep+"turn"+turn+".png","Economic Phase "+ep+" / Turn "+turn);
-		}
-		
-		alienOpponents = [new alienPlayer("Red"), new alienPlayer("Green"), new alienPlayer("Yellow")];
-	</script>
-	<style type="text/css">
-		img {max-width: 30%;}
-		a {white-space: nowrap;}
-		.increase {color: #00ff00; font-weight: bold;}
-		.decrease {color: #ff8080; font-weight: bold;}
-
-		@media (max-width: 1440px), (max-height: 720px) {
-			#chapters {display: none;}
-		}
-
-		@media (min-width: 1441px) and (min-height: 721px) {
-			#bodyTxt {margin-right: 220px;}
-		}
-		
-		@media only screen and (max-device-width: 640px) {
-			#infobox {font-size: 200%;}
-		}
-	</style>
+	<script type="text/javascript" src="../playthrough.js"></script>
 </head>
 <body onload="keywordifyDocument();">
 <div id="chapters" style="position: fixed; width: 200px; top: 10px; right: 10px; border: 1px dashed rgb(255,255,255);">
@@ -70,7 +43,7 @@
 
 <script>dispImage("HomeworldSetup.png","Homeworld Setup")</script>
 
-<p>In a multiplayer scenario, players use d10 dice to determine who goes first. This applies <b>only</b> to the first economic phase's worth of turns. A player may attempt to steal (or keep) the initiative by placing a bid during the next closest economic phase.</p>
+<p>In a competitive scenario, players use d10 dice to determine who goes first. This applies <b>only</b> to the first economic phase's worth of turns. A player may attempt to steal or keep the initiative by placing a bid during the next closest economic phase.</p>
 
 <p>Since this playthrough follows an Alien Empires solo scenario (Normal difficulty), the player strictly goes first. Alien Players always bid 0 CP.</p>
 
@@ -88,7 +61,7 @@
 
 <p>We have moved our Scouts to more unexplored systems, a Mining Ship to the location where the minerals were found, and two Colony Ships towards potential planets.</p>
 
-<p>We have found our first asteroid belt, along with more minerals and another empty planet. Next to one of the Scouts is a deep space system. Exploring systems are not advisable at first, due to the greatly increased risk.</p>
+<p>We have found our first asteroid belt, along with more minerals and another empty planet. Next to one of the Scouts is a deep space system. Exploring such systems are not advisable at first, due to the greatly increased risk.</p>
 
 <script>turnPic(1,2)</script>
 
@@ -223,7 +196,7 @@ alienOpponents[2].addTechCPs(1);
 </tr>
 </table>
 
-<p>An Alien Player needs at least 6 CP to launch a combat fleet. None of the players have the required CP, so launch rolls are skipped for this phase. This ends the Alien Players' involvement until the next economic phase.</p>
+<p>An Alien Player needs at least 6 CP to launch a combat fleet; scouts are the cheapest combat ship they will ever build. In any case, none of the players have the required CP, so no launches will take place this phase. This ends the Alien Players' involvement until the next economic phase.</p>
 
 <h2 id="conclusion">To be continued</h2>
 <p>Due to the huge size of the Alien Empires playthrough, it has been split into a <a href="../">chapter list</a>. <a href="../ch2/">Next chapter</a> we will venture deeper into deep space, while also being wary of any Alien Player fleets that launch.</p>

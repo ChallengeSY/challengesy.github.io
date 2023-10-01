@@ -6,26 +6,11 @@
 	
 	<title>SE4X - Alien Empires Playthrough - Chapter 2</title>
 	<link type="text/css" href="../../../nuCampaign/planets.css" rel="stylesheet" />
+	<link type="text/css" href="../playthrough.css" rel="stylesheet" />
 	<script type="text/javascript" src="../../pedia.js"></script>
 	<script type="text/javascript" src="../../alienEmpires.js"></script>
+	<script type="text/javascript" src="../playthrough.js"></script>
 	<script type="text/javascript">
-		function dispImage(filename, altTxt) {
-			document.write("<p class=\"noKeywords center\"><a href=\"" + filename + "\"><img src=\"" + filename + "\" alt=\"" + altTxt + "\" /></a></p>");
-		}
-		
-		function turnRow(ep) {
-			document.write("<p class=\"noKeywords center\">\
-				<a href=\"ep"+ep+"turn1.png\"><img src=\"ep"+ep+"turn1.png\"\" alt=\"Eco Phase "+ep+" / Trn 1\" /></a>\
-				<a href=\"ep"+ep+"turn2.png\"><img style=\"margin-left: 3%; margin-right: 3%;\" src=\"ep"+ep+"turn2.png\"\" alt=\"Eco Phase "+ep+" / Trn 2\" /></a>\
-				<a href=\"ep"+ep+"turn3.png\"><img src=\"ep"+ep+"turn3.png\"\" alt=\"Eco Phase "+ep+" / Trn 3\" /></a></p>");
-		}
-		
-		function turnPic(ep, turn) {
-			dispImage("ep"+ep+"turn"+turn+".png","Eco Phase "+ep+" / Trn "+turn);
-		}
-
-		alienOpponents = [new alienPlayer("Red"), new alienPlayer("Green"), new alienPlayer("Yellow")];
-
 		// From previous economic phases
 		alienOpponents[0].addTechCPs(1);
 		alienOpponents[1].addQueuedRoll();
@@ -36,24 +21,6 @@
 		alienOpponents[1].normalizeValues();
 		alienOpponents[2].normalizeValues();
 	</script>
-	<style type="text/css">
-		img {max-width: 30%;}
-		a {white-space: nowrap;}
-		.increase {color: #00ff00; font-weight: bold;}
-		.decrease {color: #ff8080; font-weight: bold;}
-
-		@media (max-width: 1440px), (max-height: 720px) {
-			#chapters {display: none;}
-		}
-
-		@media (min-width: 1441px) and (min-height: 721px) {
-			#bodyTxt {margin-right: 250px;}
-		}
-		
-		@media only screen and (max-device-width: 640px) {
-			#infobox {font-size: 200%;}
-		}
-	</style>
 </head>
 <body onload="keywordifyDocument();">
 <div id="chapters" style="position: fixed; width: 235px; top: 10px; right: 10px; border: 1px dashed rgb(255,255,255);">
@@ -411,7 +378,7 @@ alienOpponents[2].launchRegFleet();
 
 <p>It is because fleets have launched that an additional step is needed. Each AP will roll for Movement tech. On a roll of 1-4, they will buy the next tech level. Otherwise, they will keep their tech CP.</p>
 
-<p>They rolled 9 (Red) / 2 (Green) / 9 (Yellow). Yellow Player rolled 9. Green Player will spend 20 CP for Movement Level 2.</p>
+<p>They rolled 9 (Red) / 2 (Green) / 9 (Yellow). Green Player will spend 20 CP for Movement Level 2.</p>
 
 <table>
 <caption>Alien Fleets (EP7)</caption>

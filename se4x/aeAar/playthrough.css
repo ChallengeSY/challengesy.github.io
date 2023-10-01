@@ -1,0 +1,16 @@
+img {max-width: 30%;}
+a {white-space: nowrap;}
+.increase {color: #00ff00; font-weight: bold;}
+.decrease {color: #ff8080; font-weight: bold;}
+
+@media (max-width: 1440px), (max-height: 720px) {
+	#chapters {display: none;}
+}
+
+@media (min-width: 1441px) and (min-height: 721px) {
+	#bodyTxt {margin-right: 260px;}
+}
+
+@media only screen and (max-device-width: 640px) {
+	#infobox {font-size: 200%;}
+}

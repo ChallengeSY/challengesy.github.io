@@ -6,26 +6,11 @@
 	
 	<title>SE4X - Alien Empires Playthrough - Chapter 4</title>
 	<link type="text/css" href="../../../nuCampaign/planets.css" rel="stylesheet" />
+	<link type="text/css" href="../playthrough.css" rel="stylesheet" />
 	<script type="text/javascript" src="../../pedia.js"></script>
 	<script type="text/javascript" src="../../alienEmpires.js"></script>
+	<script type="text/javascript" src="../playthrough.js"></script>
 	<script type="text/javascript">
-		function dispImage(filename, altTxt) {
-			document.write("<p class=\"noKeywords center\"><a href=\"" + filename + "\"><img src=\"" + filename + "\" alt=\"" + altTxt + "\" /></a></p>");
-		}
-		
-		function turnRow(ep) {
-			document.write("<p class=\"noKeywords center\">\
-				<a href=\"ep"+ep+"turn1.png\"><img src=\"ep"+ep+"turn1.png\"\" alt=\"Eco Phase "+ep+" / Trn 1\" /></a>\
-				<a href=\"ep"+ep+"turn2.png\"><img style=\"margin-left: 3%; margin-right: 3%;\" src=\"ep"+ep+"turn2.png\"\" alt=\"Eco Phase "+ep+" / Trn 2\" /></a>\
-				<a href=\"ep"+ep+"turn3.png\"><img src=\"ep"+ep+"turn3.png\"\" alt=\"Eco Phase "+ep+" / Trn 3\" /></a></p>");
-		}
-		
-		function turnPic(ep, turn) {
-			dispImage("ep"+ep+"turn"+turn+".png","Eco Phase "+ep+" / Trn "+turn);
-		}
-
-		alienOpponents = [new alienPlayer("Red"), new alienPlayer("Green"), new alienPlayer("Yellow")];
-
 		// From previous economic phases
 		addRegEcoRoll(alienOpponents);
 		addRegEcoRoll(alienOpponents);
@@ -52,24 +37,6 @@
 		alienOpponents[1].normalizeValues();
 		alienOpponents[2].normalizeValues();
 	</script>
-	<style type="text/css">
-		img {max-width: 30%;}
-		a {white-space: nowrap;}
-		.increase {color: #00ff00; font-weight: bold;}
-		.decrease {color: #ff8080; font-weight: bold;}
-
-		@media (max-width: 1440px), (max-height: 720px) {
-			#chapters {display: none;}
-		}
-
-		@media (min-width: 1441px) and (min-height: 721px) {
-			#bodyTxt {margin-right: 250px;}
-		}
-		
-		@media only screen and (max-device-width: 640px) {
-			#infobox {font-size: 200%;}
-		}
-	</style>
 </head>
 <body onload="keywordifyDocument();">
 <div id="chapters" style="position: fixed; width: 235px; top: 10px; right: 10px; border: 1px dashed rgb(255,255,255);">
@@ -205,10 +172,11 @@ for (a = 0; a < 3; a++) {
 <ol>
 <li><b>Round 1</b>: Their 2 Mines instantly destroy 2 of our Cruisers. This consumes them. We still have 3 Cruisers left (along with 8 Scouts), to their 9 defenders. Fleets are equal size</li>
 <li>Their 6 Bases will fire first. They will prioritize our Scouts. 1 of our 8 Scouts is outdated, and is missing Defense +1 (7 to hit). The first Base rolled a 4 (<b>hit</b>)</li>
-<li>The remainig 7 Scouts do have Defense +1, lowering the chance to hit (&lte;6). The remaining 5 Bases rolled 1,2,5,6,9 (4 hits)</li>
+<li>The remainig 7 Scouts do have Defense +1, lowering the chance to hit (&le;6). The remaining 5 Bases rolled 1,2,5,6,9 (4 hits)</li>
 <li>Tactics are equal, so their 3 Cruisers are next. We have 3 Scouts left (4 - 1 = 3 to hit). They roll 1,8,9 (1 hit)</li>
 <li>Our 3 Cruisers can now fire their weapons. We will target their Cruisers (4 to hit). We roll 1,6,7 (1 hit). We damaged a Cruiser</li>
-<li>Our 2 surviving Scouts can also help out against their Cruisers (4 - 1 = 3 to hit). We roll 5,6 (0 hits)</li>
+<li>Our 2 surviving Scouts can also help out against their Cruisers (4 - 1 = 3 to hit). We roll 5,6 (0 hits)<br /><br /></li>
+
 <li><b>Round 2</b>: Their 6 Bases will fire again. Since there are not enough Scouts, they will roll until 2 hits are scored. They rolled 7,1,4 this way</li>
 <li>3 of their Bases are still available to clean up our 3 Cruisers (7 - 2 = 5 to hit). They rolled 1,1,6 (2 hits). We lost a Cruiser</li>
 <li>Their 3 Cruiser are still available to clean up our 2 Cruisers (4 - 2 = 2 to hit). They rolled 1,8,10 (1 hit). Another Cruiser of ours is damaged</li>
@@ -258,9 +226,7 @@ alienOpponents[1].addTechCPs(3);
 alienOpponents[2].addFleetCPs(4);
 </script>
 
-<p>Alien Players have narrowed their focus. They can no longer allocate CP into homeworld protection.</p>
-
-<p>Red Player rolled 2,3,6,7,9 for economics. Green Player rolled 1,6,7,7,10. Yellow Player rolled 3,4,5,6.</p>
+<p>Alien Players have narrowed their focus. They can no longer allocate CP into homeworld protection. Anyway, Red Player rolled 2,3,6,7,9 for economic rolls. Green Player rolled 1,6,7,7,10. Yellow Player rolled 3,4,5,6.</p>
 
 <table>
 <caption>Alien Economics (EP13)</caption>
@@ -283,7 +249,7 @@ alienOpponents[2].addFleetCPs(4);
 </tr>
 </table>
 
-<p>For this phase, the rolls were 7 (Red) / 5 (Green) / 6 (Yellow). None of these Alien Players will launch this phase.</p>
+<p>For this phase, the fleet launch rolls were 7 (Red) / 5 (Green) / 6 (Yellow). None of these Alien Players will launch this phase.</p>
 
 <h2 id="ep14moves">Movement Turns 40-42</h2>
 <p>Not much of the deep space is still unexplored. We have a straggler crusing along to clean it up via Exploration. We proceed to take out the Green Cruisers that were launched when we assaulted Chulak for the second time. Citing a need to reinforce and consolidate, we opt to leave Chulak alone once more this time.</p>
@@ -370,9 +336,7 @@ for (l = 0; l < 3; l++) {
 <script>turnRow(15)</script>
 
 <h2 id="ep15turn2batE7">The Battle for Sector E7</h2>
-<p>We intercept the Green fleet as usual. Since this is their first time, it will be <q>built</q> using the Nanomachine technology the Alien Players got a hold of.</p>
-
-<p>They have enough Tech CP to roll for Ship Size Level 4 (-20 CP). They roll a 2 (success). This exhausts their Tech bank.</p>
+<p>We intercept the Green fleet as usual. Since this is their first time, it will be built <q>remotely</q>. They have enough Tech CP to roll for Ship Size Level 4 (-20 CP). They roll a 2 (success). This exhausts their Tech bank.</p>
 
 <p>Their 31 Fleet CP allows them to build a Battlecruiser (-15 CP) right away. They also roll a 6 (Balanced). Since they have no Attack/Defense technology, they will compliment it with 1 Destroyer 1 Scout (-15 CP).</p>
 
@@ -384,7 +348,8 @@ for (l = 0; l < 3; l++) {
 <li>Their 1 Scout will follow against our Scouts (3 - 1 = 2 to hit). It rolled a 5 (nuss)</li>
 <li>Our 12 surviving Scouts respond. We will roll against the Destroyer (3 + 1 + 1 = 5 to hit) until we score one hit. 8,8,9,7,8,6,2 were rolled this way.</li>
 <li>We have 5 Scouts leftover. Their lone Scout is next. We will roll (5 to hit) until we score 1 hit this way. We rolled a 4 this way.</li>
-<li>4 Scouts are leftover against their final ship... a Battlecruiser (5 - 1 = 4 to hit). We rolled 7,7,8,8 (0 hits)</li>
+<li>4 Scouts are leftover against their final ship... a Battlecruiser (5 - 1 = 4 to hit). We rolled 7,7,8,8 (0 hits)<br /><br /></li>
+
 <li><b>Round 2</b>: We sill skip screening. We also keep the Fleet Size Bonus</li>
 <li>Their Battlecruiser fires next against our Scouts (4 to hit). It rolled a 2 (hit)</li>
 <li>Our 2 Cruisers will respond against their Battlecruiser (6 - 1 = 5 to hit). We rolled 7,2 (1 hit). We damaged their Battlecruiser</li>
@@ -410,23 +375,27 @@ alienOpponents[1].apAlive = false;
 <li>We will use our outdated Cruiser next (only has Exploration technology; so 4 + 1 - 2 = 3 to hit). We rolled a 5 (miss)</li>
 <li>Our two updated Cruisers are next (which do have Attack +1 and Defense +1; so 4 + 1 + 1 - 2 = 4 to hit). We rolled a 1,8 (1 hit). One of their Bases is damaged, but still has 2 HP left</li>
 <li>Our 5 surviving Destroyers are next (4 + 1 + 1 - 2 = 4 to hit). We rolled 1,2,3,6,6 (3 hits). We finish one base off, and damage another (2 HP left)</li>
-<li>Our 11 Scouts are next (3 + 1 + 1 - 2 = 3 to hit). We rolled 1,2,3,4,4,5,5,6,7,7,8 (3 hits). We finish another base off, and damage yet another (2 HP left)</li>
+<li>Our 11 Scouts are next (3 + 1 + 1 - 2 = 3 to hit). We rolled 1,2,3,4,4,5,5,6,7,7,8 (3 hits). We finish another base off, and damage yet another (2 HP left)<br /><br /></li>
+
 <li><b>Round 2</b>: We will skip screening again. We keep the Fleet Size Bonus</li>
 <li>Their remaining 4 Bases will continue against our Destroyers (7 - 1 = 6 to hit). They rolled 2,7,7,7 (1 hit). We lost 1 Destroyer. That one Defense tech level proved extremely useful</li>
 <li>We will use our outdated Cruiser next (3 to hit). We rolled a 10 (miss)</li>
 <li>Our two updated Cruisers are next (4 to hit). We rolled a 7,8 (0 hits)</li>
 <li>Our 4 surviving Destroyers are next (4 to hit). We rolled 1,1,7,8 (2 hits). We finish a third Base off exactly</li>
-<li>Our 11 Scouts are next (3 to hit). We rolled 1,2,2,3,4,5,5,6,6,8,9 (4 hits). We cleanly destroy the fourth Base, and damage a fifth (2 HP left)</li>
+<li>Our 11 Scouts are next (3 to hit). We rolled 1,2,2,3,4,5,5,6,6,8,9 (4 hits). We cleanly destroy the fourth Base, and damage a fifth (2 HP left)<br /><br /></li>
+
 <li><b>Round 3</b>: Their remaining 2 Bases will continue against our Destroyers (6 to hit). They rolled 2,8 (1 hit)</li>
 <li>Our outdated Cruiser next (3 to hit). We rolled a 7 (miss)</li>
 <li>Our 2 updated Cruisers are next (4 to hit). We rolled a 6,8 (0 hits)</li>
 <li>Our 3 surviving Destroyers are next (4 to hit). We rolled 6,7,9 (0 hits)</li>
-<li>Our 11 Scouts are next (3 to hit). We rolled 1,2,4,5,5,6,7,8,9,10,10 (2 hits). We finish off the fifth Base exactly</li>
+<li>Our 11 Scouts are next (3 to hit). We rolled 1,2,4,5,5,6,7,8,9,10,10 (2 hits). We finish off the fifth Base exactly<br /><br /></li>
+
 <li><b>Round 4</b>: Their remaining 1 Base will continue against our Destroyers (6 to hit). It rolled a 4 (hit)</li>
 <li>Our outdated Cruiser next (3 to hit). We rolled a 6 (miss)</li>
 <li>Our 2 updated Cruisers are next (4 to hit). We rolled a 10,10 (0 hits)</li>
 <li>Our 2 surviving Destroyers are next (4 to hit). We rolled 3,9 (1 hit). We damaged their final Base (2 HP left)</li>
-<li>Our 11 Scouts are next (3 to hit). We rolled 2,3,3,6,6,7,7,8,9,10,10 (3 hits). We finish off their final Base! Chulak is completely <b>vulnerable</b></li>
+<li>Our 11 Scouts are next (3 to hit). We rolled 2,3,3,6,6,7,7,8,9,10,10 (3 hits). We finish off their final Base! Chulak is completely <b>vulnerable</b><br /><br /></li>
+
 <li><b>Bombardment Round</b>: All that remains is the homeworld. Fleet Size Bonus is ineffective for this round, only Attack technologies are effective</li>
 <li>Our outdated Cruiser is first (4 to hit). We rolled a 9 (miss)</li>
 <li>Our 2 updated Cruisers are next (5 to hit). We rolled a 3,6 (1 hit). We damaged the homeworld (down to its 15 CP stage)</li>
@@ -522,7 +491,7 @@ alienOpponents[2].addTechCPs(1);
 <p>Red Player's bombardment continues in turn 1.</p>
 
 <ol>
-<li><b>Bombardment Round</b>: Their Cruiser is first (4 to hit). It rolled a 9 (miss). Our colony got damaged to 3 CP</li>
+<li><b>Bombardment Round</b>: Their Cruiser is first (4 to hit). It rolled a 9 (miss). Our colony is still at 3 CP</li>
 <li>Their Destroyer is next (4 to hit). It rolled a 10 (miss)</li>
 <li>Finally their 6 Scouts will fire (3 to hit). They rolled 1,3,4,4,7,10 (2 hits). They glassed our colony!</li>
 </ol>
@@ -536,18 +505,21 @@ alienOpponents[2].addTechCPs(1);
 <li>Equal Tactics means their Cruiser gets to fire first (4 - 1 = 3 to hit). It rolled a 6 (miss)</li>
 <li>Our 5 Cruisers will respond against their Scouts (4 + 1 - 1 = 4 to hit). We rolled 2,4,4,6,7 (3 hits). They lost 3 Scouts</li>
 <li>Their Destroyer responds next (4 - 1 = 3 to hit). It rolled a 10 (miss)</li>
-<li>Their 3 surviving Scouts respond (3 - 1 = 2 to hit). They rolled 2,3,10 (1 hit). One of our Cruisers is damaged</li>
+<li>Their 3 surviving Scouts respond (3 - 1 = 2 to hit). They rolled 2,3,10 (1 hit). One of our Cruisers is damaged<br /><br /></li>
+
 <li><b>Round 2</b>: Their Cruiser fires again. It rolled a 9 (miss)</li>
 <li>Our 5 Cruisers will respond against their Scouts. We will roll until we score 3 hits or run out of <q>ammo</q>. We rolled 2,2,7,7,6 (2 hits)</li>
 <li>Their Destroyer responds next. It rolled a 6 (miss)</li>
-<li>Their 1 surviving Scout responds. It rolled a 5 (miss)</li>
-<li><b>Round 3</b>: Their Cruiser fires again. It rolled a 7 (miss)</li>
+<li>Their 1 surviving Scout responds. It rolled a 5 (miss)<br /><br /></li>
+
+<li><b>Round 3</b>: We now outnumber them, but not enough for a Fleet Size Bonus. We opt to screen no ships</li>
+<li>Their Cruiser fires again. It rolled a 7 (miss)</li>
 <li>Our 5 Cruisers will respond next. First, we will roll until we score 1 hit against the Scout. We rolled 8,6,7,2 this way</li>
-<li>We have 1 Cruiser left over, which we will designate against their Destroyer (4 + 1 - 1 = 4 to hit). We rolled a 3 (<b>hit</b>)</li>
-<li><b>Round 4</b>: Their Cruiser fires again. It rolled a 2 (<b>hit</b>). We lost a Cruiser</li>
-<li>Our 4 surviving Cruisers will respond. Their Cruiser is all that remains (4 + 1 - 1 - 1 = 3 to hit). We rolled 2,4,4,8 (1 hit). We damaged them</li>
-<li><b>Round 5</b>: Their Cruiser fires again. It rolled a 5 (miss). We lost a Cruiser</li>
-<li>Our 4 Cruisers respond once more. We rolled 1,1,7,8 (2 hits). We finished them off their fleet</li>
+<li>We have 1 Cruiser left over, which we will designate against their Destroyer (4 + 1 - 1 = 4 to hit). We rolled a 3 (<b>hit</b>)<br /><br /></li>
+
+<li><b>Round 4</b>: We now outnumber them enough for the Fleet Size Bonus</li>
+<li>Their Cruiser fires again. It rolled a 2 (<b>hit</b>). We lost a Cruiser</li>
+<li>Our 4 surviving Cruisers will respond. Their Cruiser is all that remains (4 + 1 + 1 - 1 - 1 = 4 to hit). We rolled 2,4,4,8 (3 hit). We finished them off!</li>
 </ol>
 
 <script>turnPic(16,"2batI3");</script>
@@ -654,7 +626,8 @@ alienOpponents[0].buildRegFleet(0, 24);
 <li>We have 29 ships total versus their 4 Bases. We will screen no ships. We gain a Fleet Size Bonus</li>
 <li>Their 4 Bases will go first, against our 3 Destroyers (7 - 1 = 6 to hit). They rolled 2,3,9,4 (in that order; 3 hits). They wiped our Destroyers out</li>
 <li>We still have 7 Cruisers that can respond (4 + 1 + 1 - 2 = 4 to hit). We rolled 1,1,2,2,3,4,8 (6 hits). We cleaned destroyed 2 of their Bases</li>
-<li>Our 17 Scouts are next (3 + 1 + 1 - 2 = 3 to hit). We rolled 1,2,2,2,2,3,4,5,6,6,6,7,8,8,8,8,9 (6 hits). We finished off the orbital protection already!</li>
+<li>Our 17 Scouts are next (3 + 1 + 1 - 2 = 3 to hit). We rolled 1,2,2,2,2,3,4,5,6,6,6,7,8,8,8,8,9 (6 hits). We finished off the orbital protection already!<br /><br /></li>
+
 <li><b>Bombardment Round</b>: Our 7 Cruisers will go first (4 + 1 = 5 to hit). We rolled 1,2,6,6,7,8,10 (2 hits). We damaged their homeworld to stage 10 CP</li>
 <li>Our 17 Scouts are next (3 + 1 = 4 to hit). We rolled 1,1,2,3,3,3,5,5,5,6,6,6,7,7,8,9,10 (6 hits). Altair has been glassed!</li>
 </ol>
