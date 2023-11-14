@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="description" content="Solitaire Wizard - Unlimited Customization" />
+	<meta name="keywords" content="Klondike, FreeCell, Spider, Golf, Yukon, Wizard, JavaScript, PHP, HTML5" />
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>CSYience Solitaire Wizard</title>
+
+	<link type="text/css" href="../scripts/cssol.css" rel="stylesheet" />
+	<link type="image/x-icon" href="../cssol.ico" rel="icon" />
+	<style type="text/css">
+		.helptxt {font-size: 75%;}
+	</style>
+	<script type="text/javascript">
+	const commaSepExp = /^(\d{1,2}(\,\d{1,2}){0,48})$/;
+	
+	function validate() {
+		computeCost();
+
+		var formErrors = 0;
+
+		var tableauOverride = document.forms["solwizard"]["tableauOverride"].value;
+		var downturnDepth = document.forms["solwizard"]["downturn"].value;
+		if (tableauOverride != "" && !commaSepExp.test(tableauOverride)) {
+			document.forms["solwizard"]["tableauOverride"].className = "texterr";
+			document.getElementById("status").innerHTML = "Tableau override field must be comma seperated values, if not empty.";
+			formErrors++;
+		} else {
+			document.forms["solwizard"]["tableauOverride"].className = "text";
+		}
+		if (downturnDepth == "" || !commaSepExp.test(downturnDepth)) {
+			document.forms["solwizard"]["downturn"].className = "texterr";
+			document.getElementById("status").innerHTML = "Downturned cards must be not be empty, and be integers separated by zero or more commas.";
+			formErrors++;
+		} else {
+			document.forms["solwizard"]["downturn"].className = "text";
+		}
+		
+		var numColumns = document.forms["solwizard"]["pilesNum"].value;
+		
+		var numDecks = document.forms["solwizard"]["decks"].value;
+		var scoreModel = document.forms["solwizard"]["scoring"].selectedIndex;
+		if (commaSepExp.test(tableauOverride)) {
+			numColumns = tableauOverride.split(",").length;
+		}
+		
+		if (scoreModel == 3 && numColumns < numDecks * 4) {
+			document.forms["solwizard"]["scoring"].className = "texterr";
+			document.getElementById("status").innerHTML = "There must be at least four times as many columns as there are decks with a no foundations game.";
+			formErrors++;
+		} else {
+			document.forms["solwizard"]["downturn"].className = "text";
+		}
+		
+		var formValid = (formErrors <= 0);
+			
+		if (formErrors > 1) {
+			document.getElementById("status").innerHTML = "Multiple errors were found in your submission. Please correct all submissions in red";
+		}
+		
+		return formValid;
+	}
+	
+	function setDefaultDepth() {
+		var tableauShape = document.forms["solwizard"]["tableauShape"].selectedIndex;
+		var tableauDepth = document.forms["solwizard"]["tableauDepth"];
+		
+		if (tableauShape == 0) {
+			tableauDepth.value = 4;
+		} else if (tableauShape == 1) {
+			tableauDepth.value = 0;
+		}
+	}
+	
+	function computeCost() {
+		var deckCost = 0;
+		
+		var numDecks = parseInt(document.forms["solwizard"]["decks"].value);
+		var totalCards = numDecks * 52;
+		// var meterSize = totalCards;
+		var numPiles = parseInt(document.forms["solwizard"]["pilesNum"].value);
+		var tableauShape = document.forms["solwizard"]["tableauShape"].selectedIndex;
+		var tableauDepth = parseInt(document.forms["solwizard"]["tableauDepth"].value);
+		var tableauOverride = document.forms["solwizard"]["tableauOverride"].value;
+		var scoringModel = document.forms["solwizard"]["scoring"].selectedIndex;
+		var baseRank = document.forms["solwizard"]["baseRank"].selectedIndex;
+		var foundationStart = document.forms["solwizard"]["foundationStart"].selectedIndex;
+		var reserveFilled = parseInt(document.forms["solwizard"]["reserveFilled"].value);
+		
+		if (tableauShape == 0) {
+			deckCost = numPiles*tableauDepth;
+		} else {
+			deckCost = numPiles*(numPiles+1)/2 + numPiles*tableauDepth;
+		}
+		
+		if (commaSepExp.test(tableauOverride)) {
+			deckCost = 0;
+			tableauSetup = tableauOverride.split(",");
+			
+			for (var j = 0; j < tableauSetup.length; j++) {
+				deckCost = deckCost + parseInt(tableauSetup[j]);
+			}
+		}
+		
+		if (scoringModel <= 1) {
+			if (foundationStart == 1 && baseRank == 0) {
+				deckCost = deckCost + 1;
+			} else if (foundationStart == 2) {
+				deckCost = deckCost + 4 * numDecks;
+			}
+		}
+		
+		deckCost = deckCost + reserveFilled;
+		
+		document.forms["solwizard"]["deckCost"].value = deckCost;
+		document.getElementById("deckCostMtr").value = deckCost;
+		document.getElementById("deckCostMtr").max = totalCards;
+		document.getElementById("deckCostMtr").high = totalCards - 0.1;
+		// document.getElementById("deckCostMtr").style.width = meterSize+"px";
+		document.getElementById("deckCostStr").innerHTML = deckCost + "/" + totalCards;
+		
+		checkConflicts();
+	}
+	
+	function forceOption(obj, choice) {
+		obj.selectedIndex = choice;
+		for (var i = 0; i < obj.length; i++) {
+			if (i != choice) {
+				obj.options[i].disabled = true;
+			}
+		}
+	}
+	
+	function forceValue(obj, choice) {
+		obj.value = choice;
+		obj.readOnly = true;
+	}
+	
+	function unforceOptions(obj) {
+		for (var i = 0; i < obj.length; i++) {
+			obj.options[i].disabled = false;
+		}
+	}
+	
+	function checkConflicts() {
+		var scoringModel = document.forms["solwizard"]["scoring"];
+		var tableauBuilding = document.forms["solwizard"]["tableauBuilding"];
+		var baseRank = document.forms["solwizard"]["baseRank"];
+		var foundationStart = document.forms["solwizard"]["foundationStart"];
+		var movement = document.forms["solwizard"]["movement"];
+		var emptyPiles = document.forms["solwizard"]["tableauEmpty"];
+		var autoRefill = document.forms["solwizard"]["emptyAutorefill"];
+		var stockDealTo = document.forms["solwizard"]["stockDealTo"];
+		var redealCt = document.forms["solwizard"]["redeals"];
+		var reserveReuse = document.forms["solwizard"]["reserveSlots"];
+
+		unforceOptions(tableauBuilding);
+		unforceOptions(emptyPiles);
+		autoRefill.readOnly = false;
+		redealCt.readOnly = false;
+		reserveReuse.readOnly = false;
+		
+		if (scoringModel.selectedIndex >= 2) {
+			baseRank.disabled = true;
+			foundationStart.disabled = true;
+			if (scoringModel.selectedIndex >= 10) {
+				forceOption(emptyPiles, 2);
+				forceValue(autoRefill, 0);
+				forceValue(redealCt, 0);
+				forceValue(reserveReuse, 0);
+			}
+		} else {
+			baseRank.disabled = false;
+			foundationStart.disabled = false;
+			
+			foundationStart.options[1].disabled = (baseRank.selectedIndex != 0);
+			
+			if (foundationStart.selectedIndex == 1) {
+				forceOption(baseRank, 0);
+			} else {
+				unforceOptions(baseRank);
+			}
+		}
+
+		if (scoringModel.selectedIndex >= 4) {
+			forceOption(tableauBuilding, 0);
+			if (emptyPiles.selectedIndex == 1) {
+				emptyPiles.selectedIndex++;
+			}
+			emptyPiles.options[1].disabled = true;
+		} else {
+			emptyPiles.options[1].disabled = false;
+		}
+		
+		if (tableauBuilding.selectedIndex == 0) {
+			forceOption(movement, 0);
+		} else if (tableauBuilding.selectedIndex == 1 || tableauBuilding.selectedIndex == 3 || tableauBuilding.selectedIndex == 5) {
+			unforceOptions(movement);
+			movement.options[2].disabled = true;
+		} else {
+			unforceOptions(movement);
+		}
+		
+		if (movement.selectedIndex == 2) {
+			tableauBuilding.options[1].disabled = true;
+			tableauBuilding.options[3].disabled = true;
+			tableauBuilding.options[5].disabled = true;
+		}
+		
+		if (scoringModel.selectedIndex >= 10) {
+			stockDealTo.options[0].disabled = true;
+			stockDealTo.options[3].disabled = true;
+			if (stockDealTo.options[stockDealTo.selectedIndex].disabled) {
+				stockDealTo.selectedIndex = 1;
+			}
+		} else {
+			stockDealTo.options[0].disabled = (autoRefill.value == 0);
+			stockDealTo.options[3].disabled = false;
+			if (stockDealTo.selectedIndex == 0 && stockDealTo.options[0].disabled) {
+				stockDealTo.selectedIndex = 1;
+			}
+		}
+	}
+	</script>
+</head>
+<body onload="computeCost();">
+
+<p id="banner"><a href="../index.htm"><img src="../gfx/banner.png" alt="" /></a></p>
+<p>Welcome to the <b>CSYience Solitaire Wizard</b>, a customizable mechanism to designing your own solitaire games.</p>
+
+<p id="status"></p>
+
+<form name="solwizard" action="play.htm" method="get" onsubmit="return validate()">
+<table class="clean" style="margin-left: auto; margin-right: auto;">
+<th colspan="2">Scoring Settings</th>
+</tr>
+</tr>
+<td><b>Decks</b></td>
+<td><input class="text" type="number" name="decks" id="decks" size="3" min="1" max="6" value="1" onchange="computeCost()" onblur="computeCost()" /></td>
+</tr>
+<tr>
+<td><b>Scoring</b></td>
+<td><select class="text" name="scoring" id="scoring" onchange="computeCost()">
+<optgroup label="Multi-Foundation games">
+	<option value="buildUpSuit">Build Foundations up by suit</option>
+	<option value="buildUpColorAlt">Build Foundations up by alternating colors</option>
+	<option value="buildKASpider">Build Foundations with King-Ace piles</option>
+	<option value="noneScoreSpider">No Foundations, score King-Ace piles</option>
+</optgroup>
+<optgroup label="Pairing games">
+	<option value="pairSameRank">Pair same rank cards</option>
+	<option value="pairAdd10" title="Tens and face cards are instead removed in pairs of the same rank">Pair cards that add to 10</option>
+	<option value="pairAdd11" title="Face cards are instead removed in pairs of the same rank">Pair cards that add to 11</option>
+	<option value="pairAdd13" title="Kings will be removed in singles">Pair cards that add to 13</option>
+	<option value="pairAdd14">Pair cards that add to 14</option>
+	<option value="pairAdd15" title="Aces will be removed in singles">Pair cards that add to 15</option>
+</optgroup>
+<optgroup label="Single Foundation games">
+	<option value="golfUpDnAnyWrap">Build up or down regardless of suit; with wraparound</option>
+	<option value="golfUpDnAnyNowrap">Build up or down regardless of suit; no wraparound</option>
+	<option value="golfUpAny">Build up regardless of suit</option>
+</optgroup>
+</select></td>
+</tr>
+<tr>
+<td><b>Base Rank</b></td>
+<td><select class="text" name="baseRank" id="baseRank" onchange="computeCost()">
+<optgroup label="Common">
+	<option value="">Any card</option>
+	<option value="Ace" selected="selected">Ace</option>
+</optgroup>
+<optgroup label="Uncommon">
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+	<option value="6">6</option>
+	<option value="7">7</option>
+	<option value="8">8</option>
+	<option value="9">9</option>
+	<option value="10">10</option>
+	<option value="Jack">Jack</option>
+	<option value="Queen">Queen</option>
+	<option value="King">King</option>
+</optgroup>
+</select></td>
+</tr>
+<tr>
+<td colspan="2" class="helptxt">All piles must use the same Base Rank.<br />
+The Final Rank is one rank "lower" than the Base Rank. (Example: Kings are considered lower than Aces)</td>
+</tr>
+<tr>
+<td><b>Starting Cards</b></td>
+<td><select class="text" name="foundationStart" id="foundationStart" onchange="computeCost()">
+<option value="0">Empty piles</option>
+<option value="1" disabled="disabled">One card</option>
+<option value="4">Four per deck</option>
+</select></td>
+</tr>
+<tr>
+<th colspan="2">Tableau Settings</th>
+</tr>
+<tr>
+<td><b>Tableau Piles</b></td>
+<td><input class="text" type="number" name="pilesNum" id="pilesNum" size="3" min="0" max="49" value="7" onchange="computeCost()" onblur="computeCost()" /></td>
+</tr>
+<tr>
+<td><b>Tableau Shape</b></td>
+<td><select class="text" name="tableauShape" id="tableauShape" onchange="setDefaultDepth(); computeCost()">
+<option value="0">Rectangular</option>
+<option value="1">Trapazoidal</option>
+</select>
+
+<label for="tableauDepth">Depth</label>
+<input class="text" type="number" name="tableauDepth" id="tableauDepth" size="3" min="0" max="99" value="4" onchange="computeCost()" onblur="computeCost()" /></td>
+</tr>
+<tr>
+<td colspan="2" class="helptxt">Depth controls how many rows to deal to a Rectangular tableau, or how many rows to add to a Trapazoidal tableau.</td>
+</tr>
+<tr>
+<td><b>Tableau Structure Override</b></td>
+<td><input class="text" type="text" name="tableauOverride" id="tableauOverride" size="25" value="" onchange="computeCost()" onblur="computeCost()" /></td>
+</tr>
+<tr>
+<td colspan="2" class="helptxt">This field is optional. Comma seperated values determine how many cards to deal to each pile, overriding the two fields above.</td>
+</tr>
+<tr>
+<td><b>Downturned cards</b></td>
+<td><input class="text" type="text" name="downturn" id="downturn" size="25" value="0" /></td>
+</tr>
+<tr>
+<td colspan="2" class="helptxt">Comma seperated values determine how many cards to turn face down. Pattern repeats as many times as is necessary.</td>
+</tr>
+<tr>
+<td><b>Tableau Building</b></td>
+<td><select class="text" name="tableauBuilding" id="tableauBuilding" onchange="checkConflicts()">
+<option value="none">No building</option>
+<option value="downSuit">Down by suit</option>
+<option value="dnUpSuit">Up or down by suit</option>
+<option value="downDiffsuit">Down by any suit but own</option>
+<option value="downColor">Down by color</option>
+<option value="downColorAlt" selected="selected">Down by alternating colors</option>
+<option value="downAnySuit">Down regardless of suit</option>
+</select></td>
+</tr>
+<tr>
+<td><b>Movement</b></td>
+<td><select class="text" name="movement" id="movement" onchange="checkConflicts()">
+<option value="oneCard">One card at a time</option>
+<option value="builds" selected="selected">Can move builds</option>
+<option value="spiderStyle">In-suit builds only</option>
+<option value="yukonStyle">Any number of face up cards</option>
+</select></td>
+</tr>
+<tr>
+<td><b>Empty Piles</b></td>
+<td><select class="text" name="tableauEmpty" id="tableauEmpty" onchange="checkConflicts()">
+<option value="anyCard">Refillable by any card</option>
+<option value="finalRank">Refillable only by Final Rank</option>
+<option value="none">May not be Refilled</option>
+</select>
+
+<label for="emptyAutorefill">Auto-refill</label>
+<input class="text" type="number" name="emptyAutorefill" id="emptyAutorefill" size="3" min="0" max="9" value="0" onchange="checkConflicts()" />
+</td>
+</tr>
+<tr>
+<td colspan="2" class="helptxt">If Auto-refill is set, it will refill from the waste pile, then the stock pile (if able).<br />
+Refillable restrictions apply only to manual card movement.</td>
+</tr>
+<tr>
+<th colspan="2">Auxillary Settings</th>
+</tr>
+<tr>
+<td><b>Deck Cost</b></td>
+<td><input class="text" type="hidden" readonly="readonly" name="deckCost" id="deckCost" value="28" />
+<meter id="deckCostMtr" min="0" max="52" low="0" high="51" optimal="0" value="28" style="width: 208px;" title="cards"></meter>
+<span id="deckCostStr">28/52</span></td>
+</tr>
+<tr>
+<td colspan="2" class="helptxt">References how many cards will be dealt at game start. Leftover cards (if any) will form a stock pile.<br />
+Depending on how the stock pile is handled, this also determines the goal of a Pairing or Single Foundation game.</td>
+</tr>
+<tr>
+<td><b>Deal to</b></td>
+<td><select class="text" name="stockDealTo" id="stockDealTo">
+<option value="-1">None</option>
+<option value="0" selected="selected">Waste, stacked</option>
+<option value="1">Waste, fanned</option>
+<option value="2">Tableau</option>
+</select></td>
+</tr>
+<tr>
+<td><b>Stock Deal</b></td>
+<td><input class="text" type="number" name="stockDealCt" id="stockDealCt" size="3" min="1" max="9" value="1" /></td>
+</tr>
+<tr>
+<td colspan="2" class="helptxt">How many cards to deal to Waste, or how many rows to deal to tableau.</td>
+<tr>
+<td><b>Redeals</b></td>
+<td><input class="text" type="number" name="redeals" id="redeals" size="3" min="-1" max="99" value="0" /></td>
+</tr>
+<tr>
+<td colspan="2" class="helptxt">How many times the stock can be redealt by reusing the Waste Pile. Set to a negative number for unlimited.</td>
+</tr>
+<tr>
+<td><b>Reserve Pool</b></td>
+<td><label for="reserveFilled">Initial</label> <input class="text" type="number" name="reserveFilled" id="reserveFilled" size="3" min="0" max="48" value="0" onchange="computeCost()" onblur="computeCost()" /> / <label for="reserveSlots">Reusable</label> <input class="text" type="number" name="reserveSlots" id="reserveSlots" size="3" min="0" max="48" value="0" /> / <label for="reserveStacked">Stacked</label> <input type="checkbox" name="reserveStacked" id="reserveStacked" value="true" /></td>
+</tr>
+<tr>
+<td colspan="2" class="helptxt">If stacked, the reserve pool is treated as a single reserve stack.</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align: center;">
+<input type="submit" class="interact" value="Create Game" /> <input onmouseout="computeCost()" onblur="computeCost()" type="reset" class="interact" value="Reset" />
+</td>
+</tr>
+</table>
+</form>
+
+</body>
+</html>

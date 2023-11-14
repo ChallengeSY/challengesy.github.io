@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="description" content="JavaScript solitaire games" />
+	<meta name="keywords" content="Wizard" />
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>CSSol Wizard Play</title>
+
+	<link type="text/css" href="../scripts/cards.css" rel="stylesheet" />
+	<link type="image/x-icon" href="../cssol.ico" rel="icon" />
+	<script type="text/javascript" src="../scripts/common.js"></script>
+	<script type="text/javascript" src="../scripts/homepiles.js"></script>
+	<script type="text/javascript" src="../scripts/reserve.js"></script>
+	<script type="text/javascript" src="../scripts/wizard.js"></script>
+	<script type="text/javascript" src="../../quickGet.js"></script>
+	
+	<script type="text/javascript">
+	// Dynamic script, based on customization parameters
+	// Scoring Settings
+	wizardDecks = parseInt(getParam("decks"));
+	scoringModel = getParam("scoring");
+	if (scoringModel == "buildUpSuit" || scoringModel == "buildUpColorAlt") {
+		setBaseRank(getParam("baseRank"));
+		if (baseRank == "") {
+			allowAnyBaseRank = true;
+		}
+		startingCards = parseInt(getParam("foundationStart"));
+	} else {
+		setBaseRank("Ace");
+		startingCards = 0;
+	}
+	
+	// Tableau Settings
+	tableauStructure = getParam("tableauOverride");
+	if (tableauStructure != "") {
+		tableauStructure = tableauStructure.split(",");
+		tableauWidth = tableauStructure.length;
+		tableauShape = -1;
+		tableauDepth = Math.max(...tableauStructure);
+	} else {
+		tableauStructure = null;
+		tableauWidth = Math.min(parseInt(getParam("pilesNum")),49);
+		tableauShape = parseInt(getParam("tableauShape"));
+		tableauDepth = parseInt(getParam("tableauDepth"));
+	}
+
+	tableauBuilding = getParam("tableauBuilding");
+	tableauMovement = getParam("movement");
+	emptyPileRefills = getParam("tableauEmpty");
+	emptyAutoRefills = parseInt(getParam("emptyAutorefill"));
+	downturnDepth = getParam("downturn").split(",");
+	
+	if (tableauMovement == "spiderStyle" && tableauBuilding != "downSuitAny" && tableauBuilding != "downColor") {
+		tableauMovement == "builds";
+	}
+	
+
+	// Auxillary Settings
+	stockDealTo = parseInt(getParam("stockDealTo"));
+	wasteDealBy = parseInt(getParam("stockDealCt"));
+	maxRedeals = parseInt(getParam("redeals"));
+	if (getParam("reserveStacked") != -1) {
+		reserveStacked = [0];
+		maxReserve = Math.min(parseInt(getParam("reserveSlots")),1);
+	} else {
+		maxReserve = Math.min(parseInt(getParam("reserveSlots")),48);
+	}
+	prefilledReserve = Math.min(parseInt(getParam("reserveFilled")),48);
+	deckCost = parseInt(getParam("deckCost"));
+	
+	function changeDiff(firstTime) {
+		// Dummy function
+	}
+	</script>
+</head>
+<body>
+<p id="banner"><a href="index.php"><img src="../gfx/banner.png" alt="" /></a></p>
+<div id="tableau">
+<!-- Playfield elements will be made here -->
+</div>
+
+<p><input id="newGame" class="button" type="button" value="New game" onclick="newGame(false,true)" title="Starts a new game" />
+<input id="restartGame" class="button" type="button" value="Restart game" onclick="restartGame(false)" title="Restarts the game using the same password" />
+<input id="autoBuild" class="button" type="button" value="Autobuild" onclick="autoFinish()" title="Automatically builds foundations where possible" />
+<input id="helpButton" class="button" type="button" value="Show specs" onclick="toggleHelp(false)" title="Toggles game specifications" />
+<br />Password: <input id="password" class="text" type="text" size="60" maxlength="416" onchange="newGame(false,false)" />
+</p>
+
+<p id="statusBar"></p>
+
+<div id="helpPanel">
+<h2>Specifications</h2>
+<p class="center">
+<script type="text/javascript">
+document.write("Decks: "+getParam("decks")+" &mdash; ");
+document.write("Scoring: "+getParam("scoring")+" &mdash; ");
+document.write("Tableau Building: "+getParam("tableauBuilding")+" &mdash; ");
+document.write("Movement: "+getParam("movement")+" &mdash; ");
+document.write("Empty Piles: "+getParam("tableauEmpty")+" &mdash; ");
+document.write("Reserve stacked: ");
+if (getParam("reserveStacked") != -1) {
+	document.write("true");
+} else {
+	document.write("false");
+}
+document.write(" &mdash; Redeals: ");
+if (getParam("redeals") == "-1") {
+	document.write("Endless");
+} else {
+	document.write(getParam("redeals"));
+}
+</script>
+</p>
+</div>
+
+</body>
+</html>

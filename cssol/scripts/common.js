@@ -10,6 +10,7 @@ var abandonHandling = (isFinite(getCookie("abandonPrompt")) ? getCookie("abandon
 var facedownHints = (isFinite(getCookie("downturnHints")) ? getCookie("downturnHints") : 1);
 var preferDeckId = (isFinite(getCookie("cardback")) ? getCookie("cardback") : -1);
 var playSfx = (isFinite(getCookie("playSfx")) ? getCookie("playSfx") : 1);
+var playMus = (isFinite(getCookie("playMus")) ? getCookie("playMus") : 1);
 var emptyAutoRefills = 0;
 var playHeight = 500;
 var wasteDealBy = 1;
@@ -129,6 +130,7 @@ function incrementMove() {
 	}
 	if (!clockPtr) {
 		clockPtr = setInterval(function(){incrementSecond()},1000);
+		playSound(bgMusic);
 	}
 	solGame.totalMoves++;
 }
@@ -786,6 +788,7 @@ function noMovesLeft() {
 	} else {
 		updateStatus("Defeat! No legal moves remain!");
 		playSound(gameLostSnd);
+		stopMusic();
 	}
 	solGame.gameActive = false;
 }
@@ -818,11 +821,16 @@ function throwError(errorObj) {
 }
 
 function playSound(playObj) {
-	if (playSfx > 0 && playObj) {
+	if ((playSfx > 0 || playMus > 0) && playObj) {
 		playObj.play();
 	}
 }
 
+function stopMusic() {
+	if (playMus > 0 && bgMusic) {
+		bgMusic.stop();
+	}
+}
 //Loads common sound effects
 function loadSoundEffects() {
 	cardUp = new sound("../sfx/cardUp.wav");
@@ -832,23 +840,36 @@ function loadSoundEffects() {
 	
 	gameWonSnd = new sound("../sfx/gameWon.wav");
 	gameLostSnd = new sound("../sfx/gameLost.wav");
+	
+	bgMusic = new sound("../sfx/mus/Wider Than Signs.mp3");
 }
 
 //sound object
 function sound(src) {
-	if (playSfx > 0) {
+	var bgmFile = (src.search("/mus/") >= 0);
+	
+	if ((playSfx > 0 && !bgmFile) || (playMus > 0 && bgmFile)) {
 		this.sound = document.createElement("audio");
 		this.sound.src = src;
 		this.sound.setAttribute("preload", "auto");
+		if (bgmFile) {
+			this.sound.setAttribute("loop", "loop");
+		}
 		this.sound.setAttribute("controls", "none");
 		this.sound.style.display = "none";
 		
 		document.body.appendChild(this.sound);
 		this.play = function(){
+			if (!bgmFile) {
+				this.sound.currentTime = 0;
+			}
 			this.sound.play();
 		}
 		this.stop = function(){
 			this.sound.pause();
+			if (bgmFile) {
+				this.sound.currentTime = 0;
+			}
 		}
 	} 
 } 

@@ -296,38 +296,36 @@ function roboBuild(pileCount, reserveCount, wastePresent) {
 	var i, success = false;
 	
 	try {
-		for (var x = 0; x < pileCount; x++) {
-			if (height[x] >= 0) {
-				for (i = 0; i < 24; i++) {
-					success = autoFoundation(x,i);
-					
-					if (success) {
-						breakChain = true;
-						break;
+		if (reserveCount > 0) {
+			reservePool: {
+				for (var j = 0; j < reserveCount; j++) {
+					if (reserveSlot[j] && (!reserveSlot[j+1] || !reserveStacked || newSubRestack(j+1))) {
+						for (i = 0; i < 24; i++) {
+							success = autoFoundation(j+reserveStart,i);
+							
+							if (success) {
+								breakChain = true;
+								break reservePool;
+							}
+						}
 					}
-				}
-				
-				if (breakChain) {
-					break;
 				}
 			}
 		}
 		
-		if (!breakChain && reserveCount > 0) {
-			for (var j = 0; j < reserveCount; j++) {
-				if (reserveSlot[j] && (!reserveSlot[j+1] || !reserveStacked || newSubRestack(j+1))) {
-					for (i = 0; i < 24; i++) {
-						success = autoFoundation(j+reserveStart,i);
-						
-						if (success) {
-							breakChain = true;
-							break;
+		if (!breakChain) {
+			tableauPool: {
+				for (var x = 0; x < pileCount; x++) {
+					if (height[x] >= 0) {
+						for (i = 0; i < 24; i++) {
+							success = autoFoundation(x,i);
+							
+							if (success) {
+								breakChain = true;
+								break tableauPool;
+							}
 						}
 					}
-				}
-				
-				if (breakChain) {
-					break;
 				}
 			}
 		}
@@ -364,14 +362,49 @@ function roboBuild(pileCount, reserveCount, wastePresent) {
 	}
 }
 
-function autoFinish(numPiles, numReserve, wastePile) {
+function autoFinish() {
+	var findObj;
+	
 	if (scoringModel != "buildUpSuit" && scoringModel != "buildUpColorAlt") {
 		updateStatus("Autobuild is available in games where foundation piles can be built up one card at a time.");
+		
+		findObj = document.getElementById("autoBuild");
+		if (findObj) {
+			findObj.disabled = true;
+		}
 	} else if (solGame.gameActive) {
 		if (baseRank == "") {
 			updateStatus("At least one card must be in the Foundation piles (to set a Base Rank) before Autobuild can be used.");
 		} else if (!finishPtr) {
-			finishPtr = setInterval(function(){roboBuild(numPiles, numReserve, wastePile)},25);
+			var numPiles = 0;
+			var numReserve = 0;
+			var wastePresent = false;
+			
+			for (tx = 0; tx < 49; tx++) {
+				findObj = document.getElementById("x"+tx+"y0");
+				
+				if (findObj) {
+					numPiles++;
+				} else {
+					break;
+				}
+			}
+			
+			for (rs = 0; rs < 48; rs++) {
+				findObj = document.getElementById("open"+rs);
+				
+				if (findObj) {
+					numReserve++;
+				} else {
+					break;
+				}
+			}
+			
+			if (document.getElementById("waste0")) {
+				wastePresent = true;
+			}
+			
+			finishPtr = setInterval(function(){roboBuild(numPiles, numReserve, wastePresent)},25);
 		}
 	} else {
 		updateStatus("A game must be in progress before cards can be automatically moved");

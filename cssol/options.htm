@@ -12,7 +12,7 @@
 	<link type="image/x-icon" href="cssol.ico" rel="icon" />
 	<script type="text/javascript" src="scripts/common.js"></script>
 	<script type="text/javascript">
-		var targetDate = new Date;
+		var targetDate = new Date();
 		var findObj, success, searchElement;
 		var backId = 0;
 		var manualSave = false;
@@ -166,6 +166,18 @@
 					findObj.checked = true;
 				}
 			}
+
+			if (getCookie("playMus")) {
+				findObj = document.getElementById("sfx2");
+				if (findObj) {
+					findObj.checked = (getCookie("playMus") == 1);
+				}
+			} else {
+				findObj = document.getElementById("sfx2");
+				if (findObj) {
+					findObj.checked = true;
+				}
+			}
 			
 			// Holiday Card settings
 			if (getCookie("holidayCards")) {
@@ -249,7 +261,7 @@
 </head>
 <body onload="initPage()">
 
-<p id="banner"><a href="index.php"><img src="gfx/banner.png" alt="" /></a></p>
+<p id="banner"><a href="index.htm"><img src="gfx/banner.png" alt="" /></a></p>
 
 <h3 style="clear: both;">Configuration Options</h3>
 <p>Use the available configuration options to customize your experience. Configurations are saved automatically upon change when possible. There is also a Save button, usable in older browsers which do not support auto-save.</p>
@@ -305,8 +317,11 @@
 </fieldset>
 
 <fieldset>
-<legend>Sound effects</legend>
-<input type="checkbox" id="sfx1" name="soundEffects" oninput="flipConfig('playSfx',-1,1,this);" /><label for="sfx1">Sound effects active</label><br />
+<legend>Audio system</legend>
+<p>If enabled, background music will play once the first move has been played.</p>
+
+<input type="checkbox" id="sfx1" name="soundEffects" oninput="flipConfig('playSfx',-1,1,this);" /><label for="sfx1">Sound effects</label>
+<input type="checkbox" id="sfx2" name="soundEffects" oninput="flipConfig('playMus',-1,1,this);" /><label for="sfx2">Backgrund music</label>
 </fieldset>
 
 <p class="center"><button class="interact" id="saveButton" onclick="saveConfigs();">Save changes</button></p>
