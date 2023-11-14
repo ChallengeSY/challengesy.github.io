@@ -35,7 +35,7 @@
 	// Tableau Settings
 	tableauStructure = getParam("tableauOverride");
 	if (tableauStructure != "") {
-		tableauStructure = tableauStructure.split(",");
+		tableauStructure = tableauStructure.split("%2C");
 		tableauWidth = tableauStructure.length;
 		tableauShape = -1;
 		tableauDepth = Math.max(...tableauStructure);
@@ -50,7 +50,7 @@
 	tableauMovement = getParam("movement");
 	emptyPileRefills = getParam("tableauEmpty");
 	emptyAutoRefills = parseInt(getParam("emptyAutorefill"));
-	downturnDepth = getParam("downturn").split(",");
+	downturnDepth = getParam("downturn").split("%2C");
 	
 	if (tableauMovement == "spiderStyle" && tableauBuilding != "downSuitAny" && tableauBuilding != "downColor") {
 		tableauMovement == "builds";
