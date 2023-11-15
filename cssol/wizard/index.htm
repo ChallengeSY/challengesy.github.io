@@ -25,14 +25,14 @@
 		var downturnDepth = document.forms["solwizard"]["downturn"].value;
 		if (tableauOverride != "" && !commaSepExp.test(tableauOverride)) {
 			document.forms["solwizard"]["tableauOverride"].className = "texterr";
-			document.getElementById("status").innerHTML = "Tableau override field must be comma seperated values, if not empty.";
+			document.getElementById("status").innerHTML = "Tableau override field must be comma separated values, comprised of non-negative integers; if not empty.";
 			formErrors++;
 		} else {
 			document.forms["solwizard"]["tableauOverride"].className = "text";
 		}
 		if (downturnDepth == "" || !commaSepExp.test(downturnDepth)) {
 			document.forms["solwizard"]["downturn"].className = "texterr";
-			document.getElementById("status").innerHTML = "Downturned cards must be not be empty, and be integers separated by zero or more commas.";
+			document.getElementById("status").innerHTML = "Downturned cards must be integers separated by zero or more commas.";
 			formErrors++;
 		} else {
 			document.forms["solwizard"]["downturn"].className = "text";
@@ -48,10 +48,10 @@
 		
 		if (scoreModel == 3 && numColumns < numDecks * 4) {
 			document.forms["solwizard"]["scoring"].className = "texterr";
-			document.getElementById("status").innerHTML = "There must be at least four times as many columns as there are decks with a no foundations game.";
+			document.getElementById("status").innerHTML = "There must be at least four times as many columns as there are decks with a no foundations King-Ace game.";
 			formErrors++;
 		} else {
-			document.forms["solwizard"]["downturn"].className = "text";
+			document.forms["solwizard"]["scoring"].className = "text";
 		}
 		
 		var formValid = (formErrors <= 0);
@@ -324,14 +324,14 @@ The Final Rank is one rank "lower" than the Base Rank. (Example: Kings are consi
 <td><input class="text" type="text" name="tableauOverride" id="tableauOverride" size="25" value="" onchange="computeCost()" onblur="computeCost()" /></td>
 </tr>
 <tr>
-<td colspan="2" class="helptxt">This field is optional. Comma seperated values determine how many cards to deal to each pile, overriding the two fields above.</td>
+<td colspan="2" class="helptxt">This field is optional. Comma separated values determine how many cards to deal to each pile, overriding the two fields above.</td>
 </tr>
 <tr>
 <td><b>Downturned cards</b></td>
 <td><input class="text" type="text" name="downturn" id="downturn" size="25" value="0" /></td>
 </tr>
 <tr>
-<td colspan="2" class="helptxt">Comma seperated values determine how many cards to turn face down. Pattern repeats as many times as is necessary.</td>
+<td colspan="2" class="helptxt">Comma separated values determine how many cards to turn face down. Pattern repeats as many times as is necessary.</td>
 </tr>
 <tr>
 <td><b>Tableau Building</b></td>

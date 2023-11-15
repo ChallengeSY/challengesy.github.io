@@ -19,11 +19,18 @@ function setupGame() {
 	var topPadding = 0;
 	var addFoundationPadding;
 	var reserveMultiplier = 1.0;
+	var screenColumns = 11;
 	
 	maxScore = 52 * wizardDecks;
 	pairingGame = (scoringModel.startsWith("pair"));
 	golfGame = (scoringModel.startsWith("golf"));
 	traditionalStock = (!golfGame);
+	
+	if (window.innerWidth) {
+		var screenWidth = window.innerWidth - 20;
+		
+		screenColumns = Math.floor(screenWidth / COLUMN_WIDTH);
+	}
 
 	if (deckCost < maxScore) {
 		// Create stock pile
@@ -132,7 +139,7 @@ function setupGame() {
 		}
 		reserveReusable = maxReserve;
 		
-		if (scoringModel == "noneScoreSpider" || pairingGame || (deckCost >= maxScore && wizardDecks*4 + calcedReserveWidth > Math.max(tableauWidth + 1,10))) {
+		if (scoringModel == "noneScoreSpider" || pairingGame || (deckCost >= maxScore && wizardDecks*4 + calcedReserveWidth > Math.max(tableauWidth + 1,screenColumns))) {
 			topPadding = topPadding + 140;
 		}
 	} else {
@@ -142,8 +149,8 @@ function setupGame() {
 	if (scoringModel != "noneScoreSpider" && !pairingGame && !golfGame) {
 		// Create foundation piles
 		for (var i = 0; i < wizardDecks*4; i++) {
-			if (wizardDecks*4 + calcedReserveWidth > Math.max(tableauWidth + 1,10) ||
-				(Math.max(maxReserve,prefilledReserve) == 0 && (calcWidthNeeded > Math.max(tableauWidth + 1,10) || deckCost >= maxScore))) {
+			if (wizardDecks*4 + calcedReserveWidth > Math.max(tableauWidth + 1,screenColumns) ||
+				(Math.max(maxReserve,prefilledReserve) == 0 && (calcWidthNeeded > Math.max(tableauWidth + 1,screenColumns) || deckCost >= maxScore))) {
 				leftPos = Math.max(tableauWidth-wizardDecks*4,0);
 				addFoundationPadding = true;
 			} else {
