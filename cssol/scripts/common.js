@@ -769,10 +769,8 @@ function gameWon() {
 		}
 		
 		solGame.recordWin = false;
-		if (baseStatFile == "wizard") {
-			updateStatus("Congratulations!! You won the game in " + clearTime + "!<br />Solitaire Wizard games are unranked. Thanks for playing.");
-		} else {
-			updateStatus("Congratulations!! You won the game in " + clearTime + "!");
+		updateStatus("Congratulations!! You won the game in " + clearTime + "!");
+		if (baseStatFile != "wizard") {
 			exportLog(1);
 		}
 	} else {
@@ -821,16 +819,13 @@ function throwError(errorObj) {
 }
 
 function playSound(playObj) {
-	if ((playSfx > 0 || playMus > 0) && playObj) {
-		playObj.play();
-	}
+	playObj.play();
 }
 
 function stopMusic() {
-	if (playMus > 0 && bgMusic) {
-		bgMusic.stop();
-	}
+	bgMusic.stop();
 }
+
 //Loads common sound effects
 function loadSoundEffects() {
 	cardUp = new sound("../sfx/cardUp.wav");
@@ -871,7 +866,11 @@ function sound(src) {
 				this.sound.currentTime = 0;
 			}
 		}
-	} 
+	} else {
+		// Blank functions, to protect against errors
+		this.play = function() {}
+		this.stop = function() {}
+	}
 } 
 
 //solGame object
