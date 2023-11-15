@@ -296,8 +296,9 @@ function roboBuild(pileCount, reserveCount, wastePresent) {
 	var i, success = false;
 	
 	try {
-		if (reserveCount > 0) {
-			reservePool: {
+		// Prioritize the Reserve Pool *if* it any slots are reusable OR if it is stacked in any way
+		if (reserveCount > 0 && (reserveReusable > 0 || reserveStacked != null)) {
+			reservePriority: {
 				for (var j = 0; j < reserveCount; j++) {
 					if (reserveSlot[j] && (!reserveSlot[j+1] || !reserveStacked || newSubRestack(j+1))) {
 						for (i = 0; i < 24; i++) {
@@ -305,7 +306,7 @@ function roboBuild(pileCount, reserveCount, wastePresent) {
 							
 							if (success) {
 								breakChain = true;
-								break reservePool;
+								break reservePriority;
 							}
 						}
 					}
@@ -313,6 +314,18 @@ function roboBuild(pileCount, reserveCount, wastePresent) {
 			}
 		}
 		
+		// Waste pile comes next
+		if (!breakChain && wastePresent) {
+			for (i = 0; i < 24; i++) {
+				success = autoFoundation(99,i);
+				
+				if (success) {
+					break;
+				}
+			}
+		}
+		
+		// Tableau next
 		if (!breakChain) {
 			tableauPool: {
 				for (var x = 0; x < pileCount; x++) {
@@ -330,12 +343,20 @@ function roboBuild(pileCount, reserveCount, wastePresent) {
 			}
 		}
 		
-		if (!breakChain && wastePresent) {
-			for (i = 0; i < 24; i++) {
-				success = autoFoundation(99,i);
-				
-				if (success) {
-					break;
+		// Reserve Pool comes last, assuming neither of the previous two conditions were met
+		if (!breakChain && reserveCount > 0) {
+			reservePool: {
+				for (var j = 0; j < reserveCount; j++) {
+					if (reserveSlot[j] && (!reserveSlot[j+1] || !reserveStacked || newSubRestack(j+1))) {
+						for (i = 0; i < 24; i++) {
+							success = autoFoundation(j+reserveStart,i);
+							
+							if (success) {
+								breakChain = true;
+								break reservePool;
+							}
+						}
+					}
 				}
 			}
 		}
