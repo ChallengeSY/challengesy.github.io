@@ -109,6 +109,8 @@ function setupGame() {
 		}
 	}
 	
+	screenColumns -= leftPadding;
+	
 	try {
 		if (reserveStacked != null || (reserveReusable == 0 && prefilledReserve > 9)) {
 			reserveMultiplier = FANNING_X / COLUMN_WIDTH;
@@ -116,7 +118,7 @@ function setupGame() {
 			reserveMultiplier = 0.5;
 		}
 	} catch(err) {
-		// Dummy catch. If these variables are undefined (no reserve slots at all), then we simply move on without them.
+		// Blank catch. If these variables are undefined (no reserve slots at all), then we simply move on without them.
 	}
 	
 	calcedReserveWidth = Math.ceil((1 - reserveMultiplier) + Math.max(maxReserve,prefilledReserve) * reserveMultiplier);
