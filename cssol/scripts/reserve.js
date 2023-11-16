@@ -31,7 +31,7 @@ function playReserve(event) {
 			skipSounds = 2;
 		} else if (selectX == -1) {
 			if (reserveSlot[whichSlot] == null) {
-				updateStatus("You may not select an empty reserve slot.");
+				updateStatus("There are no cards in the empty reserve slot to interact.");
 			} else if (reserveSlot[whichSlot].rank == "King" && scoringModel == "pairAdd13") {
 				reserveSlot[whichSlot] = null;
 				solGame.casualScore++;
