@@ -32,7 +32,7 @@ function playReserve(event) {
 		} else if (selectX == -1) {
 			if (reserveSlot[whichSlot] == null) {
 				updateStatus("You may not select an empty reserve slot.");
-			} else if (reserveSlot[whichSlot].rank == "King" && wizardScoring == "pairAdd13") {
+			} else if (reserveSlot[whichSlot].rank == "King" && scoringModel == "pairAdd13") {
 				reserveSlot[whichSlot] = null;
 				solGame.casualScore++;
 				
@@ -40,7 +40,7 @@ function playReserve(event) {
 				renderPlayarea();
 				incrementMove();
 				endingCheck();
-			} else if (reserveSlot[whichSlot].rank == "Ace" && wizardScoring == "pairAdd15") {
+			} else if (reserveSlot[whichSlot].rank == "Ace" && scoringModel == "pairAdd15") {
 				reserveSlot[whichSlot] = null;
 				solGame.casualScore++;
 				

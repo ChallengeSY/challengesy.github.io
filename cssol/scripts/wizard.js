@@ -141,7 +141,8 @@ function setupGame() {
 		}
 		reserveReusable = maxReserve;
 		
-		if (deckCost >= maxScore && wizardDecks*4 + calcedReserveWidth > Math.max(tableauWidth + 1,screenColumns)) {
+		if ((scoringModel == "noneScoreSpider" || pairingGame || wizardDecks*4 + calcedReserveWidth > Math.max(tableauWidth + 1,screenColumns)) &&
+			deckCost >= maxScore) {
 			topPadding = topPadding + 140;
 		}
 	} else {
