@@ -23,7 +23,7 @@ h2,h3,h4{text-align: center;}
 .texterr{background:#800000;color:#FFFFFF;}
 .numeric{text-align:right;}
 .invalid{color: #800; text-decoration:line-through;}
-input.button{background:#000060;color:#FFFFFF;width:105px;}
+input.button{background:#000060;color:#FFFFFF;width:120px;}
 input.button:hover{background:#000090;}
 input.button:disabled{background:#600000;}
 table {border: 3px ridge rgb(64,64,128); empty-cells: hide;}
@@ -36,6 +36,7 @@ img.interact, img.interactDark {margin: 0px;}
 table.clean {border: 0px;}
 table.clean td{border: 0px;}
 .footer{text-align:center; font-style: italic; font-size: 85%; clear: both;}
+.bindTxt {white-space: nowrap;}
 
 /* Detailed styling */
 a{text-decoration: underline dashed;}
@@ -43,10 +44,7 @@ a:link{color:#40FFFF;}
 a:visited{color:#FF40FF;}
 a:hover{text-decoration: underline solid;}
 a:active{color:#FFFF40;}
-input.button{background:#000060;color:#FFFFFF;width:120px;}
-input.button:hover{background:#000090;}
-input.button:disabled{background:#600000;}
-.interact, .interactDark {text-decoration:none; white-space: nowrap; border: 2px outset #0ff; padding: 1px; background:#FFFFFF; margin-left: 10px; margin-right: 10px; font-style: normal;}
+.interact {text-decoration:none; white-space: nowrap; border: 2px outset #0ff; padding: 1px; background:#FFFFFF; margin-left: 10px; margin-right: 10px; font-style: normal;}
 .interact:hover {text-decoration:none; cursor: pointer;}
 .interact:link {color:#000080;}
 .interact:visited {color:#800080;}
