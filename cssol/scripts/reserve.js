@@ -24,10 +24,10 @@ function playReserve(event) {
 		} else if (selectDepth > 0) {
 			updateStatus("Multiple cards may not be moved to a reserve slot at once");
 		} else if (reserveSlot[whichSlot] == null && reserveReusable == 0) {
-			updateStatus("Reserve slots stay empty for the rest of the game.");
+			updateStatus("Manual reserve pool refilling is disabled.");
 			skipSounds = 2;
 		} else if (reserveSlot[whichSlot] == null && whichSlot >= reserveReusable) {
-			updateStatus("That reserve slot stays empty for the rest of the game.");
+			updateStatus("Manual refilling of that reserve slot is disabled.");
 			skipSounds = 2;
 		} else if (selectX == -1) {
 			if (reserveSlot[whichSlot] == null) {

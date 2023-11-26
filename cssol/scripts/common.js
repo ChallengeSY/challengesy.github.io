@@ -119,7 +119,7 @@ function allowDrop(event) {
 }
 
 function exportLog(gameWon) {
-	// Dummy function; kept for compatibility
+	// Blank function; kept for compatibility
 }
 
 //Records move
@@ -456,7 +456,7 @@ function renderPlayarea() {
 					newInner = "";
 					newTitle = "Empty Reserve Slot";
 					
-					if (reserveReusable > i) {
+					if (reserveReusable > i || stockDealTo == 3) {
 						renderDiv(searchElement, "empty");
 					} else {
 						renderDiv(searchElement, "invis");
@@ -770,9 +770,7 @@ function gameWon() {
 		
 		solGame.recordWin = false;
 		updateStatus("Congratulations!! You won the game in " + clearTime + "!");
-		if (baseStatFile != "wizard") {
-			exportLog(1);
-		}
+		exportLog(1);
 	} else {
 		updateStatus("Congratulations! You won the game!<br />To qualify, please start a <b>new game</b> without using the password feature");
 	}
@@ -807,6 +805,9 @@ function updateStatus(newMessage) {
 }
 
 function throwError(errorObj) {
+	console.error(errorObj);
+	
+	/*
 	var statusBar = document.getElementById("statusBar");
 	var errMessage = errorObj.message;
 	var errPinpoint = "";
@@ -816,6 +817,7 @@ function throwError(errorObj) {
 	}
 	
 	statusBar.innerHTML = "<span style=\"color: rgb(255,128,0); font-weight: bold;\">Error</span>: " + errMessage + errPinpoint;
+	*/
 }
 
 function playSound(playObj) {

@@ -121,7 +121,13 @@ function setupGame() {
 		// Blank catch. If these variables are undefined (no reserve slots at all), then we simply move on without them.
 	}
 	
-	calcedReserveWidth = Math.ceil((1 - reserveMultiplier) + Math.max(maxReserve,prefilledReserve) * reserveMultiplier);
+	if (stockDealTo == 3) {
+		reserveMultiplier = 0;
+		calcedReserveWidth = 0;
+	} else {
+		calcedReserveWidth = Math.ceil((1 - reserveMultiplier) + Math.max(maxReserve,prefilledReserve) * reserveMultiplier);
+	}
+	
 	
 	calcWidthNeeded = calcedReserveWidth + leftPadding;
 	if (scoringModel != "noneScoreSpider" && !pairingGame) {
@@ -131,8 +137,13 @@ function setupGame() {
 	if (Math.max(maxReserve,prefilledReserve) > 0) {
 		// Create reserve slots
 		for (var i = 0; i < Math.max(maxReserve,prefilledReserve); i++) {
-			leftPos = leftPadding * COLUMN_WIDTH + (i * reserveMultiplier * COLUMN_WIDTH);
-			topPos = 0;
+			if (stockDealTo < 3) {
+				leftPos = leftPadding * COLUMN_WIDTH + (i * reserveMultiplier * COLUMN_WIDTH);
+				topPos = 0;
+			} else {
+				leftPos = COLUMN_WIDTH * i;
+				topPos = topPadding;
+			}
 			
 			createDivFrag("open"+i,leftPos,topPos,"");
 			divFrag.title = "Empty Reserve Slot";
@@ -173,6 +184,10 @@ function setupGame() {
 		if (addFoundationPadding || deckCost >= maxScore) {
 			topPadding = topPadding + 140;
 		}
+	}
+	
+	if (stockDealTo == 3) {
+		topPadding = topPadding + 140;
 	}
 	
 	// Create tableau
@@ -228,6 +243,7 @@ function dealStock() {
 		} else if (stockDealTo < 0) {
 			updateStatus("Manual stock dealing is disabled.");
 		} else if (stockDealTo < 2) {
+			// Deal to waste
 			if (solGame.stockRemain) {
 				for (var i = 1; i <= wasteDealBy; i++) {
 					if (solGame.stockRemain > 0) {
@@ -257,12 +273,27 @@ function dealStock() {
 							newCard = assignSeedCard();
 						} while (startingCards >= 4 && newCard.rank == baseRank);
 						height[i]++;
-						tableau[i][height[i]] = newCard;
+						if (stockDealTo == 2) {
+							// Deal row(s) to tableau
+							tableau[i][height[i]] = newCard;
+						} else if (stockDealTo == 3) {
+							// Push row(s) through the "trapdoor"
+							if (reserveSlot[i]) {
+								tableau[i][height[i]] = reserveSlot[i];
+							}
+							reserveSlot[i] = newCard;
+						}
 						
 						if (i == 0) {
 							playSound(redealSnd);
 							incrementMove();
 						}
+					} else if (i > 0 && stockDealTo == 3) {
+						// Finish pushing the reserve once stock is exhausted
+						if (reserveSlot[i]) {
+							tableau[i][++height[i]] = reserveSlot[i];
+						}
+						reserveSlot[i] = null;
 					} else {
 						break;
 					}
