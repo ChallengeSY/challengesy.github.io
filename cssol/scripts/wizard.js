@@ -107,6 +107,11 @@ function setupGame() {
 			
 			leftPadding = 1;
 		}
+	} else {
+		// Avoid Trapdoor-related bugs in case there is no stock available
+		if (stockDealTo == 3) {
+			stockDealTo = 0;
+		}
 	}
 	
 	screenColumns -= leftPadding;
@@ -272,14 +277,13 @@ function dealStock() {
 						do {
 							newCard = assignSeedCard();
 						} while (startingCards >= 4 && newCard.rank == baseRank);
-						height[i]++;
 						if (stockDealTo == 2) {
 							// Deal row(s) to tableau
-							tableau[i][height[i]] = newCard;
+							tableau[i][++height[i]] = newCard;
 						} else if (stockDealTo == 3) {
 							// Push row(s) through the "trapdoor"
 							if (reserveSlot[i]) {
-								tableau[i][height[i]] = reserveSlot[i];
+								tableau[i][++height[i]] = reserveSlot[i];
 							}
 							reserveSlot[i] = newCard;
 						}
