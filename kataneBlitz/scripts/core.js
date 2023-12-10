@@ -66,6 +66,28 @@ function startGame() {
 		}
 		moduleValid = (moduleFile == "endless" || moduleFile == "endlessStable" || moduleFile == "endlessHardcore" ||
 			moduleFile == "endlessButtons");
+	} else if (moduleFile.startsWith("short")) {
+		goal = Infinity;
+		handicap = Infinity;
+		initialModules = irandom(3,5);
+		lifeMax = 3;
+		if (moduleFile == "short5m") {
+			timeMax = 5;
+			moduleValid = true;
+		} else if (moduleFile == "short15m") {
+			timeMax = 15;
+			moduleValid = true;
+		} else if (moduleFile == "short30m") {
+			timeMax = 30;
+			moduleValid = true;
+		} else if (moduleFile == "short1h") {
+			timeMax = 60;
+			moduleValid = true;
+		} else if (moduleFile == "short2h") {
+			timeMax = 120;
+			moduleValid = true;
+		}
+		timeMax *= 60;
 	} else if (moduleFile == "mixedPractice") {
 		moduleValid = true;
 		timeMax = 300;
@@ -139,7 +161,7 @@ function solveModule(obj, cond, postSolve) {
 			}
 			
 			score++;
-			if (!isFinite(goal)) {
+			if (!isFinite(goal) && isFinite(handicap)) {
 				if (score + handicap <= 25) {
 					timeLimit += 30;
 				} else if (score + handicap <= 50) {

@@ -458,8 +458,10 @@ function initShips() {
 					break;
 				case "Neutronic Fuel Carrier":
 				case "Large Deep Space Freighter":
-				case "Super Transport Freighter":
 					special = shipAbility("Weak Armor");
+					break;
+				case "Super Transport Freighter":
+					special = shipAbility("Improved Fuel Economy") + " and " + shipAbility("Weak Armor");
 					break;
 					
 				case "Bohemian Class Survey Ship":
@@ -811,7 +813,7 @@ function dispInfo(techItem) {
 				</ul>";
 			break;
 		case "Fear":
-			displayTxt = "Ship will affect the happiness of enemy planets within 100 LY.";
+			displayTxt = "Ship will reduce the happiness of enemy planets within 100 LY by 1-10 points per turn. (Based linearly on distance)";
 			break;
 		case "Gambling":
 			displayTxt = "Ship will generate megacredits per turn on board at a rate of 1 mc per colonist clan in its cargo hold.";
@@ -1224,6 +1226,9 @@ function dispInfo(techItem) {
 			break;
 		case "Tow Capture":
 			displayTxt = "Allows usage of a boarding party to capture a starship that has no fuel";
+			break;
+		case "Improved Fuel Economy":
+			displayTxt = "Ships spend 30% less neutronium fuel when moving";
 			break;
 			
 		default:
