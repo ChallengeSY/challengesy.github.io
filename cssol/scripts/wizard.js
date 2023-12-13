@@ -864,7 +864,7 @@ function playCard(event) {
 			selectX = -1;
 		} else if (selectX >= 99) {
 			if (pairingGame && pairCheck(tableau[x][height[x]],stockPile[solGame.wasteSize])) {
-				tableau[x][y] = null;
+				tableau[x][height[x]] = null;
 				height[x]--;
 				solGame.casualScore++;
 				
@@ -895,7 +895,7 @@ function playCard(event) {
 			selectX = -1;
 		} else if (selectX >= reserveStart) {
 			if (pairingGame && pairCheck(tableau[x][height[x]],reserveSlot[selectX-reserveStart])) {
-				tableau[x][y] = null;
+				tableau[x][height[x]] = null;
 				height[x]--;
 				solGame.casualScore++;
 				reserveSlot[selectX-reserveStart] = null;
@@ -923,7 +923,7 @@ function playCard(event) {
 			selectDepth = 0;
 			selectX = -1;
 		} else if (pairingGame && pairCheck(tableau[x][height[x]],tableau[selectX][height[selectX]])) {
-			tableau[x][y] = null;
+			tableau[x][height[x]] = null;
 			height[x]--;
 			solGame.casualScore++;
 			tableau[selectX][height[selectX]] = null;
