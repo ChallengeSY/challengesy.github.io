@@ -117,6 +117,8 @@ function setupGame() {
 	screenColumns -= leftPadding;
 	
 	try {
+		reserveReusable = maxReserve;
+				
 		if (reserveStacked != null || (reserveReusable == 0 && prefilledReserve > 9)) {
 			reserveMultiplier = FANNING_X / COLUMN_WIDTH;
 		} else if (reserveReusable == 0 && prefilledReserve > 4) {
@@ -124,6 +126,10 @@ function setupGame() {
 		}
 	} catch(err) {
 		// Blank catch. If these variables are undefined (no reserve slots at all), then we simply move on without them.
+	}
+	
+	if (stockDealTo == 3 && deckCost >= maxScore) {
+		stockDealTo = 0; // Invalidate Trapdoor concept; useless with no stock pile
 	}
 	
 	if (stockDealTo == 3) {
@@ -168,8 +174,8 @@ function setupGame() {
 	if (scoringModel != "noneScoreSpider" && !pairingGame && !golfGame) {
 		// Create foundation piles
 		for (var i = 0; i < wizardDecks*4; i++) {
-			if (wizardDecks*4 + calcedReserveWidth > Math.max(tableauWidth + 1,screenColumns) ||
-				(Math.max(maxReserve,prefilledReserve) == 0 && (calcWidthNeeded > Math.max(tableauWidth + 1,screenColumns) || deckCost >= maxScore))) {
+			if (stockDealTo != 3 && (wizardDecks*4 + calcedReserveWidth > Math.max(tableauWidth + 1,screenColumns) ||
+				(Math.max(maxReserve,prefilledReserve) == 0 && (calcWidthNeeded > Math.max(tableauWidth + 1,screenColumns) || deckCost >= maxScore)))) {
 				leftPos = Math.max(tableauWidth-wizardDecks*4,0);
 				addFoundationPadding = true;
 			} else {
