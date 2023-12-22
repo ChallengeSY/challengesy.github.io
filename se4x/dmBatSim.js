@@ -154,7 +154,7 @@ function getDMspecs() {
 			combatHex = combatChoices[c].id;
 		}
 	}
-	
+
 	switch (dmStr) {
 		case 0:
 			// Multiplayer specs
@@ -190,7 +190,7 @@ function getDMspecs() {
 			dmRolls = 6;
 			
 			// Diminishing returns on Def and number of rolls
-			while (dmDef < 7 && dmStr >= dmThresh[0]) {
+			while (dmDef < 6 && dmStr >= dmThresh[0]) {
 				dmThresh[0] = dmThresh[0] + (dmDef++ * 2);
 				dmAtk--;
 			}
@@ -202,9 +202,16 @@ function getDMspecs() {
 			break;
 	}
 	
-	if (dmAtk > 15) {
-		dmSize = dmSize + dmAtk - 15;
-		dmAtk = 15;
+	// Made the DM undo its Atk loss for a size
+	if (dmStr == 24) {
+		dmAtk++;
+		dmSize--;
+	}
+	
+	// Beyond Attack 14 is virtually pointless; a DM that rolls a 10 automatically misses, no matter how high its Atk
+	if (dmAtk > 14) {
+		dmSize = dmSize + dmAtk - 14;
+		dmAtk = 14;
 	}
 	
 	if (combatHex == "hexNebula") {
@@ -989,7 +996,9 @@ function performSimCycle() {
 	
 		lockControls(false);
 	}
-	
+
+	var midPoint = Math.ceil(simsDone/2);
+	gamesLeft = 0;
 	clearResults(true);
 
 	divFrag = document.createElement("div");
@@ -1003,6 +1012,10 @@ function performSimCycle() {
 	if (multiWins > 0) {
 		var avgShips = (multiPlrShips / multiWins).toFixed(2);
 		
+		if (multiWins > midPoint) {
+			gamesLeft = midPoint - (multiLosses + multiDraws);
+		}
+		
 		pFrag = document.createElement("p");
 		pFrag.innerHTML = avgShips + " player ships survive a win on average.";
 		ulFrag = document.createElement("ul");
@@ -1011,6 +1024,14 @@ function performSimCycle() {
 			
 			if (outcomeCount > 0) {
 				liFrag = document.createElement("li");
+				if (gamesLeft > 0) {
+					if (gamesLeft > outcomeCount) {
+						gamesLeft = gamesLeft - outcomeCount;
+					} else {
+						liFrag.className = "median";
+						gamesLeft = 0;
+					}
+				}
 				liFrag.innerHTML = getPhrase("ship", w)+" left: "+getPhrase("time", outcomeCount)
 				ulFrag.appendChild(liFrag);
 			}
@@ -1022,6 +1043,10 @@ function performSimCycle() {
 	if (multiLosses > 0) {
 		var avgHP = (multiDMhp / multiLosses).toFixed(2);
 		
+		if (multiLosses > midPoint) {
+			gamesLeft = midPoint - (multiWins + multiDraws);
+		}
+		
 		pFrag = document.createElement("p");
 		pFrag.innerHTML = "The Doomsday Machine has " + avgHP + " HP on average for each of its wins.";
 		
@@ -1031,6 +1056,14 @@ function performSimCycle() {
 			
 			if (outcomeCount > 0) {
 				liFrag = document.createElement("li");
+				if (gamesLeft > 0) {
+					if (gamesLeft >= outcomeCount) {
+						gamesLeft = gamesLeft - outcomeCount;
+					} else {
+						liFrag.className = "median";
+						gamesLeft = 0;
+					}
+				}
 				liFrag.innerHTML = l+" HP: "+getPhrase("time", outcomeCount)
 				ulFrag.appendChild(liFrag);
 			}

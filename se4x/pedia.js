@@ -448,8 +448,8 @@ function showBox(concept) {
 				CP allocated into Defense are applied with twice the standard effectiveness.";
 			break;
 		case "nanomachine":
-			displayTxt = "<b>Nanomachine Technology</b><br />"+conceptLink("Alien Player")+"-exclusive technology that allows them to build ships remotely; whenever\
-				a given fleet first enters a "+conceptLink("battle")+". Rarely used by <span class=\"bindTxt\">"+conceptLink("Raider")+" fleets.</span><br /><br />\
+			displayTxt = "<b>Nanomachine Technology</b><br />"+conceptLink("Alien Player")+"-exclusive technology that allows building ships remotely; whenever a\
+				given fleet first enters a "+conceptLink("battle")+". Rarely used by <span class=\"bindTxt\">"+conceptLink("Raider")+" fleets.</span><br /><br />\
 				A fleet can use only the "+conceptLink("CP")+" that was assigned at the time it was launched. Leftover CP post-construction is returned to the AP's Fleet bank.";
 			break;
 			
