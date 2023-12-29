@@ -287,73 +287,64 @@ function autoFoundation(internalSelect, whichPile) {
 		endingCheck();
 		return moveLegal;
 	} catch(err) {
+		throwError(err);
 		return false;
 	}
 }
 
 function roboBuild(pileCount, reserveCount, wastePresent) {
-	var breakChain = false;
 	var i, success = false;
 	
 	try {
-		// Prioritize the Reserve Pool *if* it any slots are reusable OR if it is stacked in any way
-		if (reserveCount > 0 && (reserveReusable > 0 || reserveStacked != null)) {
-			reservePriority: {
+		// Prioritize the Reserve Pool *if* any slots are reusable OR if it is stacked in any way
+		autoRobo: {
+			if (reserveCount > 0 && (reserveReusable > 0 || reserveStacked != null)) {
 				for (var j = 0; j < reserveCount; j++) {
 					if (reserveSlot[j] && (!reserveSlot[j+1] || !reserveStacked || newSubRestack(j+1))) {
 						for (i = 0; i < 24; i++) {
 							success = autoFoundation(j+reserveStart,i);
 							
 							if (success) {
-								breakChain = true;
-								break reservePriority;
+								break autoRobo;
 							}
 						}
 					}
 				}
 			}
-		}
-		
-		// Waste pile comes next
-		if (!breakChain && wastePresent) {
-			for (i = 0; i < 24; i++) {
-				success = autoFoundation(99,i);
-				
-				if (success) {
-					break;
+			
+			// Waste pile comes next
+			if (wastePresent) {
+				for (i = 0; i < 24; i++) {
+					success = autoFoundation(99,i);
+					
+					if (success) {
+						break autoRobo;
+					}
 				}
 			}
-		}
-		
-		// Tableau next
-		if (!breakChain) {
-			tableauPool: {
-				for (var x = 0; x < pileCount; x++) {
-					if (height[x] >= 0) {
-						for (i = 0; i < 24; i++) {
-							success = autoFoundation(x,i);
-							
-							if (success) {
-								breakChain = true;
-								break tableauPool;
-							}
+			
+			// Tableau next
+			for (var x = 0; x < pileCount; x++) {
+				if (height[x] >= 0) {
+					for (i = 0; i < 24; i++) {
+						success = autoFoundation(x,i);
+						
+						if (success) {
+							break autoRobo;
 						}
 					}
 				}
 			}
-		}
-		
-		// Reserve Pool comes last, assuming neither of the previous two conditions were met
-		if (!breakChain && reserveCount > 0) {
-			reservePool: {
+			
+			// Reserve Pool comes last, assuming neither of the previous two conditions were met
+			if (reserveCount > 0) {
 				for (var j = 0; j < reserveCount; j++) {
 					if (reserveSlot[j] && (!reserveSlot[j+1] || !reserveStacked || newSubRestack(j+1))) {
 						for (i = 0; i < 24; i++) {
 							success = autoFoundation(j+reserveStart,i);
 							
 							if (success) {
-								breakChain = true;
-								break reservePool;
+								break autoRobo;
 							}
 						}
 					}
