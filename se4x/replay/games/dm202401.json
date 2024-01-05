@@ -1402,7 +1402,7 @@
 			"location":"J7",
 			"name":"minerals5"
 		}]},
-	{"commentary":"<h2>Movement Turn 28</h2><p>The final machine starts its advance... yet, it has two <q>equally valid</q> choices on where to go.</p>",
+	{"commentary":"<h2>Movement Turn 28</h2><p>The final machine starts its advance, taking advantage of its immunity to black holes... yet, it has two <q>equally valid</q> choices on where to go.</p>",
 	"actions":
 		[{
 			"placeCounter":"Miner2Y",
