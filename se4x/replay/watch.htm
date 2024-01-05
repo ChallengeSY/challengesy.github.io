@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>SE4X - Replay Watch</title>
+	<link type="text/css" href="replay.css" rel="stylesheet" />
+	<script type="text/javascript" src="replay.js"></script>
+	<script type="text/javascript" src="../pedia.js"></script>
+	<script type="text/javascript" src="../alienEmpires.js"></script>
+	<script type="text/javascript" src="../../quickGet.js"></script>
+</head>
+<body onload="initReplay();">
+<p id="banner"><a href="index.htm"><img src="../banner.png" alt="Space Empires 4X Resourcepedia" /></a></p>
+
+<div id="controls">
+<div style="grid-column: 2 / span 1;"><button id="stageL" onclick="changeStage(-1)">&lArr;</button></div>
+<div id="gameBoard"></div>
+<div><button id="stageR" onclick="changeStage(1)">&rArr;</button></div>
+</div>
+<div id="commentary">
+<p>The commentary panel serves as a way to describe how a game has progressed. Each replay is divided into stages, usually 1 stage per turn or economic phase.</p>
+</div>
+<div id="replayJson">
+</div>
+</body>
+</html>
