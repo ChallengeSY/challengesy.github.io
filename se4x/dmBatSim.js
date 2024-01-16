@@ -148,6 +148,7 @@ function getDMspecs() {
 	dmSize = Math.floor(dmStr/2) + 6;
 	dmSameAdv = document.getElementById("dmSame").checked;
 	dmThresh = [15,11];
+	dmDmgInit = document.getElementById("dmDmg").value;
 	var combatChoices = document.getElementsByName("combatHex");
 	for (c in combatChoices) {
 		if (combatChoices[c].checked) {
@@ -222,6 +223,9 @@ function getDMspecs() {
 	document.getElementById("dmDef").innerHTML = dmDef;
 	document.getElementById("dmSize").innerHTML = dmSize;
 	document.getElementById("dmRoll").innerHTML = dmRolls;
+	document.getElementById("dmDmg").max = dmSize - 1;
+	dmDmgInit = Math.min(dmDmgInit, dmSize - 1);
+	document.getElementById("dmDmg").value = dmDmgInit;
 }
 
 function computeHitChances(refreshDM) {
@@ -545,7 +549,7 @@ function playerFleet() {
 
 //Object
 function doomsdayMachine() {
-	this.hitPoints = dmSize;
+	this.hitPoints = dmSize - dmDmgInit;
 	if (dmRolls > 2) {
 		this.weakness = dmWeak;
 	} else {
@@ -1092,6 +1096,19 @@ function runSimBattles(simCount) {
 			divFrag = document.createElement("div");
 			pFrag = document.createElement("p");
 			pFrag.innerHTML = "No player ships detected. Sequence aborted.";
+			
+			if (simMulti) {
+				simsDone = totalQuota;
+				multiDraws = totalQuota;
+			}
+
+			divFrag.appendChild(pFrag);
+			grandBody.appendChild(divFrag);
+			break;
+		} else if (simDM.hitPoints <= 0) {
+			divFrag = document.createElement("div");
+			pFrag = document.createElement("p");
+			pFrag.innerHTML = "Doomsday Machine has no HP. Sequence aborted.";
 			
 			if (simMulti) {
 				simsDone = totalQuota;

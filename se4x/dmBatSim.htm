@@ -19,7 +19,7 @@
 	<script src="pedia.js"></script>
 </head>
 <body onload="setupSim()">
-<p id="banner"><a href="index.htm"><img src="banner.png" alt="Space Empires 4X Resourcepedia" /></a></p>
+<p id="banner"><a href="index.php"><img src="banner.png" alt="Space Empires 4X Resourcepedia" /></a></p>
 
 <hr />
 
@@ -141,6 +141,10 @@ No matter how low, a DM that rolls a 10 automatically misses">Evasion</th>
 <option title="Allows size 10+ fleets to achieve a 2:1 fleet bonus (Attack +1 for compatible ships)">Large Fleets</option>
 <option>None</option>
 </select>
+<br />
+
+<label for="dmStr">Initial Damage</label>
+<input type="number" class="text numeric" id="dmDmg" min="0" max="2" value="0" size="4" onchange="computeHitChances(true);" onblur="computeHitChances(true);" />
 <br />
 
 <label for="dmSame">Same Class advantage?</label>

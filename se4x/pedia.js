@@ -45,7 +45,7 @@ function stats(buildCost, atk, def, hullSize) {
 
 function dmBase(strength) {
 	const dmCommon = "Non-player <q>boss</q> ship that will instantly destroy any undefended "+conceptLink("planet")+" it comes into contact with." +
-		"<br />Equipped with "+conceptLink("Tactics")+" level 2 and "+conceptLink("Scanning")+" level 2. Immune to "+conceptLink("asteroids")+", "+conceptLink("black hole")+"s, "+conceptLink("boarding")+", "+conceptLink("fighters")+", and "+conceptLink("mines")+"." +
+		"<br />Equipped with "+conceptLink("Tactics")+" level 2 and "+conceptLink("Scanning")+" level 2. Immune to "+conceptLink("asteroids")+", "+conceptLink("black hole")+"s, "+conceptLink("boarding")+", "+conceptLink("fighters")+", "+conceptLink("mines")+", and "+conceptLink("supernova")+"s." +
 		"<br />Prevents the benefits of "+conceptLink("Fleet Size Bonus")+"es and "+conceptLink("combat ship")+" "+conceptLink("screen")+"ing.";
 	
 	if (strength == "MP") {
@@ -369,6 +369,8 @@ function showBox(concept) {
 			displayTxt = "<b>Fighters</b><br />Small craft, requires a "+conceptLink("Carrier")+" to move into space. Comes in three levels, each subsequent level allows an improved craft";
 			displayTxt = displayTxt + stats(5, "B5 / B6 / B7", "0 / 0 / 1", 1) + "<br /><b>Required Tech</b>: "+conceptLink("Fighter")+" level 1";
 			break;
+		case "minelayer":
+			// Fall through
 		case "mines":
 			displayTxt = "<b>Mines</b><br />Small craft that detonates upon contact with enemy ships, destroying them instantly unless "+conceptLink("sw")+"ept<br />Limited to 1 hex per "+conceptLink("movement turn")+", and may not enter enemy occupied hexes";
 			displayTxt = displayTxt + stats(5, 1, 0, 0) + "<br /><b>Required Tech</b>: "+conceptLink("Minelaying");
@@ -571,7 +573,7 @@ function keywordifyCollection(collObj) {
 		"Barren", "Bid", "Colonies", "Competitive", "CP", "Economic Phase", "Homeworld", "Hull Size", "Maintenance", "Planet", "Quick Start", "Scuttle", "Turn",
 		"Battle", "Blockade", "Bombard", "Fleet Size Bonus", "Priority Class", "Retreat", "Screen", "Weakness",
 		"Alien Empires", "Alien Player", "Doomsday Machine", "Economic Roll",
-		"Scout", "Destroyer", "Cruiser", "Ship Yard", "Base", "Minesweeper", "Colony Ship", "Mining Ship", "Pipeline", "Unique Ship",
+		"Scout", "Destroyer", "Cruiser", "Ship Yard", "Base", "Minelayer", "Minesweeper", "Colony Ship", "Mining Ship", "Pipeline", "Unique Ship",
 		"Asteroid Belt", "Asteroids", "Black Hole", "Danger", "Deep Space", "Home System", "Lost in Space", "Minerals", "Nebula", "Space Wreck", "Supernova", "Unexplored",
 		"Technology", "Attack", "Defense", "Exploration", "Minelaying", "Minesweeping", "Movement", "Nanomachine", "Scanning", "Ship Size", "Tactics", "Terraforming", "Upgrade"];
 		

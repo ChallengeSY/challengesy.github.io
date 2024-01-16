@@ -1,11 +1,9 @@
 @import "../../nuCampaign/planets.css";
 
-.hexRow {
-    clear: left;
-}
-.hexRow.even {
-    margin-left: 27px;
-}
+#plays {display: grid; grid-template-columns: auto auto auto; font-size: 150%;}
+
+.hexRow {clear: left;}
+.hexRow.even {margin-left: 27px;}
 
 .hex:before {
     content: " ";
