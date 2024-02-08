@@ -992,7 +992,12 @@ function newGame(greetings, newSeed) {
 			solGame.gameActive = false;
 		}
 	
-		if (solGame.gameActive) {
+		if (maxScore <= 0) {
+			updateStatus("Impossible scenario detected. Deal sequence aborted.");
+			
+			document.getElementById("newGame").disabled = true;
+			document.getElementById("restartGame").disabled = true;
+		} else if (solGame.gameActive) {
 			seedPassword = oldPassword;
 			passField.value = seedPassword;
 		} else {
