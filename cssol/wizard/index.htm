@@ -264,9 +264,10 @@
 
 <form name="solwizard" action="play.htm" method="get" onsubmit="return validate()">
 <table class="clean" style="margin-left: auto; margin-right: auto;">
+<tr>
 <th colspan="2">Scoring Settings</th>
 </tr>
-</tr>
+<tr>
 <td><b>Decks</b></td>
 <td><input class="text" type="number" name="decks" id="decks" size="3" min="1" max="6" value="1" onchange="computeCost(false)" onblur="computeCost(false)" /></td>
 </tr>
@@ -302,11 +303,7 @@
 	<option value="Ace" selected="selected">Ace</option>
 </optgroup>
 <optgroup label="Uncommon">
-	<?php
-	for ($i = 2; $i <= 10; $i++) {
-		echo "<option value=\"" . $i . "\">" . $i . "</option>\n";
-	}
-	?>
+	<option value="2">2</option>
 	<option value="Jack">Jack</option>
 	<option value="Queen">Queen</option>
 	<option value="King">King</option>
