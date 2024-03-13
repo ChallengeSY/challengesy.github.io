@@ -91,8 +91,9 @@
 .ace {
   font-size: 300%;
   position: absolute;
-  left: 0.325em;
-  top:  0.250em;
+  left: 50%;
+  top:  50%;
+  transform: translate(-50%, -50%);
 }
 
 .face {
@@ -110,17 +111,17 @@
 .spotA4 { position: absolute; left: 0.60em; top: 2.5em; }
 .spotA5 { position: absolute; left: 0.60em; top: 3.5em; }
 
-.spotB1 { position: absolute; left: 1.55em; top: 0.5em; }
-.spotB2 { position: absolute; left: 1.55em; top: 1.0em; }
-.spotB3 { position: absolute; left: 1.55em; top: 2.0em; }
-.spotB4 { position: absolute; left: 1.55em; top: 3.0em; }
-.spotB5 { position: absolute; left: 1.55em; top: 3.5em; }
+.spotB1 { position: absolute; left: 50%; transform: translate(-50%, 0px); top: 0.5em; }
+.spotB2 { position: absolute; left: 50%; transform: translate(-50%, 0px); top: 1.0em; }
+.spotB3 { position: absolute; left: 50%; transform: translate(-50%, 0px); top: 2.0em; }
+.spotB4 { position: absolute; left: 50%; transform: translate(-50%, 0px); top: 3.0em; }
+.spotB5 { position: absolute; left: 50%; transform: translate(-50%, 0px); top: 3.5em; }
 
-.spotC1 { position: absolute; left: 2.50em; top: 0.5em; }
-.spotC2 { position: absolute; left: 2.50em; top: 1.5em; }
-.spotC3 { position: absolute; left: 2.50em; top: 2.0em; }
-.spotC4 { position: absolute; left: 2.50em; top: 2.5em; }
-.spotC5 { position: absolute; left: 2.50em; top: 3.5em; }
+.spotC1 { position: absolute; right: 0.60em; top: 0.5em; }
+.spotC2 { position: absolute; right: 0.60em; top: 1.5em; }
+.spotC3 { position: absolute; right: 0.60em; top: 2.0em; }
+.spotC4 { position: absolute; right: 0.60em; top: 2.5em; }
+.spotC5 { position: absolute; right: 0.60em; top: 3.5em; }
 
 @keyframes flashSelect {
 	0% {box-shadow: 0px 0px 2px 2px rgb(96,96,192);}
@@ -129,3 +130,7 @@
 }
 
 .cardSelected {box-shadow: 0px 0px 2px 2px rgb(96,96,192); animation-name: flashSelect; animation-duration: 1000ms; animation-iteration-count: infinite;}
+
+#commandPanel {position: fixed;
+	bottom: 0.25em; right: 0.75em; z-index: 1000;
+	background: #040; padding: 0.25em;}

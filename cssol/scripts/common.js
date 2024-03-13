@@ -118,8 +118,37 @@ function allowDrop(event) {
 	event.preventDefault();
 }
 
+/*
+ * Logs game to server stats using AJAX
+ */
 function exportLog(gameWon) {
-	// Blank function; kept for compatibility
+	if (baseStatFile == "wizard") {
+		if (gameWon > 0) {
+			appendStatus("<br />Solitaire Wizard games are unranked. Thanks for playing.");
+		}
+	} else if (allowLogs && baseStatFile != "") {
+		if (window.XMLHttpRequest) {
+			//Code for modern browsers
+			logRequest = new XMLHttpRequest();
+		} else {
+			//Legacy code, for ancient IE versions 5 and 6
+			logRequest = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+
+		logRequest.open("POST","../scripts/logGame.php",true);
+		logRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		logRequest.send("game=" + baseStatFile + "&password=" + seedPassword + "&time=" + solGame.dealTime + "&won=" + gameWon);
+		
+		logRequest.onreadystatechange = function() {
+			if (logRequest.readyState === 4) {
+				if (logRequest.status==200) {
+					appendStatus("<br />"+logRequest.responseText);
+				} else {
+					appendStatus("<br /><span style=\"color: rgb(255,128,0); font-weight: bold;\">Error</span>: "+logRequest.status);
+				}
+			}
+		}
+	}
 }
 
 //Records move
@@ -659,7 +688,7 @@ function emptyStockPile() {
 		"</div>\n"; 
 }
 
-function toggleHelp(stableTableau) {
+function toggleHelp() {
 	var helpPanel = document.getElementById("helpPanel");
 	var helpButton = document.getElementById("helpButton");
 	var helpKeyword = "help";
@@ -675,24 +704,31 @@ function toggleHelp(stableTableau) {
 		helpButton.value = "Hide "+helpKeyword;
 	}
 	
-	if (!stableTableau) {
-		resizeHeight();
-	}
+	resizeHeight();
 }
 
 function resizeHeight() {
 	if (window.innerHeight) {
 		var helpPanel = document.getElementById("helpPanel");
-		var heightModifier = 225;
+		var heightModifier = 165;
 
-		if (helpPanel.style.display == "none") {
-			heightModifier = 225;
+		if (helpPanel && helpPanel.style.display == "none") {
+			heightModifier = 165;
 		} else {
-			heightModifier = 225 + helpPanel.offsetHeight;
+			heightModifier = 165 + helpPanel.offsetHeight;
 		}
 		
 		playHeight = window.innerHeight - heightModifier;
 		document.getElementById("tableau").style.height = playHeight+"px";
+		
+		maxHeight = document.getElementById("tableau").style.maxHeight;
+		commandOffset = 85 + helpPanel.offsetHeight;
+		
+		if (isFinite(parseInt(maxHeight)) && playHeight > parseInt(maxHeight)) {
+			commandOffset = window.innerHeight - parseInt(maxHeight) - 80;
+		}
+		
+		document.getElementById("commandPanel").style.bottom = commandOffset+"px";
 	}
 }
 

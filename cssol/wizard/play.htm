@@ -80,20 +80,20 @@
 <body>
 <p id="banner"><a href="index.htm"><img src="../gfx/banner.png" alt="" /></a></p>
 <div id="tableau">
-<!-- Playfield elements will be made here -->
-</div>
+	<div id="commandPanel"><input id="newGame" class="button" type="button" value="New game" onclick="newGame(false,true)" title="Starts a new game" />
+	<input id="restartGame" class="button" type="button" value="Restart game" onclick="restartGame(false)" title="Restarts the game using the same password" />
+	<script type="text/javascript">
+	if (allowAutobuild) {
+		document.write('<input id="autoBuild" class="button" type="button" value="Autobuild" onclick="autoFinish()" title="Automatically builds foundations where possible" />');
+	}
+	</script>
+	<input id="helpButton" class="button" type="button" value="Show specs" onclick="toggleHelp(false)" title="Toggles game specifications" />
+	&mdash; Casual Score: <span id="casualScore">0</span>
+	<br />Password: <input id="password" class="text" type="text" size="60" maxlength="416" onchange="newGame(false,false)" />
+	</div>
 
-<p><input id="newGame" class="button" type="button" value="New game" onclick="newGame(false,true)" title="Starts a new game" />
-<input id="restartGame" class="button" type="button" value="Restart game" onclick="restartGame(false)" title="Restarts the game using the same password" />
-<script type="text/javascript">
-if (allowAutobuild) {
-	document.write('<input id="autoBuild" class="button" type="button" value="Autobuild" onclick="autoFinish()" title="Automatically builds foundations where possible" />');
-}
-</script>
-<input id="helpButton" class="button" type="button" value="Show specs" onclick="toggleHelp(false)" title="Toggles game specifications" />
-&mdash; Casual Score: <span id="casualScore">0</span>
-<br />Password: <input id="password" class="text" type="text" size="60" maxlength="416" onchange="newGame(false,false)" />
-</p>
+	<!-- Playfield elements will be made here -->
+</div>
 
 <p id="statusBar"></p>
 
