@@ -122,33 +122,7 @@ function allowDrop(event) {
  * Logs game to server stats using AJAX
  */
 function exportLog(gameWon) {
-	if (baseStatFile == "wizard") {
-		if (gameWon > 0) {
-			appendStatus("<br />Solitaire Wizard games are unranked. Thanks for playing.");
-		}
-	} else if (allowLogs && baseStatFile != "") {
-		if (window.XMLHttpRequest) {
-			//Code for modern browsers
-			logRequest = new XMLHttpRequest();
-		} else {
-			//Legacy code, for ancient IE versions 5 and 6
-			logRequest = new ActiveXObject("Microsoft.XMLHTTP");
-		}
-
-		logRequest.open("POST","../scripts/logGame.php",true);
-		logRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		logRequest.send("game=" + baseStatFile + "&password=" + seedPassword + "&time=" + solGame.dealTime + "&won=" + gameWon);
-		
-		logRequest.onreadystatechange = function() {
-			if (logRequest.readyState === 4) {
-				if (logRequest.status==200) {
-					appendStatus("<br />"+logRequest.responseText);
-				} else {
-					appendStatus("<br /><span style=\"color: rgb(255,128,0); font-weight: bold;\">Error</span>: "+logRequest.status);
-				}
-			}
-		}
-	}
+	// Blank function; kept for compatibility
 }
 
 //Records move
@@ -684,7 +658,7 @@ function emptyStockPile() {
 	}
 	
 	return "<div>\n" +
-		"<div class=\"ace\" style=\"margin-left: -0.1em; margin-top: -0.1em;\">" + redealSymbol + "</div>\n" + 
+		"<div class=\"ace\">" + redealSymbol + "</div>\n" + 
 		"</div>\n"; 
 }
 
@@ -711,6 +685,9 @@ function resizeHeight() {
 	if (window.innerHeight) {
 		var helpPanel = document.getElementById("helpPanel");
 		var heightModifier = 165;
+		
+		var stockPile = document.getElementById("stock0");
+		var foundationPool = document.getElementById("home0");
 
 		if (helpPanel && helpPanel.style.display == "none") {
 			heightModifier = 165;
@@ -721,14 +698,22 @@ function resizeHeight() {
 		playHeight = window.innerHeight - heightModifier;
 		document.getElementById("tableau").style.height = playHeight+"px";
 		
-		maxHeight = document.getElementById("tableau").style.maxHeight;
-		commandOffset = 85 + helpPanel.offsetHeight;
+		var cmdPanel = document.getElementById("commandPanel");
 		
-		if (isFinite(parseInt(maxHeight)) && playHeight > parseInt(maxHeight)) {
-			commandOffset = window.innerHeight - parseInt(maxHeight) - 80;
+		if (cmdPanel) {
+			if (!stockPile || foundationPool) {
+				maxHeight = document.getElementById("tableau").style.maxHeight;
+				commandOffset = 85 + helpPanel.offsetHeight;
+				
+				if (isFinite(parseInt(maxHeight)) && playHeight > parseInt(maxHeight)) {
+					commandOffset = window.innerHeight - parseInt(maxHeight) - 80;
+				}
+				
+				cmdPanel.style.bottom = commandOffset+"px";
+			} else if (!cmdPanel.style.top) {
+				cmdPanel.style.top = "90px";
+			}
 		}
-		
-		document.getElementById("commandPanel").style.bottom = commandOffset+"px";
 	}
 }
 

@@ -132,5 +132,5 @@
 .cardSelected {box-shadow: 0px 0px 2px 2px rgb(96,96,192); animation-name: flashSelect; animation-duration: 1000ms; animation-iteration-count: infinite;}
 
 #commandPanel {position: fixed;
-	bottom: 0.25em; right: 0.75em; z-index: 1000;
+	right: 0.75em; z-index: 1000;
 	background: #040; padding: 0.25em;}
