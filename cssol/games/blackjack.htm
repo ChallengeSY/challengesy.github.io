@@ -20,15 +20,15 @@
 	<div id="commandPanel">
 	<input id="newRound" class="button" type="button" value="New Round" onclick="newRound()" title="[Spacebar] Starts a new round" />
 	<input id="hit" class="button" type="button" value="Hit" onclick="hitHand()" title="[H] Adds a card" disabled="disabled" />
-	<input id="stand" class="button" type="button" value="Stand" onclick="standHand()" title="[S] Ends the current hand" disabled="disabled" />
+	<input id="stand" class="button" type="button" value="Stand" onclick="standHand()" title="[S] Ends the current hand" disabled="disabled" /><br class="smScreen" />
 	<input id="double" class="button" type="button" value="Double Down" onclick="doubleDown()" title="[D] Doubles the wager, and adds exactly one card" disabled="disabled" />
 	<input id="split" class="button" type="button" value="Split" onclick="splitHand()" title="[P] Splits a hand of identical value cards into two hands" disabled="disabled" />
 	<input id="surrender" class="button" type="button" value="Surrender" onclick="surrenderHand()" title="[U] Forfeits the current hand and half the bet" disabled="disabled" />
 	<input id="helpButton" class="button" type="button" value="Show help" onclick="toggleHelp(false)" title="[F1] Toggles game instructions" />
-	<br> Casual Score: <span id="casualScore">0</span>
-	&mdash; Money Score: $<span id="moneyScore">100</span>
-	&mdash; Base Bet: <input id="bet" class="text" type="number" min="1" value="10" size="5">
-	&mdash; Starting Hands: <input id="numHands" class="text" type="number" min="1" max="20" value="1" size="3">
+	<br class="smScreen" /><br /> Casual Score: <span id="casualScore">0</span>
+	&mdash; Money Score: $<span id="moneyScore">0</span>
+	<br class="smScreen" /><span class="bigScreen">&mdash;</span> Base Bet: <input id="bet" class="text" type="number" min="1" value="10" size="5" />
+	&mdash; Starting Hands: <input id="numHands" class="text" type="number" min="1" max="20" value="1" size="3" />
 	</div>
 	
 	<!-- Playfield elements will be made here -->
