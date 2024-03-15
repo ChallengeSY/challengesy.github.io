@@ -553,7 +553,7 @@ function handWon(id) {
 	}
 	
 	return "<div>\n" +
-		"<div class=\"ace\" style=\"margin-left: -0.1em; margin-top: -0.1em;\">" + outcomeSymbol + "</div>\n" + 
+		"<div class=\"ace\" style=\"margin-top: -0.1em;\">" + outcomeSymbol + "</div>\n" + 
 		"<div class=\"indexB\">" + getScore(id) + "</div>\n" + 
 		"</div>\n"; 
 }
