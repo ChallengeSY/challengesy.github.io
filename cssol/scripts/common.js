@@ -34,6 +34,7 @@ forceRender = false;
 rectangularTableau = true;
 traditionalStock = true;
 allowLogs = true;
+stockDealTo = 0;
 
 for (var tab = 0; tab < 49; tab++) {
 	tableau[tab] = new Array(312);

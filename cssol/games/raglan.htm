@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="description" content="JavaScript solitaire games" />
+	<meta name="keywords" content="Raglan" />
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>Raglan - CSSol</title>
+
+	<link type="text/css" href="../scripts/cards.css" rel="stylesheet" />
+	<link type="image/x-icon" href="../cssol.ico" rel="icon" />
+	<script type="text/javascript" src="../scripts/common.js"></script>
+	<script type="text/javascript" src="../scripts/reserve.js"></script>
+	<script type="text/javascript" src="../scripts/homepiles.js"></script>
+	<script type="text/javascript" src="../scripts/raglan.js"></script>
+</head>
+<body>
+<p id="banner"><a href="../index.htm"><img src="../gfx/banner.png" alt="" /></a></p>
+<div id="tableau">
+	<div id="commandPanel">
+	<input id="newGame" class="button" type="button" value="New game" onclick="newGame(false,true)" title="Starts a new game" />
+	<input id="restartGame" class="button" type="button" value="Restart game" onclick="restartGame(false)" title="Restarts the game using the same password" />
+	<input id="autoBuild" class="button" type="button" value="Autobuild" onclick="autoFinish()" title="Automatically builds foundations where possible" />
+	<input id="helpButton" class="button" type="button" value="Show help" onclick="toggleHelp()" title="Toggles game instructions" />
+	&mdash; Casual Score: <span id="casualScore">0</span>
+	<br />Password: <input id="password" class="text" type="text" size="60" onchange="newGame(false,false)" />
+	&mdash;
+	<select id="gameDiff" class="text" onchange="changeDiff(false)">
+		<option selected="selected">Raglan</option>
+		<option>King Albert</option>
+	</select>
+	</div>
+
+	<!-- Playfield elements will be made here -->
+</div>
+
+<p id="statusBar"></p>
+
+<div id="helpPanel">
+<h2>Instructions</h2>
+<p>Raglan is a solitaire card game using a deck of 52 playing cards.</p>
+
+<p>The aces are taken out of the deck, meaning that only 48 cards are shuffled. 42 of these cards are dealt to the tableau, with each pile getting progressively larger (but only 7 cards maximum per pile). All cards dealt this way are face up. The remaining six cards are put into the reserve pool, which are not reusable.</p>
+
+<p>In this game, the tableau piles are to be built down by alternating colors. Cards are moved singly, so multiple cards may only be moved after one or more tableau piles are empty. Empty piles can be filled with any card</p>
+
+<p>The foundations are built up by suit. The game is won when all cards end up in the foundations.</p>
+
+<p class="footer">Documentation is &copy; Paul Ruediger. Freely distributable under the <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons (BY) license 4.0</a></p>
+</div>
+
+</body>
+</html>
