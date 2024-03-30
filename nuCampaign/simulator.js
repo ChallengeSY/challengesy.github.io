@@ -590,7 +590,11 @@ function initShips() {
 				case "Pawn B Class Baseship":
 					special = shipAbility("Advanced Bioscanning");
 					break;
-					
+
+				case "Smugglers Falcon":
+					special = shipAbility("Hyperdrive") + " and " + shipAbility("Blink Cloak");
+					break;
+						
 				case "Aries Class Transport":
 					special = shipAbility("Advanced Refinery");
 					break;
