@@ -534,6 +534,9 @@ function initShips() {
 					// Stop right there
 					special = shipAbility("Cloak") + " and " + shipAbility("Gravitonic Acceleration");
 					break;
+				case "Hikos Armored Trailer":
+					special = null;
+					break;
 					
 				case "B200 Class Probe":
 					// Series of fall throughs
@@ -672,9 +675,13 @@ function shipDesign(namee,tlevel,mass,engines,crew,beams,tubes,bays,fuel,cargo,d
 				grandDesc = "Horwasp <a href=\"javascript:dispInfo('Pod')\">pod</a> with "+this.mass+" kT hull mass and "+this.engines+" engines<br />";
 			}
 		} else {
-			grandDesc = "Tech "+this.techLevel+" ship with "+this.mass+" kT hull mass, "+this.engines+" engine";
-			if (this.engines != 1) {
-				grandDesc = grandDesc + "s";
+			grandDesc = "Tech "+this.techLevel+" ship with "+this.mass+" kT hull mass, ";
+			if (this.engines < 1) {
+				grandDesc = grandDesc + shipAbility("No engines");
+			} else if (this.engines == 1) {
+				grandDesc = grandDesc + this.engines+" engine";
+			} else {
+				grandDesc = grandDesc + this.engines+" engines";
 			}
 			
 			grandDesc = grandDesc + " and "+this.crew+" crew<br />";
@@ -750,6 +757,9 @@ function dispInfo(techItem) {
 				displayTxt = displayTxt + " outside of nebulas";
 			}
 			displayTxt = displayTxt + ". Does not reveal ownership";
+			break;
+		case "Blink Cloak":
+			displayTxt = "Simplified <a href=\"javascript:dispInfo('Cloak')\">Cloaking Device</a> that can only be maintained for 1 turn, before needing 1 turn to recharge";
 			break;
 		case "Cloak":
 			displayTxt = "Allows an undamaged starship the ability to cloak, consuming fuel in the process while also reducing radiation damage to 1/2. \
@@ -860,6 +870,11 @@ function dispInfo(techItem) {
 		case "Move Minefields":
 			displayTxt = "Can move minefields using the <q>Push minefield</q> and <q>Pull minefield</q> missions.";
 			break;
+		case "Trailer":
+			//Fall through
+		case "No engines":
+			displayTxt = "A ship with no engines is immobile. It has no power to move on its own, but could be towed.";
+			break;
 		case "Nebula Scanner":
 			displayTxt = "Nebula Scanner can detect planets shrouded by a nebula 100 LY away";
 			break;
@@ -934,11 +949,11 @@ function dispInfo(techItem) {
 				displayTxt = "Can not be towed.";
 			}
 			break;
+		case "Tow Resistance":
+			displayTxt = "Can be towed only at a maximum of warp factor 3.";
+			break;
 		case "Tidal Force Shield":
 			displayTxt = "Allows the ship to end a combat versus a planet with up to 149% without being destroyed";
-			break;
-		case "Trailer":
-			displayTxt = "This ship is immobile. It can neither move nor interecept";
 			break;
 		case "Weak Armor":
 			displayTxt = "Ship is unable to safely navigate through a debris disk, despite its small mass.";
@@ -1413,6 +1428,9 @@ function detailedReport(targetDesign) {
 			break;
 
 		// Rebel designs
+		case "Smugglers Falcon":
+			similiarDesign = "Falcon Class Escort";
+			break;
 		case "Sage Class Repair Ship":
 			similiarDesign = "Sage Class Frigate";
 			break;

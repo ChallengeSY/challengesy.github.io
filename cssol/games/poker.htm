@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="description" content="JavaScript solitaire games" />
+	<meta name="keywords" content="Poker" />
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>Poker Grid - CSSol</title>
+
+	<link type="text/css" href="../scripts/cards.css" rel="stylesheet" />
+	<link type="image/x-icon" href="../cssol.ico" rel="icon" />
+	<script type="text/javascript" src="../scripts/common.js"></script>
+	<script type="text/javascript" src="../scripts/poker.js"></script>
+</head>
+<body>
+<p id="banner"><a href="index.php"><img src="../gfx/banner.png" alt="" /></a></p>
+<div id="tableau" style="max-height: 700px;">
+	<div id="commandPanel">
+	<input id="newGame" class="button" type="button" value="New game" onclick="newGame(false,true)" title="Starts a new game" />
+	<input id="restartGame" class="button" type="button" value="Restart game" onclick="restartGame(false)" title="Restarts the game using the same password" />
+	<input id="helpButton" class="button" type="button" value="Show help" onclick="toggleHelp()" title="Toggles game instructions" />
+	&mdash; Money Score: $<span id="moneyScore">0</span>
+	<br />Password: <input id="password" class="text" type="text" size="60" onchange="newGame(false,false)" />
+	</div>
+
+	<!-- Playfield elements will be made here -->
+</div>
+
+<p id="statusBar"></p>
+
+<div id="helpPanel">
+<h2>Instructions</h2>
+<p>The objective is to arrange the 25 cards (dealt from a single deck) to form high scoring hands. These are the only cards that are in play.</p>
+
+<p>Hands are scored horizontally, vertically, and diagonally; using the British system:</p>
+<ul>
+	<li>One Pair (1): Two cards are the same rank</li>
+	<li>Two Pairs (3): Each of two sets of two cards are the same rank</li>
+	<li>Flush (5): All five cards are the same suit</li>
+	<li>Three of a Kind (6): Three cards are the same rank</li>
+	<li>Full House (10): Three of a Kind and One Pair in the same hand</li>
+	<li>Straight (12): Cards are in a sequence</li>
+	<li>Four of a Kind (16): Four cards are the same rank</li>
+	<li>Straight Flush (30): Straight and Flush in the same hand</li>
+</ul>
+
+<p>The game is won if $120 can be secured.</p>
+
+<p class="footer">Documentation is &copy; 2001 Rosanna Yuen. Freely distributable under the <a href="https://www.gnu.org/licenses/old-licenses/fdl-1.1.en.html">GNU Free Documentation License 1.1</a></p>
+</div>
+
+</body>
+</html>
