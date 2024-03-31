@@ -763,7 +763,7 @@ function dispInfo(techItem) {
 			displayTxt = displayTxt + ". Does not reveal ownership";
 			break;
 		case "Blink Cloak":
-			displayTxt = "Simplified <a href=\"javascript:dispInfo('Cloak')\">Cloaking Device</a> that can only be maintained for 1 turn, before needing 1 turn to recharge. \
+			displayTxt = "Simplified " + shipAbility("Cloak") + " that can only be maintained for 1 turn, before needing 1 turn to recharge. \
 				<span class=\"bindTxt\">Unable to do " + shipAbility("Priority Intercept Attack") + "s</span>";
 			break;
 		case "Cloak":
@@ -771,7 +771,7 @@ function dispInfo(techItem) {
 				<span class=\"bindTxt\">Usually allows " + shipAbility("Priority Intercept Attack") + "s</span>";
 			break;
 		case "Advanced Cloak":
-			displayTxt = "Upgraded <a href=\"javascript:dispInfo('Cloak')\">Cloaking Device</a> that does not consume fuel and can overcome nebulas. \
+			displayTxt = "Upgraded " + shipAbility("Cloak") + " that does not consume fuel and can overcome nebulas. \
 				While cloaked, radiation damage is reduced to 1/3, and the ship is protected from ion storms";
 			break;
 		case "Chameleon Device":
@@ -1224,7 +1224,7 @@ function dispInfo(techItem) {
 			break;
 		case "Priority Intercept Attack":
 			displayTxt = "Also known as a Cloak Intercept (Host 3.22) and simply Intercept Attack (PHost), ships can initiate a priority intercept by choosing a victim and setting the correct aggression setting. \
-				Requires at least a regular " + shipAbility("Cloak") + " to be installed on the ship, but usable regardless of damage level";
+				Requires at least a regular " + shipAbility("Cloak") + ", but usable regardless of damage level";
 			break;
 		case "Minefields Save Fuel":
 			displayTxt = "Starships travelling through own mine fields spend 20% less neutronium fuel";
