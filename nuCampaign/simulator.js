@@ -594,7 +594,7 @@ function initShips() {
 				case "Smugglers Falcon":
 					special = shipAbility("Hyperdrive") + " and " + shipAbility("Blink Cloak");
 					break;
-						
+					
 				case "Aries Class Transport":
 					special = shipAbility("Advanced Refinery");
 					break;
@@ -763,11 +763,12 @@ function dispInfo(techItem) {
 			displayTxt = displayTxt + ". Does not reveal ownership";
 			break;
 		case "Blink Cloak":
-			displayTxt = "Simplified <a href=\"javascript:dispInfo('Cloak')\">Cloaking Device</a> that can only be maintained for 1 turn, before needing 1 turn to recharge";
+			displayTxt = "Simplified <a href=\"javascript:dispInfo('Cloak')\">Cloaking Device</a> that can only be maintained for 1 turn, before needing 1 turn to recharge. \
+				<span class=\"bindTxt\">Unable to do " + shipAbility("Priority Intercept Attack") + "s</span>";
 			break;
 		case "Cloak":
 			displayTxt = "Allows an undamaged starship the ability to cloak, consuming fuel in the process while also reducing radiation damage to 1/2. \
-				<span class=\"bindTxt\">Allows " + shipAbility("Priority Intercept Attack") + "s</span>";
+				<span class=\"bindTxt\">Usually allows " + shipAbility("Priority Intercept Attack") + "s</span>";
 			break;
 		case "Advanced Cloak":
 			displayTxt = "Upgraded <a href=\"javascript:dispInfo('Cloak')\">Cloaking Device</a> that does not consume fuel and can overcome nebulas. \
@@ -1223,7 +1224,7 @@ function dispInfo(techItem) {
 			break;
 		case "Priority Intercept Attack":
 			displayTxt = "Also known as a Cloak Intercept (Host 3.22) and simply Intercept Attack (PHost), ships can initiate a priority intercept by choosing a victim and setting the correct aggression setting. \
-				Requires a " + shipAbility("Cloak") + " to be installed on the ship, but usable regardless of damage level";
+				Requires at least a regular " + shipAbility("Cloak") + " to be installed on the ship, but usable regardless of damage level";
 			break;
 		case "Minefields Save Fuel":
 			displayTxt = "Starships travelling through own mine fields spend 20% less neutronium fuel";
