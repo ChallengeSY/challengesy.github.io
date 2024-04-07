@@ -1,6 +1,6 @@
 @import "../../nuCampaign/planets.css";
 
-#plays {display: grid; grid-template-columns: auto auto auto; font-size: 150%;}
+#plays {display: grid; grid-template-columns: auto auto auto; font-size: 140%;}
 
 .hexRow {clear: left;}
 .hexRow.even {margin-left: 27px;}
@@ -45,3 +45,6 @@ button {width: 100%; height: 100%; font-size: 200%;}
 #commentary {clear: both; border-top: 1px solid white;}
 
 #replayJson {display: none;}
+
+.increase {color: #00ff00; font-weight: bold;}
+.decrease {color: #ff8080; font-weight: bold;}

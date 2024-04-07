@@ -6,6 +6,13 @@ var recallingStages = true;
 const letterRows = "LKJIHGFEDCBA";
 const deepSpace = "unexploredW";
 
+const classIncLetters = "EFTDH";
+const classDecLetters = classIncLetters.toLowerCase();
+const dieRollsRow = "(Rolls)";
+const prodTableTag = "{prodTable}";
+
+window.onkeydown = readKeyInput;
+
 function initReplay() {
 	makeHexes();
 	getJsonFile();
@@ -63,6 +70,30 @@ function dispCol(a, newDisp) {
 function irandom(mini, maxi) {
 	return Math.floor((Math.random() * (maxi - mini + 1)) + mini);
 }
+
+function readKeyInput(e) {
+	e = e || event;
+	
+	var keyPressed = e.key.toLowerCase();
+	
+	switch (keyPressed) {
+		case "<":
+			// Fall thru
+		case ",":
+			if (!document.getElementById("stageL").disabled) {
+				changeStage(-1);
+			}
+			break;
+		case ">":
+			// Fall thru
+		case ".":
+			if (!document.getElementById("stageR").disabled) {
+				changeStage(1);
+			}
+			break;
+	}
+}
+
 
 function placeCounter(curId, newX, newY, newPic) {
 	var calcX = newX * 54 - 40;
@@ -152,7 +183,52 @@ function place3plrHomeMarkers(color, orient) {
 				}
 			}
 		}
+	} else if (orient == "left") {
+		for (var a = 1; a <= 5; a++) {
+			if (a < 5) {
+				if (a > 1) {
+					placeSystemMarker(a,6,homeMarker);
+				}
+				placeSystemMarker(a,7,homeMarker);
+			}
+			placeSystemMarker(a,8,homeMarker);
+			placeSystemMarker(a,9,homeMarker);
+			if (a > 1) {
+				if (a == 2) {
+					placeHomeworld(a,10,color);
+				} else {
+					placeSystemMarker(a,10,homeMarker);
+				}
+				placeSystemMarker(a,11,homeMarker);
+			}
+		}
+		placeSystemMarker(2,5,homeMarker);
+	} else if (orient == "right") {
+		for (var a = 9; a <= 13; a++) {
+			if (a > 9) {
+				if (a < 13) {
+					placeSystemMarker(a,6,homeMarker);
+				}
+				placeSystemMarker(a-1,7,homeMarker);
+			}
+			placeSystemMarker(a,8,homeMarker);
+			placeSystemMarker(a-1,9,homeMarker);
+			if (a < 13) {
+				if (a == 12) {
+					placeHomeworld(a,10,color);
+				} else {
+					placeSystemMarker(a,10,homeMarker);
+				}
+				placeSystemMarker(a-1,11,homeMarker);
+			}
+		}
+		placeSystemMarker(11,5,homeMarker);
 	}
+}
+
+function placeAlienHomeworld(newX, newY, color) {
+	placeSystemMarker(newX,newY,"home20"+color);
+	placeCounter("base1"+color,newX,newY,null);
 }
 
 function renderCounter(curId, newPic) {
@@ -167,12 +243,67 @@ function renderCounter(curId, newPic) {
 
 function readJson() {
 	var curStage = rawJson.stages[stageNum];
+	var heading = document.getElementById("heading");
 	var commentary = document.getElementById("commentary");
 	var seekObj, readX, readY;
 	
-	commentary.innerHTML = curStage.commentary;
-	keywordifyCollection(document.getElementsByTagName("p"));
-	keywordifyCollection(document.getElementsByTagName("li"));
+	if (stageNum == 0 || !recallingStages || stageNum >= stageMem) {
+		commentary.innerHTML = curStage.commentary;
+		keywordifyCollection(document.getElementsByTagName("p"));
+		keywordifyCollection(document.getElementsByTagName("li"));
+		
+		if (curStage.heading) {
+			commentary.innerHTML = "<h2>" + curStage.heading + "</h2>" + commentary.innerHTML;
+		}
+		
+		if (curStage.alienTable) {
+			var constructTable = "<table><caption>Alien Economics</caption> \
+				<tr><th>Player</th><th>Eco</th><th>Fleet</th><th>Tech</th><th>Def</th><th>Hidden</th></tr>";
+				
+			for (var a = 0; a < curStage.alienTable.length; a++) {
+				if (curStage.alienTable[a].name == dieRollsRow) {
+					constructTable = constructTable + "<tr><th>"+curStage.alienTable[a].name+"</th> \
+						<td class=\"numeric\">"+curStage.alienTable[a].eco+"</td> \
+						<td class=\"numeric\">"+curStage.alienTable[a].fleet+"</td> \
+						<td class=\"numeric\">"+curStage.alienTable[a].tech+"</td> \
+						<td class=\"numeric\">"+curStage.alienTable[a].def+"</td></tr>"
+				} else {
+					var classMods = ["","","","",""];
+					var baseDelta = curStage.alienTable[a].delta;
+					
+					if (baseDelta.indexOf("---") >= 0) {
+						// Alien Player is dead. They get no more economic rolls for the rest of the playthrough
+						constructTable = constructTable + "<tr style=\"color: #808080;\">";
+					} else {
+						constructTable = constructTable + "<tr>";
+					
+						for (var b = 0; b < classMods.length; b++) {
+							if (baseDelta.indexOf(classIncLetters.charAt(b)) >= 0) {
+								classMods[b] = " increase";
+							} else if (baseDelta.indexOf(classDecLetters.charAt(b)) >= 0) {
+								classMods[b] = " decrease";
+							}
+						}
+					}
+					
+					constructTable = constructTable + "<th>"+curStage.alienTable[a].name+"</th> \
+						<td class=\"numeric"+classMods[0]+"\">"+curStage.alienTable[a].eco+" +"+curStage.alienTable[a].queue+"</td> \
+						<td class=\"numeric"+classMods[1]+"\">"+curStage.alienTable[a].fleet+"</td> \
+						<td class=\"numeric"+classMods[2]+"\">"+curStage.alienTable[a].tech+"</td> \
+						<td class=\"numeric"+classMods[3]+"\">"+curStage.alienTable[a].def+"</td> \
+						<td class=\"numeric"+classMods[4]+"\">"+curStage.alienTable[a].hidden+"</td></tr>"
+				}
+			}
+				
+			constructTable = constructTable + "</table>";
+			
+			if (commentary.innerHTML.indexOf(prodTableTag) >= 0) {
+				commentary.innerHTML = commentary.innerHTML.replace(prodTableTag,constructTable);
+			} else {
+				commentary.innerHTML = commentary.innerHTML + constructTable;
+			}
+		}
+	}
 	
 	// Parse the many actions
 	actionPool = curStage.actions;
@@ -255,8 +386,48 @@ function readJson() {
 					}
 				}
 				
-				for (z = 9; z < 12; z++) {
+				for (var z = 9; z < 12; z++) {
 					dispRow(letterRows.charAt(z), false);
+				}
+				
+				if (actionPool[i].alienColors) {
+					var alienHWs = [[1,4], [13,4], [7,8]];
+					
+					for (var a = 0; a < actionPool[i].alienColors.length; a++) {
+						placeAlienHomeworld(alienHWs[a][0], alienHWs[a][1], actionPool[i].alienColors.charAt(a));
+					}
+				}
+			} else if (actionPool[i].createPreset == "alienEmpiresSoloLg") {
+				var plrColor = actionPool[i].playerColor;
+				
+				for (var y = 0; y < 9; y++) {
+					for (var x = 1; x <= 13; x++) {
+						if (x < 13 || y % 2 == 0) {
+							if (y < 2) {
+								placeSystemMarker(x,y,"unexplored"+plrColor);
+							} else {
+								if (x != 7 || y != 8) {
+									placeSystemMarker(x,y,deepSpace);
+								}
+							}
+						}
+					}
+				}
+
+				placeHomeworld(7,0,plrColor);
+
+				for (var z = 9; z < 12; z++) {
+					dispRow(letterRows.charAt(z), false);
+				}
+				
+				if (actionPool[i].alienColors) {
+					var alienHWs = [[1,4], [13,4], [7,8]];
+					
+					for (var a = 0; a < 3; a++) {
+						if (a < actionPool[i].alienColors.length) {
+							placeAlienHomeworld(alienHWs[a][0], alienHWs[a][1], actionPool[i].alienColors.charAt(a));
+						}
+					}
 				}
 			} else if (actionPool[i].createPreset == "doomsdaySoloSm") {
 				var plrColor = actionPool[i].playerColor;
@@ -295,7 +466,7 @@ function readJson() {
 					}
 				}
 				
-				for (z = 7; z < 12; z++) {
+				for (var z = 7; z < 12; z++) {
 					dispRow(letterRows.charAt(z), false);
 				}
 			} else if (actionPool[i].createPreset == "doomsdaySoloLg") {
@@ -336,9 +507,48 @@ function readJson() {
 					}
 				}
 				
-				for (z = 10; z < 12; z++) {
+				for (var z = 10; z < 12; z++) {
 					dispRow(letterRows.charAt(z), false);
 				}
+			} else if (actionPool[i].createPreset == "versus3P") {
+				var plrColors = actionPool[i].playerColors;
+				
+				for (var y = 0; y < 12; y++) {
+					for (var x = 1; x <= 13; x++) {
+						if (x < 13 || y % 2 == 0) {
+							placeSystemMarker(x,y,deepSpace);
+						}
+					}
+				}
+
+				place3plrHomeMarkers(plrColors.charAt(0), "top");
+				place3plrHomeMarkers(plrColors.charAt(1), "left");
+				place3plrHomeMarkers(plrColors.charAt(2), "right");
+			} else if (actionPool[i].createPreset == "versus4P") {
+				plrColors = "GYRB";
+				
+				for (var y = 0; y < 12; y++) {
+					for (var x = 1; x <= 13; x++) {
+						if (x < 13 || y % 2 == 0) {
+							if (y < 5 && x <= 5 || (x == 6 && y == 2)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(0));
+							} else if (y < 5 && x >= 9 || (x == 8 && y != 2 && y <= 3)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(1));
+							} else if (y > 6 && x <= 5 || (x == 6 && y == 10)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(2));
+							} else if (y > 6 && x >= 8 && (y != 10 || x > 8)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(3));
+							} else {
+								placeSystemMarker(x,y,deepSpace);
+							}
+						}
+					}
+				}
+				
+				placeHomeworld(1,0,plrColors.charAt(0));
+				placeHomeworld(13,0,plrColors.charAt(1));
+				placeHomeworld(1,11,plrColors.charAt(2));
+				placeHomeworld(12,11,plrColors.charAt(3));
 			}
 		}
 	}
@@ -362,7 +572,7 @@ function getJsonFile() {
 	readFile = "games/"+getParam("replay")+".json";
 	var jsonReplay = document.getElementById("replayJson");
 	
-	var stageMem = 0;
+	stageMem = 0;
 	
 	// AJAX this
 	if (window.XMLHttpRequest) {
