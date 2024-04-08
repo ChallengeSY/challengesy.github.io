@@ -54,7 +54,7 @@ function dmBase(strength) {
 		return "<b>Doomsday Machine (Strength "+strength+")</b><br />"+dmCommon+" <span class=\"bindTxt\">May have a "+conceptLink("weakness")+".</span>";
 	}
 	
-	return "<b>Doomsday Machine</b><br />"+dmCommon+"<br /><br />As a scenario, the objective is for the human player(s) to defend their "+conceptLink("homeworld")+"(s) and "+conceptLink("galactic capitol")+" against 3 DMs (sometimes more), each usually stronger than the previous.";
+	return "<b>Doomsday Machine</b><br />"+dmCommon+"<br /><br />As a scenario, the objective is for the human player(s) to defend their "+conceptLink("homeworld")+"(s) and (if present) "+conceptLink("galactic capitol")+" against 3 DMs (sometimes more), each usually stronger than the previous.";
 }
 
 function showBox(concept) {
@@ -146,9 +146,9 @@ function showBox(concept) {
 				"<br />After the first round, whenever a mobile "+conceptLink("combat ship")+" would have its turn to fire, it may instead choose to "+conceptLink("retreat")+".";
 			break;
 		case "screen":
-			displayTxt = "<b>Screening</b><br />If one side has more "+conceptLink("combat ship")+"s than the opposite side each "+conceptLink("battle")+" "+conceptLink("round")+", the larger fleet can screen ships up to the difference." +
-				"<br />Screened ships may neither fire, nor be fired upon. Screen choices last for a full battle round." +
-				"<br /><br />"+conceptLink("Non-combat ship")+"s are automatically screened for the entire battle, and are eliminated if their protection has been destroyed and/or "+conceptLink("retreat")+"ed.";
+			displayTxt = "<b>Screening</b><br />If one side has more "+conceptLink("combat ship")+"s than the opposite side each "+conceptLink("battle")+" "+conceptLink("round")+", the larger fleet can screen ships up to the difference.<br /> \
+				Screened ships may not fire, nor be fired upon, nor do they contribute towads "+conceptLink("Fleet Size Bonus")+". Screen choices last for a full battle round.<br /><br /> \
+				"+conceptLink("Non-combat ship")+"s are automatically screened for the entire battle, and are eliminated if their protection has been destroyed and/or "+conceptLink("retreat")+"ed.";
 			break;
 		case "scuttle":
 			displayTxt = "<b>Scuttling</b><br />A player may choose to voluntarily remove ships from the board without refund, referred to as scuttling.<br />\
@@ -259,7 +259,7 @@ function showBox(concept) {
 			displayTxt = "<b>Homeworld</b><br />Starting "+conceptLink("colony")+" for an empire. It is the most powerful <span class=\"bindTxt\">(produces 20 "+conceptLink("CP")+" while intact)</span> and most important colony <span class=\"bindTxt\">(destruction ends a game)</span>.";
 			break;
 		case "home system":
-			displayTxt = "<b>Home System</b><br />A set of hexes that surround a "+conceptLink("homeworld")+". These systems are relatively safe, with only a single dangerous counter <span class=\"bindTxt\">(a "+conceptLink("black hole")+")</apan> shuffled among these 25 "+conceptLink("unexplored")+" systems.";
+			displayTxt = "<b>Home System</b><br />A set of hexes that surround a "+conceptLink("homeworld")+". These systems are relatively safe, with only a single dangerous "+conceptLink("black hole")+" counter shuffled among these 25 "+conceptLink("unexplored")+" systems.";
 			break;
 		case "lost":
 			// Fall through
@@ -493,6 +493,8 @@ function showBox(concept) {
 				In solo and co-op scenarios (if present), it creates a respawnable 10-"+conceptLink("minerals")+" counter and\
 				allows human player(s) to research "+conceptLink("Black Hole Jumping")+". It must also be kept alive. Otherwise, the <q>environment</q> wins the scenario.";
 			break;
+		case "amoeba":
+			// Fall through
 		case "space amoeba":
 			displayTxt = "<b>Space Amoeba</b><br />Hazardous species that will multiply themselves and attempt to destroy human player(s).<br />\
 				Automatically destroys <b>all</b> ships (except "+conceptLink("Minesweeper")+"s), until fully researched<br /><br />\
@@ -551,7 +553,15 @@ function showBox(concept) {
 			
 		// Site exclusive concepts
 		case "numsims":
-			displayTxt = "<b>Number of simulations</b><br />Number of battles to simulate at once. Battles simulated as a series give a short summary of success rate, followed by detailed ships survived and HP remaining on each side.";
+			displayTxt = "<b>Number of simulations</b><br />Number of battles to simulate at once. \
+				Battles simulated as a series give a short summary of success rate, followed by detailed ships survived and HP remaining on each side.";
+			break;
+		case "threat":
+			displayTxt = "<b>Threat</b><br />Numeric value that determines how threatening this ship group is to a "+conceptLink("Doomsday Machine")+". \
+				The highest threat gets focused down by the DM.<br /><br />\
+				Generally (assuming no "+conceptLink("weakness")+"es or inability to damage a DM), the threat is calculated as follows: \
+				<span style=\"font-family: monospace;\" class=\"bindTxt\">10 - {hullSize} + (1 + {atkToHitDM})^(3-({hullSize}-1)/2) + {DMtoHitGroup}^2.2</span><br />\
+				Where {hullSize} is the group "+conceptLink("Hull Size")+", {atkToHitDM} and {DMtoHitGroup} represents the respective final Attack ratings.";
 			break;
 		
 		
@@ -572,8 +582,8 @@ function keywordifyCollection(collObj) {
 	const keyTerms = ["Space Empires 4X", "Close Encounters", "Replicators",
 		"Barren", "Bid", "Colonies", "Competitive", "CP", "Economic Phase", "Homeworld", "Hull Size", "Maintenance", "Planet", "Quick Start", "Scuttle", "Turn",
 		"Battle", "Blockade", "Bombard", "Fleet Size Bonus", "Priority Class", "Retreat", "Screen", "Weakness",
-		"Alien Empires", "Alien Player", "Doomsday Machine", "Economic Roll",
-		"Scout", "Destroyer", "Cruiser", "Ship Yard", "Base", "Minelayer", "Minesweeper", "Colony Ship", "Mining Ship", "Pipeline", "Unique Ship",
+		"Alien Empires", "Alien Player", "Doomsday Machine", "Economic Roll", "Amoeba",
+		"Scout", "Destroyer", "Cruiser", "Dreadnought", "Titan", "Ship Yard", "Base", "Minelayer", "Minesweeper", "Colony Ship", "Mining Ship", "Pipeline", "Unique Ship",
 		"Asteroid Belt", "Asteroids", "Black Hole", "Danger", "Deep Space", "Home System", "Lost in Space", "Minerals", "Nebula", "Space Wreck", "Supernova", "Unexplored",
 		"Technology", "Attack", "Defense", "Exploration", "Minelaying", "Minesweeping", "Movement", "Nanomachine", "Scanning", "Ship Size", "Tactics", "Terraforming", "Upgrade"];
 		
@@ -582,6 +592,7 @@ function keywordifyCollection(collObj) {
 		{regex: conceptLink("Battle")+conceptLink("cruiser"), newTxt: conceptLink("Battlecruiser")},
 		{regex: conceptLink("battle")+"ship", newTxt: conceptLink("battleship")},
 		{regex: conceptLink("Battle")+"ship", newTxt: conceptLink("Battleship")},
+		{regex: conceptLink("danger")+"ous", newTxt: "dangerous"},
 		{regex: "re"+conceptLink("turn"), newTxt: "return"},
 		{regex: conceptLink("turn")+"ed", newTxt: "turned"}
 		];
