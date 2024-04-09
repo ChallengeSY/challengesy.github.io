@@ -163,16 +163,21 @@ function showBox(concept) {
 		case "turn":
 			displayTxt = "<b>Turn</b><br />Technically a regular turn. A phase in which each player moves their ships, conducts "+conceptLink("battle")+"s, and explores systems;\
 				one player at a time.<br />3 turns occur in between each "+conceptLink("economic phase")+".<br /><br />\
-				The total number of hexes a "+conceptLink("combat ship")+" or "+conceptLink("Decoy")+" may move per economic phase is determined by their "+conceptLink("Movement")+" technology level.<br />\
+				The total number of hexes a "+conceptLink("combat ship")+" or "+conceptLink("Decoy")+" may move per economic phase \
+				is determined by their "+conceptLink("Movement")+" technology level.<br />\
 				(Other "+conceptLink("non-combat ship")+"s are limited to 1 hex per turn, regardless of technology.)";
 			break;
+		case "victory point":
+			displayTxt = "<b>Victory Point</b><br />Unique resource acquired by "+conceptLink("competitive")+" players/teams or the <q>environment team</q> (generally not both). \
+				If an eligible player/team reaches the required VP quota, then they achieve victory and the scenario will end.";
+			break;
 		case "weakness":
-			displayTxt = "<b>Weakness</b><br />In the corresponding solitaire scenario, a "+conceptLink("Doomsday Machine")+" may have a weakness, depending on a d10 roll:" +
-				"<br /><br />1-2: Allows "+conceptLink("Fighters")+" to damage a DM normally" +
-				"<br />3-4: Detonating "+conceptLink("Mines")+" each can deal 1 damage to a DM, via rolling a 5 or less" +
-				"<br />5-6: "+conceptLink("Scanning")+" is jammed, allowing "+conceptLink("Raider")+"s to benefit from their "+conceptLink("Cloaking") +
-				"<br />7-8: Allows the player to benefit from "+conceptLink("Fleet Size Bonus")+", if they have at least 10 ships able to hit the DM" +
-				"<br />9-10: No weakness was found on this DM";
+			displayTxt = "<b>Weakness</b><br />In the corresponding solitaire scenario, a "+conceptLink("Doomsday Machine")+" may have a weakness, depending on a d10 roll:\
+				<br /><br />1-2: Allows "+conceptLink("Fighters")+" to damage a DM normally\
+				<br />3-4: Detonating "+conceptLink("Mines")+" each can deal 1 damage to a DM, via rolling a 5 or less\
+				<br />5-6: "+conceptLink("Scanning")+" is jammed, allowing "+conceptLink("Raider")+"s to benefit from their "+conceptLink("Cloaking") + "\
+				<br />7-8: Allows the player to benefit from "+conceptLink("Fleet Size Bonus")+", if they have at least 10 ships able to hit the DM\
+				<br />9-10: No weakness was found on this DM";
 			break;
 			
 		// Technologies
@@ -580,20 +585,28 @@ function keywordifyDocument() {
 
 function keywordifyCollection(collObj) {
 	const keyTerms = ["Space Empires 4X", "Close Encounters", "Replicators",
-		"Barren", "Bid", "Colonies", "Competitive", "CP", "Economic Phase", "Homeworld", "Hull Size", "Maintenance", "Planet", "Quick Start", "Scuttle", "Turn",
+		"Barren", "Colonies", "CP", "Economic Phase", "Homeworld", "Hull Size", "Maintenance", "Planet", "Scuttle", "Turn",
+		"Bid", "Competitive", "Quick Start", "Victory Point",
 		"Battle", "Blockade", "Bombard", "Fleet Size Bonus", "Priority Class", "Retreat", "Screen", "Weakness",
 		"Alien Empires", "Alien Player", "Doomsday Machine", "Economic Roll", "Amoeba",
-		"Scout", "Destroyer", "Cruiser", "Dreadnought", "Titan", "Ship Yard", "Base", "Minelayer", "Minesweeper", "Colony Ship", "Mining Ship", "Pipeline", "Unique Ship",
+		"Scout", "Destroyer", "Cruiser", "Dreadnought", "Titan", "Ship Yard", "Base", "Colony Ship", "Mining Ship",
+		"Minelayer", "Minesweeper", "Carrier", "Raider", "Pipeline", "Unique Ship",
 		"Asteroid Belt", "Asteroids", "Black Hole", "Danger", "Deep Space", "Home System", "Lost in Space", "Minerals", "Nebula", "Space Wreck", "Supernova", "Unexplored",
-		"Technology", "Attack", "Defense", "Exploration", "Minelaying", "Minesweeping", "Movement", "Nanomachine", "Scanning", "Ship Size", "Tactics", "Terraforming", "Upgrade"];
+		"Technology", "Attack", "Defense", "Exploration", "Movement", "Ship Size", "Tactics", "Terraforming", "Upgrade",
+		"Cloaking", "Fighter", "Minelaying", "Minesweeping", "Nanomachine", "Scanning"];
 		
 	const keyExpressions = [
 		{regex: conceptLink("battle")+conceptLink("cruiser"), newTxt: conceptLink("battlecruiser")},
 		{regex: conceptLink("Battle")+conceptLink("cruiser"), newTxt: conceptLink("Battlecruiser")},
 		{regex: conceptLink("battle")+"ship", newTxt: conceptLink("battleship")},
 		{regex: conceptLink("Battle")+"ship", newTxt: conceptLink("Battleship")},
+		{regex: conceptLink("fighter")+"s", newTxt: conceptLink("fighters")},
+		{regex: conceptLink("Fighter")+"s", newTxt: conceptLink("Fighters")},
+		{regex: "Point-"+conceptLink("Defense"), newTxt: conceptLink("Point-Defense")},
+		{regex: "point-"+conceptLink("pefense"), newTxt: conceptLink("point-defense")},
 		{regex: conceptLink("danger")+"ous", newTxt: "dangerous"},
 		{regex: "re"+conceptLink("turn"), newTxt: "return"},
+		{regex: conceptLink("Turn")+"ed", newTxt: "Turned"},
 		{regex: conceptLink("turn")+"ed", newTxt: "turned"}
 		];
 	
