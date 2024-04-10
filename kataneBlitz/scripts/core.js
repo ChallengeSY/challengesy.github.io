@@ -14,6 +14,7 @@ var firstLoad = false;
 var gameActive = false;
 var hideSolves = false;
 var needyScore = 0;
+var eggCooldown = 0;
 var singleSolvableFile = false;
 var singleNeedyFile = false;
 var endlessNeedys = true;
@@ -41,6 +42,7 @@ function startGame() {
 	goal = 9;
 	handicap = 0;
 	timeMax = 180;
+	eggCooldown = 5;
 
 	if (moduleFile.startsWith("endless")) {
 		goal = Infinity;
@@ -226,6 +228,7 @@ function solveModule(obj, cond, postSolve) {
 					applyFeedback(true, "...");
 					document.getElementById("fPanel").style.visibility = "hidden";
 				}
+				eggCooldown--;
 			}
 		} else {
 			if (obj.style.borderColor != solveColor) {

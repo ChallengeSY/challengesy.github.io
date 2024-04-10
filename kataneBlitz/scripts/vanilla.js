@@ -1955,6 +1955,7 @@ function validateKnob(readObj) {
 		reqDegrees = Infinity;
 	}
 	
+	eggCooldown--;
 	return (readDegrees == reqDegrees);
 }
 
@@ -2007,11 +2008,13 @@ function validateVentGas(readObj, affirm) {
 		} else if (displayObj.innerHTML.startsWith("Vent")) {
 			console.log("Needy module has successfully vented gas.")
 			activateVentGas(readObj, false, false);
-			if (Math.random() < 0.9) {
+			if (Math.random() < 0.9 || eggCooldown > 0) {
 				displayObj.innerHTML = "Venting complete.";
+				eggCooldown--;
 			} else {
 				displayObj.innerHTML = "Mmmm good stuff!";
 				playSound(fartSnd);
+				eggCooldown = 5;
 			}
 		} else {
 			activateVentGas(readObj, false, false);
