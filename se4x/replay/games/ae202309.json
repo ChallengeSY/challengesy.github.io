@@ -145,7 +145,11 @@
 			"name":"planetB6"
 		}]},
 	{"heading":"Player Economic Phase 1",
-	"commentary":"<p>The conclusion of our third turn transitioned us to the economic phase itself. In a multiplayer scenario, this phase is done simultaneously by all players (and secretly at that). Here is how we handled it.</p><ol><li>We start a fresh game with 0 CP</li><li>Now for our colony production: Since we have only the homeworld, we get +20 CP. Planets that have just been colonized produce 0 this phase</li><li>Next, any minerals we tow to any colony can be cashed in for a one time bonus: In this case, we cashed in a single 5. This brings us up to 25 CP</li><li>Any pipeline that connects our colonies to our homeworld produces additional CP: Since none are provided at game start, we stay at 25 CP</li><li>We need to support our combat ships: Maintenance cost is 3 CP. We drop to 22 CP</li><li>We can safely bid 0 CP. We stay at 22 CP</li><li>We will skip technology purchases this phase. We stay at 22 CP</li><li>We will buy 2 Scouts (-12 CP) and 1 Miner (-5 CP). These expenses knock us down to 5 CP</li><li>We can place our new ships <b>only</b> at our Homeworld. It is the only colony with Ship Yards. A colony needs to have already produced CP to be eligible to build a Ship Yard</li><li>Finally, we conclude our part of the economic phase by growing colonies. This will increase our production potential to 22 CP</li></ol>",
+	"commentary":"<p>The conclusion of our third turn transitioned us to the economic phase itself. In a multiplayer scenario, this phase is done simultaneously (and, in competitive play, secretly) by all players. For this first phase, we will show the economic table, and then outline how each step is done.</p>{prodTable}<ol><li>We start a fresh game with 0 CP</li><li>Now for our colony production: Since we have only the homeworld, we get +20 CP. Planets that have just been colonized produce 0 this phase</li><li>Next, any minerals we tow to any colony can be cashed in for a one time bonus: In this case, we cashed in a single 5. This brings us up to 25 CP</li><li>Any pipeline that connects our colonies to our homeworld produces additional CP: Since none are provided at game start, we stay at 25 CP</li><li>We need to support our combat ships: Maintenance cost is 3 CP. We drop to 22 CP</li><li>We can safely bid 0 CP. We stay at 22 CP</li><li>We will skip technology purchases this phase. We stay at 22 CP</li><li>We will buy 2 Scouts (-12 CP) and 1 Miner (-5 CP). These expenses knock us down to 5 CP</li><li>We can place our new ships <b>only</b> at our Homeworld. It is the only colony with Ship Yards. A colony needs to have already produced CP to be eligible to build a Ship Yard</li><li>Finally, we conclude our part of the economic phase by growing colonies. This will increase our production potential to 22 CP</li></ol>",
+	"prodTable":
+		[{
+			"name":"CSY (Blue)","initCP":0,"colonyCP":20,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":0,"unitBuy":17
+		}],
 	"actions":
 		[{
 			"placeCounter":"SC4B",
@@ -178,7 +182,7 @@
 		},{
 			"name":"Yellow","eco":1,"queue":0,"fleet":0,"tech":5,"def":0,"delta":"T","hidden":"&mdash;"
 		},{
-			"name":"(Rolls)","eco":"1-2","fleet":"&ndash;","tech":"3-10","def":"&ndash;"
+			"name":"(Rolls)","ecoPhase":1
 		}],
 	"actions":
 		[{
@@ -379,7 +383,11 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Player Economic Phase 2",
-	"commentary":"<p>We have reached another economic phase. The steps are always the same, so we will simply recap the bullets.</p><ol><li>We had 5 CP leftover from the previous economic phase</li><li>Our colony production increased to +22 CP in the last growth step. We now have 27 CP</li><li>We cash in another 5 minerals. This brings us up to 32 CP</li><li>We still have no pipelines. We stay at 32 CP</li><li>Maintenance cost has increased a little (3 &rarr; 4 CP). We drop to 28 CP</li><li>As per the scenario we are playing, we bid 0 CP throughout. We stay at 28 CP</li><li>We will buy Ship Size Level 2 (-10 CP) this phase. This drops us to 18 CP</li><li>We will buy 2 Colony Ships (-16 CP). These expenses knock us down to 2 CP</li><li>We place our new ships at our Homeworld, as usual</li><li>We finish by growing colonies. This will increase our production potential to 27 CP</li></ol>",
+	"commentary":"<p>We have reached another economic phase. The steps are always the same, so we will simply recap.</p>{prodTable}<ol><li>We had 5 CP leftover from the previous economic phase</li><li>Our colony production increased to +22 CP in the last growth step. We now have 27 CP</li><li>We cash in another 5 minerals. This brings us up to 32 CP</li><li>We still have no pipelines. We stay at 32 CP</li><li>Maintenance cost has increased a little (3 &rarr; 4 CP). We drop to 28 CP</li><li>As per the scenario we are playing, we bid 0 CP throughout. We stay at 28 CP</li><li>We will buy Ship Size Level 2 (-10 CP) this phase. This drops us to 18 CP</li><li>We will buy 2 Colony Ships (-16 CP). These expenses knock us down to 2 CP</li><li>We place our new ships at our Homeworld, as usual</li><li>We finish by growing colonies. This will increase our production potential to 27 CP</li></ol>",
+	"prodTable":
+		[{
+			"name":"CSY (Blue)","initCP":5,"colonyCP":22,"mineralCP":5,"pipeCP":0,"maint":4,"bidCP":0,"techBuy":10,"unitBuy":16
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Bload"
@@ -404,7 +412,7 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Alien Economic Phase 2",
-	"commentary":"<p>Now we do Alien Player economics. This is the first phase in which Alien Players can invest in their fleets. Still, each AP gets 1 economic roll. If they roll a 1, they permanently get an extra economic roll starting with economic phase <b>5</b>. 2-3 would instead allow them to invest in a Fleet. 4-10 to Tech.</p><p>Red Player rolled a 3 (Fleet). Green Player rolled a 10 (Tech). Yellow Player rolled an 8 (Tech).</p>{prodTable}<p>An Alien Player needs at least 6 CP in the Fleet bank to launch a combat fleet; scouts are the cheapest combat ship they will ever build. In any case, none of the players have the required CP, so no launches will take place this phase.</p>",
+	"commentary":"<p>Now we do Alien Player economics. This is the first phase in which Alien Players can invest in their fleets. Still, each AP gets 1 economic roll. If they roll a 1, they permanently get an extra economic roll starting with economic phase <b>5</b>. 2-3 would instead allow them to invest in a Fleet. 4-10 to Tech.</p><p>Red Player rolled a 3 (Fleet). Green Player rolled a 10 (Tech). Yellow Player rolled an 8 (Tech).</p>{prodTable}<p>An Alien Player needs at least 6 CP in the Fleet bank to launch a combat fleet; scouts are the cheapest combat ship they will ever build standalone. In any case, none of the players have the required CP, so no launches will take place this phase.</p>",
 	"alienTable":
 		[{
 			"name":"Red","eco":1,"queue":0,"fleet":5,"tech":5,"def":0,"delta":"F","hidden":"&mdash;"
@@ -413,7 +421,7 @@
 		},{
 			"name":"Yellow","eco":1,"queue":0,"fleet":0,"tech":10,"def":0,"delta":"T","hidden":"&mdash;"
 		},{
-			"name":"(Rolls)","eco":"1","fleet":"2-3","tech":"4-10","def":"&ndash;"
+			"name":"(Rolls)","ecoPhase":2
 		}],
 	"actions":
 		[{
@@ -648,7 +656,11 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Player Economic Phase 3",
-	"commentary":"<ol><li>We had 2 CP leftover from the previous economic phase</li><li>Our colony production increased to +27 CP in the last growth step. We now have 29 CP</li><li>We cash in another 10 minerals. This brings us up to 39 CP</li><li>We have no pipelines... yet. We stay at 39 CP</li><li>Maintenance cost has decreased sharply thanks to recent deep space losses (4 &rarr; 1 CP). We drop to 38 CP</li><li>We will buy Ship Size Level 3 (-15 CP) this phase. This drops us to 23 CP</li><li>We will buy 1 Colony Ship (-8 CP) and 2 Scouts (-12 CP). This knocks us down to 3 CP</li><li>We place our new ships at our Homeworld, as usual</li><li>We finish by growing colonies. This will increase our production potential to 35 CP</li></ol>",
+	"commentary":"<p>From here on out, we will use only the economic table, reserving the rest of the commentary for any purcahses made.</p><p>In this case, we will buy Ship Size Level 3 (-15 CP), followed by 1 Colony Ship (-8 CP) and 2 Scouts (-12 CP) at the homeworld.</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Blue)","initCP":2,"colonyCP":27,"mineralCP":10,"pipeCP":0,"maint":1,"bidCP":0,"techBuy":15,"unitBuy":20
+		}],
 	"actions":
 		[{
 			"removeCounter":"SC5B"
@@ -698,7 +710,7 @@
 		},{
 			"name":"Yellow","eco":2,"queue":0,"fleet":0,"tech":15,"def":10,"delta":"TD","hidden":"&mdash;"
 		},{
-			"name":"(Rolls)","eco":"1","fleet":"2-4","tech":"5-8","def":"9-10"
+			"name":"(Rolls)","ecoPhase":3
 		}],
 	"actions":
 		[{
@@ -849,7 +861,11 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Player Economic Phase 4",
-	"commentary":"<ol><li>We had 3 CP leftover from the previous economic phase</li><li>Our colony production increased to +35 CP in the last growth step. We now have 38 CP</li><li>We cash in another 10 minerals. This brings us up to 48 CP</li><li>Maintenance cost has increased (1 &rarr; 2 CP), because we replaced some of our losses. We drop to 46 CP</li><li>We will buy Exploration (-15 CP) this phase. This drops us to 31 CP</li><li>We will buy 1 Cruiser (-12 CP), and 1 Colony Ship (-8 CP). This knocks us down to 11 CP</li><li>We place our new ships at our Homeworld, as usual</li><li>We will buy a forward Ship Yard (-6 CP) at the recently founded colony at sector I5. This knocks us down to 5 CP</li><li>We finish by growing colonies. This will increase our production potential to 42 CP</li></ol>",
+	"commentary":"<p>We will buy Exploration (-15 CP) this phase, followed by 1 Cruiser (-12 CP), and 1 Colony Ship (-8 CP) at our Homeworld. We will buy a forward Ship Yard (-6 CP) at the recently founded colony at sector I5.</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Blue)","initCP":3,"colonyCP":35,"mineralCP":10,"pipeCP":0,"maint":2,"bidCP":0,"techBuy":15,"unitBuy":26
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Bload"
@@ -890,7 +906,7 @@
 		},{
 			"name":"Yellow","eco":2,"queue":0,"fleet":5,"tech":20,"def":10,"delta":"FT","hidden":"&mdash;"
 		},{
-			"name":"(Rolls)","eco":"1","fleet":"2-5","tech":"6-8","def":"9-10"
+			"name":"(Rolls)","ecoPhase":4
 		}],
 	"actions":
 		[{
@@ -925,7 +941,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Player Turn 13",
-	"commentary":"<p>Now that we are in a position to explore deep space once more, we opted to slow the pace down. We did our moves as usual, when we suddenly ran into our first supernova hex.</p>",
+	"commentary":"<p>Now that we are in a position to explore deep space once more, we opted to slow the pace down. We did our moves as usual, when we suddenly ran into our first supernova hex.</p><p>Supernovas are impassible, but are otherwise just an annoyance. On the other hand, this is one of the few hexes that also impedes Alien Player movement.</p>",
 	"actions":
 		[{
 			"placeCounter":"CA1B",
@@ -937,11 +953,20 @@
 			"placeCounter":"SC1B",
 			"location":"K10"
 		},{
-			"placeCounter":"SC3B",
+			"placeGhost":"SC3B",
 			"location":"I9"
+		},{
+			"placeCounter":"SC3B",
+			"location":"I8"
 		},{
 			"placeCounter":"Miner1B",
 			"location":"K9"
+		},{
+			"removeCounter":"Miner1Bload"
+		},{
+			"placeCounter":"systemK9",
+			"location":"K9",
+			"name":"minerals5"
 		},{
 			"placeCounter":"Miner2B",
 			"location":"J6"
@@ -957,34 +982,6 @@
 		},{
 			"revealCounter":"systemI9",
 			"name":"supernova"
-		}]},
-	{"heading":"Involuntary Effects 13",
-	"commentary":"<p>A supernova is strictly an impassable obstacle. This slows us down a little.</p>",
-	"actions":
-		[{
-			"placeCounter":"SC3B",
-			"location":"I8"
-		},{
-			"placeCounter":"CA1B",
-			"location":"K6"
-		},{
-			"placeCounter":"CO7B",
-			"location":"K7"
-		},{
-			"placeCounter":"SC1B",
-			"location":"K10"
-		},{
-			"placeCounter":"Miner1B",
-			"location":"K9"
-		},{
-			"placeCounter":"Miner2B",
-			"location":"J6"
-		},{
-			"removeCounter":"Miner1Bload"
-		},{
-			"placeCounter":"systemK9",
-			"location":"K9",
-			"name":"minerals5"
 		},{
 			"revealCounter":"systemJ11",
 			"name":"unexploredW"
@@ -1092,7 +1089,11 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Player Economic Phase 5",
-	"commentary":"<ol><li>We had 5 CP leftover from the previous economic phase</li><li>Our colony production increased to +42 CP in the last growth step. We now have 47 CP</li><li>We cash in 15 minerals this time. This brings us up to 62 CP</li><li>Maintenance cost has increased (2 &rarr; 4 CP). We drop to 58 CP</li><li>We will buy Terraforming (-20 CP) this phase. This drops us to 38 CP</li><li>We will buy 1 Cruiser (-12 CP), and 3 Colony Ships (-24 CP). This knocks us down to 2 CP</li><li>We place 1 Colony Ship at our forward Ship Yard, and the rest at our Homeworld</li><li>We finish by growing colonies. This will increase our production potential to 48 CP</li></ol>",
+	"commentary":"<p>We will buy Terraforming (-20 CP) this phase, followed by 1 Cruiser (-12 CP), and 3 Colony Ships (-24 CP). We place 1 Colony Ship at our forward Ship Yard, and the rest at our Homeworld</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Blue)","initCP":5,"colonyCP":42,"mineralCP":15,"pipeCP":0,"maint":4,"bidCP":0,"techBuy":20,"unitBuy":36
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner2Bload"
@@ -1135,7 +1136,7 @@
 		},{
 			"name":"Yellow","eco":2,"queue":0,"fleet":15,"tech":20,"def":10,"delta":"F","hidden":"&mdash;"
 		},{
-			"name":"(Rolls)","eco":"1","fleet":"2-5","tech":"6-9","def":"10"
+			"name":"(Rolls)","ecoPhase":5
 		}],
 	"actions":
 		[{
@@ -1370,7 +1371,11 @@
 			"name":"planetB7"
 		}]},
 	{"heading":"Player Economic Phase 6",
-	"commentary":"<ol><li>We had 2 CP leftover from the previous economic phase</li><li>Our colony production increased to +48 CP in the last growth step. We now have 50 CP</li><li>We cash in 10 minerals this time. This brings us up to 60 CP</li><li>Maintenance cost unchanged (4 &rarr; 4 CP). We drop to 56 CP</li><li>We will skip tech purchases this phase. We stay at 56 CP</li><li>We will buy 2 Cruisers (-24 CP), and 1 Colony Ships (-8 CP). This knocks us down to 24 CP</li><li>We place 1 Colony Ship at our forward Ship Yard, and the Cruisers at our Homeworld</li><li>We will buy 2 forward Ship Yards (-12 CP), placing them in systems I5 and I8. This knocks us down to 12 CP</li><li>We finish by growing colonies. This will increase our production potential to 53 CP</li></ol>",
+	"commentary":"<p>We will buy 2 Cruisers (-24 CP), and 1 Colony Ships (-8 CP). We place 1 Colony Ship at our forward Ship Yard, and the Cruisers at our Homeworld. We will buy 2 forward Ship Yards (-12 CP), placing them in systems I5 and I8.</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Blue)","initCP":2,"colonyCP":48,"mineralCP":10,"pipeCP":0,"maint":4,"bidCP":0,"techBuy":0,"unitBuy":44
+		}],
 	"actions":
 		[{
 			"removeCounter":"SC3B"
@@ -1420,7 +1425,7 @@
 		},{
 			"name":"Yellow","eco":3,"queue":0,"fleet":30,"tech":20,"def":10,"delta":"F","hidden":"&mdash;"
 		},{
-			"name":"(Rolls)","eco":"1","fleet":"2-6","tech":"7-9","def":"10"
+			"name":"(Rolls)","ecoPhase":6
 		}],
 	"actions":
 		[{
@@ -1612,7 +1617,11 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Player Economic Phase 7",
-	"commentary":"<ol><li>We had 12 CP leftover from the previous economic phase</li><li>Our colony production increased to +53 CP in the last growth step. We now have 65 CP</li><li>We cash in 10 minerals this time. This brings us up to 75 CP</li><li>Maintenance cost increased (4 &rarr; 8 CP). We drop to 67 CP</li><li>We will buy Attack Tech Level 1 (-20 CP) this phase. We drop to 47 CP</li><li>We will buy 4 Colony Ships (-32 CP). This knocks us down to 15 CP. We place one at our forward site of I5, and the rest at our Homeworld</li><li>We will buy a Defensive Base (-12 CP) at J3. This knocks us down to 3 CP</li><li>We finish by growing colonies. This will increase our production potential to 61 CP</li></ol><p>It is worth mentioning we have exhausted our stock of Colony Ships. We won't be able to build any more until we lose such a ship, or a colony it founds.</p>",
+	"commentary":"<p>We will buy Attack Tech Level 1 (-20 CP) this phase, followed by 4 Colony Ships (-32 CP). We place one at our forward site of I5, and the rest at our Homeworld. We also buy a Defensive Base (-12 CP) at J3</p>{prodTable}<p>It is worth mentioning we have exhausted our stock of Colony Ships. We will not be able to build any more until we lose such a ship, or a colony it founds.</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Blue)","initCP":12,"colonyCP":53,"mineralCP":10,"pipeCP":0,"maint":8,"bidCP":0,"techBuy":20,"unitBuy":44
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Bload"
@@ -1665,7 +1674,7 @@
 		},{
 			"name":"Yellow","eco":3,"queue":0,"fleet":35,"tech":30,"def":10,"delta":"FT","hidden":"&mdash;"
 		},{
-			"name":"(Rolls)","eco":"&mdash;","fleet":"1-5","tech":"6-9","def":"10"
+			"name":"(Rolls)","ecoPhase":7
 		}],
 	"actions":
 		[{
@@ -1911,6 +1920,9 @@
 			"location":"I3",
 			"name":"hiddenR"
 		},{
+			"placeGhost":"hiddenG",
+			"location":"G8"
+		},{
 			"placeCounter":"fleetG1",
 			"location":"H8"
 		},{
@@ -1999,7 +2011,11 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Player Economic Phase 8",
-	"commentary":"<p>Lastly, combat ships have the ability to blockade enemy colonies. This prohibits that colony from producing CP. (Alien Player homeworlds are immune to the effects of blockades.)</p><ol><li>We had 3 CP leftover from the previous economic phase</li><li>We have a colony production of +58 CP (+59 with no blockade effect). We now have 61 CP</li><li>We cash in 10 minerals this time. This brings us up to 71 CP</li><li>Maintenance cost decreased (8 &rarr; 6 CP), because we lost a Cruiser in battle. We drop to 65 CP</li><li>We will buy Movement Tech Level 2 (-20 CP) this phase. We drop to 45 CP</li><li>We will buy 7 Scouts (-42 CP). This knocks us down to 3 CP. We place two at our forward site of I5, one at our  forward site of I8, and the rest at our Homeworld</li><li>We finish by growing colonies. Assuming no further damage, this will increase our production potential to 71 CP</li></ol>",
+	"commentary":"<p>Lastly, combat ships have the ability to blockade enemy colonies, prohibiting CP production. (Alien Player homeworlds are immune to the effects of blockades.)</p><p>We will buy Movement Tech Level 2 (-20 CP) this phase, followed by 7 Scouts (-42 CP). We place two at our forward site of I5, one at our forward site of I8, and the rest at our Homeworld.</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Blue)","initCP":3,"colonyCP":58,"mineralCP":10,"pipeCP":0,"maint":6,"bidCP":0,"techBuy":20,"unitBuy":42
+		}],
 	"actions":
 		[{
 			"removeCounter":"DD1G"
@@ -2049,7 +2065,7 @@
 		},{
 			"name":"Yellow","eco":3,"queue":0,"fleet":15,"tech":30,"def":10,"delta":"F","hidden":"35"
 		},{
-			"name":"(Rolls)","eco":"&mdash;","fleet":"1-5","tech":"6-9","def":"10"
+			"name":"(Rolls)","ecoPhase":8
 		}],
 	"actions":
 		[{
@@ -2146,7 +2162,7 @@
 			"revealCounter":"systemG10",
 			"name":"unexploredW"
 		}]},
-	{"heading":"Combined Turn 27",
+	{"heading":"Combined Turn 26",
 	"commentary":"<p>We continue to take advantage of the Cruiser Exploration technology. In this case, we nullified a Danger effect just before moving in on our own accord. The straggler from last turn rolls a 7 (miss).</p>",
 	"actions":
 		[{
@@ -2221,6 +2237,9 @@
 			"placeCounter":"CA2B",
 			"location":"F10"
 		},{
+			"placeGhost":"SC1B",
+			"location":"I8"
+		},{
 			"placeCounter":"SC1B",
 			"location":"H8"
 		},{
@@ -2281,6 +2300,9 @@
 			"placeCounter":"fleetR2",
 			"location":"J3",
 			"name":"hiddenR"
+		},{
+			"placeGhost":"hiddenG",
+			"location":"G8"
 		},{
 			"placeCounter":"SC2G",
 			"location":"H8"
@@ -2346,7 +2368,11 @@
 			"removeCounter":"SC4B"
 		}]},
 	{"heading":"Player Economic Phase 9",
-	"commentary":"<p>Taking advantage of our recent successes, we have consolidated our victorious Scouts into bigger groups.</p><ol><li>We had 3 CP leftover from the previous economic phase</li><li>We have managed to end their blockade with no further damage. Colony production is +71 CP. We now have 74 CP</li><li>We cash in 10 minerals this time. This brings us up to 84 CP</li><li>Maintenance cost increased significantly (6 &rarr; 13 CP), because we built a bunch of Scouts. We drop to 71 CP</li><li>We will buy Ship Yard Tech Level 2 (-20 CP) this phase. We drop to 51 CP</li><li>We will buy 4 Scouts (-24 CP). This knocks us down to 27 CP. We place three at our forward site of I5, and one at our forward site of I8</li><li>We will also buy Ship Yards at each of I5 and I8 (-12 CP total). This knocks us down to 15 CP</li><li>We finish by growing colonies. This will increase our production potential to 82 CP</li></ol>",
+	"commentary":"<p>Taking advantage of our recent successes, we have consolidated our victorious Scouts into bigger groups; not to mention have ended their blockade with no further damage.</p><p>We will buy Ship Yard Tech Level 2 (-20 CP) this phase, followed by 4 Scouts (-24 CP). We place three at our forward site of I5, and one at our forward site of I8. We will also buy Ship Yards at each of I5 and I8 (-12 CP total).s</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Blue)","initCP":3,"colonyCP":71,"mineralCP":10,"pipeCP":0,"maint":13,"bidCP":0,"techBuy":20,"unitBuy":36
+		}],
 	"actions":
 		[{
 			"removeCounter":"SC2R"
@@ -2391,7 +2417,7 @@
 		},{
 			"name":"Yellow","eco":3,"queue":0,"fleet":25,"tech":30,"def":30,"delta":"FD","hidden":"35"
 		},{
-			"name":"(Rolls)","eco":"&mdash;","fleet":"1-5","tech":"6-9","def":"10"
+			"name":"(Rolls)","ecoPhase":9
 		}],
 	"actions":
 		[{
@@ -2615,6 +2641,9 @@
 			"placeCounter":"SC1B",
 			"location":"F8"
 		},{
+			"placeGhost":"SC3B",
+			"location":"G7"
+		},{
 			"placeCounter":"SC3B",
 			"location":"F8"
 		},{
@@ -2691,7 +2720,11 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Player Economic Phase 10",
-	"commentary":"<ol><li>We had 15 CP leftover from the previous economic phase</li><li>Colony production is +82 CP. We now have 97 CP</li><li>We cash in <b>20</b> minerals this time. This brings us up to 117 CP</li><li>Maintenance cost unchanged (13 &rarr; 13 CP). Yes, we built 4 Hull Sizes worth of ships, but we also lost 4 Hull Sizes worth. We drop to 104 CP</li><li>We will buy Ship Yard Tech Level 3 (-25 CP) and Movement Tech level 3 (-25 CP) this phase. We drop to 44 CP</li><li>We will buy 7 Scouts (-42 CP). This knocks us down to 2 CP. We place three at our forward site of I5, and four at our forward site of I8</li><li>We finish by growing colonies. This will increase our production potential to 89 CP</li></ol>",
+	"commentary":"<p>We will buy Ship Yard Tech Level 3 (-25 CP) and Movement Tech level 3 (-25 CP) this phase, followed by 7 Scouts (-42 CP). We place three at our forward site of I5, and four at our forward site of I8.</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Blue)","initCP":15,"colonyCP":82,"mineralCP":20,"pipeCP":0,"maint":13,"bidCP":0,"techBuy":50,"unitBuy":42
+		}],
 	"actions":
 		[{
 			"removeCounter":"DD3G"
@@ -2732,7 +2765,7 @@
 		},{
 			"name":"Yellow","eco":4,"queue":0,"fleet":40,"tech":35,"def":30,"delta":"FT","hidden":"35"
 		},{
-			"name":"(Rolls)","eco":"&mdash;","fleet":"1-6","tech":"7-9","def":"10"
+			"name":"(Rolls)","ecoPhase":10
 		}],
 	"actions":
 		[{
@@ -2832,6 +2865,9 @@
 			"placeCounter":"SC1B",
 			"location":"F8"
 		},{
+			"placeGhost":"SC2B",
+			"location":"H7"
+		},{
 			"placeCounter":"SC2B",
 			"location":"G7"
 		},{
@@ -2863,6 +2899,9 @@
 		},{
 			"revealCounter":"systemJ1",
 			"name":"spaceWreck"
+		},{
+			"placeGhost":"SC1B",
+			"location":"E7"
 		},{
 			"placeCounter":"SC1B",
 			"location":"D7"
@@ -2916,7 +2955,7 @@
 			"location":"D7"
 		}]},
 	{"heading":"Alien Turn 33",
-	"commentary":"<h2>Alien Turn 33</h2><p>We got slaughtered quickly, but it was worth a try. Still; since we stirred up a hornet's nest, the one surviving <q>hornet</q> scout is allowed to move.</p><p>Somehow, we forgot this was the very same Alien Player who bought Movement level 2.</p>",
+	"commentary":"<p>We got slaughtered quickly, but it was worth a try. Still; since we stirred up a hornet's nest, the one surviving <q>hornet</q> scout is allowed to move.</p><p>Somehow, we forgot this was the very same Alien Player who bought Movement level 2.</p>",
 	"actions":
 		[{
 			"removeCounter":"minesG"
@@ -2945,7 +2984,11 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Player Economic Phase 11",
-	"commentary":"<ol><li>We had 2 CP leftover from the previous economic phase</li><li>Colony production is +89 CP. We now have 91 CP</li><li>We cash in 10 minerals this time. This brings us up to 101 CP</li><li>Maintenance cost took a huge drop (13 &rarr; 4 CP), thanks to battle losses. We drop to 97 CP</li><li>We will buy Defense Tech Level 1 (-20 CP) this phase. We drop to 77 CP</li><li>We will buy 8 Scouts (-48 CP) and 1 Cruiser (-12 CP). We drop to 17 CP. We place 6 scouts at I8, and the rest at I5</li><li>We will also buy Ship Yards at I5 and I8 (-12 CP). We drop to 5 CP</li><li>We finish by growing colonies. This will increase our production potential to 93 CP. We are almost done with growth (assuming no further damage)</li></ol>",
+	"commentary":"<p>We will buy Defense Tech Level 1 (-20 CP) this phase, followed by 8 Scouts (-48 CP) and 1 Cruiser (-12 CP). We place 6 scouts at I8, and the rest at I5. We will also buy Ship Yards at I5 and I8 (-12 CP).</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Blue)","initCP":12,"colonyCP":89,"mineralCP":10,"pipeCP":0,"maint":4,"bidCP":0,"techBuy":20,"unitBuy":72
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner2Bload"
@@ -2975,7 +3018,7 @@
 		},{
 			"name":"Yellow","eco":4,"queue":0,"fleet":15,"tech":40,"def":30,"delta":"FT","hidden":"35 / 40"
 		},{
-			"name":"(Rolls)","eco":"&mdash;","fleet":"1-6","tech":"7-9","def":"10"
+			"name":"(Rolls)","ecoPhase":11
 		}],
 	"actions":
 		[{
@@ -3044,6 +3087,9 @@
 		[{
 			"revealCounter":"systemG6",
 			"name":"supernova"
+		},{
+			"placeGhost":"SC1B",
+			"location":"G7"
 		},{
 			"placeCounter":"SC1B",
 			"location":"F7"
@@ -3118,6 +3164,9 @@
 			"location":"K1",
 			"name":"spaceWreck"
 		},{
+			"placeGhost":"SC4G",
+			"location":"G4"
+		},{
 			"placeCounter":"SC4G",
 			"location":"H4"
 		},{
@@ -3134,7 +3183,11 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Player Economic Phase 12",
-	"commentary":"<p>Surprise, surprise... Granted, we acknowledged a screw up a couple turns ago; but we had no battles this time around.</p><ol><li>We had 3 CP leftover from the previous economic phase</li><li>Colony production is +93 CP. We now have 96 CP</li><li>We didn't cash in any minerals this time. We stay at 96 CP</li><li>We <b>did</b> cash in a Space Wreck! This does not yield CP. Rather, it yields a random technology. We rolled a 2 (Ship Size Lv4 granted).</li><li>Maintenance cost went way back up (4 &rarr; 13 CP), because we rebuilt our ships. We drop to 83 CP</li><li>We will buy Movement Tech Level 4 (-25 CP) this phase. We drop to 58 CP</li><li>We will buy 4 Cruisers (-48 CP). This knocks us down to 10 CP. We place them at I5</li><li>We finish by growing colonies. We have achieved the maximum production of 95 CP</li></ol>",
+	"commentary":"<p>Surprise, surprise... Granted, we acknowledged a screw up a couple turns ago; but we had no battles this time around. One could say we <q>bribed</q> Green Player for 10 CP, which explains why some of our money suddenly evaporated.</p><p>We cashed in a Space Wreck! We rolled a 2 (Ship Size Lv4 granted). We will buy Movement Tech Level 4 (-25 CP), followed by 4 Cruisers (-48 CP). We place them at I5.</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Blue)","initCP":5,"colonyCP":93,"mineralCP":0,"pipeCP":0,"maint":13,"bidCP":0,"techBuy":25,"unitBuy":48
+		}],
 	"actions":
 		[{
 			"removeCounter":"SC4B"
@@ -3159,7 +3212,7 @@
 		},{
 			"name":"Yellow","eco":4,"queue":0,"fleet":30,"tech":45,"def":30,"delta":"FT","hidden":"35 / 40"
 		},{
-			"name":"(Rolls)","eco":"&mdash;","fleet":"1-6","tech":"7-9","def":"10"
+			"name":"(Rolls)","ecoPhase":12
 		}],
 	"actions":
 		[{
@@ -3200,6 +3253,9 @@
 			"placeCounter":"systemL1",
 			"location":"L1",
 			"name":"lost"
+		},{
+			"placeGhost":"CA3B",
+			"location":"I6"
 		},{
 			"placeCounter":"CA3B",
 			"location":"H7"
@@ -3245,6 +3301,9 @@
 			"placeCounter":"SC3B",
 			"location":"F8"
 		},{
+			"placeGhost":"CA2B",
+			"location":"G7"
+		},{
 			"placeCounter":"CA2B",
 			"location":"F8"
 		},{
@@ -3279,6 +3338,9 @@
 			"placeCounter":"CA3B",
 			"location":"D7"
 		},{
+			"placeGhost":"SC3B",
+			"location":"E7"
+		},{
 			"placeCounter":"SC3B",
 			"location":"D7"
 		},{
@@ -3302,6 +3364,8 @@
 		},{
 			"revealCounter":"systemI3",
 			"name":"colony3"
+		},{
+			"removeCounter":"CA1G"
 		}]},
 	{"heading":"The Second Battle for Chulak",
 	"commentary":"<p>We have reached Chulak again, with 5 Cruisers and 8 Scouts. They were able to rebuild the Def bank a little (to 10 CP), but it is only enough to build 2 Mines, and not a single Base.</p><p>Since they are defending, they will not buy Movement tech <em>even if</em> they could afford it. 20 CP is sufficient to buy Ship Size Level 3, but this is not a guaranteed roll. They roll a 5 (success, for -15 CP). That is all they can afford for tech.</p><p>The 37 Fleet CP that they have is now spent launching a fleet. Their biggest ship is now a Cruiser (-12 CP). That leaves 25 CP they can spend on these: 2 more Cruisers (Largest Ships) or 4 Scouts (otherwise). They roll an 8 (Largest Ships), so that gives them a total of 3 Cruisers.</p><ol><li><b>Round 1</b>: Their 2 Mines instantly destroy 2 of our Cruisers. This consumes them. We still have 3 Cruisers left (along with 8 Scouts), to their 9 defenders. Fleets are equal size</li><li>Their 6 Bases will fire first. They will prioritize our Scouts. 1 of our 8 Scouts is outdated, and is missing Defense +1 (7 to hit). The first Base rolled a 4 (<b>hit</b>)</li><li>The remainig 7 Scouts do have Defense +1, lowering the chance to hit (&le;6). The remaining 5 Bases rolled 1,2,5,6,9 (4 hits)</li><li>Tactics are equal, so their 3 Cruisers are next. We have 3 Scouts left (4 - 1 = 3 to hit). They roll 1,8,9 (1 hit)</li><li>Our 3 Cruisers can now fire their weapons. We will target their Cruisers (4 to hit). We roll 1,6,7 (1 hit). We damaged a Cruiser</li><li>Our 2 surviving Scouts can also help out against their Cruisers (4 - 1 = 3 to hit). We roll 5,6 (0 hits)<br /><br /></li><li><b>Round 2</b>: Their 6 Bases will fire again. Since there are not enough Scouts, they will roll until 2 hits are scored. They rolled 7,1,4 this way</li><li>3 of their Bases are still available to clean up our 3 Cruisers (7 - 2 = 5 to hit). They rolled 1,1,6 (2 hits). We lost a Cruiser</li><li>Their 3 Cruiser are still available to clean up our 2 Cruisers (4 - 2 = 2 to hit). They rolled 1,8,10 (1 hit). Another Cruiser of ours is damaged</li><li>We have decided that our 2 surviving Crusiers will retreat to Sector E7.</li></ol>",
@@ -3339,6 +3403,9 @@
 			"placeCounter":"CA2B",
 			"location":"E7"
 		},{
+			"placeGhost":"CA1G",
+			"location":"E6"
+		},{
 			"placeCounter":"CA1G",
 			"location":"F7"
 		},{
@@ -3346,7 +3413,11 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Player Economic Phase 13",
-	"commentary":"<ol><li>We had 10 CP leftover from the previous economic phase</li><li>Colony production stayed at +93 CP, because one of our colonies was damaged within the past 3 turns. We now have 103 CP</li><li>Maintenance cost fell back down (13 &rarr; 6 CP), because of battle losses. We drop to 97 CP</li><li>We will skip tech purchases this phase. We stay at 97 CP</li><li>We will buy 14 Scouts (-84 CP), dropping us to 13 CP. We will place 8 at I5, and 6 at I8</li><li>We will also buy Ship Yards at each of I5 and I8 (-12 CP), dropping us to 1 CP</li><li>We finish by repairing our damaged colony. This brings us back to +95 CP per phase</li></ol>",
+	"commentary":"<p>We will buy 14 Scouts (-84 CP). We will place 8 at I5, and 6 at I8. We will also buy Ship Yards at each of I5 and I8 (-12 CP).</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Blue)","initCP":12,"colonyCP":93,"mineralCP":0,"pipeCP":0,"maint":6,"bidCP":0,"techBuy":0,"unitBuy":96
+		}],
 	"actions":
 		[{
 			"placeCounter":"SC1B",
@@ -3371,7 +3442,7 @@
 		},{
 			"name":"Yellow","eco":4,"queue":0,"fleet":50,"tech":45,"def":30,"delta":"F","hidden":"35 / 40"
 		},{
-			"name":"(Rolls)","eco":"&mdash;","fleet":"1-6","tech":"7-10","def":"&mdash;"
+			"name":"(Rolls)","ecoPhase":13
 		}],
 	"actions":
 		[{
@@ -3423,6 +3494,9 @@
 		},{
 			"placeCounter":"SC1B",
 			"location":"H8"
+		},{
+			"placeGhost":"SC2B",
+			"location":"I6"
 		},{
 			"placeCounter":"SC2B",
 			"location":"H7"
@@ -3506,7 +3580,11 @@
 			"removeCounter":"DD2B"
 		}]},
 	{"heading":"Player Economic Phase 14",
-	"commentary":"<ol><li>We had 1 CP leftover from the previous economic phase</li><li>Colony production is maxed at +95 CP. We now have 96 CP</li><li>Maintenance cost went <b>way up</b> (6 &rarr; 20 CP), because of construction. We drop to 76 CP</li><li>We will skip tech purchases this phase. We stay at 76 CP</li><li>We will buy 8 Destroyers (-72 CP), dropping us to 4 CP. We will place them at I5</li></ol>",
+	"commentary":"<p>We will buy 8 Destroyers (-72 CP), placing them at I5.</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Blue)","initCP":3,"colonyCP":95,"mineralCP":0,"pipeCP":0,"maint":20,"bidCP":0,"techBuy":0,"unitBuy":72
+		}],
 	"actions":
 		[{
 			"removeCounter":"systemF4"
@@ -3527,7 +3605,7 @@
 		},{
 			"name":"Yellow","eco":4,"queue":0,"fleet":65,"tech":50,"def":30,"delta":"F","hidden":"35 / 40"
 		},{
-			"name":"(Rolls)","eco":"&mdash;","fleet":"1-6","tech":"7-10","def":"&mdash;"
+			"name":"(Rolls)","ecoPhase":14
 		}],
 	"actions":
 		[{
@@ -3582,6 +3660,9 @@
 		[{
 			"revealCounter":"systemE4",
 			"name":"minerals10"
+		},{
+			"placeGhost":"DD1B",
+			"location":"I6"
 		},{
 			"placeCounter":"DD1B",
 			"location":"H7"
@@ -3639,6 +3720,9 @@
 			"placeCounter":"DD1B",
 			"location":"F8"
 		},{
+			"placeGhost":"DD2B",
+			"location":"G7"
+		},{
 			"placeCounter":"DD2B",
 			"location":"F8"
 		},{
@@ -3692,6 +3776,9 @@
 		},{
 			"placeCounter":"CA2B",
 			"location":"D7"
+		},{
+			"placeGhost":"DD1B",
+			"location":"E7"
 		},{
 			"placeCounter":"DD1B",
 			"location":"D7"
@@ -3780,7 +3867,11 @@
 			"removeCounter":"MSB05"
 		}]},
 	{"heading":"Player Economic Phase 15",
-	"commentary":"<ol><li>We had 4 CP leftover from the previous economic phase</li><li>Colony production is at +90 CP, because a blockade is in effect. We now have 94 CP</li><li>We opt to scuttle our oldest Cruiser. It has served us well</li><li>Maintenance cost dropped somewhat (20 &rarr; 17 CP). We drop to 77 CP</li><li>We will skip tech purchases this phase. We stay at 77 CP</li><li>We will buy 5 Cruisers (-60 CP), dropping us to 17 CP. We will place them at I5</li><li>We will buy 5 Pipelines (-15 CP), dropping us to 2 CP. We will place 4 at I8, and the fifth at Terra (L7 / our homeworld)</li><li>We finish by repairing our damaged colony at I3. Potential production is back up to +93 CP</li></ol>",
+	"commentary":"<p>Our production is slightly reduced due to an active blockade. We opt to scuttle our oldest Cruiser. It has served us well. Instead, we will buy 5 Cruisers (-60 CP), placing them at I5. We will buy 5 Pipelines (-15 CP), placing 4 at I8, and the fifth at our homeworld of Terra.</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Blue)","initCP":6,"colonyCP":90,"mineralCP":0,"pipeCP":0,"maint":17,"bidCP":0,"techBuy":0,"unitBuy":75
+		}],
 	"actions":
 		[{
 			"removeCounter":"CA1B"
@@ -3823,7 +3914,7 @@
 		},{
 			"name":"Yellow","eco":5,"queue":0,"fleet":20,"tech":55,"def":30,"delta":"FT","hidden":"35 / 40 / 65"
 		},{
-			"name":"(Rolls)","eco":"&mdash;","fleet":"1-7","tech":"8-10","def":"&mdash;"
+			"name":"(Rolls)","ecoPhase":15
 		}],
 	"actions":
 		[{
@@ -3888,6 +3979,9 @@
 			"placeCounter":"Miner2Bload",
 			"location":"G4"
 		},{
+			"placeGhost":"CA4B",
+			"location":"J5"
+		},{
 			"placeCounter":"CA4B",
 			"location":"J4"
 		},{
@@ -3912,6 +4006,9 @@
 		[{
 			"revealCounter":"systemI3",
 			"name":"planetW4"
+		},{
+			"placeGhost":"CA3B",
+			"location":"F6"
 		},{
 			"placeCounter":"CA3B",
 			"location":"F5"
@@ -4014,7 +4111,11 @@
 			"removeCounter":"MSB07"
 		}]},
 	{"heading":"Player Economic Phase 16",
-	"commentary":"<ol><li>We had 2 CP leftover from the previous economic phase</li><li>Colony production stayed at +90 CP, because we lost one of our colonies. We now have 92 CP</li><li>We cashed in the last of the minerals (+10 CP), bringing us to 102 CP. Since there are neither minerals nor space wrecks left, there is no sense in keeping our Mining Ships</li><li>We have also started our Pipeline network at last. We get a bonus 3 CP for connecting our colonies to our homeworld of Terra. Now at 105 CP</li><li>Maintenance cost increased (17 &rarr; 25 CP), thanks to construction. We drop to 80 CP</li><li>We will buy Minesweeping tech level 1 (-10 CP) this phase. We drop to 70 CP</li><li>We will buy 2 Minesweepers (-12 CP), 6 Scouts (-36 CP), 1 Destroyer (-9 CP), and 1 Colony Ship (-8 CP); dropping us to 7 CP. We will place them all at I5</li><li>We will buy 2 Pipelines (-6 CP), dropping us to 1 CP. We will place them at I8</li><li>We have no growth left at this time. We stay at +90 CP production</li></ol>",
+	"commentary":"<p>We recently lost a colony. On the other hand, we cashed in the last of the minerals (+10 CP), bringing us to 102 CP. Since there are neither minerals nor space wrecks left, there is no sense in keeping our Mining Ships.</p><p>We will buy Minesweeping tech level 1 (-10 CP) this phase, followed by 2 Minesweepers (-12 CP), 6 Scouts (-36 CP), 1 Destroyer (-9 CP), and 1 Colony Ship (-8 CP). We will place them all at I5. We also buy 2 Pipelines (-6 CP), placing them at I8.</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Blue)","initCP":4,"colonyCP":90,"mineralCP":10,"pipeCP":3,"maint":25,"bidCP":0,"techBuy":10,"unitBuy":71
+		}],
 	"actions":
 		[{
 			"revealCounter":"MSB04",
@@ -4057,7 +4158,7 @@
 		},{
 			"name":"Yellow","eco":5,"queue":0,"fleet":40,"tech":60,"def":30,"delta":"FT","hidden":"35 / 40 / 65"
 		},{
-			"name":"(Rolls)","eco":"&mdash;","fleet":"1-7","tech":"8-10","def":"&mdash;"
+			"name":"(Rolls)","ecoPhase":16
 		}],
 	"actions":
 		[{
@@ -4128,6 +4229,9 @@
 			"placeCounter":"CA3B",
 			"location":"I3"
 		},{
+			"placeGhost":"DD1B",
+			"location":"H4"
+		},{
 			"placeCounter":"DD1B",
 			"location":"I3"
 		},{
@@ -4142,6 +4246,9 @@
 		},{
 			"placeCounter":"SW1B",
 			"location":"J4"
+		},{
+			"placeGhost":"SC3B",
+			"location":"J5"
 		},{
 			"placeCounter":"SC3B",
 			"location":"J4"
@@ -4187,6 +4294,9 @@
 			"placeCounter":"SC2B",
 			"location":"I1"
 		},{
+			"placeGhost":"CA4B",
+			"location":"I2"
+		},{
 			"placeCounter":"CA4B",
 			"location":"I1"
 		},{
@@ -4195,6 +4305,9 @@
 		},{
 			"placeCounter":"SC3B",
 			"location":"I2"
+		},{
+			"placeGhost":"DD2B",
+			"location":"J3"
 		},{
 			"placeCounter":"DD2B",
 			"location":"I2"
@@ -4220,7 +4333,7 @@
 			"removeCounter":"minesR"
 		}]},
 	{"heading":"(Turn 51) The First Battle for Altair",
-	"commentary":"<p>We have started our assault against the Red homeworld of Altair, with a fleet comprising of 7 Cruisers, 3 Destroyers, 17 Scouts, and 2 Minesweepers. Since this is its first time in battle, they can spend their 50 Def CP to defend their homeworld. They roll a 5 for composition (Balanced). This gives them 3 more Bases and 2 Mines.</p><p>They have no Fleet CP left to build another fleet. Whatever was built from the Def budget is all they have to defend their homeworld.</p><ol><li><b>Round 1</b>: Their 2 Mines try to detonate... except we have Minesweepers that have neutralized them</li><li>We have 29 ships total versus their 4 Bases. We will screen no ships. We gain a Fleet Size Bonus</li><li>Their 4 Bases will go first, against our 3 Destroyers (7 - 1 = 6 to hit). They rolled 2,3,9,4 (in that order; 3 hits). They wiped our Destroyers out</li><li>We still have 7 Cruisers that can respond (4 + 1 + 1 - 2 = 4 to hit). We rolled 1,1,2,2,3,4,8 (6 hits). We cleanly destroyed 2 of their Bases</li><li>Our 17 Scouts are next (3 + 1 + 1 - 2 = 3 to hit). We rolled 1,2,2,2,2,3,4,5,6,6,6,7,8,8,8,8,9 (6 hits). We finished off the orbital protection already!<br /><br /></li><li><b>Bombardment Round</b>: Our 7 Cruisers will go first (4 + 1 = 5 to hit). We rolled 1,2,6,6,7,8,10 (2 hits). We damaged their homeworld to stage 10 CP</li><li>Our 17 Scouts are next (3 + 1 = 4 to hit). We rolled 1,1,2,3,3,3,5,5,5,6,6,6,7,7,8,9,10 (6 hits). Altair has been glassed!</li></ol>",
+	"commentary":"<p>We have started our assault against the Red homeworld of Altair, with a fleet comprising of 7 Cruisers, 3 Destroyers, 17 Scouts, and 2 Minesweepers. Since this is its first time in battle, they can spend their 50 Def CP to defend their homeworld. They roll a 5 for composition (Balanced). This gives them 3 more Bases and 2 Mines.</p><p>They have no Fleet CP left to build another fleet, nor is their Tech CP sufficient to invest in any more technology. Whatever was built from the Def budget is all they have to defend their homeworld.</p><ol><li><b>Round 1</b>: Their 2 Mines try to detonate... except we have Minesweepers that have neutralized them</li><li>We have 29 ships total versus their 4 Bases. We will screen no ships. We gain a Fleet Size Bonus</li><li>Their 4 Bases will go first, against our 3 Destroyers (7 - 1 = 6 to hit). They rolled 2,3,9,4 (in that order; 3 hits). They wiped our Destroyers out</li><li>We still have 7 Cruisers that can respond (4 + 1 + 1 - 2 = 4 to hit). We rolled 1,1,2,2,3,4,8 (6 hits). We cleanly destroyed 2 of their Bases</li><li>Our 17 Scouts are next (3 + 1 + 1 - 2 = 3 to hit). We rolled 1,2,2,2,2,3,4,5,6,6,6,7,8,8,8,8,9 (6 hits). We finished off the orbital protection already!<br /><br /></li><li><b>Bombardment Round</b>: Our 7 Cruisers will go first (4 + 1 = 5 to hit). We rolled 1,2,6,6,7,8,10 (2 hits). We damaged their homeworld to stage 10 CP</li><li>Our 17 Scouts are next (3 + 1 = 4 to hit). We rolled 1,1,2,3,3,3,5,5,5,6,6,6,7,7,8,9,10 (6 hits). Altair has been glassed!</li></ol>",
 	"actions":
 		[{
 			"removeCounter":"BC1R"
@@ -4244,6 +4357,9 @@
 		},{
 			"placeCounter":"CA4B",
 			"location":"H1"
+		},{
+			"placeGhost":"SW1B",
+			"location":"I1"
 		},{
 			"placeCounter":"SW1B",
 			"location":"H1"
@@ -4281,7 +4397,11 @@
 			"removeCounter":"MSB11"
 		}]},
 	{"heading":"Player Economic Phase 17",
-	"commentary":"<ol><li>We had 1 CP leftover from the previous economic phase</li><li>Colony production is +90 CP. We now have 91 CP</li><li>We get a Pipeline bonus of +4 CP. We are up to 95 CP</li><li>Maintenance cost continues to climb (25 &rarr; 31 CP). We drop to 64 CP</li><li>We will skip tech purchases this phase. We stay at 64 CP</li><li>We will buy 4 Cruisers (-48 CP) at I8. We will also buy 4 Pipelines (-12 CP) at I5. This knocks us down to 4 CP.</li></ol>",
+	"commentary":"<p>We are victorious against another Alien Player! We will buy 4 Cruisers (-48 CP) at I8. We will also buy 4 Pipelines (-12 CP) at I5.</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Blue)","initCP":1,"colonyCP":90,"mineralCP":0,"pipeCP":4,"maint":31,"bidCP":0,"techBuy":0,"unitBuy":60
+		}],
 	"actions":
 		[{
 			"removeCounter":"minesR"
@@ -4325,7 +4445,7 @@
 		},{
 			"name":"Yellow","eco":5,"queue":0,"fleet":15,"tech":70,"def":30,"delta":"FT","hidden":"35 / 40 / 65 / 40"
 		},{
-			"name":"(Rolls)","eco":"&mdash;","fleet":"1-8","tech":"9-10","def":"&mdash;"
+			"name":"(Rolls)","ecoPhase":17
 		}],
 	"actions":
 		[{
@@ -4398,11 +4518,17 @@
 			"placeCounter":"SW1B",
 			"location":"I2"
 		},{
+			"placeGhost":"SC3B",
+			"location":"I1"
+		},{
 			"placeCounter":"SC3B",
 			"location":"I2"
 		},{
 			"placeCounter":"CO16B",
 			"location":"L4"
+		},{
+			"placeGhost":"CA1B",
+			"location":"J9"
 		},{
 			"placeCounter":"CA1B",
 			"location":"J10"
@@ -4438,11 +4564,17 @@
 	"commentary":"<p>We are also connecting more of our colonies to our Pipeline network.</p>",
 	"actions":
 		[{
+			"placeGhost":"CA2B",
+			"location":"J2"
+		},{
 			"placeCounter":"CA2B",
 			"location":"J3"
 		},{
 			"placeCounter":"CA3B",
 			"location":"J4"
+		},{
+			"placeGhost":"SC1B",
+			"location":"I3"
 		},{
 			"placeCounter":"SC1B",
 			"location":"J4"
@@ -4458,6 +4590,9 @@
 		},{
 			"placeCounter":"CO16B",
 			"location":"L3"
+		},{
+			"placeGhost":"CA1B",
+			"location":"J11"
 		},{
 			"placeCounter":"CA1B",
 			"location":"I11"
@@ -4492,6 +4627,9 @@
 	"commentary":"<p>The Pipeline network is also useful to <i>all</i> ships, as it serves as the board game's equivalent to a <q>road</q>; ships that follow a road throughout its entire movement can move an additional hex as long as they stay on the road. Such ships are also neither slowed by nebulae/asteroids, nor do they have to roll for black hole survival.</p>",
 	"actions":
 		[{
+			"placeGhost":"CA2B",
+			"location":"J4"
+		},{
 			"placeCounter":"CA2B",
 			"location":"J5"
 		},{
@@ -4503,6 +4641,12 @@
 		},{
 			"placeCounter":"SC2B",
 			"location":"I6"
+		},{
+			"placeGhost":"SW1B",
+			"location":"J5"
+		},{
+			"placeGhost":"SW1B",
+			"location":"I5"
 		},{
 			"placeCounter":"SW1B",
 			"location":"I6"
@@ -4542,7 +4686,11 @@
 			"name":"planetW12"
 		}]},
 	{"heading":"Player Economic Phase 18",
-	"commentary":"<ol><li>We had 4 CP leftover from the previous economic phase</li><li>Colony production is +90 CP. We now have 94 CP</li><li>We get a Pipeline bonus of +7 CP. We are up to 101 CP</li><li>Maintenance continues to climb still (31 &rarr; 39 CP). We drop to 62 CP</li><li>We will skip tech purchases this phase. We stay at 62 CP</li><li>We will buy 4 more Cruisers (-48 CP) at I8. We will also buy 4 Pipelines (-12 CP) at Terra (L7). This knocks us down to 2 CP.</li><li>Now that we have colonized a different planet, our production increases back to +91 CP.</li></ol>",
+	"commentary":"<p>We will buy 4 more Cruisers (-48 CP) at I8. We will also buy 4 Pipelines (-12 CP) at Terra (L7).</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Blue)","initCP":4,"colonyCP":90,"mineralCP":0,"pipeCP":7,"maint":39,"bidCP":0,"techBuy":0,"unitBuy":60
+		}],
 	"actions":
 		[{
 			"revealCounter":"MSB11",
@@ -4582,7 +4730,7 @@
 		},{
 			"name":"Yellow","eco":5,"queue":0,"fleet":15,"tech":80,"def":30,"delta":"FT","hidden":"35 / 40 / 65 / 40 / 15"
 		},{
-			"name":"(Rolls)","eco":"&mdash;","fleet":"1-8","tech":"9-10","def":"&mdash;"
+			"name":"(Rolls)","ecoPhase":18
 		}],
 	"actions":
 		[{
@@ -4597,8 +4745,6 @@
 			"name":"Green","eco":5,"queue":0,"fleet":1,"tech":5,"def":0,"delta":"---","hidden":"&mdash;"
 		},{
 			"name":"Yellow","eco":5,"queue":0,"fleet":0,"tech":60,"def":30,"delta":"ftH","hidden":"35 / 40 / 65 / 40 / 15 / 15"
-		},{
-			"name":"(Rolls)","eco":"&mdash;","fleet":"1-8","tech":"9-10","def":"&mdash;"
 		}],
 	"actions":
 		[{
@@ -4665,6 +4811,9 @@
 	"commentary":"<p>We are consolidating our fleet together. We will also leave sector I11 undefended, luring Yellow into a potential trap and working around the fact that Alien Player ships automatically upgrade.</p>",
 	"actions":
 		[{
+			"placeGhost":"CA2B",
+			"location":"I5"
+		},{
 			"placeCounter":"CA2B",
 			"location":"I6"
 		},{
@@ -4673,6 +4822,12 @@
 		},{
 			"placeCounter":"SC1B",
 			"location":"J9"
+		},{
+			"placeGhost":"SC2B",
+			"location":"I7"
+		},{
+			"placeGhost":"SC2B",
+			"location":"I8"
 		},{
 			"placeCounter":"SC2B",
 			"location":"J9"
@@ -4686,8 +4841,14 @@
 			"placeCounter":"CA1B",
 			"location":"I10"
 		},{
+			"placeGhost":"CA4B",
+			"location":"J9"
+		},{
 			"placeCounter":"CA4B",
 			"location":"J10"
+		},{
+			"placeGhost":"MSmB",
+			"location":"L8"
 		},{
 			"placeCounter":"MSB12",
 			"location":"K8",
@@ -4739,6 +4900,9 @@
 			"placeCounter":"SW1B",
 			"location":"I10"
 		},{
+			"placeGhost":"SC3B",
+			"location":"J10"
+		},{
 			"placeCounter":"SC3B",
 			"location":"I10"
 		},{
@@ -4747,6 +4911,12 @@
 		},{
 			"placeCounter":"CA4B",
 			"location":"I10"
+		},{
+			"placeGhost":"CA2B",
+			"location":"I7"
+		},{
+			"placeCounter":"CA2B",
+			"location":"I8"
 		},{
 			"placeCounter":"MSB12",
 			"location":"K9",
@@ -4795,9 +4965,6 @@
 		},{
 			"placeCounter":"CA4B",
 			"location":"H11"
-		},{
-			"placeCounter":"CA2B",
-			"location":"I8"
 		},{
 			"placeCounter":"CA3B",
 			"location":"H11"
@@ -4849,6 +5016,9 @@
 			"placeCounter":"fleetY5",
 			"location":"H11",
 			"name":"hiddenY"
+		},{
+			"placeGhost":"hiddenY",
+			"location":"F11"
 		},{
 			"placeCounter":"fleetY6",
 			"location":"G10"
@@ -4962,7 +5132,11 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Player Economic Phase 19",
-	"commentary":"<ol><li>We had 0 CP leftover from the previous economic phase</li><li>Colony production is +91 CP. We now have 91 CP</li><li>We get a Pipeline bonus of +8 CP. We are up to 99 CP</li><li>Maintenance dropped decently due to recent battle losses (39 &rarr; 30 CP). We drop to 69 CP</li><li>We will skip tech purchases this phase. We stay at 69 CP</li><li>We will buy 4 more Cruisers (-48 CP) at I8. We will also buy 5 Pipelines (-15 CP) at Terra (L7). We drop to 6 CP.</li><li>We will buy an extra Ship Yard (-6 CP) at sector I8. This knocks us down to 0 CP</li><li>Our production increases to +93 CP</li></ol><p>It is worth mentioning these purchases also exhaust our Pipeline stock. We will be unable to buy more Pipelines until we lose some already in service.</p>",
+	"commentary":"<p>We will buy 4 more Cruisers (-48 CP) at I8. We will also buy 5 Pipelines (-15 CP) at Terra (L7), and an extra Ship Yard (-6 CP) at sector I8.</p>{prodTable}<p>It is worth mentioning these purchases also exhaust our Pipeline stock. We will be unable to buy more Pipelines until we lose some already in service.</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Blue)","initCP":0,"colonyCP":91,"mineralCP":0,"pipeCP":8,"maint":30,"bidCP":0,"techBuy":0,"unitBuy":69
+		}],
 	"actions":
 		[{
 			"removeCounter":"SC1B"
@@ -5043,7 +5217,7 @@
 		},{
 			"name":"Yellow","eco":5,"queue":0,"fleet":31,"tech":0,"def":30,"delta":"F","hidden":"15"
 		},{
-			"name":"(Rolls)","eco":"&mdash;","fleet":"1-9","tech":"10","def":"&mdash;"
+			"name":"(Rolls)","ecoPhase":19
 		}],
 	"actions":
 		[{
@@ -5183,6 +5357,9 @@
 			"placeCounter":"CA1B",
 			"location":"H11"
 		},{
+			"placeGhost":"CA2B",
+			"location":"J10"
+		},{
 			"placeCounter":"CA2B",
 			"location":"J11"
 		},{
@@ -5306,12 +5483,22 @@
 			"removeCounter":"MSB22"
 		}]},
 	{"heading":"Player Economic Phase 20",
-	"commentary":"<ol><li>We had 0 CP leftover from the previous economic phase</li><li>Colony production is +93 CP. We now have 93 CP</li><li>We get a Pipeline bonus of +9 CP. We are up to 102 CP</li><li>Maintenance went back up (30 &rarr; 38 CP). We drop to 64 CP</li><li>We will skip tech purchases this phase. We stay at 64 CP</li><li>We will buy 4 more Cruisers (-48 CP) at I8. We will also buy 2 Pipelines (-6 CP) at I5. This knocks us down to 10 CP.</li><li>Our production increases to +95 CP</li></ol>",
+	"commentary":"<p>We will buy 4 more Cruisers (-48 CP) at I8. We will also buy 2 Pipelines (-6 CP) at I5.</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Blue)","initCP":0,"colonyCP":93,"mineralCP":0,"pipeCP":9,"maint":38,"bidCP":0,"techBuy":0,"unitBuy":54
+		}],
 	"actions":
 		[{
 			"removeCounter":"MSB13"
 		},{
 			"removeCounter":"MSB14"
+		},{
+			"revealCounter":"MSB03",
+			"name":"MSaB"
+		},{
+			"revealCounter":"MSB02",
+			"name":"MSaB"
 		},{
 			"revealCounter":"MSB04",
 			"name":"MSaB"
@@ -5358,7 +5545,7 @@
 		},{
 			"name":"Yellow","eco":5,"queue":0,"fleet":51,"tech":5,"def":30,"delta":"FTh","hidden":"&mdash;"
 		},{
-			"name":"(Rolls)","eco":"&mdash;","fleet":"1-9","tech":"10","def":"&mdash;"
+			"name":"(Rolls)","ecoPhase":20
 		}],
 	"actions":
 		[{
@@ -5408,12 +5595,15 @@
 			"name":"hiddenY"
 		}]},
 	{"heading":"Player Turn 61",
-	"commentary":"<p>By connecting a black hole adjacent to Vasyr to our Pipeline network, this makes the assault itself much safer.</p>",
+	"commentary":"<p>By connecting a black hole adjacent to Vasyr to our Pipeline network, this makes the assault itself much safer. The 20 ships that would have otherwise rolled black hole checks (with an expected 8 to be sucked in) bypass them altogether.</p>",
 	"actions":
 		[{
 			"placeCounter":"fleetY7",
 			"location":"H13",
 			"name":"hiddenY"
+		},{
+			"placeGhost":"CA1B",
+			"location":"I12"
 		},{
 			"placeCounter":"CA1B",
 			"location":"H13"
@@ -5423,6 +5613,12 @@
 		},{
 			"placeCounter":"CA3B",
 			"location":"H13"
+		},{
+			"placeGhost":"CA4B",
+			"location":"J9"
+		},{
+			"placeGhost":"CA4B",
+			"location":"J10"
 		},{
 			"placeCounter":"CA4B",
 			"location":"J11"

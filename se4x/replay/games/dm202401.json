@@ -142,7 +142,11 @@
 		},{
 			"removeCounter":"SC4Y"
 		}]},
-	{"commentary":"<h2>Economic Phase 1</h2><p>Fresh playthroughs start with 0 CP. We get +25 CP income (+20 from homeworld, +5 CP from minerals), but must pay 3 CP in maintenance.</p><p>With the 22 CP we have leftover, we buy 1 Scout (-6 CP) and 2 Colony Ships (-16 CP). This spends all of our money.</p>",
+	{"commentary":"<h2>Economic Phase 1</h2><p>We buy 1 Scout (-6 CP) and 2 Colony Ships (-16 CP).</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Yellow)","initCP":0,"colonyCP":20,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":0,"unitBuy":22
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Yload"
@@ -353,7 +357,11 @@
 			"revealCounter":"systemL9",
 			"name":"colony1"
 		}]},
-	{"commentary":"<h2>Economic Phase 2</h2><p>Since we spent all the money last time, we start with 0 CP. Our income has gone up to +27 CP (22 from colonies + 5 from minerals). Our maintenance stayed the same (at 3) because our losses and builds were equal.</p><p>We have 24 CP to spend. We will buy Ship Size Level 2 (-10), followed by 1 Colony Ship (-8) and 1 Mining Ship (-5). This leaves us 1 CP leftover.</p>",
+	{"commentary":"<h2>Economic Phase 2</h2><p>We will buy Ship Size Level 2 (-10), followed by 1 Colony Ship (-8) and 1 Mining Ship (-5).</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Yellow)","initCP":0,"colonyCP":22,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":10,"unitBuy":13
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Yload"
@@ -567,7 +575,11 @@
 			"revealCounter":"systemH6",
 			"name":"planetY4"
 		}]},
-	{"commentary":"<h2>Economic Phase 3</h2><p>This marks the half way point on our grace time. Once the first Doomsday Machine spawns, that will be the beginning of the action.</p><p>As far as economics are concerned, we had 1 CP leftover last time. Our income has increased to 37 CP (27 from colonies + 10 from minerals). Our maintenance has decreased (-2 CP) due to recent losses.</p><p>This leaves us 36 CP that we can spend. We will buy Ship Size Level 3 (-15), followed by two Colony Ships (-16). This leaves us with 5 CP leftover.</p>",
+	{"commentary":"<h2>Economic Phase 3</h2><p>This marks the half way point on our grace time. Once the first Doomsday Machine spawns, that will be the beginning of the action.</p><p>We will buy Ship Size Level 3 (-15), followed by two Colony Ships (-16).</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Yellow)","initCP":1,"colonyCP":27,"mineralCP":10,"pipeCP":0,"maint":2,"bidCP":0,"techBuy":15,"unitBuy":16
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Yload"
@@ -761,7 +773,11 @@
 			"revealCounter":"systemH6",
 			"name":"colony1"
 		}]},
-	{"commentary":"<h2>Economic Phase 4</h2><p>We are coming along quite nicely. We ended the previous economic phase with 5 CP leftover. Our income is +51 CP (36 from colonies + 15 from minerals). Our maintenance is unchanged (-2 CP), because we neither built nor lost combat ships. This gives us 54 CP we can spend.</p><p>We will buy Attack Level 1 (-20) and Ship Yards Level 2 (-20). We will also buy one Cruiser (-12). This gives us 2 CP leftover.</p>",
+	{"commentary":"<h2>Economic Phase 4</h2><p>We are coming along quite nicely. We will buy Attack Level 1 (-20) and Ship Yards Level 2 (-20). We will also buy one Cruiser (-12).</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Yellow)","initCP":5,"colonyCP":36,"mineralCP":15,"pipeCP":0,"maint":2,"bidCP":0,"techBuy":40,"unitBuy":12
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Yload"
@@ -941,7 +957,11 @@
 			"revealCounter":"systemH8",
 			"name":"planetY5"
 		}]},
-	{"commentary":"<h2>Economic Phase 5</h2><p>The grace period is nearing its end. We had 2 CP leftover from the previous economic phase. Our income is +49 CP (44 from colonies + 5 from minerals). Our maintenance remains unchanged (-2), because our single Cruiser replaced the two Scouts we lost to deep space.</p><p>Before we can spend our remaining 49 CP, we need to cash in our space wreck. We rolled a 2 (Ship Size Level 4 granted this way). We will build 3 more Cruisers (-36) to fortify our Cruiser group, while spending our Ship Yard capacity. This leaves us with 13 CP leftover.</p>",
+	{"commentary":"<h2>Economic Phase 5</h2><p>The grace period is nearing its end. Before we can spend our CP, we need to cash in our space wreck. We rolled a 2 (Ship Size Level 4 granted this way). We will build 3 more Cruisers (-36) to fortify our Cruiser group, while spending our Ship Yard capacity.</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Yellow)","initCP":2,"colonyCP":44,"mineralCP":5,"pipeCP":0,"maint":2,"bidCP":0,"techBuy":0,"unitBuy":36
+		}],
 	"actions":
 		[{
 			"removeCounter":"SC3Y"
@@ -1042,7 +1062,11 @@
 			"revealCounter":"systemH8",
 			"name":"colony1"
 		}]},
-	{"commentary":"<h2>Economic Phase 6</h2><p>The first Doomsday Machine is here! Anyway, we had 13 CP leftover from the previous economic phase. Our production is +62 CP (52 from colonies + 10 from minerals). Our maintenance has increased (-8 CP) because of recent builds.</p><p>This gives us 67 CP we can spend. We will buy Attack Level 2 (-30), followed by three more Cruisers (-36). This gives us 1 CP leftover.</p>",
+	{"commentary":"<h2>Economic Phase 6</h2><p>The first Doomsday Machine is here! We will buy Attack Level 2 (-30), followed by three more Cruisers (-36).</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Yellow)","initCP":13,"colonyCP":52,"mineralCP":10,"pipeCP":0,"maint":8,"bidCP":0,"techBuy":30,"unitBuy":36
+		}],
 	"actions":
 		[{
 			"placeCounter":"dm1",
@@ -1168,7 +1192,11 @@
 			"revealCounter":"systemH8",
 			"name":"colony3"
 		}]},
-	{"commentary":"<h2>Economic Phase 7</h2><p>With the first machine destroyed, we can rest for a short bit. We ended the previous economic phase with 1 CP leftover. Despite having lost a planet, our income is +71 CP (51 from colonies + 20 from minerals). Our maintenance increased (-10) because we were able to keep one of our builds.</p><p>This gives us 62 CP we can spend. We will buy three Cruisers (-36), leaving us with 26 CP leftover.</p>",
+	{"commentary":"<h2>Economic Phase 7</h2><p>With the first machine destroyed, though at the cost of a planet, we can rest for a short bit. We will buy three Cruisers (-36).</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Yellow)","initCP":1,"colonyCP":51,"mineralCP":20,"pipeCP":0,"maint":10,"bidCP":0,"techBuy":0,"unitBuy":36
+		}],
 	"actions":
 		[{
 			"removeCounter":"dm1"
@@ -1273,7 +1301,11 @@
 		},{
 			"removeCounter":"dm2"
 		}]},
-	{"commentary":"<h2>Economic Phase 8</h2><p>The second Doomsday Machine has appeared on the board! Anyway, we had 18 CP leftover (since upgrades spent some). Our production is +60 CP (55 from colonies + 5 from minerals). Our maintenance has increased (-16 CP) because of recent builds.</p><p>This gives us 62 CP we can spend. We will buy three more Cruisers (-36). This gives us 26 CP leftover, and eleven (11) Cruisers under our banner.</p>",
+	{"commentary":"<h2>Economic Phase 8</h2><p>The second Doomsday Machine has appeared on the board! We will buy three more Cruisers (-36). This gives us eleven (11) Cruisers under our banner.</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Yellow)","initCP":18,"colonyCP":55,"mineralCP":5,"pipeCP":0,"maint":16,"bidCP":0,"techBuy":0,"unitBuy":36
+		}],
 	"actions":
 		[{
 			"placeCounter":"dm2",
@@ -1375,11 +1407,32 @@
 			"name":"doomsday"
 		},{
 			"removeCounter":"dm3"
+		},{
+			"placeCounter":"systemL2",
+			"name":"markerY"
+		},{
+			"placeCounter":"systemL11",
+			"name":"markerY"
+		},{
+			"placeCounter":"systemH4",
+			"name":"markerY"
+		},{
+			"placeCounter":"systemH10",
+			"name":"markerY"
+		},{
+			"placeCounter":"systemF7",
+			"name":"markerY"
 		}]},
-	{"commentary":"<h2>Economic Phase 9</h2><p>Thanks to it being on Harder difficulty, the final Doomsday Machine was not far behind! Anyway, we had 26 CP leftover. Our production is +65 CP (50 from colonies + 15 from minerals). Our maintenance has decreased (-14 CP) thanks to recent battle losses.</p><p>This gives us 77 CP we can spend. We will buy Ship Yards Level 3 (-30) three more Cruisers (-36). This gives us 11 CP leftover, and ten (10) Cruisers under our banner once we can consolidate them.</p>",
+	{"commentary":"<h2>Economic Phase 9</h2><p>Thanks to it being on Harder difficulty, the final Doomsday Machine was not far behind! Anyway, we will buy Ship Yards Level 3 (-30) three more Cruisers (-36). This gives us ten (10) Cruisers under our banner once we can consolidate them.</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Yellow)","initCP":26,"colonyCP":50,"mineralCP":15,"pipeCP":0,"maint":14,"bidCP":0,"techBuy":30,"unitBuy":36
+		}],
 	"actions":
 		[{
 			"removeCounter":"dm2"
+		},{
+			"createPreset":"removeMarkers"
 		},{
 			"placeCounter":"dm3",
 			"location":"F7",

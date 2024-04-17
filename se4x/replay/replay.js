@@ -5,9 +5,10 @@ var saveCookieDate = new Date;
 var recallingStages = true;
 const letterRows = "LKJIHGFEDCBA";
 const deepSpace = "unexploredW";
+const markerCounter = "marker";
 
-const classIncLetters = "EFTDH";
-const classDecLetters = classIncLetters.toLowerCase();
+const alienIncLetters = "EFTDH";
+const alienDecLetters = alienIncLetters.toLowerCase();
 const dieRollsRow = "(Rolls)";
 const prodTableTag = "{prodTable}";
 
@@ -54,10 +55,12 @@ function dispRow(b, newDisp) {
 }
 
 function dispCol(a, newDisp) {
+	var affectCol = Math.floor(a);
+	
 	for (y = 0; y < 12; y++) {
-		var findObj = document.getElementById(letterRows.charAt(y)+a);
+		var findObj = document.getElementById(letterRows.charAt(y)+affectCol);
 		
-		if (findObj) {
+		if (findObj && (a % 1 == 0 || y % 2 == 1)) {
 			if (newDisp) {
 				findObj.style.visibility = "";
 			} else {
@@ -95,21 +98,25 @@ function readKeyInput(e) {
 }
 
 
-function placeCounter(curId, newX, newY, newPic) {
-	var calcX = newX * 54 - 40;
+function placeCounter(curId, newX, newY, newPic, newAlpha) {
+	var calcX = newX * 54 - 39;
 	var calcY = newY * 47 + 20;
 	var workObj;
 
 	var hexBoard = document.getElementById("gameBoard");
 	
 	findObj = document.getElementById(curId);
-	if (findObj) {
+	if (findObj && newAlpha >= 100) {
 		workObj = findObj;
 	} else {
 		workObj = document.createElement("img");
-		workObj.id = curId;
 		workObj.src = "gfx/" + curId + ".png";
-		workObj.className = "counter";
+		if (newAlpha >= 100) {
+			workObj.id = curId;
+			workObj.className = "counter";
+		} else {
+			workObj.className = "counter ghost";
+		}
 		workObj.style.position = "absolute";
 		if (workObj.id.startsWith("system")) {
 			workObj.style.zIndex = 2;
@@ -147,19 +154,19 @@ function placeCounter(curId, newX, newY, newPic) {
 }
 
 function placeSystemMarker(newX, newY, newPic) {
-	placeCounter("system"+letterRows.charAt(newY)+newX, newX, newY, newPic);
+	placeCounter("system"+letterRows.charAt(newY)+newX, newX, newY, newPic, 100);
 }
 
 function placeHomeworld(newX, newY, color) {
 	placeSystemMarker(newX,newY,"home20"+color);
 	
 	for (var i = 1; i <= 3; i++) {
-		placeCounter("SC"+i+color,newX,newY,null);
-		placeCounter("CO"+i+color,newX,newY,"CO"+color);
+		placeCounter("SC"+i+color,newX,newY,null,100);
+		placeCounter("CO"+i+color,newX,newY,"CO"+color,100);
 	}
 
-	placeCounter("SY1"+color,newX,newY,null);
-	placeCounter("Miner1"+color,newX,newY,"Miner"+color);
+	placeCounter("SY1"+color,newX,newY,null,100);
+	placeCounter("Miner1"+color,newX,newY,"Miner"+color,100);
 }
 
 function place3plrHomeMarkers(color, orient) {
@@ -228,7 +235,7 @@ function place3plrHomeMarkers(color, orient) {
 
 function placeAlienHomeworld(newX, newY, color) {
 	placeSystemMarker(newX,newY,"home20"+color);
-	placeCounter("base1"+color,newX,newY,null);
+	placeCounter("base1"+color,newX,newY,null,100);
 }
 
 function renderCounter(curId, newPic) {
@@ -256,20 +263,147 @@ function readJson() {
 			commentary.innerHTML = "<h2>" + curStage.heading + "</h2>" + commentary.innerHTML;
 		}
 		
-		if (curStage.alienTable) {
+		if (curStage.prodTable) {
+			var constructTable = "<table><caption>Player Economics</caption> \
+				<tr><th>Player</th><th>Initial</th><th>Colonies</th><th>Minerals</th><th>Pipelines</th> \
+				<th>Maint</th><th>Available</th><th>Bid</th><th>Tech</th><th>Units</th><th>Leftover</th></tr>";
+				
+			for (var a = 0; a < curStage.prodTable.length; a++) {
+				var activePlayer = curStage.prodTable[a];
+				
+				if (curStage.prodTable[a].colonyCP <= 0) {
+					// Player is dead
+					constructTable = constructTable + "<tr class=\"deadPlr;\">";
+				} else {
+					constructTable = constructTable + "<tr>";
+				}
+				
+				var availCP = activePlayer.initCP + activePlayer.colonyCP + activePlayer.mineralCP + activePlayer.pipeCP - activePlayer.maint;
+				var leftoverCP = availCP - activePlayer.bidCP - activePlayer.techBuy - activePlayer.unitBuy;
+				
+				constructTable = constructTable + "<td>"+activePlayer.name+"</td> \
+					<td class=\"numeric\">"+activePlayer.initCP+"</td> \
+					<td class=\"numeric increase\">+"+activePlayer.colonyCP+"</td> \
+					<td class=\"numeric increase\">+"+activePlayer.mineralCP+"</td> \
+					<td class=\"numeric increase\">+"+activePlayer.pipeCP+"</td> \
+					<td class=\"numeric decrease\">-"+activePlayer.maint+"</td> \
+					<td class=\"numeric\">"+availCP+"</td> \
+					<td class=\"numeric\">-"+activePlayer.bidCP+"</td> \
+					<td class=\"numeric\">-"+activePlayer.techBuy+"</td> \
+					<td class=\"numeric\">-"+activePlayer.unitBuy+"</td> \
+					<td class=\"numeric\">"+leftoverCP+"</td></tr>"
+			}
+				
+			constructTable = constructTable + "</table>";
+			
+			if (commentary.innerHTML.indexOf(prodTableTag) >= 0) {
+				commentary.innerHTML = commentary.innerHTML.replace(prodTableTag,constructTable);
+			} else {
+				commentary.innerHTML = commentary.innerHTML + constructTable;
+			}
+
+		} else if (curStage.alienTable) {
+			// Base game economics
 			var constructTable = "<table><caption>Alien Economics</caption> \
 				<tr><th>Player</th><th>Eco</th><th>Fleet</th><th>Tech</th><th>Def</th><th>Hidden</th></tr>";
 				
 			for (var a = 0; a < curStage.alienTable.length; a++) {
-				if (curStage.alienTable[a].name == dieRollsRow) {
-					constructTable = constructTable + "<tr><th>"+curStage.alienTable[a].name+"</th> \
-						<td class=\"numeric\">"+curStage.alienTable[a].eco+"</td> \
-						<td class=\"numeric\">"+curStage.alienTable[a].fleet+"</td> \
-						<td class=\"numeric\">"+curStage.alienTable[a].tech+"</td> \
-						<td class=\"numeric\">"+curStage.alienTable[a].def+"</td></tr>"
+				var activePlayer = curStage.alienTable[a];
+				
+				if (activePlayer.name == dieRollsRow) {
+					var ecoRange = "&mdash;", fleetRange, techRange, defRange = "&mdash;", launchRange = "Launch &le;3";
+					
+					// Auto-compute Economic Roll ranges
+					switch (activePlayer.ecoPhase) {
+						case 1:
+							ecoRange = "1-2";
+							fleetRange = "&ndash;";
+							techRange = "3-10";
+							defRange = "&ndash;";
+							launchRange = "Launch N/A";
+							break;
+						case 2:
+							ecoRange = "1";
+							fleetRange = "2-3";
+							techRange = "4-10";
+							defRange = "&ndash;";
+							launchRange = "Launch Auto";
+							break;
+						case 3:
+							ecoRange = "1";
+							fleetRange = "2-4";
+							techRange = "5-8";
+							defRange = "9-10";
+							launchRange = "Launch Auto";
+							break;
+						case 4:
+							ecoRange = "1";
+							fleetRange = "2-5";
+							techRange = "6-8";
+							defRange = "9-10";
+							launchRange = "Launch &le;5";
+							break;
+						case 5:
+							ecoRange = "1";
+							fleetRange = "2-5";
+							techRange = "6-9";
+							defRange = "10";
+							break;
+						case 6:
+							ecoRange = "1";
+							fleetRange = "2-6";
+							techRange = "7-9";
+							defRange = "10";
+							launchRange = "Launch &le;4";
+							break;
+						case 7:
+							// Fall thru
+						case 8:
+							fleetRange = "1-5";
+							techRange = "6-9";
+							defRange = "10";
+							launchRange = "Launch &le;4";
+							break;
+						case 9:
+							fleetRange = "1-5";
+							techRange = "6-9";
+							defRange = "10";
+							launchRange = "Launch &le;5";
+							break;
+						case 10:
+							fleetRange = "1-6";
+							techRange = "7-9";
+							defRange = "10";
+							launchRange = "Launch &le;5";
+							break;
+						case 11:
+							// Fall thru
+						case 12:
+							fleetRange = "1-6";
+							techRange = "7-9";
+							defRange = "10";
+							break;
+						default:
+							maxFleet = Math.min(9,Math.ceil(activePlayer.ecoPhase/2)-1);
+							minTech = maxFleet + 1;
+						
+							fleetRange = "1-"+maxFleet;
+							techRange = minTech+"-10";
+							if (activePlayer.ecoPhase % 2 == 0) {
+								launchRange = "Launch Auto";
+							}
+							break;
+					}
+					
+					constructTable = constructTable + "<tr><td>"+activePlayer.name+"</td> \
+						<td class=\"numeric\">"+ecoRange+"</td> \
+						<td class=\"numeric\">"+fleetRange+"</td> \
+						<td class=\"numeric\">"+techRange+"</td> \
+						<td class=\"numeric\">"+defRange+"</td> \
+						<td class=\"numeric\">"+launchRange+"</td></tr>"
 				} else {
 					var classMods = ["","","","",""];
-					var baseDelta = curStage.alienTable[a].delta;
+					var baseDelta = activePlayer.delta;
 					
 					if (baseDelta.indexOf("---") >= 0) {
 						// Alien Player is dead. They get no more economic rolls for the rest of the playthrough
@@ -278,21 +412,41 @@ function readJson() {
 						constructTable = constructTable + "<tr>";
 					
 						for (var b = 0; b < classMods.length; b++) {
-							if (baseDelta.indexOf(classIncLetters.charAt(b)) >= 0) {
+							if (baseDelta.indexOf(alienIncLetters.charAt(b)) >= 0) {
 								classMods[b] = " increase";
-							} else if (baseDelta.indexOf(classDecLetters.charAt(b)) >= 0) {
+							} else if (baseDelta.indexOf(alienDecLetters.charAt(b)) >= 0) {
 								classMods[b] = " decrease";
 							}
 						}
 					}
 					
-					constructTable = constructTable + "<th>"+curStage.alienTable[a].name+"</th> \
-						<td class=\"numeric"+classMods[0]+"\">"+curStage.alienTable[a].eco+" +"+curStage.alienTable[a].queue+"</td> \
-						<td class=\"numeric"+classMods[1]+"\">"+curStage.alienTable[a].fleet+"</td> \
-						<td class=\"numeric"+classMods[2]+"\">"+curStage.alienTable[a].tech+"</td> \
-						<td class=\"numeric"+classMods[3]+"\">"+curStage.alienTable[a].def+"</td> \
-						<td class=\"numeric"+classMods[4]+"\">"+curStage.alienTable[a].hidden+"</td></tr>"
+					constructTable = constructTable + "<td>"+activePlayer.name+"</td> \
+						<td class=\"numeric"+classMods[0]+"\">"+activePlayer.eco+" +"+activePlayer.queue+"</td> \
+						<td class=\"numeric"+classMods[1]+"\">"+activePlayer.fleet+"</td> \
+						<td class=\"numeric"+classMods[2]+"\">"+activePlayer.tech+"</td> \
+						<td class=\"numeric"+classMods[3]+"\">"+activePlayer.def+"</td> \
+						<td class=\"numeric"+classMods[4]+"\">"+activePlayer.hidden+"</td></tr>"
 				}
+			}
+				
+			constructTable = constructTable + "</table>";
+			
+			if (commentary.innerHTML.indexOf(prodTableTag) >= 0) {
+				commentary.innerHTML = commentary.innerHTML.replace(prodTableTag,constructTable);
+			} else {
+				commentary.innerHTML = commentary.innerHTML + constructTable;
+			}
+		} else if (curStage.amoebaTable) {
+			var constructTable = "<table><caption>Amoeba Database</caption> \
+				<tr><th>Amoeba</th><th>Research</th><th>Type</th><th>Mine Immune?</th></tr>";
+				
+			for (var a = 0; a < curStage.amoebaTable.length; a++) {
+				var activeAmoeba = curStage.amoebaTable[a];
+				
+				constructTable = constructTable + "<td>"+activeAmoeba.name+"</td> \
+					<td class=\"numeric\">"+activeAmoeba.research+" / 10</td> \
+					<td class=\"numeric\">"+activeAmoeba.type+"</td> \
+					<td class=\"center\">"+activeAmoeba.mineImmune+"</td></tr>"
 			}
 				
 			constructTable = constructTable + "</table>";
@@ -305,29 +459,49 @@ function readJson() {
 		}
 	}
 	
+	// Ditch all "ghost" counters
+	var ghostCollection = document.getElementsByClassName("ghost");
+	for (var g = 0; g < ghostCollection.length; g++) {
+		if (ghostCollection[g].className && ghostCollection[g].className.indexOf("ghost") >= 0) {
+			ghostCollection[g--].remove();
+		}
+	}
+	
 	// Parse the many actions
 	actionPool = curStage.actions;
 	for (i in actionPool) {
 		// console.log(actionPool[i]);
+		var inferLocation;
 		
 		if (actionPool[i].location) {
+			inferLocation = actionPool[i].location;
+		} else if (actionPool[i].placeCounter && actionPool[i].placeCounter.startsWith("system")) {
+			inferLocation = actionPool[i].placeCounter.substring(6);
+		}
+		
+		if (inferLocation) {
 			for (y = 0; y < 12; y++) {
-				if (letterRows.charAt(y) == actionPool[i].location.substring(0,1)) {
+				if (letterRows.charAt(y) == inferLocation.substring(0,1)) {
 					readY = y;
 					break;
 				}
 			}
 			
-			readX = actionPool[i].location.substring(1);
+			readX = inferLocation.substring(1);
 		}
 		
 		if (actionPool[i].placeCounter) {
 			workId = actionPool[i].placeCounter;
 			if (actionPool[i].name) {
-				placeCounter(workId, readX, readY, actionPool[i].name);
+				placeCounter(workId, readX, readY, actionPool[i].name, 100);
 			} else {
-				placeCounter(workId, readX, readY, null);
+				var convertName = null;
+				
+				placeCounter(workId, readX, readY, convertName, 100);
 			}
+		} else if (actionPool[i].placeGhost) {
+			workId = actionPool[i].placeGhost;
+			placeCounter(workId, readX, readY, workId, 50);
 		}
 		
 		if (actionPool[i].revealCounter) {
@@ -344,8 +518,10 @@ function readJson() {
 			}
 		}
 		
-		
+		// Presets are usually game setups. They perform a bunch of smaller actions, greatly reducing redundency in the process.
 		if (actionPool[i].createPreset) {
+			ctrlPanel = document.getElementById("controls");
+			
 			if (actionPool[i].createPreset == "alienEmpiresSolo") {
 				var plrColor = actionPool[i].playerColor;
 				
@@ -406,9 +582,7 @@ function readJson() {
 							if (y < 2) {
 								placeSystemMarker(x,y,"unexplored"+plrColor);
 							} else {
-								if (x != 7 || y != 8) {
-									placeSystemMarker(x,y,deepSpace);
-								}
+								placeSystemMarker(x,y,deepSpace);
 							}
 						}
 					}
@@ -421,7 +595,7 @@ function readJson() {
 				}
 				
 				if (actionPool[i].alienColors) {
-					var alienHWs = [[1,4], [13,4], [7,8]];
+					var alienHWs = [[1,6], [13,6], [7,8]];
 					
 					for (var a = 0; a < 3; a++) {
 						if (a < actionPool[i].alienColors.length) {
@@ -466,6 +640,18 @@ function readJson() {
 					}
 				}
 				
+				for (var w = 1; w <= 13; w = w + 0.5) {
+					if (w < 2 || w > 12) {
+						dispCol(w, false);
+					}
+				}
+
+				placeSystemMarker(2,0,markerCounter+plrColor);
+				placeSystemMarker(11,0,markerCounter+plrColor);
+				placeSystemMarker(4,4,markerCounter+plrColor);
+				placeSystemMarker(10,4,markerCounter+plrColor);
+				placeSystemMarker(7,6,markerCounter+plrColor);
+				
 				for (var z = 7; z < 12; z++) {
 					dispRow(letterRows.charAt(z), false);
 				}
@@ -506,9 +692,89 @@ function readJson() {
 						}
 					}
 				}
+
+				placeSystemMarker(1,4,markerCounter+plrColor);
+				placeSystemMarker(13,4,markerCounter+plrColor);
+				placeSystemMarker(2,7,markerCounter+plrColor);
+				placeSystemMarker(11,7,markerCounter+plrColor);
+				placeSystemMarker(7,9,markerCounter+plrColor);
 				
 				for (var z = 10; z < 12; z++) {
 					dispRow(letterRows.charAt(z), false);
+				}
+				
+			} else if (actionPool[i].createPreset == "removeMarkers") {
+				// One of the few presets that is not a scenario. This one removes all markers from the board
+				imgCollection = document.getElementsByTagName("img")
+				
+				for (var h = 0; h < imgCollection.length; h++) {
+					if (imgCollection[h] && imgCollection[h].src.indexOf(markerCounter) >= 0) {
+						imgCollection[h--].remove();
+					}
+				}
+				
+			} else if (actionPool[i].createPreset == "amoebaSolo") {
+				var plrColor = actionPool[i].playerColor;
+				var aomeba = ["amoeba1", "amoeba2", "amoeba3"]
+				
+				place3plrHomeMarkers(plrColor, "top");
+				
+				placeSystemMarker(3,0,deepSpace);
+				placeSystemMarker(10,0,deepSpace);
+
+				placeSystemMarker(3,1,deepSpace);
+				placeSystemMarker(10,1,deepSpace);
+
+				placeSystemMarker(3,2,deepSpace);
+				placeSystemMarker(11,2,deepSpace);
+				
+				for (var k = 3; k <= 10; k++) {
+					if (k <= 4 || k >= 9) {
+						placeSystemMarker(k,3,deepSpace);
+					}
+				}
+				
+				placeSystemMarker(5,4,deepSpace);
+				placeSystemMarker(9,4,deepSpace);
+				
+				placeSystemMarker(6,5,deepSpace);
+				placeSystemMarker(7,5,deepSpace);
+				
+				placeSystemMarker(2,2,aomeba[0]);
+				placeSystemMarker(12,2,aomeba[1]);
+				placeSystemMarker(7,6,aomeba[2]);
+				
+				for (var w = 1; w <= 13; w = w + 0.5) {
+					if (w < 2 || w > 12) {
+						dispCol(w, false);
+					}
+				}
+				
+				for (var z = 7; z < 12; z++) {
+					dispRow(letterRows.charAt(z), false);
+				}
+			} else if (actionPool[i].createPreset == "versus2Pknife") {
+				var plrColors = actionPool[i].playerColors;
+				
+				for (var y = 0; y < 5; y++) {
+					for (var x = 1; x <= 11; x++) {
+						if (x < 6 || (y == 2 && x == 6)) {
+							placeSystemMarker(x,y,"unexplored"+plrColors.charAt(0));
+						} else if (x < 12 - (y % 2) && (y < 4 || x < 11)) {
+							placeSystemMarker(x,y,"unexplored"+plrColors.charAt(1));
+						}
+					}
+				}
+				
+				placeHomeworld(1,2,plrColors.charAt(0));
+				placeHomeworld(11,2,plrColors.charAt(1));
+
+				for (var z = 5; z < 12; z++) {
+					dispRow(letterRows.charAt(z), false);
+				}
+				
+				for (var w = 13; w > 11; w = w - 0.5) {
+					dispCol(w, false);
 				}
 			} else if (actionPool[i].createPreset == "versus3P") {
 				var plrColors = actionPool[i].playerColors;
@@ -525,7 +791,11 @@ function readJson() {
 				place3plrHomeMarkers(plrColors.charAt(1), "left");
 				place3plrHomeMarkers(plrColors.charAt(2), "right");
 			} else if (actionPool[i].createPreset == "versus4P") {
-				plrColors = "GYRB";
+				var plrColors = "GYRB";
+				
+				if (actionPool[i].playerColors) {
+					plrColors = actionPool[i].playerColors;
+				}
 				
 				for (var y = 0; y < 12; y++) {
 					for (var x = 1; x <= 13; x++) {

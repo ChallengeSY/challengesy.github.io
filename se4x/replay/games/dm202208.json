@@ -5,7 +5,8 @@
 			"createPreset":"doomsdaySoloSm",
 			"playerColor":"R"
 		},{
-			"removeCounter":"systemF6"
+			"revealCounter":"systemF6",
+			"name":"markerR"
 		},{
 			"placeCounter":"systemF7",
 			"location":"F7",
@@ -101,11 +102,14 @@
 			"revealCounter":"systemK4",
 			"name":"unexploredR"
 		}]},
-	{"commentary":"<h2>Movement Turn 3</h2><p>And already we unwisely took our first risk into deep space. Naturally, it backfired.</p>",
+	{"commentary":"<h2>Movement Turn 3</h2><p>And already we unwisely took our first risk into deep space. Naturally, it backfired when we exposed a supernova.</p>",
 	"actions":
 		[{
-			"placeCounter":"SC1R",
+			"placeGhost":"SC1R",
 			"location":"L10"
+		},{
+			"placeCounter":"SC1R",
+			"location":"L9"
 		},{
 			"placeCounter":"SC2R",
 			"location":"K9"
@@ -130,16 +134,6 @@
 		},{
 			"revealCounter":"systemK4",
 			"name":"minerals5"
-		}]},
-	{"commentary":"<h2>Involuntary Effects 3</h2><p>The effects of a supernova are fixed, which is fortunate. Also, its placement limits its effectiveness, as we simply do not need to worry about it again.</p>",
-	"actions":
-		[{
-			"placeCounter":"SC1R",
-			"location":"L9"
-		},{
-			"placeCounter":"Miner1Rload",
-			"location":"L7",
-			"name":"minerals5"
 		},{
 			"removeCounter":"SC4R"
 		},{
@@ -152,7 +146,11 @@
 			"revealCounter":"systemL8",
 			"name":"planetR5"
 		}]},
-	{"commentary":"<h2>Economic Phase 1</h2><p>Fresh playthroughs start with 0 CP. We get +25 CP income (20 from homeworld + 5 from minerals), but must pay 3 CP in maintenance.</p><p>With the 22 CP we have leftover, we buy Ship Size Level 2 (-10) and 2 Scouts (-12 CP). This spends all of our money.</p>",
+	{"commentary":"<h2>Economic Phase 1</h2><p>We buy Ship Size Level 2 (-10) and 2 Scouts (-12 CP).</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Red)","initCP":0,"colonyCP":20,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":10,"unitBuy":12
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Rload"
@@ -271,7 +269,6 @@
 			"name":"nebula"
 		},{
 			"placeCounter":"systemK2",
-			"location":"K2",
 			"name":"danger"
 		},{
 			"revealCounter":"systemK11",
@@ -343,7 +340,6 @@
 			"name":"planetR3"
 		},{
 			"placeCounter":"systemJ11",
-			"location":"J11",
 			"name":"danger"
 		},{
 			"revealCounter":"systemJ12",
@@ -359,7 +355,11 @@
 			"revealCounter":"systemJ8",
 			"name":"planetR8"
 		}]},
-	{"commentary":"<h2>Economic Phase 2</h2><p>Since we previously spent all our money, we start this economic phase fresh. Our produciton was +26 CP (21 from colonies + 5 from minerals). Our maintenance was unchanged (-3), because our builds and losses were equal.</p><p>With the 23 CP we have available, we bought one Scout (-6), one Mining Ship (-5), and one Colony Ship (-8). This gives us 4 CP leftover.</p>",
+	{"commentary":"<h2>Economic Phase 2</h2><p>We bought one Scout (-6), one Mining Ship (-5), and one Colony Ship (-8).</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Red)","initCP":0,"colonyCP":21,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":0,"unitBuy":19
+		}],
 	"actions":
 		[{
 			"removeCounter":"systemJ11"
@@ -437,7 +437,6 @@
 			"location":"H8"
 		},{
 			"placeCounter":"systemL3",
-			"location":"L3",
 			"name":"danger"
 		},{
 			"revealCounter":"systemI11",
@@ -501,49 +500,23 @@
 			"placeCounter":"SC1R",
 			"location":"J7"
 		},{
-			"placeCounter":"SC2R",
+			"placeGhost":"SC2R",
 			"location":"H11"
+		},{
+			"placeCounter":"SC2R",
+			"location":"G11"
 		},{
 			"placeCounter":"SC5R",
 			"location":"G7"
 		},{
 			"placeCounter":"systemG7",
-			"location":"G7",
 			"name":"danger"
 		},{
 			"placeCounter":"systemH11",
-			"location":"H11",
 			"name":"lost"
 		},{
 			"revealCounter":"systemJ7",
 			"name":"planetR4"
-		}]},
-	{"commentary":"<h2>Involuntary Effects 8</h2><p>Lost in Space forces an involuntary move on the fleet that got caught in its effects.</p>",
-	"actions":
-		[{
-			"removeCounter":"systemG7"
-		},{
-			"removeCounter":"SC5R"
-		},{
-			"removeCounter":"systemH11"
-		},{
-			"placeCounter":"SC2R",
-			"location":"G11"
-		},{
-			"placeCounter":"Miner1R",
-			"location":"L8"
-		},{
-			"placeCounter":"Miner2R",
-			"location":"L7"
-		},{
-			"placeCounter":"CO2R",
-			"location":"J8"
-		},{
-			"placeCounter":"CO4R",
-			"location":"K7"
-		},{
-			"placeCounter":"SC1R",
-			"location":"J7"
 		},{
 			"revealCounter":"systemI7",
 			"name":"unexploredR"
@@ -551,6 +524,12 @@
 	{"commentary":"<h2>Movement Turn 9</h2><p>We finish this series by colonizing two empty planets.</p>",
 	"actions":
 		[{
+			"removeCounter":"SC5R"
+		},{
+			"removeCounter":"systemG7"
+		},{
+			"removeCounter":"systemH11"
+		},{
 			"placeCounter":"Miner1R",
 			"location":"K8"
 		},{
@@ -604,7 +583,11 @@
 			"revealCounter":"systemI8",
 			"name":"planetR3"
 		}]},
-	{"commentary":"<h2>Economic Phase 3</h2><p>We had 4 CP leftover from the previous economic phase. Our produciton was +34 CP (24 from colonies + 10 from minerals). Our maintenance decreased (-2), because of recent losses.</p><p>And here is where we screwed up. With the 36 CP we have available, we bought three Scouts (-18), and two Colony Ships (-16). We went over our available Ship Yard capacity! Still, this gives us 2 CP leftover.</p>",
+	{"commentary":"<h2>Economic Phase 3</h2><p>And here is where we screwed up. We bought three Scouts (-18), and two Colony Ships (-16). We went over our available Ship Yard capacity!</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Red)","initCP":4,"colonyCP":24,"mineralCP":10,"pipeCP":0,"maint":2,"bidCP":0,"techBuy":0,"unitBuy":34
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Rload"
@@ -750,7 +733,6 @@
 			"location":"J7"
 		},{
 			"placeCounter":"systemI9",
-			"location":"I9",
 			"name":"danger"
 		},{
 			"revealCounter":"systemH6",
@@ -809,7 +791,6 @@
 			"name":"COR"
 		},{
 			"placeCounter":"systemG5",
-			"location":"G5",
 			"name":"danger"
 		},{
 			"revealCounter":"systemJ5",
@@ -840,7 +821,11 @@
 			"revealCounter":"systemI7",
 			"name":"planetR2"
 		}]},
-	{"commentary":"<h2>Economic Phase 4</h2><p>We had 2 CP leftover from the previous economic phase. Our production was +35 CP (30 from colonies + 5 from minerals). Our maintenance increased (-3), because our builds exceeded our losses.</p><p>With the 34 CP we have available, we bought Ship Size Level 3 (-15), followed by a Colony Ship (-8) at the homeworld, and a forward Ship Yard (-6) at sector J8. This leaves 5 CP leftover.</p>",
+	{"commentary":"<h2>Economic Phase 4</h2><p>We bought Ship Size Level 3 (-15), followed by a Colony Ship (-8) at the homeworld, and a forward Ship Yard (-6) at sector J8.</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Red)","initCP":2,"colonyCP":30,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":15,"unitBuy":14
+		}],
 	"actions":
 		[{
 			"removeCounter":"SC1R"
@@ -918,7 +903,6 @@
 			"location":"L6"
 		},{
 			"placeCounter":"systemI4",
-			"location":"I4",
 			"name":"danger"
 		},{
 			"revealCounter":"systemJ4",
@@ -1006,7 +990,11 @@
 			"revealCounter":"systemI6",
 			"name":"planetR7"
 		}]},
-	{"commentary":"<h2>Economic Phase 5</h2><p>We are running low on time before the first Doomsday Machine. Still, we carry over 5 CP from the previous phase. Our production was +38 CP, exclusively from our colonies. Our maintenance decreased (to -1) because of recent deep space losses.</p><p>With 42 CP available, we buy Attack Level 1 (-20) and Tactics Level 1 (-15). We also build another Ship Yard at sector J8.</p>",
+	{"commentary":"<h2>Economic Phase 5</h2><p>We are running low on time before the first Doomsday Machine. Thus, we buy Attack Level 1 (-20) and Tactics Level 1 (-15). We also build another Ship Yard at sector J8.</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Red)","initCP":5,"colonyCP":38,"mineralCP":0,"pipeCP":0,"maint":1,"bidCP":0,"techBuy":35,"unitBuy":6
+		}],
 	"actions":
 		[{
 			"revealCounter":"systemJ7",
@@ -1068,32 +1056,17 @@
 			"revealCounter":"systemH9",
 			"name":"unexploredW"
 		}]},
-	{"commentary":"<h2>Movement Turn 17</h2><p>We uncover another lost in space marker!</p>",
+	{"commentary":"<h2>Movement Turn 17</h2><p>We uncover another lost in space marker, involuntarily moving our ship away from the deep space that was still unexplored!</p>",
 	"actions":
 		[{
-			"placeCounter":"SC5R",
+			"placeGhost":"SC5R",
 			"location":"H9"
-		},{
-			"placeCounter":"Miner1Rload",
-			"location":"I8"
-		},{
-			"placeCounter":"Miner1R",
-			"location":"I8"
-		},{
-			"placeCounter":"Miner2R",
-			"location":"I5"
-		},{
-			"placeCounter":"systemH9",
-			"location":"H9",
-			"name":"lost"
-		}]},
-	{"commentary":"<h2>Involuntary Effects 17</h2><p>The involuntary move shifted our scout away from the remaining unexplored systems.</p>",
-	"actions":
-		[{
-			"removeCounter":"systemH9"
 		},{
 			"placeCounter":"SC5R",
 			"location":"I9"
+		},{
+			"placeCounter":"Miner1Rload",
+			"location":"I8"
 		},{
 			"placeCounter":"Miner1R",
 			"location":"I8"
@@ -1106,10 +1079,15 @@
 			"placeCounter":"systemI5",
 			"location":"I5",
 			"name":"minerals5"
+		},{
+			"placeCounter":"systemH9",
+			"name":"lost"
 		}]},
 	{"commentary":"<h2>Movement Turn 18</h2><p>Towing more minerals home...</p>",
 	"actions":
 		[{
+			"removeCounter":"systemH9"
+		},{
 			"placeCounter":"SC5R",
 			"location":"H9"
 		},{
@@ -1150,7 +1128,11 @@
 			"location":"J6",
 			"name":"minerals5"
 		}]},
-	{"commentary":"<h2>Economic Phase 6</h2><p>Time continues to tick down. Still, we carry over 1 CP from the previous phase. Our production was +57 CP (47 from our colonies + 10 from minerals). Our maintenance remained unchanged (to -1), because we neither built nor lost any combat ships.</p><p>Before we can spend our available 57 CP, we need to cash in our space wreck. This one granted us Attack level 2. Afterwards, we buy Terraforming level 1 (-25), followed by 3 colony ships (-24) and 1 scout (-6). One of the colony ships (plus the scout) has been placed at our forward Ship Yard, and the rest at our homeworld. We end this economic phase with 2 CP leftover.</p>",
+	{"commentary":"<h2>Economic Phase 6</h2><p>Before we can spend our available CP, we need to cash in our space wreck. This one granted us Attack level 2. Afterwards, we buy Terraforming level 1 (-25), followed by 3 colony ships (-24) and 1 scout (-6). One of the colony ships (plus the scout) has been placed at our forward Ship Yard, and the rest at our homeworld.</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Red)","initCP":1,"colonyCP":47,"mineralCP":10,"pipeCP":0,"maint":1,"bidCP":0,"techBuy":25,"unitBuy":30
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Rload"
@@ -1262,7 +1244,6 @@
 			"location":"J4"
 		},{
 			"placeCounter":"systemF8",
-			"location":"F8",
 			"name":"danger"
 		},{
 			"removeCounter":"Miner2Rload"
@@ -1323,7 +1304,11 @@
 			"revealCounter":"systemI6",
 			"name":"colony3"
 		}]},
-	{"commentary":"<h2>Economic Phase 7</h2><p>We have officially ran out of time! The first Doomsday Machine is now on the board, ready to destroy our colonies!</p><p>We had previously saved up 2 CP. Our production is +63 CP (53 from colonies + 10 from minerals). Our maintenance is unchanged (-1), because our builds and losses were equal.</p><p>With 64 CP available, we buy Ship Yard tech level 2 (-20), followed by 3 Cruisers (-36); with one of them at our forward Ship Yard. This leaves us 8 CP leftover.</p>",
+	{"commentary":"<h2>Economic Phase 7</h2><p>We have officially ran out of time! The first Doomsday Machine is now on the board, ready to destroy our colonies!</p><p>We buy Ship Yard tech level 2 (-20), followed by 3 Cruisers (-36); with one of them at our forward Ship Yard.</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Red)","initCP":2,"colonyCP":53,"mineralCP":10,"pipeCP":0,"maint":1,"bidCP":0,"techBuy":20,"unitBuy":36
+		}],
 	"actions":
 		[{
 			"placeCounter":"dm1",
@@ -1362,6 +1347,9 @@
 		},{
 			"placeCounter":"CO9R",
 			"location":"K4"
+		},{
+			"revealCounter":"systemG6",
+			"name":"unexploredW"
 		}]},
 	{"commentary":"<h2>Movement Turn 22</h2><p>Knowing our last scout is screwed, we opted to make one last delve into deep space... finding rich minerals, and greeting the Doomsday Machine head on.</p><p>Although a hopeless battle, this did prove useful in finding the weakness of our first machine... Minelayers!</p>",
 	"actions":
@@ -1477,8 +1465,16 @@
 			"name":"colony1"
 		},{
 			"removeCounter":"SY3R"
+		},{
+			"removeCounter":"mines1R"
+		},{
+			"removeCounter":"mines2R"
 		}]},
-	{"commentary":"<h2>Economic Phase 8</h2><p>Although the loss is unfortunate, we have relatively little time to cope with it. Anyway, our production is +67 CP (52 from colonies + 15 from minerals). Our maintenance increased (to -2), because our builds exceeded our losses</p><p>Factoring in 8 CP from before, this gives us 73 CP available. We buy Minelaying level 1 (-20), followed by 9 Minelayers (-45). We then build a forward Ship Yard (-6) at sector J6. This gives us 2 CP leftover</p>",
+	{"commentary":"<h2>Economic Phase 8</h2><p>Although the loss is unfortunate, we have relatively little time to cope with it. We buy Minelaying level 1 (-20), followed by 9 Minelayers (-45). We then build a forward Ship Yard (-6) at sector J6.</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Red)","initCP":8,"colonyCP":52,"mineralCP":15,"pipeCP":0,"maint":2,"bidCP":0,"techBuy":20,"unitBuy":51
+		}],
 	"actions":
 		[{
 			"removeCounter":"CA1R"
@@ -1497,11 +1493,11 @@
 			"placeCounter":"SY3R",
 			"location":"J6"
 		},{
-			"placeCounter":"minesR1",
+			"placeCounter":"mines1R",
 			"location":"J8",
 			"name":"minesR"
 		},{
-			"placeCounter":"minesR2",
+			"placeCounter":"mines2R",
 			"location":"L7",
 			"name":"minesR"
 		},{
@@ -1528,7 +1524,7 @@
 	{"commentary":"<h2>Movement Turn 25</h2><p>And now for the fun part... because a supermajority of the planets got clumped in the shuffle of home systems, this gives the first Doomsday Machine quite a <q>harvest</q> of food. (Since each planet consumed repairs 2 damage taken from battles... thus, <q>consumed</q>.)</p>",
 	"actions":
 		[{
-			"placeCounter":"minesR2",
+			"placeCounter":"mines2R",
 			"location":"K7"
 		},{
 			"placeCounter":"Miner1R",
@@ -1555,7 +1551,7 @@
 		[{
 			"removeCounter":"systemJ7"
 		},{
-			"placeCounter":"minesR2",
+			"placeCounter":"mines2R",
 			"location":"J8",
 			"name":"minesR"
 		},{
@@ -1578,7 +1574,7 @@
 			"location":"J8",
 			"name":"colony5R"
 		},{
-			"placeCounter":"minesR1",
+			"placeCounter":"mines1R",
 			"location":"J8",
 			"name":"minesR"
 		},{
@@ -1591,9 +1587,9 @@
 	{"commentary":"<h2>Movement Turn 27</h2><p>Using the highest income rule, the machine now eats the planet at sector I8.</p>",
 	"actions":
 		[{
-			"removeCounter":"minesR1"
+			"removeCounter":"mines1R"
 		},{
-			"removeCounter":"minesR2"
+			"removeCounter":"mines2R"
 		},{
 			"removeCounter":"CA2R"
 		},{
@@ -1620,7 +1616,7 @@
 		},{
 			"removeCounter":"dm2"
 		},{
-			"removeCounter":"Mines1R"
+			"removeCounter":"mines1R"
 		},{
 			"removeCounter":"base1R"
 		},{
@@ -1633,7 +1629,11 @@
 			"revealCounter":"systemJ9",
 			"name":"colony3"
 		}]},
-	{"commentary":"<h2>Economic Phase 9</h2><p>One Doomsday Machine is bad enough. Now there are two machines in play! Anyway, our production is +49 CP (39 from colonies + 10 from minerals). We have no combat ships left to pay maintenance at this time.</p><p>Factoring in 2 CP from before, this gives us 51 CP available. We buy 6 Minelayers (-30) at the homeworld, and a starbase (-12) at sector J9. This gives us 9 CP leftover</p>",
+	{"commentary":"<h2>Economic Phase 9</h2><p>One Doomsday Machine is bad enough. Now there are two machines in play! Anyway, we buy 6 Minelayers (-30) at the homeworld, and a starbase (-12) at sector J9.</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Red)","initCP":2,"colonyCP":39,"mineralCP":10,"pipeCP":0,"maint":0,"bidCP":0,"techBuy":0,"unitBuy":42
+		}],
 	"actions":
 		[{
 			"removeCounter":"systemI8"
@@ -1644,7 +1644,7 @@
 		},{
 			"removeCounter":"Miner1Rload"
 		},{
-			"placeCounter":"Mines1R",
+			"placeCounter":"mines1R",
 			"location":"L7",
 			"name":"minesR"
 		},{
@@ -1672,7 +1672,7 @@
 	{"commentary":"<h2>Movement Turn 28</h2><p>The first machine enters battle once more, only this time there is a base defending.</p><h3>Battle for Sector J9</h3><ol><li>Our base has the best priority class, so it shoots first (7 + 2 - 1 = 8 to hit). We rolled a 10 (miss)</li><li>The Doomsday Machine responds (7 - 2 = 5 to hit) with 10,6,5,5 (2 hits)<br /><br /></li><li>Our base fires once more. We rolled a 1 (hit)</li><li>The Doomsday Machine responds with 10,9,5,7 (1 hit). It has finished our base off!</li><li>... and destroyed our planet to repair what little damage we dealt!</li></ol>",
 	"actions":
 		[{
-			"placeCounter":"Mines1R",
+			"placeCounter":"mines1R",
 			"location":"L8"
 		},{
 			"placeCounter":"Miner1R",
@@ -1738,7 +1738,7 @@
 			"location":"L8",
 			"name":"colony5R"
 		},{
-			"placeCounter":"Mines1R",
+			"placeCounter":"mines1R",
 			"location":"L8"
 		},{
 			"placeCounter":"dm2",
@@ -1761,7 +1761,11 @@
 		},{
 			"removeCounter":"base1R"
 		}]},
-	{"commentary":"<h2>Economic Phase 10</h2><p>Normally, this would be the phase in which the final Doomsday Machine spawns on the board. Evening fatigue was in effect, causing us to screw up multiple elements of this economic phase.</p><p>Moving along with 9 CP on hand, we were able to produce 33 CP from our colonies. We have no maintenance to perform.</p><p>This allows us to spend 42 CP. We develop Defense level 1 (-20), followed by building a base (-12) and 2 mines (-10) at our homeworld. This spends all of our CP.</p>",
+	{"commentary":"<h2>Economic Phase 10</h2><p>Normally, this would be the phase in which the final Doomsday Machine spawns on the board. Evening fatigue was in effect, causing us to screw up multiple elements of this economic phase.</p><p>Moving along, we develop Defense level 1 (-20), followed by building a base (-12) and 2 minelayers (-10) at our homeworld. This spends all of our CP.</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Red)","initCP":9,"colonyCP":33,"mineralCP":0,"pipeCP":0,"maint":0,"bidCP":0,"techBuy":20,"unitBuy":22
+		}],
 	"actions":
 		[{
 			"removeCounter":"systemL8"
@@ -1784,7 +1788,7 @@
 			"placeCounter":"base1R",
 			"location":"L7"
 		},{
-			"placeCounter":"Mines1R",
+			"placeCounter":"mines1R",
 			"location":"L7"
 		},{
 			"revealCounter":"systemL4",
@@ -1803,7 +1807,7 @@
 			"placeCounter":"dm2",
 			"location":"K9"
 		},{
-			"placeCounter":"Mines1R",
+			"placeCounter":"mines1R",
 			"location":"L7",
 			"name":"minesR"
 		}]},
@@ -1812,7 +1816,7 @@
 		[{
 			"removeCounter":"dm1"
 		},{
-			"removeCounter":"Mines1R"
+			"removeCounter":"mines1R"
 		},{
 			"placeCounter":"Miner2R",
 			"location":"G8"
@@ -1830,10 +1834,31 @@
 			"location":"K7"
 		},{
 			"removeCounter":"dm3"
+		},{
+			"placeCounter":"systemL2",
+			"name":"markerR"
+		},{
+			"placeCounter":"systemL11",
+			"name":"markerR"
+		},{
+			"placeCounter":"systemH4",
+			"name":"markerR"
+		},{
+			"placeCounter":"systemH10",
+			"name":"markerR"
+		},{
+			"placeCounter":"systemF6",
+			"name":"markerR"
 		}]},
-	{"commentary":"<h2>Economic Phase 11</h2><p>The late entrant has finally arrived! Since we previously spent all our money, we start fresh. Our colonies produce +35 CP. We then buy Defense level 2 (-30). This leaves us 5 CP leftover</p>",
+	{"commentary":"<h2>Economic Phase 11</h2><p>The late entrant has finally arrived! We buy Defense level 2 (-30)... that's it.</p>",
+	"prodTable":
+		[{
+			"name":"CSY (Red)","initCP":0,"colonyCP":35,"mineralCP":0,"pipeCP":0,"maint":0,"bidCP":0,"techBuy":30,"unitBuy":0
+		}],
 	"actions":
 		[{
+			"createPreset":"removeMarkers"
+		},{
 			"placeCounter":"dm3",
 			"location":"H4",
 			"name":"doomsday"
