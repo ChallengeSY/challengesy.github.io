@@ -1,9 +1,0 @@
-{"stages": [
-	{"heading":"Summary",
-	"commentary":"<p>Setup board for a Doomsday Machine Large map. Since no playthroughs have been completed (yet) on this size, we use this file as a comparison to the recently completed Alien Empires <a href=\"watch.htm?replay=aeLg202404\">Large playthrough</a>.</p><p>Not only are the Doomsday Machine spawn points slightly closer (on average), we need only to defend in the titular scenario.</p>",
-	"actions":
-		[{
-			"createPreset":"doomsdaySoloLg",
-			"playerColor":"G"
-		}]}
-]}

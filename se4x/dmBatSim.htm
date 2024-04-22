@@ -5,14 +5,14 @@
 	<meta name="keywords" content="Space, Empires, Space Empires" />
 	<meta name="author" content="Paul Ruediger" />
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-	
+
 	<title>SE4X - Doomsday Machine Battle Simulator</title>
 
 	<link type="text/css" href="../nuCampaign/planets.css" rel="stylesheet" />
 	<style>
 		td.bonus, span.hit, li.median {color: #FFFF00; font-weight: bold;}
 		td.reference {color: #C0C0C0;}
-		
+
 		div {border-radius: 12px; padding: 8px; background: rgb(32,32,64); margin-bottom: 25px;}
 	</style>
 	<script src="dmBatSim.js"></script>
@@ -42,7 +42,9 @@ Possible to be unable to score a hit">Accuracy</th>
 <th title="Raw Defense strength">Defense</th>
 <th class="bigScreen" title="Chance to avoid a hit by DM
 No matter how low, a DM that rolls a 10 automatically misses">Evasion</th>
-<th class="bigScreen" title="Target priority by DM">Threat</th>
+<th title="Used to break ties">Tactics</th>
+<th class="invisible">Hull Size</th>
+<th class="bigScreen" title="Target priority by DM">Threat <a style="font-weight: normal;" href="javascript:showBox('Threat')">(?)</a></th>
 </tr>
 </thead>
 <tbody id="plrShips">
@@ -57,37 +59,53 @@ No matter how low, a DM that rolls a 10 automatically misses">Evasion</th>
 <table class="clean">
 <tfoot>
 <tr>
-<td colspan="3" class="center"><button id="applyAll" class="interact" onclick="applyAllTech()">Apply to all ships</button>
-<button id="runBattle" class="interact" onclick="runSimBattles(1)">Run sim battle</button><br />
+<td colspan="6" class="center"><button id="applyAll" class="interact" onclick="applyAllTech()">Apply to all ships</button>
+<button id="runBattle" class="interact" onclick="runSimBattles(1)">Run sim battle</button>
+<button id="emptyFleet" class="interact" onclick="emptyPlrFleet()">Empty player fleet</button><br />
 <button id="runSeries" class="interact" onclick="startSimSeries()">Run several</button>
 <button id="stopSeries" class="interact" onclick="stopSeriesEarly()" disabled="disabled">Stop series</button></td>
 </tr>
 </tfoot>
 <tbody>
 <tr>
-<td><label for="techAtk">Attack Tech Level</label></td>
+<td><label for="techAtk">Attack Level</label></td>
 <td><a href="javascript:showBox('Attack')">(?)</a></td>
 <td><input class="text numeric" type="number" id="techAtk" value="0" min="0" max="3" size="5" /></td>
-</tr>
-<tr>
-<td><label for="techDef">Defense Tech Level</label></td>
+<td><label for="techDef">Defense Level</label></td>
 <td><a href="javascript:showBox('Defense')">(?)</a></td>
 <td><input class="text numeric" type="number" id="techDef" value="0" min="0" max="3" size="5" /></td>
 </tr>
 <tr>
-<td><label for="techFtr">Fighter Tech Level</label></td>
-<td><a href="javascript:showBox('Fighter')">(?)</a></td>
-<td><input class="text numeric" type="number" id="techFtr" value="1" min="1" max="3" size="5" /></td>
+<td><label for="techSize">Ship Size Level</label></td>
+<td><a href="javascript:showBox('Ship Size')">(?)</a></td>
+<td><input class="text numeric" type="number" id="techSize" value="1" min="1" max="7" size="5" onchange="showPlrRows()" onblur="showPlrRows()" /></td>
+<td><label for="techTac">Tactics Level</label></td>
+<td><a href="javascript:showBox('Tactics')">(?)</a></td>
+<td><input class="text numeric" type="number" id="techTac" value="0" min="0" max="3" size="5" /></td>
 </tr>
 <tr>
-<td><label for="techClk">Cloaking Tech Level</label></td>
+<td><label for="techFtr">Fighter Level</label></td>
+<td><a href="javascript:showBox('Fighter')">(?)</a></td>
+<td><input class="text numeric" type="number" id="techFtr" value="0" min="0" max="4" size="5" onchange="showPlrRows()" onblur="showPlrRows()" /></td>
+<td><label for="techClk">Cloaking Level</label></td>
 <td><a href="javascript:showBox('Cloaking')">(?)</a></td>
-<td><input class="text numeric" type="number" id="techClk" value="1" min="1" max="2" size="5" /></td>
+<td><input class="text numeric" type="number" id="techClk" value="0" min="0" max="2" size="5" onchange="showPlrRows()" onblur="showPlrRows()" /></td>
+</tr>
+<tr>
+<td><label for="techCE">Close Encounters</label></td>
+<td><a href="javascript:showBox('Close Encounters')">(?)</a></td>
+<td><input type="checkbox" id="techCE" onclick="showPlrRows()" oninput="showPlrRows()" /></td>
+<td><label for="techAC">Advanced Construction</label></td>
+<td><a href="javascript:showBox('Advanced Construction')">(?)</a></td>
+<td><input class="text numeric" type="number" id="techAC" value="0" min="0" max="3" size="5" onchange="showPlrRows()" onblur="showPlrRows()" /></td>
 </tr>
 <tr>
 <td><label for="numSims">Number of simulations</label></td>
 <td><a href="javascript:showBox('numSims')">(?)</a></td>
-<td><input class="text numeric" type="number" id="numSims" value="400" min="2" size="5" /></td>
+<td><input class="text numeric" type="number" id="numSims" value="400" min="2" size="7" /></td>
+<td><label for="retreatThresh">Retreat Threshold</label></td>
+<td><a href="javascript:showBox('retreatThresh')">(?)</a></td>
+<td><input class="text numeric" type="number" id="retreatThresh" value="0" min="0" size="5" /></td>
 </tr>
 </tbody>
 </table>
@@ -112,7 +130,7 @@ No matter how low, a DM that rolls a 10 automatically misses">Evasion</th>
 <tr>
 <td valign="bottom">
 <fieldset>
-<legend>Doomsday Machine</legend>
+<legend>Doomsday Machine <a href="javascript:showBox('DM')">(?)</a></legend>
 <table class="clean" style="float: right;">
 <tr>
 <th>Attack</th>
@@ -147,9 +165,9 @@ No matter how low, a DM that rolls a 10 automatically misses">Evasion</th>
 <input type="number" class="text numeric" id="dmDmg" min="0" max="2" value="0" size="4" onchange="computeHitChances(true);" onblur="computeHitChances(true);" />
 <br />
 
-<label for="dmSame">Same Class advantage?</label>
-<input type="checkbox" id="dmSame" checked="checked"/>
-<a href="javascript:showBox('Tactics')">(?)</a>
+<label for="dmAggro">Aggressor?</label>
+<input type="checkbox" id="dmAggro" checked="checked"/>
+
 </fieldset>
 </td>
 </tr>

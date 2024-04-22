@@ -1,6 +1,6 @@
 {"stages": [
 	{"heading":"Introduction",
-	"commentary":"<p>Welcome to Alien Empires - Large size. This alternative map was introduced in the Close Encounters expansion, but is perfectly compatible with the regular Space Empires 4X. We will try this out on Hard difficulty.</p><p>The map is larger in the sense that our home systems are compressed into a shorter, but much wider space. Deep Space systems are also applied <b>7</b> systems away from the nearest home system marker; putting even <a href=\"watch.htm?replay=dmSoloLg\">Large size</a> Doomsday Machine maps to shame. On top of that, the two Alien Empire homeworlds that are present on <b>all</b> difficulty settings (the <q>deuces</q> as the scenario book calls them) are farther away from the player homeworld. This is counterbalanced by the omission of a black hole marker in our home systems, allowing the rest of the markers to fit within said top two rows.</p>",
+	"commentary":"<p>Welcome to Alien Empires - Large size. This alternative map was introduced in the Close Encounters expansion, but is perfectly compatible with the regular Space Empires 4X. We will try this out on Hard difficulty.</p><p>The map is larger in the sense that our home systems are compressed into a shorter, but much wider space. Deep Space systems are also applied <b>7</b> systems away from the nearest home system marker; putting even <a href=\"watch.htm?replay=dmLg202404\">Large size</a> Doomsday Machine maps to shame. On top of that, the two Alien Empire homeworlds that are present on <b>all</b> difficulty settings (the <q>deuces</q> as the scenario book calls them) are farther away from the player homeworld. This is counterbalanced by the omission of a black hole marker in our home systems, allowing the rest of the markers to fit within said top two rows.</p>",
 	"actions":
 		[{
 			"createPreset":"alienEmpiresSoloLg",
@@ -162,7 +162,6 @@
 			"location":"L7"
 		},{
 			"placeCounter":"Miner2Y",
-			"name":"MinerY",
 			"location":"L7"
 		},{
 			"removeCounter":"CO2Y"
@@ -2430,7 +2429,7 @@
 			"location":"J5",
 			"name":"minerals10"
 		},{
-			"placeGhost":"MinerY",
+			"placeGhost":"Miner2Y",
 			"location":"J6"
 		},{
 			"placeCounter":"Miner2Y",
@@ -4973,7 +4972,7 @@
 			"placeCounter":"SC2Y",
 			"location":"J6"
 		},{
-			"placeGhost":"MinerY",
+			"placeGhost":"Miner1Y",
 			"location":"J6"
 		},{
 			"placeCounter":"Miner1Y",
@@ -5042,10 +5041,9 @@
 			"location":"J5"
 		},{
 			"placeCounter":"Miner1Y",
-			"location":"K8",
-			"name":"MinerY"
+			"location":"K8"
 		},{
-			"placeGhost":"MinerY",
+			"placeGhost":"Miner2Y",
 			"location":"K6"
 		},{
 			"placeCounter":"Miner2Y",
@@ -5141,8 +5139,7 @@
 			"location":"L7"
 		},{
 			"placeCounter":"Miner2Y",
-			"location":"L8",
-			"name":"MinerY"
+			"location":"L8"
 		},{
 			"placeCounter":"MS3Y",
 			"location":"L7",

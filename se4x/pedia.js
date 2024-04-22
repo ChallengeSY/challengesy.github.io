@@ -63,13 +63,11 @@ function showBox(concept) {
 	
 	switch (concept.toLowerCase()) {
 		// Base Concepts
-		case "alien ship":
-			displayTxt = "<b>Alien Ship</b><br />Non-aligned ship that guards a "+conceptLink("barren planet")+". If any are found, they must be defeated before the planet can be colonized.";
-			break;
 		case "attack":
 			displayTxt = "<b>Attack</b><br />Determines the "+conceptLink("Priority Class")+" this ship has in "+conceptLink("battle")+" (A-F), followed by the maximum d10 roll allowed to score a hit.<br />\
 				(Assuming no enemy "+conceptLink("Defense")+" modifiers.)<br /><br />\
-				Attack "+conceptLink("technology")+" adds directly to this rating, up to the maximum "+conceptLink("Hull Size")+".";
+				Attack "+conceptLink("technology")+" adds directly to this rating, up to the maximum "+conceptLink("Hull Size")+".<br />\
+				Attack level 4 is available only if "+conceptLink("Advanced Construction")+" level 1 is developed.";
 			break;
 		case "battle":
 			displayTxt = "<b>Battle</b><br />Whenever "+conceptLink("combat ship")+"s from two opposing sides meet in a single hex, a battle will start, ceasing movement of the invading ships.<br />\
@@ -101,7 +99,7 @@ function showBox(concept) {
 			displayTxt = "<b>Construction Points</b><br />Monetary currency. Earned by developing "+conceptLink("colonies")+", towing "+conceptLink("minerals")+", and connecting "+conceptLink("pipeline")+"s. Used to buy "+conceptLink("technology")+" and build ships.";
 			break;
 		case "defense":
-			displayTxt = "<b>Defense</b><br />Decreases the maximum d10 roll allowed by an attacker to score a hit on this ship, to a minimum "+conceptLink("Attack")+" rating of 1.<br />(Exception: Minimum Attack versus a "+conceptLink("DM")+" or a "+conceptLink("Titan")+" is instead 0.)" +
+			displayTxt = "<b>Defense</b><br />Decreases the maximum d10 roll allowed by an attacker to score a hit on this ship, to a minimum "+conceptLink("Attack")+" rating of 1.<br />(Exception: Minimum Attack versus a "+conceptLink("Titan")+" or a non-competitive "+conceptLink("DM")+"  is instead 0.)" +
 				"<br /><br />Defense "+conceptLink("technology")+" adds directly to this rating, up to the maximum "+conceptLink("Hull Size")+".";
 			break;
 		case "economic phase":
@@ -115,8 +113,10 @@ function showBox(concept) {
 				Also determines the "+conceptLink("maintenance")+" cost and maximum effective levels for "+conceptLink("Attack")+" and "+conceptLink("Defense")+" "+conceptLink("tech")+"s.";
 			break;
 		case "maintenance":
-			displayTxt = "<b>Maintenance</b><br />The upkeep cost ("+conceptLink("CP")+") that must be paid each "+conceptLink("economic phase")+" to maintain existing "+conceptLink("combat ship")+"s. Based on "+conceptLink("Hull Size")+"." +
-				"<br />(Exception: "+conceptLink("Base")+"s, "+conceptLink("Ship Yard")+"s, and "+conceptLink("Flagship")+"s require no maintenance.)";
+			displayTxt = "<b>Maintenance</b><br />The upkeep cost ("+conceptLink("CP")+") that must be paid each "+conceptLink("economic phase")+" \
+				to maintain existing "+conceptLink("combat ship")+"s. Based on "+conceptLink("Hull Size")+".\
+				<br />(Exception: "+conceptLink("Base")+"s, "+conceptLink("Ship Yard")+"s, \
+				"+conceptLink("ground unit")+"s, and "+conceptLink("Flagship")+"s require no maintenance.)";
 			break;
 		case "movement":
 			displayTxt = "<b>Movement</b><br />The process of moving ships through space.<br /><br />\
@@ -127,6 +127,9 @@ function showBox(concept) {
 		case "non-combat ship":
 			displayTxt = "<b>Non-combat ship</b><br />A ship designed to support the empire, but has no weapons to conduct "+conceptLink("battle")+"s or defend itself.";
 			break;
+		case "non-player alien":
+			displayTxt = "<b>Non-Player Alien ship</b><br />Non-aligned ship that guards a "+conceptLink("barren planet")+". If any are found, they must be defeated before the planet can be colonized.";
+			break;
 		case "priority class":
 			displayTxt = "<b>Priority Class</b><br />First factor that determines who can attack first (A &gt; B &gt; C &gt; D &gt; E &gt; F) each "+conceptLink("battle")+" "+conceptLink("round")+". "+conceptLink("Tactics")+" "+conceptLink("technology")+" can break ties.";
 			break;
@@ -136,8 +139,9 @@ function showBox(concept) {
 				at the expense of starting with no "+conceptLink("colony ship")+"s.";
 			break;
 		case "retreat":
-			displayTxt = "<b>Retreat</b><br />After the first "+conceptLink("battle")+" round, a mobile "+conceptLink("combat ship")+" may choose to retreat instead of fire upon an enemy ship." +
-				"<br />If it does, it must retreat to an unguarded hex that puts it equal to, or closer to the nearest "+conceptLink("colony")+" <span class=\"bindTxt\">(not counting any colony in the battle hex)</span>.";
+			displayTxt = "<b>Retreat</b><br />After the first "+conceptLink("battle")+" round, a mobile "+conceptLink("combat ship")+" may choose to retreat instead of fire upon an enemy ship.<br />\
+				If it does, it must retreat to an unguarded hex that puts it equal to, or closer to the nearest "+conceptLink("colony")+"\
+				<span class=\"bindTxt\">(not counting any colony in the battle hex)</span>.";
 			break;
 		case "round":
 			displayTxt = "<b>Battle Round</b><br />At the beginning of each "+conceptLink("battle")+" round, players "+conceptLink("screen")+" (if available) and check for "+conceptLink("Fleet Size Bonus")+" eligibility." +
@@ -172,10 +176,11 @@ function showBox(concept) {
 				If an eligible player/team reaches the required VP quota, then they achieve victory and the scenario will end.";
 			break;
 		case "weakness":
-			displayTxt = "<b>Weakness</b><br />In the corresponding solitaire scenario, a "+conceptLink("Doomsday Machine")+" may have a weakness, depending on a d10 roll:\
+			displayTxt = "<b>Weakness</b><br />In the corresponding solo/co-op scenarios, a "+conceptLink("Doomsday Machine")+" may have a weakness, depending on a d10 roll:\
 				<br /><br />1-2: Allows "+conceptLink("Fighters")+" to damage a DM normally\
 				<br />3-4: Detonating "+conceptLink("Mines")+" each can deal 1 damage to a DM, via rolling a 5 or less\
-				<br />5-6: "+conceptLink("Scanning")+" is jammed, allowing "+conceptLink("Raider")+"s to benefit from their "+conceptLink("Cloaking") + "\
+				<br />5-6: "+conceptLink("Scanning")+" is jammed. "+conceptLink("Raider")+"s benefit from "+conceptLink("Cloaking")+"\
+					and have "+conceptLink("Defense")+" +2\
 				<br />7-8: Allows the player to benefit from "+conceptLink("Fleet Size Bonus")+", if they have at least 10 ships able to hit the DM\
 				<br />9-10: No weakness was found on this DM";
 			break;
@@ -242,7 +247,7 @@ function showBox(concept) {
 			// Fall through
 		case "barren planet":
 			displayTxt = "<b>Barren Planet</b><br />A less hospitable "+conceptLink("planet")+". Not colonizable, unless "+conceptLink("Terraforming")+" "+conceptLink("technology")+" has been developed." +
-				"<br />Barren Planets in "+conceptLink("deep space")+" may have "+conceptLink("alien ship")+"s ambushing any stragglers that explore it.";
+				"<br />Barren Planets in "+conceptLink("deep space")+" may have "+conceptLink("non-player alien")+"s ambushing any stragglers that explore it.";
 			break;
 		case "black hole":
 			displayTxt = "<b>Black Hole</b><br />Forces <em>each</em> ship that enters to roll a survival d10 roll, unless they follow a "+conceptLink("Pipeline")+" network." +
@@ -261,7 +266,7 @@ function showBox(concept) {
 				"<br />These systems have a much higher risk <span class=\"bindTxt\">(several "+conceptLink("Danger")+"! counters, and less predictability)</span>, but higher reward <span class=\"bindTxt\">("+conceptLink("minerals")+" pay better, and there can be "+conceptLink("space wreck")+"s)</span>.";
 			break;
 		case "homeworld":
-			displayTxt = "<b>Homeworld</b><br />Starting "+conceptLink("colony")+" for an empire. It is the most powerful <span class=\"bindTxt\">(produces 20 "+conceptLink("CP")+" while intact)</span> and most important colony <span class=\"bindTxt\">(destruction ends a game)</span>.";
+			displayTxt = "<b>Homeworld</b><br />Starting "+conceptLink("colony")+" for an empire. It is the most powerful <span class=\"bindTxt\">(produces up to 30 "+conceptLink("CP")+")</span> and most important colony <span class=\"bindTxt\">(destruction ends a game)</span>.";
 			break;
 		case "home system":
 			displayTxt = "<b>Home System</b><br />A set of hexes that surround a "+conceptLink("homeworld")+". These systems are relatively safe, with only a single dangerous "+conceptLink("black hole")+" counter shuffled among these 25 "+conceptLink("unexplored")+" systems.";
@@ -333,7 +338,10 @@ function showBox(concept) {
 			displayTxt = displayTxt + stats(9, "D4", 0, 1) + "<br /><b>Required Tech</b>: "+conceptLink("Ship Size")+" level 2";
 			break;
 		case "base":
-			displayTxt = "<b>Base</b><br />Starbase with powerful long range weaponry. Can not move. One can be built at any "+conceptLink("colony")+" that has produced CP this "+conceptLink("economic phase");
+			displayTxt = "<b>Base</b><br />Starbase with powerful long range weaponry. Can not move. \
+				One can be built at any "+conceptLink("colony")+" that has produced CP this "+conceptLink("economic phase")+"<br />\
+				Automatically "+conceptLink("upgrade")+"s to <b>Advanced Base</b> at "+conceptLink("Advanced Construction")+" level 1; \
+				they can be built in any hex connected to a "+conceptLink("colony")+" via "+conceptLink("Pipeline");
 			displayTxt = displayTxt + stats(12, "A7", 2, 3) + "<br /><b>Required Tech</b>: "+conceptLink("Ship Size")+" level 2";
 			break;
 		case "cruiser":
@@ -351,13 +359,13 @@ function showBox(concept) {
 		case "battleship":
 			// Fall through
 		case "bb":
-			displayTxt = "<b>Battleship</b><br />Heavy "+conceptLink("combat ship");
+			displayTxt = "<b>Battleship</b><br />Heavy "+conceptLink("combat ship")+", theoretically equippable with "+conceptLink("Tractor Beam")+" technology";
 			displayTxt = displayTxt + stats(20, "A5", 2, 3) + "<br /><b>Required Tech</b>: "+conceptLink("Ship Size")+" level 5";
 			break;
 		case "dreadnought":
 			// Fall through
 		case "dn":
-			displayTxt = "<b>Dreadnought</b><br />Huge "+conceptLink("combat ship");
+			displayTxt = "<b>Dreadnought</b><br />Huge "+conceptLink("combat ship")+", theoretically equippable with "+conceptLink("Shield Projector")+" technology";
 			displayTxt = displayTxt + stats(24, "A6", 3, 3) + "<br /><b>Required Tech</b>: "+conceptLink("Ship Size")+" level 6";
 			break;
 		
@@ -371,8 +379,10 @@ function showBox(concept) {
 		case "fighters":
 			// Fall through
 		case "f":
-			displayTxt = "<b>Fighters</b><br />Small craft, requires a "+conceptLink("Carrier")+" to move into space. Comes in three levels, each subsequent level allows an improved craft";
-			displayTxt = displayTxt + stats(5, "B5 / B6 / B7", "0 / 0 / 1", 1) + "<br /><b>Required Tech</b>: "+conceptLink("Fighter")+" level 1";
+			displayTxt = "<b>Fighters</b><br />Small craft, requires a "+conceptLink("Carrier")+" to move into space. \
+				Comes in four levels, each subsequent level allows an improved craft";
+			displayTxt = displayTxt + stats(5, "B5 / B6 / B7 / B8", "0 / 0 / 1 / 2", 1) + "<br />\
+				<b>Required Tech</b>: "+conceptLink("Fighter")+" level 1-4 + "+conceptLink("Advanced Construction")+" level 2 (B8 variant only)";
 			break;
 		case "minelayer":
 			// Fall through
@@ -395,6 +405,20 @@ function showBox(concept) {
 		case "sw":
 			displayTxt = "<b>Minesweeper</b><br />Utility "+conceptLink("combat ship")+" that sweeps "+conceptLink("mines")+" and researches "+conceptLink("space amoeba");
 			displayTxt = displayTxt + stats(6, "E1", 0, 1) + "<br /><b>Required Tech</b>: "+conceptLink("Minesweeping")+" level 1";
+			break;
+			
+		// Non-Player Alien ships
+		case "alien-d":
+			displayTxt = "<b>Alien Destroyer</b><br />Light "+conceptLink("non-player alien")+" ship";
+			displayTxt = displayTxt + stats(0, "D4", 1, 1);
+			break;
+		case "alien-c":
+			displayTxt = "<b>Alien Cruiser</b><br />Medium "+conceptLink("non-player alien")+" ship";
+			displayTxt = displayTxt + stats(0, "C5", 2, 1);
+			break;
+		case "alien-b":
+			displayTxt = "<b>Alien Battlecruiser</b><br />Heavy "+conceptLink("non-player alien")+" ship";
+			displayTxt = displayTxt + stats(0, "B6", 2, 1);
 			break;
 		
 			
@@ -462,20 +486,23 @@ function showBox(concept) {
 			
 		// Close Encounters concepts
 		case "close encounters":
-			displayTxt =  "<b>Close Encounters</b><br />First expansion to the base "+conceptLink("Space Empires 4X")+" board game. Adds new ships, new tech, co-op scenarios, and "+conceptLink("space amoeba");
+			displayTxt =  "<b>Close Encounters</b><br />First expansion to the base "+conceptLink("Space Empires 4X")+" board game. \
+				Adds more tech, "+conceptLink("ground unit")+"s, co-op scenarios, and "+conceptLink("space amoeba");
 			break;
 		case "tn":
 			// Fall through
 		case "titan":
-			displayTxt = "<b>Titan</b><br />Extremely potent <q>baseship</q>. Can carry "+conceptLink("Fighters")+" if upgraded. Deals <b>2</b> damage per hit. Weak to "+conceptLink("Fighters");
+			displayTxt = "<b>Titan</b><br />Extremely potent <q>baseship</q>. Can carry "+conceptLink("Fighters")+" if upgraded.\
+				Deals <b>2</b> damage per hit. Immune to "+conceptLink("Boarding Ship")+"s.<br />\
+				Resistant to "+conceptLink("Mines")+". Weak to "+conceptLink("Fighters")+". Unable to "+conceptLink("retreat")+" or be "+conceptLink("screen")+"ed.";
 			displayTxt = displayTxt + stats(32, "A7", 3, 5) + "<br /><b>Required Tech</b>: "+conceptLink("Ship Size")+" level 7";
 			break;
 		case "boarding":
-			displayTxt = "<b>Boarding Technology</b><br />Allows building "+conceptLink("Boarding Ship")+"s. Level 2 improves boarding odds by 1 point.";
+			displayTxt = "<b>Boarding Technology</b><br />"+conceptLink("Close Encounters")+" exclusive technology that allows building "+conceptLink("Boarding Ship")+"s. Level 2 improves boarding odds by 1 point.";
 			break;
 		case "black hole jumping":
 			displayTxt = "<b>Black Hole Jumping Technology</b><br />Available only in solo or co-op scenarios involving a "+conceptLink("galactic capitol")+".\
-				Human player(s) can buy the tech for 40 "+conceptLink("CP")+"; provided they also have develoepd "+conceptLink("Movement")+" level 3, or are playing on a sufficiently low difficulty.\
+				Human player(s) can buy the tech for 40 "+conceptLink("CP")+"; provided they also have developed "+conceptLink("Movement")+" level 3, or are playing on a sufficiently low difficulty.\
 				<br /><br />Once purchased and equipped, player ships become immune to "+conceptLink("black hole")+"s, instead treating them as if they were "+conceptLink("warp point")+"s.";
 			break;
 		case "bo":
@@ -489,7 +516,9 @@ function showBox(concept) {
 				on the first "+conceptLink("turn")+" of each "+conceptLink("economic phase");
 			break;
 		case "flagship":
-			displayTxt = "<b>Flagship</b><br />"+conceptLink("Close Encounters")+" exclusive ship. Players sometimes start the game with one, but can <i>never</i> build more\
+			displayTxt = "<b>Flagship</b><br />"+conceptLink("Close Encounters")+" exclusive ship. \
+				Players sometimes start the game with one, but can <i>never</i> build more.<br />\
+				Can be upgraded to "+conceptLink("Advanced Flagship")+" at "+conceptLink("Advanced Construction")+" level 3.\
 				" + stats(0, "B4", 1, 3);
 			break;
 		case "galactic capitol":
@@ -508,11 +537,46 @@ function showBox(concept) {
 		case "tran":
 			// Fall through
 		case "transport":
-			displayTxt = "<b>Troop Transport</b><br />Utility "+conceptLink("combat ship")+", able to pick up "+conceptLink("Troops")+" from friendly "+conceptLink("colonies")+" and use them to invade enemy colonies";
-			displayTxt = displayTxt + stats(6, "E1", 1, 1);
+			displayTxt = "<b>Troop Transport</b><br />Utility "+conceptLink("combat ship")+", able to pick up 6 "+conceptLink("ground unit")+"s from friendly "+conceptLink("colonies")+" and use them to invade enemy colonies";
+			displayTxt = displayTxt + stats(6, "E1", 1, 1)+"<br /><b>Required Tech</b>: "+conceptLink("Troops")+" level 1";
+			break;
+		case "ground unit":
+			displayTxt = "<b>Ground unit</b><br />Small ground-borne craft that is used by "+conceptLink("Transport")+"s to \
+				invade enemy "+conceptLink("colonies")+" in a ground "+conceptLink("battle")+"; or to defend friendly colonies.";
 			break;
 		case "troops":
-			displayTxt = "<b>Troops</b><br />Small ground-borne craft that is used to invade enemy "+conceptLink("colonies")+" in a ground "+conceptLink("battle")+"; or to defend friendly colonies";
+			displayTxt = "<b>Troops</b><br />Allows building progressively stronger troops.<br />\
+				Level 1: Allows "+conceptLink("Light Infantry")+" and "+conceptLink("Transport")+"s (researched at start)<br />\
+				Level 2: Allows "+conceptLink("Space Marines")+" and "+conceptLink("Heavy Infantry")+"<br /> \
+				Level 2: Allows "+conceptLink("Grav Armor")+". \
+					Also allows upgraded "+conceptLink("Transport")+"s to drop troops sooner, and with "+conceptLink("Defense")+" +1";
+			break;
+		case "inf":
+			// Fall through
+		case "light infantry":
+			displayTxt = "<b>Light Infantry</b><br />Basic "+conceptLink("ground unit");
+			displayTxt = displayTxt + stats(2, "D5", 1, 1)+"<br /><b>Required Tech</b>: "+conceptLink("Troops")+" level 1";
+			break;
+		case "mar":
+			// Fall through
+		case "space marines":
+			displayTxt = "<b>Space Marines</b><br />Offensive oriented "+conceptLink("ground unit")+". \
+				Gains boosted "+conceptLink("Attack")+" rating when used to invade a "+conceptLink("colony")+"\
+				"+stats(3, "C6 / D5", 1, 2)+"<br /><b>Required Tech</b>: "+conceptLink("Troops")+" level 2";
+			break;
+		case "hi":
+			// Fall through
+		case "heavy infantry":
+			displayTxt = "<b>Heavy Infantry</b><br />Offensive oriented "+conceptLink("ground unit")+". \
+				Gains boosted "+conceptLink("Attack")+" rating when used to defend a "+conceptLink("colony")+"\
+				"+stats(3, "D4 / C6", 2, 2)+"<br /><b>Required Tech</b>: "+conceptLink("Troops")+" level 2";
+			break;
+		case "grav":
+			// Fall through
+		case "grav armor":
+			displayTxt = "<b>Grav Armor</b><br />Powerful support "+conceptLink("ground unit")+". \
+				At the start of each "+conceptLink("round")+", it is able to support another ground unit with Attack +1 and Defense +1.\
+				"+stats(4, "C6", 2, 2)+"<br /><b>Required Tech</b>: "+conceptLink("Troops")+" level 3";
 			break;
 			
 		// Unique ship-exclusive concepts
@@ -523,10 +587,13 @@ function showBox(concept) {
 			displayTxt = "<b>Mini-Fighter Bay</b><br />Allows the "+conceptLink("Unique Ship")+" to carry 1 "+conceptLink("Fighters")+" with it";
 			break;
 		case "anti-sensor hull":
-			displayTxt = "<b>Anti-Sensor Hull</b><br />Allows the "+conceptLink("Unique Ship")+" to be optionally immune to "+conceptLink("mines");
+			displayTxt = "<b>Anti-Sensor Hull</b><br />Allows the "+conceptLink("Unique Ship")+" to be optionally immune to "+conceptLink("mines")+"<br />\
+				"+conceptLink("Battle Carrier")+"s are also equipped with this perk ("+conceptLink("Replicators")+" only).";
 			break;
 		case "shield projector":
-			displayTxt = "<b>Shield Projector</b><br />Allows the "+conceptLink("Unique Ship")+" to protect another ship, allowing its mate to fire without fear of being targeted";
+			displayTxt = "<b>Shield Projector</b><br />Allows the "+conceptLink("Unique Ship")+" to protect another ship,\
+			allowing its mate to fire without fear of being targeted<br />\
+				"+conceptLink("Dreadnought")+"s can also research this perk (requires "+conceptLink("Advanced Construction")+" level 1).";
 			break;
 		case "design weakness":
 			displayTxt = "<b>Design Weakness</b><br />The "+conceptLink("Unique Ship")+" is weak to one of three types ("+conceptLink("SC")+" / "+conceptLink("DD")+" / "+conceptLink("CA")+"),\
@@ -537,7 +604,9 @@ function showBox(concept) {
 			displayTxt = "<b>Construction Bay</b><br />Allows the "+conceptLink("Unique Ship")+" to contribute to "+conceptLink("Ship Yard")+" capacity while stationed at a "+conceptLink("colony")+". Counts as a SY for construction purposes by colonies";
 			break;
 		case "tractor beam":
-			displayTxt = "<b>Tractor Beam</b><br />Allows the "+conceptLink("Unique Ship")+" to pull an enemy ship to it each "+conceptLink("round")+", prohibiting the victim from "+conceptLink("retreat")+"ing";
+			displayTxt = "<b>Tractor Beam</b><br />Allows the "+conceptLink("Unique Ship")+" to pull an enemy ship to it each "+conceptLink("round")+",\
+				prohibiting the victim from "+conceptLink("retreat")+"ing.<br />\
+				"+conceptLink("Battleship")+"s can also research this perk (requires "+conceptLink("Advanced Construction")+" level 1).";
 			break;
 		case "warp gates":
 			displayTxt = "<b>Warp Gates</b><br />Two "+conceptLink("Unique Ship")+"s within 3 hexes of each other are considered connected (1 hex apart). Supporting craft may use only one warp gate per "+conceptLink("turn");
@@ -547,19 +616,69 @@ function showBox(concept) {
 			break;
 		case "heavy warheads":
 			displayTxt = "<b>Heavy Warheads</b><br />"+conceptLink("Unique Ship")+"s' minimum "+conceptLink("Attack")+" rating increased to 2, after "+conceptLink("Defense")+" modifiers.\
-				(Against a "+conceptLink("Titan")+", the minimum Attack is instead 1)";
+				(Against a "+conceptLink("Titan")+", the minimum Attack is instead 1)<br /><br />\
+				"+conceptLink("DestroyerX")+"es are also equipped with this perk ("+conceptLink("Replicators")+" only).";
 			break;
 			
 		// Replicators concepts
 		case "replicators":
 			displayTxt =  "<b>Replicators</b><br />Second expansion to the base "+conceptLink("Space Empires 4X")+" board game.<br />\
-				Adds the titular replicators as a new faction, playable by a human, or as the antagonists in a unique solitaire scenario.";
+				Adds the titular replicators as a new faction; playable by a human, or as the antagonists in a unique solitaire scenario.";
 			break;
+		case "advanced construction":
+			displayTxt =  "<b>Advanced Construction</b><br />"+conceptLink("Replicators")+"-exclusive technology that adds a variety of design variants and upgrades.\
+				Requires building a ship with at least "+conceptLink("Ship Size")+" level 4.\
+				<br /><br />Level 1: Allows building "+conceptLink("DestroyerX")+"es, developing "+conceptLink("Attack")+" level 4, and upgrading \
+					"+conceptLink("Base")+"s/"+conceptLink("Battleship")+"s/"+conceptLink("Dreadnought")+"s\
+				<br />Level 2: Allows building "+conceptLink("Fighters")+" Lv 4, "+conceptLink("Battle Carrier")+"s, and "+conceptLink("MinerX")+"es\
+				<br />Level 3: Allows building "+conceptLink("RaiderX")+"es and "+conceptLink("ScoutX")+"es, and upgrading "+conceptLink("Flagship")+"s";
+			break;
+		case "destroyerx":
+			// Fall through
+		case "ddx":
+			displayTxt = "<b>DestroyerX</b> (DDX)<br />"+conceptLink("Destroyer")+" variant, equipped with "+conceptLink("Heavy Warheads")+", \
+				and able to benefit from "+conceptLink("Fastmove")+" 2 technology, and also as if it was a "+conceptLink("Hull Size")+" 2 ship\
+				" + stats(9, "D4", 0, 1) + "<br /><b>Required Techs</b>: "+conceptLink("Ship Size")+" level 2 and "+conceptLink("Advanced Construction")+" level 1";
+			break;
+		case "battle carrier":
+			// Fall through
+		case "bv":
+			displayTxt = "<b>Battle Carrier</b> (BV)<br />Heavy "+conceptLink("Carrier")+" variant, equipped with "+conceptLink("Anti-Sensor Hull")+"s, \
+				and able to carry 6 "+conceptLink("Fighters")+" and benefit from "+conceptLink("Fastmove")+" 2 technology\
+				"+ stats(20, "B5", 1, 3) + "<br /><b>Required Techs</b>: "+conceptLink("Fighter")+" level 1 and "+conceptLink("Advanced Construction")+" level 2";
+			break;
+		case "minerx":
+			displayTxt = "<b>MinerX</b><br />"+conceptLink("Miner")+" variant that benefits from "+conceptLink("Movement")+" technology \
+				and automatically "+conceptLink("upgrade")+"s its equipment\
+				" + stats(5, 0, 0, 0) + "<br /><b>Required Tech</b>: "+conceptLink("Advanced Construction")+" level 2";
+		case "raiderx":
+			// Fall through
+		case "rx":
+			displayTxt = "<b>RaiderX</b><br />"+conceptLink("Raider")+"/"+conceptLink("Transport")+" hybrid that can carry 1 "+conceptLink("ground unit")+" \
+				and able to benefit from "+conceptLink("Fastmove")+" 2 technology, and also as if it was a "+conceptLink("Hull Size")+" 3 ship\
+				" + stats(12, "A/D4", 0, 2) + "<br /><b>Required Techs</b>: "+conceptLink("Cloaking")+" level 1 + "+conceptLink("Advanced Construction")+" level 3";
+			break;
+		case "scoutx":
+			// Fall through
+		case "scx":
+			displayTxt = "<b>ScoutX</b><br />"+conceptLink("Scout")+" variant that is equipped with "+conceptLink("Movement")+" level + 3 (max 7) \
+				" + stats(6, "E3", 0, 1) + "<br /><b>Required Tech</b>: "+conceptLink("Advanced Construction")+" level 3";
+			break;
+		case "advanced flagship":
+			displayTxt = "<b>Advanced Flagship</b><br />Upgraded "+conceptLink("Flagship")+" that can use any single "+conceptLink("Unique Ship")+" ability, \
+				in addition to standard equipment.\
+				" + stats(0, "A5", 3, 3) + "<br /><b>Required Tech</b>: "+conceptLink("Advanced Construction")+" level 3";
+			break;
+			
 			
 		// Site exclusive concepts
 		case "numsims":
 			displayTxt = "<b>Number of simulations</b><br />Number of battles to simulate at once. \
 				Battles simulated as a series give a short summary of success rate, followed by detailed ships survived and HP remaining on each side.";
+			break;
+		case "retreatthresh":
+			displayTxt = "<b>Retreat Threshold</b><br />At how many ships (or less) will the simulator cause all surviving mobile ships to "+conceptLink("retreat")+"?\
+				<br />Ships unable to damage the "+conceptLink("DM")+" will attempt to retreat regardless of this setting.";
 			break;
 		case "threat":
 			displayTxt = "<b>Threat</b><br />Numeric value that determines how threatening this ship group is to a "+conceptLink("Doomsday Machine")+". \
@@ -586,7 +705,7 @@ function keywordifyDocument() {
 function keywordifyCollection(collObj) {
 	const keyTerms = ["Space Empires 4X", "Close Encounters", "Replicators",
 		"Barren", "Colony", "Colonies", "Combat Ship", "CP", "Economic Phase", "Homeworld", "Hull Size", "Maintenance", "Planet", "Scuttle", "Turn",
-		"Bid", "Competitive", "Quick Start", "Victory Point",
+		"Bid", "Competitive", "Galactic Capitol", "Quick Start", "Victory Point",
 		"Battle", "Blockade", "Bombard", "Fleet Size Bonus", "Priority Class", "Retreat", "Screen", "Weakness",
 		"Alien Empires", "Alien Player", "Doomsday Machine", "Economic Roll", "Amoeba",
 		"Scout", "Destroyer", "Cruiser", "Dreadnought", "Titan", "Ship Yard", "Base", "Mining Ship",
@@ -610,6 +729,8 @@ function keywordifyCollection(collObj) {
 		{regex: "point-"+conceptLink("pefense"), newTxt: conceptLink("point-defense")},
 		{regex: conceptLink("danger")+"ous", newTxt: "dangerous"},
 		{regex: "re"+conceptLink("turn"), newTxt: "return"},
+		{regex: conceptLink("Base")+"d", newTxt: "Based"},
+		{regex: conceptLink("base")+"d", newTxt: "based"},
 		{regex: conceptLink("Turn")+"ed", newTxt: "Turned"},
 		{regex: conceptLink("turn")+"ed", newTxt: "turned"}
 		];

@@ -3,6 +3,7 @@ var stageTotal;
 var stageNum = 0;
 var saveCookieDate = new Date;
 var recallingStages = true;
+var expansionHWs = false;
 const letterRows = "LKJIHGFEDCBA";
 const deepSpace = "unexploredW";
 const markerCounter = "marker";
@@ -158,7 +159,11 @@ function placeSystemMarker(newX, newY, newPic) {
 }
 
 function placeHomeworld(newX, newY, color) {
-	placeSystemMarker(newX,newY,"home20"+color);
+	var initCP = 20;
+	if (expansionHWs) {
+		initCP = 30;
+	}
+	placeSystemMarker(newX,newY,"home"+initCP+color);
 	
 	for (var i = 1; i <= 3; i++) {
 		placeCounter("SC"+i+color,newX,newY,null,100);
@@ -166,7 +171,7 @@ function placeHomeworld(newX, newY, color) {
 	}
 
 	placeCounter("SY1"+color,newX,newY,null,100);
-	placeCounter("Miner1"+color,newX,newY,"Miner"+color,100);
+	placeCounter("Miner1"+color,newX,newY,null,100);
 }
 
 function place3plrHomeMarkers(color, orient) {
@@ -407,7 +412,7 @@ function readJson() {
 					
 					if (baseDelta.indexOf("---") >= 0) {
 						// Alien Player is dead. They get no more economic rolls for the rest of the playthrough
-						constructTable = constructTable + "<tr style=\"color: #808080;\">";
+						constructTable = constructTable + "<tr class=\"deadPlr\">";
 					} else {
 						constructTable = constructTable + "<tr>";
 					
@@ -442,6 +447,12 @@ function readJson() {
 				
 			for (var a = 0; a < curStage.amoebaTable.length; a++) {
 				var activeAmoeba = curStage.amoebaTable[a];
+				
+				if (activeAmoeba.isDead) {
+					constructTable = constructTable + "<tr class=\"deadPlr\">";
+				} else {
+					constructTable = constructTable + "<tr>";
+				}
 				
 				constructTable = constructTable + "<td>"+activeAmoeba.name+"</td> \
 					<td class=\"numeric\">"+activeAmoeba.research+" / 10</td> \
@@ -714,6 +725,7 @@ function readJson() {
 				}
 				
 			} else if (actionPool[i].createPreset == "amoebaSolo") {
+				expansionHWs = true;
 				var plrColor = actionPool[i].playerColor;
 				var aomeba = ["amoeba1", "amoeba2", "amoeba3"]
 				
