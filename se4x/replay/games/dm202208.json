@@ -374,8 +374,7 @@
 			"name":"COR"
 		},{
 			"placeCounter":"Miner2R",
-			"location":"L7",
-			"name":"MinerR"
+			"location":"L7"
 		},{
 			"removeCounter":"CO3R"
 		},{
@@ -1669,7 +1668,7 @@
 			"placeCounter":"dm1",
 			"location":"I8"
 		}]},
-	{"commentary":"<h2>Movement Turn 28</h2><p>The first machine enters battle once more, only this time there is a base defending.</p><h3>Battle for Sector J9</h3><ol><li>Our base has the best priority class, so it shoots first (7 + 2 - 1 = 8 to hit). We rolled a 10 (miss)</li><li>The Doomsday Machine responds (7 - 2 = 5 to hit) with 10,6,5,5 (2 hits)<br /><br /></li><li>Our base fires once more. We rolled a 1 (hit)</li><li>The Doomsday Machine responds with 10,9,5,7 (1 hit). It has finished our base off!</li><li>... and destroyed our planet to repair what little damage we dealt!</li></ol>",
+	{"commentary":"<h2>Movement Turn 28</h2><p>The first machine enters battle once more, only this time there is a base defending.</p><h3>Battle for Sector J9</h3><ol><li>Our base has the best weapon class, so it shoots first (7 + 2 - 1 = 8 to hit). We rolled a 10 (miss)</li><li>The Doomsday Machine responds (7 - 2 = 5 to hit) with 10,6,5,5 (2 hits)<br /><br /></li><li>Our base fires once more. We rolled a 1 (hit)</li><li>The Doomsday Machine responds with 10,9,5,7 (1 hit). It has finished our base off!</li><li>... and destroyed our planet to repair what little damage we dealt!</li></ol>",
 	"actions":
 		[{
 			"placeCounter":"mines1R",
@@ -1749,8 +1748,7 @@
 			"name":"colony5R"
 		},{
 			"placeCounter":"Miner1R",
-			"location":"K10",
-			"name":"MinerR"
+			"location":"K10"
 		},{
 			"placeCounter":"Miner1Rload",
 			"location":"K10",
@@ -1869,7 +1867,7 @@
 			"placeCounter":"dm2",
 			"location":"K7"
 		}]},
-	{"commentary":"<h2>Movement Turn 34</h2><p>And now for the battle against the <a href=\"javascript:showBox('DM4')\">second</a> Doomsday Machine. This does not look hopeful going against a machine that is not only at higher strength, but is at full HP...</p><h3>The Second Battle for Altair</h3><ol><li><b>Round 1</b>: Since this is the DM's first battle, it rolls a 9 for weakness... none found at all</li><li>Our Base has the best priority class, so it gets to fire first (7 + 2 - 2 = 7 to hit). We rolled a 1 (hit)</li><li>The DM will now focus on our last Ship Yard (8 - 1 = 7 to hit). Its first attack is a 1 (hit).</li><li>The DM will now use its leftover rolls against our Base (8 - 2 - 2 = 4 to hit). It rolled 6,7,5 (0 hits)<br /><br /></li><li><b>Round 2</b>: Our Base fires once more. We rolled a 7 (hit)</li><li>The DM will now return fire with 5,4,5,5 (1 hit)<br /><br /></li><li><b>Round 3</b>: Our Base fires once more. We rolled a 6 (hit)</li><li>The DM return fires with 5,10,8,5 (0 hits)<br /><br /></li><li><b>Round 4</b>: Our Base rolls a 2 (hit)</li><li>The DM rolls 9,10,2,4 (2 hits). Our protection has been destroyed!</li></ol>",
+	{"commentary":"<h2>Movement Turn 34</h2><p>And now for the battle against the <a href=\"javascript:showBox('DM4')\">second</a> Doomsday Machine. This does not look hopeful going against a machine that is not only at higher strength, but is at full HP...</p><h3>The Second Battle for Altair</h3><ol><li><b>Round 1</b>: Since this is the DM's first battle, it rolls a 9 for weakness... none found at all</li><li>Our Base has the best weapon class, so it gets to fire first (7 + 2 - 2 = 7 to hit). We rolled a 1 (hit)</li><li>The DM will now focus on our last Ship Yard (8 - 1 = 7 to hit). Its first attack is a 1 (hit).</li><li>The DM will now use its leftover rolls against our Base (8 - 2 - 2 = 4 to hit). It rolled 6,7,5 (0 hits)<br /><br /></li><li><b>Round 2</b>: Our Base fires once more. We rolled a 7 (hit)</li><li>The DM will now return fire with 5,4,5,5 (1 hit)<br /><br /></li><li><b>Round 3</b>: Our Base fires once more. We rolled a 6 (hit)</li><li>The DM return fires with 5,10,8,5 (0 hits)<br /><br /></li><li><b>Round 4</b>: Our Base rolls a 2 (hit)</li><li>The DM rolls 9,10,2,4 (2 hits). Our protection has been destroyed!</li></ol>",
 	"actions":
 		[{
 			"placeCounter":"dm3",

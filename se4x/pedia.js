@@ -64,7 +64,7 @@ function showBox(concept) {
 	switch (concept.toLowerCase()) {
 		// Base Concepts
 		case "attack":
-			displayTxt = "<b>Attack</b><br />Determines the "+conceptLink("Priority Class")+" this ship has in "+conceptLink("battle")+" (A-F), followed by the maximum d10 roll allowed to score a hit.<br />\
+			displayTxt = "<b>Attack</b><br />Determines the "+conceptLink("Weapon Class")+" this ship has in "+conceptLink("battle")+" (A-F), followed by the maximum d10 roll allowed to score a hit.<br />\
 				(Assuming no enemy "+conceptLink("Defense")+" modifiers.)<br /><br />\
 				Attack "+conceptLink("technology")+" adds directly to this rating, up to the maximum "+conceptLink("Hull Size")+".<br />\
 				Attack level 4 is available only if "+conceptLink("Advanced Construction")+" level 1 is developed.";
@@ -130,9 +130,6 @@ function showBox(concept) {
 		case "non-player alien":
 			displayTxt = "<b>Non-Player Alien ship</b><br />Non-aligned ship that guards a "+conceptLink("barren planet")+". If any are found, they must be defeated before the planet can be colonized.";
 			break;
-		case "priority class":
-			displayTxt = "<b>Priority Class</b><br />First factor that determines who can attack first (A &gt; B &gt; C &gt; D &gt; E &gt; F) each "+conceptLink("battle")+" "+conceptLink("round")+". "+conceptLink("Tactics")+" "+conceptLink("technology")+" can break ties.";
-			break;
 		case "quick start":
 			displayTxt = "<b>Quick Start</b><br />Optional setup variant that greatly speeds up play, usually only available in "+conceptLink("competitive")+" scenarios.<br /><br />\
 				"+conceptLink("Home system")+"s are pre-explored, and non-"+conceptLink("barren")+" "+conceptLink("planet")+"s are pre-colonized and fully grown;\
@@ -145,7 +142,7 @@ function showBox(concept) {
 			break;
 		case "round":
 			displayTxt = "<b>Battle Round</b><br />At the beginning of each "+conceptLink("battle")+" round, players "+conceptLink("screen")+" (if available) and check for "+conceptLink("Fleet Size Bonus")+" eligibility." +
-				"<br />Afterwards, ships are organized according to "+conceptLink("Priority Class")+". Each ship chooses a target, and fires <span class=\"bindTxt\">(rolling a d10)</span>. " +
+				"<br />Afterwards, ships are organized according to "+conceptLink("Weapon Class")+". Each ship chooses a target, and fires <span class=\"bindTxt\">(rolling a d10)</span>. " +
 				"<br />If the required "+conceptLink("Attack")+" (or less) has been rolled <span class=\"bindTxt\">(minus any target's "+conceptLink("Defense")+" rating)</span>, a hit has been scored." +
 				"<br />After the first round, whenever a mobile "+conceptLink("combat ship")+" would have its turn to fire, it may instead choose to "+conceptLink("retreat")+".";
 			break;
@@ -184,6 +181,11 @@ function showBox(concept) {
 				<br />7-8: Allows the player to benefit from "+conceptLink("Fleet Size Bonus")+", if they have at least 10 ships able to hit the DM\
 				<br />9-10: No weakness was found on this DM";
 			break;
+		case "priority class":
+			// Fall thru; was the previous term
+		case "weapon class":
+			displayTxt = "<b>Weapon Class</b><br />First factor that determines who can attack first (A &gt; B &gt; C &gt; D &gt; E &gt; F) each "+conceptLink("battle")+" "+conceptLink("round")+". "+conceptLink("Tactics")+" "+conceptLink("technology")+" can break ties.";
+			break;
 			
 		// Technologies
 		case "cloaking":
@@ -221,7 +223,7 @@ function showBox(concept) {
 				Tech level 7 allows the construction of "+conceptLink("Titan")+"s. ("+conceptLink("Close Encounters")+" only)";
 			break;
 		case "tactics":
-			displayTxt = "<b>Tactics Technology</b><br />Used to break ties in case two opposing ships share the same "+conceptLink("Priority Class")+". If even this is the same level, then the defender wins the tie.";
+			displayTxt = "<b>Tactics Technology</b><br />Used to break ties in case two opposing ships share the same "+conceptLink("Weapon Class")+". If even this is the same level, then the defender wins the tie.";
 			break;
 		case "tech":
 			// Fall through
@@ -241,7 +243,7 @@ function showBox(concept) {
 		case "asteroid belt":
 			// Fall through
 		case "asteroids":
-			displayTxt = "<b>Asteroid Belt</b><br />Inhibits movement of ships, unless following a "+conceptLink("Pipeline")+" network. Nullifies "+conceptLink("Attack")+" "+conceptLink("technology")+" and reduces "+conceptLink("Priority Class")+" to <b>E</b>.";
+			displayTxt = "<b>Asteroid Belt</b><br />Inhibits movement of ships, unless following a "+conceptLink("Pipeline")+" network. Nullifies "+conceptLink("Attack")+" "+conceptLink("technology")+" and reduces "+conceptLink("Weapon Class")+" to <b>E</b>.";
 			break;
 		case "barren":
 			// Fall through
@@ -284,7 +286,7 @@ function showBox(concept) {
 			displayTxt = "<b>Minerals</b><br />Can be picked up by a "+conceptLink("miner")+" and towed to a "+conceptLink("colony")+" to generate a one-time boost in "+conceptLink("CP")+" as shown on the counter(s) unloaded.";
 			break;
 		case "nebula":
-			displayTxt = "<b>Nebula</b><br />Inhibits movement of ships, unless following a "+conceptLink("Pipeline")+" network. Nullifies "+conceptLink("Defense")+" and "+conceptLink("Cloaking")+" "+conceptLink("technology")+" and reduces "+conceptLink("Priority Class")+" to <b>E</b>.";
+			displayTxt = "<b>Nebula</b><br />Inhibits movement of ships, unless following a "+conceptLink("Pipeline")+" network. Nullifies "+conceptLink("Defense")+" and "+conceptLink("Cloaking")+" "+conceptLink("technology")+" and reduces "+conceptLink("Weapon Class")+" to <b>E</b>.";
 			break;
 		case "space wreck":
 			displayTxt = "<b>Space Wreck</b><br />Can be picked up by a "+conceptLink("miner")+" and towed to a "+conceptLink("colony")+" to develop a free random "+conceptLink("technology")+".";
@@ -706,7 +708,7 @@ function keywordifyCollection(collObj) {
 	const keyTerms = ["Space Empires 4X", "Close Encounters", "Replicators",
 		"Barren", "Colony", "Colonies", "Combat Ship", "CP", "Economic Phase", "Homeworld", "Hull Size", "Maintenance", "Planet", "Scuttle", "Turn",
 		"Bid", "Competitive", "Galactic Capitol", "Quick Start", "Victory Point",
-		"Battle", "Blockade", "Bombard", "Fleet Size Bonus", "Priority Class", "Retreat", "Screen", "Weakness",
+		"Battle", "Blockade", "Bombard", "Fleet Size Bonus", "Priority Class", "Retreat", "Screen", "Weakness", "Weapon Class",
 		"Alien Empires", "Alien Player", "Doomsday Machine", "Economic Roll", "Amoeba",
 		"Scout", "Destroyer", "Cruiser", "Dreadnought", "Titan", "Ship Yard", "Base", "Mining Ship",
 		"Minelayer", "Minesweeper", "Carrier", "Raider", "Pipeline", "Unique Ship",

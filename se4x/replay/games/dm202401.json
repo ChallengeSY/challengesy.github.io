@@ -367,8 +367,7 @@
 			"removeCounter":"Miner1Yload"
 		},{
 			"placeCounter":"Miner2Y",
-			"location":"L7",
-			"name":"MinerY"
+			"location":"L7"
 		},{
 			"placeCounter":"CO6Y",
 			"location":"L7",
@@ -1486,7 +1485,7 @@
 			"location":"H7",
 			"name":"colony5Y"
 		}]},
-	{"commentary":"<h2>Movement Turn 30</h2><p>We have a better chance of destroying the machine with ten Cruisers. Plus; by not damaging it in the first place, it destroys a planet and wastes its <q>healing</q>. Otherwise, it would have repaired 2 damage.</p><h3>Battle for Sector I7</h3><p>We have managed to consolidate our ten (10) Cruisers at I7. Thus, a battle will take place versus the <a href=\"javascript:showBox('DM6')\">final</a> DM.</p><ol><li><b>Round 1</b>: Since this is its first battle, it rolled a 4 for weakness (weak to Minelaying)</li><li>It has the best Priority Class, so it shoots first. Again, our Cruisers are all the same. It simply rolls away (9 - 1 = 8 to hit): 3,6,8,9,10 (3 hits). We lost one cruiser, plus another got damaged</li><li>Our nine (9) surviving cruisers return fire (4 + 2 - 3 = 3 to hit) with 1,1,1,3,4,6,8,8,9 (4 hits). This reduced the DM HP to 5<br /><br /></li><li><b>Round 2</b>: The DM shoots again: 3,4,4,6,6 (5 hits). We lost three cruisers (although this also finished off a damaged ship)</li><li>Our six (6) surviving cruisers return fire with 3,5,6,7,9,10 (1 hit). This reduced the DM HP to 4<br /><br /></li><li><b>Round 3</b>: The DM shoots again: 1,3,4,6,8 (5 hits). We lost two cruisers, and another got damaged. This is looking grim</li><li>Our four (4) surviving cruisers return fire with 1,2,3,7 (3 hits). This reduced the DM HP to 1. So close!<br /><br /></li><li><b>Round 4</b>: The DM shoots again: 2,4,5,5,6 (5 hits). We lost three cruisers again!</li><li>This is effectively our last chance to destroy this machine! Our lone (1) surviving cruiser returns fire with a <b>2</b> (hit). We barely finished off the final machine!!!</li></ol>",
+	{"commentary":"<h2>Movement Turn 30</h2><p>We have a better chance of destroying the machine with ten Cruisers. Plus; by not damaging it in the first place, it destroys a planet and wastes its <q>healing</q>. Otherwise, it would have repaired 2 damage.</p><h3>Battle for Sector I7</h3><p>We have managed to consolidate our ten (10) Cruisers at I7. Thus, a battle will take place versus the <a href=\"javascript:showBox('DM6')\">final</a> DM.</p><ol><li><b>Round 1</b>: Since this is its first battle, it rolled a 4 for weakness (weak to Minelaying)</li><li>It has the best Weapon Class, so it shoots first. Again, our Cruisers are all the same. It simply rolls away (9 - 1 = 8 to hit): 3,6,8,9,10 (3 hits). We lost one cruiser, plus another got damaged</li><li>Our nine (9) surviving cruisers return fire (4 + 2 - 3 = 3 to hit) with 1,1,1,3,4,6,8,8,9 (4 hits). This reduced the DM HP to 5<br /><br /></li><li><b>Round 2</b>: The DM shoots again: 3,4,4,6,6 (5 hits). We lost three cruisers (although this also finished off a damaged ship)</li><li>Our six (6) surviving cruisers return fire with 3,5,6,7,9,10 (1 hit). This reduced the DM HP to 4<br /><br /></li><li><b>Round 3</b>: The DM shoots again: 1,3,4,6,8 (5 hits). We lost two cruisers, and another got damaged. This is looking grim</li><li>Our four (4) surviving cruisers return fire with 1,2,3,7 (3 hits). This reduced the DM HP to 1. So close!<br /><br /></li><li><b>Round 4</b>: The DM shoots again: 2,4,5,5,6 (5 hits). We lost three cruisers again!</li><li>This is effectively our last chance to destroy this machine! Our lone (1) surviving cruiser returns fire with a <b>2</b> (hit). We barely finished off the final machine!!!</li></ol>",
 	"actions":
 		[{
 			"removeCounter":"systemH7"
