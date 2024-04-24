@@ -147,6 +147,10 @@
 		[{
 			"name":"CSY (Yellow)","initCP":0,"colonyCP":20,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":0,"unitBuy":22
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)"
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Yload"
@@ -361,6 +365,10 @@
 	"prodTable":
 		[{
 			"name":"CSY (Yellow)","initCP":0,"colonyCP":22,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":10,"unitBuy":13
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":2
 		}],
 	"actions":
 		[{
@@ -579,6 +587,10 @@
 		[{
 			"name":"CSY (Yellow)","initCP":1,"colonyCP":27,"mineralCP":10,"pipeCP":0,"maint":2,"bidCP":0,"techBuy":15,"unitBuy":16
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Yload"
@@ -777,6 +789,10 @@
 		[{
 			"name":"CSY (Yellow)","initCP":5,"colonyCP":36,"mineralCP":15,"pipeCP":0,"maint":2,"bidCP":0,"techBuy":40,"unitBuy":12
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"atk":1,"SY":2
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Yload"
@@ -961,6 +977,10 @@
 		[{
 			"name":"CSY (Yellow)","initCP":2,"colonyCP":44,"mineralCP":5,"pipeCP":0,"maint":2,"bidCP":0,"techBuy":0,"unitBuy":36
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":4,"atk":1,"SY":2
+		}],
 	"actions":
 		[{
 			"removeCounter":"SC3Y"
@@ -1065,6 +1085,10 @@
 	"prodTable":
 		[{
 			"name":"CSY (Yellow)","initCP":13,"colonyCP":52,"mineralCP":10,"pipeCP":0,"maint":8,"bidCP":0,"techBuy":30,"unitBuy":36
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":4,"atk":2,"SY":2
 		}],
 	"actions":
 		[{
@@ -1196,6 +1220,10 @@
 		[{
 			"name":"CSY (Yellow)","initCP":1,"colonyCP":51,"mineralCP":20,"pipeCP":0,"maint":10,"bidCP":0,"techBuy":0,"unitBuy":36
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":4,"atk":2,"SY":2
+		}],
 	"actions":
 		[{
 			"removeCounter":"dm1"
@@ -1304,6 +1332,10 @@
 	"prodTable":
 		[{
 			"name":"CSY (Yellow)","initCP":18,"colonyCP":55,"mineralCP":5,"pipeCP":0,"maint":16,"bidCP":0,"techBuy":0,"unitBuy":36
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":4,"atk":2,"SY":2
 		}],
 	"actions":
 		[{
@@ -1426,6 +1458,10 @@
 	"prodTable":
 		[{
 			"name":"CSY (Yellow)","initCP":26,"colonyCP":50,"mineralCP":15,"pipeCP":0,"maint":14,"bidCP":0,"techBuy":30,"unitBuy":36
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":4,"atk":2,"SY":3
 		}],
 	"actions":
 		[{

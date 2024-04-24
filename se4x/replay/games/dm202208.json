@@ -151,6 +151,10 @@
 		[{
 			"name":"CSY (Red)","initCP":0,"colonyCP":20,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":10,"unitBuy":12
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Red)","size":2
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Rload"
@@ -359,6 +363,10 @@
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":0,"colonyCP":21,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":0,"unitBuy":19
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Red)","size":2
 		}],
 	"actions":
 		[{
@@ -586,6 +594,10 @@
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":4,"colonyCP":24,"mineralCP":10,"pipeCP":0,"maint":2,"bidCP":0,"techBuy":0,"unitBuy":34
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Red)","size":2
 		}],
 	"actions":
 		[{
@@ -825,6 +837,10 @@
 		[{
 			"name":"CSY (Red)","initCP":2,"colonyCP":30,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":15,"unitBuy":14
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Red)","size":3
+		}],
 	"actions":
 		[{
 			"removeCounter":"SC1R"
@@ -994,6 +1010,10 @@
 		[{
 			"name":"CSY (Red)","initCP":5,"colonyCP":38,"mineralCP":0,"pipeCP":0,"maint":1,"bidCP":0,"techBuy":35,"unitBuy":6
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Red)","size":3,"atk":1,"tac":1
+		}],
 	"actions":
 		[{
 			"revealCounter":"systemJ7",
@@ -1131,6 +1151,10 @@
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":1,"colonyCP":47,"mineralCP":10,"pipeCP":0,"maint":1,"bidCP":0,"techBuy":25,"unitBuy":30
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Red)","size":3,"atk":2,"tac":1,"terraform":1
 		}],
 	"actions":
 		[{
@@ -1308,6 +1332,10 @@
 		[{
 			"name":"CSY (Red)","initCP":2,"colonyCP":53,"mineralCP":10,"pipeCP":0,"maint":1,"bidCP":0,"techBuy":20,"unitBuy":36
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Red)","size":3,"atk":2,"tac":1,"terraform":1,"SY":2
+		}],
 	"actions":
 		[{
 			"placeCounter":"dm1",
@@ -1474,6 +1502,10 @@
 		[{
 			"name":"CSY (Red)","initCP":8,"colonyCP":52,"mineralCP":15,"pipeCP":0,"maint":2,"bidCP":0,"techBuy":20,"unitBuy":51
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Red)","size":3,"atk":2,"tac":1,"terraform":1,"SY":2,"minelaying":1
+		}],
 	"actions":
 		[{
 			"removeCounter":"CA1R"
@@ -1633,6 +1665,10 @@
 		[{
 			"name":"CSY (Red)","initCP":2,"colonyCP":39,"mineralCP":10,"pipeCP":0,"maint":0,"bidCP":0,"techBuy":0,"unitBuy":42
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Red)","size":3,"atk":2,"tac":1,"terraform":1,"SY":2,"minelaying":1
+		}],
 	"actions":
 		[{
 			"removeCounter":"systemI8"
@@ -1764,6 +1800,10 @@
 		[{
 			"name":"CSY (Red)","initCP":9,"colonyCP":33,"mineralCP":0,"pipeCP":0,"maint":0,"bidCP":0,"techBuy":20,"unitBuy":22
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Red)","size":3,"atk":2,"def":1,"tac":1,"terraform":1,"SY":2,"minelaying":1
+		}],
 	"actions":
 		[{
 			"removeCounter":"systemL8"
@@ -1852,6 +1892,10 @@
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":0,"colonyCP":35,"mineralCP":0,"pipeCP":0,"maint":0,"bidCP":0,"techBuy":30,"unitBuy":0
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Red)","size":3,"atk":2,"def":2,"tac":1,"terraform":1,"SY":2,"minelaying":1
 		}],
 	"actions":
 		[{

@@ -253,11 +253,21 @@ function renderCounter(curId, newPic) {
 	}
 }
 
+function readValue(jsonValue, defaultValue) {
+	if (typeof jsonValue == "number" && isFinite(jsonValue)) {
+		return parseInt(jsonValue);
+	} else if (jsonValue) {
+		return jsonValue;
+	}
+	
+	return defaultValue;
+}
+
 function readJson() {
 	var curStage = rawJson.stages[stageNum];
 	var heading = document.getElementById("heading");
 	var commentary = document.getElementById("commentary");
-	var seekObj, readX, readY;
+	var seekObj, readX, readY, seekTag;
 	
 	if (stageNum == 0 || !recallingStages || stageNum >= stageMem) {
 		commentary.innerHTML = curStage.commentary;
@@ -276,38 +286,42 @@ function readJson() {
 			for (var a = 0; a < curStage.prodTable.length; a++) {
 				var activePlayer = curStage.prodTable[a];
 				
-				if (curStage.prodTable[a].colonyCP <= 0) {
+				if (readValue(activePlayer.colonyCP,0) <= 0) {
 					// Player is dead
-					constructTable = constructTable + "<tr class=\"deadPlr;\">";
+					constructTable = constructTable + "<tr class=\"deadPlr\">";
 				} else {
 					constructTable = constructTable + "<tr>";
 				}
 				
-				var availCP = activePlayer.initCP + activePlayer.colonyCP + activePlayer.mineralCP + activePlayer.pipeCP - activePlayer.maint;
-				var leftoverCP = availCP - activePlayer.bidCP - activePlayer.techBuy - activePlayer.unitBuy;
+				var availCP = readValue(activePlayer.initCP,0) + readValue(activePlayer.colonyCP,0) + 
+					readValue(activePlayer.mineralCP,0) + readValue(activePlayer.pipeCP,0) - readValue(activePlayer.maint,0);
+				var leftoverCP = availCP - readValue(activePlayer.bidCP,0) - readValue(activePlayer.techBuy,0) - readValue(activePlayer.unitBuy,0);
 				
 				constructTable = constructTable + "<td>"+activePlayer.name+"</td> \
-					<td class=\"numeric\">"+activePlayer.initCP+"</td> \
-					<td class=\"numeric increase\">+"+activePlayer.colonyCP+"</td> \
-					<td class=\"numeric increase\">+"+activePlayer.mineralCP+"</td> \
-					<td class=\"numeric increase\">+"+activePlayer.pipeCP+"</td> \
-					<td class=\"numeric decrease\">-"+activePlayer.maint+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.initCP,0)+"</td> \
+					<td class=\"numeric increase\">+"+readValue(activePlayer.colonyCP,0)+"</td> \
+					<td class=\"numeric increase\">+"+readValue(activePlayer.mineralCP,0)+"</td> \
+					<td class=\"numeric increase\">+"+readValue(activePlayer.pipeCP,0)+"</td> \
+					<td class=\"numeric decrease\">-"+readValue(activePlayer.maint,0)+"</td> \
 					<td class=\"numeric\">"+availCP+"</td> \
-					<td class=\"numeric\">-"+activePlayer.bidCP+"</td> \
-					<td class=\"numeric\">-"+activePlayer.techBuy+"</td> \
-					<td class=\"numeric\">-"+activePlayer.unitBuy+"</td> \
+					<td class=\"numeric\">-"+readValue(activePlayer.bidCP,0)+"</td> \
+					<td class=\"numeric\">-"+readValue(activePlayer.techBuy,0)+"</td> \
+					<td class=\"numeric\">-"+readValue(activePlayer.unitBuy,0)+"</td> \
 					<td class=\"numeric\">"+leftoverCP+"</td></tr>"
 			}
 				
 			constructTable = constructTable + "</table>";
+			seekTag = "{prodTable}";
 			
-			if (commentary.innerHTML.indexOf(prodTableTag) >= 0) {
-				commentary.innerHTML = commentary.innerHTML.replace(prodTableTag,constructTable);
+			if (commentary.innerHTML.indexOf(seekTag) >= 0) {
+				commentary.innerHTML = commentary.innerHTML.replace(seekTag,constructTable);
 			} else {
 				commentary.innerHTML = commentary.innerHTML + constructTable;
 			}
 
-		} else if (curStage.alienTable) {
+		}
+		
+		if (curStage.alienTable) {
 			// Base game economics
 			var constructTable = "<table><caption>Alien Economics</caption> \
 				<tr><th>Player</th><th>Eco</th><th>Fleet</th><th>Tech</th><th>Def</th><th>Hidden</th></tr>";
@@ -435,13 +449,83 @@ function readJson() {
 			}
 				
 			constructTable = constructTable + "</table>";
+			seekTag = "{alienTable}";
 			
-			if (commentary.innerHTML.indexOf(prodTableTag) >= 0) {
-				commentary.innerHTML = commentary.innerHTML.replace(prodTableTag,constructTable);
+			if (commentary.innerHTML.indexOf(seekTag) >= 0) {
+				commentary.innerHTML = commentary.innerHTML.replace(seekTag,constructTable);
 			} else {
 				commentary.innerHTML = commentary.innerHTML + constructTable;
 			}
-		} else if (curStage.amoebaTable) {
+		}
+		
+		if (curStage.techTable) {
+			var constructTable = "<table><caption>Player Technologies</caption> \
+				<tr><th>Player</th><th>Size</th><th>Atk</th><th>Def</th><th>Tac</th><th>Move</th> \
+				<th>Terraform</th><th>Explore</th><th>SY</th><th>Fighter</th><th>PD</th> \
+				<th>Cloak</th><th>Scan</th><th>Minelay</th><th>Minesweep</th></tr>";
+				
+			for (var a = 0; a < curStage.techTable.length; a++) {
+				var activePlayer = curStage.techTable[a];
+				
+				if (readValue(activePlayer.isDead,false)) {
+					// Player is dead
+					constructTable = constructTable + "<tr class=\"deadPlr\">";
+				} else {
+					constructTable = constructTable + "<tr>";
+				}
+				constructTable = constructTable + "<td>"+activePlayer.name+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.size,1)+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.atk,0)+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.def,0)+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.tac,0)+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.move,1)+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.terraform,0)+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.explore,0)+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.SY,1)+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.fighter,0)+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.PD,0)+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.cloak,0)+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.scan,0)+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.minelay,0)+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.minesweep,0)+"</td></tr>"
+			}
+				
+			constructTable = constructTable + "</table>";
+			seekTag = "{techTable}";
+			
+			if (commentary.innerHTML.indexOf(seekTag) >= 0) {
+				commentary.innerHTML = commentary.innerHTML.replace(seekTag,constructTable);
+			} else {
+				commentary.innerHTML = commentary.innerHTML + constructTable;
+			}
+
+		}
+		
+		if (curStage.expansionTable) {
+			var constructTable = "<table><caption>Expansion Technologies</caption> \
+				<tr><th>Player</th><th>Academy</th><th>Boarding</th><th>Security</th><th>Troops</th><th>Fastmove</th> \
+				<th>AdvCon</th><th>Tractor Beams</th><th>Shield Projectors</th><th>Anti-Replicator</th></tr>";
+				
+			for (var a = 0; a < curStage.expansionTable.length; a++) {
+				var activePlayer = curStage.expansionTable[a];
+				
+				constructTable = constructTable + "<tr><td>"+activePlayer.name+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.shipSize,1)+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.minesweeping,0)+"</td></tr>"
+			}
+				
+			constructTable = constructTable + "</table>";
+			seekTag = "{expoTable}";
+			
+			if (commentary.innerHTML.indexOf(seekTag) >= 0) {
+				commentary.innerHTML = commentary.innerHTML.replace(seekTag,constructTable);
+			} else {
+				commentary.innerHTML = commentary.innerHTML + constructTable;
+			}
+
+		}
+		
+		if (curStage.amoebaTable) {
 			var constructTable = "<table><caption>Amoeba Database</caption> \
 				<tr><th>Amoeba</th><th>Research</th><th>Type</th><th>Mine Immune?</th></tr>";
 				
@@ -461,9 +545,10 @@ function readJson() {
 			}
 				
 			constructTable = constructTable + "</table>";
+			seekTag = "{amoebaTable}";
 			
-			if (commentary.innerHTML.indexOf(prodTableTag) >= 0) {
-				commentary.innerHTML = commentary.innerHTML.replace(prodTableTag,constructTable);
+			if (commentary.innerHTML.indexOf(seekTag) >= 0) {
+				commentary.innerHTML = commentary.innerHTML.replace(seekTag,constructTable);
 			} else {
 				commentary.innerHTML = commentary.innerHTML + constructTable;
 			}

@@ -157,6 +157,10 @@
 		[{
 			"name":"CSY (Green)","initCP":0,"colonyCP":20,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":0,"unitBuy":19
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Green)"
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Gload"
@@ -382,6 +386,10 @@
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":3,"colonyCP":22,"mineralCP":5,"pipeCP":0,"maint":4,"bidCP":0,"techBuy":0,"unitBuy":24
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Green)"
 		}],
 	"actions":
 		[{
@@ -641,6 +649,10 @@
 		[{
 			"name":"CSY (Green)","initCP":2,"colonyCP":28,"mineralCP":5,"pipeCP":0,"maint":0,"bidCP":0,"techBuy":20,"unitBuy":14
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Green)","atk":1
+		}],
 	"actions":
 		[{
 			"removeCounter":"SC3G"
@@ -781,6 +793,10 @@
 		[{
 			"name":"CSY (Green)","initCP":2,"colonyCP":39,"mineralCP":15,"pipeCP":0,"maint":0,"bidCP":0,"techBuy":30,"unitBuy":6
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Green)","atk":1,"cloak":1
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Gload"
@@ -894,6 +910,10 @@
 		[{
 			"name":"CSY (Green)","initCP":20,"colonyCP":50,"mineralCP":10,"pipeCP":0,"maint":0,"bidCP":0,"techBuy":80,"unitBuy":0
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Green)","atk":2,"cloak":2,"def":1
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Gload"
@@ -988,6 +1008,10 @@
 		[{
 			"name":"CSY (Green)","initCP":0,"colonyCP":58,"mineralCP":10,"pipeCP":0,"maint":0,"bidCP":0,"techBuy":30,"unitBuy":36
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Green)","atk":2,"cloak":2,"def":2
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Gload"
@@ -1071,6 +1095,10 @@
 		[{
 			"name":"CSY (Green)","initCP":0,"colonyCP":60,"mineralCP":15,"pipeCP":0,"maint":6,"bidCP":0,"techBuy":20,"unitBuy":48
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Green)","atk":2,"cloak":2,"def":2,"SY":2
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Gload"
@@ -1132,6 +1160,10 @@
 		[{
 			"name":"CSY (Green)","initCP":1,"colonyCP":60,"mineralCP":0,"pipeCP":0,"maint":14,"bidCP":0,"techBuy":0,"unitBuy":36
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Green)","atk":2,"cloak":2,"def":2,"SY":2
+		}],
 	"actions":
 		[{
 			"placeCounter":"R3G",
@@ -1179,6 +1211,10 @@
 		[{
 			"name":"CSY (Green)","initCP":11,"colonyCP":60,"mineralCP":0,"pipeCP":0,"maint":14,"bidCP":0,"techBuy":0,"unitBuy":48
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Green)","atk":2,"cloak":2,"def":2,"SY":2
+		}],
 	"actions":
 		[{
 			"removeCounter":"dm1"
@@ -1225,6 +1261,10 @@
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":9,"colonyCP":60,"mineralCP":0,"pipeCP":0,"maint":22,"bidCP":0,"techBuy":0,"unitBuy":36
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Green)","atk":2,"cloak":2,"def":2,"SY":2
 		}],
 	"actions":
 		[{
@@ -1287,6 +1327,10 @@
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":11,"colonyCP":60,"mineralCP":0,"pipeCP":0,"maint":22,"bidCP":0,"techBuy":0,"unitBuy":48
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Green)","atk":2,"cloak":2,"def":2,"SY":2
 		}],
 	"actions":
 		[{
@@ -1360,6 +1404,10 @@
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":1,"colonyCP":60,"mineralCP":0,"pipeCP":0,"maint":30,"bidCP":0,"techBuy":0,"unitBuy":24
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Green)","atk":2,"cloak":2,"def":2,"SY":2
 		}],
 	"actions":
 		[{
@@ -1443,6 +1491,10 @@
 		}]},
 	{"heading":"Stardate 2413.0 (Conclusion)",
 	"commentary":"<p>We have managed to destroy all the Doomsday Machines. This ends the scenario in victory.</p><p>Not exactly much to say. While a Large map does make for a little longer playthrough, the scenario is still considerably shorter than Alien Empires by virtue of only needing to defend.</p>",
+	"techTable":
+		[{
+			"name":"CSY (Green)","atk":2,"cloak":2,"def":2,"SY":2
+		}],
 	"actions":
 		[{
 			"removeCounter":"R3G"

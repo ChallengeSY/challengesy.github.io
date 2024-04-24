@@ -154,6 +154,14 @@
 		[{
 			"name":"CSY (Yellow)","initCP":0,"colonyCP":20,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":10,"unitBuy":11,"futureCP":22
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":2
+		},{
+			"name":"Blue AP","minelay":1
+		},{
+			"name":"Red AP","minelay":1
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Yload"
@@ -404,6 +412,14 @@
 	"prodTable":
 		[{
 			"name":"CSY (Yellow)","initCP":1,"colonyCP":22,"mineralCP":10,"pipeCP":0,"maint":4,"bidCP":0,"techBuy":15,"unitBuy":8,"futureCP":27
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3
+		},{
+			"name":"Blue AP","minelay":1
+		},{
+			"name":"Red AP","minelay":1
 		}],
 	"actions":
 		[{
@@ -663,6 +679,14 @@
 		[{
 			"name":"CSY (Yellow)","initCP":1,"colonyCP":27,"mineralCP":20,"pipeCP":0,"maint":2,"bidCP":0,"techBuy":15,"unitBuy":28,"futureCP":33
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1
+		},{
+			"name":"Blue AP","minelay":1
+		},{
+			"name":"Red AP","minelay":1
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Yload"
@@ -884,6 +908,14 @@
 		[{
 			"name":"CSY (Yellow)","initCP":3,"colonyCP":33,"mineralCP":10,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":20,"unitBuy":20,"futureCP":36
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1
+		},{
+			"name":"Blue AP","minelay":1
+		},{
+			"name":"Red AP","minelay":1
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Yload"
@@ -904,7 +936,7 @@
 			"name":"colony5Y"
 		}]},
 	{"heading":"Alien Economic Phase 4",
-	"commentary":"<p>Focus has been adjusted slightly. It will be a little easier to build fleets. But; with the early aggression advantage gone, Alien Players now have to roll to launch a fleet.</p><p>The aliens rolled 4,8 (Blue) / 1,6 (Red). Red's extra economic roll will take effect on phase 7.</p>{prodTable}<p>Blue player has enough Fleet CP to launch a fleet. If it rolls a 5 or less, it launches. This phase, Blue rolled a 7 (skip).</p>",
+	"commentary":"<p>Focus has been adjusted slightly. It will be a little easier to build fleets. But; with the early aggression advantage gone, Alien Players now have to roll to launch a fleet.</p><p>The aliens rolled 4,8 (Blue) / 1,6 (Red). Red's extra economic roll will take effect on phase 7.</p>{alienTable}<p>Blue player has enough Fleet CP to launch a fleet. If it rolls a 5 or less, it launches. This phase, Blue rolled a 7 (skip).</p>",
 	"alienTable":
 		[{
 			"name":"Blue","eco":2,"queue":0,"fleet":10,"tech":40,"def":20,"delta":"FT","hidden":"&mdash;"
@@ -1117,6 +1149,14 @@
 		[{
 			"name":"CSY (Yellow)","initCP":3,"colonyCP":36,"mineralCP":15,"pipeCP":0,"maint":5,"bidCP":0,"techBuy":20,"unitBuy":29,"futureCP":41
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2
+		},{
+			"name":"Blue AP","minelay":1
+		},{
+			"name":"Red AP","minelay":1
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Yload"
@@ -1161,7 +1201,7 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Alien Economic Phase 5",
-	"commentary":"<p>No change in economics this time. The aliens rolled 1,7 (Blue) / 2,5 (Red). We now have two queued extra economic rolls that will take effect as this playthrough progresses: Red on phase 7; Blue 8</p>{prodTable}<p>Both Alien Players have enough Fleet CP to launch a fleet. This phase, they rolled 4 (Blue) / 9 (Red). Since aggression has been reduced, neither player will launch.</p>",
+	"commentary":"<p>No change in economics this time. The aliens rolled 1,7 (Blue) / 2,5 (Red). We now have two queued extra economic rolls that will take effect as this playthrough progresses: Red on phase 7; Blue 8</p>{alienTable}<p>Both Alien Players have enough Fleet CP to launch a fleet. This phase, they rolled 4 (Blue) / 9 (Red). Since aggression has been reduced, neither player will launch.</p>",
 	"alienTable":
 		[{
 			"name":"Blue","eco":2,"queue":1,"fleet":10,"tech":50,"def":20,"delta":"ET","hidden":"&mdash;"
@@ -1402,6 +1442,14 @@
 		[{
 			"name":"CSY (Yellow)","initCP":0,"colonyCP":41,"mineralCP":5,"pipeCP":1,"maint":7,"bidCP":0,"techBuy":0,"unitBuy":36,"futureCP":49
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2
+		},{
+			"name":"Blue AP","minelay":1
+		},{
+			"name":"Red AP","minelay":1
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Yload"
@@ -1434,7 +1482,7 @@
 			"name":"colony5Y"
 		}]},
 	{"heading":"Alien Economic Phase 6",
-	"commentary":"<p>Alien Players have gained a natural economic roll. On the other hand, this is the last phase they can queue <i>extra</i> economic rolls. They have rolled 1,2,3 (Blue) / 2,8,10 (Red). We now have <b>three</b> queued extra economic rolls: Red on phase 7; Blue 8 and 9</p>{prodTable}<p>Aggression has increased back a bit. They rolled 5 (Blue) / 1 (Red). Red Player will launch a fleet!</p>",
+	"commentary":"<p>Alien Players have gained a natural economic roll. On the other hand, this is the last phase they can queue <i>extra</i> economic rolls. They have rolled 1,2,3 (Blue) / 2,8,10 (Red). We now have <b>three</b> queued extra economic rolls: Red on phase 7; Blue 8 and 9</p>{alienTable}<p>Aggression has increased back a bit. They rolled 5 (Blue) / 1 (Red). Red Player will launch a fleet!</p>",
 	"alienTable":
 		[{
 			"name":"Blue","eco":3,"queue":2,"fleet":30,"tech":50,"def":20,"delta":"EF","hidden":"&mdash;"
@@ -1454,6 +1502,14 @@
 			"name":"Blue","eco":3,"queue":2,"fleet":30,"tech":50,"def":20,"delta":"","hidden":"&mdash;"
 		},{
 			"name":"Red","eco":3,"queue":1,"fleet":0,"tech":30,"def":40,"delta":"ftH","hidden":"30"
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2
+		},{
+			"name":"Blue AP","minelay":1
+		},{
+			"name":"Red AP","minelay":1,"move":2
 		}],
 	"actions":
 		[{
@@ -1796,6 +1852,14 @@
 		[{
 			"name":"CSY (Yellow)","initCP":4,"colonyCP":49,"mineralCP":5,"pipeCP":1,"maint":6,"bidCP":0,"techBuy":0,"unitBuy":42,"futureCP":57
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2,"tac":1
+		},{
+			"name":"Blue AP","minelay":1
+		},{
+			"name":"Red AP","minelay":1,"move":2
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Yload"
@@ -1828,7 +1892,7 @@
 			"name":"colony5Y"
 		}]},
 	{"heading":"Alien Economic Phase 7",
-	"commentary":"<p>At this point, it is no longer possible to queue extra economic rolls. Red's previously queued extra roll has taken effect now. Alien Players have rolled 3,7,7 (Blue) / 2,4,6,9 (Red). Blue still has <i>two</i> queued extra rolls: phases 8 and 9</p>{prodTable}<p>Aggression is stable. They rolled 4 (Blue) / 4 (Red). Both players will launch a fleet this time!</p>",
+	"commentary":"<p>At this point, it is no longer possible to queue extra economic rolls. Red's previously queued extra roll has taken effect now. Alien Players have rolled 3,7,7 (Blue) / 2,4,6,9 (Red). Blue still has <i>two</i> queued extra rolls: phases 8 and 9</p>{alienTable}<p>Aggression is stable. They rolled 4 (Blue) / 4 (Red). Both players will launch a fleet this time!</p>",
 	"alienTable":
 		[{
 			"name":"Blue","eco":3,"queue":2,"fleet":40,"tech":70,"def":20,"delta":"FT","hidden":"&mdash;"
@@ -1850,6 +1914,14 @@
 			"name":"Blue","eco":3,"queue":2,"fleet":0,"tech":70,"def":20,"delta":"fH","hidden":"40"
 		},{
 			"name":"Red","eco":4,"queue":0,"fleet":0,"tech":25,"def":40,"delta":"ftH","hidden":"30 / 20"
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2,"tac":1
+		},{
+			"name":"Blue AP","minelay":1
+		},{
+			"name":"Red AP","minelay":1,"move":3
 		}],
 	"actions":
 		[{
@@ -1953,6 +2025,14 @@
 	"alienTable":
 		[{
 			"name":"Red","eco":4,"queue":0,"fleet":3,"tech":5,"def":40,"delta":"Fth","hidden":"20"
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2,"tac":1
+		},{
+			"name":"Blue AP","minelay":1
+		},{
+			"name":"Red AP","minelay":1,"move":3,"size":2,"minesweep":1
 		}],
 	"actions":
 		[{
@@ -2132,6 +2212,14 @@
 		[{
 			"name":"CSY (Yellow)","initCP":4,"colonyCP":55,"mineralCP":10,"pipeCP":1,"maint":8,"bidCP":0,"techBuy":0,"unitBuy":45,"futureCP":63
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2,"tac":1
+		},{
+			"name":"Blue AP","minelay":1
+		},{
+			"name":"Red AP","minelay":1,"move":3,"size":2,"minesweep":1
+		}],
 	"actions":
 		[{
 			"removeCounter":"DD2R"
@@ -2165,7 +2253,7 @@
 			"name":"colony5Y"
 		}]},
 	{"heading":"Alien Economic Phase 8",
-	"commentary":"<p>One of Blue's previously queued extra economic rolls has taken effect now. The Alien Players have rolled 2,5,6,9 (Blue) / 2,5,9,10 (Red). Blue is almost done with queued extra rolls: just phase 9 remains</p>{prodTable}<p>Aggression is still stable. They rolled 2 (Blue) / 9 (Red). Blue Player will launch a fleet alone this time!</p>",
+	"commentary":"<p>One of Blue's previously queued extra economic rolls has taken effect now. The Alien Players have rolled 2,5,6,9 (Blue) / 2,5,9,10 (Red). Blue is almost done with queued extra rolls: just phase 9 remains</p>{alienTable}<p>Aggression is still stable. They rolled 2 (Blue) / 9 (Red). Blue Player will launch a fleet alone this time!</p>",
 	"alienTable":
 		[{
 			"name":"Blue","eco":4,"queue":1,"fleet":20,"tech":90,"def":20,"delta":"FT","hidden":"40"
@@ -2185,6 +2273,14 @@
 			"name":"Blue","eco":4,"queue":1,"fleet":0,"tech":70,"def":20,"delta":"ftH","hidden":"40 / 20"
 		},{
 			"name":"Red","eco":4,"queue":0,"fleet":25,"tech":15,"def":60,"delta":"","hidden":"&mdash;"
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2,"tac":1
+		},{
+			"name":"Blue AP","minelay":1,"move":2
+		},{
+			"name":"Red AP","minelay":1,"move":3,"size":2,"minesweep":1
 		}],
 	"actions":
 		[{
@@ -2315,6 +2411,14 @@
 	"alienTable":
 		[{
 			"name":"Blue","eco":4,"queue":1,"fleet":4,"tech":5,"def":20,"delta":"Fth","hidden":"20"
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2,"tac":1
+		},{
+			"name":"Blue AP","minelay":1,"move":2,"size":2,"scan":1,"fighter":1,"minesweep":1
+		},{
+			"name":"Red AP","minelay":1,"move":3,"size":2,"minesweep":1
 		}],
 	"actions":
 		[{
@@ -2489,6 +2593,14 @@
 		[{
 			"name":"CSY (Yellow)","initCP":17,"colonyCP":58,"mineralCP":20,"pipeCP":1,"maint":14,"bidCP":0,"techBuy":0,"unitBuy":78,"futureCP":66
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2,"tac":1,"atk":1
+		},{
+			"name":"Blue AP","minelay":1,"move":2,"size":2,"scan":1,"fighter":1,"minesweep":1
+		},{
+			"name":"Red AP","minelay":1,"move":3,"size":2,"minesweep":1
+		}],
 	"actions":
 		[{
 			"revealCounter":"systemK1",
@@ -2529,7 +2641,7 @@
 			"name":"colony5Y"
 		}]},
 	{"heading":"Alien Economic Phase 9",
-	"commentary":"<p>The last of the extra economic rolls has been applied. In addition, their natural economic strength will increase soon. The Alien Players have rolled 3,3,4,8,9 (Blue) / 2,3,4,7 (Red).</p>{prodTable}<p>Here is where things get tricky. Natural aggression has already ramped up, and Blue has gained a boost in aggression <span class=\"bindTxt\">(Launch Threshold +2)</span> that is effective while it has the <span class=\"bindTxt\">Fighter &gt; Point-Defense</span> advantage and it is able to build a full Carrier <span class=\"bindTxt\">(27 CP worth)</span>. Anyway, the aliens rolled 4 (Blue) / 2 (Red). Both rolls are low enough (relative to aggression level) to launch fresh fleets.</p>",
+	"commentary":"<p>The last of the extra economic rolls has been applied. In addition, their natural economic strength will increase soon. The Alien Players have rolled 3,3,4,8,9 (Blue) / 2,3,4,7 (Red).</p>{alienTable}<p>Here is where things get tricky. Natural aggression has already ramped up, and Blue has gained a boost in aggression <span class=\"bindTxt\">(Launch Threshold +2)</span> that is effective while it has the <span class=\"bindTxt\">Fighter &gt; Point-Defense</span> advantage and it is able to build a full Carrier <span class=\"bindTxt\">(27 CP worth)</span>. Anyway, the aliens rolled 4 (Blue) / 2 (Red). Both rolls are low enough (relative to aggression level) to launch fresh fleets.</p>",
 	"alienTable":
 		[{
 			"name":"Blue","eco":5,"queue":0,"fleet":34,"tech":25,"def":20,"delta":"FT","hidden":"20"
@@ -2545,12 +2657,20 @@
 			"removeCounter":"fleetR3"
 		}]},
 	{"heading":"Alien Launch Phase 9",
-	"commentary":"<p>Since both Alien Players have launched a fleet, they will roll to buy another Movement level (-25 CP either way). They rolled 10 (Blue) / 1 (Red). Red will buy Movement level 4 for 25 CP! Blue will stay at Movement level 2.</p>",
+	"commentary":"<p>Since both Alien Players have launched a fleet, they will roll to buy another Movement level (-25 CP either way). They rolled 10 (Blue) / 1 (Red). Red will buy Movement level 4 for 25 CP! Blue will keep its Movement level.</p>",
 	"alienTable":
 		[{
 			"name":"Blue","eco":5,"queue":0,"fleet":0,"tech":25,"def":20,"delta":"fH","hidden":"20 / 34"
 		},{
 			"name":"Red","eco":4,"queue":0,"fleet":0,"tech":0,"def":60,"delta":"ftH","hidden":"55"
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2,"tac":1,"atk":1
+		},{
+			"name":"Blue AP","minelay":1,"move":2,"size":2,"scan":1,"fighter":1,"minesweep":1
+		},{
+			"name":"Red AP","minelay":1,"move":4,"size":2,"minesweep":1
 		}],
 	"actions":
 		[{
@@ -2722,6 +2842,14 @@
 			"name":"Blue","eco":5,"queue":0,"fleet":2,"tech":10,"def":20,"delta":"Fth","hidden":"34"
 		},{
 			"name":"Red","eco":4,"queue":0,"fleet":1,"tech":0,"def":60,"delta":"Fh","hidden":"&mdash;"
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2,"tac":1,"atk":1
+		},{
+			"name":"Blue AP","minelay":1,"move":2,"size":3,"scan":1,"fighter":1,"minesweep":1
+		},{
+			"name":"Red AP","minelay":1,"move":4,"size":2,"minesweep":1
 		}],
 	"actions":
 		[{
@@ -2968,6 +3096,14 @@
 		[{
 			"name":"CSY (Yellow)","initCP":4,"colonyCP":61,"mineralCP":10,"pipeCP":1,"maint":17,"bidCP":0,"techBuy":0,"unitBuy":54,"futureCP":70
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2,"tac":1,"atk":1
+		},{
+			"name":"Blue AP","minelay":1,"move":2,"size":3,"scan":1,"fighter":1,"minesweep":1
+		},{
+			"name":"Red AP","minelay":1,"move":4,"size":2,"minesweep":1
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Yload"
@@ -2985,7 +3121,7 @@
 			"name":"colony5Y"
 		}]},
 	{"heading":"Alien Economic Phase 10",
-	"commentary":"<p>Alien Players have gained a natural economic roll this phase, and have also narrowed their Tech focus a little. Still, they have rolled 3,4,5,6,7,8 (Blue) / 1,4,5,5,9 (Red).</p>{prodTable}<p>Blue maintains its increased aggression this phase, and the aliens roll 7 (Blue) / 6 (Red). Blue will launch a fleet!</p>",
+	"commentary":"<p>Alien Players have gained a natural economic roll this phase, and have also narrowed their Tech focus a little. Still, they have rolled 3,4,5,6,7,8 (Blue) / 1,4,5,5,9 (Red).</p>{alienTable}<p>Blue maintains its increased aggression this phase, and the aliens roll 7 (Blue) / 6 (Red). Blue will launch a fleet!</p>",
 	"alienTable":
 		[{
 			"name":"Blue","eco":6,"queue":0,"fleet":42,"tech":30,"def":20,"delta":"FT","hidden":"34"
@@ -3005,6 +3141,14 @@
 			"name":"Blue","eco":6,"queue":0,"fleet":0,"tech":5,"def":20,"delta":"ftH","hidden":"34 / 42"
 		},{
 			"name":"Red","eco":5,"queue":0,"fleet":41,"tech":10,"def":60,"delta":"","hidden":"&mdash;"
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2,"tac":1,"atk":1
+		},{
+			"name":"Blue AP","minelay":1,"move":3,"size":3,"scan":1,"fighter":1,"minesweep":1
+		},{
+			"name":"Red AP","minelay":1,"move":4,"size":2,"minesweep":1
 		}],
 	"actions":
 		[{
@@ -3296,6 +3440,14 @@
 		[{
 			"name":"Blue","eco":6,"queue":0,"fleet":4,"tech":5,"def":20,"delta":"Fh","hidden":"&mdash;"
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2,"tac":1,"atk":1
+		},{
+			"name":"Blue AP","minelay":1,"move":3,"size":3,"scan":1,"fighter":1,"minesweep":1
+		},{
+			"name":"Red AP","minelay":1,"move":4,"size":2,"minesweep":1
+		}],
 	"actions":
 		[{
 			"removeCounter":"systemD9"
@@ -3367,6 +3519,14 @@
 		[{
 			"name":"CSY (Yellow)","initCP":5,"colonyCP":60,"mineralCP":0,"pipeCP":1,"maint":5,"bidCP":0,"techBuy":0,"unitBuy":56
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2,"tac":1,"atk":1
+		},{
+			"name":"Blue AP","minelay":1,"move":3,"size":3,"scan":1,"fighter":1,"minesweep":1
+		},{
+			"name":"Red AP","minelay":1,"move":4,"size":2,"minesweep":1
+		}],
 	"actions":
 		[{
 			"removeCounter":"DD3R"
@@ -3382,7 +3542,7 @@
 			"name":"COY"
 		}]},
 	{"heading":"Alien Economic Phase 11",
-	"commentary":"<p>While we are <i>still</i> on the defensive, the Alien Players are able to build lots of money in their banks. They rolled 3,3,4,6,6,9 (Blue) / 3,4,7,9,9 (Red).</p>{prodTable}<p>Blue still maintains its Fighter tech advantage. They rolled 4 (Blue) / 2 (Red) on the fleet launch sequence. Both players will launch fresh fleets!</p>",
+	"commentary":"<p>While we are <i>still</i> on the defensive, the Alien Players are able to build lots of money in their banks. They rolled 3,3,4,6,6,9 (Blue) / 3,4,7,9,9 (Red).</p>{alienTable}<p>Blue still maintains its Fighter tech advantage. They rolled 4 (Blue) / 2 (Red) on the fleet launch sequence. Both players will launch fresh fleets!</p>",
 	"alienTable":
 		[{
 			"name":"Blue","eco":6,"queue":0,"fleet":54,"tech":15,"def":20,"delta":"FT","hidden":"&mdash;"
@@ -3404,6 +3564,14 @@
 			"name":"Blue","eco":6,"queue":0,"fleet":0,"tech":15,"def":20,"delta":"fH","hidden":"54"
 		},{
 			"name":"Red","eco":5,"queue":0,"fleet":0,"tech":10,"def":60,"delta":"ftH","hidden":"71"
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2,"tac":1,"atk":1
+		},{
+			"name":"Blue AP","minelay":1,"move":3,"size":3,"scan":1,"fighter":1,"minesweep":1
+		},{
+			"name":"Red AP","minelay":1,"move":5,"size":2,"minesweep":1
 		}],
 	"actions":
 		[{
@@ -3641,6 +3809,14 @@
 		}]},
 	{"heading":"(Turn 36) The Battle for Sector K3",
 	"commentary":"<p>This next stage is more action packed, because the colony at K3 is <i>lightly</i> defended by 3 of our Scouts. Blue has only 15 Tech CP, which is only enough for Minesweeping level 2 (-15 CP). Their next fleet (54 CP assigned) is extremely easy to build, since it is evenly divisible by 27; giving them 2 full Carriers (cargo room for 6 Fighters) to their name.</p><ol><li><b>Round 1</b>: We have 3 Scouts to their 8 ships. They gain the Fleet Size Bonus!</li><li>Their 6 Fighters go first. Prioritizing our updated Scouts, they rolled 1,5,5,5,7,7 (4 hits &le;5 in any case), destroying what little resistance there was<br /><br /></li><li><b>Bombardment Round</b>: The fighters get to roll again, now that the colony is exposed. They rolled 2,3,4,5,6,7 (4 hits), glassing that colony in one salvo also!</li></ol>",
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2,"tac":1,"atk":1
+		},{
+			"name":"Blue AP","minelay":1,"move":3,"size":3,"scan":1,"fighter":1,"minesweep":2
+		},{
+			"name":"Red AP","minelay":1,"move":5,"size":2,"minesweep":1
+		}],
 	"actions":
 		[{
 			"placeCounter":"SC2Y",
@@ -3688,6 +3864,14 @@
 		[{
 			"name":"CSY (Yellow)","initCP":5,"colonyCP":50,"mineralCP":30,"pipeCP":1,"maint":10,"bidCP":0,"techBuy":20,"unitBuy":54
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2,"tac":1,"atk":1,"PD":1
+		},{
+			"name":"Blue AP","minelay":1,"move":3,"size":3,"scan":1,"fighter":1,"minesweep":2
+		},{
+			"name":"Red AP","minelay":1,"move":5,"size":2,"minesweep":1
+		}],
 	"actions":
 		[{
 			"placeCounter":"SC2Y",
@@ -3713,7 +3897,7 @@
 			"removeCounter":"fleetB6"
 		}]},
 	{"heading":"Alien Economic Phase 12",
-	"commentary":"<p>This is the last economic phase that Alien Players will be able to invest in protecting their homeworld. Granted, we have been doing rather badly lately. Still, they rolled 1,4,4,5,8,10 (Blue) / 1,5,5,10,10 (Red).</p>{prodTable}<p>Blue Player does not yet know we have developed Point-Defense technology. They still claim its Fighter tech advantage for one last phase. They rolled 2 (Blue) / 8 (Red) on the fleet launch sequence. Blue Player will launch another fleet. Since their Tech CP is not sufficient to buy another Movement level, they will simply launch away.</p>",
+	"commentary":"<p>This is the last economic phase that Alien Players will be able to invest in protecting their homeworld. Granted, we have been doing rather badly lately. Still, they rolled 1,4,4,5,8,10 (Blue) / 1,5,5,10,10 (Red).</p>{alienTable}<p>Blue Player does not yet know we have developed Point-Defense technology. They still claim its Fighter tech advantage for one last phase. They rolled 2 (Blue) / 8 (Red) on the fleet launch sequence. Blue Player will launch another fleet. Since their Tech CP is not sufficient to buy another Movement level, they will simply launch away.</p>",
 	"alienTable":
 		[{
 			"name":"Blue","eco":6,"queue":0,"fleet":40,"tech":10,"def":40,"delta":"FTD","hidden":"&mdash;"
@@ -4091,6 +4275,14 @@
 		[{
 			"name":"CSY (Yellow)","initCP":2,"colonyCP":36,"mineralCP":0,"pipeCP":1,"maint":12,"bidCP":0,"techBuy":0,"unitBuy":24
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2,"tac":1,"atk":1,"PD":1
+		},{
+			"name":"Blue AP","minelay":1,"move":3,"size":3,"scan":1,"fighter":1,"minesweep":2
+		},{
+			"name":"Red AP","minelay":1,"move":5,"size":2,"minesweep":1
+		}],
 	"actions":
 		[{
 			"removeCounter":"systemD5"
@@ -4117,7 +4309,7 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Alien Economic Phase 13",
-	"commentary":"<p>From here on out, Alien Players will alternate between a downtime period and an automatic launch. For this economic phase, they rolled 2,3,5,8,10,10 (Blue) / 1,2,6,8,8 (Red).</p>{prodTable}<p>Blue Player has learned of our Point-Defense technology, and has lost its Carrier-related aggression bonus on fleet launching. Since this is a downtime phase, they rolled 6 (Blue) / 7 (Red) on the fleet launch sequence. Neither player will launch a new fleet this phase.</p>",
+	"commentary":"<p>From here on out, Alien Players will alternate between a downtime period and an automatic launch. For this economic phase, they rolled 2,3,5,8,10,10 (Blue) / 1,2,6,8,8 (Red).</p>{alienTable}<p>Blue Player has learned of our Point-Defense technology, and has lost its Carrier-related aggression bonus on fleet launching. Since this is a downtime phase, they rolled 6 (Blue) / 7 (Red) on the fleet launch sequence. Neither player will launch a new fleet this phase.</p>",
 	"alienTable":
 		[{
 			"name":"Blue","eco":6,"queue":0,"fleet":30,"tech":40,"def":40,"delta":"FT","hidden":"40"
@@ -4221,6 +4413,14 @@
 	"alienTable":
 		[{
 			"name":"Blue","eco":6,"queue":0,"fleet":31,"tech":40,"def":40,"delta":"Fh","hidden":"&mdash;"
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2,"tac":1,"atk":1,"PD":1
+		},{
+			"name":"Blue AP","minelay":1,"move":3,"size":3,"scan":2,"fighter":1,"minesweep":2,"def":1
+		},{
+			"name":"Red AP","minelay":1,"move":5,"size":2,"minesweep":1
 		}],
 	"actions":
 		[{
@@ -4461,6 +4661,14 @@
 		[{
 			"name":"CSY (Yellow)","initCP":3,"colonyCP":33,"mineralCP":20,"pipeCP":1,"maint":11,"bidCP":0,"techBuy":0,"unitBuy":42
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2,"tac":1,"atk":1,"PD":1
+		},{
+			"name":"Blue AP","minelay":1,"move":3,"size":3,"scan":2,"fighter":1,"minesweep":2,"def":1
+		},{
+			"name":"Red AP","minelay":1,"move":5,"size":2,"minesweep":1
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Yload"
@@ -4664,6 +4872,14 @@
 		[{
 			"name":"Red","eco":5,"queue":0,"fleet":0,"tech":0,"def":4,"delta":"tdh","hidden":"&mdash;"
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2,"tac":1,"atk":1,"PD":1
+		},{
+			"name":"Blue AP","minelay":1,"move":3,"size":3,"scan":2,"fighter":1,"minesweep":2,"def":1
+		},{
+			"name":"Red AP","minelay":1,"move":5,"size":3,"minesweep":1,"atk":2
+		}],
 	"actions":
 		[{
 			"removeCounter":"SC3Y"
@@ -4720,6 +4936,14 @@
 		[{
 			"name":"CSY (Yellow)","initCP":4,"colonyCP":30,"mineralCP":0,"pipeCP":1,"maint":14,"bidCP":0,"techBuy":0,"unitBuy":18
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2,"tac":1,"atk":1,"PD":1
+		},{
+			"name":"Blue AP","minelay":1,"move":3,"size":3,"scan":2,"fighter":1,"minesweep":2,"def":1
+		},{
+			"name":"Red AP","minelay":1,"move":5,"size":3,"minesweep":1,"atk":2
+		}],
 	"actions":
 		[{
 			"removeCounter":"CA3Y"
@@ -4735,7 +4959,7 @@
 			"location":"J5"
 		}]},
 	{"heading":"Alien Economic Phase 15",
-	"commentary":"<p>The Alien Players have grown this economic phase with another natural economic roll. They have rolled 3,5,6,6,8,9,10 (Blue) / 2,5,5,6,7,9 (Red).</p>{prodTable}<p>This is a downtime economic phase. The aliens have rolled 6 (Blue) / 10 (Red) regarding fleet launch. Neither player will launch a fleet this phase.</p>",
+	"commentary":"<p>The Alien Players have grown this economic phase with another natural economic roll. They have rolled 3,5,6,6,8,9,10 (Blue) / 2,5,5,6,7,9 (Red).</p>{alienTable}<p>This is a downtime economic phase. The aliens have rolled 6 (Blue) / 10 (Red) regarding fleet launch. Neither player will launch a fleet this phase.</p>",
 	"alienTable":
 		[{
 			"name":"Blue","eco":7,"queue":0,"fleet":40,"tech":100,"def":40,"delta":"FT","hidden":"61"
@@ -4841,6 +5065,14 @@
 		},{
 			"name":"Red","eco":6,"queue":0,"fleet":50,"tech":10,"def":4,"delta":"","hidden":"&mdash;"
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2,"tac":1,"atk":1,"PD":1
+		},{
+			"name":"Blue AP","minelay":1,"move":3,"size":4,"scan":2,"fighter":1,"minesweep":2,"def":3,"tac":1
+		},{
+			"name":"Red AP","minelay":1,"move":5,"size":3,"minesweep":1,"atk":2
+		}],
 	"actions":
 		[{
 			"removeCounter":"SC2Y"
@@ -4902,6 +5134,14 @@
 	"prodTable":
 		[{
 			"name":"CSY (Yellow)","initCP":3,"colonyCP":25,"mineralCP":10,"pipeCP":1,"maint":8,"bidCP":0,"techBuy":0,"unitBuy":30
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2,"tac":1,"atk":1,"PD":1
+		},{
+			"name":"Blue AP","minelay":1,"move":3,"size":4,"scan":2,"fighter":1,"minesweep":2,"def":3,"tac":1
+		},{
+			"name":"Red AP","minelay":1,"move":5,"size":3,"minesweep":1,"atk":2
 		}],
 	"actions":
 		[{
@@ -5080,6 +5320,14 @@
 		[{
 			"name":"CSY (Yellow)","initCP":1,"colonyCP":25,"mineralCP":10,"pipeCP":1,"maint":8,"bidCP":0,"techBuy":0,"unitBuy":29
 		}],
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2,"tac":1,"atk":1,"PD":1
+		},{
+			"name":"Blue AP","minelay":1,"move":3,"size":4,"scan":2,"fighter":1,"minesweep":2,"def":3,"tac":1
+		},{
+			"name":"Red AP","minelay":1,"move":5,"size":3,"minesweep":1,"atk":2
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Y"
@@ -5095,7 +5343,7 @@
 			"location":"L7"
 		}]},
 	{"heading":"Alien Economic Phase 17",
-	"commentary":"<p>Alien Players' focus has shifted ever so slightly. They rolled 1,4,5,7,8,9,10 (Blue) / 1,1,3,4,7,7 (Red).</p>{prodTable}<p>Since this is the soft downtime phase, fleet launch rolls are made. The aliens rolled 4 (Blue) / 9 (Red). Neither player will launch a fresh fleet this time.</p>",
+	"commentary":"<p>Alien Players' focus has shifted ever so slightly. They rolled 1,4,5,7,8,9,10 (Blue) / 1,1,3,4,7,7 (Red).</p>{alienTable}<p>Since this is the soft downtime phase, fleet launch rolls are made. The aliens rolled 4 (Blue) / 9 (Red). Neither player will launch a fresh fleet this time.</p>",
 	"alienTable":
 		[{
 			"name":"Blue","eco":7,"queue":0,"fleet":50,"tech":40,"def":40,"delta":"FT","hidden":"101"
@@ -5220,6 +5468,14 @@
 		}]},
 	{"heading":"Game Over",
 	"commentary":"<p>We have no combat forces left. Since a blockaded homeworld can not produce income, this leaves us no means of building anything else. Thus, since it was only a matter of time before our homeworld was destroyed; this playthrough is finished, in defeat.</p><p>We are sure there was plenty of room for improvement. Whether it be we never bought Movement technology, was way late on our Point-Defense tech, did not buy enough tech in general... Random Factor was not exactly in our favor, even for a <q>Large</q>-sized Alien Empires map. We did not find any planets on row I, and only a single planet on row J.</p>",
+	"techTable":
+		[{
+			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2,"tac":1,"atk":1,"PD":1,"isDead":true
+		},{
+			"name":"Blue AP","minelay":1,"move":3,"size":4,"scan":2,"fighter":1,"minesweep":2,"def":3,"tac":1,"atk":1,"PD":1
+		},{
+			"name":"Red AP","minelay":1,"move":5,"size":4,"minesweep":1,"atk":2,"scan":1
+		}],
 	"actions":
 		[{
 			"removeCounter":"SC1Y"
