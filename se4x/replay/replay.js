@@ -2,7 +2,7 @@ var rawJson;
 var stageTotal;
 var stageNum = 0;
 var saveCookieDate = new Date;
-var recallingStages = true;
+var multiStages = true;
 var expansionHWs = false;
 const letterRows = "LKJIHGFEDCBA";
 const deepSpace = "unexploredW";
@@ -172,6 +172,9 @@ function placeHomeworld(newX, newY, color) {
 
 	placeCounter("SY1"+color,newX,newY,null,100);
 	placeCounter("Miner1"+color,newX,newY,null,100);
+	if (expansionHWs) {
+		placeCounter("Flag"+color,newX,newY,null,100);
+	}
 }
 
 function place3plrHomeMarkers(color, orient) {
@@ -264,12 +267,12 @@ function readValue(jsonValue, defaultValue) {
 }
 
 function readJson() {
-	var curStage = rawJson.stages[stageNum];
+	curStage = rawJson.stages[stageNum];
 	var heading = document.getElementById("heading");
 	var commentary = document.getElementById("commentary");
 	var seekObj, readX, readY, seekTag;
 	
-	if (stageNum == 0 || !recallingStages || stageNum >= stageMem) {
+	if (stageNum == 0 || !multiStages || stageNum >= stageMem) {
 		commentary.innerHTML = curStage.commentary;
 		keywordifyCollection(document.getElementsByTagName("p"));
 		keywordifyCollection(document.getElementsByTagName("li"));
@@ -527,21 +530,31 @@ function readJson() {
 		
 		if (curStage.amoebaTable) {
 			var constructTable = "<table><caption>Amoeba Database</caption> \
-				<tr><th>Amoeba</th><th>Research</th><th>Type</th><th>Mine Immune?</th></tr>";
+				<tr><th>Amoeba</th><th>Research</th><th>Strength</th><th>Mine Immune?</th></tr>";
 				
 			for (var a = 0; a < curStage.amoebaTable.length; a++) {
 				var activeAmoeba = curStage.amoebaTable[a];
+				var classMods = ["","",""];
 				
-				if (activeAmoeba.isDead) {
-					constructTable = constructTable + "<tr class=\"deadPlr\">";
+				if (readValue(activeAmoeba.isDead, false)) {
+					constructTable = constructTable + "<tr class=\"deadPlr\"><td>"+activeAmoeba.name+"</td> \
+						<td class=\"numeric\">"+readValue(activeAmoeba.RP, 0)+" / 10</td> \
+						<td class=\"numeric\">"+readValue(activeAmoeba.strength, "?")+"</td> \
+						<td class=\"center\">"+readValue(activeAmoeba.mineImmune, false)+"</td></tr>";
 				} else {
-					constructTable = constructTable + "<tr>";
+					if (readValue(activeAmoeba.RP, 0) >= 10) {
+						classMods[0] = " increase";
+					}
+					if (readValue(activeAmoeba.mineImmune, false)) {
+						classMods[2] = " decrease";
+					}
+					
+					constructTable = constructTable + "<tr><td>"+activeAmoeba.name+"</td> \
+						<td class=\"numeric"+classMods[0]+"\">"+readValue(activeAmoeba.RP, 0)+" / 10</td> \
+						<td class=\"numeric\"><a href=\"javascript:showBox('sa"+readValue(activeAmoeba.strength, "?")+"')\">"+readValue(activeAmoeba.strength, "?")+"</a></td> \
+						<td class=\"center"+classMods[2]+"\">"+readValue(activeAmoeba.mineImmune, false)+"</td></tr>";
 				}
 				
-				constructTable = constructTable + "<td>"+activeAmoeba.name+"</td> \
-					<td class=\"numeric\">"+activeAmoeba.research+" / 10</td> \
-					<td class=\"numeric\">"+activeAmoeba.type+"</td> \
-					<td class=\"center\">"+activeAmoeba.mineImmune+"</td></tr>"
 			}
 				
 			constructTable = constructTable + "</table>";
@@ -611,6 +624,16 @@ function readJson() {
 			workObj = document.getElementById(workId);
 			if (workObj) {
 				workObj.remove();
+			}
+		}
+		
+		if (actionPool[i].removeAllCounters) {
+			imgCollection = document.getElementsByTagName("img")
+			
+			for (var h = 0; h < imgCollection.length; h++) {
+				if (imgCollection[h] && imgCollection[h].src.indexOf(actionPool[i].removeAllCounters) >= 0) {
+					imgCollection[h--].remove();
+				}
 			}
 		}
 		
@@ -799,16 +822,6 @@ function readJson() {
 					dispRow(letterRows.charAt(z), false);
 				}
 				
-			} else if (actionPool[i].createPreset == "removeMarkers") {
-				// One of the few presets that is not a scenario. This one removes all markers from the board
-				imgCollection = document.getElementsByTagName("img")
-				
-				for (var h = 0; h < imgCollection.length; h++) {
-					if (imgCollection[h] && imgCollection[h].src.indexOf(markerCounter) >= 0) {
-						imgCollection[h--].remove();
-					}
-				}
-				
 			} else if (actionPool[i].createPreset == "amoebaSolo") {
 				expansionHWs = true;
 				var plrColor = actionPool[i].playerColor;
@@ -923,11 +936,20 @@ function readJson() {
 	document.getElementById("stageL").disabled = (stageNum <= 0);
 	document.getElementById("stageR").disabled = (stageNum >= stageTotal);
 
+	document.getElementById("ecoL").disabled = document.getElementById("stageL").disabled;
+	document.getElementById("ecoR").disabled = document.getElementById("stageR").disabled;
+	
 	saveCookieDate.setTime(saveCookieDate.getTime() + (7*24*60*60*1000))
 
-	if (!recallingStages) {
+	if (!multiStages) {
 		setCookie("se4xReplay", getParam("replay")+"~"+stageNum,saveCookieDate,"/",null,false);
 	}
+}
+
+function jumpToEcoPhase(direction) {
+	do {
+		changeStage(direction);
+	} while (stageNum > 0 && stageNum < stageTotal && typeof curStage.prodTable === "undefined")
 }
 
 function changeStage(direction) {
@@ -969,7 +991,7 @@ function getJsonFile() {
 				while (stageNum < stageMem) {
 					changeStage(1);
 				}
-				recallingStages = false;
+				multiStages = false;
 			} else {
 				console.error("Error "+fileRequest.status);
 			}

@@ -1899,7 +1899,7 @@
 		}],
 	"actions":
 		[{
-			"createPreset":"removeMarkers"
+			"removeAllCounters":"markerR"
 		},{
 			"placeCounter":"dm3",
 			"location":"H4",

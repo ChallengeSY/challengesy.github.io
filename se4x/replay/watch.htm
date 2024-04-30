@@ -15,9 +15,11 @@
 <p id="banner"><a href="index.htm"><img src="../banner.png" alt="Space Empires 4X Resourcepedia" /></a></p>
 
 <div id="controls">
-<div style="grid-column: 2 / span 1;"><button id="stageL" onclick="changeStage(-1)" title="Shortcut: [,]">&lArr;</button></div>
+<div style="grid-column: 2 / span 1;"><button id="ecoL" onclick="jumpToEcoPhase(-1)" title="Previous economic phase">&lArr;</button></div>
+<div><button id="stageL" onclick="changeStage(-1)" title="Previous stage / Shortcut: [,]">&larr;</button></div>
 <div id="gameBoard"></div>
-<div><button id="stageR" onclick="changeStage(1)" title="Shortcut: [.]">&rArr;</button></div>
+<div><button id="stageR" onclick="changeStage(1)" title="Next stage / Shortcut: [.]">&rarr;</button></div>
+<div><button id="ecoR" onclick="jumpToEcoPhase(1)" title="Next economic phase">&rArr;</button></div>
 </div>
 <div id="commentary">
 <p>The commentary panel serves as a way to describe how a game has progressed. Each replay is divided into stages, usually 1 stage per turn or economic phase.</p>

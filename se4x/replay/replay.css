@@ -35,7 +35,9 @@
     border-right: 26px solid transparent;
 }
 
-#controls {display: grid; grid-template-columns: auto 50px 710px 50px auto; margin-bottom: 15px;}
+a {white-space: nowrap;}
+
+#controls {display: grid; grid-template-columns: auto 50px 50px 710px 50px 50px auto; margin-bottom: 15px;}
 
 button {width: 100%; height: 100%; font-size: 200%;}
 
@@ -45,11 +47,9 @@ button {width: 100%; height: 100%; font-size: 200%;}
 
 #commentary {clear: both; border-top: 1px solid white;}
 
-#replayJson {display: none;}
-
 table {margin-top: 12.5px; margin-bottom: 12.5px;}
 
-.deadPlr {color: #808080;}
-:not(.deadPlr) .increase {color: #00ff00; font-weight: bold;}
-:not(.deadPlr) .decrease {color: #ff8080; font-weight: bold;}
+tr.deadPlr {color: #808080;}
+tr:not(.deadPlr) td.increase {color: #00ff00; font-weight: bold;}
+tr:not(.deadPlr) td.decrease {color: #ff8080; font-weight: bold;}
 

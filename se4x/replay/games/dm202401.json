@@ -1467,7 +1467,7 @@
 		[{
 			"removeCounter":"dm2"
 		},{
-			"createPreset":"removeMarkers"
+			"removeAllCounters":"markerY"
 		},{
 			"placeCounter":"dm3",
 			"location":"F7",

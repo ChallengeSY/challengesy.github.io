@@ -1,6 +1,6 @@
 {"stages": [
 	{"heading":"Stardate 2400.0 (Introduction)",
-	"commentary":"<p>Welcome to a Doomsday Machine Large-sized scenario. This scenario lasts decently longer than a Small map, and is also harder in the sense that the titular Doomsday Machines are stronger in strength.</p><p>For reference compared to the <a href=\"watch.htm?replay=aeLg202404\">Large size</a> Alien Empires map that was introduced in the Close Encounter expansion, the Doomsday Machine spawn points are slightly closer (on average), and that we need only to defend to win.</p>",
+	"commentary":"<p>Welcome to a Doomsday Machine Large-sized scenario. This scenario lasts decently longer than a Small map, and is also harder in the sense that the titular Doomsday Machines are stronger in strength.</p><p>For reference compared to the <a href=\"watch.htm?replay=aeLg202404\">Large size</a> Alien Empires map that was introduced in the Close Encounters expansion, the Doomsday Machine spawn points are slightly closer (on average), and that we need only to defend to win.</p>",
 	"actions":
 		[{
 			"createPreset":"doomsdaySoloLg",
@@ -1336,7 +1336,7 @@
 		[{
 			"removeCounter":"dm2"
 		},{
-			"createPreset":"removeMarkers"
+			"removeAllCounters":"markerG"
 		},{
 			"placeCounter":"dm3",
 			"location":"H1",
