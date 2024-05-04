@@ -4,52 +4,87 @@ var stageNum = 0;
 var saveCookieDate = new Date;
 var multiStages = true;
 var expansionHWs = false;
+var boardCreated = false;
+var alienHWs = 0;
 const letterRows = "LKJIHGFEDCBA";
 const deepSpace = "unexploredW";
 const markerCounter = "marker";
 
-const alienIncLetters = "EFTDH";
+const alienIncLetters = "EFTDPH";
 const alienDecLetters = alienIncLetters.toLowerCase();
 const dieRollsRow = "(Rolls)";
-const prodTableTag = "{prodTable}";
 
 window.onkeydown = readKeyInput;
 
 function initReplay() {
-	makeHexes();
 	getJsonFile();
 }
 
-function makeHexes() {
-	var hexBoard = document.getElementById("gameBoard");
-	
-	for (y = 0; y < 12; y++) {
-		var newRow = document.createElement("div");
-		if (y % 2 == 1) {
-			newRow.className = "hexRow even";
-		} else {
-			newRow.className = "hexRow";
+function makeHexes(talonMap) {
+	if (!boardCreated) {
+		var hexBoard = document.getElementById("gameBoard");
+		var ctrlPanel = document.getElementById("controls");
+		var maxCols = 13;
+		
+		if (talonMap) {
+			maxCols = 16;
 		}
-		for (x = 0; x < 13 - (y % 2); x++) {
-			var newHex = document.createElement("div");
-			newHex.className = "hex";
-			newHex.id = letterRows.charAt(y)+(x+1);
-			newHex.title = "Sector "+newHex.id;
-			newRow.appendChild(newHex);
+			
+		for (y = 0; y < 12; y++) {
+			var newRow = document.createElement("div");
+			if (y % 2 == 1) {
+				newRow.className = "hexRow even";
+			} else {
+				newRow.className = "hexRow";
+			}
+			for (x = 0; x < maxCols - (y % 2); x++) {
+				var newHex = document.createElement("div");
+				newHex.className = "hex";
+				newHex.id = letterRows.charAt(y)+(x+1);
+				newHex.title = "Sector "+newHex.id;
+				newRow.appendChild(newHex);
+			}
+			hexBoard.appendChild(newRow);
 		}
-		hexBoard.appendChild(newRow);
+		
+		if (talonMap) {
+			ctrlPanel.style.gridTemplateColumns = "auto 50px 50px 870px 50px 50px auto";
+			dispRow("L", false);
+		}
+		
+		boardCreated = true;
 	}
 }
 
 function dispRow(b, newDisp) {
-	for (x = 0; x < 13; x++) {
+	var hexBoard = document.getElementById("gameBoard");
+
+	for (x = 0; x < 16; x++) {
 		var findObj = document.getElementById(b+(x+1));
 		
 		if (findObj) {
-			if (newDisp) {
-				findObj.style.display = "";
+			if (b == "L") {
+				if (newDisp) {
+					findObj.style.visibility = "";
+				} else {
+					findObj.style.visibility = "hidden";
+				}
+				
+				hexBoard.style.marginTop = "-45px";
+			} else if (b == "K") {
+				if (newDisp) {
+					findObj.style.visibility = "";
+				} else {
+					findObj.style.visibility = "hidden";
+				}
+				
+				hexBoard.style.marginTop = "-90px";
 			} else {
-				findObj.style.display = "none";
+				if (newDisp) {
+					findObj.style.display = "";
+				} else {
+					findObj.style.display = "none";
+				}
 			}
 		}
 	}
@@ -67,6 +102,14 @@ function dispCol(a, newDisp) {
 			} else {
 				findObj.style.visibility = "hidden";
 			}
+			
+			/*
+			if (newDisp) {
+				findObj.style.display = "";
+			} else {
+				findObj.style.display = "none";
+			}
+			*/
 		}
 	}
 }
@@ -327,7 +370,7 @@ function readJson() {
 		if (curStage.alienTable) {
 			// Base game economics
 			var constructTable = "<table><caption>Alien Economics</caption> \
-				<tr><th>Player</th><th>Eco</th><th>Fleet</th><th>Tech</th><th>Def</th><th>Hidden</th></tr>";
+				<tr><th>Player</th><th>Eco</th><th>Fleet</th><th>Tech</th><th>Def</th><th>Expo</th><th>Hidden</th></tr>";
 				
 			for (var a = 0; a < curStage.alienTable.length; a++) {
 				var activePlayer = curStage.alienTable[a];
@@ -336,85 +379,161 @@ function readJson() {
 					var ecoRange = "&mdash;", fleetRange, techRange, defRange = "&mdash;", launchRange = "Launch &le;3";
 					
 					// Auto-compute Economic Roll ranges
-					switch (activePlayer.ecoPhase) {
-						case 1:
-							ecoRange = "1-2";
-							fleetRange = "&ndash;";
-							techRange = "3-10";
-							defRange = "&ndash;";
-							launchRange = "Launch N/A";
-							break;
-						case 2:
-							ecoRange = "1";
-							fleetRange = "2-3";
-							techRange = "4-10";
-							defRange = "&ndash;";
-							launchRange = "Launch Auto";
-							break;
-						case 3:
-							ecoRange = "1";
-							fleetRange = "2-4";
-							techRange = "5-8";
-							defRange = "9-10";
-							launchRange = "Launch Auto";
-							break;
-						case 4:
-							ecoRange = "1";
-							fleetRange = "2-5";
-							techRange = "6-8";
-							defRange = "9-10";
-							launchRange = "Launch &le;5";
-							break;
-						case 5:
-							ecoRange = "1";
-							fleetRange = "2-5";
-							techRange = "6-9";
-							defRange = "10";
-							break;
-						case 6:
-							ecoRange = "1";
-							fleetRange = "2-6";
-							techRange = "7-9";
-							defRange = "10";
-							launchRange = "Launch &le;4";
-							break;
-						case 7:
-							// Fall thru
-						case 8:
-							fleetRange = "1-5";
-							techRange = "6-9";
-							defRange = "10";
-							launchRange = "Launch &le;4";
-							break;
-						case 9:
-							fleetRange = "1-5";
-							techRange = "6-9";
-							defRange = "10";
-							launchRange = "Launch &le;5";
-							break;
-						case 10:
-							fleetRange = "1-6";
-							techRange = "7-9";
-							defRange = "10";
-							launchRange = "Launch &le;5";
-							break;
-						case 11:
-							// Fall thru
-						case 12:
-							fleetRange = "1-6";
-							techRange = "7-9";
-							defRange = "10";
-							break;
-						default:
-							maxFleet = Math.min(9,Math.ceil(activePlayer.ecoPhase/2)-1);
-							minTech = maxFleet + 1;
-						
-							fleetRange = "1-"+maxFleet;
+					if (activePlayer.ecoPhase >= 13) {
+						maxFleet = Math.min(9,Math.ceil(activePlayer.ecoPhase/2)-1);
+						minTech = maxFleet + 1;
+					
+						fleetRange = "1-"+maxFleet;
+						if (minTech < 10) {
 							techRange = minTech+"-10";
-							if (activePlayer.ecoPhase % 2 == 0) {
+						} else {
+							techRange = "10";
+						}
+						if (activePlayer.ecoPhase % 2 == 0) {
+							launchRange = "Launch Auto";
+						}
+					} else if (activePlayer.victoryChart) {
+						switch (activePlayer.ecoPhase) {
+							case 1:
+								fleetRange = "1";
+								techRange = "2-10";
+								defRange = "&ndash;";
+								launchRange = "Launch N/A";
+								break;
+							case 2:
+								fleetRange = "1-3";
+								techRange = "4-10";
+								defRange = "&ndash;";
 								launchRange = "Launch Auto";
-							}
-							break;
+								break;
+							case 3:
+								fleetRange = "1-3";
+								techRange = "4-8";
+								defRange = "9-10";
+								launchRange = "Launch Auto";
+								break;
+							case 4:
+								fleetRange = "1-4";
+								techRange = "5-8";
+								defRange = "9-10";
+								launchRange = "Launch &le;5";
+								break;
+							case 5:
+								fleetRange = "1-6";
+								techRange = "7-9";
+								defRange = "10";
+								launchRange = "Launch Auto";
+								break;
+							case 6:
+								fleetRange = "1-4";
+								techRange = "5-9";
+								defRange = "10";
+								launchRange = "Launch &le;4";
+								break;
+							case 7:
+								fleetRange = "1-5";
+								techRange = "6-9";
+								defRange = "10";
+								launchRange = "Launch Auto";
+								break;
+							case 8:
+								fleetRange = "1-5";
+								techRange = "6-9";
+								defRange = "10";
+								launchRange = "Launch &le;4";
+								break;
+							case 9:
+								fleetRange = "1-5";
+								techRange = "6-9";
+								defRange = "10";
+								launchRange = "Launch &le;5";
+								break;
+							case 10:
+								// Fall thru
+							case 12:
+								fleetRange = "1-7";
+								techRange = "8-9";
+								defRange = "10";
+								launchRange = "Launch &le;6";
+								break;
+							case 11:
+								fleetRange = "1-7";
+								techRange = "8-9";
+								defRange = "10";
+								launchRange = "Launch &le;4";
+								break;
+						}
+					} else {
+						switch (activePlayer.ecoPhase) {
+							case 1:
+								ecoRange = "1-2";
+								fleetRange = "&ndash;";
+								techRange = "3-10";
+								defRange = "&ndash;";
+								launchRange = "Launch N/A";
+								break;
+							case 2:
+								ecoRange = "1";
+								fleetRange = "2-3";
+								techRange = "4-10";
+								defRange = "&ndash;";
+								launchRange = "Launch Auto";
+								break;
+							case 3:
+								ecoRange = "1";
+								fleetRange = "2-4";
+								techRange = "5-8";
+								defRange = "9-10";
+								launchRange = "Launch Auto";
+								break;
+							case 4:
+								ecoRange = "1";
+								fleetRange = "2-5";
+								techRange = "6-8";
+								defRange = "9-10";
+								launchRange = "Launch &le;5";
+								break;
+							case 5:
+								ecoRange = "1";
+								fleetRange = "2-5";
+								techRange = "6-9";
+								defRange = "10";
+								break;
+							case 6:
+								ecoRange = "1";
+								fleetRange = "2-6";
+								techRange = "7-9";
+								defRange = "10";
+								launchRange = "Launch &le;4";
+								break;
+							case 7:
+								// Fall thru
+							case 8:
+								fleetRange = "1-5";
+								techRange = "6-9";
+								defRange = "10";
+								launchRange = "Launch &le;4";
+								break;
+							case 9:
+								fleetRange = "1-5";
+								techRange = "6-9";
+								defRange = "10";
+								launchRange = "Launch &le;5";
+								break;
+							case 10:
+								fleetRange = "1-6";
+								techRange = "7-9";
+								defRange = "10";
+								launchRange = "Launch &le;5";
+								break;
+							case 11:
+								// Fall thru
+							case 12:
+								fleetRange = "1-6";
+								techRange = "7-9";
+								defRange = "10";
+								break;
+						}
 					}
 					
 					constructTable = constructTable + "<tr><td>"+activePlayer.name+"</td> \
@@ -422,9 +541,10 @@ function readJson() {
 						<td class=\"numeric\">"+fleetRange+"</td> \
 						<td class=\"numeric\">"+techRange+"</td> \
 						<td class=\"numeric\">"+defRange+"</td> \
+						<td class=\"numeric\">&mdash;</td> \
 						<td class=\"numeric\">"+launchRange+"</td></tr>"
 				} else {
-					var classMods = ["","","","",""];
+					var classMods = ["","","","","",""];
 					var baseDelta = activePlayer.delta;
 					
 					if (baseDelta.indexOf("---") >= 0) {
@@ -442,12 +562,19 @@ function readJson() {
 						}
 					}
 					
-					constructTable = constructTable + "<td>"+activePlayer.name+"</td> \
-						<td class=\"numeric"+classMods[0]+"\">"+activePlayer.eco+" +"+activePlayer.queue+"</td> \
-						<td class=\"numeric"+classMods[1]+"\">"+activePlayer.fleet+"</td> \
-						<td class=\"numeric"+classMods[2]+"\">"+activePlayer.tech+"</td> \
-						<td class=\"numeric"+classMods[3]+"\">"+activePlayer.def+"</td> \
-						<td class=\"numeric"+classMods[4]+"\">"+activePlayer.hidden+"</td></tr>"
+					constructTable = constructTable + "<td>"+activePlayer.name+"</td>";
+					if (readValue(activePlayer.queue,-1) >= 0) {
+						constructTable = constructTable + "<td class=\"numeric"+classMods[0]+"\">"+readValue(activePlayer.eco,2)+" \
+							+"+activePlayer.queue+"</td>";
+					} else {
+						constructTable = constructTable + "<td class=\"numeric"+classMods[0]+"\">"+readValue(activePlayer.eco,2)+"</td>";
+					}
+						
+					constructTable = constructTable + "<td class=\"numeric"+classMods[1]+"\">"+readValue(activePlayer.fleet,0)+"</td> \
+						<td class=\"numeric"+classMods[2]+"\">"+readValue(activePlayer.tech,0)+"</td> \
+						<td class=\"numeric"+classMods[3]+"\">"+readValue(activePlayer.def,0)+"</td> \
+						<td class=\"numeric"+classMods[4]+"\">"+readValue(activePlayer.expo,0)+"</td> \
+						<td class=\"numeric"+classMods[5]+"\">"+readValue(activePlayer.hidden,"&mdash;")+"</td></tr>";
 				}
 			}
 				
@@ -519,6 +646,35 @@ function readJson() {
 				
 			constructTable = constructTable + "</table>";
 			seekTag = "{expoTable}";
+			
+			if (commentary.innerHTML.indexOf(seekTag) >= 0) {
+				commentary.innerHTML = commentary.innerHTML.replace(seekTag,constructTable);
+			} else {
+				commentary.innerHTML = commentary.innerHTML + constructTable;
+			}
+
+		}
+		
+		if (curStage.victoryTable) {
+			var constructTable = "<table><caption>VP Chart</caption> \
+				<tr><th>Player</th><th>VP</th><th>Quota</th></tr>";
+				
+			for (var a = 0; a < curStage.victoryTable.length; a++) {
+				var activePlayer = curStage.victoryTable[a];
+				
+				if (readValue(activePlayer.isDead,false)) {
+					// Player is dead
+					constructTable = constructTable + "<tr class=\"deadPlr\">";
+				} else {
+					constructTable = constructTable + "<tr>";
+				}
+				constructTable = constructTable + "<td>"+activePlayer.name+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.VP,0)+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.quota,"&infin;")+"</td></tr>"
+			}
+				
+			constructTable = constructTable + "</table>";
+			seekTag = "{victoryTable}";
 			
 			if (commentary.innerHTML.indexOf(seekTag) >= 0) {
 				commentary.innerHTML = commentary.innerHTML.replace(seekTag,constructTable);
@@ -639,9 +795,12 @@ function readJson() {
 		
 		// Presets are usually game setups. They perform a bunch of smaller actions, greatly reducing redundency in the process.
 		if (actionPool[i].createPreset) {
-			ctrlPanel = document.getElementById("controls");
+			var hexBoard = document.getElementById("gameBoard");
+			
+			makeHexes(actionPool[i].createPreset.indexOf("belt") >= 0);
 			
 			if (actionPool[i].createPreset == "alienEmpiresSolo") {
+				expansionHWs = readValue(actionPool[i].useExpansion, false);
 				var plrColor = actionPool[i].playerColor;
 				
 				place3plrHomeMarkers(plrColor, "top");
@@ -693,6 +852,7 @@ function readJson() {
 					}
 				}
 			} else if (actionPool[i].createPreset == "alienEmpiresSoloLg") {
+				expansionHWs = readValue(actionPool[i].useExpansion, false);
 				var plrColor = actionPool[i].playerColor;
 				
 				for (var y = 0; y < 9; y++) {
@@ -720,6 +880,34 @@ function readJson() {
 						if (a < actionPool[i].alienColors.length) {
 							placeAlienHomeworld(alienHWs[a][0], alienHWs[a][1], actionPool[i].alienColors.charAt(a));
 						}
+					}
+				}
+			} else if (actionPool[i].createPreset == "alienEmpiresSoloVP") {
+				expansionHWs = true;
+				var plrColor = actionPool[i].playerColor;
+				
+				for (var y = 0; y <= 9; y++) {
+					for (var x = 1; x <= 13 - y % 2; x++) {
+						if ((x == 3 || x == 10) && y == 0) {
+							placeSystemMarker(x,y,"warp1");
+						} else if (x == 7 && y == 6) {
+							placeSystemMarker(x,y,"capitol");
+							placeCounter("galMin",x,y,"minerals10",100);
+						} else if (x >= 6 && x <= 8 - y % 2 && y >= 5 && y <= 7) {
+							placeSystemMarker(x,y,"nebula");
+						} else {
+							placeSystemMarker(x,y,deepSpace);
+						}
+					}
+				}
+
+				place3plrHomeMarkers(plrColor, "top");
+				
+				if (actionPool[i].alienColors) {
+					var alienHWs = [[4,11], [9,11]];
+					
+					for (var a = 0; a < actionPool[i].alienColors.length; a++) {
+						placeAlienHomeworld(alienHWs[a][0], alienHWs[a][1], actionPool[i].alienColors.charAt(a));
 					}
 				}
 			} else if (actionPool[i].createPreset == "doomsdaySoloSm") {
@@ -822,6 +1010,43 @@ function readJson() {
 					dispRow(letterRows.charAt(z), false);
 				}
 				
+			} else if (actionPool[i].createPreset == "doomsdayCoop2P" || actionPool[i].createPreset == "alienEmpiresCoop2P") {
+				expansionHWs = true;
+				var plrColors = actionPool[i].playerColors;
+				
+				for (var y = 0; y < 12; y++) {
+					for (var x = 1; x <= 13; x++) {
+						if (x < 13 || y % 2 == 0) {
+							if (y < 5 && x <= 5 || (x == 6 && y == 2)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(0));
+							} else if (y < 5 && x >= 9 || (x == 8 && y != 2 && y <= 3)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(1));
+							} else if (x == 7 && y == 2) {
+								placeSystemMarker(x,y,"warp1");
+							} else if (x == 7 && y == 6) {
+								placeSystemMarker(x,y,"capitol");
+								placeCounter("galMin",x,y,"minerals10",100);
+							} else if (x >= 6 && x <= 8 - y % 2 && y >= 5 && y <= 7) {
+								placeSystemMarker(x,y,"nebula");
+							} else if (y < 10) {
+								placeSystemMarker(x,y,deepSpace);
+							}
+						}
+					}
+				}
+				
+				placeHomeworld(6,2,plrColors.charAt(0));
+				placeHomeworld(9,2,plrColors.charAt(1));
+
+				if (actionPool[i].createPreset.startsWith("doomsday")) {
+					placeSystemMarker(3,11,markerCounter+plrColors.charAt(0));
+					placeSystemMarker(7,11,markerCounter+"W");
+					placeSystemMarker(11,11,markerCounter+plrColors.charAt(1));
+				} else {
+					placeAlienHomeworld(4, 11, actionPool[i].alienColors.charAt(0));
+					placeAlienHomeworld(9, 11, actionPool[i].alienColors.charAt(1));
+				}
+				
 			} else if (actionPool[i].createPreset == "amoebaSolo") {
 				expansionHWs = true;
 				var plrColor = actionPool[i].playerColor;
@@ -886,7 +1111,228 @@ function readJson() {
 				for (var w = 13; w > 11; w = w - 0.5) {
 					dispCol(w, false);
 				}
-			} else if (actionPool[i].createPreset == "versus3P") {
+			} else if (actionPool[i].createPreset == "versus2Psm") {
+				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				var plrSlots = [actionPool[i].playerTop, actionPool[i].playerBottom];
+				var plrColors = [plrSlots[0].charAt(0), plrSlots[1].charAt(0)];
+				var plrCols = [plrSlots[0].substr(1), plrSlots[1].substr(1)];
+				
+				for (var y = 2; y < 10; y++) {
+					for (var x = 1; x <= 9; x++) {
+						if (x < 9 || y % 2 == 0) {
+							if (y < 5) {
+								placeSystemMarker(x,y,"unexplored"+plrColors[0]);
+							} else if (y >= 7) {
+								placeSystemMarker(x,y,"unexplored"+plrColors[1]);
+							} else {
+								placeSystemMarker(x,y,deepSpace);
+							}
+						}
+					}
+				}
+				
+				if (actionPool[i].extraHexAway) {
+					placeSystemMarker(9,7,"unexplored"+plrColors[1]);
+				} else {
+					placeSystemMarker(9,9,"unexplored"+plrColors[1]);
+				}
+
+				placeHomeworld(plrCols[0],2,plrColors[0]);
+				placeHomeworld(plrCols[1],9,plrColors[1]);
+
+				for (var z = 0; z < 2; z++) {
+					dispRow(letterRows.charAt(z), false);
+					dispRow(letterRows.charAt(z+10), false);
+				}
+				
+				for (var w = 13; w > 10; w = w - 0.5) {
+					dispCol(w, false);
+				}
+			} else if (actionPool[i].createPreset == "versus2Pmed") {
+				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				var plrSlots = [actionPool[i].playerTop, actionPool[i].playerBottom];
+				var plrColors = [plrSlots[0].charAt(0), plrSlots[1].charAt(0)];
+				var plrCols = [plrSlots[0].substr(1), plrSlots[1].substr(1)];
+				
+				for (var y = 1; y < 11; y++) {
+					for (var x = 1; x <= 9; x++) {
+						if (x < 9 || y % 2 == 0) {
+							if (y < 4) {
+								placeSystemMarker(x,y,"unexplored"+plrColors[0]);
+							} else if (y >= 8) {
+								placeSystemMarker(x,y,"unexplored"+plrColors[1]);
+							} else {
+								placeSystemMarker(x,y,deepSpace);
+							}
+						}
+					}
+				}
+				
+				if (actionPool[i].extraHexAway) {
+					placeSystemMarker(9,3,"unexplored"+plrColors[0]);
+				} else {
+					placeSystemMarker(9,1,"unexplored"+plrColors[0]);
+				}
+
+				placeHomeworld(plrCols[0],1,plrColors[0]);
+				placeHomeworld(plrCols[1],10,plrColors[1]);
+
+				dispRow(letterRows.charAt(0), false);
+				dispRow(letterRows.charAt(11), false);
+				
+				for (var w = 13; w > 10; w = w - 0.5) {
+					dispCol(w, false);
+				}
+			} else if (actionPool[i].createPreset == "versus2Plg") {
+				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				var plrSlots = [actionPool[i].playerTop, actionPool[i].playerBottom];
+				var plrColors = [plrSlots[0].charAt(0), plrSlots[1].charAt(0)];
+				var plrCols = [plrSlots[0].substr(1), plrSlots[1].substr(1)];
+				
+				for (var y = 0; y < 12; y++) {
+					for (var x = 1; x <= 9; x++) {
+						if (x < 9 || y % 2 == 0) {
+							if (y < 3) {
+								placeSystemMarker(x,y,"unexplored"+plrColors[0]);
+							} else if (y >= 9) {
+								placeSystemMarker(x,y,"unexplored"+plrColors[1]);
+							} else {
+								placeSystemMarker(x,y,deepSpace);
+							}
+						}
+					}
+				}
+				
+				if (actionPool[i].extraHexAway) {
+					placeSystemMarker(9,9,"unexplored"+plrColors[1]);
+				} else {
+					placeSystemMarker(9,11,"unexplored"+plrColors[1]);
+				}
+
+				placeHomeworld(plrCols[0],0,plrColors[0]);
+				placeHomeworld(plrCols[1],11,plrColors[1]);
+				
+				for (var w = 13; w > 10; w = w - 0.5) {
+					dispCol(w, false);
+				}
+			} else if (actionPool[i].createPreset == "versus2Pxl" || actionPool[i].createPreset == "versus2P3D") {
+				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				var plrSlots = [actionPool[i].playerTop, actionPool[i].playerBottom];
+				var plrColors = [plrSlots[0].charAt(0), plrSlots[1].charAt(0)];
+				var plrCols = [plrSlots[0].substr(1), plrSlots[1].substr(1)];
+				
+				for (var y = 0; y < 12; y++) {
+					for (var x = 1; x <= 13; x++) {
+						if (x < 13 || y % 2 == 0) {
+							if (y < 5 && x <= 5 || (x == 6 && y == 2)) {
+								if (actionPool[i].createPreset == "versus2Pxl") {
+									placeSystemMarker(x,y,deepSpace);
+								}
+							} else if (y < 5 && x >= 9 || (x == 8 && y != 2 && y <= 3)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors[0]);
+							} else if (y > 6 && x <= 5 || (x == 6 && y == 10)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors[1]);
+							} else if (y > 6 && x >= 8 && (y != 10 || x > 8)) {
+								if (actionPool[i].createPreset == "versus2Pxl") {
+									placeSystemMarker(x,y,deepSpace);
+								}
+							} else {
+								placeSystemMarker(x,y,deepSpace);
+							}
+						}
+					}
+				}
+				
+				placeHomeworld(plrCols[0],0,plrColors[0]);
+				placeHomeworld(plrCols[1],11,plrColors[1]);
+			} else if (actionPool[i].createPreset == "versus2Pmassive") {
+				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				var plrSlots = [actionPool[i].playerTop, actionPool[i].playerBottom];
+				var plrColors = [plrSlots[0].charAt(0), plrSlots[1].charAt(0)];
+				var plrCols = [plrSlots[0].substr(1), plrSlots[1].substr(1)];
+				
+				for (var y = 0; y < 12; y++) {
+					for (var x = 1; x <= 13; x++) {
+						if (x < 13 || y % 2 == 0) {
+							if (x >= 9 + Math.floor(y/2)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors[0]);
+							} else if (x <= -1 + Math.floor(y/2)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors[1]);
+							} else {
+								placeSystemMarker(x,y,deepSpace);
+							}
+						}
+					}
+				}
+				
+				for (var z = 0; z < actionPool[i].extraHexes.length; z++) {
+					seekHex = actionPool[i].extraHexes[z];
+					
+					if (z == 0) {
+						placeSystemMarker(seekHex.substr(1),letterRows.indexOf(seekHex.charAt(0)),"unexplored"+plrColors[0]);
+					} else {
+						placeSystemMarker(seekHex.substr(1),letterRows.indexOf(seekHex.charAt(0)),"unexplored"+plrColors[1]);
+					}
+				}
+				
+				placeHomeworld(plrCols[0],0,plrColors[0]);
+				placeHomeworld(plrCols[1],11,plrColors[1]);
+			} else if (actionPool[i].createPreset == "versus2Pdare") {
+				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				var plrSlots = [actionPool[i].playerTop, actionPool[i].playerBottom];
+				var plrColors = [plrSlots[0].charAt(0), plrSlots[1].charAt(0)];
+				var plrCols = [plrSlots[0].substr(1), plrSlots[1].substr(1)];
+				
+				for (var y = 0; y < 12; y++) {
+					for (var x = 1; x <= 13; x++) {
+						if (x < 13 || y % 2 == 0) {
+							if (y < 2) {
+								placeSystemMarker(x,y,"unexplored"+plrColors[0]);
+							} else if (y >= 10) {
+								placeSystemMarker(x,y,"unexplored"+plrColors[1]);
+							} else {
+								placeSystemMarker(x,y,deepSpace);
+							}
+						}
+					}
+				}
+				
+				for (var z = 0; z < actionPool[i].extraHexes.length; z++) {
+					seekHex = actionPool[i].extraHexes[z];
+					
+					if (z == 0) {
+						placeSystemMarker(seekHex.substr(1),letterRows.indexOf(seekHex.charAt(0)),"unexplored"+plrColors[0]);
+					} else {
+						placeSystemMarker(seekHex.substr(1),letterRows.indexOf(seekHex.charAt(0)),"unexplored"+plrColors[1]);
+					}
+				}
+				
+				placeHomeworld(plrCols[0],0,plrColors[0]);
+				placeHomeworld(plrCols[1],11,plrColors[1]);
+			} else if (actionPool[i].createPreset == "versus2Pbelt") {
+				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				var plrColors = actionPool[i].playerColors;
+				
+				for (var y = 1; y < 12; y++) {
+					for (var x = 1; x <= 16; x++) {
+						if (x < 16 || y % 2 == 0) {
+							if (x < 4 - y % 2 && (y != 10 || x < 3)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(0));
+							} else if (x > 13 && (y != 2 || x > 14)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(1));
+							} else if (x >= 11 - Math.ceil(y/2) && x < 13 - Math.ceil(y/2)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(2));
+							} else {
+								placeSystemMarker(x,y,deepSpace);
+							}
+						}
+					}
+				}
+				
+				placeHomeworld(1,1,plrColors.charAt(0));
+				placeHomeworld(15,11,plrColors.charAt(1));
+			} else if (actionPool[i].createPreset == "versus3P" || actionPool[i].createPreset == "doomsdayCoop3P" ||
+				actionPool[i].createPreset == "alienEmpiresCoop3P") {
 				var plrColors = actionPool[i].playerColors;
 				
 				for (var y = 0; y < 12; y++) {
@@ -896,11 +1342,38 @@ function readJson() {
 						}
 					}
 				}
+				
+				if (!actionPool[i].createPreset.startsWith("versus")) {
+					expansionHWs = true;
+					placeSystemMarker(1,10,"warp1");
+					placeSystemMarker(13,10,"warp1");
+					
+					placeSystemMarker(7,6,"capitol");
+					placeCounter("galMin",7,6,"minerals10",100);
+					
+					placeSystemMarker(6,5,"nebula");
+					placeSystemMarker(7,5,"nebula");
+					placeSystemMarker(6,6,"nebula");
+					placeSystemMarker(8,6,"nebula");
+					placeSystemMarker(6,7,"nebula");
+					placeSystemMarker(7,7,"nebula");
+
+					if (actionPool[i].createPreset.startsWith("doomsday")) {
+						placeSystemMarker(7,11,markerCounter+plrColors.charAt(0));
+						placeSystemMarker(1,0,markerCounter+plrColors.charAt(1));
+						placeSystemMarker(13,0,markerCounter+plrColors.charAt(2));
+					} else {
+						placeAlienHomeworld(1,0,actionPool[i].alienColor);
+						placeAlienHomeworld(13,0,actionPool[i].alienColor);
+						placeCounter("base2"+actionPool[i].alienColor,1,0,null,100);
+					}
+				}
 
 				place3plrHomeMarkers(plrColors.charAt(0), "top");
 				place3plrHomeMarkers(plrColors.charAt(1), "left");
 				place3plrHomeMarkers(plrColors.charAt(2), "right");
-			} else if (actionPool[i].createPreset == "versus4P") {
+			} else if (actionPool[i].createPreset == "versus4P" || actionPool[i].createPreset == "doomsdayCoop4P") {
+				expansionHWs = readValue(actionPool[i].useExpansion, false);
 				var plrColors = "GYRB";
 				
 				if (actionPool[i].playerColors) {
@@ -923,6 +1396,22 @@ function readJson() {
 							}
 						}
 					}
+				}
+				
+				if (actionPool[i].createPreset.startsWith("doomsday")) {
+					expansionHWs = true;
+					placeSystemMarker(7,11,"warp1");
+					
+					placeSystemMarker(7,0,"capitol");
+					placeCounter("galMin",7,0,"minerals10",100);
+					
+					placeSystemMarker(6,0,"nebula");
+					placeSystemMarker(6,1,"nebula");
+					placeSystemMarker(7,1,"nebula");
+
+					placeSystemMarker(1,6,markerCounter+"W");
+					placeSystemMarker(7,6,markerCounter+"W");
+					placeSystemMarker(13,6,markerCounter+"W");
 				}
 				
 				placeHomeworld(1,0,plrColors.charAt(0));
@@ -993,6 +1482,10 @@ function getJsonFile() {
 				}
 				multiStages = false;
 			} else {
+				if (fileRequest.status == 404) {
+					makeHexes(false);
+					document.getElementById("commentary").innerHTML = "<p>No file detected.</p>"
+				}
 				console.error("Error "+fileRequest.status);
 			}
 		}

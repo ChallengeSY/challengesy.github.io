@@ -3104,9 +3104,9 @@
 	"commentary":"<p>We have finally reached the Green Alien Player's homeworld of Chulak, and with 13 Scouts. Since this is our first time assaulting such a planet, there is a lot of additional steps to take.</p><p>First is their 70 Def CP. They can spend it on one of three categories; outlined during turn 32. It rolled a 9 this way. They can build 5 Bases with their stockpiled CP. The leftover 10 CP is spent on 2 Mines.</p><p>They do not have enough Tech CP to buy anything; but the 17 Fleet CP that they have leftover is now spent launching a fleet. Since their homeworld is under assault, the fleet is immediately built. This CP is good for 1 Destroyer + 1 Scout, no matter the composition roll.</p><ol><li><b>Round 1</b>: Their 2 Mines instantly destroy 2 of our Scouts. This consumes them. We still have 11 Scouts left, to their 8 defenders. Neither side gets the Fleet Size Bonus</li><li>Their 6 Bases will fire first (7 to hit). They rolled 1,3,3,4,4,5. (<b>6</b> hits!) That has left a mark already!</li><li>Their 1 Destroyer can fire next (4 to hit). It rolled a 1. (hit)</li><li>Their 1 Scout can fire next (3 to hit), thanks to equal Tactics. It rolled a 6. (miss)</li><li>Our 4 surviving Scouts can now return fire. We will fire on their ships in this order: Destroyer (3 to hit) &rarr; Scout (3 to hit) &rarr; Bases (1 to hit)</li><li>Against a Destroyer, we rolled 4,1. Now that it is gone, we roll 4,5 against their Scout. We exhausted our ammo without destroying the latter<br /><br /></li><li><b>Round 2</b>: Their 6 Bases will fire once more. They rolled 1,3,4,5,6,7 (6 more hits)! They destroyed our Scout fleet entirely!</li></ol>",
 	"alienTable":
 		[{
-			"name":"Red","eco":5,"queue":0,"fleet":2,"tech":0,"def":20,"delta":"Fh","hidden":"&mdash;"
+			"name":"Red","eco":5,"fleet":2,"tech":0,"def":20,"delta":"Fh","hidden":"&mdash;"
 		},{
-			"name":"Green","eco":5,"queue":0,"fleet":2,"tech":10,"def":0,"delta":"fd","hidden":"&mdash;"
+			"name":"Green","eco":5,"fleet":2,"tech":10,"def":0,"delta":"fd","hidden":"&mdash;"
 		}],
 	"actions":
 		[{
@@ -3197,11 +3197,11 @@
 	"commentary":"<p>Not much has changed this phase regarding Alien Player economic rolls. Red Player rolled 2,4,4,10,10. Green Player rolled 1,2,2,5,9. Yellow Player rolled 1,2,3,9.</p>{alienTable}<p>On the other hand, fleet launches have become less aggressive. It takes a roll of 1-3 to launch a fleet. They rolled 6 (Red) / 5 (Green) / 5 (Yellow). None of these players will launch this time.</p>",
 	"alienTable":
 		[{
-			"name":"Red","eco":5,"queue":0,"fleet":17,"tech":0,"def":40,"delta":"FD","hidden":"&mdash;"
+			"name":"Red","eco":5,"fleet":17,"tech":0,"def":40,"delta":"FD","hidden":"&mdash;"
 		},{
-			"name":"Green","eco":5,"queue":0,"fleet":22,"tech":15,"def":0,"delta":"FT","hidden":"&mdash;"
+			"name":"Green","eco":5,"fleet":22,"tech":15,"def":0,"delta":"FT","hidden":"&mdash;"
 		},{
-			"name":"Yellow","eco":4,"queue":0,"fleet":15,"tech":40,"def":30,"delta":"FT","hidden":"35 / 40"
+			"name":"Yellow","eco":4,"fleet":15,"tech":40,"def":30,"delta":"FT","hidden":"35 / 40"
 		},{
 			"name":"(Rolls)","ecoPhase":11
 		}],
@@ -3401,11 +3401,11 @@
 	"commentary":"<p>Alien Players will narrow their focus soon... If they want to fortify their homeworlds, this is their final economic phase to do so.</p><p>Red Player rolled 4,5,5,7,10 for economics. Green Player rolled 2,4,4,7,10. Yellow Player rolled 1,2,3,9.</p>{alienTable}<p>From here on out, fleet launches will alternate between rolling 1-3 to launch, and (starting on economic phase 14) automatically launching. For this phase, the rolls were 8 (Red) / 5 (Green) / 10 (Yellow). None of these Alien Players will launch this phase.</p>",
 	"alienTable":
 		[{
-			"name":"Red","eco":5,"queue":0,"fleet":32,"tech":5,"def":50,"delta":"FTD","hidden":"&mdash;"
+			"name":"Red","eco":5,"fleet":32,"tech":5,"def":50,"delta":"FTD","hidden":"&mdash;"
 		},{
-			"name":"Green","eco":5,"queue":0,"fleet":37,"tech":20,"def":10,"delta":"FTD","hidden":"&mdash;"
+			"name":"Green","eco":5,"fleet":37,"tech":20,"def":10,"delta":"FTD","hidden":"&mdash;"
 		},{
-			"name":"Yellow","eco":4,"queue":0,"fleet":30,"tech":45,"def":30,"delta":"FT","hidden":"35 / 40"
+			"name":"Yellow","eco":4,"fleet":30,"tech":45,"def":30,"delta":"FT","hidden":"35 / 40"
 		},{
 			"name":"(Rolls)","ecoPhase":12
 		}],
@@ -3566,7 +3566,7 @@
 	"commentary":"<p>We have reached Chulak again, with 5 Cruisers and 8 Scouts. They were able to rebuild the Def bank a little (to 10 CP), but it is only enough to build 2 Mines, and not a single Base.</p><p>Since they are defending, they will not buy Movement tech <em>even if</em> they could afford it. 20 CP is sufficient to buy Ship Size Level 3, but this is not a guaranteed roll. They roll a 5 (success, for -15 CP). That is all they can afford for tech.</p><p>The 37 Fleet CP that they have is now spent launching a fleet. Their biggest ship is now a Cruiser (-12 CP). That leaves 25 CP they can spend on these: 2 more Cruisers (Largest Ships) or 4 Scouts (otherwise). They roll an 8 (Largest Ships), so that gives them a total of 3 Cruisers.</p><ol><li><b>Round 1</b>: Their 2 Mines instantly destroy 2 of our Cruisers. This consumes them. We still have 3 Cruisers left (along with 8 Scouts), to their 9 defenders. Fleets are equal size</li><li>Their 6 Bases will fire first. They will prioritize our Scouts. 1 of our 8 Scouts is outdated, and is missing Defense +1 (7 to hit). The first Base rolled a 4 (<b>hit</b>)</li><li>The remainig 7 Scouts do have Defense +1, lowering the chance to hit (&le;6). The remaining 5 Bases rolled 1,2,5,6,9 (4 hits)</li><li>Tactics are equal, so their 3 Cruisers are next. We have 3 Scouts left (4 - 1 = 3 to hit). They roll 1,8,9 (1 hit)</li><li>Our 3 Cruisers can now fire their weapons. We will target their Cruisers (4 to hit). We roll 1,6,7 (1 hit). We damaged a Cruiser</li><li>Our 2 surviving Scouts can also help out against their Cruisers (4 - 1 = 3 to hit). We roll 5,6 (0 hits)<br /><br /></li><li><b>Round 2</b>: Their 6 Bases will fire again. Since there are not enough Scouts, they will roll until 2 hits are scored. They rolled 7,1,4 this way</li><li>3 of their Bases are still available to clean up our 3 Cruisers (7 - 2 = 5 to hit). They rolled 1,1,6 (2 hits). We lost a Cruiser</li><li>Their 3 Cruiser are still available to clean up our 2 Cruisers (4 - 2 = 2 to hit). They rolled 1,8,10 (1 hit). Another Cruiser of ours is damaged</li><li>We have decided that our 2 surviving Crusiers will retreat to Sector E7.</li></ol>",
 	"alienTable":
 		[{
-			"name":"Green","eco":5,"queue":0,"fleet":1,"tech":5,"def":0,"delta":"ftd","hidden":"&mdash;"
+			"name":"Green","eco":5,"fleet":1,"tech":5,"def":0,"delta":"ftd","hidden":"&mdash;"
 		}],
 	"techTable":
 		[{
@@ -3651,11 +3651,11 @@
 	"commentary":"<p>Alien Players have narrowed their focus. They can no longer allocate CP into homeworld protection. Anyway, Red Player rolled 2,3,6,7,9 for economic rolls. Green Player rolled 1,6,7,7,10. Yellow Player rolled 3,4,5,6.</p>{alienTable}Since this is last prep phase, the fleet launch rolls were 7 (Red) / 5 (Green) / 6 (Yellow). None of these Alien Players will launch this phase.</p>",
 	"alienTable":
 		[{
-			"name":"Red","eco":5,"queue":0,"fleet":47,"tech":15,"def":50,"delta":"FT","hidden":"&mdash;"
+			"name":"Red","eco":5,"fleet":47,"tech":15,"def":50,"delta":"FT","hidden":"&mdash;"
 		},{
-			"name":"Green","eco":5,"queue":0,"fleet":11,"tech":20,"def":0,"delta":"FT","hidden":"&mdash;"
+			"name":"Green","eco":5,"fleet":11,"tech":20,"def":0,"delta":"FT","hidden":"&mdash;"
 		},{
-			"name":"Yellow","eco":4,"queue":0,"fleet":50,"tech":45,"def":30,"delta":"F","hidden":"35 / 40"
+			"name":"Yellow","eco":4,"fleet":50,"tech":45,"def":30,"delta":"F","hidden":"35 / 40"
 		},{
 			"name":"(Rolls)","ecoPhase":13
 		}],
@@ -3824,11 +3824,11 @@
 	"commentary":"<p>Alien Players will grow in economic strength soon. Red Player rolled 3,3,9,9,10. Green Player rolled 1,1,4,5,7. Yellow Player rolled 2,4,6,10.</p>",
 	"alienTable":
 		[{
-			"name":"Red","eco":5,"queue":0,"fleet":57,"tech":30,"def":50,"delta":"FT","hidden":"&mdash;"
+			"name":"Red","eco":5,"fleet":57,"tech":30,"def":50,"delta":"FT","hidden":"&mdash;"
 		},{
-			"name":"Green","eco":5,"queue":0,"fleet":31,"tech":25,"def":0,"delta":"FT","hidden":"&mdash;"
+			"name":"Green","eco":5,"fleet":31,"tech":25,"def":0,"delta":"FT","hidden":"&mdash;"
 		},{
-			"name":"Yellow","eco":4,"queue":0,"fleet":65,"tech":50,"def":30,"delta":"F","hidden":"35 / 40"
+			"name":"Yellow","eco":4,"fleet":65,"tech":50,"def":30,"delta":"F","hidden":"35 / 40"
 		},{
 			"name":"(Rolls)","ecoPhase":14
 		}],
@@ -3844,11 +3844,11 @@
 	"commentary":"<p>Launch rolls have been skipped because launches are <b>automatic</b> this economic phase. Instead, each Alien Player will roll on whether to buy the next respective Movement tech level. They rolled 10 (Red) / 5 (Green) / 5 (Yellow). None of these APs will buy Movement tech this time.</p>",
 	"alienTable":
 		[{
-			"name":"Red","eco":5,"queue":0,"fleet":0,"tech":30,"def":50,"delta":"fH","hidden":"57"
+			"name":"Red","eco":5,"fleet":0,"tech":30,"def":50,"delta":"fH","hidden":"57"
 		},{
-			"name":"Green","eco":5,"queue":0,"fleet":0,"tech":25,"def":0,"delta":"fH","hidden":"31"
+			"name":"Green","eco":5,"fleet":0,"tech":25,"def":0,"delta":"fH","hidden":"31"
 		},{
-			"name":"Yellow","eco":4,"queue":0,"fleet":0,"tech":50,"def":30,"delta":"fH","hidden":"35 / 40 / 65"
+			"name":"Yellow","eco":4,"fleet":0,"tech":50,"def":30,"delta":"fH","hidden":"35 / 40 / 65"
 		}],
 	"actions":
 		[{
@@ -4050,9 +4050,9 @@
 	"commentary":"<p>In an effort to eliminate the Green Alien Player, this did mean sacrificing our protection against the Red Player. Their fleet is sizeable, though unidentified.</p><p>They have enough Tech CP to research Ship Size level 3 (-15 CP). They rolled a 1 (success). They have 10 CP leftover, which is not enough for anything else.</p><p>Now for the fun part. They have Fleet 57 CP assigned. They just unlocked Cruisers for construction, so their first ship will be such (-12 CP). For composition, they rolled a 2 (Largest Fleet). The remaining CP will be spent on 6 Scouts (-36 CP) and 1 Destroyer (-9 CP). This spends all their money. Now to commence the bombardment round.</p><ol><li><b>Bombardment Round</b>: Their Cruiser is first (4 to hit). It rolled a 1 (<b>hit</b>). Our colony got damaged to 3 CP</li><li>Their Destroyer is next (4 to hit). It rolled a 7 (miss)</li><li>Finally their 6 Scouts will fire (3 to hit). They rolled 2,5,5,6,7,8 (1 hit). Our colony got damaged further, to 1 CP</li></ol>",
 	"alienTable":
 		[{
-			"name":"Red","eco":6,"queue":0,"fleet":0,"tech":15,"def":50,"delta":"th","hidden":"&mdash;"
+			"name":"Red","eco":6,"fleet":0,"tech":15,"def":50,"delta":"th","hidden":"&mdash;"
 		},{
-			"name":"Green","eco":5,"queue":0,"fleet":1,"tech":5,"def":0,"delta":"---","hidden":"&mdash;"
+			"name":"Green","eco":5,"fleet":1,"tech":5,"def":0,"delta":"---","hidden":"&mdash;"
 		}],
 	"techTable":
 		[{
@@ -4153,11 +4153,11 @@
 	"commentary":"<p>The Alien Players which are still alive have grown in economic strength, and have shifted their focus. Red Player rolled 6,6,7,7,8,9. Yellow Player rolled 2,4,5,7,10.</p>{alienTable}<p>Since this is our downtime phase, launch rolls were made. The rolls were 5 (Red) / 7 (Yellow). None of these Alien Players will launch this phase.</p>",
 	"alienTable":
 		[{
-			"name":"Red","eco":6,"queue":0,"fleet":20,"tech":25,"def":50,"delta":"FT","hidden":"&mdash;"
+			"name":"Red","eco":6,"fleet":20,"tech":25,"def":50,"delta":"FT","hidden":"&mdash;"
 		},{
-			"name":"Green","eco":5,"queue":0,"fleet":1,"tech":5,"def":0,"delta":"---","hidden":"&mdash;"
+			"name":"Green","eco":5,"fleet":1,"tech":5,"def":0,"delta":"---","hidden":"&mdash;"
 		},{
-			"name":"Yellow","eco":5,"queue":0,"fleet":20,"tech":55,"def":30,"delta":"FT","hidden":"35 / 40 / 65"
+			"name":"Yellow","eco":5,"fleet":20,"tech":55,"def":30,"delta":"FT","hidden":"35 / 40 / 65"
 		},{
 			"name":"(Rolls)","ecoPhase":15
 		}],
@@ -4405,11 +4405,11 @@
 	"commentary":"<p>Not much has changed this time. Red Player rolled 5,8,8,9,9,10. Yellow Player rolled 3,3,4,4,10.</p>",
 	"alienTable":
 		[{
-			"name":"Red","eco":6,"queue":0,"fleet":25,"tech":50,"def":50,"delta":"FT","hidden":"&mdash;"
+			"name":"Red","eco":6,"fleet":25,"tech":50,"def":50,"delta":"FT","hidden":"&mdash;"
 		},{
-			"name":"Green","eco":5,"queue":0,"fleet":1,"tech":5,"def":0,"delta":"---","hidden":"&mdash;"
+			"name":"Green","eco":5,"fleet":1,"tech":5,"def":0,"delta":"---","hidden":"&mdash;"
 		},{
-			"name":"Yellow","eco":5,"queue":0,"fleet":40,"tech":60,"def":30,"delta":"FT","hidden":"35 / 40 / 65"
+			"name":"Yellow","eco":5,"fleet":40,"tech":60,"def":30,"delta":"FT","hidden":"35 / 40 / 65"
 		},{
 			"name":"(Rolls)","ecoPhase":16
 		}],
@@ -4423,9 +4423,9 @@
 	"commentary":"<p>We have reached another automatic launch phase. Each Alien Player (that is still alive) will roll on whether to buy the next respective Movement tech level. Red rolled 3 (buy for 20 CP), Yellow 7 (skip).</p>",
 	"alienTable":
 		[{
-			"name":"Red","eco":6,"queue":0,"fleet":0,"tech":30,"def":50,"delta":"ftH","hidden":"25"
+			"name":"Red","eco":6,"fleet":0,"tech":30,"def":50,"delta":"ftH","hidden":"25"
 		},{
-			"name":"Yellow","eco":5,"queue":0,"fleet":0,"tech":60,"def":30,"delta":"fH","hidden":"35 / 40 / 65 / 40"
+			"name":"Yellow","eco":5,"fleet":0,"tech":60,"def":30,"delta":"fH","hidden":"35 / 40 / 65 / 40"
 		}],
 	"techTable":
 		[{
@@ -4712,11 +4712,11 @@
 	"commentary":"<p>The one Alien Player that is still alive has narrowed their focus some more. Yellow Player rolled 3,3,8,10,10.</p>{alienTable}<p>This is our soft downtime phase. Yellow Player rolled a 2 (launch).</p>",
 	"alienTable":
 		[{
-			"name":"Red","eco":6,"queue":0,"fleet":1,"tech":10,"def":4,"delta":"---","hidden":"&mdash;"
+			"name":"Red","eco":6,"fleet":1,"tech":10,"def":4,"delta":"---","hidden":"&mdash;"
 		},{
-			"name":"Green","eco":5,"queue":0,"fleet":1,"tech":5,"def":0,"delta":"---","hidden":"&mdash;"
+			"name":"Green","eco":5,"fleet":1,"tech":5,"def":0,"delta":"---","hidden":"&mdash;"
 		},{
-			"name":"Yellow","eco":5,"queue":0,"fleet":15,"tech":70,"def":30,"delta":"FT","hidden":"35 / 40 / 65 / 40"
+			"name":"Yellow","eco":5,"fleet":15,"tech":70,"def":30,"delta":"FT","hidden":"35 / 40 / 65 / 40"
 		},{
 			"name":"(Rolls)","ecoPhase":17
 		}],
@@ -4728,7 +4728,7 @@
 	"commentary":"<p>Since launch was successful, it also rolled an 8 for Movement tech (skip).</p>",
 	"alienTable":
 		[{
-			"name":"Yellow","eco":5,"queue":0,"fleet":0,"tech":70,"def":30,"delta":"fH","hidden":"35 / 40 / 65 / 40 / 15"
+			"name":"Yellow","eco":5,"fleet":0,"tech":70,"def":30,"delta":"fH","hidden":"35 / 40 / 65 / 40 / 15"
 		}],
 	"actions":
 		[{
@@ -5007,11 +5007,11 @@
 	"commentary":"<p>Not much to say this time. Yellow rolled 4,4,7,10,10.</p>",
 	"alienTable":
 		[{
-			"name":"Red","eco":6,"queue":0,"fleet":1,"tech":10,"def":4,"delta":"---","hidden":"&mdash;"
+			"name":"Red","eco":6,"fleet":1,"tech":10,"def":4,"delta":"---","hidden":"&mdash;"
 		},{
-			"name":"Green","eco":5,"queue":0,"fleet":1,"tech":5,"def":0,"delta":"---","hidden":"&mdash;"
+			"name":"Green","eco":5,"fleet":1,"tech":5,"def":0,"delta":"---","hidden":"&mdash;"
 		},{
-			"name":"Yellow","eco":5,"queue":0,"fleet":15,"tech":80,"def":30,"delta":"FT","hidden":"35 / 40 / 65 / 40 / 15"
+			"name":"Yellow","eco":5,"fleet":15,"tech":80,"def":30,"delta":"FT","hidden":"35 / 40 / 65 / 40 / 15"
 		},{
 			"name":"(Rolls)","ecoPhase":18
 		}],
@@ -5023,11 +5023,11 @@
 	"commentary":"<p>This is an <b>automatic launch</b> phase. It also rolled a 3 for Movement tech (buy level 2 for -20 CP).</p>",
 	"alienTable":
 		[{
-			"name":"Red","eco":6,"queue":0,"fleet":1,"tech":10,"def":4,"delta":"---","hidden":"&mdash;"
+			"name":"Red","eco":6,"fleet":1,"tech":10,"def":4,"delta":"---","hidden":"&mdash;"
 		},{
-			"name":"Green","eco":5,"queue":0,"fleet":1,"tech":5,"def":0,"delta":"---","hidden":"&mdash;"
+			"name":"Green","eco":5,"fleet":1,"tech":5,"def":0,"delta":"---","hidden":"&mdash;"
 		},{
-			"name":"Yellow","eco":5,"queue":0,"fleet":0,"tech":60,"def":30,"delta":"ftH","hidden":"35 / 40 / 65 / 40 / 15 / 15"
+			"name":"Yellow","eco":5,"fleet":0,"tech":60,"def":30,"delta":"ftH","hidden":"35 / 40 / 65 / 40 / 15 / 15"
 		}],
 	"techTable":
 		[{
@@ -5249,7 +5249,7 @@
 	"commentary":"<p>Finally; just before battle start, we opt to upgrade one of our older Cruisers for 2 CP.</p><p>It is thanks to these mishaps that we have engaged against 5 unidentified fleets at the same time. We will build the fleets one at a time, buying Ship Size tech as we go (highlighted in green).</p><p>Regarding supporting techs, the Alien Player rolls a 7, for Scanning level 1 (-15 CP).</p><table><tr><th>Fleet</th><th colspan=\"2\">Ship Size roll</th><th colspan=\"2\">Composition</th><th colspan=\"2\">Ships built</th></tr><tr><th>Fleet 1</th><td class=\"numeric increase\">N/A</td><td class=\"numeric\">-10 CP</td><td class=\"numeric\">9</td><td>(Largest ships)</td><td>3 DD + 1 SC</td><td>-33 CP</td></tr><tr><th>Fleet 2</th><td class=\"numeric increase\">2</td><td class=\"numeric\">-15 CP</td><td class=\"numeric\">6</td><td>(Balanced)</td><td>1 CA + 1 DD + 3 SC</td><td>-39 CP</td></tr><tr><th>Fleet 3</th><td class=\"numeric increase\">2</td><td class=\"numeric\">-20 CP</td><td class=\"numeric\">3</td><td>(Largest fleet)</td><td>1 BC + 2 DD + 5 SC</td><td>-63 CP</td></tr><tr><th>Fleet 4</th><td class=\"numeric\">&ndash;</td><td class=\"numeric\">20 CP req</td><td class=\"numeric\">4</td><td>(Balanced)</td><td>1 BC + 2 DD + 1 SC</td><td>-39 CP</td></tr><tr><th>Fleet 5</th><td class=\"numeric\">&ndash;</td><td></td><td class=\"numeric\">&ndash;</td><td>(Insufficient CPs)</td><td>1 BC</td><td>-15 CP</td></tr></table>",
 	"alienTable":
 		[{
-			"name":"Yellow","eco":5,"queue":0,"fleet":6,"tech":0,"def":30,"delta":"Fth","hidden":"15"
+			"name":"Yellow","eco":5,"fleet":6,"tech":0,"def":30,"delta":"Fth","hidden":"15"
 		}],
 	"techTable":
 		[{
@@ -5524,11 +5524,11 @@
 	"commentary":"<p>Yellow Alien Player has further adjusted its focus. It rolled 3,4,6,8,9.</p>{alienTable}<p>Being a soft downtime phase, it rolled a 10 (skip) on the fleet launch roll.</p>",
 	"alienTable":
 		[{
-			"name":"Red","eco":6,"queue":0,"fleet":1,"tech":10,"def":4,"delta":"---","hidden":"&mdash;"
+			"name":"Red","eco":6,"fleet":1,"tech":10,"def":4,"delta":"---","hidden":"&mdash;"
 		},{
-			"name":"Green","eco":5,"queue":0,"fleet":1,"tech":5,"def":0,"delta":"---","hidden":"&mdash;"
+			"name":"Green","eco":5,"fleet":1,"tech":5,"def":0,"delta":"---","hidden":"&mdash;"
 		},{
-			"name":"Yellow","eco":5,"queue":0,"fleet":31,"tech":0,"def":30,"delta":"F","hidden":"15"
+			"name":"Yellow","eco":5,"fleet":31,"tech":0,"def":30,"delta":"F","hidden":"15"
 		},{
 			"name":"(Rolls)","ecoPhase":19
 		}],
@@ -5862,11 +5862,11 @@
 	"commentary":"<p>Yellow Alien Player will grow in strength soon. It has rolled 1,6,7,7,10.</p>",
 	"alienTable":
 		[{
-			"name":"Red","eco":6,"queue":0,"fleet":1,"tech":10,"def":4,"delta":"---","hidden":"&mdash;"
+			"name":"Red","eco":6,"fleet":1,"tech":10,"def":4,"delta":"---","hidden":"&mdash;"
 		},{
-			"name":"Green","eco":5,"queue":0,"fleet":1,"tech":5,"def":0,"delta":"---","hidden":"&mdash;"
+			"name":"Green","eco":5,"fleet":1,"tech":5,"def":0,"delta":"---","hidden":"&mdash;"
 		},{
-			"name":"Yellow","eco":5,"queue":0,"fleet":51,"tech":5,"def":30,"delta":"FTh","hidden":"&mdash;"
+			"name":"Yellow","eco":5,"fleet":51,"tech":5,"def":30,"delta":"FTh","hidden":"&mdash;"
 		},{
 			"name":"(Rolls)","ecoPhase":20
 		}],
@@ -5878,7 +5878,7 @@
 	"commentary":"<p>Yellow Player has automatically launched a fleet. They don't have nearly enough Tech CP to buy Movement tech.</p>",
 	"alienTable":
 		[{
-			"name":"Yellow","eco":5,"queue":0,"fleet":51,"tech":5,"def":30,"delta":"FTh","hidden":"&mdash;"
+			"name":"Yellow","eco":5,"fleet":51,"tech":5,"def":30,"delta":"FTh","hidden":"&mdash;"
 		}],
 	"actions":
 		[{
@@ -6005,11 +6005,11 @@
 	"commentary":"<p>Yellow Alien Player, the last of the 3, is now eliminated! This truly concludes the scenario. Yet, it is hard to say how successful we were. Black Holes got to screw over Yellow player for <b>10</b> economic phases, until we got the wisdom for them to just go around.</p><p>Originally, we considered taking a stab at the larger Alien Empires map that comes prepacked in the Close Encounters scenario book, though that was before we came up with the Replay Center idea. The original <a href=\"../aeAar/\">archived document</a> is still available.</p>",
 	"alienTable":
 		[{
-			"name":"Red","eco":6,"queue":0,"fleet":1,"tech":10,"def":4,"delta":"---","hidden":"&mdash;"
+			"name":"Red","eco":6,"fleet":1,"tech":10,"def":4,"delta":"---","hidden":"&mdash;"
 		},{
-			"name":"Green","eco":5,"queue":0,"fleet":1,"tech":5,"def":0,"delta":"---","hidden":"&mdash;"
+			"name":"Green","eco":5,"fleet":1,"tech":5,"def":0,"delta":"---","hidden":"&mdash;"
 		},{
-			"name":"Yellow","eco":5,"queue":0,"fleet":0,"tech":5,"def":1,"delta":"---","hidden":"&mdash;"
+			"name":"Yellow","eco":5,"fleet":0,"tech":5,"def":1,"delta":"---","hidden":"&mdash;"
 		}],
 	"techTable":
 		[{

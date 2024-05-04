@@ -3438,7 +3438,7 @@
 	"commentary":"<p>First off, we will tend to Blue. They have yet another hidden fleet, worth 42 CP. Since they can build 1 full Carrier (-27 CP) with this much, they will do so. The remaining 15 CP is enough for 1 Cruiser (-12 CP), and nothing else.</p><ol><li><b>Round 1</b>: We have 7 Scouts to their 5 ships. Neither side gets the Fleet Size Bonus</li><li>Their 3 Fighters will go first, prioritizing our Attack +1 Scouts. They rolled 3,5,10 (2 hits &le;5)</li><li>Their 1 Cruiser will go next. It rolled a <b>1</b> (hit &le;4)</li><li>Our 4 surviving Scouts will prioritize their Fighters. We rolled 2,3,6,10 (2 hits &le;3)</li><li>Their 1 Carrier is last. It rolled a 9 (miss &gt;3)<br /><br /></li><li><b>Round 2</b>: We have 4 Scouts to their 3 ships. This is not looking good</li><li>Their 1 Fighters go again. It rolled a 4 (hit &le;5)</li><li>Their 1 Cruiser will go next. It rolled an 8 (miss &gt;4)</li><li>Our 3 surviving Scouts will prioritize their Fighters. We will prioritize using the Scout with Attack +0, while rolling until we score one hit: 1</li><li>Our 2 remaining Scouts have Attack +1, and the next target is their Carrier. We roll a 3 (hit &le;4) to clean it up</li><li>This leaves only a single Scout versus their Cruiser. Its natural Defense rating of 1 will make subsequent rolls harder. We roll a 6 (miss &gt;3)<br /><br /></li><li><b>Round 3</b>: We have 3 Scouts to their 1 Cruiser. We have gained the Fleet Size Bonus!</li><li>Their 1 Cruiser will go again. It rolled a 2 (hit &le;4)</li><li>Our 2 surviving Scouts are next, each with different Attack equipment. From oldest to newest, we roll 7,5 (0 hits &le;3)<br /><br /></li><li><b>Round 4</b>: We have 2 Scouts to their 1 Cruiser. We keep the Fleet Size Bonus</li><li>Their 1 Cruiser will go again. It rolled a 9 (miss &gt;4)</li><li>Our 2 remaining Scouts are next. From oldest to newest, we roll 4 (miss &gt;3), and 4 (hit &le;4). We damaged their Cruiser<br /><br /></li><li><b>Round 5</b>: No change this round. Their 1 Cruiser will go again. It rolled a 3 (hit &le;4)</li><li>We have just 1 Scout left now, with Attack +0. It rolled a 4 (miss &gt;3)<br /><br /></li><li><b>Round 5</b>: We are now equal size, thus have lost the Fleet Size Bonus.</li><li>Their 1 Cruiser will go again. It rolled a 10 (miss &gt;4)</li><li>Our 1 Scout rolled a 1 (hit &le;2), finishing off their Cruiser!</li></ol>",
 	"alienTable":
 		[{
-			"name":"Blue","eco":6,"queue":0,"fleet":4,"tech":5,"def":20,"delta":"Fh","hidden":"&mdash;"
+			"name":"Blue","eco":6,"fleet":4,"tech":5,"def":20,"delta":"Fh","hidden":"&mdash;"
 		}],
 	"techTable":
 		[{
@@ -3545,9 +3545,9 @@
 	"commentary":"<p>While we are <i>still</i> on the defensive, the Alien Players are able to build lots of money in their banks. They rolled 3,3,4,6,6,9 (Blue) / 3,4,7,9,9 (Red).</p>{alienTable}<p>Blue still maintains its Fighter tech advantage. They rolled 4 (Blue) / 2 (Red) on the fleet launch sequence. Both players will launch fresh fleets!</p>",
 	"alienTable":
 		[{
-			"name":"Blue","eco":6,"queue":0,"fleet":54,"tech":15,"def":20,"delta":"FT","hidden":"&mdash;"
+			"name":"Blue","eco":6,"fleet":54,"tech":15,"def":20,"delta":"FT","hidden":"&mdash;"
 		},{
-			"name":"Red","eco":5,"queue":0,"fleet":71,"tech":30,"def":60,"delta":"FT","hidden":"&mdash;"
+			"name":"Red","eco":5,"fleet":71,"tech":30,"def":60,"delta":"FT","hidden":"&mdash;"
 		},{
 			"name":"(Rolls)","ecoPhase":11
 		}],
@@ -3561,9 +3561,9 @@
 	"commentary":"<p>Both Alien Players managed to launch, but only Red player is able to afford the next Movement level. They roll a 2 (buy level 5 for 20 CP).</p>",
 	"alienTable":
 		[{
-			"name":"Blue","eco":6,"queue":0,"fleet":0,"tech":15,"def":20,"delta":"fH","hidden":"54"
+			"name":"Blue","eco":6,"fleet":0,"tech":15,"def":20,"delta":"fH","hidden":"54"
 		},{
-			"name":"Red","eco":5,"queue":0,"fleet":0,"tech":10,"def":60,"delta":"ftH","hidden":"71"
+			"name":"Red","eco":5,"fleet":0,"tech":10,"def":60,"delta":"ftH","hidden":"71"
 		}],
 	"techTable":
 		[{
@@ -3782,9 +3782,9 @@
 	"commentary":"<p>Granted, the failed bombardment attempts of L12 was because we previously thinned their numbers. Now for Red's next mystery fleet (71 CP assigned). They have 10 CP in the Tech bank, which is not enough for any new technology. Their Ship Size is still at level 2, which limits their biggest ship to just a Destroyer. They then roll a 10 for composition (Largest Ships), which causes them to buy 7 Destroyers total (63 CP), plus 1 Scout (6 CP).</p><p>Since the colony at K10 is undefended, they will simply bombard away. Their 7 Destroyers rolled 2,2,2,3,6,8,9 (4 hits &le;4), glassing the colony in one salvo.</p>",
 	"alienTable":
 		[{
-			"name":"Blue","eco":6,"queue":0,"fleet":0,"tech":0,"def":20,"delta":"th","hidden":"&mdash;"
+			"name":"Blue","eco":6,"fleet":0,"tech":0,"def":20,"delta":"th","hidden":"&mdash;"
 		},{
-			"name":"Red","eco":5,"queue":0,"fleet":2,"tech":10,"def":60,"delta":"Fh","hidden":"&mdash;"
+			"name":"Red","eco":5,"fleet":2,"tech":10,"def":60,"delta":"Fh","hidden":"&mdash;"
 		}],
 	"actions":
 		[{
@@ -3900,9 +3900,9 @@
 	"commentary":"<p>This is the last economic phase that Alien Players will be able to invest in protecting their homeworld. Granted, we have been doing rather badly lately. Still, they rolled 1,4,4,5,8,10 (Blue) / 1,5,5,10,10 (Red).</p>{alienTable}<p>Blue Player does not yet know we have developed Point-Defense technology. They still claim its Fighter tech advantage for one last phase. They rolled 2 (Blue) / 8 (Red) on the fleet launch sequence. Blue Player will launch another fleet. Since their Tech CP is not sufficient to buy another Movement level, they will simply launch away.</p>",
 	"alienTable":
 		[{
-			"name":"Blue","eco":6,"queue":0,"fleet":40,"tech":10,"def":40,"delta":"FTD","hidden":"&mdash;"
+			"name":"Blue","eco":6,"fleet":40,"tech":10,"def":40,"delta":"FTD","hidden":"&mdash;"
 		},{
-			"name":"Red","eco":5,"queue":0,"fleet":12,"tech":30,"def":100,"delta":"FTD","hidden":"&mdash;"
+			"name":"Red","eco":5,"fleet":12,"tech":30,"def":100,"delta":"FTD","hidden":"&mdash;"
 		},{
 			"name":"(Rolls)","ecoPhase":12
 		}],
@@ -3941,7 +3941,7 @@
 	"commentary":"<p>We will go on ahead and attempt to damage Red's healthiest fleet, despite the numerical disadvantage.</p><h3>The Battle for Sector K10</h3><ol><li><b>Round 1</b>: We have 6 Scouts to their 8 ships. Neither side has the Fleet Size Bonus</li><li>Their 7 Destroyers will roll first. They rolled 2,2,5,6,6,8,8 (2 hits &le;4)</li><li>Our 4 surviving Scouts have Tactics advantage, and will prioritize their Destroyers next. We rolled 4,6,6,8 (1 hit &le;4)</li><li>Their 1 Scout rolled a 6 (miss &gt;3)<br /><br /></li><li><b>Round 2</b>: We now have 4 Scouts to their 6 ships. As usual, things worsen</li><li>Their 6 surviving Destroyers rolled 2,4,7,7,9,10 (2 hits &le;4)</li><li>Our 2 surviving Scouts rolled 6,8 (0 hits &le;4)</li><li>Their 1 Scout rolled a 4 (miss &gt;3)<br /><br /></li><li><b>Round 3</b>: We now have 2 Scouts to their 6 ships. They have gained the Fleet Size Bonus!</li><li>Their 6 surviving Destroyers rolled 4,7,7,9,10,10 (1 hit &le;5)</li><li>Our 1 surviving Scout rolled a 6 (miss &gt;4)</li><li>Their 1 Scout rolled a 5 (miss &gt;3)<br /><br /></li><li><b>Round 4</b>: Their 6 surviving Destroyers rolled 2,3,6,7,9,10 (2 hit &le;5), cleaning up our Scout fleet</li></ol>",
 	"alienTable":
 		[{
-			"name":"Blue","eco":6,"queue":0,"fleet":0,"tech":10,"def":40,"delta":"fH","hidden":"40"
+			"name":"Blue","eco":6,"fleet":0,"tech":10,"def":40,"delta":"fH","hidden":"40"
 		}],
 	"actions":
 		[{
@@ -4312,9 +4312,9 @@
 	"commentary":"<p>From here on out, Alien Players will alternate between a downtime period and an automatic launch. For this economic phase, they rolled 2,3,5,8,10,10 (Blue) / 1,2,6,8,8 (Red).</p>{alienTable}<p>Blue Player has learned of our Point-Defense technology, and has lost its Carrier-related aggression bonus on fleet launching. Since this is a downtime phase, they rolled 6 (Blue) / 7 (Red) on the fleet launch sequence. Neither player will launch a new fleet this phase.</p>",
 	"alienTable":
 		[{
-			"name":"Blue","eco":6,"queue":0,"fleet":30,"tech":40,"def":40,"delta":"FT","hidden":"40"
+			"name":"Blue","eco":6,"fleet":30,"tech":40,"def":40,"delta":"FT","hidden":"40"
 		},{
-			"name":"Red","eco":5,"queue":0,"fleet":42,"tech":50,"def":100,"delta":"FT","hidden":"&mdash;"
+			"name":"Red","eco":5,"fleet":42,"tech":50,"def":100,"delta":"FT","hidden":"&mdash;"
 		},{
 			"name":"(Rolls)","ecoPhase":13
 		}],
@@ -4412,7 +4412,7 @@
 	"commentary":"<p>The bombardment of Sector K9 <i>still</i> continues. Our colony got repaired a bit, but is still extremely vulnerable. Red's 6 Destroyers rolled 3,4,7,8,9,9 (2 hits &le;4), finishing off the colony.</p>",
 	"alienTable":
 		[{
-			"name":"Blue","eco":6,"queue":0,"fleet":31,"tech":40,"def":40,"delta":"Fh","hidden":"&mdash;"
+			"name":"Blue","eco":6,"fleet":31,"tech":40,"def":40,"delta":"Fh","hidden":"&mdash;"
 		}],
 	"techTable":
 		[{
@@ -4703,9 +4703,9 @@
 	"commentary":"<p>Alien Players' natural economic rolls will increase soon. They rolled 1,4,5,7,10,10 (Blue) / 2,2,3,10,10 (Red).</p>",
 	"alienTable":
 		[{
-			"name":"Blue","eco":6,"queue":0,"fleet":61,"tech":70,"def":40,"delta":"FT","hidden":"&mdash;"
+			"name":"Blue","eco":6,"fleet":61,"tech":70,"def":40,"delta":"FT","hidden":"&mdash;"
 		},{
-			"name":"Red","eco":5,"queue":0,"fleet":72,"tech":70,"def":100,"delta":"FT","hidden":"&mdash;"
+			"name":"Red","eco":5,"fleet":72,"tech":70,"def":100,"delta":"FT","hidden":"&mdash;"
 		},{
 			"name":"(Rolls)","ecoPhase":14
 		}],
@@ -4719,9 +4719,9 @@
 	"commentary":"<p>This is an automatic launch phase, so fleet launch rolls have been skipped. Instead, Alien Players will roll for an additional Movement level. They rolled 8 (Blue) / 10 (Red). Neither player will buy more Movement technology.</p>",
 	"alienTable":
 		[{
-			"name":"Blue","eco":6,"queue":0,"fleet":0,"tech":70,"def":40,"delta":"fH","hidden":"61"
+			"name":"Blue","eco":6,"fleet":0,"tech":70,"def":40,"delta":"fH","hidden":"61"
 		},{
-			"name":"Red","eco":5,"queue":0,"fleet":0,"tech":70,"def":100,"delta":"fH","hidden":"72"
+			"name":"Red","eco":5,"fleet":0,"tech":70,"def":100,"delta":"fH","hidden":"72"
 		}],
 	"actions":
 		[{
@@ -4870,7 +4870,7 @@
 	"commentary":"<h3>The First Battle for Altair</h3><p>Now for an explosive burst of action. We are going to <q>tickle</q> the homeworld of Altair, stir up their Def pool. Since they have no Fleet CP left in the bank, they will skip that part. The 70 Tech CP they have is good for a few tech levels. First, a 6 was rolled on the Ship Size department (buy level 3 for 20 CP), followed by Attack level 1 (-20 CP) and level 2 (-30 CP). This spends all of their Tech CP.</p><p>The 100 Def CP will be spent improving this homeworld's protection. A 9 was rolled for protection composition (Most Bases), and their money gives them 8 more Bases with no money leftover for Minelayers. With prep complete, the Bases now get to shoot first; rolling 1,3,4,5,6,7,8,10,10 (7 hits &le;9) and wiping out our lone Cruiser.</p><h3>The Battle for Sector F10</h3><p>Now Red Player gets to assault our listening post at F10. Since Tech CP was previously spent, we will simply go straight to construction with the 72 assigned Fleet CP. The biggest ship they can build is now the Cruiser (-12 CP). The Destroyer step is skipped, because they have no Scanning technology. They roll a 5 (Balanced), which equates to 5 more Cruisers (-60 CP) to take advantage of the Attack technology.</p><ol><li><b>Round 1</b>: They have 6 Cruisers to our 1 Ship Yard, giving them the Fleet Size Bonus</li><li>Our 1 Ship Yard has the Tactics advantage, so it gets to shoot for. We rolled an 8 (miss &gt;4)</li><li>Our 1 Ship Yard is the only defender against their 6 Cruisers. They rolled 3,4,5,7,9,10 (3 hits &le;6), wiping our Ship Yard out<br /><br /></li><li><b>Bombardment Round</b>: Our colony is exposed, so the Cruisers get to shoot again. They rolled 2,2,4,6,6,9 (5 hits &le;6), sterilizing the planet of all life</li></ol>",
 	"alienTable":
 		[{
-			"name":"Red","eco":5,"queue":0,"fleet":0,"tech":0,"def":4,"delta":"tdh","hidden":"&mdash;"
+			"name":"Red","eco":5,"fleet":0,"tech":0,"def":4,"delta":"tdh","hidden":"&mdash;"
 		}],
 	"techTable":
 		[{
@@ -4962,9 +4962,9 @@
 	"commentary":"<p>The Alien Players have grown this economic phase with another natural economic roll. They have rolled 3,5,6,6,8,9,10 (Blue) / 2,5,5,6,7,9 (Red).</p>{alienTable}<p>This is a downtime economic phase. The aliens have rolled 6 (Blue) / 10 (Red) regarding fleet launch. Neither player will launch a fleet this phase.</p>",
 	"alienTable":
 		[{
-			"name":"Blue","eco":7,"queue":0,"fleet":40,"tech":100,"def":40,"delta":"FT","hidden":"61"
+			"name":"Blue","eco":7,"fleet":40,"tech":100,"def":40,"delta":"FT","hidden":"61"
 		},{
-			"name":"Red","eco":6,"queue":0,"fleet":50,"tech":10,"def":4,"delta":"FT","hidden":"&mdash;"
+			"name":"Red","eco":6,"fleet":50,"tech":10,"def":4,"delta":"FT","hidden":"&mdash;"
 		},{
 			"name":"(Rolls)","ecoPhase":15
 		}],
@@ -5061,9 +5061,9 @@
 	"commentary":"<p>Next up, Red bombards our colony on Sector D8. At least this process is extremely simple; their 6 Cruisers rolled 1,1,7,7,8,8 (2 hits &le;6). Our colony is damaged, but not destroyed.</p>",
 	"alienTable":
 		[{
-			"name":"Blue","eco":7,"queue":0,"fleet":41,"tech":10,"def":40,"delta":"Fth","hidden":"&mdash;"
+			"name":"Blue","eco":7,"fleet":41,"tech":10,"def":40,"delta":"Fth","hidden":"&mdash;"
 		},{
-			"name":"Red","eco":6,"queue":0,"fleet":50,"tech":10,"def":4,"delta":"","hidden":"&mdash;"
+			"name":"Red","eco":6,"fleet":50,"tech":10,"def":4,"delta":"","hidden":"&mdash;"
 		}],
 	"techTable":
 		[{
@@ -5157,9 +5157,9 @@
 	"commentary":"<p>Not much has changed this phase. The Alien Players have rolled 1,2,2,3,4,6,10 (Blue) / 2,4,6,9,9,10 (Red).</p>",
 	"alienTable":
 		[{
-			"name":"Blue","eco":7,"queue":0,"fleet":101,"tech":20,"def":40,"delta":"FT","hidden":"&mdash;"
+			"name":"Blue","eco":7,"fleet":101,"tech":20,"def":40,"delta":"FT","hidden":"&mdash;"
 		},{
-			"name":"Red","eco":6,"queue":0,"fleet":80,"tech":40,"def":4,"delta":"FT","hidden":"&mdash;"
+			"name":"Red","eco":6,"fleet":80,"tech":40,"def":4,"delta":"FT","hidden":"&mdash;"
 		},{
 			"name":"(Rolls)","ecoPhase":16
 		}],
@@ -5173,9 +5173,9 @@
 	"commentary":"<p>This is an automatic launch phase. Only Red Player has enough Tech CP to roll for Movement tech. They rolled a 6 (skip), so they stay at level 5.</p>",
 	"alienTable":
 		[{
-			"name":"Blue","eco":7,"queue":0,"fleet":0,"tech":20,"def":40,"delta":"fH","hidden":"101"
+			"name":"Blue","eco":7,"fleet":0,"tech":20,"def":40,"delta":"fH","hidden":"101"
 		},{
-			"name":"Red","eco":6,"queue":0,"fleet":0,"tech":40,"def":4,"delta":"fH","hidden":"80"
+			"name":"Red","eco":6,"fleet":0,"tech":40,"def":4,"delta":"fH","hidden":"80"
 		}],
 	"actions":
 		[{
@@ -5346,9 +5346,9 @@
 	"commentary":"<p>Alien Players' focus has shifted ever so slightly. They rolled 1,4,5,7,8,9,10 (Blue) / 1,1,3,4,7,7 (Red).</p>{alienTable}<p>Since this is the soft downtime phase, fleet launch rolls are made. The aliens rolled 4 (Blue) / 9 (Red). Neither player will launch a fresh fleet this time.</p>",
 	"alienTable":
 		[{
-			"name":"Blue","eco":7,"queue":0,"fleet":50,"tech":40,"def":40,"delta":"FT","hidden":"101"
+			"name":"Blue","eco":7,"fleet":50,"tech":40,"def":40,"delta":"FT","hidden":"101"
 		},{
-			"name":"Red","eco":6,"queue":0,"fleet":60,"tech":40,"def":4,"delta":"F","hidden":"80"
+			"name":"Red","eco":6,"fleet":60,"tech":40,"def":4,"delta":"F","hidden":"80"
 		},{
 			"name":"(Rolls)","ecoPhase":17
 		}],
@@ -5419,9 +5419,9 @@
 	"commentary":"<p>Since our homeworld of Vasyr has not fallen, we must also resolve the battle at Sector J5. Blue's unidentified fleet has 101 CP assigned to it. We will spend their 40 Tech CP first. Blue rolls a 7 for Ship Size level 5 (skip), followed by a 1 for Attack level 1 (-20 CP) and 9 for Point-Defense level 1 (-20 CP).</p><p>Blue still has Fighter tech, but it is contested. They roll a 7 on the Carriers step (skip). The biggest ship Blue can build is still a Battlecruiser (-15 CP). Scanning means they should build a Destroyer also (-9 CP). For fleet composition, an 8 (Largest Ships) was rolled. This equates to 5 more Battlecruisers (-75 CP)</p><ol><li><b>Round 1</b>: We have 11 ships to their 7 ships. We will screen our 3 Ship Yards each round, if able</li><li>Our Base has the best Weapon Class, so it shoots first. We will target their Destroyer, rolling a 9 (miss &gt;7)</li><li>Their 6 Battlecruisers are next, focusing down on our Scouts. They rolled 4,8,8,8,8,10 (1 hit &le;6)</li><li>Our 1 Cruiser shoots against their Destroyer. We roll a 9 (miss &gt;3)</li><li>Their 1 Destroyer will shoot next, rolling a 4 (hit &le;5) against our Scouts</li><li>Our 4 surviving Scouts can now finally shoot. We roll 2 against their Destroyer (&le;3 to hit), followed by 9,1,8 against their Battlecruisers (1 hit &le;1), damaging one of them<br /><br /></li><li><b>Round 2</b>: We have 9 ships to their 6 Battlecruisers. We can barely keep our 3 Ship Yards screened</li><li>Our Base shoots again, only their Battlecruisers are still in the hex. We roll a 6 (miss &gt;5)</li><li>Their 6 Battlecruisers are next, remaining focused on our Scouts. They rolled 10,10,9,3,3,9 (2 hits &le;6)</li><li>Our 1 Cruiser shoots next. We roll a 4 (miss &gt;1)</li><li>Our 2 surviving Scouts can shoot once more. We rolled 5,9 (0 hits &le;1)<br /><br /></li><li><b>Round 3</b>: We have 7 ships to their 6 Battlecruisers. We are no longer able to keep our Ship Yards screened</li><li>Our Base shoots again, rolling a 2 (hit &le;5) and finishing off their first Battlecruiser</li><li>Their 5 surviving Battlecruisers are next, only they have changed their focus to our Ship Yards. They rolled 9,8,4,10,1 (2 hits &le;6)</li><li>Our 1 Cruiser, 1 surviving Ship Yard, and 2 Scouts can shoot together (same final Attack rating, and they have nothing in between), rolling 4,6,6,10 this way (0 hits &le;1)<br /><br /></li><li><b>Round 4</b>: We have 5 ships to their 5 Battlecruisers</li><li>Our Base shoots again, rolling a 4 (hit &le;5) and damaging another Battlecruiser</li><li>Their 5 Battlecruisers are next. They rolled 8,10,6 against our final Ship Yard (1 hit &le;6), followed by 9,2 against our Scouts (1 hit &le;6) </li><li>Our 1 Cruiser, and 1 surviving Scout shoot together, rolling 6,7 this way (0 hits &le;1)<br /><br /></li><li><b>Round 5</b>: We have 3 ships to their 5 Battlecruisers</li><li>Our Base shoots again, rolling a 10 (miss &gt;5)</li><li>Their 5 Battlecruisers are next. They rolled 8,9,4 against our final Scout (1 hit &le;6), followed by 6,6 against our lone Cruiser (0 hits &le;5)</li><li>Our 1 Cruiser responds, rolling a 6 (miss &gt;1)<br /><br /></li><li><b>Round 6</b>: We have 2 ships to their 5 Battlecruisers. They gained the Fleet Size Bonus</li><li>Our Base shoots again, rolling a 10 (miss &gt;5)</li><li>Their 5 Battlecruisers are next. They rolled 10,7,10,2,4 against our lone Cruiser (2 hit &le;6), destroying it cleanly<br /><br /></li><li><b>Round 7</b>: Our Base is all that stands against their 5 Battlecruisers. We rolled a 9 (miss &gt;5)</li><li>Their 5 Battlecruisers are next. They rolled 4,5,7,9,9 against our Base (2 hits &le;5), damaging the Base to 1 HP<br /><br /></li><li><b>Round 8</b>: Our Base rolls a 9 (miss &gt;5)</li><li>Their 5 Battlecruisers are next. They rolled 2,4,6,7,10 against our Base (2 hits &le;5), finishing off our protection<br /><br /></li><li><b>Bombardment Round</b>: With our colony exposed, Blue's 5 Battlecruisers rolled 1,5,6,8,10 (3 hits &le;6), cleanly glassing the colony</li></ol>",
 	"alienTable":
 		[{
-			"name":"Blue","eco":7,"queue":0,"fleet":52,"tech":0,"def":40,"delta":"Fth","hidden":"&mdash;"
+			"name":"Blue","eco":7,"fleet":52,"tech":0,"def":40,"delta":"Fth","hidden":"&mdash;"
 		},{
-			"name":"Red","eco":6,"queue":0,"fleet":62,"tech":0,"def":4,"delta":"Fth","hidden":"&mdash;"
+			"name":"Red","eco":6,"fleet":62,"tech":0,"def":4,"delta":"Fth","hidden":"&mdash;"
 		}],
 	"actions":
 		[{

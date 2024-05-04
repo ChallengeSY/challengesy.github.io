@@ -14,6 +14,7 @@
 		td.reference {color: #C0C0C0;}
 
 		div {border-radius: 12px; padding: 8px; background: rgb(32,32,64); margin-bottom: 25px;}
+		div a {white-space: nowrap;}
 	</style>
 	<script src="dmBatSim.js"></script>
 	<script src="pedia.js"></script>
@@ -78,7 +79,7 @@ No matter how low, a DM that rolls a 10 automatically misses">Evasion</th>
 <tr>
 <td><label for="techSize">Ship Size Level</label></td>
 <td><a href="javascript:showBox('Ship Size')">(?)</a></td>
-<td><input class="text numeric" type="number" id="techSize" value="1" min="1" max="7" size="5" onchange="showPlrRows()" onblur="showPlrRows()" /></td>
+<td><input class="text numeric" type="number" id="techSize" value="1" min="0" max="7" size="5" onchange="showPlrRows()" onblur="showPlrRows()" /></td>
 <td><label for="techTac">Tactics Level</label></td>
 <td><a href="javascript:showBox('Tactics')">(?)</a></td>
 <td><input class="text numeric" type="number" id="techTac" value="0" min="0" max="3" size="5" /></td>
@@ -95,9 +96,17 @@ No matter how low, a DM that rolls a 10 automatically misses">Evasion</th>
 <td><label for="techCE">Close Encounters</label></td>
 <td><a href="javascript:showBox('Close Encounters')">(?)</a></td>
 <td><input type="checkbox" id="techCE" onclick="showPlrRows()" oninput="showPlrRows()" /></td>
+<td><label for="npaShips">Non-Player Aliens</label></td>
+<td><a href="javascript:showBox('Non-Player Alien')">(?)</a></td>
+<td><input type="checkbox" id="npaShips" onclick="showPlrRows()" oninput="showPlrRows()" /></td>
+</tr>
+<tr>
 <td><label for="techAC">Advanced Construction</label></td>
 <td><a href="javascript:showBox('Advanced Construction')">(?)</a></td>
 <td><input class="text numeric" type="number" id="techAC" value="0" min="0" max="3" size="5" onchange="showPlrRows()" onblur="showPlrRows()" /></td>
+<td><label for="repRP">Replicator RP</label></td>
+<td><a href="javascript:showBox('RP')">(?)</a></td>
+<td><input class="text numeric" type="number" id="repRP" value="-1" min="-1" max="15" size="5" onchange="showPlrRows()" onblur="showPlrRows()" /></td>
 </tr>
 <tr>
 <td><label for="numSims">Number of simulations</label></td>
