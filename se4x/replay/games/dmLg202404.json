@@ -622,6 +622,9 @@
 			"placeCounter":"systemG6",
 			"name":"danger"
 		},{
+			"resizeCounter":"SY1G",
+			"size":4
+		},{
 			"revealCounter":"systemL5",
 			"name":"colony3"
 		},{
@@ -672,6 +675,9 @@
 		},{
 			"placeCounter":"Miner2Gload",
 			"location":"J9"
+		},{
+			"resizeCounter":"SY1G",
+			"size":5
 		},{
 			"placeCounter":"CO8G",
 			"location":"L7",
@@ -769,6 +775,9 @@
 			"location":"K6",
 			"name":"COG"
 		},{
+			"resizeCounter":"SY1G",
+			"size":5
+		},{
 			"revealCounter":"systemJ8",
 			"name":"colony3"
 		},{
@@ -813,6 +822,9 @@
 		},{
 			"placeCounter":"systemJ10",
 			"name":"minerals5"
+		},{
+			"resizeCounter":"SY1G",
+			"size":6
 		},{
 			"revealCounter":"systemJ8",
 			"name":"colony5G"
@@ -1028,6 +1040,7 @@
 			"location":"G6"
 		},{
 			"placeCounter":"R1G",
+			"size":3,
 			"location":"L7"
 		},{
 			"revealCounter":"systemK6",
@@ -1117,6 +1130,7 @@
 			"location":"L7"
 		},{
 			"placeCounter":"R2G",
+			"size":4,
 			"location":"L7"
 		}]},
 	{"heading":"Stardate 2407.2",
@@ -1167,6 +1181,7 @@
 	"actions":
 		[{
 			"placeCounter":"R3G",
+			"size":3,
 			"location":"L7"
 		},{
 			"placeCounter":"dm1",
@@ -1197,6 +1212,7 @@
 	"actions":
 		[{
 			"placeCounter":"R3G",
+			"size":3,
 			"location":"J8"
 		},{
 			"placeCounter":"dm1",
@@ -1224,6 +1240,7 @@
 			"name":"doomsday"
 		},{
 			"placeCounter":"R3G",
+			"size":4,
 			"location":"L7"
 		}]},
 	{"heading":"Stardate 2409.3",
@@ -1250,7 +1267,14 @@
 	"commentary":"<p>... making it easier to prepare for the next battle.</p>",
 	"actions":
 		[{
+			"resizeCounter":"R1G",
+			"size":3
+		},{
+			"resizeCounter":"R2G",
+			"size":4
+		},{
 			"placeCounter":"R3G",
+			"size":4,
 			"location":"J8"
 		},{
 			"placeCounter":"dm2",
@@ -1268,7 +1292,14 @@
 		}],
 	"actions":
 		[{
+			"resizeCounter":"R1G",
+			"size":6
+		},{
+			"resizeCounter":"R2G",
+			"size":5
+		},{
 			"placeCounter":"R3G",
+			"size":3,
 			"location":"L7"
 		},{
 			"placeCounter":"dm2",
@@ -1299,6 +1330,7 @@
 	"actions":
 		[{
 			"placeCounter":"R3G",
+			"size":3,
 			"location":"J8"
 		},{
 			"placeCounter":"dm2",
@@ -1349,6 +1381,7 @@
 			"location":"J8"
 		},{
 			"placeCounter":"R3G",
+			"size":4,
 			"location":"L7"
 		}]},
 	{"heading":"Stardate 2411.1",
@@ -1421,6 +1454,7 @@
 			"location":"K4"
 		},{
 			"placeCounter":"R4G",
+			"size":2,
 			"location":"L7"
 		},{
 			"placeCounter":"dm3",
@@ -1474,15 +1508,19 @@
 			"removeCounter":"systemL4"
 		},{
 			"placeCounter":"R1G",
+			"size":6,
 			"location":"L5"
 		},{
 			"placeCounter":"R2G",
+			"size":5,
 			"location":"L5"
 		},{
 			"placeCounter":"R3G",
+			"size":4,
 			"location":"L5"
 		},{
 			"placeCounter":"R4G",
+			"size":2,
 			"location":"L5"
 		},{
 			"placeCounter":"dm3",
@@ -1490,7 +1528,7 @@
 			"name":"doomsday"
 		}]},
 	{"heading":"Stardate 2413.0 (Conclusion)",
-	"commentary":"<p>We have managed to destroy all the Doomsday Machines. This ends the scenario in victory.</p><p>Not exactly much to say. While a Large map does make for a little longer playthrough, the scenario is still considerably shorter than Alien Empires by virtue of only needing to defend.</p>",
+	"commentary":"<p>We have managed to destroy all the Doomsday Machines. This ends the scenario in victory.</p><p>Not exactly much to say. While a Large map does make for a little longer playthrough, the scenario is still considerably shorter and simpler than Alien Empires by virtue of only needing to defend.</p>",
 	"techTable":
 		[{
 			"name":"CSY (Green)","atk":2,"cloak":2,"def":2,"SY":2
@@ -1500,6 +1538,9 @@
 			"removeCounter":"R3G"
 		},{
 			"removeCounter":"R4G"
+		},{
+			"resizeCounter":"R2G",
+			"size":6
 		},{
 			"removeCounter":"dm3"
 		}]}

@@ -141,21 +141,129 @@ function readKeyInput(e) {
 	}
 }
 
+function autoNameCounter(localObj) {
+	var stackSize = parseInt(readValue(localObj.style.borderLeftWidth,1));
+	var stackable = false;
+	
+	if (localObj.src.indexOf("gfx/home30") >= 0) {
+		localObj.title = "Homeworld (Size 30)"
+	} else if (localObj.src.indexOf("gfx/home20") >= 0) {
+		localObj.title = "Homeworld (Size 20)"
+	} else if (localObj.src.indexOf("gfx/home15") >= 0) {
+		localObj.title = "Homeworld (Size 15)"
+	} else if (localObj.src.indexOf("gfx/home10") >= 0) {
+		localObj.title = "Homeworld (Size 10)"
+	} else if (localObj.src.indexOf("gfx/home5") >= 0) {
+		localObj.title = "Homeworld (Size 5)"
+	} else if (localObj.src.indexOf("gfx/colony5") >= 0) {
+		localObj.title = "Colony (Size 5)"
+	} else if (localObj.src.indexOf("gfx/colony3") >= 0) {
+		localObj.title = "Colony (Size 3)"
+	} else if (localObj.src.indexOf("gfx/colony1") >= 0) {
+		localObj.title = "Colony (Size 1)"
+	} else if (localObj.src.indexOf("gfx/planet") >= 0) {
+		localObj.title = "Empty planet"
+	} else if (localObj.src.indexOf("gfx/unexplored") >= 0) {
+		localObj.title = "Unexplored system"
+	} else if (localObj.src.indexOf("gfx/amoeba") >= 0) {
+		localObj.title = "Space Amoeba"
+	} else if (localObj.src.indexOf("gfx/doomsday") >= 0) {
+		localObj.title = "Doomsday Machine"
+	} else if (localObj.src.indexOf("gfx/marker") >= 0) {
+		localObj.title = "Marker"
+	} else if (localObj.src.indexOf("gfx/minerals10") >= 0) {
+		localObj.title = "Rich Minerals (10)"
+	} else if (localObj.src.indexOf("gfx/minerals5") >= 0) {
+		localObj.title = "Minerals (5)"
+	} else if (localObj.src.indexOf("gfx/spaceWreck") >= 0) {
+		localObj.title = "Space Wreck"
+	} else if (localObj.src.indexOf("gfx/supernova") >= 0) {
+		localObj.title = "Supernova"
+	} else if (localObj.src.indexOf("gfx/lost") >= 0) {
+		localObj.title = "Lost in space"
+	} else if (localObj.src.indexOf("gfx/danger") >= 0) {
+		localObj.title = "Danger!"
+	} else if (localObj.src.indexOf("gfx/asteroids") >= 0) {
+		localObj.title = "Asteroids"
+	} else if (localObj.src.indexOf("gfx/blackHole") >= 0) {
+		localObj.title = "Black Hole"
+	} else if (localObj.src.indexOf("gfx/nebula") >= 0) {
+		localObj.title = "Nebula"
+	} else if (localObj.src.indexOf("gfx/hidden") >= 0) {
+		localObj.title = "Unrevealed Group"
+	} else if (localObj.src.indexOf("gfx/MSa") >= 0) {
+		localObj.title = "Pipeline (Active)"
+	} else if (localObj.src.indexOf("gfx/MSm") >= 0) {
+		localObj.title = "Pipeline (Moved)"
+	} else if (localObj.src.indexOf("gfx/Miner") >= 0) {
+		localObj.title = "Miner"
+	} else if (localObj.src.indexOf("gfx/CO") >= 0) {
+		localObj.title = "Colony Ship"
+	} else if (localObj.src.indexOf("gfx/SY") >= 0) {
+		localObj.title = "Ship Yard";
+		stackable = true;
+	} else if (localObj.src.indexOf("gfx/base") >= 0) {
+		localObj.title = "Base";
+		stackable = true;
+	} else if (localObj.src.indexOf("gfx/SC") >= 0) {
+		localObj.title = "Scout";
+		stackable = true;
+	} else if (localObj.src.indexOf("gfx/DD") >= 0) {
+		localObj.title = "Destroyer";
+		stackable = true;
+	} else if (localObj.src.indexOf("gfx/CA") >= 0) {
+		localObj.title = "Cruiser";
+		stackable = true;
+	} else if (localObj.src.indexOf("gfx/BC") >= 0) {
+		localObj.title = "Battlecruiser";
+		stackable = true;
+	} else if (localObj.src.indexOf("gfx/BB") >= 0) {
+		localObj.title = "Battleship";
+		stackable = true;
+	} else if (localObj.src.indexOf("gfx/DN") >= 0) {
+		localObj.title = "Dreadnought";
+		stackable = true;
+	} else if (localObj.src.indexOf("gfx/R") >= 0) {
+		localObj.title = "Raider";
+		stackable = true;
+	} else if (localObj.src.indexOf("gfx/Ftr") >= 0) {
+		localObj.title = "Fighter";
+		stackable = true;
+	} else if (localObj.src.indexOf("gfx/CV") >= 0) {
+		localObj.title = "Carrier";
+		stackable = true;
+	} else if (localObj.src.indexOf("gfx/mines") >= 0) {
+		localObj.title = "Minelayer";
+		stackable = true;
+	} else if (localObj.src.indexOf("gfx/SW") >= 0) {
+		localObj.title = "Minesweeper";
+		stackable = true;
+	}
 
-function placeCounter(curId, newX, newY, newPic, newAlpha) {
-	var calcX = newX * 54 - 39;
-	var calcY = newY * 47 + 20;
-	var workObj;
+	if (stackable) {
+		localObj.title = localObj.title + " Group (Size "+stackSize+")";
+	}
+}
+
+function placeCounter(curId, newX, newY, newPic, newSize) {
+	var calcX = newX * 54 - 40;
+	var calcY = newY * 47 + 19;
+	var workObj, applySize = 0;
 
 	var hexBoard = document.getElementById("gameBoard");
+	if (typeof newSize !== "undefined") {
+		applySize = newSize;
+	} else {
+		applySize = 0;
+	}
 	
 	findObj = document.getElementById(curId);
-	if (findObj && newAlpha >= 100) {
+	if (findObj && applySize >= 0) {
 		workObj = findObj;
 	} else {
 		workObj = document.createElement("img");
 		workObj.src = "gfx/" + curId + ".png";
-		if (newAlpha >= 100) {
+		if (applySize >= 0) {
 			workObj.id = curId;
 			workObj.className = "counter";
 		} else {
@@ -172,7 +280,7 @@ function placeCounter(curId, newX, newY, newPic, newAlpha) {
 	}
 	
 	if (!curId.startsWith("system")) {
-		var randX, randY
+		var randX, randY;
 		
 		do {
 			randX = irandom(-20,20);
@@ -181,6 +289,8 @@ function placeCounter(curId, newX, newY, newPic, newAlpha) {
 		
 		calcX = calcX + randX;
 		calcY = calcY + randY;
+	} else {
+		applySize = 0;
 	}
 	
 	if (newY % 2 == 1) {
@@ -193,12 +303,18 @@ function placeCounter(curId, newX, newY, newPic, newAlpha) {
 			workObj.style.zIndex = 1;
 		}
 	}
+	if (applySize > 0) {
+		workObj.style.borderLeftWidth = applySize+"px";
+		workObj.style.borderTopWidth = applySize+"px";
+	}
+	
+	autoNameCounter(workObj);
 	workObj.style.left = calcX + "px";
 	workObj.style.top = calcY + "px";
 }
 
 function placeSystemMarker(newX, newY, newPic) {
-	placeCounter("system"+letterRows.charAt(newY)+newX, newX, newY, newPic, 100);
+	placeCounter("system"+letterRows.charAt(newY)+newX, newX, newY, newPic, 1);
 }
 
 function placeHomeworld(newX, newY, color) {
@@ -209,14 +325,14 @@ function placeHomeworld(newX, newY, color) {
 	placeSystemMarker(newX,newY,"home"+initCP+color);
 	
 	for (var i = 1; i <= 3; i++) {
-		placeCounter("SC"+i+color,newX,newY,null,100);
-		placeCounter("CO"+i+color,newX,newY,"CO"+color,100);
+		placeCounter("SC"+i+color,newX,newY,null,1);
+		placeCounter("CO"+i+color,newX,newY,"CO"+color,1);
 	}
 
-	placeCounter("SY1"+color,newX,newY,null,100);
-	placeCounter("Miner1"+color,newX,newY,null,100);
+	placeCounter("SY1"+color,newX,newY,null,4);
+	placeCounter("Miner1"+color,newX,newY,null,1);
 	if (expansionHWs) {
-		placeCounter("Flag"+color,newX,newY,null,100);
+		placeCounter("Flag"+color,newX,newY,null,1);
 	}
 }
 
@@ -286,7 +402,7 @@ function place3plrHomeMarkers(color, orient) {
 
 function placeAlienHomeworld(newX, newY, color) {
 	placeSystemMarker(newX,newY,"home20"+color);
-	placeCounter("base1"+color,newX,newY,null,100);
+	placeCounter("base1"+color,newX,newY,null,1);
 }
 
 function renderCounter(curId, newPic) {
@@ -296,6 +412,18 @@ function renderCounter(curId, newPic) {
 		if (newPic.startsWith("minerals")) {
 			findObj.style.zIndex = 1;
 		}
+	
+		autoNameCounter(findObj);
+	}
+}
+
+function resizeStack(curId, newSize) {
+	findObj = document.getElementById(curId);
+	if (findObj) {
+		findObj.style.borderLeftWidth = newSize+"px";
+		findObj.style.borderTopWidth = newSize+"px";
+		
+		autoNameCounter(findObj);
 	}
 }
 
@@ -758,20 +886,25 @@ function readJson() {
 		if (actionPool[i].placeCounter) {
 			workId = actionPool[i].placeCounter;
 			if (actionPool[i].name) {
-				placeCounter(workId, readX, readY, actionPool[i].name, 100);
+				placeCounter(workId, readX, readY, actionPool[i].name, readValue(actionPool[i].size,0));
 			} else {
 				var convertName = null;
 				
-				placeCounter(workId, readX, readY, convertName, 100);
+				placeCounter(workId, readX, readY, convertName, readValue(actionPool[i].size,0));
 			}
 		} else if (actionPool[i].placeGhost) {
 			workId = actionPool[i].placeGhost;
-			placeCounter(workId, readX, readY, workId, 50);
+			placeCounter(workId, readX, readY, workId, -1);
 		}
 		
 		if (actionPool[i].revealCounter) {
 			workId = actionPool[i].revealCounter;
 			renderCounter(workId, actionPool[i].name);
+		}
+		
+		if (actionPool[i].resizeCounter) {
+			workId = actionPool[i].resizeCounter;
+			resizeStack(workId, actionPool[i].size);
 		}
 		
 		if (actionPool[i].removeCounter) {
@@ -793,7 +926,10 @@ function readJson() {
 			}
 		}
 		
-		// Presets are usually game setups. They perform a bunch of smaller actions, greatly reducing redundency in the process.
+		/* 
+		 * Presets are usually game setups. They perform a bunch of smaller actions,
+		 * making it extremely easy to do multiple playthroughs of the same setup.
+		 */
 		if (actionPool[i].createPreset) {
 			var hexBoard = document.getElementById("gameBoard");
 			
@@ -892,7 +1028,7 @@ function readJson() {
 							placeSystemMarker(x,y,"warp1");
 						} else if (x == 7 && y == 6) {
 							placeSystemMarker(x,y,"capitol");
-							placeCounter("galMin",x,y,"minerals10",100);
+							placeCounter("galMin",x,y,"minerals10",1);
 						} else if (x >= 6 && x <= 8 - y % 2 && y >= 5 && y <= 7) {
 							placeSystemMarker(x,y,"nebula");
 						} else {
@@ -1025,7 +1161,7 @@ function readJson() {
 								placeSystemMarker(x,y,"warp1");
 							} else if (x == 7 && y == 6) {
 								placeSystemMarker(x,y,"capitol");
-								placeCounter("galMin",x,y,"minerals10",100);
+								placeCounter("galMin",x,y,"minerals10",1);
 							} else if (x >= 6 && x <= 8 - y % 2 && y >= 5 && y <= 7) {
 								placeSystemMarker(x,y,"nebula");
 							} else if (y < 10) {
@@ -1349,7 +1485,7 @@ function readJson() {
 					placeSystemMarker(13,10,"warp1");
 					
 					placeSystemMarker(7,6,"capitol");
-					placeCounter("galMin",7,6,"minerals10",100);
+					placeCounter("galMin",7,6,"minerals10",1);
 					
 					placeSystemMarker(6,5,"nebula");
 					placeSystemMarker(7,5,"nebula");
@@ -1365,7 +1501,7 @@ function readJson() {
 					} else {
 						placeAlienHomeworld(1,0,actionPool[i].alienColor);
 						placeAlienHomeworld(13,0,actionPool[i].alienColor);
-						placeCounter("base2"+actionPool[i].alienColor,1,0,null,100);
+						placeCounter("base2"+actionPool[i].alienColor,1,0,null,1);
 					}
 				}
 
@@ -1403,7 +1539,7 @@ function readJson() {
 					placeSystemMarker(7,11,"warp1");
 					
 					placeSystemMarker(7,0,"capitol");
-					placeCounter("galMin",7,0,"minerals10",100);
+					placeCounter("galMin",7,0,"minerals10",1);
 					
 					placeSystemMarker(6,0,"nebula");
 					placeSystemMarker(6,1,"nebula");

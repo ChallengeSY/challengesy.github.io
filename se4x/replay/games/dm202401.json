@@ -75,7 +75,6 @@
 			"name":"planetY1"
 		},{
 			"placeCounter":"systemL6",
-			"location":"L6",
 			"name":"minerals5"
 		},{
 			"removeCounter":"Miner1Yload"
@@ -243,7 +242,6 @@
 			"name":"blackHole"
 		},{
 			"placeCounter":"systemK6",
-			"location":"K6",
 			"name":"minerals5"
 		},{
 			"removeCounter":"Miner1Yload"
@@ -450,7 +448,6 @@
 			"location":"K6"
 		},{
 			"placeCounter":"systemI3",
-			"location":"I3",
 			"name":"danger"
 		},{
 			"revealCounter":"systemI6",
@@ -460,7 +457,6 @@
 			"name":"planetY7"
 		},{
 			"placeCounter":"systemL5",
-			"location":"L5",
 			"name":"minerals5"
 		},{
 			"removeCounter":"Miner1Yload"
@@ -509,7 +505,6 @@
 			"name":"minerals5"
 		},{
 			"placeCounter":"systemK8",
-			"location":"K8",
 			"name":"minerals5"
 		},{
 			"removeCounter":"Miner2Yload"
@@ -642,7 +637,6 @@
 			"location":"J8"
 		},{
 			"placeCounter":"systemK3",
-			"location":"K3",
 			"name":"minerals10"
 		},{
 			"revealCounter":"systemI8",
@@ -687,7 +681,6 @@
 			"name":"planetY5"
 		},{
 			"placeCounter":"systemJ9",
-			"location":"J9",
 			"name":"minerals5"
 		},{
 			"revealCounter":"systemG8",
@@ -833,7 +826,6 @@
 			"location":"I8"
 		},{
 			"placeCounter":"systemJ4",
-			"location":"J4",
 			"name":"minerals5"
 		},{
 			"revealCounter":"systemG6",
@@ -878,7 +870,6 @@
 			"removeCounter":"Miner2Yload"
 		},{
 			"placeCounter":"systemH9",
-			"location":"H9",
 			"name":"spaceWreck"
 		},{
 			"revealCounter":"systemG5",
@@ -912,7 +903,6 @@
 			"name":"spaceWreck"
 		},{
 			"placeCounter":"systemG5",
-			"location":"G5",
 			"name":"danger"
 		},{
 			"revealCounter":"systemJ11",
@@ -954,8 +944,10 @@
 			"location":"I8"
 		},{
 			"placeCounter":"systemK10",
-			"location":"K10",
 			"name":"danger"
+		},{
+			"resizeCounter":"CA1Y",
+			"size":1
 		},{
 			"revealCounter":"systemJ8",
 			"name":"colony3"
@@ -990,6 +982,9 @@
 			"removeCounter":"Miner1Yload"
 		},{
 			"removeCounter":"Miner2Yload"
+		},{
+			"resizeCounter":"CA1Y",
+			"size":4
 		},{
 			"revealCounter":"systemJ8",
 			"name":"colony5Y"
@@ -1028,7 +1023,6 @@
 			"removeCounter":"Miner2Yload"
 		},{
 			"placeCounter":"systemI9",
-			"location":"I9",
 			"name":"minerals10"
 		}]},
 	{"commentary":"<h2>Movement Turn 17</h2><p>... there is barely anything to do...</p>",
@@ -1099,9 +1093,11 @@
 			"removeCounter":"Miner2Yload"
 		},{
 			"placeCounter":"CA1Y",
+			"size":4,
 			"location":"L7"
 		},{
 			"placeCounter":"CA2Y",
+			"size":3,
 			"location":"L7"
 		},{
 			"revealCounter":"systemH7",
@@ -1199,6 +1195,9 @@
 			"location":"L5",
 			"name":"doomsday"
 		},{
+			"resizeCounter":"CA2Y",
+			"size":3
+		},{
 			"placeCounter":"Miner1Yload",
 			"location":"H6",
 			"name":"minerals10"
@@ -1235,6 +1234,7 @@
 			"removeCounter":"Miner2Yload"
 		},{
 			"placeCounter":"CA3Y",
+			"size":3,
 			"location":"L7"
 		},{
 			"revealCounter":"systemH7",
@@ -1247,6 +1247,7 @@
 			"location":"L5"
 		},{
 			"placeCounter":"CA2Y",
+			"size":1,
 			"location":"L5"
 		},{
 			"placeCounter":"Miner1Y",
@@ -1280,10 +1281,15 @@
 	"actions":
 		[{
 			"placeCounter":"CA1Y",
+			"size":4,
 			"location":"L7"
 		},{
 			"placeCounter":"CA2Y",
+			"size":1,
 			"location":"L7"
+		},{
+			"resizeCounter":"CA3Y",
+			"size":3
 		},{
 			"placeCounter":"Miner1Y",
 			"location":"H7"
@@ -1309,6 +1315,9 @@
 			"removeCounter":"CA1Y"
 		},{
 			"removeCounter":"CA2Y"
+		},{
+			"resizeCounter":"CA3Y",
+			"size":8
 		},{
 			"placeCounter":"Miner1Y",
 			"location":"I6"
@@ -1355,6 +1364,7 @@
 			"location":"J10"
 		},{
 			"placeCounter":"CA3Y",
+			"size":11,
 			"location":"L7"
 		}]},
 	{"commentary":"<h2>Movement Turn 25</h2><p>The black hole is quite an obstacle. Best we can do is move around it.</p>",
@@ -1431,11 +1441,14 @@
 			"name":"minerals10"
 		},{
 			"placeCounter":"CA3Y",
+			"size":11,
 			"location":"I7"
 		},{
 			"placeCounter":"dm2",
 			"location":"I7",
 			"name":"doomsday"
+		},{
+			"removeCounter":"CA1Y"
 		},{
 			"removeCounter":"dm3"
 		},{
@@ -1454,7 +1467,7 @@
 			"placeCounter":"systemF7",
 			"name":"markerY"
 		}]},
-	{"commentary":"<h2>Economic Phase 9</h2><p>Thanks to it being on Harder difficulty, the final Doomsday Machine was not far behind! Anyway, we will buy Ship Yards Level 3 (-30) three more Cruisers (-36). This gives us ten (10) Cruisers under our banner once we can consolidate them.</p>",
+	{"commentary":"<h2>Economic Phase 9</h2><p>Thanks to it being on Harder difficulty, the final Doomsday Machine was not far behind! Anyway, we will buy Ship Yards Level 3 (-30), and three more Cruisers (-36). This gives us ten (10) Cruisers under our banner once we can consolidate them.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Yellow)","initCP":26,"colonyCP":50,"mineralCP":15,"pipeCP":0,"maint":14,"bidCP":0,"techBuy":30,"unitBuy":36
@@ -1466,6 +1479,9 @@
 	"actions":
 		[{
 			"removeCounter":"dm2"
+		},{
+			"resizeCounter":"CA3Y",
+			"size":7
 		},{
 			"removeAllCounters":"markerY"
 		},{
@@ -1484,6 +1500,7 @@
 			"location":"J7"
 		},{
 			"placeCounter":"CA1Y",
+			"size":3,
 			"location":"L7"
 		},{
 			"placeCounter":"systemJ7",
@@ -1527,7 +1544,11 @@
 			"removeCounter":"systemH7"
 		},{
 			"placeCounter":"CA1Y",
+			"size":3,
 			"location":"I7"
+		},{
+			"resizeCounter":"CA3Y",
+			"size":7
 		},{
 			"placeCounter":"dm3",
 			"location":"I7",
@@ -1539,5 +1560,8 @@
 			"removeCounter":"dm3"
 		},{
 			"removeCounter":"CA1Y"
+		},{
+			"resizeCounter":"CA3Y",
+			"size":1
 		}]}
 ]}

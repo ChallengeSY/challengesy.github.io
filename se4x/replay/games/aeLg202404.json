@@ -1135,10 +1135,10 @@
 			"name":"planetY5"
 		},{
 			"revealCounter":"systemJ5",
-			"name":"planetY6"
+			"name":"planetW9"
 		},{
 			"revealCounter":"systemK10",
-			"name":"planetW9"
+			"name":"planetY6"
 		},{
 			"revealCounter":"systemK1",
 			"name":"colony1"
@@ -1867,6 +1867,7 @@
 			"removeCounter":"Miner2Yload"
 		},{
 			"placeCounter":"SC1Y",
+			"size":6,
 			"location":"L7"
 		},{
 			"placeCounter":"SY2Y",
@@ -2080,6 +2081,7 @@
 			"name":"planetW6"
 		},{
 			"placeCounter":"DD1R",
+			"size":3,
 			"location":"K10"
 		},{
 			"revealCounter":"systemK10",
@@ -2132,6 +2134,7 @@
 			"name":"spaceWreck"
 		},{
 			"placeCounter":"SC1Y",
+			"size":6,
 			"location":"K10"
 		},{
 			"revealCounter":"systemG5",
@@ -2141,6 +2144,7 @@
 			"name":"danger"
 		},{
 			"placeCounter":"DD1R",
+			"size":3,
 			"location":"K10"
 		},{
 			"placeCounter":"fleetR2",
@@ -2164,6 +2168,9 @@
 		},{
 			"removeCounter":"DD1R"
 		},{
+			"resizeCounter":"SC1Y",
+			"size":4
+		},{
 			"removeCounter":"fleetR2"
 		},{
 			"placeCounter":"Miner1Yload",
@@ -2182,6 +2189,7 @@
 			"location":"J11"
 		},{
 			"placeCounter":"DD2R",
+			"size":2,
 			"location":"K10"
 		},{
 			"placeCounter":"fleetB1",
@@ -2192,6 +2200,9 @@
 		},{
 			"revealCounter":"systemF10",
 			"name":"planetW6"
+		},{
+			"resizeCounter":"SY2Y",
+			"size":1
 		},{
 			"revealCounter":"systemL11",
 			"name":"colony1"
@@ -2224,6 +2235,9 @@
 		[{
 			"removeCounter":"DD2R"
 		},{
+			"resizeCounter":"SC1Y",
+			"size":2
+		},{
 			"removeCounter":"Miner1Yload"
 		},{
 			"removeCounter":"CO8Y"
@@ -2231,7 +2245,11 @@
 			"removeCounter":"CO11Y"
 		},{
 			"placeCounter":"SC2Y",
+			"size":6,
 			"location":"L7"
+		},{
+			"resizeCounter":"SY2Y",
+			"size":2
 		},{
 			"placeCounter":"MS4Y",
 			"location":"J5",
@@ -2481,12 +2499,15 @@
 			"removeCounter":"fleetB1"
 		},{
 			"placeCounter":"CV1B",
+			"size":1,
 			"location":"K1"
 		},{
 			"placeCounter":"Ftr1B",
+			"size":3,
 			"location":"K1"
 		},{
 			"placeCounter":"DD1B",
+			"size":1,
 			"location":"K1"
 		},{
 			"placeCounter":"fleetB2",
@@ -2617,9 +2638,11 @@
 			"removeCounter":"Miner2Yload2"
 		},{
 			"placeCounter":"SC3Y",
+			"size":6,
 			"location":"L7"
 		},{
 			"placeCounter":"SC4Y",
+			"size":3,
 			"location":"J5"
 		},{
 			"placeCounter":"base1Y",
@@ -2821,6 +2844,9 @@
 			"revealCounter":"MS1Y",
 			"name":"MSaY"
 		},{
+			"resizeCounter":"SC2Y",
+			"size":6
+		},{
 			"placeCounter":"CA1B",
 			"location":"K3"
 		},{
@@ -2857,12 +2883,17 @@
 		},{
 			"removeCounter":"SC1B"
 		},{
+			"resizeCounter":"SC2Y",
+			"size":5
+		},{
 			"removeCounter":"fleetR3"
 		},{
 			"placeCounter":"DD3R",
+			"size":2,
 			"location":"H13"
 		},{
 			"placeCounter":"SC3R",
+			"size":6,
 			"location":"H13"
 		},{
 			"placeCounter":"CA2Y",
@@ -2978,6 +3009,7 @@
 			"location":"I12"
 		},{
 			"placeCounter":"DD3R",
+			"size":1,
 			"location":"J12"
 		},{
 			"placeCounter":"SC3R",
@@ -2990,7 +3022,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Player Turn 30",
-	"commentary":"<p>We will attempt to knock out Blue's known fleet. We will conduct the battle on this stage.</p><h3>The Battle for Sector L3</h3><ol><li><b>Round 1</b>: We have 9 Scouts, versus their 5 ships. We will screen no ships. Not quite enough for a Fleet Size Bonus</li><li>Their 3 Fighters will roll first (5 to hit). Some of our Scouts have Attack +1, so they will be targetted first. The Fighters rolled 1,5,7 (2 hits)</li><li>Their 1 Destroyer is next (4 to hit). It rolls a 2 (<b>hit</b>)</li><li>Our 6 Surviving Scouts (none of which have Attack +1) have the Tactics advantage over their Carrier, so they go next. Since their Carrier is temporarily off limits, we will start with their Fighters (at 3 to hit), and roll 2,5,5,6,8,9 (1 hit)</li><li>Their Carrier finally gets to respond (3 to hit). Since we have just one group left, it rolled a 10 (miss)<br /><br /></li><li><b>Round 2</b>: We have 6 Scouts, versus their 4 ships. The balance has slightly worsened concerning a Fleet Size Bonus</li><li>Their 2 surviving Fighters roll 7,9 (0 hits)</li><li>Their 1 Destroyer rolls a 10 (miss)</li><li>Our 6 Scouts are next. We will resume with their Fighters, rolling until we score 2 hits. We roll 3,5,10,10,4,6 (1 hit)</li><li>Their Carrier rolls a 5 (miss)<br /><br /></li><li><b>Round 3</b>: We have 6 Scouts, versus their 3 ships. We have gained the Fleet Size Bonus</li><li>Their 1 surviving Fighters rolls a 2 (<b>hit</b>)</li><li>Their 1 Destroyer rolls a 10 (miss)</li><li>Our 5 Scouts are next (4 to hit against any target). We will resume with their Fighters, rolling until we score 1 hit. We roll a 3 this way</li><li>4 Scouts still have ammo left. We will switch to their Destroyer. We roll a 1 this way</li><li>Their Carrier is all that remains, all exposed. We rolled 1,2,5 (2 hits) with the ammo we had leftover, cleaning up this fleet.</li></ol>",
+	"commentary":"<p>We will attempt to knock out Blue's known fleet. We will conduct the battle on this stage.</p><h3>The Battle for Sector L3</h3><ol><li><b>Round 1</b>: We have 8 Scouts, versus their 5 ships. We will screen no ships. Not quite enough for a Fleet Size Bonus</li><li>Their 3 Fighters will roll first (5 to hit). Some of our Scouts have Attack +1, so they will be targetted first. The Fighters rolled 1,5,7 (2 hits)</li><li>Their 1 Destroyer is next (4 to hit). It rolls a 2 (<b>hit</b>)</li><li>Our 5 Surviving Scouts (none of which have Attack +1) have the Tactics advantage over their Carrier, so they go next. Since their Carrier is temporarily off limits, we will start with their Fighters (at 3 to hit), and roll 3,5,5,6,10 (1 hit)</li><li>Their Carrier finally gets to respond (3 to hit). Since we have just one group left, it rolled a 10 (miss)<br /><br /></li><li><b>Round 2</b>: We have 5 Scouts, versus their 4 ships. The balance has worsened concerning a Fleet Size Bonus</li><li>Their 2 surviving Fighters roll 7,9 (0 hits)</li><li>Their 1 Destroyer rolls a 10 (miss)</li><li>Our 5 Scouts are next. We will resume with their Fighters, rolling until we score 2 hits. We roll 3,5,10,10,4 (1 hit)</li><li>Their Carrier rolls a 5 (miss)<br /><br /></li><li><b>Round 3</b>: We have 5 Scouts, versus their 3 ships. Still not quite enough...</li><li>Their 1 surviving Fighters rolls a 7 (miss)</li><li>Their 1 Destroyer rolls a 10 (miss)</li><li>Our 5 Scouts are next (3 to hit against any target). We will resume with their Fighters, rolling until we score 1 hit. We roll a 3 this way</li><li>4 Scouts still have ammo left. We will switch to their Destroyer. We roll a 1 this way</li><li>Their Carrier is all that remains, all exposed. We rolled 1,2,5 (2 hits) with the ammo we had leftover, cleaning up this fleet.</li></ol>",
 	"actions":
 		[{
 			"removeCounter":"systemE10"
@@ -3023,6 +3055,7 @@
 			"location":"K9"
 		},{
 			"placeCounter":"SC4Y",
+			"size":3,
 			"location":"L3"
 		},{
 			"revealCounter":"systemF5",
@@ -3032,12 +3065,15 @@
 			"name":"danger"
 		},{
 			"placeCounter":"CV1B",
+			"size":1,
 			"location":"L3"
 		},{
 			"placeCounter":"Ftr1B",
+			"size":3,
 			"location":"L3"
 		},{
 			"placeCounter":"DD1B",
+			"size":1,
 			"location":"L3"
 		},{
 			"placeCounter":"fleetB3",
@@ -3109,9 +3145,11 @@
 			"removeCounter":"Miner1Yload"
 		},{
 			"placeCounter":"SC4Y",
+			"size":6,
 			"location":"L7"
 		},{
 			"placeCounter":"SC5Y",
+			"size":3,
 			"location":"J5"
 		},{
 			"revealCounter":"systemL12",
@@ -3282,6 +3320,7 @@
 			"location":"K12"
 		},{
 			"placeCounter":"SC2Y",
+			"size":5,
 			"location":"J4"
 		},{
 			"placeCounter":"SC3Y",
@@ -3291,6 +3330,7 @@
 			"location":"K4"
 		},{
 			"placeCounter":"SC5Y",
+			"size":3,
 			"location":"J4"
 		},{
 			"revealCounter":"systemF2",
@@ -3302,12 +3342,15 @@
 			"removeCounter":"fleetB3"
 		},{
 			"placeCounter":"CV2B",
+			"size":1,
 			"location":"J4"
 		},{
 			"placeCounter":"Ftr2B",
+			"size":3,
 			"location":"J4"
 		},{
 			"placeCounter":"SC2B",
+			"size":1,
 			"location":"J4"
 		},{
 			"placeCounter":"fleetB4",
@@ -3343,6 +3386,7 @@
 			"location":"K12"
 		},{
 			"placeCounter":"SC2Y",
+			"size":1,
 			"location":"K4"
 		},{
 			"placeCounter":"SC3Y",
@@ -3465,18 +3509,22 @@
 			"location":"L12"
 		},{
 			"placeCounter":"SC4Y",
+			"size":6,
 			"location":"K3"
 		},{
 			"placeGhost":"hiddenB",
 			"location":"J3"
 		},{
 			"placeCounter":"CV3B",
+			"size":1,
 			"location":"K3"
 		},{
 			"placeCounter":"Ftr3B",
+			"size":3,
 			"location":"K3"
 		},{
 			"placeCounter":"CA3B",
+			"size":1,
 			"location":"K3"
 		},{
 			"placeCounter":"DD3R",
@@ -3498,15 +3546,19 @@
 			"removeCounter":"CA3B"
 		},{
 			"placeCounter":"SC1Y",
+			"size":2,
 			"location":"L12"
 		},{
 			"placeCounter":"SC3Y",
+			"size":6,
 			"location":"L12"
 		},{
 			"placeCounter":"DD3R",
+			"size":1,
 			"location":"L12"
 		},{
 			"placeCounter":"SC3R",
+			"size":6,
 			"location":"L12"
 		},{
 			"removeCounter":"CO12Y"
@@ -3514,7 +3566,7 @@
 			"removeCounter":"CO13Y"
 		}]},
 	{"heading":"Player Economic Phase 11",
-	"commentary":"<p>We have lost another colony in between economic phases. Yet, we have no time to mourn for our recent battle and bombardment losses. We will buy 1 Colony Ship each at J5 and F10 (-16 CP total), and 6 Scouts (-36 CP) at L7.</p>",
+	"commentary":"<p>We have lost another colony in between economic phases. Yet, we have no time to mourn for our recent battle and bombardment losses. We will buy 1 Colony Ship each at F10 (-8 CP total), 2 Scouts at J5 (-12), and 6 Scouts at L7 (-36 CP).</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Yellow)","initCP":5,"colonyCP":60,"mineralCP":0,"pipeCP":1,"maint":5,"bidCP":0,"techBuy":0,"unitBuy":56
@@ -3531,10 +3583,15 @@
 		[{
 			"removeCounter":"DD3R"
 		},{
+			"resizeCounter":"SC3R",
+			"size":3
+		},{
 			"placeCounter":"SC1Y",
+			"size":6,
 			"location":"L7"
 		},{
 			"placeCounter":"SC3Y",
+			"size":2,
 			"location":"J5"
 		},{
 			"placeCounter":"CO13Y",
@@ -3799,9 +3856,11 @@
 			"removeCounter":"fleetR4"
 		},{
 			"placeCounter":"DD4R",
+			"size":7,
 			"location":"K10"
 		},{
 			"placeCounter":"SC4R",
+			"size":1,
 			"location":"K10"
 		},{
 			"revealCounter":"systemK10",
@@ -3820,9 +3879,11 @@
 	"actions":
 		[{
 			"placeCounter":"SC2Y",
+			"size":1,
 			"location":"K3"
 		},{
 			"placeCounter":"SC3Y",
+			"size":2,
 			"location":"K3"
 		},{
 			"placeCounter":"CO13Y",
@@ -3832,9 +3893,11 @@
 			"removeCounter":"fleetB5"
 		},{
 			"placeCounter":"CV4B",
+			"size":2,
 			"location":"K3"
 		},{
 			"placeCounter":"Ftr4B",
+			"size":6,
 			"location":"K3"
 		},{
 			"revealCounter":"systemK10",
@@ -3875,9 +3938,11 @@
 	"actions":
 		[{
 			"placeCounter":"SC2Y",
+			"size":6,
 			"location":"L7"
 		},{
 			"placeCounter":"SC3Y",
+			"size":3,
 			"location":"J5"
 		},{
 			"removeCounter":"Miner1Yload"
@@ -3946,6 +4011,7 @@
 	"actions":
 		[{
 			"placeCounter":"SC1Y",
+			"size":6,
 			"location":"K10"
 		},{
 			"placeGhost":"SC2Y",
@@ -3977,6 +4043,7 @@
 			"name":"danger"
 		},{
 			"placeCounter":"DD4R",
+			"size":7,
 			"location":"K10"
 		},{
 			"placeCounter":"SC4R",
@@ -4040,6 +4107,7 @@
 			"name":"unexploredW"
 		},{
 			"placeCounter":"DD4R",
+			"size":6,
 			"location":"L11"
 		},{
 			"placeCounter":"SC4R",
@@ -4068,6 +4136,7 @@
 			"location":"K4"
 		},{
 			"placeCounter":"SC3Y",
+			"size":3,
 			"location":"K4"
 		},{
 			"placeCounter":"CA2Y",
@@ -4105,9 +4174,11 @@
 			"name":"danger"
 		},{
 			"placeCounter":"CV4B",
+			"size":2,
 			"location":"K4"
 		},{
 			"placeCounter":"Ftr4B",
+			"size":6,
 			"location":"K4"
 		},{
 			"placeCounter":"fleetB6",
@@ -4133,6 +4204,7 @@
 			"location":"K4"
 		},{
 			"placeCounter":"SC3Y",
+			"size":2,
 			"location":"K4"
 		},{
 			"placeCounter":"CA2Y",
@@ -4297,6 +4369,7 @@
 			"name":"MSaY"
 		},{
 			"placeCounter":"SC1Y",
+			"size":4,
 			"location":"L7"
 		},{
 			"revealCounter":"systemL12",
@@ -4371,6 +4444,7 @@
 			"location":"J4"
 		},{
 			"placeCounter":"SC3Y",
+			"size":2,
 			"location":"J4"
 		},{
 			"placeCounter":"CA2Y",
@@ -4397,12 +4471,15 @@
 			"removeCounter":"fleetB6"
 		},{
 			"placeCounter":"CA1B",
+			"size":1,
 			"location":"J4"
 		},{
 			"placeCounter":"DD1B",
+			"size":1,
 			"location":"J4"
 		},{
 			"placeCounter":"SC1B",
+			"size":3,
 			"location":"J4"
 		},{
 			"placeCounter":"SC3R",
@@ -4439,6 +4516,7 @@
 			"location":"J4"
 		},{
 			"placeCounter":"SC3Y",
+			"size":1,
 			"location":"J4"
 		},{
 			"placeCounter":"CA2Y",
@@ -4486,6 +4564,7 @@
 	"actions":
 		[{
 			"placeCounter":"SC1Y",
+			"size":4,
 			"location":"L10"
 		},{
 			"placeCounter":"SC2Y",
@@ -4526,6 +4605,7 @@
 			"name":"blackHole"
 		},{
 			"placeCounter":"SC3R",
+			"size":3,
 			"location":"L10"
 		},{
 			"placeCounter":"DD4R",
@@ -4544,6 +4624,7 @@
 			"removeCounter":"SC3R"
 		},{
 			"placeCounter":"SC1Y",
+			"size":3,
 			"location":"L10"
 		},{
 			"placeCounter":"SC2Y",
@@ -4593,10 +4674,11 @@
 			"name":"colony5Y"
 		}]},
 	{"heading":"Combined Turn 42",
-	"commentary":"<p>We attempt to thin out Red's numbers a bit with our remaining 3 Scouts.</p><ol><li><b>Round 1</b>: We have 3 Scouts, to their 7 ships. They gain a Fleet Size Bonus</li><li>Their 6 Destroyers go first, rolling 1,3,7,9,9,9 (2 hits &le;4)</li><li>Our 1 surviving Scout makes a desperate potshot against their Destroyers. It rolled a 4 (hit &le;4)</li><li>Their 1 Scout goes next, rolling a 3 (hit &le;3). We have been finished off<br /><br /></li><li><b>Their turn</b>: Their 5 surviving Destroyers continue to bombard, rolling 2,2,4,6,7 (3 hits &le;4). The colony has been destroyed</li></ol>",
+	"commentary":"<p>We attempt to thin out Red's numbers a bit with our remaining 3 Scouts.</p><ol><li><b>Round 1</b>: We have 3 Scouts, to their 7 ships. They gain a Fleet Size Bonus</li><li>Their 6 Destroyers go first, rolling 1,3,7,9,9,9 (2 hits &le;5)</li><li>Our 1 surviving Scout makes a desperate potshot against their Destroyers. It rolled a 4 (hit &le;4)</li><li>Their 1 Scout goes next, rolling a 3 (hit &le;4). We have been finished off<br /><br /></li><li><b>Their turn</b>: Their 5 surviving Destroyers continue to bombard, rolling 2,2,4,6,7 (3 hits &le;4). The colony has been destroyed</li></ol>",
 	"actions":
 		[{
 			"placeCounter":"SC1Y",
+			"size":3,
 			"location":"L9"
 		},{
 			"placeCounter":"SC2Y",
@@ -4645,6 +4727,7 @@
 			"name":"planetW3"
 		},{
 			"placeCounter":"DD4R",
+			"size":6,
 			"location":"L9"
 		},{
 			"placeCounter":"SC4R",
@@ -4671,14 +4754,19 @@
 		}],
 	"actions":
 		[{
+			"resizeCounter":"DD4R",
+			"size":5
+		},{
 			"removeCounter":"Miner1Yload"
 		},{
 			"removeCounter":"Miner2Yload"
 		},{
 			"placeCounter":"SC1Y",
+			"size":6,
 			"location":"L7"
 		},{
 			"placeCounter":"SC4Y",
+			"size":1,
 			"location":"J5"
 		},{
 			"revealCounter":"MS1Y",
@@ -4771,9 +4859,11 @@
 			"location":"L7"
 		},{
 			"placeCounter":"SC2Y",
+			"size":6,
 			"location":"L7"
 		},{
 			"placeCounter":"SC3Y",
+			"size":1,
 			"location":"L7"
 		},{
 			"placeCounter":"SC4Y",
@@ -4826,9 +4916,11 @@
 			"location":"J6"
 		},{
 			"placeCounter":"SC2Y",
+			"size":5,
 			"location":"J6"
 		},{
 			"placeCounter":"SC4Y",
+			"size":1,
 			"location":"J6"
 		},{
 			"placeCounter":"CA2Y",
@@ -4865,9 +4957,12 @@
 			"name":"hiddenR"
 		},{
 			"removeCounter":"CA1R"
+		},{
+			"resizeCounter":"base1R",
+			"size":1
 		}]},
 	{"heading":"Combined Turn 45",
-	"commentary":"<h3>The First Battle for Altair</h3><p>Now for an explosive burst of action. We are going to <q>tickle</q> the homeworld of Altair, stir up their Def pool. Since they have no Fleet CP left in the bank, they will skip that part. The 70 Tech CP they have is good for a few tech levels. First, a 6 was rolled on the Ship Size department (buy level 3 for 20 CP), followed by Attack level 1 (-20 CP) and level 2 (-30 CP). This spends all of their Tech CP.</p><p>The 100 Def CP will be spent improving this homeworld's protection. A 9 was rolled for protection composition (Most Bases), and their money gives them 8 more Bases with no money leftover for Minelayers. With prep complete, the Bases now get to shoot first; rolling 1,3,4,5,6,7,8,10,10 (7 hits &le;9) and wiping out our lone Cruiser.</p><h3>The Battle for Sector F10</h3><p>Now Red Player gets to assault our listening post at F10. Since Tech CP was previously spent, we will simply go straight to construction with the 72 assigned Fleet CP. The biggest ship they can build is now the Cruiser (-12 CP). The Destroyer step is skipped, because they have no Scanning technology. They roll a 5 (Balanced), which equates to 5 more Cruisers (-60 CP) to take advantage of the Attack technology.</p><ol><li><b>Round 1</b>: They have 6 Cruisers to our 1 Ship Yard, giving them the Fleet Size Bonus</li><li>Our 1 Ship Yard has the Tactics advantage, so it gets to shoot for. We rolled an 8 (miss &gt;4)</li><li>Our 1 Ship Yard is the only defender against their 6 Cruisers. They rolled 3,4,5,7,9,10 (3 hits &le;6), wiping our Ship Yard out<br /><br /></li><li><b>Bombardment Round</b>: Our colony is exposed, so the Cruisers get to shoot again. They rolled 2,2,4,6,6,9 (5 hits &le;6), sterilizing the planet of all life</li></ol>",
+	"commentary":"<h3>The First Battle for Altair</h3><p>Now for an explosive burst of action. We are going to <q>tickle</q> the homeworld of Altair, stir up their Def pool. Since they have no Fleet CP left in the bank, they will skip that part. The 70 Tech CP they have is good for a few tech levels. First, a 6 was rolled on the Ship Size department (buy level 3 for 20 CP), followed by Attack level 1 (-20 CP) and level 2 (-30 CP). This spends all of their Tech CP.</p><p>The 100 Def CP will be spent improving this homeworld's protection. A 9 was rolled for protection composition (Most Bases), and their money gives them 8 more Bases with no money leftover for Minelayers. With prep complete, the Bases now get to shoot first; rolling 1,3,4,5,6,7,8,10,10 (7 hits &le;9) and wiping out our lone Cruiser.</p><h3>The Battle for Sector F10</h3><p>Now Red Player gets to assault our listening post at F10. Since Tech CP was spent earlier this stage, we will simply go straight to construction with the 72 assigned Fleet CP. The biggest ship they can build is now the Cruiser (-12 CP). The Destroyer step is skipped, because they have no Scanning technology. They roll a 5 (Balanced), which equates to 5 more Cruisers (-60 CP) to take advantage of the Attack technology. This spends all of their assigned money.</p><ol><li><b>Round 1</b>: They have 6 Cruisers to our 1 Ship Yard, giving them the Fleet Size Bonus</li><li>Our 1 Ship Yard has the Tactics advantage, so it gets to shoot for. We rolled an 8 (miss &gt;4)</li><li>Our 1 Ship Yard is the only defender against their 6 Cruisers. They rolled 3,4,5,7,9,10 (3 hits &le;6), wiping our Ship Yard out<br /><br /></li><li><b>Bombardment Round</b>: Our colony is exposed, so the Cruisers get to shoot again. They rolled 2,2,4,6,6,9 (5 hits &le;6), sterilizing the planet of all life</li></ol>",
 	"alienTable":
 		[{
 			"name":"Red","eco":5,"fleet":0,"tech":0,"def":4,"delta":"tdh","hidden":"&mdash;"
@@ -4890,6 +4985,7 @@
 			"location":"J5"
 		},{
 			"placeCounter":"SC2Y",
+			"size":6,
 			"location":"J5"
 		},{
 			"placeCounter":"CA2Y",
@@ -4897,6 +4993,9 @@
 		},{
 			"placeCounter":"CA3Y",
 			"location":"F13"
+		},{
+			"resizeCounter":"base1R",
+			"size":9
 		},{
 			"placeCounter":"Miner1Y",
 			"location":"G4"
@@ -4911,6 +5010,7 @@
 			"location":"E5"
 		},{
 			"placeCounter":"SY3Y",
+			"size":1,
 			"location":"F10"
 		},{
 			"placeCounter":"systemD13",
@@ -4925,6 +5025,7 @@
 			"removeCounter":"fleetR5"
 		},{
 			"placeCounter":"CA1R",
+			"size":6,
 			"location":"F10"
 		},{
 			"revealCounter":"systemF10",
@@ -4956,6 +5057,7 @@
 			"name":"planetW6"
 		},{
 			"placeCounter":"SC3Y",
+			"size":3,
 			"location":"J5"
 		}]},
 	{"heading":"Alien Economic Phase 15",
@@ -5014,15 +5116,19 @@
 	"actions":
 		[{
 			"placeCounter":"SC1Y",
+			"size":6,
 			"location":"J4"
 		},{
 			"placeCounter":"SC2Y",
+			"size":6,
 			"location":"J4"
 		},{
 			"placeCounter":"CA2Y",
+			"size":1,
 			"location":"J4"
 		},{
 			"placeCounter":"SC3Y",
+			"size":3,
 			"location":"J4"
 		},{
 			"placeCounter":"Miner1Y",
@@ -5043,12 +5149,15 @@
 			"removeCounter":"fleetB7"
 		},{
 			"placeCounter":"BC2B",
+			"size":1,
 			"location":"J4"
 		},{
 			"placeCounter":"CA2B",
+			"size":3,
 			"location":"J4"
 		},{
 			"placeCounter":"DD2B",
+			"size":1,
 			"location":"J4"
 		},{
 			"placeGhost":"CA1R",
@@ -5148,6 +5257,7 @@
 			"removeCounter":"Miner1Yload"
 		},{
 			"placeCounter":"SC2Y",
+			"size":5,
 			"location":"L7"
 		},{
 			"revealCounter":"systemD8",
@@ -5278,6 +5388,7 @@
 	"actions":
 		[{
 			"placeCounter":"SC2Y",
+			"size":5,
 			"location":"J5"
 		},{
 			"placeCounter":"Miner1Y",
@@ -5313,6 +5424,9 @@
 		},{
 			"placeCounter":"fleetR6",
 			"location":"K8"
+		},{
+			"resizeCounter":"SY1Y",
+			"size":4
 		}]},
 	{"heading":"Player Economic Phase 17",
 	"commentary":"<p>We were able to defend well this phase, but we still got <i>2</i> unidentified fleets. We will buy 2 Scouts, 1 Base, and 1 Ship Yard at L7.</p>",
@@ -5336,10 +5450,14 @@
 		},{
 			"removeCounter":"CA1R"
 		},{
+			"resizeCounter":"SY1Y",
+			"size":5
+		},{
 			"placeCounter":"base2Y",
 			"location":"L7"
 		},{
 			"placeCounter":"SC2Y",
+			"size":2,
 			"location":"L7"
 		}]},
 	{"heading":"Alien Economic Phase 17",
@@ -5375,15 +5493,14 @@
 	"actions":
 		[{
 			"placeCounter":"SY1Y",
+			"size":5,
 			"location":"L7"
 		},{
 			"placeCounter":"SC2Y",
+			"size":2,
 			"location":"L7"
 		},{
 			"placeCounter":"base2Y",
-			"location":"L7"
-		},{
-			"placeCounter":"SC2Y",
 			"location":"L7"
 		},{
 			"placeCounter":"Miner2Y",
@@ -5403,12 +5520,15 @@
 			"location":"L8"
 		},{
 			"placeCounter":"BC2R",
+			"size":3,
 			"location":"L7"
 		},{
 			"placeCounter":"CA2R",
+			"size":2,
 			"location":"L7"
 		},{
 			"placeCounter":"DD2R",
+			"size":1,
 			"location":"L7"
 		},{
 			"removeCounter":"BC3B"
@@ -5440,15 +5560,18 @@
 			"removeCounter":"DD2R"
 		},{
 			"placeCounter":"SC1Y",
+			"size":6,
 			"location":"J5"
 		},{
 			"placeCounter":"SY2Y",
+			"size":2,
 			"location":"J5"
 		},{
 			"placeCounter":"base1Y",
 			"location":"J5"
 		},{
 			"placeCounter":"CA2Y",
+			"size":1,
 			"location":"J5"
 		},{
 			"placeCounter":"MS4Y",
@@ -5458,16 +5581,18 @@
 			"removeCounter":"fleetB8"
 		},{
 			"placeCounter":"BC3B",
+			"size":6,
 			"location":"J5"
 		},{
 			"placeCounter":"DD3B",
+			"size":1,
 			"location":"J5"
 		},{
 			"placeCounter":"systemL7",
 			"name":"home20Y"
 		}]},
 	{"heading":"Game Over",
-	"commentary":"<p>We have no combat forces left. Since a blockaded homeworld can not produce income, this leaves us no means of building anything else. Thus, since it was only a matter of time before our homeworld was destroyed; this playthrough is finished, in defeat.</p><p>We are sure there was plenty of room for improvement. Whether it be we never bought Movement technology, was way late on our Point-Defense tech, did not buy enough tech in general... Random Factor was not exactly in our favor, even for a <q>Large</q>-sized Alien Empires map. We did not find any planets on row I, and only a single planet on row J.</p>",
+	"commentary":"<p>We have no combat forces left. Since a blockaded homeworld can not produce income, this leaves us no means of building anything else. Thus, since it was only a matter of time before our homeworld was destroyed; this playthrough is finished, in defeat.</p><p>We are sure there was plenty of room for improvement. Whether it be we never bought Movement technology, was way late on our Point-Defense tech, did not buy enough tech in general... Random Factor was not exactly in our favor, even for a <q>Large</q>-sized Alien Empires map. We did not find any planets on row I (fourth row from top), and only a single planet on row J (third row from top).</p>",
 	"techTable":
 		[{
 			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2,"tac":1,"atk":1,"PD":1,"isDead":true
@@ -5489,6 +5614,9 @@
 			"removeCounter":"MS4Y"
 		},{
 			"removeCounter":"DD3B"
+		},{
+			"resizeCounter":"BC3B",
+			"size":5
 		},{
 			"revealCounter":"systemJ5",
 			"name":"planetW9"

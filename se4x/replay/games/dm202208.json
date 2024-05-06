@@ -707,7 +707,7 @@
 			"revealCounter":"systemJ6",
 			"name":"unexploredR"
 		}]},
-	{"commentary":"<h2>Movement Turn 11</h2><p>Home system reconnaissance proves useful, as we expose a planet and more asteroids. Deep space, on the other hand, proved to be dangerous.</p>",
+	{"commentary":"<h2>Movement Turn 11</h2><p>Home system reconnaissance proves useful, as we expose a planet and more asteroids. Deep space, on the other hand, proved to be Dangerous.</p>",
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -854,6 +854,7 @@
 			"name":"COR"
 		},{
 			"placeCounter":"SY2R",
+			"size":1,
 			"location":"J8"
 		},{
 			"revealCounter":"systemJ8",
@@ -978,6 +979,9 @@
 			"location":"I6",
 			"name":"COR"
 		},{
+			"resizeCounter":"SY2R",
+			"size":1
+		},{
 			"placeCounter":"Miner1Rload",
 			"location":"J10"
 		},{
@@ -1027,6 +1031,9 @@
 		},{
 			"revealCounter":"systemI7",
 			"name":"colony3"
+		},{
+			"resizeCounter":"SY2R",
+			"size":2
 		},{
 			"removeCounter":"CO7R"
 		},{
@@ -1345,6 +1352,7 @@
 			"removeCounter":"Miner1Rload"
 		},{
 			"placeCounter":"CA1R",
+			"size":2,
 			"location":"L7"
 		},{
 			"placeCounter":"CA2R",
@@ -1419,6 +1427,9 @@
 			"placeCounter":"CA1R",
 			"location":"J8"
 		},{
+			"placeCounter":"CA2R",
+			"location":"J8"
+		},{
 			"placeCounter":"Miner1R",
 			"location":"K10"
 		},{
@@ -1446,6 +1457,7 @@
 			"removeCounter":"SC1R"
 		},{
 			"placeCounter":"CA1R",
+			"size":2,
 			"location":"I7"
 		},{
 			"placeCounter":"CA2R",
@@ -1525,12 +1537,12 @@
 			"location":"J6"
 		},{
 			"placeCounter":"mines1R",
-			"location":"J8",
-			"name":"minesR"
+			"size":3,
+			"location":"J8"
 		},{
 			"placeCounter":"mines2R",
-			"location":"L7",
-			"name":"minesR"
+			"size":6,
+			"location":"L7"
 		},{
 			"removeCounter":"CO9R"
 		},{
@@ -1582,10 +1594,6 @@
 		[{
 			"removeCounter":"systemJ7"
 		},{
-			"placeCounter":"mines2R",
-			"location":"J8",
-			"name":"minesR"
-		},{
 			"placeCounter":"Miner1R",
 			"location":"J11"
 		},{
@@ -1606,13 +1614,18 @@
 			"name":"colony5R"
 		},{
 			"placeCounter":"mines1R",
-			"location":"J8",
-			"name":"minesR"
+			"size":3,
+			"location":"J8"
+		},{
+			"placeCounter":"mines2R",
+			"size":6,
+			"location":"J8"
 		},{
 			"placeCounter":"CA2R",
 			"location":"J8"
 		},{
 			"placeCounter":"SY2R",
+			"size":2,
 			"location":"J8"
 		}]},
 	{"commentary":"<h2>Movement Turn 27</h2><p>Using the highest income rule, the machine now eats the planet at sector I8.</p>",
@@ -1680,8 +1693,8 @@
 			"removeCounter":"Miner1Rload"
 		},{
 			"placeCounter":"mines1R",
-			"location":"L7",
-			"name":"minesR"
+			"size":6,
+			"location":"L7"
 		},{
 			"placeCounter":"base1R",
 			"location":"J9"
@@ -1774,6 +1787,7 @@
 			"name":"colony5R"
 		},{
 			"placeCounter":"mines1R",
+			"size":6,
 			"location":"L8"
 		},{
 			"placeCounter":"dm2",
@@ -1827,6 +1841,7 @@
 			"location":"L7"
 		},{
 			"placeCounter":"mines1R",
+			"size":2,
 			"location":"L7"
 		},{
 			"revealCounter":"systemL4",
@@ -1846,8 +1861,12 @@
 			"location":"K9"
 		},{
 			"placeCounter":"mines1R",
-			"location":"L7",
-			"name":"minesR"
+			"size":2,
+			"location":"L7"
+		},{
+			"placeCounter":"SY1R",
+			"size":4,
+			"location":"L7"
 		}]},
 	{"commentary":"<h2>Movement Turn 32</h2><p>This was a much important victory!</p>",
 	"actions":
@@ -1855,6 +1874,10 @@
 			"removeCounter":"dm1"
 		},{
 			"removeCounter":"mines1R"
+		},{
+			"placeCounter":"SY1R",
+			"size":1,
+			"location":"L7"
 		},{
 			"placeCounter":"Miner2R",
 			"location":"G8"

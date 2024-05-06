@@ -1,6 +1,6 @@
 {"stages": [
 	{"heading":"Stardate 2400.0 (Introduction)",
-	"commentary":"<p>Welcome to the Space Amoeba solitaire scenario. This is our first playthrough of the scenarios introduced in the Close Encounters expansion. The names assigned to the Amoebas this playthrough are based on Jupiter and Saturn's moons.</p><p>Fortunately, we were able to do some practice before recording this playthrough. Thus, we feel comfortable doing this on Normal difficulty. Also, this scenario requires very little of the several mechanics introduced in Close Encounters; ground units, facilities, experience, and boarding ships are not used at all. Empire Advantages and Flagships seem optional, so we will use the simpler latter of the two concepts. We believe the mechanics used makes this scenario the best building block for anyone wanting to use Close Encounters content for the first time.</p>",
+	"commentary":"<p>Welcome to the Space Amoeba solitaire scenario. This is our first recorded playthrough of the scenarios introduced in the Close Encounters expansion. The names assigned to the Amoebas this playthrough are based on Jupiter and Saturn's moons.</p><p>Fortunately, we were able to do some practice before recording this playthrough. Thus, we feel comfortable doing this on Normal difficulty. Also, this scenario requires very little of the several mechanics introduced in Close Encounters; ground units, facilities, experience, and boarding ships are not used at all. Empire Advantages and Flagships seem optional, so we will use the simpler latter of the two concepts. We believe the mechanics used makes this scenario the best building block for anyone wanting to use Close Encounters content for the first time.</p>",
 	"amoebaTable":
 		[{
 			"name":"Ymir (1)"
@@ -442,6 +442,7 @@
 			"location":"J7"
 		},{
 			"placeCounter":"SW1R",
+			"size":4,
 			"location":"L7"
 		},{
 			"removeCounter":"CO1R"
@@ -671,6 +672,7 @@
 			"location":"L4"
 		},{
 			"placeCounter":"SW2R",
+			"size":4,
 			"location":"L7"
 		},{
 			"placeCounter":"SY2R",
@@ -855,9 +857,11 @@
 			"location":"G6"
 		},{
 			"placeCounter":"SW1R",
+			"size":4,
 			"location":"J2"
 		},{
 			"placeCounter":"SW2R",
+			"size":4,
 			"location":"K9"
 		},{
 			"revealCounter":"systemG6",
@@ -896,6 +900,9 @@
 		}],
 	"actions":
 		[{
+			"resizeCounter":"SW1R",
+			"size":3
+		},{
 			"removeCounter":"Miner2Rload"
 		},{
 			"placeCounter":"SC1R",
@@ -914,12 +921,14 @@
 			"location":"G6"
 		},{
 			"placeCounter":"SW2R",
+			"size":5,
 			"location":"K9"
 		},{
 			"placeCounter":"SW3R",
 			"location":"I6"
 		},{
 			"placeCounter":"SW4R",
+			"size":4,
 			"location":"L7"
 		},{
 			"placeCounter":"SW5R",
@@ -984,6 +993,9 @@
 			"placeCounter":"SW5R",
 			"location":"J3"
 		},{
+			"resizeCounter":"SW1R",
+			"size":3
+		},{
 			"revealCounter":"systemL3",
 			"name":"unexploredW"
 		}]},
@@ -999,6 +1011,9 @@
 		}],
 	"actions":
 		[{
+			"resizeCounter":"SW1R",
+			"size":2
+		},{
 			"placeCounter":"SC1R",
 			"location":"L3"
 		},{
@@ -1079,6 +1094,15 @@
 			"placeCounter":"SW4R",
 			"location":"I6"
 		},{
+			"resizeCounter":"SY2R",
+			"size":1
+		},{
+			"resizeCounter":"SY3R",
+			"size":1
+		},{
+			"resizeCounter":"SY4R",
+			"size":1
+		},{
 			"removeCounter":"SW5R"
 		},{
 			"removeCounter":"CO6R"
@@ -1139,7 +1163,17 @@
 			"name":"COR"
 		},{
 			"placeCounter":"CA1R",
+			"size":2,
 			"location":"L7"
+		},{
+			"resizeCounter":"SY2R",
+			"size":2
+		},{
+			"resizeCounter":"SY3R",
+			"size":2
+		},{
+			"resizeCounter":"SY4R",
+			"size":2
 		},{
 			"revealCounter":"systemJ2",
 			"name":"amoeba1"
@@ -1203,6 +1237,9 @@
 			"placeCounter":"CA1R",
 			"location":"L6"
 		},{
+			"resizeCounter":"SW2R",
+			"size":5
+		},{
 			"revealCounter":"systemJ12",
 			"name":"amoeba2"
 		}]},
@@ -1243,6 +1280,7 @@
 			"location":"J3"
 		},{
 			"placeCounter":"SW2R",
+			"size":4,
 			"location":"J12"
 		},{
 			"revealCounter":"systemJ12",
@@ -1300,9 +1338,11 @@
 			"location":"J4"
 		},{
 			"placeCounter":"SW2R",
+			"size":3,
 			"location":"I11"
 		},{
 			"placeCounter":"SW4R",
+			"size":4,
 			"location":"F7"
 		},{
 			"placeCounter":"CO6R",
@@ -1338,7 +1378,11 @@
 		},{
 			"removeCounter":"mines1R"
 		},{
+			"removeCounter":"mines2R"
+		},{
 			"removeCounter":"mines3R"
+		},{
+			"removeCounter":"mines4R"
 		},{
 			"removeCounter":"CA2R"
 		}]},
@@ -1354,6 +1398,9 @@
 		}],
 	"actions":
 		[{
+			"resizeCounter":"SW4R",
+			"size":3
+		},{
 			"placeCounter":"systemJ3",
 			"name":"amoeba1R"
 		},{
@@ -1395,23 +1442,20 @@
 			"location":"L4"
 		},{
 			"placeCounter":"CA2R",
+			"size":2,
 			"location":"L7"
 		},{
 			"placeCounter":"mines1R",
-			"location":"K9",
-			"name":"minesR"
+			"location":"K9"
 		},{
 			"placeCounter":"mines2R",
-			"location":"K9",
-			"name":"minesR"
+			"location":"K9"
 		},{
 			"placeCounter":"mines3R",
-			"location":"I6",
-			"name":"minesR"
+			"location":"I6"
 		},{
 			"placeCounter":"mines4R",
-			"location":"I6",
-			"name":"minesR"
+			"location":"I6"
 		},{
 			"removeCounter":"CO6R"
 		},{
@@ -1538,6 +1582,7 @@
 			"location":"I9"
 		},{
 			"placeCounter":"SW4R",
+			"size":3,
 			"location":"G6"
 		},{
 			"revealCounter":"systemF7",
@@ -1547,6 +1592,7 @@
 			"name":"amoeba3R"
 		},{
 			"placeCounter":"CA1R",
+			"size":2,
 			"location":"J3"
 		},{
 			"placeCounter":"systemJ3",
@@ -1598,15 +1644,18 @@
 			"name":"minerals10"
 		},{
 			"placeCounter":"SW1R",
+			"size":2,
 			"location":"I6"
 		},{
 			"placeCounter":"SW2R",
 			"location":"J9"
 		},{
 			"placeCounter":"SW4R",
+			"size":2,
 			"location":"I6"
 		},{
 			"placeCounter":"CA1R",
+			"size":1,
 			"location":"J2"
 		},{
 			"placeCounter":"systemJ2",
@@ -1615,27 +1664,28 @@
 			"removeCounter":"systemJ3"
 		},{
 			"placeCounter":"CA2R",
+			"size":2,
 			"location":"K9"
 		},{
 			"placeCounter":"mines1R",
-			"location":"J12",
-			"name":"minesR"
+			"location":"J12"
 		},{
 			"placeCounter":"mines2R",
-			"location":"K11",
-			"name":"minesR"
+			"location":"K11"
 		},{
 			"placeCounter":"mines3R",
-			"location":"F7",
-			"name":"minesR"
+			"location":"F7"
 		},{
 			"placeCounter":"mines4R",
-			"location":"G6",
-			"name":"minesR"
-		},{
-			"removeCounter":"CA2R"
+			"location":"G6"
 		},{
 			"removeCounter":"CA3R"
+		},{
+			"resizeCounter":"SY3R",
+			"size":2
+		},{
+			"resizeCounter":"SY4R",
+			"size":2
 		},{
 			"revealCounter":"systemI5",
 			"name":"colony1"
@@ -1710,6 +1760,7 @@
 			"name":"minerals10"
 		},{
 			"placeCounter":"SW1R",
+			"size":4,
 			"location":"I6"
 		},{
 			"placeCounter":"SW2R",
@@ -1718,13 +1769,22 @@
 			"removeCounter":"SW4R"
 		},{
 			"placeCounter":"CA1R",
+			"size":2,
 			"location":"L7"
 		},{
 			"placeCounter":"CA2R",
+			"size":3,
 			"location":"K9"
 		},{
 			"placeCounter":"CA3R",
+			"size":1,
 			"location":"I6"
+		},{
+			"resizeCounter":"SY3R",
+			"size":3
+		},{
+			"resizeCounter":"SY4R",
+			"size":3
 		},{
 			"revealCounter":"systemI5",
 			"name":"colony3"
@@ -1778,7 +1838,7 @@
 			"location":"H6"
 		}]},
 	{"heading":"Stardate 2407.5 (The Battle for Sector G6)",
-	"commentary":"<p>Fortunately, <a href=\"javascript:showBox('sa2')\">Isonoe</a> does not have a good Weapon Class. We will use this to our advantage, and conduct a battle against them this way. Also, since we can benefit from no more RP, we can safely allow our Minesweepers to be swallowed (though they are unable to damage an amoeba).</p><ol><li><b>Round 1</b>: Amoebas are effectively bosses, so we have to conduct this the hard way</li><li>Our Flagship has the best Weapon Class, so it shoots first. It rolls a 9 (miss &gt;2)</li><li>Our 1 Cruiser is next. It rolled a <b>1</b> (hit &le;2). This amoeba has 1 HP left</li><li>And now for the fun part: Amoebas do not shoot. Rather, they attempt to swallow. Furthermore, they are mindless in swallow priorities. In this case, Isonoe rolled a 6 to target most expensive ships</li><li>It is impossible to build Flagships, so ours will be its first victim. Their Attack Rating is good, but we have a lot of Hull Size (6 - 1 - 2 = 3 to swallow). Isonoe rolled an 8 (failure)</li><li>Our 1 Scout is next. It rolled a 4 (miss &gt;1). Our Minesweepers technically have no weapons to damage an amoeba, so that ends this round<br /><br /></li><li><b>Round 2</b>: Our Flagship shoots once more, rolling a 4 (miss &gt;2)</li><li>Our 1 Cruiser is next, rolling an 6 (miss &gt;2)</li><li>Isonoe rolled a 6 to target expensive ships (Flagship), followed by a 2 (swallow &le;3)</li><li>Our 1 Scout is next. It rolled a 9 (miss &gt;1)<br /><br /></li><li><b>Round 3</b>: Our Flagship is gone, never to be seen again. Our 1 Cruiser shoots first this time, rolling a 5 (miss &gt;2)</li><li>Isonoe rolled a 1 to target cheapest ships (1 Scout), followed by a 5 (swallow &le;6)<br /><br /></li><li><b>Round 4</b>: Our 1 Cruiser shoots once more, rolling a 9 (miss &gt;2)</li><li>Isonoe rolled a 1 to target cheapest ships (4 Minesweepers), followed by a 2 (critical swallow &le;6)</li><li>Rolling 2 or more under the swallow quota triggers a <q>critical swallow</q>. Isonoe gains a chained swallow roll. It rolled a 2 to target Minesweepers, followed by a 2 (critical swallow &le;6)</li><li>The chain lasts until it is broken by a missed condition. It rolled a 1 to target Minesweepers, followed by a 3 (critical swallow &le;6)</li><li>Isonoe's chain continues. It rolled a 9 to target expensive ships (1 Cruiser), followed by a 7 (failure &gt;4). This stops its chain<br /><br /></li><li><b>Round 5</b>: Our 1 Cruiser shoots once more, rolling a 2 (hit &le;2). This hex has been cleansed</li></ol>",
+	"commentary":"<p>Fortunately, <a href=\"javascript:showBox('sa2')\">Isonoe</a> does not have a good Weapon Class. We will use this to our advantage, and conduct a battle against them this way. Also, since we can benefit from no more RP, we can safely allow our Minesweepers to be swallowed (though they are unable to damage an amoeba).</p><ol><li><b>Round 1</b>: Amoebas are effectively bosses, so we have to conduct this the hard way</li><li>Our Flagship has the best Weapon Class, so it shoots first. It rolls a 9 (miss &gt;2)</li><li>Our 1 Cruiser is next. It rolled a <b>1</b> (hit &le;2). This amoeba has 1 HP left</li><li>And now for the fun part: Amoebas do not shoot. Rather, they attempt to swallow. Furthermore, they are mindless in swallow priorities. In this case, Isonoe rolled a 6 to target most expensive ships</li><li>It is impossible to build Flagships, so ours will be its first victim. Their Attack Rating is good, but we have a lot of Hull Size (6 - 1 - 2 = 3 to swallow). Isonoe rolled an 8 (failure)</li><li>Our 1 Scout is next. It rolled a 4 (miss &gt;1)<br /><br /></li><li><b>Round 2</b>: Our Flagship shoots once more, rolling a 4 (miss &gt;2)</li><li>Our 1 Cruiser is next, rolling an 6 (miss &gt;2)</li><li>Isonoe rolled a 6 to target expensive ships (Flagship), followed by a 2 (swallow &le;3)</li><li>Our 1 Scout is next. It rolled a 9 (miss &gt;1)<br /><br /></li><li><b>Round 3</b>: Our Flagship is gone, never to be seen again. Our 1 Cruiser shoots first this time, rolling a 5 (miss &gt;2)</li><li>Isonoe rolled a 1 to target cheapest ships (1 Scout), followed by a 5 (swallow &le;6)<br /><br /></li><li><b>Round 4</b>: Our 1 Cruiser shoots once more, rolling a 9 (miss &gt;2)</li><li>Isonoe rolled a 1 to target cheapest ships (4 Minesweepers), followed by a 2 (critical swallow &le;6)</li><li>Rolling 2 or more under the swallow quota triggers a <q>critical swallow</q>. Isonoe gains a chained swallow roll. It rolled a 2 to target Minesweepers, followed by a 2 (critical swallow &le;6)</li><li>The chain lasts until it is broken by a missed condition. It rolled a 1 to target Minesweepers, followed by a 3 (critical swallow &le;6)</li><li>Isonoe's chain continues. It rolled a 9 to target expensive ships (1 Cruiser), followed by a 7 (failure &gt;4). This stops its chain<br /><br /></li><li><b>Round 5</b>: Our 1 Cruiser shoots once more, rolling a 2 (hit &le;2). This hex has been cleansed</li></ol>",
 	"actions":
 		[{
 			"placeCounter":"SC4R",
@@ -1805,6 +1865,7 @@
 			"name":"minerals10"
 		},{
 			"placeCounter":"SW1R",
+			"size":4,
 			"location":"G6"
 		},{
 			"placeCounter":"SW2R",
@@ -1853,15 +1914,18 @@
 			"name":"minerals10"
 		},{
 			"placeCounter":"SW1R",
+			"size":1,
 			"location":"H6"
 		},{
 			"placeCounter":"SW2R",
+			"size":3,
 			"location":"K11"
 		},{
 			"placeCounter":"CA1R",
 			"location":"K9"
 		},{
 			"placeCounter":"CA2R",
+			"size":3,
 			"location":"K11"
 		},{
 			"placeCounter":"CA3R",
@@ -1872,6 +1936,9 @@
 			"removeCounter":"BC1R"
 		},{
 			"removeCounter":"CA4R"
+		},{
+			"resizeCounter":"SY4R",
+			"size":3
 		},{
 			"revealCounter":"systemI5",
 			"name":"colony3"
@@ -1924,6 +1991,7 @@
 			"location":"H6"
 		},{
 			"placeCounter":"SW2R",
+			"size":2,
 			"location":"K10"
 		},{
 			"placeCounter":"CA1R",
@@ -1933,19 +2001,25 @@
 			"location":"K11"
 		},{
 			"placeCounter":"CA2R",
+			"size":1,
 			"location":"K10"
 		},{
 			"placeCounter":"CA3R",
 			"location":"H6"
 		},{
 			"placeCounter":"CA4R",
+			"size":2,
 			"location":"I6"
 		},{
 			"placeCounter":"DD1R",
+			"size":2,
 			"location":"K9"
 		},{
 			"placeCounter":"BC1R",
 			"location":"K9"
+		},{
+			"resizeCounter":"SY4R",
+			"size":4
 		},{
 			"revealCounter":"systemI5",
 			"name":"colony5R"
@@ -1991,9 +2065,11 @@
 			"location":"K10"
 		},{
 			"placeCounter":"CA3R",
+			"size":1,
 			"location":"H7"
 		},{
 			"placeCounter":"CA4R",
+			"size":2,
 			"location":"H7"
 		},{
 			"placeCounter":"DD1R",
@@ -2036,6 +2112,7 @@
 			"removeCounter":"CA2R"
 		},{
 			"placeCounter":"CA3R",
+			"size":3,
 			"location":"G7"
 		},{
 			"removeCounter":"CA4R"
@@ -2077,12 +2154,14 @@
 			"removeCounter":"SW1R"
 		},{
 			"placeCounter":"SW2R",
+			"size":2,
 			"location":"J12"
 		},{
 			"placeCounter":"CA1R",
 			"location":"J12"
 		},{
 			"placeCounter":"CA3R",
+			"size":2,
 			"location":"H7"
 		},{
 			"placeCounter":"DD1R",
@@ -2090,6 +2169,9 @@
 		},{
 			"placeCounter":"BC1R",
 			"location":"J12"
+		},{
+			"resizeCounter":"SY4R",
+			"size":4
 		},{
 			"placeCounter":"systemJ12",
 			"name":"amoeba2M"
@@ -2127,6 +2209,7 @@
 			"location":"I6"
 		},{
 			"placeCounter":"SW2R",
+			"size":1,
 			"location":"J12"
 		},{
 			"placeCounter":"CA1R",
@@ -2139,7 +2222,11 @@
 			"location":"J12"
 		},{
 			"placeCounter":"SC1R",
+			"size":6,
 			"location":"I6"
+		},{
+			"resizeCounter":"SY4R",
+			"size":5
 		},{
 			"placeCounter":"systemG7",
 			"name":"amoeba3R"
@@ -2220,6 +2307,7 @@
 			"location":"J10"
 		},{
 			"placeCounter":"SC1R",
+			"size":6,
 			"location":"G7"
 		},{
 			"placeCounter":"systemG7",
@@ -2249,6 +2337,7 @@
 			"location":"J9"
 		},{
 			"placeCounter":"CA3R",
+			"size":2,
 			"location":"F7"
 		},{
 			"placeCounter":"DD1R",
@@ -2258,6 +2347,7 @@
 			"location":"J9"
 		},{
 			"placeCounter":"SC1R",
+			"size":5,
 			"location":"F7"
 		},{
 			"placeCounter":"systemF7",
@@ -2280,5 +2370,8 @@
 	"actions":
 		[{
 			"removeCounter":"systemF7"
+		},{
+			"resizeCounter":"CA3R",
+			"size":1
 		}]}
 ]}
