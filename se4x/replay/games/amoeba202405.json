@@ -61,7 +61,7 @@
 			"name":"unexploredR"
 		}]},
 	{"heading":"Stardate 2400.6 (Turn 2)",
-	"commentary":"<p>Though the loss was unfortunate, at least we no longer have to worry about black holes. This is counterbalanced by the fact that deep space has a fixed 10 rich minerals + 4 barren planets shuffled among them.</p><p>Explored black holes are also off-limits to amoeba spreading, though that will be of little consolation should they threaten our homeworld.</p>",
+	"commentary":"<p>Though the loss was unfortunate, at least we no longer have to worry about black holes. This is counterbalanced by the fact that deep space has a fixed 10 dense minerals + 4 barren planets shuffled among them.</p><p>Explored black holes are also off-limits to amoeba spreading, though that will be of little consolation should they threaten our homeworld.</p>",
 	"actions":
 		[{
 			"removeCounter":"SC3R"
@@ -1387,7 +1387,7 @@
 			"removeCounter":"CA2R"
 		}]},
 	{"heading":"Stardate 2406.0",
-	"commentary":"<p>Let the spreading begin! Isonoe has already consumed some of the available rich minerals!</p><p>In response, we will buy Minelaying (-30); and, thus, Minelayers (-20 in total) at the Ship Yards closest to Tethys and Ymir. We will also buy 2 Cruisers (-24) at the homeworld.</p>",
+	"commentary":"<p>Let the spreading begin! Isonoe has already consumed some of the available dense minerals!</p><p>In response, we will buy Minelaying (-30); and, thus, Minelayers (-20 in total) at the Ship Yards closest to Tethys and Ymir. We will also buy 2 Cruisers (-24) at the homeworld.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":4,"colonyCP":55,"mineralCP":20,"pipeCP":0,"techBuy":30,"unitBuy":44

@@ -197,11 +197,11 @@
 		[{
 			"name":"CSY (Blue)"
 		},{
-			"name":"Jammer (Red)","minelay":1
+			"name":"Red AP","minelay":1
 		},{
-			"name":"Mauler (Green)","minelay":1
+			"name":"Green AP","minelay":1
 		},{
-			"name":"Raptor (Yellow)","minelay":1
+			"name":"Yellow AP","minelay":1
 		}],
 	"actions":
 		[{
@@ -239,7 +239,7 @@
 			"name":"unexploredB"
 		}]},
 	{"heading":"Player Turn 4",
-	"commentary":"<p>Now that our fleet has been expanded, we can start transitioning to deep space systems. We will commit just one Scout to this expedition until we start exhausting our remaining unexplored home systems. We also opted to move both of our Mining Ships to help collect minerals.</p><p>Our expedition into deep space is short lived, as we ran into our first Danger! hex in this game. These nasty hexes <i>instantly</i> destroy <b>all</b> ships that enter them when revealed. No dice rolling for these occasions (by default). No wonder Close Encounters introduced an optional rule to make these hexes far less effective (by making it so that only a 9-10 roll does the destruction as usual).</p>",
+	"commentary":"<p>Now that our fleet has been expanded, we can start transitioning to deep space systems. We will commit just one Scout to this expedition until we start exhausting our remaining unexplored home systems. We also opted to move both of our Mining Ships to help collect minerals.</p><p>Our expedition into deep space is short lived, as we ran into our first Danger! hex in this game. These nasty hexes <i>instantly</i> destroy <b>all</b> ships that enter them when revealed. No dice rolling for these occasions (by default). No wonder Close Encounters introduced the Safer Space optional rule, making these hexes far less effective (only a 9-10 roll does the destruction as usual).</p>",
 	"actions":
 		[{
 			"placeCounter":"SC1B",
@@ -617,7 +617,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Player Turn 9",
-	"commentary":"<p>We ran into yet another danger marker, claiming a third Scout. We also found another barren planet. We sent the other Colony Ship to Orion, colonizing it as well.</p>",
+	"commentary":"<p>We ran into yet another danger marker, claiming a third Scout. We also found our first deep space barren planet. Normally, we might have to put up with non-player aliens, but this scenario disables them. We sent the other Colony Ship to Orion, colonizing it as well.</p>",
 	"actions":
 		[{
 			"removeCounter":"SC3B"
@@ -1036,7 +1036,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Player Turn 14",
-	"commentary":"<p>We have also uncovered our first rich minerals; worth 10 CP when cashed in.</p>",
+	"commentary":"<p>We have also uncovered our first dense minerals; worth 10 CP when cashed in.</p>",
 	"actions":
 		[{
 			"placeCounter":"CA1B",
@@ -4021,7 +4021,7 @@
 			"location":"G4"
 		}]},
 	{"heading":"Combined Turn 43",
-	"commentary":"<p>As we continue to finalize our prep, we use Exploration remotely on the final unexplored system of the map; exposing rich minerals in the process.</p>",
+	"commentary":"<p>As we continue to finalize our prep, we use Exploration remotely on the final unexplored system of the map; exposing dense minerals in the process.</p>",
 	"actions":
 		[{
 			"revealCounter":"systemE4",

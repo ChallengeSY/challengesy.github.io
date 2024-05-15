@@ -101,9 +101,9 @@ function showBox(concept) {
 			break;
 		case "bid":
 			displayTxt = "<b>Bid</b><br />During each "+conceptLink("economic phase")+", players secretly bid any "+conceptLink("CP")+" they wish to set aside\
-				to try to steal the initative for the next 3 "+conceptLink("turn")+"s.<br />\
+				to try to steal the "+conceptLink("initiative")+" for the next 3 "+conceptLink("turn")+"s.<br />\
 				Bids are revealed after "+conceptLink("colonies")+" have grown. CP spent this way is consumed whether or not a given player wins the bid.<br /><br />\
-				The player that wins the initative determines <b>who</b> goes first.";
+				The player that wins the bid determines <b>who</b> gains initiative.";
 			break;
 		case "blockade":
 			displayTxt = "<b>Blockade</b><br />A "+conceptLink("colony")+" is blockaded if there are enemy "+conceptLink("combat ship")+"(s) in orbit.\
@@ -142,6 +142,11 @@ function showBox(concept) {
 			displayTxt = "<b>Hull Size</b><br />Determines the amount of damage a ship can take before being destroyed.<br />\
 				Also determines the "+conceptLink("maintenance")+" cost and maximum effective levels for "+conceptLink("Attack")+" and "+conceptLink("Defense")+" "+conceptLink("tech")+"s.";
 			break;
+		case "initiative":
+			displayTxt = "<b>Initiative</b><br />The concept used to determine <i>who</i> goes first each "+conceptLink("turn")+". \
+				Can be wrestled by "+conceptLink("bid")+"ding each "+conceptLink("economic phase")+".<br /><br />\
+				In solo / co-op scenarios, the environment can impose a fixed quota that applies each economic phase.";
+			break;
 		case "maintenance":
 			displayTxt = "<b>Maintenance</b><br />The upkeep cost ("+conceptLink("CP")+") that must be paid each "+conceptLink("economic phase")+" \
 				to maintain existing "+conceptLink("combat ship")+"s. Based on "+conceptLink("Hull Size")+".\
@@ -161,11 +166,6 @@ function showBox(concept) {
 			displayTxt = "<b>Non-Player Alien ship</b><br />Non-aligned ship that guards a "+conceptLink("barren planet")+". \
 				If any are found, they must be defeated before the planet can be colonized, \
 				and any "+conceptLink("Alien Technology")+" <span class=\"bindTxt\">(if any)</span> obtained.";
-			break;
-		case "quick start":
-			displayTxt = "<b>Quick Start</b><br />Optional setup variant that greatly speeds up play, usually only available in "+conceptLink("competitive")+" scenarios.<br /><br />\
-				"+conceptLink("Home system")+"s are pre-explored, and non-"+conceptLink("barren")+" "+conceptLink("planet")+"s are pre-colonized and fully grown;\
-				at the expense of starting with no "+conceptLink("colony ship")+"s.";
 			break;
 		case "retreat":
 			displayTxt = "<b>Retreat</b><br />After the first "+conceptLink("battle")+" round, a mobile "+conceptLink("combat ship")+" may choose to retreat instead of fire upon an enemy ship.<br />\
@@ -205,8 +205,8 @@ function showBox(concept) {
 				Can neither stack together, nor can they use each others' "+conceptLink("Pipeline")+"s.";
 			break;
 		case "victory point":
-			displayTxt = "<b>Victory Point</b><br />Unique resource acquired by "+conceptLink("competitive")+" players/teams or the <q>environment team</q> (generally not both). \
-				If an eligible player/team reaches the required VP quota, then they achieve victory and the scenario will end.";
+			displayTxt = "<b>Victory Point</b><br />Unique resource acquired by "+conceptLink("competitive")+" players/teams and the <q>environment</q> team.\
+				<br />If an eligible player/team reaches the required VP quota, then they achieve victory and the scenario will end.";
 			break;
 		case "weakness":
 			displayTxt = "<b>Weakness</b><br />In the corresponding solo/co-op scenarios, a "+conceptLink("Doomsday Machine")+" may have a weakness, depending on a d10 roll:\
@@ -475,6 +475,70 @@ function showBox(concept) {
 			displayTxt = "<b>Alien Battlecruiser</b><br />Heavy "+conceptLink("non-player alien")+" ship";
 			displayTxt = displayTxt + stats(0, "B6", 2, 1, 1);
 			break;
+			
+		// Optional Rules
+		case "quick start":
+			displayTxt = "<b>Quick Start</b><br />Optional setup variant that greatly speeds up play, only available in "+conceptLink("competitive")+" scenarios.<br /><br />\
+				"+conceptLink("Home system")+"s are pre-explored, and non-"+conceptLink("barren")+" "+conceptLink("planet")+"s are pre-colonized and fully grown;\
+				at the expense of starting with no "+conceptLink("colony ship")+"s.";
+			break;
+		case "low maintenance":
+			displayTxt = "<b>Low Maintenance</b><br />Both an optional rule and a beneft of Elite "+conceptLink("experience")+"d "+conceptLink("combat ship")+"s.\
+				<br />Ships benefiting from one of these two gimmicks pay half as much "+conceptLink("maintenance")+" (round down total). \
+				Ships benefiting from both gimmicks pay no maintenance instead.";
+			break;
+		case "slingshot":
+			displayTxt = "<b>Slingshot</b><br />Optional rule that enables daring ships to attempt to \
+				use the "+conceptLink("black hole")+"'s acceleration to sling their way an extra hex.\
+				<br />If they do, the threshold to destroy ship(s) decrease (6 &rarr; 4). Does not stack with "+conceptLink("Pipeline")+" bonus.";
+			break;
+		case "gearing limits":
+			displayTxt = "<b>Gearing Limits</b><br />Optional rule that limits a player's ability to invest in "+conceptLink("technology")+".<br />\
+				A player can spend as much "+conceptLink("CP")+" as they did in the previous "+conceptLink("economic phase")+", plus 10 more.\
+				<br /><br />If combined with "+conceptLink("Unpredictable Research")+", this limit instead applies to "+conceptLink("research grant")+"s.";
+			break;
+		case "unpredictable research":
+			displayTxt = "<b>Unpredictable Research</b><br />Optional rule that requires players to buy "+conceptLink("research grant")+" rolls, \
+				instead of buying "+conceptLink("technology")+" directly.";
+			break;
+		case "research grant":
+			displayTxt = "<b>Research Grant</b><br />"+conceptLink("Unpredictable Research")+" roll that is allocated \
+				to a given "+conceptLink("technology")+" level, adding 1-10 "+conceptLink("RP")+" while spending 5 "+conceptLink("CP")+".";
+			break;
+		case "heavy terrain":
+			displayTxt = "<b>Heavy Terrain</b><br />Optional rule that causes "+conceptLink("Lost in Space")+" and "+conceptLink("Danger")+" markers \
+				to be replaced with another "+conceptLink("deep space")+" system, until stock is exhausted.";
+			break;
+		case "safer space":
+			displayTxt = "<b>Safer Space</b><br />Optional rule that weakens "+conceptLink("Danger")+" markers, \
+				allowing a fleet to roll 1 die (8 or less is a success).";
+			break;
+		case "rich minerals":
+			displayTxt = "<b>Rich Minerals</b><br />Optional rule that doubles "+conceptLink("minerals")+" output when cashed in.";
+			break;
+		case "slow scientists":
+			displayTxt = "<b>Slow Scientists</b><br />Optional rule that makes "+conceptLink("technologies")+" 5 "+conceptLink("CP")+" more expensive.";
+			break;
+		case "smart scientists":
+			displayTxt = "<b>Smart Scientists</b><br />Optional rule that makes "+conceptLink("technologies")+" 5 "+conceptLink("CP")+" less expensive.";
+			break;
+		case "bloody combat":
+			displayTxt = "<b>Bloody Combat</b><br />Optional rule that adds an extra "+conceptLink("Attack")+" +1 to all "+conceptLink("combat ship")+"s.";
+			break;
+		case "rich colonies":
+			displayTxt = "<b>Rich Colonies</b><br />Optional rule that improves income \
+				of each existing "+conceptLink("colony")+" by 3 "+conceptLink("CP")+" per "+conceptLink("economic phase")+".";
+			break;
+		case "galactic situation":
+			displayTxt = "<b>Galactic Situation</b><br />A more random game that adds up to 3 random optional rules.";
+			break;
+		case "head start":
+			displayTxt = "<b>Head Start</b><br />Optional setup variant that speeds up play, only available in "+conceptLink("competitive")+" scenarios.<br /><br />\
+				Players start a "+conceptLink("competitive")+" scenario with any agreed amount of "+conceptLink("CP")+" \
+				(usually 75) that can be spent <i>only</i> on "+conceptLink("technology")+".<br />\
+				"+conceptLink("Ship Size")+" or "+conceptLink("Movement")+" technology are capped at level 3 during setup. \
+				Other technologies can only be bought once this way. A maximum of 10 CP can be taken into the first "+conceptLink("economic phase")+".";
+			break;
 		
 		// Doomsday Machines
 		case "doomsday machine":
@@ -523,8 +587,12 @@ function showBox(concept) {
 				while protecting their own and (if present) the "+conceptLink("galactic capitol")+" from destruction.";
 			break;
 		case "alien player":
-			displayTxt =  "<b>Alien Player</b><br />Hostile empire that generates "+conceptLink("CP")+" from 1 or more unique "+conceptLink("economic roll")+"s per "+conceptLink("economic phase")+".<br />\
-				Available when playing an "+conceptLink("Alien Empires")+" scenario. Starts with "+conceptLink("Minelaying")+" and "+conceptLink("Nanomachine")+" "+conceptLink("technology")+", and with a single "+conceptLink("base")+".";
+			displayTxt =  "<b>Alien Player</b><br />Hostile empire that generates "+conceptLink("CP")+" from \
+				1 or more unique "+conceptLink("economic roll")+"s per "+conceptLink("economic phase")+".<br />\
+				Available when playing an "+conceptLink("Alien Empires")+" scenario. \
+				Starts with "+conceptLink("Minelaying")+" / "+conceptLink("Nanomachine")+" / "+conceptLink("Troops")+" 1 tech, \
+				and with a single "+conceptLink("base")+".<br /><br />\
+				In "+conceptLink("Victory Point")+" variants, also starts with "+conceptLink("Terraforming")+" 1 and "+conceptLink("Exploration")+" 1.";
 			break;
 		case "economic roll":
 			displayTxt =  "<b>Economic Roll</b><br />Determines where an "+conceptLink("Alien Player")+" should allocate its "+conceptLink("CP")+" \
@@ -560,7 +628,7 @@ function showBox(concept) {
 		case "experience":
 			displayTxt =  "<b>Experience</b><br />"+conceptLink("Combat Ship")+" groups can gain experience from destroying enemy ships in a "+conceptLink("battle")+".\
 				<br />The levels are: Green / Skilled / Veteran / Elite / Legendary.<br /><br />\
-				Elite+ ships pay half as much "+conceptLink("maintenance")+". Legendary ships are one "+conceptLink("Hull Size")+" more durable.";
+				Elite+ ships benefit from "+conceptLink("low maintenance")+". Legendary ships are one "+conceptLink("Hull Size")+" more durable.";
 			break;
 		case "facilities":
 			// Fall through
@@ -576,12 +644,6 @@ function showBox(concept) {
 				Players sometimes start the game with one, but can <i>never</i> build more.<br />\
 				Can be upgraded to "+conceptLink("Advanced Flagship")+" at "+conceptLink("Advanced Construction")+" level 3.\
 				" + stats(0, "B4", 1, 3);
-			break;
-		case "head start":
-			displayTxt = "<b>Head Start</b><br />Players start a "+conceptLink("competitive")+" scenario with any agreed amount of "+conceptLink("CP")+" \
-				(usually 75) that can be spent <i>only</i> on "+conceptLink("technology")+".<br />\
-				"+conceptLink("Ship Size")+" or "+conceptLink("Movement")+" technology are capped at level 3 during setup. \
-				Other technologies can only be bought once this way. A maximum of 10 CP can be taken into the first "+conceptLink("economic phase")+".";
 			break;
 		case "industrial center":
 			displayTxt =  "<b>Industrial Center</b><br />"+conceptLink("Facility")+" that generates 5 "+conceptLink("CP")+". Points generated this way are usable similiar to other sources of CP.";
@@ -601,11 +663,12 @@ function showBox(concept) {
 			break;
 		case "rp":
 			displayTxt = "<b>Research Points</b><br />Specialist monetary currency. \
-				"+conceptLink("Research Center")+" currency is spent exclusively to develop new "+conceptLink("technology")+".\
+				"+conceptLink("Research Center")+" currency is spent exclusively to develop new "+conceptLink("technology")+".<br />\
+				Resources spent on "+conceptLink("Unpredictable Research")+" rolls also contribute 1-10 RP to given tech level(s).\
 				<br /><br />"+conceptLink("Space Amoeba")+" RP is a unique permanent resource. \
 				Teams earn this resource by sending "+conceptLink("Minesweeper")+"s into their hexes. \
 				<span class=\"bindTxt\">Specifications are learned at 10 RP.</span>\
-				<br /><br />"+conceptLink("Replicator")+" RP is also a permanent resource, earned by completing objectives and encountering foreign technology. \
+				<br /><br />"+conceptLink("Replicator")+" RP is also a permanent resource, earned by completing objectives and encountering foreign technology.<br />\
 				Whenever the required RP threshold is reached, a new design is simply unlocked.";
 			break;
 		case "security forces":
@@ -636,7 +699,7 @@ function showBox(concept) {
 			displayTxt = "<b>Troops</b><br />Allows building progressively stronger troops.<br />\
 				Level 1: Allows "+conceptLink("Light Infantry")+" and "+conceptLink("Transport")+"s (researched at start)<br />\
 				Level 2: Allows "+conceptLink("Space Marines")+" and "+conceptLink("Heavy Infantry")+"<br /> \
-				Level 2: Allows "+conceptLink("Grav Armor")+". \
+				Level 3: Allows "+conceptLink("Grav Armor")+". \
 					Also allows upgraded "+conceptLink("Transport")+"s to drop troops sooner, and with "+conceptLink("Defense")+" +1";
 			break;
 		case "inf":
@@ -713,8 +776,9 @@ function showBox(concept) {
 		case "alien technology":
 			displayTxt = "<b>Alien Technology</b><br />Smaller empre-wide traits that affect an entire empire. \
 				Acquired when a "+conceptLink("barren")+" "+conceptLink("planet")+" had their "+conceptLink("non-player alien")+"s eliminated \
-				<span class=\"bindTxt\">(assuming no "+conceptLink("Amazing Diplomats")+")</span>, \
-				and then colonized or captured.";
+				<span class=\"bindTxt\">(assuming no "+conceptLink("Amazing Diplomats")+")</span>, and then colonized or captured.<br /><br />\
+				If playing without NPAs, then this technology can be bought when first colonizing a "+conceptLink("deep space")+" barren planet, \
+				at the cost of 10 "+conceptLink("CP")+".";
 			break;
 		case "soylent purple":
 			displayTxt = "<b>Soylent Purple</b><br />"+conceptLink("Scout")+"s and "+conceptLink("Destroyer")+"s \
@@ -876,7 +940,7 @@ function showBox(concept) {
 			break;
 		case "space pilgrims":
 			displayTxt = "<b>Space Pilgrims</b><br />Empire's ships are unaffected by "+conceptLink("Asteroids")+", "+conceptLink("Nebula")+", \
-				"+conceptLink("Black Hole")+"s, or "+conceptLink("Lost in Space")+" markers";
+				"+conceptLink("Black Hole")+"s, or "+conceptLink("Lost in Space")+" markers when moving";
 			break;
 		case "hive mind":
 			displayTxt = "<b>Hive Mind</b><br />Empire adapts to their opponents. Starting at "+conceptLink("round")+" 2 of each "+conceptLink("battle")+", \
@@ -1188,7 +1252,7 @@ function keywordifyDocument() {
 function keywordifyCollection(collObj) {
 	const keyTerms = ["Space Empires 4X", "Close Encounters", "Replicators",
 		"Barren", "Colony", "Colonies", "Combat Ship", "CP", "Economic Phase", "Homeworld", "Hull Size", "Maintenance", "Planet", "Scuttle", "Turn",
-		"Bid", "Competitive", "Galactic Capitol", "Quick Start", "Victory Point",
+		"Bid", "Competitive", "Galactic Capitol", "Initiative", "Victory Point",
 		"Battle", "Blockade", "Bombard", "Fleet Size Bonus", "Non-Player Alien", "Priority Class", "Retreat", "Screen", "Weakness", "Weapon Class",
 		"Alien Empires", "Alien Player", "Doomsday Machine", "Economic Roll", "Amoeba",
 		"Scout", "Destroyer", "Cruiser", "Dreadnought", "Titan", "Ship Yard", "Base", "Mining Ship", "Miner",
@@ -1196,6 +1260,8 @@ function keywordifyCollection(collObj) {
 		"Asteroid Belt", "Asteroids", "Black Hole", "Danger", "Deep Space", "Home System", "Lost in Space", "Nebula", "Space Wreck", "Supernova", "Unexplored",
 		"Technology", "Technologies", "Attack", "Defense", "Exploration", "Movement", "Ship Size", "Tactics", "Terraforming", "Upgrade",
 		"Cloaking", "Fighter", "Minelaying", "Minesweeping", "Nanomachine", "Scanning",
+		"Quick Start", "Slingshot", "Gearing Limits", "Unpredictable Research", "Research Grant", "Heavy Terrain",
+		"Safer Space", "Slow Scientists", "Smart Scientists", "Bloody Combat", "Head Start", "Galactic Situation",
 		"Empire Advantage", "Experience", "Facility", "Facilities", "Ground Unit", "RP",
 		"Boarding Ship", "Flagship", "Swallow"];
 		
@@ -1210,6 +1276,12 @@ function keywordifyCollection(collObj) {
 		{regex: conceptLink("Colony")+" Ship", newTxt: conceptLink("Colony Ship")},
 		{regex: conceptLink("miner")+"als", newTxt: conceptLink("minerals")},
 		{regex: conceptLink("Miner")+"als", newTxt: conceptLink("Minerals")},
+		{regex: "low "+conceptLink("maintenance"), newTxt: conceptLink("low maintenance")},
+		{regex: "Low "+conceptLink("Maintenance"), newTxt: conceptLink("Low Maintenance")},
+		{regex: "rich "+conceptLink("minerals"), newTxt: conceptLink("rich minerals")},
+		{regex: "Rich "+conceptLink("Minerals"), newTxt: conceptLink("Rich Minerals")},
+		{regex: "rich "+conceptLink("colonies"), newTxt: conceptLink("rich colonies")},
+		{regex: "Rich "+conceptLink("Colonies"), newTxt: conceptLink("Rich Colonies")},
 		{regex: "Point-"+conceptLink("Defense"), newTxt: conceptLink("Point-Defense")},
 		{regex: "point-"+conceptLink("pefense"), newTxt: conceptLink("point-defense")},
 		{regex: conceptLink("danger")+"ous", newTxt: "dangerous"},
@@ -1224,7 +1296,7 @@ function keywordifyCollection(collObj) {
 	for (var e of collObj) {
 		if (!e.innerHTML.startsWith("<a") && !e.className.startsWith("noKeywords")) {
 			for (var h = 0; h < keyTerms.length; h++) {
-				if (keyTerms[h].toLowerCase() != keyTerms[h]) {
+				if (keyTerms[h].toUpperCase() != keyTerms[h] && keyTerms[h].toLowerCase() != keyTerms[h]) {
 					e.innerHTML = e.innerHTML.replaceAll(keyTerms[h].toLowerCase(), conceptLink(keyTerms[h].toLowerCase()));
 				}
 				e.innerHTML = e.innerHTML.replaceAll(keyTerms[h], conceptLink(keyTerms[h]));

@@ -38,10 +38,11 @@ function makeHexes(talonMap) {
 				newRow.className = "hexRow";
 			}
 			for (x = 0; x < maxCols - (y % 2); x++) {
-				var newHex = document.createElement("div");
+				var newHex = document.createElement("img");
 				newHex.className = "hex";
-				newHex.id = letterRows.charAt(y)+(x+1);
-				newHex.title = "Sector "+newHex.id;
+				newHex.src = "gfx/tiles/borderX.png";
+				newHex.id = "hex"+letterRows.charAt(y)+(x+1);
+				newHex.title = "Sector "+newHex.id.substr(3);
 				newRow.appendChild(newHex);
 			}
 			hexBoard.appendChild(newRow);
@@ -60,7 +61,7 @@ function dispRow(b, newDisp) {
 	var hexBoard = document.getElementById("gameBoard");
 
 	for (x = 0; x < 16; x++) {
-		var findObj = document.getElementById(b+(x+1));
+		var findObj = document.getElementById("hex"+b+(x+1));
 		
 		if (findObj) {
 			if (b == "L") {
@@ -94,7 +95,7 @@ function dispCol(a, newDisp) {
 	var affectCol = Math.floor(a);
 	
 	for (y = 0; y < 12; y++) {
-		var findObj = document.getElementById(letterRows.charAt(y)+affectCol);
+		var findObj = document.getElementById("hex"+letterRows.charAt(y)+affectCol);
 		
 		if (findObj && (a % 1 == 0 || y % 2 == 1)) {
 			if (newDisp) {
@@ -172,7 +173,7 @@ function autoNameCounter(localObj) {
 	} else if (localObj.src.indexOf("gfx/marker") >= 0) {
 		localObj.title = "Marker"
 	} else if (localObj.src.indexOf("gfx/minerals10") >= 0) {
-		localObj.title = "Rich Minerals (10)"
+		localObj.title = "Dense Minerals (10)"
 	} else if (localObj.src.indexOf("gfx/minerals5") >= 0) {
 		localObj.title = "Minerals (5)"
 	} else if (localObj.src.indexOf("gfx/spaceWreck") >= 0) {
@@ -247,7 +248,7 @@ function autoNameCounter(localObj) {
 
 function placeCounter(curId, newX, newY, newPic, newSize) {
 	var calcX = newX * 54 - 40;
-	var calcY = newY * 47 + 19;
+	var calcY = newY * 46 + 18;
 	var workObj, applySize = 0;
 
 	var hexBoard = document.getElementById("gameBoard");
@@ -294,13 +295,15 @@ function placeCounter(curId, newX, newY, newPic, newSize) {
 	}
 	
 	if (newY % 2 == 1) {
-		calcX = calcX + 26;
+		calcX = calcX + 27;
 	}
 	
 	if (newPic) {
 		workObj.src = "gfx/" + newPic + ".png";
 		if (newPic.startsWith("minerals")) {
 			workObj.style.zIndex = 1;
+		} else if (workObj.id.startsWith("system")) {
+			paintTile(workObj, newPic);
 		}
 	}
 	if (applySize > 0) {
@@ -311,6 +314,70 @@ function placeCounter(curId, newX, newY, newPic, newSize) {
 	autoNameCounter(workObj);
 	workObj.style.left = calcX + "px";
 	workObj.style.top = calcY + "px";
+}
+
+function paintTile(baseObj, paintPic) {
+	// WIP... maybe
+	var applyPic = null;
+	var remCounter = false;
+	var hexId = "hex";
+	
+	if (typeof baseObj === "object") {
+		hexId = hexId+baseObj.id.substr(6);
+	} else {
+		hexId = hexId+baseObj;
+	}
+	
+	workObj = document.getElementById(hexId);
+	if (workObj) {
+		switch (paintPic) {
+			case "home30B":
+				// Fall thru
+			case "home20B":
+				// Fall thru
+			case "unexploredB":
+				applyPic = "borderB";
+				break;
+			case "home30G":
+				// Fall thru
+			case "home20G":
+				// Fall thru
+			case "unexploredG":
+				applyPic = "borderG";
+				break;
+			case "home30R":
+				// Fall thru
+			case "home20R":
+				// Fall thru
+			case "unexploredR":
+				applyPic = "borderR";
+				break;
+			case "home30Y":
+				// Fall thru
+			case "home20Y":
+				// Fall thru
+			case "unexploredY":
+				applyPic = "borderY";
+				break;
+			case "amoeba1":
+				// Fall thru
+			case "amoeba2":
+				// Fall thru
+			case "amoeba3":
+				// Fall thru
+			case "unexploredW":
+				applyPic = "borderW";
+				break;
+		}
+		
+		if (applyPic) {
+			workObj.src = "gfx/tiles/"+applyPic+".png"
+			
+			if (remCounter && baseObj) {
+				baseObj.remove();
+			}
+		}
+	}
 }
 
 function placeSystemMarker(newX, newY, newPic) {
@@ -976,16 +1043,16 @@ function readJson() {
 					}
 				}
 				
-				for (var z = 9; z < 12; z++) {
-					dispRow(letterRows.charAt(z), false);
-				}
-				
 				if (actionPool[i].alienColors) {
 					var alienHWs = [[1,4], [13,4], [7,8]];
 					
 					for (var a = 0; a < actionPool[i].alienColors.length; a++) {
 						placeAlienHomeworld(alienHWs[a][0], alienHWs[a][1], actionPool[i].alienColors.charAt(a));
 					}
+				}
+				
+				for (var z = 6+actionPool[i].alienColors.length; z < 12; z++) {
+					dispRow(letterRows.charAt(z), false);
 				}
 			} else if (actionPool[i].createPreset == "alienEmpiresSoloLg") {
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
@@ -1214,6 +1281,17 @@ function readJson() {
 				placeSystemMarker(2,2,aomeba[0]);
 				placeSystemMarker(12,2,aomeba[1]);
 				placeSystemMarker(7,6,aomeba[2]);
+				
+				paintTile("K2","unexploredW");
+				paintTile("I2","unexploredW");
+				paintTile("H3","unexploredW");
+				paintTile("H4","unexploredW");
+				
+				paintTile("L11","unexploredW");
+				paintTile("K11","unexploredW");
+				paintTile("I11","unexploredW");
+				paintTile("H10","unexploredW");
+				paintTile("H11","unexploredW");
 				
 				for (var w = 1; w <= 13; w = w + 0.5) {
 					if (w < 2 || w > 12) {

@@ -202,7 +202,7 @@
 			"revealCounter":"systemK7",
 			"name":"unexploredY"
 		}]},
-	{"commentary":"<h2>Movement Turn 4</h2><p>Who would have known the obligatory black hole was in the one adjacent hex we deferred until now? Regardless, our newly built Scout must roll for survival. It rolled an 8 (destroyed).</p><p>In other news, our first expedition into deep space exposed some rich minerals.</p>",
+	{"commentary":"<h2>Movement Turn 4</h2><p>Who would have known the obligatory black hole was in the one adjacent hex we deferred until now? Regardless, our newly built Scout must roll for survival. It rolled an 8 (destroyed).</p><p>In other news, our first expedition into deep space exposed some dense minerals.</p>",
 	"actions":
 		[{
 			"placeCounter":"SC1Y",
@@ -305,7 +305,7 @@
 			"revealCounter":"systemK8",
 			"name":"unexploredY"
 		}]},
-	{"commentary":"<h2>Movement Turn 6</h2><p>Taking another risk into deep space, we uncover more rich minerals.</p>",
+	{"commentary":"<h2>Movement Turn 6</h2><p>Taking another risk into deep space, we uncover more dense minerals.</p>",
 	"actions":
 		[{
 			"placeCounter":"SC1Y",
