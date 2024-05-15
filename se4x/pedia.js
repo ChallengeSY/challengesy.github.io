@@ -236,8 +236,9 @@ function showBox(concept) {
 			displayTxt = "<b>Minelaying Technology</b><br />Allows building "+conceptLink("mines")+".";
 			break;
 		case "minesweeping":
-			displayTxt = "<b>Minesweeping Technology</b><br />Allows building "+conceptLink("minesweeper")+"s. "+conceptLink("Tech")+" levels 2/3 improves the number of mines swept per ship. \
-				<br />"+conceptLink("Alien Player")+" "+conceptLink("Scout")+"s also benefit from this technology.";
+			displayTxt = "<b>Minesweeping Technology</b><br />Allows building "+conceptLink("minesweeper")+"s. "+conceptLink("Tech")+" levels 2/3 improves the number of mines swept per ship.\
+				<br />"+conceptLink("Alien Player")+" "+conceptLink("Scout")+"s also benefit from this technology.\
+				<br /><br />Also doubles as Science Technology in scenarios involving "+conceptLink("space amoeba")+".";
 			break;
 		case "point-defense":
 			displayTxt = "<b>Point-Defense Technology</b><br />"+conceptLink("Scout")+"s equipped with this "+conceptLink("technology")+" gain an improved "+conceptLink("Attack")+" rating versus "+conceptLink("Fighter")+"s." +
@@ -1253,7 +1254,7 @@ function keywordifyCollection(collObj) {
 	const keyTerms = ["Space Empires 4X", "Close Encounters", "Replicators",
 		"Barren", "Colony", "Colonies", "Combat Ship", "CP", "Economic Phase", "Homeworld", "Hull Size", "Maintenance", "Planet", "Scuttle", "Turn",
 		"Bid", "Competitive", "Galactic Capitol", "Initiative", "Victory Point",
-		"Battle", "Blockade", "Bombard", "Fleet Size Bonus", "Non-Player Alien", "Priority Class", "Retreat", "Screen", "Weakness", "Weapon Class",
+		"Battle", "Blockade", "Bombard", "Fleet Size Bonus", "Non-Player Alien", "Priority Class", "Retreat", "Round", "Screen", "Weakness", "Weapon Class",
 		"Alien Empires", "Alien Player", "Doomsday Machine", "Economic Roll", "Amoeba",
 		"Scout", "Destroyer", "Cruiser", "Dreadnought", "Titan", "Ship Yard", "Base", "Mining Ship", "Miner",
 		"Minelayer", "Minesweeper", "Carrier", "Raider", "Pipeline", "Unique Ship",
@@ -1284,6 +1285,8 @@ function keywordifyCollection(collObj) {
 		{regex: "Rich "+conceptLink("Colonies"), newTxt: conceptLink("Rich Colonies")},
 		{regex: "Point-"+conceptLink("Defense"), newTxt: conceptLink("Point-Defense")},
 		{regex: "point-"+conceptLink("pefense"), newTxt: conceptLink("point-defense")},
+		{regex: "G"+conceptLink("round")+" Unit", newTxt: conceptLink("Ground Unit")},
+		{regex: "g"+conceptLink("round")+" unit", newTxt: conceptLink("ground unit")},
 		{regex: conceptLink("danger")+"ous", newTxt: "dangerous"},
 		{regex: "re"+conceptLink("turn"), newTxt: "return"},
 		{regex: conceptLink("Base")+"d", newTxt: "Based"},
