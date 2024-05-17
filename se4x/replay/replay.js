@@ -49,7 +49,7 @@ function makeHexes(talonMap) {
 		}
 		
 		if (talonMap) {
-			ctrlPanel.style.gridTemplateColumns = "auto 50px 50px 870px 50px 50px auto";
+			ctrlPanel.style.gridTemplateColumns = "auto 40px 40px 1303px 40px 40px auto";
 			dispRow("L", false);
 		}
 		
@@ -71,7 +71,7 @@ function dispRow(b, newDisp) {
 					findObj.style.visibility = "hidden";
 				}
 				
-				hexBoard.style.marginTop = "-45px";
+				hexBoard.style.marginTop = "-66px";
 			} else if (b == "K") {
 				if (newDisp) {
 					findObj.style.visibility = "";
@@ -79,7 +79,7 @@ function dispRow(b, newDisp) {
 					findObj.style.visibility = "hidden";
 				}
 				
-				hexBoard.style.marginTop = "-90px";
+				hexBoard.style.marginTop = "-133px";
 			} else {
 				if (newDisp) {
 					findObj.style.display = "";
@@ -170,6 +170,8 @@ function autoNameCounter(localObj) {
 		localObj.title = "Space Amoeba"
 	} else if (localObj.src.indexOf("gfx/doomsday") >= 0) {
 		localObj.title = "Doomsday Machine"
+	} else if (localObj.src.indexOf("gfx/capitol") >= 0) {
+		localObj.title = "Galactic Capitol"
 	} else if (localObj.src.indexOf("gfx/marker") >= 0) {
 		localObj.title = "Marker"
 	} else if (localObj.src.indexOf("gfx/minerals10") >= 0) {
@@ -247,8 +249,8 @@ function autoNameCounter(localObj) {
 }
 
 function placeCounter(curId, newX, newY, newPic, newSize) {
-	var calcX = newX * 54 - 40;
-	var calcY = newY * 46 + 18;
+	var calcX = newX * 81 - 54;
+	var calcY = newY * 69 + 34;
 	var workObj, applySize = 0;
 
 	var hexBoard = document.getElementById("gameBoard");
@@ -284,9 +286,9 @@ function placeCounter(curId, newX, newY, newPic, newSize) {
 		var randX, randY;
 		
 		do {
-			randX = irandom(-20,20);
-			randY = irandom(-12,12);
-		} while (Math.abs(randX) < 17 && Math.abs(randY) < 9)
+			randX = irandom(-30,30);
+			randY = irandom(-18,18);
+		} while (Math.abs(randX) < 19 && Math.abs(randY) < 14)
 		
 		calcX = calcX + randX;
 		calcY = calcY + randY;
@@ -295,7 +297,7 @@ function placeCounter(curId, newX, newY, newPic, newSize) {
 	}
 	
 	if (newY % 2 == 1) {
-		calcX = calcX + 27;
+		calcX = calcX + 40;
 	}
 	
 	if (newPic) {
@@ -309,6 +311,9 @@ function placeCounter(curId, newX, newY, newPic, newSize) {
 	if (applySize > 0) {
 		workObj.style.borderLeftWidth = applySize+"px";
 		workObj.style.borderTopWidth = applySize+"px";
+	} else if (newPic && newPic.indexOf("marker") >= 0) {
+		workObj.style.borderLeftWidth = "0px";
+		workObj.style.borderTopWidth = "0px";
 	}
 	
 	autoNameCounter(workObj);
@@ -365,8 +370,17 @@ function paintTile(baseObj, paintPic) {
 				// Fall thru
 			case "amoeba3":
 				// Fall thru
+			case "capitol":
+				// Fall thru
+			case "warp1":
+				// Fall thru
+			case "warp2":
+				// Fall thru
 			case "unexploredW":
 				applyPic = "borderW";
+				break;
+			case "empty":
+				applyPic = "borderX";
 				break;
 		}
 		
@@ -851,7 +865,7 @@ function readJson() {
 		}
 		
 		if (curStage.victoryTable) {
-			var constructTable = "<table><caption>VP Chart</caption> \
+			var constructTable = "<table><caption>Victory Point Chart</caption> \
 				<tr><th>Player</th><th>VP</th><th>Quota</th></tr>";
 				
 			for (var a = 0; a < curStage.victoryTable.length; a++) {
@@ -1105,6 +1119,13 @@ function readJson() {
 				}
 
 				place3plrHomeMarkers(plrColor, "top");
+
+				paintTile("G6","unexploredW");
+				paintTile("G7","unexploredW");
+				paintTile("F6","unexploredW");
+				paintTile("F8","unexploredW");
+				paintTile("E6","unexploredW");
+				paintTile("E7","unexploredW");
 				
 				if (actionPool[i].alienColors) {
 					var alienHWs = [[4,11], [9,11]];
@@ -1249,6 +1270,13 @@ function readJson() {
 					placeAlienHomeworld(4, 11, actionPool[i].alienColors.charAt(0));
 					placeAlienHomeworld(9, 11, actionPool[i].alienColors.charAt(1));
 				}
+				
+				paintTile("G6","unexploredW");
+				paintTile("G7","unexploredW");
+				paintTile("F6","unexploredW");
+				paintTile("F8","unexploredW");
+				paintTile("E6","unexploredW");
+				paintTile("E7","unexploredW");
 				
 			} else if (actionPool[i].createPreset == "amoebaSolo") {
 				expansionHWs = true;
@@ -1576,6 +1604,10 @@ function readJson() {
 						placeSystemMarker(7,11,markerCounter+plrColors.charAt(0));
 						placeSystemMarker(1,0,markerCounter+plrColors.charAt(1));
 						placeSystemMarker(13,0,markerCounter+plrColors.charAt(2));
+					
+						paintTile("L1","empty");
+						paintTile("L13","empty");
+						paintTile("A7","empty");
 					} else {
 						placeAlienHomeworld(1,0,actionPool[i].alienColor);
 						placeAlienHomeworld(13,0,actionPool[i].alienColor);
@@ -1626,6 +1658,10 @@ function readJson() {
 					placeSystemMarker(1,6,markerCounter+"W");
 					placeSystemMarker(7,6,markerCounter+"W");
 					placeSystemMarker(13,6,markerCounter+"W");
+					
+					paintTile("F1","empty");
+					paintTile("F7","empty");
+					paintTile("F13","empty");
 				}
 				
 				placeHomeworld(1,0,plrColors.charAt(0));

@@ -3,24 +3,23 @@
 #plays {display: grid; grid-template-columns: auto auto auto; font-size: 140%;}
 
 .hexRow {clear: left;}
-.hexRow.even {margin-left: 27px;}
+.hexRow.even {margin-left: 40.5px;}
 
 img.hex {
-	margin-top: -16.2167px;
+	margin-top: -24.325px;
 	float: left;
-	width: 54px;
-	/* height: 84px; */ 
+	width: 81px;
     position: relative;
 }
 
 a {white-space: nowrap;}
 
-#controls {display: grid; grid-template-columns: auto 50px 50px 710px 50px 50px auto; margin-bottom: 15px;}
+#controls {display: grid; grid-template-columns: auto 50px 50px 1060px 50px 50px auto; margin-bottom: 15px;}
 
-button {width: 100%; height: 100%; font-size: 200%;}
+button {width: 100%; height: 100%; font-size: 190%;}
 
-#gameBoard {margin-left: 5px; position: relative; margin-bottom: 10px; padding-top: 15px;}
-.counter {width: 24px; height: 24px; border-top: 1px solid #CCC; border-left: 1px solid #CCC;}
+#gameBoard {margin-left: 2.5px; position: relative; padding-top: 25px;}
+.counter {width: 26px; height: 26px; border-top: 1px solid #CCC; border-left: 1px solid #CCC;}
 .ghost {opacity: 0.7;}
 
 #commentary {clear: both; border-top: 1px solid white;}

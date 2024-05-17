@@ -1263,8 +1263,7 @@ function keywordifyCollection(collObj) {
 		"Cloaking", "Fighter", "Minelaying", "Minesweeping", "Nanomachine", "Scanning",
 		"Quick Start", "Slingshot", "Gearing Limits", "Unpredictable Research", "Research Grant", "Heavy Terrain",
 		"Safer Space", "Slow Scientists", "Smart Scientists", "Bloody Combat", "Head Start", "Galactic Situation",
-		"Empire Advantage", "Experience", "Facility", "Facilities", "Ground Unit", "RP",
-		"Boarding Ship", "Flagship", "Swallow"];
+		"Empire Advantage", "Experience", "Facility", "Facilities", "RP", "Boarding Ship", "Flagship", "Swallow"];
 		
 	const keyExpressions = [
 		{regex: "non-"+conceptLink("combat ship"), newTxt: conceptLink("non-combat ship")},
