@@ -38,18 +38,23 @@ function makeHexes(talonMap) {
 				newRow.className = "hexRow";
 			}
 			for (x = 0; x < maxCols - (y % 2); x++) {
-				var newHex = document.createElement("img");
-				newHex.className = "hex";
-				newHex.src = "gfx/tiles/borderX.png";
+				var newHex = document.createElement("div");
+				newHex.className = "hexSlot";
 				newHex.id = "hex"+letterRows.charAt(y)+(x+1);
-				newHex.title = "Sector "+newHex.id.substr(3);
+				
+				var newHexBack = document.createElement("img");
+				newHexBack.className = "hexBack";
+				newHexBack.src = "gfx/tiles/borderX.png";
+				newHexBack.id = "back"+letterRows.charAt(y)+(x+1);
+				newHexBack.title = "Sector "+newHex.id.substr(3);
+				newHex.appendChild(newHexBack);
 				newRow.appendChild(newHex);
 			}
 			hexBoard.appendChild(newRow);
 		}
 		
 		if (talonMap) {
-			ctrlPanel.style.gridTemplateColumns = "auto 40px 40px 1303px 40px 40px auto";
+			ctrlPanel.className = "talonBoard";
 			dispRow("L", false);
 		}
 		
@@ -64,28 +69,10 @@ function dispRow(b, newDisp) {
 		var findObj = document.getElementById("hex"+b+(x+1));
 		
 		if (findObj) {
-			if (b == "L") {
-				if (newDisp) {
-					findObj.style.visibility = "";
-				} else {
-					findObj.style.visibility = "hidden";
-				}
-				
-				hexBoard.style.marginTop = "-66px";
-			} else if (b == "K") {
-				if (newDisp) {
-					findObj.style.visibility = "";
-				} else {
-					findObj.style.visibility = "hidden";
-				}
-				
-				hexBoard.style.marginTop = "-133px";
+			if (newDisp) {
+				findObj.style.display = "";
 			} else {
-				if (newDisp) {
-					findObj.style.display = "";
-				} else {
-					findObj.style.display = "none";
-				}
+				findObj.style.display = "none";
 			}
 		}
 	}
@@ -249,11 +236,11 @@ function autoNameCounter(localObj) {
 }
 
 function placeCounter(curId, newX, newY, newPic, newSize) {
-	var calcX = newX * 81 - 54;
-	var calcY = newY * 69 + 34;
+	var calcX = 50;
+	var calcY = 50;
 	var workObj, applySize = 0;
 
-	var hexBoard = document.getElementById("gameBoard");
+	var workSlot = document.getElementById("hex"+letterRows.charAt(newY)+newX);
 	if (typeof newSize !== "undefined") {
 		applySize = newSize;
 	} else {
@@ -278,26 +265,21 @@ function placeCounter(curId, newX, newY, newPic, newSize) {
 		} else {
 			workObj.style.zIndex = 3;
 		}
-		
-		hexBoard.appendChild(workObj);
 	}
+	workSlot.appendChild(workObj);
 	
 	if (!curId.startsWith("system")) {
 		var randX, randY;
 		
 		do {
 			randX = irandom(-30,30);
-			randY = irandom(-18,18);
-		} while (Math.abs(randX) < 19 && Math.abs(randY) < 14)
+			randY = irandom(-30,30);
+		} while (Math.abs(randX) < 25 && Math.abs(randY) < 25)
 		
 		calcX = calcX + randX;
 		calcY = calcY + randY;
 	} else {
 		applySize = 0;
-	}
-	
-	if (newY % 2 == 1) {
-		calcX = calcX + 40;
 	}
 	
 	if (newPic) {
@@ -317,15 +299,15 @@ function placeCounter(curId, newX, newY, newPic, newSize) {
 	}
 	
 	autoNameCounter(workObj);
-	workObj.style.left = calcX + "px";
-	workObj.style.top = calcY + "px";
+	workObj.style.left = calcX + "%";
+	workObj.style.top = calcY + "%";
 }
 
 function paintTile(baseObj, paintPic) {
 	// WIP... maybe
 	var applyPic = null;
 	var remCounter = false;
-	var hexId = "hex";
+	var hexId = "back";
 	
 	if (typeof baseObj === "object") {
 		hexId = hexId+baseObj.id.substr(6);
