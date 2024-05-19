@@ -380,10 +380,6 @@ function getDMspecs() {
 		dmAtk = 14;
 	}
 	
-	if (combatHex == "hexNebula") {
-		dmClass = "E";
-	}
-	
 	document.getElementById("dmAtk").innerHTML = dmClass + dmAtk;
 	document.getElementById("dmDef").innerHTML = dmDef;
 	document.getElementById("dmSize").innerHTML = dmSize;
@@ -1306,26 +1302,18 @@ function runSimRound() {
 	simFleet.raiders.updateSpecs();
 
 	firePlrWeps(simFleet.mines, false);
-	
 		
-	if (combatHex == "hexNebula") {
-		// DM is just as affected by this penalty as the Player fleet.
-		for (var h = 3; h >= 0; h--) {
-			fireTacticsLv(h);
-		}
-	} else {
-		if (combatHex == "hexAsteroids") {
-			// DM is immune to this penalty. It always goes first.
-			fireDMweps();
-		}
-		
-		fireWepClass("A");
-		fireWepClass("B");
-		fireWepClass("C");
-		fireWepClass("D");
-		fireWepClass("E");
-		fireWepClass("F");
+	if (combatHex == "hexAsteroids" || combatHex == "hexNebula") {
+		// DM is immune to these penalties. It always goes first.
+		fireDMweps();
 	}
+	
+	fireWepClass("A");
+	fireWepClass("B");
+	fireWepClass("C");
+	fireWepClass("D");
+	fireWepClass("E");
+	fireWepClass("F");
 	
 	if (simFleet.totalShips() <= 0 && simDM.hitPoints <= 0) {
 		if (simMulti) {

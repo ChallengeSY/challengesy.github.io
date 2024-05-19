@@ -50,8 +50,7 @@ function stats(buildCost, atk, def, hullSize, tac) {
 function dmBase(strength) {
 	const dmCommonA = "Non-player <q>boss</q> ship that will instantly destroy any undefended "+conceptLink("planet")+" it contests.";
 	const dmCommonB = "<br />Equipped with "+conceptLink("Scanning")+" level 2. \
-		Immune to "+conceptLink("asteroids")+", "+conceptLink("black hole")+"s, "+conceptLink("boarding")+", \
-		"+conceptLink("fighter")+"s, "+conceptLink("mines")+", and "+conceptLink("supernova")+"s.\
+		Immune to "+conceptLink("boarding")+", "+conceptLink("fighter")+"s, "+conceptLink("mines")+", and non-"+conceptLink("amoeba")+" terrain.\
 		<br />Prevents the benefits of "+conceptLink("Fleet Size Bonus")+"es and "+conceptLink("combat ship")+" "+conceptLink("screen")+"ing.";
 	
 	if (strength == "MP") {
@@ -319,7 +318,8 @@ function showBox(concept) {
 			displayTxt = "<b>Homeworld</b><br />Starting "+conceptLink("colony")+" for an empire. It is the most powerful <span class=\"bindTxt\">(produces up to 30 "+conceptLink("CP")+")</span> and most important colony <span class=\"bindTxt\">(destruction ends a game)</span>.";
 			break;
 		case "home system":
-			displayTxt = "<b>Home System</b><br />A set of hexes that surround a "+conceptLink("homeworld")+". These systems are relatively safe, with only a single dangerous "+conceptLink("black hole")+" counter shuffled among these 25 "+conceptLink("unexplored")+" systems.";
+			displayTxt = "<b>Home System</b><br />A set of hexes that surround a "+conceptLink("homeworld")+". These systems are relatively safe, \
+				with usually only a single dangerous "+conceptLink("black hole")+" counter shuffled among these 25 "+conceptLink("unexplored")+" systems.";
 			break;
 		case "lost":
 			// Fall through
@@ -869,6 +869,10 @@ function showBox(concept) {
 			displayTxt = "<b>Cryogenic Stasis Pods</b><br />"+conceptLink("Boarding Ship")+"s and "+conceptLink("Transport")+"s \
 				pay half as much "+conceptLink("maintenance")+" in total.";
 			break;
+		case "minesweeper jammer":
+			displayTxt = "<b>Minesweeper Jammer</b><br />"+conceptLink("Minesweeper")+"s used against the holder are \
+				one level less in effectiveness. Reducible to level 0 (0 mines per sweeper).";
+			break;
 		case "air transport":
 			displayTxt = "<b>Air Transport</b><br />"+conceptLink("Transport")+"s are usable in ground "+conceptLink("battle")+"s, \
 				but are unable to capture a "+conceptLink("planet")+" on their own accord.\
@@ -1039,8 +1043,8 @@ function showBox(concept) {
 				Subsequent levels cost 15 CP (down from 20-25 CP).";
 			break;
 		case "green replicators":
-			displayTxt = "<b>Green Replicators</b><br />"+conceptLink("Replicator")+" "+conceptLink("colonies")+" begin to deplete \
-				starting at "+conceptLink("economic phase")+" 13 (instead of EP 10).";
+			displayTxt = "<b>Green Replicators</b><br />"+conceptLink("Replicator")+" "+conceptLink("colonies")+" \
+				last 3 "+conceptLink("economic phase")+"s longer before they begin to "+conceptLink("deplete")+".";
 			break;
 		case "improved gunnery":
 			displayTxt = "<b>Improved Gunnery</b><br />"+conceptLink("Type Flag")+" + "+conceptLink("Type XIII")+" + "+conceptLink("Type XV")+" ships \
@@ -1112,6 +1116,10 @@ function showBox(concept) {
 				Has fixed "+conceptLink("Movement")+" level 4 and "+conceptLink("Fastmove")+" level 1. Automatically self-destructs when captured. \
 				" + stats(10, "A5", 0, 1, 0);
 			break;
+		case "resource card":
+			displayTxt = "<b>Resource Card</b><br />Card that has unique effects when played, generates "+conceptLink("CP")+" when discarded, \
+				or can be used to cancel other resource cards.";
+			break;
 		case "advanced construction":
 			displayTxt =  "<b>Advanced Construction</b><br />"+conceptLink("Replicators")+"-exclusive technology that adds a variety of design variants and upgrades.\
 				Requires building a ship with at least "+conceptLink("Ship Size")+" level 4.\
@@ -1157,6 +1165,16 @@ function showBox(concept) {
 				in addition to standard equipment.\
 				" + stats(0, "A5", 3, 3) + "<br /><b>Required Tech</b>: "+conceptLink("Advanced Construction")+" level 3";
 			break;
+			
+		// Replicator faction concepts
+		case "deplete":
+			// Fall through
+		case "depletion":
+			displayTxt = "<b>Depletion</b><br />"+conceptLink("Replicator")+" "+conceptLink("colonies")+" grow quickly, but also quickly consume their resources.\
+				<br /><br />Starting on "+conceptLink("Economic Phase")+" 10 (assuming no "+conceptLink("Green Replicators")+"), \
+				one colony is depleted, rendering it no longer usable by any player for the rest of the scenario.";
+			break;
+		
 			
 		// Replicator Ships
 		case "type 0":
@@ -1251,19 +1269,24 @@ function keywordifyDocument() {
 }
 
 function keywordifyCollection(collObj) {
-	const keyTerms = ["Space Empires 4X", "Close Encounters", "Replicators",
+	const keyTerms = ["Space Empires 4X", "Close Encounters", "Replicator",
 		"Barren", "Colony", "Colonies", "Combat Ship", "CP", "Economic Phase", "Homeworld", "Hull Size", "Maintenance", "Planet", "Scuttle", "Turn",
-		"Bid", "Competitive", "Galactic Capitol", "Initiative", "Victory Point",
+		"Bid", "Competitive", "Galactic Capitol", "Initiative", "Victory Point", "Uneasy Alliance", "Blood Brothers",
 		"Battle", "Blockade", "Bombard", "Fleet Size Bonus", "Non-Player Alien", "Priority Class", "Retreat", "Round", "Screen", "Weakness", "Weapon Class",
 		"Alien Empires", "Alien Player", "Doomsday Machine", "Economic Roll", "Amoeba",
-		"Scout", "Destroyer", "Cruiser", "Dreadnought", "Titan", "Ship Yard", "Base", "Mining Ship", "Miner",
+		"Decoy", "Scout", "Destroyer", "Cruiser", "Dreadnought", "Titan", "Ship Yard", "Base", "Mining Ship", "Miner",
 		"Minelayer", "Minesweeper", "Carrier", "Raider", "Pipeline", "Unique Ship",
 		"Asteroid Belt", "Asteroids", "Black Hole", "Danger", "Deep Space", "Home System", "Lost in Space", "Nebula", "Space Wreck", "Supernova", "Unexplored",
+		"Warp Point", "Regional Map", "Fold in Space", "Space Pirate",
 		"Technology", "Technologies", "Attack", "Defense", "Exploration", "Movement", "Ship Size", "Tactics", "Terraforming", "Upgrade",
 		"Cloaking", "Fighter", "Minelaying", "Minesweeping", "Nanomachine", "Scanning",
 		"Quick Start", "Slingshot", "Gearing Limits", "Unpredictable Research", "Research Grant", "Heavy Terrain",
 		"Safer Space", "Slow Scientists", "Smart Scientists", "Bloody Combat", "Head Start", "Galactic Situation",
-		"Empire Advantage", "Experience", "Facility", "Facilities", "RP", "Boarding Ship", "Flagship", "Swallow"];
+		"Experience", "Facility", "Facilities", "RP", "Boarding Ship", "Flagship", "Swallow",
+		"Empire Advantage",
+		"Resource Card",
+		"Depletion", "Deplete",
+		"Type 0", "Type II", "Type IV", "Type V", "Type VII", "Type IX", "Type XI", "Type XIII", "Type XV"];
 		
 	const keyExpressions = [
 		{regex: "non-"+conceptLink("combat ship"), newTxt: conceptLink("non-combat ship")},
@@ -1286,6 +1309,10 @@ function keywordifyCollection(collObj) {
 		{regex: "point-"+conceptLink("pefense"), newTxt: conceptLink("point-defense")},
 		{regex: "G"+conceptLink("round")+" Unit", newTxt: conceptLink("Ground Unit")},
 		{regex: "g"+conceptLink("round")+" unit", newTxt: conceptLink("ground unit")},
+		{regex: conceptLink("Minesweeper")+" Jammer", newTxt: conceptLink("Minesweeper Jammer")},
+		{regex: conceptLink("minesweeper")+" jammer", newTxt: conceptLink("minesweeper jammer")},
+		{regex: "Alien "+conceptLink("Technology"), newTxt: conceptLink("Alien Technology")},
+		{regex: "alien "+conceptLink("technology"), newTxt: conceptLink("alien technology")},
 		{regex: conceptLink("danger")+"ous", newTxt: "dangerous"},
 		{regex: "re"+conceptLink("turn"), newTxt: "return"},
 		{regex: conceptLink("Base")+"d", newTxt: "Based"},
