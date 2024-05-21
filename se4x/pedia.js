@@ -681,8 +681,9 @@ function showBox(concept) {
 		case "titan":
 			displayTxt = "<b>Titan</b><br />Extremely potent <q>baseship</q>. Can carry "+conceptLink("Fighter")+"s if upgraded.\
 				Deals <b>2</b> damage per hit. Immune to "+conceptLink("Boarding Ship")+"s.<br />\
-				Resistant to "+conceptLink("Mines")+". Weak to "+conceptLink("Fighter")+"s. Unable to "+conceptLink("retreat")+" or be "+conceptLink("screen")+"ed.";
-			displayTxt = displayTxt + stats(32, "A7", 3, 5) + "<br /><b>Required Tech</b>: "+conceptLink("Ship Size")+" level 7";
+				Can instantly destroy "+conceptLink("planet")+"s. Resistant to "+conceptLink("Mines")+". Weak to "+conceptLink("Fighter")+"s. \
+				Unable to "+conceptLink("retreat")+" or be "+conceptLink("screen")+"ed.\
+				" + stats(32, "A7", 3, 5) + "<br /><b>Required Tech</b>: "+conceptLink("Ship Size")+" level 7";
 			break;
 			
 		// Troops concepts
@@ -693,8 +694,10 @@ function showBox(concept) {
 			displayTxt = displayTxt + stats(6, "E1", 1, 1)+"<br /><b>Required Tech</b>: "+conceptLink("Troops")+" level 1";
 			break;
 		case "ground unit":
-			displayTxt = "<b>Ground unit</b><br />Small ground-borne craft that is used by "+conceptLink("Transport")+"s to \
-				invade enemy "+conceptLink("colonies")+" in a ground "+conceptLink("battle")+"; or to defend friendly colonies.";
+			displayTxt = "<b>Ground unit</b><br />Small ground-borne craft used by "+conceptLink("Transport")+"s to \
+				invade enemy "+conceptLink("colonies")+" in a ground "+conceptLink("battle")+"; or to defend friendly colonies.<br />\
+				1-3 non-"+conceptLink("militia")+" ground units grant the planet a Defense of 1 in a "+conceptLink("bombard")+"ment round. \
+				4 or more units Defense 2.";
 			break;
 		case "troops":
 			displayTxt = "<b>Troops</b><br />Allows building progressively stronger troops.<br />\
@@ -703,11 +706,16 @@ function showBox(concept) {
 				Level 3: Allows "+conceptLink("Grav Armor")+". \
 					Also allows upgraded "+conceptLink("Transport")+"s to drop troops sooner, and with "+conceptLink("Defense")+" +1";
 			break;
+		case "militia":
+			displayTxt = "<b>Militia</b><br />Temporary "+conceptLink("ground unit")+"; granted whenever a colony is in a ground "+conceptLink("battle")+", \
+				at a rate of 1 militia per 1 CP income.\
+					" + stats(0, "E5", 0, 1);
+			break;
 		case "inf":
 			// Fall through
 		case "light infantry":
-			displayTxt = "<b>Light Infantry</b><br />Basic "+conceptLink("ground unit");
-			displayTxt = displayTxt + stats(2, "D5", 1, 1)+"<br /><b>Required Tech</b>: "+conceptLink("Troops")+" level 1";
+			displayTxt = "<b>Light Infantry</b><br />Basic "+conceptLink("ground unit")+"\
+				" + stats(2, "D5", 1, 1)+"<br /><b>Required Tech</b>: "+conceptLink("Troops")+" level 1";
 			break;
 		case "mar":
 			// Fall through
@@ -719,7 +727,7 @@ function showBox(concept) {
 		case "hi":
 			// Fall through
 		case "heavy infantry":
-			displayTxt = "<b>Heavy Infantry</b><br />Offensive oriented "+conceptLink("ground unit")+". \
+			displayTxt = "<b>Heavy Infantry</b><br />Defensive oriented "+conceptLink("ground unit")+". \
 				Gains boosted "+conceptLink("Attack")+" rating when used to defend a "+conceptLink("colony")+"\
 				"+stats(3, "D4 / C6", 2, 2)+"<br /><b>Required Tech</b>: "+conceptLink("Troops")+" level 2";
 			break;
@@ -1111,7 +1119,7 @@ function showBox(concept) {
 			displayTxt =  "<b>Replicators</b><br />Second expansion to the base "+conceptLink("Space Empires 4X")+" board game.<br />\
 				Unique faction; playable by a human, or as the antagonists in a unique solitaire scenario.";
 			break;
-		case "space pirate":
+		case "pirate":
 			displayTxt = "<b>Space Pirate</b><br />Non-aligned ship that can be fought or hired by any ships that encounter them.<br />\
 				Has fixed "+conceptLink("Movement")+" level 4 and "+conceptLink("Fastmove")+" level 1. Automatically self-destructs when captured. \
 				" + stats(10, "A5", 0, 1, 0);
@@ -1119,6 +1127,10 @@ function showBox(concept) {
 		case "resource card":
 			displayTxt = "<b>Resource Card</b><br />Card that has unique effects when played, generates "+conceptLink("CP")+" when discarded, \
 				or can be used to cancel other resource cards.";
+			break;
+		case "anti-replicator":
+			displayTxt =  "<b>Anti-Replicator Technology</b><br />Allows equipped "+conceptLink("Transports")+" to finish off a \
+				"+conceptLink("Replicator")+" colony that is already at minimal strength.";
 			break;
 		case "advanced construction":
 			displayTxt =  "<b>Advanced Construction</b><br />"+conceptLink("Replicators")+"-exclusive technology that adds a variety of design variants and upgrades.\
@@ -1173,6 +1185,10 @@ function showBox(concept) {
 			displayTxt = "<b>Depletion</b><br />"+conceptLink("Replicator")+" "+conceptLink("colonies")+" grow quickly, but also quickly consume their resources.\
 				<br /><br />Starting on "+conceptLink("Economic Phase")+" 10 (assuming no "+conceptLink("Green Replicators")+"), \
 				one colony is depleted, rendering it no longer usable by any player for the rest of the scenario.";
+			break;
+		case "self-preservation":
+			displayTxt = "<b>Self-Preservation</b><br />In "+conceptLink("Replicator")+" Solitaire, Replicator fleets will try to avoid \
+				"+conceptLink("battle")+"s with Player fleets if the latter has a "+conceptLink("Hull Size")+" advantage of 25% or more.";
 			break;
 		
 			
@@ -1273,20 +1289,22 @@ function keywordifyCollection(collObj) {
 		"Barren", "Colony", "Colonies", "Combat Ship", "CP", "Economic Phase", "Homeworld", "Hull Size", "Maintenance", "Planet", "Scuttle", "Turn",
 		"Bid", "Competitive", "Galactic Capitol", "Initiative", "Victory Point", "Uneasy Alliance", "Blood Brothers",
 		"Battle", "Blockade", "Bombard", "Fleet Size Bonus", "Non-Player Alien", "Priority Class", "Retreat", "Round", "Screen", "Weakness", "Weapon Class",
-		"Alien Empires", "Alien Player", "Doomsday Machine", "Economic Roll", "Amoeba",
+		"Alien-D", "Alien-C", "Alien-B", "Alien Empires", "Alien Player", "Doomsday Machine", "Economic Roll", "Amoeba",
 		"Decoy", "Scout", "Destroyer", "Cruiser", "Dreadnought", "Titan", "Ship Yard", "Base", "Mining Ship", "Miner",
 		"Minelayer", "Minesweeper", "Carrier", "Raider", "Pipeline", "Unique Ship",
 		"Asteroid Belt", "Asteroids", "Black Hole", "Danger", "Deep Space", "Home System", "Lost in Space", "Nebula", "Space Wreck", "Supernova", "Unexplored",
-		"Warp Point", "Regional Map", "Fold in Space", "Space Pirate",
+		"Warp Point", "Regional Map", "Fold in Space", "Pirate",
 		"Technology", "Technologies", "Attack", "Defense", "Exploration", "Movement", "Ship Size", "Tactics", "Terraforming", "Upgrade",
 		"Cloaking", "Fighter", "Minelaying", "Minesweeping", "Nanomachine", "Scanning",
 		"Quick Start", "Slingshot", "Gearing Limits", "Unpredictable Research", "Research Grant", "Heavy Terrain",
 		"Safer Space", "Slow Scientists", "Smart Scientists", "Bloody Combat", "Head Start", "Galactic Situation",
+		"Transport", "Troops", "Militia", "Light Infantry", "Space Marines", "Heavy Infantry", "Grav Armor",
 		"Experience", "Facility", "Facilities", "RP", "Boarding Ship", "Flagship", "Swallow",
 		"Empire Advantage",
 		"Resource Card",
-		"Depletion", "Deplete",
-		"Type 0", "Type II", "Type IV", "Type V", "Type VII", "Type IX", "Type XI", "Type XIII", "Type XV"];
+		"Depletion", "Deplete", "Self-Preservation",
+		"Type 0", "Type II", "Type IV", "Type V", "Type IX", "Type XI", "Type XV",
+		"Type Exp", "Type Flag", "Type PD", "Type Scan", "Type SW"];
 		
 	const keyExpressions = [
 		{regex: "non-"+conceptLink("combat ship"), newTxt: conceptLink("non-combat ship")},
@@ -1299,6 +1317,13 @@ function keywordifyCollection(collObj) {
 		{regex: conceptLink("Colony")+" Ship", newTxt: conceptLink("Colony Ship")},
 		{regex: conceptLink("miner")+"als", newTxt: conceptLink("minerals")},
 		{regex: conceptLink("Miner")+"als", newTxt: conceptLink("Minerals")},
+		{regex: conceptLink("danger")+"ous", newTxt: "dangerous"},
+		{regex: "re"+conceptLink("turn"), newTxt: "return"},
+		{regex: conceptLink("Base")+"d", newTxt: "Based"},
+		{regex: conceptLink("base")+"d", newTxt: "based"},
+		{regex: conceptLink("Turn")+"ed", newTxt: "Turned"},
+		{regex: conceptLink("turn")+"ed", newTxt: "turned"},
+		{regex: "Sa"+conceptLink("turn"), newTxt: "Saturn"},
 		{regex: "low "+conceptLink("maintenance"), newTxt: conceptLink("low maintenance")},
 		{regex: "Low "+conceptLink("Maintenance"), newTxt: conceptLink("Low Maintenance")},
 		{regex: "rich "+conceptLink("minerals"), newTxt: conceptLink("rich minerals")},
@@ -1313,13 +1338,12 @@ function keywordifyCollection(collObj) {
 		{regex: conceptLink("minesweeper")+" jammer", newTxt: conceptLink("minesweeper jammer")},
 		{regex: "Alien "+conceptLink("Technology"), newTxt: conceptLink("Alien Technology")},
 		{regex: "alien "+conceptLink("technology"), newTxt: conceptLink("alien technology")},
-		{regex: conceptLink("danger")+"ous", newTxt: "dangerous"},
-		{regex: "re"+conceptLink("turn"), newTxt: "return"},
-		{regex: conceptLink("Base")+"d", newTxt: "Based"},
-		{regex: conceptLink("base")+"d", newTxt: "based"},
-		{regex: conceptLink("Turn")+"ed", newTxt: "Turned"},
-		{regex: conceptLink("turn")+"ed", newTxt: "turned"},
-		{regex: "Sa"+conceptLink("turn"), newTxt: "Saturn"}
+		{regex: "Anti-"+conceptLink("Replicator"), newTxt: conceptLink("Anti-Replicator")},
+		{regex: "anti-"+conceptLink("replicator"), newTxt: conceptLink("anti-replicator")},
+		{regex: conceptLink("Type V")+"II", newTxt: conceptLink("Type VII")},
+		{regex: conceptLink("type v")+"ii", newTxt: conceptLink("type vii")},
+		{regex: conceptLink("Type XI")+"II", newTxt: conceptLink("Type XIII")},
+		{regex: conceptLink("type xi")+"ii", newTxt: conceptLink("type xiii")}
 		];
 	
 	for (var e of collObj) {
