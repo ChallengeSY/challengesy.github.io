@@ -20,11 +20,21 @@ div.hexSlot {
     position: relative;
 }
 
+div.hexLabel {
+	font-family: monospace;
+	position: absolute;
+	left: 50%;
+	bottom: 10%;
+	transform: translate(-50%, 0%);
+	z-index: -1;
+}
+
 img.hexBack {
 	position: relative;
 	left: 0px;
 	top: 2px;
 	width:100%;
+	z-index: 0;
 }
 
 #controls {display: grid; margin-bottom: 15px;}
@@ -44,6 +54,10 @@ img.hexBack {
 		width: 54px;
 	}
 
+	div.hexLabel {
+		font-size: 70%;
+	}
+
 	.hexRow.even {margin-left: 27px;}
 }
 
@@ -56,6 +70,10 @@ img.hexBack {
 	div.hexSlot {
 		margin-top: -28.325px;
 		width: 81px;
+	}
+
+	div.hexLabel {
+		font-size: 105%;
 	}
 
 	.hexRow.even {margin-left: 40.5px;}

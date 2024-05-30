@@ -48,6 +48,12 @@ function makeHexes(talonMap) {
 				newHexBack.id = "back"+letterRows.charAt(y)+(x+1);
 				newHexBack.title = "Sector "+newHex.id.substr(3);
 				newHex.appendChild(newHexBack);
+				
+				var newHexLabel = document.createElement("div");
+				newHexLabel.className = "hexLabel"
+				newHexLabel.innerHTML = letterRows.charAt(y)+(x+1);
+				newHex.appendChild(newHexLabel);
+				
 				newRow.appendChild(newHex);
 			}
 			hexBoard.appendChild(newRow);
@@ -349,15 +355,18 @@ function placeCounter(curId, newX, newY, newPic, newSize) {
 			workObj.style.zIndex = 3;
 		}
 	}
-	workSlot.appendChild(workObj);
+	if (workSlot) {
+		workSlot.appendChild(workObj);
+	}
 	
 	if (!curId.startsWith("system")) {
+		var checkSystem = document.getElementById("system"+letterRows.charAt(newY)+newX);
 		var randX, randY;
 		
 		do {
 			randX = irandom(-32,32);
 			randY = irandom(-28,28);
-		} while (Math.abs(randX) < 25 && Math.abs(randY) < 25)
+		} while (checkSystem && Math.abs(randX) < 25 && Math.abs(randY) < 25)
 		
 		calcX = calcX + randX;
 		calcY = calcY + randY;
