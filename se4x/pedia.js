@@ -1,3 +1,5 @@
+var replaceAllFailed = false;
+
 function setupBox() {
 	var bodyPanel = document.getElementsByTagName("body")[0];
 	var infoFrag;
@@ -1184,7 +1186,7 @@ function showBox(concept) {
 		case "depletion":
 			displayTxt = "<b>Depletion</b><br />"+conceptLink("Replicator")+" "+conceptLink("colonies")+" grow quickly, but also quickly consume their resources.\
 				<br /><br />Starting on "+conceptLink("Economic Phase")+" 10 (assuming no "+conceptLink("Green Replicators")+"), \
-				one colony is depleted, rendering it no longer usable by any player for the rest of the scenario.";
+				one colony is depleted; rendering its "+conceptLink("planet")+" no longer usable by any player for the rest of the scenario.";
 			break;
 		case "self-preservation":
 			displayTxt = "<b>Self-Preservation</b><br />In "+conceptLink("Replicator")+" Solitaire, Replicator fleets will try to avoid \
@@ -1346,17 +1348,42 @@ function keywordifyCollection(collObj) {
 		{regex: conceptLink("type xi")+"ii", newTxt: conceptLink("type xiii")}
 		];
 	
-	for (var e of collObj) {
-		if (!e.innerHTML.startsWith("<a") && !e.className.startsWith("noKeywords")) {
-			for (var h = 0; h < keyTerms.length; h++) {
-				if (keyTerms[h].toUpperCase() != keyTerms[h] && keyTerms[h].toLowerCase() != keyTerms[h]) {
-					e.innerHTML = e.innerHTML.replaceAll(keyTerms[h].toLowerCase(), conceptLink(keyTerms[h].toLowerCase()));
+	if (!replaceAllFailed) {
+		try {
+			for (var e of collObj) {
+				if (!e.innerHTML.startsWith("<a") && !e.className.startsWith("noKeywords")) {
+					for (var h = 0; h < keyTerms.length; h++) {
+						if (keyTerms[h].toUpperCase() != keyTerms[h] && keyTerms[h].toLowerCase() != keyTerms[h]) {
+							e.innerHTML = e.innerHTML.replaceAll(keyTerms[h].toLowerCase(), conceptLink(keyTerms[h].toLowerCase()));
+						}
+						e.innerHTML = e.innerHTML.replaceAll(keyTerms[h], conceptLink(keyTerms[h]));
+					}
+					
+					for (var g = 0; g < keyExpressions.length; g++) {
+						e.innerHTML = e.innerHTML.replaceAll(keyExpressions[g].regex, keyExpressions[g].newTxt);
+					}
 				}
-				e.innerHTML = e.innerHTML.replaceAll(keyTerms[h], conceptLink(keyTerms[h]));
 			}
-			
-			for (var g = 0; g < keyExpressions.length; g++) {
-				e.innerHTML = e.innerHTML.replaceAll(keyExpressions[g].regex, keyExpressions[g].newTxt);
+		} catch(err) {
+			console.warn("Unable to use 'innerHTML.replaceAll'. Some words may not be 'keywordified'.");
+			replaceAllFailed = true;
+		}
+	}
+	
+	if (replaceAllFailed) {
+		// Fall back code for older browsers
+		for (var e of collObj) {
+			if (!e.innerHTML.startsWith("<a") && !e.className.startsWith("noKeywords")) {
+				for (var h = 0; h < keyTerms.length; h++) {
+					if (keyTerms[h].toUpperCase() != keyTerms[h] && keyTerms[h].toLowerCase() != keyTerms[h]) {
+						e.innerHTML = e.innerHTML.replace(keyTerms[h].toLowerCase(), conceptLink(keyTerms[h].toLowerCase()));
+					}
+					e.innerHTML = e.innerHTML.replace(keyTerms[h], conceptLink(keyTerms[h]));
+				}
+				
+				for (var g = 0; g < keyExpressions.length; g++) {
+					e.innerHTML = e.innerHTML.replace(keyExpressions[g].regex, keyExpressions[g].newTxt);
+				}
 			}
 		}
 	}
