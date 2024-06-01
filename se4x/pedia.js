@@ -1334,6 +1334,8 @@ function keywordifyCollection(collObj) {
 		{regex: "Rich "+conceptLink("Colonies"), newTxt: conceptLink("Rich Colonies")},
 		{regex: "Point-"+conceptLink("Defense"), newTxt: conceptLink("Point-Defense")},
 		{regex: "point-"+conceptLink("pefense"), newTxt: conceptLink("point-defense")},
+		{regex: "A"+conceptLink("round"), newTxt: "Around"},
+		{regex: "a"+conceptLink("round"), newTxt: "around"},
 		{regex: "G"+conceptLink("round")+" Unit", newTxt: conceptLink("Ground Unit")},
 		{regex: "g"+conceptLink("round")+" unit", newTxt: conceptLink("ground unit")},
 		{regex: conceptLink("Minesweeper")+" Jammer", newTxt: conceptLink("Minesweeper Jammer")},

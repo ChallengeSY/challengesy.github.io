@@ -1,13 +1,13 @@
 {"stages": [
 	{"heading":"Stardate 2400.0 (Introduction)",
-	"commentary":"<p>Welcome to another Alien Empires playthrough of Space Empires 4X. Although we have fallen back to Easy difficulty (in response to a recent defeat), we are shaking things up a bit by throwing in the Unpredictable Research gimmick for us. This is also the first Alien Empires playthrough to use specific names for the Alien Players, named after one each of Jupiter and Saturn's moons.</p>",
+	"commentary":"<p>Welcome to another Alien Empires playthrough of Space Empires 4X. Although we have fallen back to Easy difficulty (in response to a recent defeat), we are shaking things up a bit by throwing in the Unpredictable Research gimmick for us. This is also the first Alien Empires playthrough to use specific names for the Alien Players, named after Jupiter's moons.</p>",
 	"techTable":
 		[{
 			"name":"CSY (Blue)"
 		},{
-			"name":"Bergelmir (Green)","minelay":1
+			"name":"Adrastea (Green)","minelay":1
 		},{
-			"name":"Valetudo (Yellow)","minelay":1
+			"name":"Harpalyke (Yellow)","minelay":1
 		}],
 	"actions":
 		[{
@@ -145,7 +145,7 @@
 			"name":"planetB5"
 		}]},
 	{"heading":"Stardate 2401.0 (Economic Phase 1)",
-	"commentary":"<p>Normally this would lead to the fun part. Most economics are done as normal, but Unpredictable Research necessitates that we detail our research grant rolls (if any) <i>each</i> economic phase.</p><p>That being said, we will buy no research grants this phase. Instead, we will buy 1 Scout (-6) and 1 Colony Ship (-8).</p>{prodTable}{techTable}<p>Moving along to the Alien Players' economic phase, Bergelmir rolled a 10, and Valetudo rolled a 3. These players will still spend their Tech CP in the normal fashion. Since this is the first phase, it is also impossible to launch a fleet.</p>",
+	"commentary":"<p>Normally this would lead to the fun part. Most economics are done as normal, but Unpredictable Research necessitates that we detail our research grant rolls (if any) <i>each</i> economic phase.</p><p>That being said, we will buy no research grants this phase. Instead, we will buy 1 Scout (-6) and 1 Colony Ship (-8).</p>{prodTable}{techTable}<p>Moving along to the Alien Players' economic phase, Adrastea rolled a 10, and Harpalyke rolled a 3. These players will still spend their Tech CP in the normal fashion. Since this is the first phase, it is also impossible to launch a fleet.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":0,"colonyCP":20,"mineralCP":0,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":0,"unitBuy":14
@@ -154,23 +154,23 @@
 		[{
 			"name":"CSY (Blue)"
 		},{
-			"name":"Bergelmir (Green)","minelay":1
+			"name":"Adrastea (Green)","minelay":1
 		},{
-			"name":"Valetudo (Yellow)","minelay":1
+			"name":"Harpalyke (Yellow)","minelay":1
 		}],
 	"techTable":
 		[{
 			"name":"CSY (Blue)"
 		},{
-			"name":"Bergelmir (Green)","minelay":1
+			"name":"Adrastea (Green)","minelay":1
 		},{
-			"name":"Valetudo (Yellow)","minelay":1
+			"name":"Harpalyke (Yellow)","minelay":1
 		}],
 	"alienTable":
 		[{
-			"name":"Bergelmir (Green)","eco":1,"queue":0,"fleet":0,"tech":5,"def":0,"delta":"T","hidden":"&mdash;"
+			"name":"Adrastea (Green)","eco":1,"queue":0,"fleet":0,"tech":5,"def":0,"delta":"T","hidden":"&mdash;"
 		},{
-			"name":"Valetudo (Yellow)","eco":1,"queue":0,"fleet":0,"tech":5,"def":0,"delta":"T","hidden":"&mdash;"
+			"name":"Harpalyke (Yellow)","eco":1,"queue":0,"fleet":0,"tech":5,"def":0,"delta":"T","hidden":"&mdash;"
 		},{
 			"name":"(Rolls)","ecoPhase":1
 		}],
@@ -376,7 +376,7 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2402.0 (Economic Phase 2)",
-	"commentary":"<p>Cashing in our first minerals will make this economic phase a little richer. We will buy 2 research grants (-10 CP), and dedicate them to Ship Size level 2. We rolled 9,9 this way, easily achieving the goal (18 RP total versus 10 RP req).</p><p>Afterwards, we will buy 1 Colony Ship (-8) and 1 Miner (-5).</p>{prodTable}{techTable}<p>Now the Alien Players get their economic phase. They rolled 8 (Bergelmir) / 8 (Valetudo). This is the first phase in which they can build their Fleet CP banks, but neither player did so this time. With no money to launch fleets, that ends this phase.</p>",
+	"commentary":"<p>Cashing in our first minerals will make this economic phase a little richer. We will buy 2 research grants (-10 CP), and dedicate them to Ship Size level 2. We rolled 9,9 this way, easily achieving the goal (18 RP total versus 10 RP req).</p><p>Afterwards, we will buy 1 Colony Ship (-8) and 1 Miner (-5).</p>{prodTable}{techTable}<p>Now the Alien Players get their economic phase. They rolled 8 (Adrastea) / 8 (Harpalyke). This is the first phase in which they can build their Fleet CP banks, but neither player did so this time. With no money to launch fleets, that ends this phase.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":3,"colonyCP":22,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":10,"unitBuy":13
@@ -385,15 +385,15 @@
 		[{
 			"name":"CSY (Blue)","size":2
 		},{
-			"name":"Bergelmir (Green)","minelay":1
+			"name":"Adrastea (Green)","minelay":1
 		},{
-			"name":"Valetudo (Yellow)","minelay":1
+			"name":"Harpalyke (Yellow)","minelay":1
 		}],
 	"alienTable":
 		[{
-			"name":"Bergelmir (Green)","eco":1,"queue":0,"fleet":0,"tech":10,"def":0,"delta":"T","hidden":"&mdash;"
+			"name":"Adrastea (Green)","eco":1,"queue":0,"fleet":0,"tech":10,"def":0,"delta":"T","hidden":"&mdash;"
 		},{
-			"name":"Valetudo (Yellow)","eco":1,"queue":0,"fleet":0,"tech":10,"def":0,"delta":"T","hidden":"&mdash;"
+			"name":"Harpalyke (Yellow)","eco":1,"queue":0,"fleet":0,"tech":10,"def":0,"delta":"T","hidden":"&mdash;"
 		},{
 			"name":"(Rolls)","ecoPhase":2
 		}],
@@ -607,7 +607,7 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2403.0 (Economic Phase 3)",
-	"commentary":"<p>Recent deep space losses are unfortunate, but it reduces our maintenance this economic phase. We will buy 2 more research grants (-10 CP), and dedicate them to Exploration level 1. We rolled 1,3 this way, granting us only 4 of the required 15 RP.</p><p>Afterwards, we buy 3 Colony Ships (-24) at the homeworld, plus 1 Ship Yard (-6) at the forward colony I8.</p>{prodTable}{techTable}<p>Alien Players have gained a natural economic roll this phase. They rolled 2,7 (Bergelmir) / 3,4 (Valetudo). Both players have managed to start building their Fleet CP banks, but 5 CP is not quite enough to build one Scout. Thus, no fleet launches take place.</p>",
+	"commentary":"<p>Recent deep space losses are unfortunate, but it reduces our maintenance this economic phase. We will buy 2 more research grants (-10 CP), and dedicate them to Exploration 1. We rolled 1,3 this way, granting us only 4 of the required 15 RP.</p><p>Afterwards, we buy 3 Colony Ships (-24) at the homeworld, plus 1 Ship Yard (-6) at the forward colony I8.</p>{prodTable}{techTable}<p>Alien Players have gained a natural economic roll this phase. They rolled 2,7 (Adrastea) / 3,4 (Harpalyke). Both players have managed to start building their Fleet CP banks, but 5 CP is not quite enough to build one Scout. Thus, no fleet launches take place.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":4,"colonyCP":28,"mineralCP":10,"pipeCP":0,"maint":1,"bidCP":0,"techBuy":10,"unitBuy":30
@@ -616,15 +616,15 @@
 		[{
 			"name":"CSY (Blue)","size":2,"explore":"0 (4 / 15)"
 		},{
-			"name":"Bergelmir (Green)","minelay":1
+			"name":"Adrastea (Green)","minelay":1
 		},{
-			"name":"Valetudo (Yellow)","minelay":1
+			"name":"Harpalyke (Yellow)","minelay":1
 		}],
 	"alienTable":
 		[{
-			"name":"Bergelmir (Green)","eco":2,"queue":0,"fleet":5,"tech":15,"def":0,"delta":"FT","hidden":"&mdash;"
+			"name":"Adrastea (Green)","eco":2,"queue":0,"fleet":5,"tech":15,"def":0,"delta":"FT","hidden":"&mdash;"
 		},{
-			"name":"Valetudo (Yellow)","eco":2,"queue":0,"fleet":5,"tech":15,"def":0,"delta":"FT","hidden":"&mdash;"
+			"name":"Harpalyke (Yellow)","eco":2,"queue":0,"fleet":5,"tech":15,"def":0,"delta":"FT","hidden":"&mdash;"
 		},{
 			"name":"(Rolls)","ecoPhase":2
 		}],
@@ -685,7 +685,7 @@
 			"name":"colony5B"
 		}]},
 	{"heading":"Stardate 2403.3",
-	"commentary":"<p>With only 1 surviving Scout at our disposal, we could attempt to maximum deep space reconissance.</p>",
+	"commentary":"<p>With only 1 surviving Scout at our disposal, we could attempt to maximize deep space reconissance.</p>",
 	"actions":
 		[{
 			"placeCounter":"SC3B",
@@ -718,7 +718,7 @@
 			"location":"K7"
 		}]},
 	{"heading":"Stardate 2403.6",
-	"commentary":"<p>Instead, we opt to prioritize exposing a path to Chulax, Bergelmir's homeworld.</p>",
+	"commentary":"<p>Instead, we opt to prioritize exposing a path to Chulax, Adrastea's homeworld.</p>",
 	"actions":
 		[{
 			"placeCounter":"SC3B",
@@ -829,7 +829,7 @@
 			"removeCounter":"fleet1Y"
 		}]},
 	{"heading":"Stardate 2404.0",
-	"commentary":"<p>With the last of the early Scouts eliminated, this leaves us with no combat ships to pay maintenance this economic phase. We will buy a total of 4 research grant rolls (-20 CP total) this phase.</p><ul><li>2 more rolls will go to Exploration level 1. We rolled 9,2 this way, finishing off the technology exactly. Overall this technology was unfavorable rolls-wise</li><li>The next 2 rolls are dedicated to Ship Size level 3. We rolled 1,9, totaling 10 RP and giving us a foothold</li></ul><p>Afterwards, we buy 4 Pipelines (-12) at the homeworld, followed by a Scout and a Ship Yard (-12 total) at the forward colony of I8.</p>{prodTable}{techTable}<p>The Alien Players have added homeworld protection to the economic table, but no longer have the early aggression advantage. They rolled 7,9 (Bergelmir) / 5,9 (Valetudo).</p><p>Valetudo is able to launch a fleet now, and has rolled a 4. Valetudo has launched a fleet (&le;5), but does not have enough Tech CP to buy Movement level 2 (20 required). This concludes the entire economic phase.</p>",
+	"commentary":"<p>With the last of the early Scouts eliminated, this leaves us with no combat ships to pay maintenance this economic phase. We will buy a total of 4 research grant rolls (-20 CP total) this phase.</p><ul><li>2 more rolls will go to Exploration 1. We rolled 9,2 this way, finishing off the technology exactly. Overall this technology was unfavorable rolls-wise</li><li>The next 2 rolls are dedicated to Ship Size 3. We rolled 1,9, totaling 10 RP and giving us a foothold</li></ul><p>Afterwards, we buy 4 Pipelines (-12) at the homeworld, followed by a Scout and a Ship Yard (-12 total) at the forward colony of I8.</p>{prodTable}{techTable}<p>The Alien Players have added homeworld protection to the economic table, but no longer have the early aggression advantage. They rolled 7,9 (Adrastea) / 5,9 (Harpalyke).</p><p>Harpalyke is able to launch a fleet now, and has rolled a 4. Harpalyke has launched a fleet (&le;5), but does not have enough Tech CP to buy Movement 2 (20 required). This concludes the entire economic phase.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":1,"colonyCP":37,"mineralCP":15,"pipeCP":0,"maint":0,"bidCP":0,"techBuy":20,"unitBuy":24
@@ -838,15 +838,15 @@
 		[{
 			"name":"CSY (Blue)","size":"2 (10 / 15)","explore":1
 		},{
-			"name":"Bergelmir (Green)","minelay":1
+			"name":"Adrastea (Green)","minelay":1
 		},{
-			"name":"Valetudo (Yellow)","minelay":1
+			"name":"Harpalyke (Yellow)","minelay":1
 		}],
 	"alienTable":
 		[{
-			"name":"Bergelmir (Green)","eco":2,"queue":0,"fleet":5,"tech":20,"def":10,"delta":"TD","hidden":"&mdash;"
+			"name":"Adrastea (Green)","eco":2,"queue":0,"fleet":5,"tech":20,"def":10,"delta":"TD","hidden":"&mdash;"
 		},{
-			"name":"Valetudo (Yellow)","eco":2,"queue":0,"fleet":0,"tech":15,"def":10,"delta":"fDH","hidden":"10"
+			"name":"Harpalyke (Yellow)","eco":2,"queue":0,"fleet":0,"tech":15,"def":10,"delta":"fDH","hidden":"10"
 		},{
 			"name":"(Rolls)","ecoPhase":4
 		}],
@@ -922,7 +922,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2404.2",
-	"commentary":"<p>Now that Valetudo has launched their first fleet, we now have some suspense in the air. In order to mitigate it, we need to uncover sector I9 <i>now</i>... which is a nebula. At least these are relatively harmless.</p>",
+	"commentary":"<p>Now that Harpalyke has launched their first fleet, we now have some suspense in the air. In order to mitigate it, we need to uncover sector I9 <i>now</i>... which is a nebula. At least these are relatively harmless.</p>",
 	"actions":
 		[{
 			"placeCounter":"Miner1B",
@@ -1049,7 +1049,7 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2405.0",
-	"commentary":"<p>Going to be a little longer before we can conduct our first battles of this playthrough. We will buy a total of 4 research grant rolls (-20 CP total) this phase.</p><ul><li>1 more roll will go to Ship Size level 3. We rolled a 7, finishing it off comfortably. We broke even on this</li><li>The next 3 rolls are dedicated to Terraforming level 1. We rolled 9,4,1, totaling 14 RP and giving us a foothold</li></ul><p>Now that our minimum technologies are in place, we buy 4 Pipelines (-12) at the homeworld, followed by 1 Cruiser and a Ship Yard (-18 total) at the forward colony of I8, and build our first Ship Yard (-6) at I5.</p>{prodTable}{techTable}<p>The Alien Players will gain another natural economic roll soon. They rolled 2,9 (Bergelmir) / 4,9 (Valetudo).</p><p>Bergelmir is able to launch a fleet this phase, and has rolled a 9 (skip &gt;3). No launch takes place this phase.</p>",
+	"commentary":"<p>Going to be a little longer before we can conduct our first battles of this playthrough. We will buy a total of 4 research grant rolls (-20 CP total) this phase.</p><ul><li>1 more roll will go to Ship Size 3. We rolled a 7, finishing it off comfortably. We broke even on this</li><li>The next 3 rolls are dedicated to Terraforming 1. We rolled 9,4,1, totaling 14 RP and giving us a foothold</li></ul><p>Now that our minimum technologies are in place, we buy 4 Pipelines (-12) at the homeworld, followed by 1 Cruiser and a Ship Yard (-18 total) at the forward colony of I8, and build our first Ship Yard (-6) at I5.</p>{prodTable}{techTable}<p>The Alien Players will gain another natural economic roll soon. They rolled 2,9 (Adrastea) / 4,9 (Harpalyke).</p><p>Adrastea is able to launch a fleet this phase, and has rolled a 9 (skip &gt;3). No launch takes place this phase.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":9,"colonyCP":46,"mineralCP":10,"pipeCP":2,"maint":1,"bidCP":0,"techBuy":20,"unitBuy":36
@@ -1058,15 +1058,15 @@
 		[{
 			"name":"CSY (Blue)","size":3,"explore":1,"terraform":"0 (14 / 20)"
 		},{
-			"name":"Bergelmir (Green)","minelay":1
+			"name":"Adrastea (Green)","minelay":1
 		},{
-			"name":"Valetudo (Yellow)","minelay":1
+			"name":"Harpalyke (Yellow)","minelay":1
 		}],
 	"alienTable":
 		[{
-			"name":"Bergelmir (Green)","eco":2,"queue":0,"fleet":10,"tech":25,"def":10,"delta":"FT","hidden":"&mdash;"
+			"name":"Adrastea (Green)","eco":2,"queue":0,"fleet":10,"tech":25,"def":10,"delta":"FT","hidden":"&mdash;"
 		},{
-			"name":"Valetudo (Yellow)","eco":2,"queue":0,"fleet":5,"tech":20,"def":10,"delta":"FT","hidden":"10"
+			"name":"Harpalyke (Yellow)","eco":2,"queue":0,"fleet":5,"tech":20,"def":10,"delta":"FT","hidden":"10"
 		},{
 			"name":"(Rolls)","ecoPhase":5
 		}],
@@ -1185,14 +1185,14 @@
 			"name":"nebula"
 		}]},
 	{"heading":"Stardate 2405.4 (The Battle for Sector J10)",
-	"commentary":"<p>Valetudo's fleet has the ability to bombard any colony uncontested, if we allow them to move anymore. Thus, we must intercept them in the nebula.</p><p>No <q>counter</q> technologies are needed, so we skip to the Ship Size step. Valetudo automatically buys level 2 (-10 CP). The only other tech it can afford is Minesweeping level 1 (also -10), emptying its Tech bank. As far as ship construction is concerned, 10 assigned CP is enough only for a Destroyer (-9), crediting a remainder of 1 back to the Fleet bank.</p><ol><li><b>Round 1</b>: Nebula interference nullifies our Weapon Class advantage. Still; with our 2 ships to their 1 Destroyer, we gain Fleet Size Bonus.</li><li>Nonetheless; with equal Tactics, their Destroyer will shoot first. It rolls a 2 against our Scout (hit &le;4)</li><li>Our Cruiser rolls a 9 against their Destroyer (miss &gt;5)<br /><br /></li><li><b>Round 2</b>: We no longer have the Fleet Size Bonus. Their Destroyer shoots once more. It rolls a 1 against our Cruiser (hit &le;4), damaging it</li><li>Our Cruiser rolls a 5 (miss &gt;4)<br /><br /></li><li><b>Round 3</b>: Their Destroyer shoots once more, rolling an 8 (miss &gt;4), damaging it</li><li>Our Cruiser rolls a 4 (hit &le;4). We have destroyed their Destroyer</li></ol>",
+	"commentary":"<p>Harpalyke's fleet has the ability to bombard any colony uncontested, if we allow them to move anymore. Thus, we must intercept them in the nebula.</p><p>No <q>counter</q> technologies are needed, so we skip to the Ship Size step. Harpalyke automatically buys level 2 (-10 CP). The only other tech it can afford is Minesweeping level 1 (also -10), emptying its Tech bank. As far as ship construction is concerned, 10 assigned CP is enough only for a Destroyer (-9), crediting a remainder of 1 back to the Fleet bank.</p><ol><li><b>Round 1</b>: Nebula interference nullifies our Weapon Class advantage. Still; with our 2 ships to their 1 Destroyer, we gain Fleet Size Bonus.</li><li>Nonetheless; with equal Tactics, their Destroyer will shoot first. It rolls a 2 against our Scout (hit &le;4)</li><li>Our Cruiser rolls a 9 against their Destroyer (miss &gt;5)<br /><br /></li><li><b>Round 2</b>: We no longer have the Fleet Size Bonus. Their Destroyer shoots once more. It rolls a 1 against our Cruiser (hit &le;4), damaging it</li><li>Our Cruiser rolls a 5 (miss &gt;4)<br /><br /></li><li><b>Round 3</b>: Their Destroyer shoots once more, rolling an 8 (miss &gt;4)</li><li>Our Cruiser rolls a 4 (hit &le;4). We have destroyed their Destroyer</li></ol>",
 	"techTable":
 		[{
-			"name":"Valetudo (Yellow)","minelay":1,"size":2,"minesweep":1
+			"name":"Harpalyke (Yellow)","minelay":1,"size":2,"minesweep":1
 		}],
 	"alienTable":
 		[{
-			"name":"Valetudo (Yellow)","eco":2,"queue":0,"fleet":6,"tech":0,"def":10,"delta":"Fth","hidden":"&mdash;"
+			"name":"Harpalyke (Yellow)","eco":2,"queue":0,"fleet":6,"tech":0,"def":10,"delta":"Fth","hidden":"&mdash;"
 		}],
 	"actions":
 		[{
@@ -1241,7 +1241,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2405.7",
-	"commentary":"<p>Now that the straggler has been cleaned up, we can go on ahead and try to expose a path to Vasyr; Valetudo's homeworld.</p>",
+	"commentary":"<p>Now that the straggler has been cleaned up, we can go on ahead and try to expose a path to Vasyr; Harpalyke's homeworld.</p>",
 	"actions":
 		[{
 			"placeCounter":"Miner1B",
@@ -1302,7 +1302,7 @@
 			"removeCounter":"fleet1G"
 		}]},
 	{"heading":"Stardate 2406.0",
-	"commentary":"<p>Recent successes have made our home space a little safer. We will go on ahead and buy 6 research grants (-30) this phase.</p><ul><li>The first grant will try to clean up Terraforming level 1. We rolled a 1. Most unfortunate, as this leaves us at 15 / 20 RP</li><li>The next 3 grants will go to Ship Yards level 2. We rolled 10,2,10, easily knocking out the required 20 RP and saving a little money</li><li>The final 2 grants will go to Movement level 2. We rolled 3,8, giving us a foothold</li></ul><p>Until we get Terraforming, further Colony Ships are pointless. Instead, we will buy 2 Pipelines at L7 (-6), 2 Cruisers at I8 (-24), and 1 Pipeline at I5 (-3). We will also build extra Ship Yards at I5 and I8 (-12 total).</p>{prodTable}<p>The Alien Players have gained a third natural economic roll. But, this is also the last phase they can try to gain extra economic rolls. They rolled 1,3,10 (Bergelmir) / 1,4,8 (Valetudo). The extra economic rolls that have been obtained this phase will take effect 3 phases from now <span class=\"bindTxt\">(Stardate 2409.0)</span>.</p><p>Both players are now able to launch fleet(s). They rolled 2 (Bergelmir) / 6 (Valetudo). Bergelmir will launch their first fleet, and roll a 1 to buy Movement level 2 (-20).</p>",
+	"commentary":"<p>Recent successes have made our home space a little safer. We will go on ahead and buy 6 research grants (-30) this phase.</p><ul><li>The first grant will try to clean up Terraforming 1. We rolled a 1. Most unfortunate, as this leaves us at 15 / 20 RP</li><li>The next 3 grants will go to Ship Yards 2. We rolled 10,2,10, easily knocking out the required 20 RP and saving a little money</li><li>The final 2 grants will go to Movement 2. We rolled 3,8, giving us a foothold</li></ul><p>Until we get Terraforming, further Colony Ships are pointless. Instead, we will buy 2 Pipelines at L7 (-6), 2 Cruisers at I8 (-24), and 1 Pipeline at I5 (-3). We will also build extra Ship Yards at I5 and I8 (-12 total).</p>{prodTable}<p>The Alien Players have gained a third natural economic roll. But, this is also the last phase they can try to gain extra economic rolls. They rolled 1,3,10 (Adrastea) / 1,4,8 (Harpalyke). The extra economic rolls that have been obtained this phase will take effect 3 phases from now <span class=\"bindTxt\">(Stardate 2409.0)</span>.</p><p>Both players are now able to launch fleet(s). They rolled 2 (Adrastea) / 6 (Harpalyke). Adrastea will launch their first fleet, and roll a 1 to buy Movement 2 (-20).</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":10,"colonyCP":54,"mineralCP":10,"pipeCP":5,"maint":2,"bidCP":0,"techBuy":30,"unitBuy":45
@@ -1311,15 +1311,15 @@
 		[{
 			"name":"CSY (Blue)","size":3,"explore":1,"terraform":"0 (15 / 20)","SY":2,"move":"1 (11 / 20)"
 		},{
-			"name":"Bergelmir (Green)","minelay":1,"move":2
+			"name":"Adrastea (Green)","minelay":1,"move":2
 		},{
-			"name":"Valetudo (Yellow)","minelay":1,"size":2,"minesweep":1
+			"name":"Harpalyke (Yellow)","minelay":1,"size":2,"minesweep":1
 		}],
 	"alienTable":
 		[{
-			"name":"Bergelmir (Green)","eco":3,"queue":1,"fleet":0,"tech":5,"def":20,"delta":"EftDH","hidden":"15"
+			"name":"Adrastea (Green)","eco":3,"queue":1,"fleet":0,"tech":5,"def":20,"delta":"EftDH","hidden":"15"
 		},{
-			"name":"Valetudo (Yellow)","eco":3,"queue":1,"fleet":11,"tech":5,"def":10,"delta":"EFT","hidden":"&mdash;"
+			"name":"Harpalyke (Yellow)","eco":3,"queue":1,"fleet":11,"tech":5,"def":10,"delta":"EFT","hidden":"&mdash;"
 		},{
 			"name":"(Rolls)","ecoPhase":6
 		}],
@@ -1389,7 +1389,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2406.3",
-	"commentary":"<p>Now that Bergelmir has launched a fleet, this will make things more suspenesful. <i>How</i> would we defend against them?</p>",
+	"commentary":"<p>Now that Adrastea has launched a fleet, this will make things more suspenesful. <i>How</i> would we defend against them?</p>",
 	"actions":
 		[{
 			"placeCounter":"Miner1B",
@@ -1488,7 +1488,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2406.9",
-	"commentary":"<p>Although out of position, our Cruisers have exposed an open path to Vasyr, Valetudo's homeworld.</p>",
+	"commentary":"<p>Although out of position, our Cruisers have exposed an open path to Vasyr, Harpalyke's homeworld.</p>",
 	"actions":
 		[{
 			"placeCounter":"Miner1B",
@@ -1547,7 +1547,7 @@
 			"removeCounter":"fleet2G"
 		}]},
 	{"heading":"Stardate 2407.0",
-	"commentary":"<p>We are almost ready to execute our strategy; we need only to build up our forces while we still have time. We will buy 2 research grants (-10) this time, rolling 8 <span class=\"bindTxt\">(for Terraforming level 1)</span> and 3 <span class=\"bindTxt\">(for Movement level 2)</span>.</p><p>Our most critical action this economic phase is to build 3 Destroyers at Sector I5 (-27). At our homeworld (L7), we will buy 2 Colony Ships (-16) and 1 Pipeline (-3). We will also build extra Ship Yards at I5 and I8 (-12 total).</p>{prodTable}{techTable}<p>The Alien Players conduct their economics as usual. They rolled 3,3,10 (Bergelmir) / 4,5,9 (Valetudo). Both players have enough Fleet money to launch fresh fleets, rolling 4 (Bergelmir) / 10 (Valetudo).</p><p>Bergelmir will launch another fresh fleet, but does not have enough Tech money to buy another Movement level <span class=\"bindTxt\">(25 CP required for level 3)</span>.</p>",
+	"commentary":"<p>We are almost ready to execute our strategy; we need only to build up our forces while we still have time. We will buy 2 research grants (-10) this time, rolling 8 <span class=\"bindTxt\">(for Terraforming 1)</span> and 3 <span class=\"bindTxt\">(for Movement 2)</span>.</p><p>Our most critical action this economic phase is to build 3 Destroyers at Sector I5 (-27). At our homeworld (L7), we will buy 2 Colony Ships (-16) and 1 Pipeline (-3). We will also build extra Ship Yards at I5 and I8 (-12 total).</p>{prodTable}{techTable}<p>The Alien Players conduct their economics as usual. They rolled 3,3,10 (Adrastea) / 4,5,9 (Harpalyke). Both players have enough Fleet money to launch fresh fleets, rolling 4 (Adrastea) / 10 (Harpalyke).</p><p>Adrastea will launch another fresh fleet, but does not have enough Tech money to buy another Movement 3 <span class=\"bindTxt\">(25 CP required)</span>.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":2,"colonyCP":60,"mineralCP":5,"pipeCP":7,"maint":6,"bidCP":0,"techBuy":10,"unitBuy":58
@@ -1556,15 +1556,15 @@
 		[{
 			"name":"CSY (Blue)","size":3,"explore":1,"terraform":1,"SY":2,"move":"1 (14 / 20)"
 		},{
-			"name":"Bergelmir (Green)","minelay":1,"move":2
+			"name":"Adrastea (Green)","minelay":1,"move":2
 		},{
-			"name":"Valetudo (Yellow)","minelay":1,"size":2,"minesweep":1
+			"name":"Harpalyke (Yellow)","minelay":1,"size":2,"minesweep":1
 		}],
 	"alienTable":
 		[{
-			"name":"Bergelmir (Green)","eco":3,"queue":1,"fleet":0,"tech":5,"def":30,"delta":"fDH","hidden":"15 / 10"
+			"name":"Adrastea (Green)","eco":3,"queue":1,"fleet":0,"tech":5,"def":30,"delta":"fDH","hidden":"15 / 10"
 		},{
-			"name":"Valetudo (Yellow)","eco":3,"queue":1,"fleet":21,"tech":10,"def":10,"delta":"FT","hidden":"&mdash;"
+			"name":"Harpalyke (Yellow)","eco":3,"queue":1,"fleet":21,"tech":10,"def":10,"delta":"FT","hidden":"&mdash;"
 		},{
 			"name":"(Rolls)","ecoPhase":7
 		}],
@@ -1629,7 +1629,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2407.2",
-	"commentary":"<p>One of the few times where our permanent initiative bites us in the afterburners: We could <i>not</i> intercept Bergelmir's first fleet, while it was protected by an unexplored system marker.</p>",
+	"commentary":"<p>One of the few times where our permanent initiative bites us in the afterburners: We could <i>not</i> intercept Adrastea's first fleet, while it was protected by an unexplored system marker.</p>",
 	"actions":
 		[{
 			"placeCounter":"Miner1B",
@@ -1689,10 +1689,10 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2407.5 (The Battle for Sector H6)",
-	"commentary":"<p>We are now able to intercept their first fleet. Now for the hilarious part; their Tech CP is not even sufficient to buy Ship Size 2, nevermind other technologies. As a consequence, their 15 assigned CP is good for 2 Scouts (-12), crediting the leftover 3 CP back to the Fleet bank.</p><p>We have 3 Destroyers to their 2 Scouts. Neither side gets the Fleet Size Bonus. Our 3 Destroyers have the best Weapon Class, so they shoot first. We rolled 4,4,6 (2 hits &le;2), instantly wiping out their Scouts before they can even get in range to respond.</p>",
+	"commentary":"<p>We are now able to intercept their first fleet. Now for the hilarious part; their Tech CP is not even sufficient to buy Ship Size 2, nevermind other technologies. As a consequence, their 15 assigned CP is good for 2 Scouts (-12), crediting the leftover 3 CP back to the Fleet bank.</p><p>We have 3 Destroyers to their 2 Scouts. Neither side gets the Fleet Size Bonus. Our 3 Destroyers have the best Weapon Class, so they shoot first. We rolled 4,4,6 (2 hits &le;4), instantly wiping out their Scouts before they can even get in range to respond.</p>",
 	"alienTable":
 		[{
-			"name":"Bergelmir (Green)","eco":3,"queue":1,"fleet":3,"tech":5,"def":30,"delta":"Fh","hidden":"10"
+			"name":"Adrastea (Green)","eco":3,"queue":1,"fleet":3,"tech":5,"def":30,"delta":"Fh","hidden":"10"
 		}],
 	"actions":
 		[{
@@ -1845,7 +1845,7 @@
 			"size":3
 		}]},
 	{"heading":"Stardate 2408.0",
-	"commentary":"<p>Nonetheless, we still have 1 fleet unaccounted for that could raid our colonies. Since it is too close to cashing in a space wreck, we will only buy 1 research grant (-5), and attempt to clean up Movement level 2. We rolled a 6, cleaning it up exactly.</p><p>Taking advantage of our recent successes, we build 3 Cruisers (-36) at the homeworld, and 1 Pipeline (-3) at sector I8. We will also reinforce our forward Ship Yard spots as well (-12 in total).</p>{prodTable}{techTable}<p>Alien Players' extra economic rolls will be applied soon. They rolled 1,2,5 (Bergelmir) / 6,6,9 (Valetudo). As for launching fresh fleets, they rolled 9 (Bergelmir) / 10 (Valetudo). Neither player will launch this time.</p>",
+	"commentary":"<p>Nonetheless, we still have 1 fleet unaccounted for that could raid our colonies. Since it is too close to cashing in a space wreck, we will only buy 1 research grant (-5), and attempt to clean up Movement 2. We rolled a 6, cleaning it up exactly.</p><p>Taking advantage of our recent successes, we build 3 Cruisers (-36) at the homeworld, and 1 Pipeline (-3) at sector I8. We will also reinforce our forward Ship Yard spots as well (-12 in total).</p>{prodTable}{techTable}<p>Alien Players' extra economic rolls will be applied soon. They rolled 1,2,5 (Adrastea) / 6,6,9 (Harpalyke). As for launching fresh fleets, they rolled 9 (Adrastea) / 10 (Harpalyke). Neither player will launch this time.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":0,"colonyCP":60,"mineralCP":0,"pipeCP":9,"maint":9,"bidCP":0,"techBuy":5,"unitBuy":51
@@ -1854,15 +1854,15 @@
 		[{
 			"name":"CSY (Blue)","size":3,"explore":1,"terraform":1,"SY":2,"move":2
 		},{
-			"name":"Bergelmir (Green)","minelay":1,"move":2
+			"name":"Adrastea (Green)","minelay":1,"move":2
 		},{
-			"name":"Valetudo (Yellow)","minelay":1,"size":2,"minesweep":1
+			"name":"Harpalyke (Yellow)","minelay":1,"size":2,"minesweep":1
 		}],
 	"alienTable":
 		[{
-			"name":"Bergelmir (Green)","eco":3,"queue":1,"fleet":18,"tech":5,"def":30,"delta":"F","hidden":"10"
+			"name":"Adrastea (Green)","eco":3,"queue":1,"fleet":18,"tech":5,"def":30,"delta":"F","hidden":"10"
 		},{
-			"name":"Valetudo (Yellow)","eco":3,"queue":1,"fleet":21,"tech":25,"def":10,"delta":"T","hidden":"&mdash;"
+			"name":"Harpalyke (Yellow)","eco":3,"queue":1,"fleet":21,"tech":25,"def":10,"delta":"T","hidden":"&mdash;"
 		},{
 			"name":"(Rolls)","ecoPhase":8
 		}],
@@ -2002,10 +2002,10 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2408.4 (The Battle for Sector K4)",
-	"commentary":"<p>We are ready to intercept their fleet. Much like before, they are stuck with Ship Size level 1 due to lack of Tech CP. As a consequence, their 10 assigned CP is good for one Scout, crediting the remainder 4 back to the Fleet bank.</p><ol><li><b>Round 1</b>: There is a single complication here; our battle is taking place inside an asteroid belt, nullifying our Weapon Class advantage</li><li>Since their single Scout wins the equal Tactics tie, it will shoot first. It rolled a 3 (miss &gt;2)</li><li>Our 3 Cruisers get to shoot next, and benefit from the Fleet Size Bonus. We rolled 1,1,9 (2 hits &le;5), finishing off their straggler</li></ol>",
+	"commentary":"<p>We are ready to intercept their fleet. Much like before, they are stuck with Ship Size 1 due to lack of Tech CP. As a consequence, their 10 assigned CP is good for one Scout, crediting the remainder 4 back to the Fleet bank.</p><ol><li><b>Round 1</b>: There is a single complication here; our battle is taking place inside an asteroid belt, nullifying our Weapon Class advantage</li><li>Since their single Scout wins the equal Tactics tie, it will shoot first. It rolled a 3 (miss &gt;2)</li><li>Our 3 Cruisers get to shoot next, and benefit from the Fleet Size Bonus. We rolled 1,1,9 (2 hits &le;5), finishing off their straggler</li></ol>",
 	"alienTable":
 		[{
-			"name":"Bergelmir (Green)","eco":3,"queue":1,"fleet":22,"tech":5,"def":30,"delta":"Fh","hidden":"&mdash;"
+			"name":"Adrastea (Green)","eco":3,"queue":1,"fleet":22,"tech":5,"def":30,"delta":"Fh","hidden":"&mdash;"
 		}],
 	"actions":
 		[{
@@ -2142,7 +2142,7 @@
 			"removeCounter":"fleet2Y"
 		}]},
 	{"heading":"Stardate 2409.0",
-	"commentary":"<p>So far, this has been a relatively clean board. And we just cashed in a space wreck, rolling a 1 in the process <span class=\"bindTxt\">(Ship Size 4 granted)</span>. We will go on ahead and buy 3 research grants (-15), and try out hand at Attack level 1. We rolled 1,3,3, granting us roughly half RP output for our CP.</p><p>On the construction step, we will buy 1 Colony Ship (-8), 2 Pipelines (-6), and 1 Ship Yard (-6) at I5. We then spend our leftover resources buying 7 Scouts (-36) at I8.</p>{prodTable}{techTable}<p>The queued extra economic rolls have been applied. These Alien Players have rolled 1,5,8,10 (Bergelmir) / 1,5,7,10 (Valetudo). Since aggression has increased a little, they rolled 6 (Bergelmir) / 2 (Valetudo). Valetudo just launched!</p><p>Valetudo also has enough money to roll for Movement level 2. It rolled a 5 (skip &gt;4)</p>",
+	"commentary":"<p>So far, this has been a relatively clean board. And we just cashed in a space wreck, rolling a 1 in the process <span class=\"bindTxt\">(Ship Size 4 granted)</span>. We will go on ahead and buy 3 research grants (-15), and try out hand at Attack 1. We rolled 1,3,3, granting us roughly half RP output for our CP.</p><p>On the construction step, we will buy 1 Colony Ship (-8), 2 Pipelines (-6), and 1 Ship Yard (-6) at I5. We then spend our leftover resources buying 7 Scouts (-36) at I8.</p>{prodTable}{techTable}<p>The queued extra economic rolls have been applied. These Alien Players have rolled 1,5,8,10 (Adrastea) / 1,5,7,10 (Harpalyke). Since aggression has increased a little, they rolled 6 (Adrastea) / 2 (Harpalyke). Harpalyke just launched!</p><p>Harpalyke also has enough money to roll for Movement 2. It rolled a 5 (skip &gt;4)</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":4,"colonyCP":62,"mineralCP":10,"pipeCP":10,"maint":15,"bidCP":0,"techBuy":15,"unitBuy":56
@@ -2151,15 +2151,15 @@
 		[{
 			"name":"CSY (Blue)","size":4,"explore":1,"terraform":1,"SY":2,"move":2,"atk":"0 (7 / 20)"
 		},{
-			"name":"Bergelmir (Green)","minelay":1,"move":2
+			"name":"Adrastea (Green)","minelay":1,"move":2
 		},{
-			"name":"Valetudo (Yellow)","minelay":1,"size":2,"minesweep":1
+			"name":"Harpalyke (Yellow)","minelay":1,"size":2,"minesweep":1
 		}],
 	"alienTable":
 		[{
-			"name":"Bergelmir (Green)","eco":4,"fleet":32,"tech":10,"def":40,"delta":"FTD","hidden":"&mdash;"
+			"name":"Adrastea (Green)","eco":4,"fleet":32,"tech":10,"def":40,"delta":"FTD","hidden":"&mdash;"
 		},{
-			"name":"Valetudo (Yellow)","eco":4,"fleet":0,"tech":30,"def":20,"delta":"fTDH","hidden":"31"
+			"name":"Harpalyke (Yellow)","eco":4,"fleet":0,"tech":30,"def":20,"delta":"fTDH","hidden":"31"
 		},{
 			"name":"(Rolls)","ecoPhase":9
 		}],
@@ -2246,7 +2246,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2409.3",
-	"commentary":"<p>Our Cruisers have uncovered considerable deep space; greatly reducing the unexplored mysteries that await. We have also exposed a path to Chulak, Bergelmir's homeworld. We could attempt to <q>tickle</q> it, but it may be wiser to not do so.</p>",
+	"commentary":"<p>Our Cruisers have uncovered considerable deep space; greatly reducing the unexplored mysteries that await. We have also exposed a path to Chulak, Adrastea's homeworld. We could attempt to <q>tickle</q> it, but it may be wiser to not do so.</p>",
 	"actions":
 		[{
 			"placeCounter":"Miner1B",
@@ -2338,7 +2338,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2409.6",
-	"commentary":"<p>Our Cruisers have uncovered considerable deep space; greatly reducing the unexplored mysteries that await. We have also exposed a path to Chulak, Bergelmir's homeworld. We could attempt to <q>tickle</q> it, but it may be wiser to not do so.</p><p>For reference around G4, we opted to use Exploration on F4 and F5, and then uncover G3 normally. Since G3 ended up being a black hole, the Cruiser must roll a survival check. It rolled a 10 (destroyed &gt;6).</p>",
+	"commentary":"<p>For reference around G4, we opted to use Exploration on F4 and F5, and then uncover G3 normally. Since G3 ended up being a black hole, the Cruiser must roll a survival check. It rolled a 10 (destroyed &gt;6).</p>",
 	"actions":
 		[{
 			"removeCounter":"systemL10"
@@ -2516,7 +2516,7 @@
 			"removeCounter":"fleet3Y"
 		}]},
 	{"heading":"Stardate 2410.0",
-	"commentary":"<p>Nonetheless, we are still growing now that we have colonized another planet. We will buy 4 research grants (-20) this economic phase.</p><ul><li>2 more grants will go to Attack level 1. We rolled 9,2 this way, further increasing the RP to 18 this way (out of the quota of 20)</li><li>2 grants will go to Minesweeping level 1. We rolled 4,2 this way. Below average, but this gives us a foothold</li></ul><p>Anyway, we will buy 1 Ship Yard (-6) at I5, and 5 Scouts (-30) at I8.</p>{prodTable}{techTable}<p>At this point, the Alien Players have gained their fourth natural economic roll. They have rolled 2,3,3,4,9 (Bergelmir) / 2,3,4,4,8 (Valetudo). As far as fleet launches are concerned, they have rolled 3 (Bergelmir) / 2 (Valetudo). Both alien players have launched fresh fleets!</p><p>Only Valetudo is able to afford the next Movement level, so it rolls a 5 accordingly (skip &gt;4).</p>",
+	"commentary":"<p>Nonetheless, we are still growing now that we have colonized another planet. We will buy 4 research grants (-20) this economic phase.</p><ul><li>2 more grants will go to Attack 1. We rolled 9,2 this way, further increasing the RP to 18 this way (out of the quota of 20)</li><li>2 grants will go to Minesweeping 1. We rolled 4,2 this way. Below average, but this gives us a foothold</li></ul><p>Anyway, we will buy 1 Ship Yard (-6) at I5, and 5 Scouts (-30) at I8.</p>{prodTable}{techTable}<p>At this point, the Alien Players have gained their fourth natural economic roll. They have rolled 2,3,3,4,9 (Adrastea) / 2,3,4,4,8 (Harpalyke). As far as fleet launches are concerned, they have rolled 3 (Adrastea) / 2 (Harpalyke). Both alien players have launched fresh fleets!</p><p>Only Harpalyke is able to afford the next Movement level, so it rolls a 5 accordingly (skip &gt;4).</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":4,"colonyCP":66,"mineralCP":0,"pipeCP":11,"maint":20,"bidCP":0,"techBuy":20,"unitBuy":36
@@ -2525,15 +2525,15 @@
 		[{
 			"name":"CSY (Blue)","size":4,"explore":1,"terraform":1,"SY":2,"move":2,"atk":"0 (18 / 20)","minesweep":"0 (6 / 10)"
 		},{
-			"name":"Bergelmir (Green)","minelay":1,"move":2
+			"name":"Adrastea (Green)","minelay":1,"move":2
 		},{
-			"name":"Valetudo (Yellow)","minelay":1,"size":2,"minesweep":1
+			"name":"Harpalyke (Yellow)","minelay":1,"size":2,"minesweep":1
 		}],
 	"alienTable":
 		[{
-			"name":"Bergelmir (Green)","eco":5,"fleet":0,"tech":15,"def":40,"delta":"fTH","hidden":"52"
+			"name":"Adrastea (Green)","eco":5,"fleet":0,"tech":15,"def":40,"delta":"fTH","hidden":"52"
 		},{
-			"name":"Valetudo (Yellow)","eco":5,"fleet":0,"tech":35,"def":20,"delta":"fTH","hidden":"31 / 20"
+			"name":"Harpalyke (Yellow)","eco":5,"fleet":0,"tech":35,"def":20,"delta":"fTH","hidden":"31 / 20"
 		},{
 			"name":"(Rolls)","ecoPhase":10
 		}],
@@ -2614,7 +2614,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2410.2 (The Battle for Sector K11)",
-	"commentary":"<p>We are at last ready to intercept Valetudo's 31 CP fleet. Since we are not using any exotic technologies, Valetudo will skip to the Ship Size step. They roll a 2 (buy Lv3 &le;7 for 15 CP), followed by a 7 to buy Scanning 1 (for 20 CP), spending all of their Tech money.</p><p>Their largest ship unlocked is now a Cruiser (-12). They also build a Destroyer (-9) to include Scanning in their fleet. The remaining 10 CP is good only for a second Destroyer (-9 more), no matter the composition roll. This credits 1 leftover CP back to the Fleet bank.</p><ol><li><b>Round 1</b>: We have 8 ships to their 3. We will screen no ships. We gain the Fleet Size Bonus</li><li>Their Cruiser has the best Weapon Class and Tactics, so it shoots first. They rolled a 3 against our Scouts (hit &le;4)</li><li>Our Cruiser shoots next. We rolled a 10 against their Destroyers (miss &gt;5)</li><li>Their 2 Destroyers shoot next, rolling 3,8 against our Scouts (1 hit &le;4)</li><li>Our 5 surviving Scouts shoot, rolling until we score 2 hits against their Destroyers (&le;4 to hit): 4,8,8,10,3. This cleans up their group exactly<br /><br /></li><li><b>Round 2</b>: We have 6 ships to their 1. Their Cruiser shoots once more. They rolled a 3 against our Scouts (hit &le;4)</li><li>Our Cruiser shoots next. We rolled a 2 against their Cruiser (hit &le;5), damaging it</li><li>Our 5 Scouts shoot, rolling 2,4,5,7,7 (2 hits &le;4). This finishes their fleet off!</li></ol>",
+	"commentary":"<p>We are at last ready to intercept Harpalyke's 31 CP fleet. Since we are not using any exotic technologies, Harpalyke will skip to the Ship Size step. They roll a 2 (buy Lv3 &le;7 for 15 CP), followed by a 7 to buy Scanning 1 (for 20 CP), spending all of their Tech money.</p><p>Their largest ship unlocked is now a Cruiser (-12). They also build a Destroyer (-9) to include Scanning in their fleet. The remaining 10 CP is good only for a second Destroyer (-9 more), no matter the composition roll. This credits 1 leftover CP back to the Fleet bank.</p><ol><li><b>Round 1</b>: We have 8 ships to their 3. We will screen no ships. We gain the Fleet Size Bonus</li><li>Their Cruiser has the best Weapon Class and Tactics, so it shoots first. They rolled a 3 against our Scouts (hit &le;4)</li><li>Our Cruiser shoots next. We rolled a 10 against their Destroyers (miss &gt;5)</li><li>Their 2 Destroyers shoot next, rolling 3,8 against our Scouts (1 hit &le;4)</li><li>Our 5 surviving Scouts shoot, rolling until we score 2 hits against their Destroyers (&le;4 to hit): 4,8,8,10,3. This cleans up their group exactly<br /><br /></li><li><b>Round 2</b>: We have 6 ships to their 1. Their Cruiser shoots once more. They rolled a 3 against our Scouts (hit &le;4)</li><li>Our Cruiser shoots next. We rolled a 2 against their Cruiser (hit &le;5), damaging it</li><li>Our 5 Scouts shoot, rolling 2,4,5,7,7 (2 hits &le;4). This finishes their fleet off!</li></ol>",
 	"actions":
 		[{
 			"placeCounter":"Miner1B",
@@ -2685,7 +2685,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2410.5 (The Battle for Sector H2)",
-	"commentary":"<p>This has been the most action packed economic phase so far. We will now intercept Bergelmir's 52 CP fleet. The Ship Size step is skipped, because Bergelmir automatically buys level 2 for 10 CP, leaving it 5 leftover.</p><p>Their largest ship unlocked is now a Destroyer. For composition, they rolled an 8 (Largest Ships). This results in a total of 5 Destroyers (-45) and 1 Scout (-6), crediting a leftover 1 back to the Fleet bank.</p><ol><li><b>Round 1</b>: We have 6 ships to their 6; the very same fleet size</li><li>Our 3 Cruisers have the best Weapon Class, so we shoot first. We rolled 1,7,8 against their Destroyers (1 hit &le;4)</li><li>With the equal Tactics advantage, their 4 surviving Destroyers respond. They rolled 1,7,9,10 against our Destroyers (1 hit &le;4)</li><li>Our 2 surviving Destroyers now roll 6,7 against their Destroyers (0 hits &le;4)</li><li>Their 1 Scout rolls a 7 against our Destroyers (miss &gt;3)<br /><br /></li><li><b>Round 2</b>: We have 4 ships to their 5. A slight disadvantage in numbers, but we still have the Hull Size advantage</li><li>Our 3 Cruisers shoot once more, rolling 2,3,10 against their Destroyers (2 hits &le;4)</li><li>Their 2 surviving Destroyers respond. They rolled 3,10 against our Destroyers (1 hit &le;4)</li><li>Our 1 surviving Destroyer now rolls a 9 against their Destroyers (hit &le;4)</li><li>Their 1 Scout rolls a 1 against our final Destroyer (hit &le;3)<br /><br /></li><li><b>Round 3</b>: We have 3 Cruisers to their 3. Same numbers once more</li><li>Our 3 Cruisers shoot again, rolling 2,1 against their Destroyers (2 hits &le;4)</li><li>1 Cruiser still has ammo left. It rolled an 8 against their Scout (miss &gt;4)</li><li>Their 1 Scout rolls a 7 against our Cruisers (miss &gt;3)<br /><br /></li><li><b>Round 4</b>: We have 3 Cruisers to their 1 Scout. We gain the Fleet Size Bonus</li><li>Our 3 Cruisers shoot again, rolling 2,7,10 against their Scouts (1 hit &le;5). We finished their fleet off!</li></ol>",
+	"commentary":"<p>This has been the most action packed economic phase so far. We will now intercept Adrastea's 52 CP fleet. The Ship Size step is skipped, because Adrastea automatically buys level 2 for 10 CP, leaving it 5 leftover.</p><p>Their largest ship unlocked is now a Destroyer. For composition, they rolled an 8 (Largest Ships). This results in a total of 5 Destroyers (-45) and 1 Scout (-6), crediting a leftover 1 back to the Fleet bank.</p><ol><li><b>Round 1</b>: We have 6 ships to their 6; the very same fleet size</li><li>Our 3 Cruisers have the best Weapon Class, so we shoot first. We rolled 1,7,8 against their Destroyers (1 hit &le;4)</li><li>With the equal Tactics advantage, their 4 surviving Destroyers respond. They rolled 1,7,9,10 against our Destroyers (1 hit &le;4)</li><li>Our 2 surviving Destroyers now roll 6,7 against their Destroyers (0 hits &le;4)</li><li>Their 1 Scout rolls a 7 against our Destroyers (miss &gt;3)<br /><br /></li><li><b>Round 2</b>: We have 4 ships to their 5. A slight disadvantage in numbers, but we still have the Hull Size advantage</li><li>Our 3 Cruisers shoot once more, rolling 2,3,10 against their Destroyers (2 hits &le;4)</li><li>Their 2 surviving Destroyers respond. They rolled 3,10 against our Destroyers (1 hit &le;4)</li><li>Our 1 surviving Destroyer now rolls a 9 against their Destroyers (miss &gt;4)</li><li>Their 1 Scout rolls a 1 against our final Destroyer (hit &le;3)<br /><br /></li><li><b>Round 3</b>: We have 3 Cruisers to their 3. Same numbers once more</li><li>Our 3 Cruisers shoot again, rolling 2,1 against their Destroyers (2 hits &le;4)</li><li>1 Cruiser still has ammo left. It rolled an 8 against their Scout (miss &gt;4)</li><li>Their 1 Scout rolls a 7 against our Cruisers (miss &gt;3)<br /><br /></li><li><b>Round 4</b>: We have 3 Cruisers to their 1 Scout. We gain the Fleet Size Bonus</li><li>Our 3 Cruisers shoot again, rolling 2,7,10 against their Scouts (1 hit &le;5). We finished their fleet off!</li></ol>",
 	"actions":
 		[{
 			"removeCounter":"systemE5"
@@ -2753,7 +2753,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2410.8 (The Battle for Sector I11)",
-	"commentary":"<p>Almost done, 1 battle still remains this economic phase. Valetudo has no Tech money left, so they will go straight to construction.</p><p>Their largest ship unlocked is a Cruiser (-12). The only other ship they can afford to buy is a Scout (-6), crediting a leftover 2 back to the Fleet bank.</p><ol><li><b>Round 1</b>: We have 11 ships to their 2; more than enough for a Fleet Size Bonus</li><li>Their 1 Cruiser has the best Weapon Class, so it shoots first. It rolled a 2 against our Scouts (hit &le;4)</li><li>Our 1 Cruiser shoots next. We rolled a 3 against against their Scout (hit &le;4)</li><li>Our 9 surviving Scouts now get to shoot. We rolled 1,2,2,3,3,5,5,6,8 (5 hits &le;4), blasting their Cruiser into oblivion!</li></ol>",
+	"commentary":"<p>Almost done, 1 battle still remains this economic phase. Harpalyke has no Tech money left, so they will go straight to construction.</p><p>Their largest ship unlocked is a Cruiser (-12). The only other ship they can afford to buy is a Scout (-6), crediting a leftover 2 back to the Fleet bank.</p><ol><li><b>Round 1</b>: We have 11 ships to their 2; more than enough for a Fleet Size Bonus</li><li>Their 1 Cruiser has the best Weapon Class, so it shoots first. It rolled a 2 against our Scouts (hit &le;4)</li><li>Our 1 Cruiser shoots next. We rolled a 3 against against their Scout (hit &le;4)</li><li>Our 9 surviving Scouts now get to shoot. We rolled 1,2,2,3,3,5,5,6,8 (5 hits &le;3), blasting their Cruiser into oblivion!</li></ol>",
 	"actions":
 		[{
 			"removeCounter":"systemE6"
@@ -2825,7 +2825,7 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2411.0",
-	"commentary":"<p>Three (3) battles in a single economic phase's worth of turns is rarely heard of, never mind very successful battles. We will buy 2 research grants (-10) this phase, rolling a 2 for Attack 1 and a 4 for Minesweeping 1. Both of these technologies have been finished exactly.</p><p>On the construction step, we will buy 1 Colony Ship (-8) + 2 Battlecruisers (-30) at I8, and 5 Minesweepers (-30) + 1 Colony Ship at I5.</p>{prodTable}{techTable}<p>The Alien Players have rolled 6,7,7,10,10 (Bergelmir) / 6,6,6,6,8 (Valetudo) for their economics. Regarding fleet launches, they have rolled 7 (Bergelmir) / 5 (Valetudo). Neither player will launch a fleet this time.</p>",
+	"commentary":"<p>Three (3) battles in a single economic phase's worth of turns is rarely heard of, never mind very successful battles. We will buy 2 research grants (-10) this phase, rolling a 2 for Attack 1 and a 4 for Minesweeping 1. Both of these technologies have been finished exactly.</p><p>On the construction step, we will buy 1 Colony Ship (-8) + 2 Battlecruisers (-30) at I8, and 5 Minesweepers (-30) + 1 Colony Ship at I5.</p>{prodTable}{techTable}<p>The Alien Players have rolled 6,7,7,10,10 (Adrastea) / 6,6,6,6,8 (Harpalyke) for their economics. Regarding fleet launches, they have rolled 7 (Adrastea) / 5 (Harpalyke). Neither player will launch a fleet this time.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":5,"colonyCP":71,"mineralCP":20,"pipeCP":11,"maint":19,"bidCP":0,"techBuy":10,"unitBuy":76
@@ -2834,15 +2834,15 @@
 		[{
 			"name":"CSY (Blue)","size":4,"explore":1,"terraform":1,"SY":2,"move":2,"atk":1,"minesweep":1
 		},{
-			"name":"Bergelmir (Green)","minelay":1,"move":2,"size":2
+			"name":"Adrastea (Green)","minelay":1,"move":2,"size":2
 		},{
-			"name":"Valetudo (Yellow)","minelay":1,"size":3,"minesweep":1,"scan":1
+			"name":"Harpalyke (Yellow)","minelay":1,"size":3,"minesweep":1,"scan":1
 		}],
 	"alienTable":
 		[{
-			"name":"Bergelmir (Green)","eco":5,"fleet":6,"tech":15,"def":60,"delta":"FTDh","hidden":"&mdash;"
+			"name":"Adrastea (Green)","eco":5,"fleet":6,"tech":15,"def":60,"delta":"FTDh","hidden":"&mdash;"
 		},{
-			"name":"Valetudo (Yellow)","eco":5,"fleet":23,"tech":5,"def":20,"delta":"FTh","hidden":"&mdash;"
+			"name":"Harpalyke (Yellow)","eco":5,"fleet":23,"tech":5,"def":20,"delta":"FTh","hidden":"&mdash;"
 		},{
 			"name":"(Rolls)","ecoPhase":11
 		}],
@@ -2950,10 +2950,10 @@
 			"removeCounter":"mines1Y"
 		}]},
 	{"heading":"Stardate 2411.4 (The First Battle for Vasyr)",
-	"commentary":"<p>But, with no fleets under Valetudo's command, combined with a relatively small Def bank; we believe the time is right to assault Vasyr. Before we can do; a Cruiser that has just finished uncovering the last of the unexplored deep space, and has entered a black hole in an attempt to save time. We rolled a 7 (destroyed &gt;6).</p><ol><li><b>Preparation</b>: Since we are assaulting Vasyr, Valetudo gets to spend <i>all</i> of its money in appropriate areas. Since 5 Tech CP is not enough to buy anything, we will skip the technology step</li><li>For fleet construction, their largest ship is a Cruiser (-12). They also build a Destroyer (-9) to bring Scanning into the fleet. This is all they can afford to build, so that ends the Fleet step</li><li>On the protection step, Valetudo can choose between bases and/or minelayers. They roll a 1 (maximum minelayers), and build 4 minelayers accordingly<br /><br /></li><li><b>Round 1</b>: Their 4 minelayers detonate, taking out our Cruiser and 3 Scouts. We still have 6 Scouts to their 3 ships though, granting us the Fleet Size Bonus</li><li>Their Base has the highest priority, so it shoots first. Since our remaining 6 ships are all same-tech Scouts, their shooting is extremely easy. The base rolls a 6 (hit &le;7)</li><li>Their Cruiser and Destroyer can shoot together (same Attack strength), rolling 3,7 (1 hit &le;4)</li><li>Our 4 surviving Scouts can shoot now. We will prioritize their Destroyer (&le;5), rolling a 4 in the process</li><li>3 Scouts have ammo left. We will target their Cruiser next (&le;4), rolling 6,7,9 in the process (0 hits)<br /><br /></li><li><b>Round 2</b>: We still have 4 Scouts to their 2 ships. We keep the Fleet Size Bonus</li><li>Their Base shoots once more, rolling a 6 (hit &le;7)</li><li>Their Cruiser shoots next, rolling a 7 (miss &gt;4)</li><li>Our 3 surviving Scouts shoot once more. We will target their Cruiser (&le;4), rolling 9,10,7 in the process (0 hits)<br /><br /></li><li><b>Round 3</b>: We have 3 Scouts to their 2 ships. We have lost the Fleet Size Bonus</li><li>Their Base shoots once more, rolling a 5 (hit &le;7)</li><li>Their Cruiser shoots next, rolling a 10 (miss &gt;4)</li><li>Our 2 surviving Scouts shoot once more, rolling 7,9 in the process (0 hits &le;3)<br /><br /></li><li><b>Round 4</b>: We have 2 Scouts to their 2 ships. Their Base shoots once more, rolling a 2 (hit &le;7)</li><li>Their Cruiser shoots next, rolling an 8 (miss &gt;4)</li><li>Our 1 surviving Scout will shoot once more, rolling a 5 (miss &gt;3)<br /><br /></li><li><b>Round 5</b>: We have 1 Scouts to their 2 ships. Their Base shoots once more and with the Fleet Size Bonus, rolling a 6 (hit &le;8) this finishes our fleet off!</li><li>The one victorious Cruiser gets to move on its own accord during their turn.</li></ol>",
+	"commentary":"<p>But, with no fleets under Harpalyke's command, combined with a relatively small Def bank; we believe the time is right to assault Vasyr. Before we can do; a Cruiser that has just finished uncovering the last of the unexplored deep space, and has entered a black hole in an attempt to save time. We rolled a 7 (destroyed &gt;6).</p><ol><li><b>Preparation</b>: Since we are assaulting Vasyr, Harpalyke gets to spend <i>all</i> of its money in appropriate areas. Since 5 Tech CP is not enough to buy anything, we will skip the technology step</li><li>For fleet construction, their largest ship is a Cruiser (-12). They also build a Destroyer (-9) to bring Scanning into the fleet. This is all they can afford to build, so that ends the Fleet step</li><li>On the protection step, Harpalyke can choose between bases and/or minelayers. They roll a 1 (maximum minelayers), and build 4 minelayers accordingly<br /><br /></li><li><b>Round 1</b>: Their 4 minelayers detonate, taking out our Cruiser and 3 Scouts. We still have 6 Scouts to their 3 ships though, granting us the Fleet Size Bonus</li><li>Their Base has the highest priority, so it shoots first. Since our remaining 6 ships are all same-tech Scouts, their shooting is extremely easy. The base rolls a 6 (hit &le;7)</li><li>Their Cruiser and Destroyer can shoot together (same Attack strength), rolling 3,7 (1 hit &le;4)</li><li>Our 4 surviving Scouts can shoot now. We will prioritize their Destroyer (&le;5), rolling a 4 in the process</li><li>3 Scouts have ammo left. We will target their Cruiser next (&le;4), rolling 6,7,9 in the process (0 hits)<br /><br /></li><li><b>Round 2</b>: We still have 4 Scouts to their 2 ships. We keep the Fleet Size Bonus</li><li>Their Base shoots once more, rolling a 6 (hit &le;7)</li><li>Their Cruiser shoots next, rolling a 7 (miss &gt;4)</li><li>Our 3 surviving Scouts shoot once more. We will target their Cruiser (&le;4), rolling 9,10,7 in the process (0 hits)<br /><br /></li><li><b>Round 3</b>: We have 3 Scouts to their 2 ships. We have lost the Fleet Size Bonus</li><li>Their Base shoots once more, rolling a 5 (hit &le;7)</li><li>Their Cruiser shoots next, rolling a 10 (miss &gt;4)</li><li>Our 2 surviving Scouts shoot once more, rolling 7,9 in the process (0 hits &le;3)<br /><br /></li><li><b>Round 4</b>: We have 2 Scouts to their 2 ships. Their Base shoots once more, rolling a 2 (hit &le;7)</li><li>Their Cruiser shoots next, rolling an 8 (miss &gt;4)</li><li>Our 1 surviving Scout will shoot once more, rolling a 5 (miss &gt;3)<br /><br /></li><li><b>Round 5</b>: We have 1 Scouts to their 2 ships. Their Base shoots once more and with the Fleet Size Bonus, rolling a 6 (hit &le;8) this finishes our fleet off!</li><li>The one victorious Cruiser gets to move on its own accord during their turn.</li></ol>",
 	"alienTable":
 		[{
-			"name":"Valetudo (Yellow)","eco":5,"fleet":2,"tech":5,"def":0,"delta":"fd","hidden":"&mdash;"
+			"name":"Harpalyke (Yellow)","eco":5,"fleet":2,"tech":5,"def":0,"delta":"fd","hidden":"&mdash;"
 		}],
 	"actions":
 		[{
@@ -3022,7 +3022,7 @@
 			"name":"blackHole"
 		}]},
 	{"heading":"Stardate 2411.7",
-	"commentary":"<p>Since we were unsuccessful against Valetudo, they get to have a fleet anyway; though their numbers were thinned, and we know they have just 1 Cruiser.</p>",
+	"commentary":"<p>Since we were unsuccessful against Harpalyke, they get to have a fleet anyway; though their numbers were thinned, and we know they have just 1 Cruiser.</p>",
 	"actions":
 		[{
 			"placeCounter":"Miner1B",
@@ -3079,7 +3079,7 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2412.0",
-	"commentary":"<p>Recent battle losses did make it a little easier on our maintenance. We will also buy no research grants this economic phase; too close to cashing in another space wreck. We will buy 3 Minesweepers (-18) and 3 Battlecruisers (-45) at I8.</p>{prodTable}{techTable}<p>The Alien Players will narrow their focus soon. After this phase, it will no longer be possible to add to homeworld protection. Their economic rolls are 4,6,6,7,10 (Bergelmir) / 5,6,8,8,10 (Valetudo). As for fleet launch, they rolled 5 (Bergelmir) / 6 (Valetudo). Neither player will launch this time.</p>",
+	"commentary":"<p>Recent battle losses did make it a little easier on our maintenance. We will also buy no research grants this economic phase; too close to cashing in another space wreck. We will buy 3 Minesweepers (-18) and 3 Battlecruisers (-45) at I8.</p>{prodTable}{techTable}<p>The Alien Players will narrow their focus soon. After this phase, it will no longer be possible to add to homeworld protection. Their economic rolls are 4,6,6,7,10 (Adrastea) / 5,6,8,8,10 (Harpalyke). As for fleet launch, they rolled 5 (Adrastea) / 6 (Harpalyke). Neither player will launch this time.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":2,"colonyCP":73,"mineralCP":0,"pipeCP":11,"maint":15,"bidCP":0,"techBuy":0,"unitBuy":63
@@ -3088,15 +3088,15 @@
 		[{
 			"name":"CSY (Blue)","size":4,"explore":1,"terraform":1,"SY":2,"move":2,"atk":1,"minesweep":1
 		},{
-			"name":"Bergelmir (Green)","minelay":1,"move":2,"size":2
+			"name":"Adrastea (Green)","minelay":1,"move":2,"size":2
 		},{
-			"name":"Valetudo (Yellow)","minelay":1,"size":3,"minesweep":1,"scan":1
+			"name":"Harpalyke (Yellow)","minelay":1,"size":3,"minesweep":1,"scan":1
 		}],
 	"alienTable":
 		[{
-			"name":"Bergelmir (Green)","eco":5,"fleet":21,"tech":20,"def":70,"delta":"FTD","hidden":"&mdash;"
+			"name":"Adrastea (Green)","eco":5,"fleet":21,"tech":20,"def":70,"delta":"FTD","hidden":"&mdash;"
 		},{
-			"name":"Valetudo (Yellow)","eco":5,"fleet":12,"tech":15,"def":10,"delta":"FTD","hidden":"&mdash;"
+			"name":"Harpalyke (Yellow)","eco":5,"fleet":12,"tech":15,"def":10,"delta":"FTD","hidden":"&mdash;"
 		},{
 			"name":"(Rolls)","ecoPhase":12
 		}],
@@ -3144,7 +3144,7 @@
 			"name":"colony5B"
 		}]},
 	{"heading":"Stardate 2412.3",
-	"commentary":"<p>Since there happens to be an empty planet right next to Chulak, Bergelmir's homeworld, we will use this planet to our advantage. Sure, the colony will only just be started (+0 CP production), but that is all it takes from an Alien Player pathing standpoint.</p>",
+	"commentary":"<p>Since there happens to be an empty planet right next to Chulak, Adrastea's homeworld, we will use this planet to our advantage. Sure, the colony will only just be started (+0 CP production), but that is all it takes from an Alien Player pathing standpoint.</p>",
 	"actions":
 		[{
 			"placeCounter":"Miner1B",
@@ -3190,14 +3190,14 @@
 			"removeCounter":"mines1G"
 		}]},
 	{"heading":"Stardate 2412.6",
-	"commentary":"<p>Previously, we were hesitant to <q>tickle</q> Chulak; but now we have started a colony right in their vincinity, and have set up a trap in the process.</p><h3>The Battle for Sector I10</h3><p>But first, we intercept Valetudo's straggler Cruiser. Since it is already known, no spending takes place. Screening our Minesweepers, our Battlecruisers shoot first, rolling 1,1,7 (2 hits &le;6). We easily cleaned up their straggler.</p><h3>The First Battle for Chulak</h3><p>Even if Minesweepers are more utility combat ships, they still have all the benefits as such, including being able to conduct battles. Thus, we will use them to tickle Chulak... though this is effectively more economic harassment than a proper battle. On the Tech step; since Chulak is <q>under assault</q>, Bergelmir will not buy Movement 3 even if they could afford it. They could buy Ship Size 3, rolling a 10 for this sub-step (skip &gt;7). For extra technologies, they roll a 3 to buy Defense 1 (-20), spending all their Tech money.</p><p>On the Fleet step, their largest ship is still a Destroyer (-9). A composition roll is important, and they roll a 1 in this department (Largest Fleet), adding 2 Scouts (-12) and spending all their Fleet money. On the Protection step, they roll a 3 to build <b>14</b> minelayers!</p><p>Resolving the battle itself is <i>extremely</i> simple. Our Minesweepers nullify 5 of their Minesweepers, while 5 more of their remaining Minesweepers lay their mines and detonate; eliminating our Minesweeper fleet.</p><h3>The Battle for Sector H2</h3><p>On Bergelmir's turn, only 1 colony is within their newly built fleet's reach... and it happens to be protected. The trap has sprung, and we are ready for another battle!</p><ol><li><b>Round 1</b>: We have 5 ships to their 3 ships. Not quite enough for a Fleet Size Bonus</li><li>Our 2 Battlecruisers have the best Weapon Class, so we shoot first. We will prioritize their 1 Destroyer (&le;4). We rolled 6,6 this way</li><li>Our 3 Cruisers get to shoot next. We rolled a 2 (1 hit &le;3)</li><li>2 Cruisers have ammo still. Only their Scouts remain now (&le;3). We rolled 2,9 (1 hit)</li><li>Their 1 surviving Scout shoots now. They rolled a 9 against our Battlecruisers (miss &gt;2)<br /><br /></li><li><b>Round 2</b>: We have 5 ships to their 1 Scout. We have gained the Fleet Size Bonus</li><li>Our 2 Battlecruisers shoot once more. We rolled 1,1 this way (2 hits &le;5), cleaning them up!</li></ol>",
+	"commentary":"<p>Previously, we were hesitant to <q>tickle</q> Chulak; but now we have started a colony right in their vincinity, and have set up a trap in the process.</p><h3>The Battle for Sector I10</h3><p>But first, we intercept Harpalyke's straggler Cruiser. Since it is already known, no spending takes place. Screening our Minesweepers, our Battlecruisers shoot first, rolling 1,1,7 (2 hits &le;6). We easily cleaned up their straggler.</p><h3>The First Battle for Chulak</h3><p>Even if Minesweepers are more utility combat ships, they still have all the benefits as such, including being able to conduct battles. Thus, we will use them to tickle Chulak... though this is effectively more economic harassment than a proper battle. On the Tech step; since Chulak is <q>under assault</q>, Adrastea will not buy Movement 3 even if they could afford it. They could buy Ship Size 3, rolling a 10 for this sub-step (skip &gt;7). For extra technologies, they roll a 3 to buy Defense 1 (-20), spending all their Tech money.</p><p>On the Fleet step, their largest ship is still a Destroyer (-9). A composition roll is important, and they roll a 1 in this department (Largest Fleet), adding 2 Scouts (-12) and spending all their Fleet money. On the Protection step, they roll a 3 to build <b>14</b> minelayers!</p><p>Resolving the battle itself is <i>extremely</i> simple. Our Minesweepers nullify 5 of their Minesweepers, while 5 more of their remaining Minesweepers lay their mines and detonate; eliminating our Minesweeper fleet.</p><h3>The Battle for Sector H2</h3><p>On Adrastea's turn, only 1 colony is within their newly built fleet's reach... and it happens to be protected. The trap has sprung, and we are ready for another battle!</p><ol><li><b>Round 1</b>: We have 5 ships to their 3 ships. Not quite enough for a Fleet Size Bonus</li><li>Our 2 Battlecruisers have the best Weapon Class, so we shoot first. We will prioritize their 1 Destroyer (&le;4). We rolled 6,6 this way</li><li>Our 3 Cruisers get to shoot next. We rolled a 2 (1 hit &le;3)</li><li>2 Cruisers have ammo still. Only their Scouts remain now (&le;3). We rolled 2,9 (1 hit)</li><li>Their 1 surviving Scout shoots now. They rolled a 9 against our Battlecruisers (miss &gt;2)<br /><br /></li><li><b>Round 2</b>: We have 5 ships to their 1 Scout. We have gained the Fleet Size Bonus</li><li>Our 2 Battlecruisers shoot once more. We rolled 1,1 this way (2 hits &le;5), cleaning them up!</li></ol>",
 	"techTable":
 		[{
-			"name":"Bergelmir (Green)","minelay":1,"move":2,"size":2,"def":1
+			"name":"Adrastea (Green)","minelay":1,"move":2,"size":2,"def":1
 		}],
 	"alienTable":
 		[{
-			"name":"Bergelmir (Green)","eco":5,"fleet":0,"tech":0,"def":0,"delta":"ftd","hidden":"&mdash;"
+			"name":"Adrastea (Green)","eco":5,"fleet":0,"tech":0,"def":0,"delta":"ftd","hidden":"&mdash;"
 		}],
 	"actions":
 		[{
@@ -3256,7 +3256,7 @@
 			"location":"H1"
 		}]},
 	{"heading":"Stardate 2412.9",
-	"commentary":"<p>Overall, we can rule the harassment to be a tactical success. Bergelmir still has 4 minelayers protecting Chulak, but they are no longer able to build more, now that their economic rolls are no longer able to contribute to the Def bank.</p>",
+	"commentary":"<p>Overall, we can rule the harassment to be a tactical success. Adrastea still has 4 minelayers protecting Chulak, but they are no longer able to build more, now that their economic rolls are no longer able to contribute to the Def bank.</p>",
 	"actions":
 		[{
 			"placeCounter":"Miner1B",
@@ -3319,7 +3319,7 @@
 			"removeCounter":"fleet5Y"
 		}]},
 	{"heading":"Stardate 2413.0",
-	"commentary":"<p>Each success we enjoy brings us a little closer to defeating the Alien Player homeworlds. We have cashed in a space wreck, so we need to determine its free technology. We rolled a 1, granting us Ship Size 5. We will buy 2 research grants (-10) afterward, and dedicated them to Movement 3. We rolled 4,6 this way, giving us a foothold.</p><p>We will buy 4 Minesweepers (-24) + 1 Battleship (-20) + 1 Battlecruiser (-15) at Sector I5.</p>{prodTable}<p>From here on out, Alien Players will alternate between a soft downtime phase and an automatic launch phase. Their economic rolls are 2,7,9,9,10 (Bergelmir) / 2,3,4,5,9 (Valetudo).</p><p>This is a soft downtime phase, and only Valetudo is able to afford a fleet launch. They roll a 1 to launch a fresh fleet! They then roll a 2 to buy Movement 2 (-20).</p>",
+	"commentary":"<p>Each success we enjoy brings us a little closer to defeating the Alien Player homeworlds. We have cashed in a space wreck, so we need to determine its free technology. We rolled a 1, granting us Ship Size 5. We will buy 2 research grants (-10) afterward, and dedicated them to Movement 3. We rolled 4,6 this way, giving us a foothold.</p><p>We will buy 4 Minesweepers (-24) + 1 Battleship (-20) + 1 Battlecruiser (-15) at Sector I5.</p>{prodTable}<p>From here on out, Alien Players will alternate between a soft downtime phase and an automatic launch phase. Their economic rolls are 2,7,9,9,10 (Adrastea) / 2,3,4,5,9 (Harpalyke).</p><p>This is a soft downtime phase, and only Harpalyke is able to afford a fleet launch. They roll a 1 to launch a fresh fleet! They then roll a 2 to buy Movement 2 (-20).</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":8,"colonyCP":75,"mineralCP":20,"pipeCP":11,"maint":19,"bidCP":0,"techBuy":10,"unitBuy":59
@@ -3328,15 +3328,15 @@
 		[{
 			"name":"CSY (Blue)","size":5,"explore":1,"terraform":1,"SY":2,"move":"2 (10 / 25)","atk":1,"minesweep":1
 		},{
-			"name":"Bergelmir (Green)","minelay":1,"move":2,"size":2,"def":1
+			"name":"Adrastea (Green)","minelay":1,"move":2,"size":2,"def":1
 		},{
-			"name":"Valetudo (Yellow)","minelay":1,"size":3,"minesweep":1,"scan":1,"move":2
+			"name":"Harpalyke (Yellow)","minelay":1,"size":3,"minesweep":1,"scan":1,"move":2
 		}],
 	"alienTable":
 		[{
-			"name":"Bergelmir (Green)","eco":5,"fleet":5,"tech":20,"def":0,"delta":"FT","hidden":"&mdash;"
+			"name":"Adrastea (Green)","eco":5,"fleet":5,"tech":20,"def":0,"delta":"FT","hidden":"&mdash;"
 		},{
-			"name":"Valetudo (Yellow)","eco":5,"fleet":0,"tech":0,"def":10,"delta":"ftH","hidden":"32"
+			"name":"Harpalyke (Yellow)","eco":5,"fleet":0,"tech":0,"def":10,"delta":"ftH","hidden":"32"
 		},{
 			"name":"(Rolls)","ecoPhase":13
 		}],
@@ -3385,7 +3385,7 @@
 			"name":"hiddenY"
 		}]},
 	{"heading":"Stardate 2413.2",
-	"commentary":"<p>Since Valetudo just built a fleet, we will advance to the nearby asteroid belt to deny its use.</p>",
+	"commentary":"<p>Since Harpalyke just built a fleet, we will advance to the nearby asteroid belt to deny its use.</p>",
 	"actions":
 		[{
 			"placeCounter":"Miner1B",
@@ -3416,7 +3416,7 @@
 			"location":"H12"
 		}]},
 	{"heading":"Stardate 2413.5 (The Second Battle for Vasyr)",
-	"commentary":"<p>On this turn, we could choose to intercept their fleet <i>or</i> assault Vasyr directly. In this case, we will assautl Vasyr directly. Since they have neither Fleet CP nor Tech CP, we will skip directly to the Homeworld Protection step. 10 CP is good for 2 minelayers... that's it.</p><ol><li><b>Round 1</b>: Our 3 Minesweepers have managed to sweep the ammunition laid by their 2 Minelayers</li><li>With 6 ships to their 1 base, we can easily achieve Fleet Size Bonus. We will also screen no ships</li><li>Their Base has the best Weapon Class, so it shoots first. It rolled a 10 against our Minesweepers (miss &gt;7)</li><li>Our 3 Battlecruisers can now shoot. Since their Base is all alone, rolling is extremely easy. We rolled 4,6,9 (1 hit &le;5). Their Base is damaged, but still has 2 HP</li><li>Our 3 Minesweepers can also shoot. As well armored as their Base is, it is <i>not</i> a Doomsday Machine. Thus, we rolled 7,9,9 (0 hits &le;1)<br /><br /></li><li><b>Round 2</b>: Their Base shoots once more. It rolled a 2 against our Minesweepers (hit &le;7)</li><li>Our 3 Battlecruisers can now shoot. We rolled 1,3,7 (2 hits &le;5). We have finished their Base off!<br /><br /></li><li><b>Bombardment Round</b>: Vasyr is now exposed. Our 3 Battlecruisers rolled 5,5,8 (2 hits &le;6). Their homeworld has been reduced to 2 HP (size 10)</li><li>Our 2 surviving Minesweepers rolled 7,8 (0 hits &le;2)</li></ol>",
+	"commentary":"<p>On this turn, we could choose to intercept their fleet <i>or</i> assault Vasyr directly. In this case, we will assault Vasyr directly. Since they have neither Fleet CP nor Tech CP, we will skip directly to the Homeworld Protection step. 10 CP is good for 2 minelayers... that's it.</p><ol><li><b>Round 1</b>: Our 3 Minesweepers have managed to sweep the ammunition laid by their 2 Minelayers</li><li>With 6 ships to their 1 base, we can easily achieve Fleet Size Bonus. We will also screen no ships</li><li>Their Base has the best Weapon Class, so it shoots first. It rolled a 10 against our Minesweepers (miss &gt;7)</li><li>Our 3 Battlecruisers can now shoot. Since their Base is all alone, rolling is extremely easy. We rolled 4,6,9 (1 hit &le;5). Their Base is damaged, but still has 2 HP</li><li>Our 3 Minesweepers can also shoot. As well armored as their Base is, it is <i>not</i> a Doomsday Machine. Thus, we rolled 7,9,9 (0 hits &le;1)<br /><br /></li><li><b>Round 2</b>: Their Base shoots once more. It rolled a 2 against our Minesweepers (hit &le;7)</li><li>Our 3 Battlecruisers can now shoot. We rolled 1,3,7 (2 hits &le;5). We have finished their Base off!<br /><br /></li><li><b>Bombardment Round</b>: Vasyr is now exposed. Our 3 Battlecruisers rolled 5,5,8 (2 hits &le;6). Their homeworld has been reduced to 2 HP (size 10)</li><li>Our 2 surviving Minesweepers rolled 7,8 (0 hits &le;2)</li></ol>",
 	"actions":
 		[{
 			"placeCounter":"Miner1B",
@@ -3516,7 +3516,7 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2414.0",
-	"commentary":"<p>Vasyr is damaged, but not destroyed. Since we have reached a new economic phase, it will repair itself while we conduct our economics. We will buy 3 research grants (-15) towards Movement 3, rolling 4,8,6 and finishing this level off.</p><p>We will go on ahead and buy 3 Battleships (-60) at I8. We will also throw down a Base (-12) at K9.</p>{prodTable}<p>Since Alien Player homeworlds are immune to the effects of blockades, their economic rolls are 1,1,2,6,9 (Bergelmir) / 4,6,8,8,10 (Valetudo).</p><p>This is an automatic fleet launch phase (not to mention later in this paragraph). Bergelmir has enough Tech CP to roll for Movement 3. They rolled a 2 (buy &le;4). Since Valetudo's homeworld is under assault, they will immediately build the fleet that was launched; which comprises of 1 Destroyer (-9). They are unable to afford any compatible tech either, so that is that.</p>",
+	"commentary":"<p>Vasyr is damaged, but not destroyed. Since we have reached a new economic phase, it will repair itself while we conduct our economics. We will buy 3 research grants (-15) towards Movement 3, rolling 4,8,6 and finishing this level off.</p><p>We will go on ahead and buy 3 Battleships (-60) at I8. We will also throw down a Base (-12) at K9.</p>{prodTable}<p>Since Alien Player homeworlds are immune to the effects of blockades, their economic rolls are 1,1,2,6,9 (Adrastea) / 4,6,8,8,10 (Harpalyke).</p><p>This is an automatic fleet launch phase (not to mention later in this paragraph). Adrastea has enough Tech CP to roll for Movement 3. They rolled a 2 (buy &le;4). Since Harpalyke's homeworld is under assault, they will immediately build the fleet that was launched; which comprises of 1 Destroyer (-9). They are unable to afford any compatible tech either, so that is that.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":26,"colonyCP":77,"mineralCP":0,"pipeCP":11,"maint":27,"bidCP":0,"techBuy":15,"unitBuy":72
@@ -3525,15 +3525,15 @@
 		[{
 			"name":"CSY (Blue)","size":5,"explore":1,"terraform":1,"SY":2,"move":3,"atk":1,"minesweep":1
 		},{
-			"name":"Bergelmir (Green)","minelay":1,"move":2,"size":2,"def":1
+			"name":"Adrastea (Green)","minelay":1,"move":2,"size":2,"def":1
 		},{
-			"name":"Valetudo (Yellow)","minelay":1,"size":3,"minesweep":1,"scan":1,"move":2
+			"name":"Harpalyke (Yellow)","minelay":1,"size":3,"minesweep":1,"scan":1,"move":2
 		}],
 	"alienTable":
 		[{
-			"name":"Bergelmir (Green)","eco":5,"fleet":0,"tech":0,"def":0,"delta":"ftH","hidden":"25"
+			"name":"Adrastea (Green)","eco":5,"fleet":0,"tech":0,"def":0,"delta":"ftH","hidden":"25"
 		},{
-			"name":"Valetudo (Yellow)","eco":5,"fleet":1,"tech":15,"def":0,"delta":"fTd","hidden":"32"
+			"name":"Harpalyke (Yellow)","eco":5,"fleet":1,"tech":15,"def":0,"delta":"fTd","hidden":"32"
 		},{
 			"name":"(Rolls)","ecoPhase":14
 		}],
@@ -3666,7 +3666,7 @@
 			"name":"home20G"
 		}]},
 	{"heading":"Stardate 2414.4 (The Battle for Sector I9)",
-	"commentary":"<p>We will deny Valetudo's ability to threaten our colonies while we attempt to finsih off both Alien Player homeworlds. But first, we gotta identify their fleet. Their 15 Tech CP is just enough for Minesweeping 2. Their largest ship is a Cruiser (-12). To ensure they have Scanning, they also build a Destroyer (-9). Leftover assigned money is enough only for a second Destroyer (-9).</p><ol><li><b>Round 1</b>: 3 Battleships versus 3 ships. Nobody dominates this round</li><li>Since this battle takes place in a nebula, their ships will shoot first</li><li>Their Cruiser and Destroyers can shoot together (same Attack rating of 4), rolling 5,7,10 (0 hits &le;2)</li><li>Our Battleships will focus on their Destroyers (&le;6), rolling 6,10,9 (1 hit)<br /><br /></li><li><b>Round 2</b>: 3 Battleships versus 2 ships. Our numbers have improved, but not enough for Fleet Size Bonus</li><li>Their Cruiser and Destroyer shoot together once more, rolling 6,6 (0 hits &le;2)</li><li>Our Battleships will focus on their last Destroyer once again (&le;6), rolling a 4 to clean that up</li><li>Their Cruiser is all that remains. Our 2 leftover Battleships will shoot now, rolling 6,10 (0 hits &le;5)<br /><br /></li><li><b>Round 3</b>: 3 Battleships versus 1 Cruiser. We have gained the Fleet Size Bonus</li><li>Their Cruiser shoots once more, rolling a 1 (hit &le;2). One of our Battleships are damaged</li><li>Our Battleships shoot once more, rolling 3,4,6 (2 hits &le;5). Their fleet is finished!</li></ol><h3>Bombardment Rounds</h3><p>On the subject of bombardment, we will roll against Vasyr first. Battlecruisers have rolled 4,9,9 (1 hit &le;6). This homeworld is gone!</p><p>Against Chulak, Battleship and Battlecruisers have rolled  2,5,9,10 (2 hits &le;6). This homeworld is also gone!</p>",
+	"commentary":"<p>We will deny Harpalyke's ability to threaten our colonies while we attempt to finsih off both Alien Player homeworlds. But first, we gotta identify their fleet. Their 15 Tech CP is just enough for Minesweeping 2. Their largest ship is a Cruiser (-12). To ensure they have Scanning, they also build a Destroyer (-9). Leftover assigned money is enough only for a second Destroyer (-9).</p><ol><li><b>Round 1</b>: 3 Battleships versus 3 ships. Nobody dominates this round</li><li>Since this battle takes place in a nebula, their ships will shoot first</li><li>Their Cruiser and Destroyers can shoot together (same Attack rating of 4), rolling 5,7,10 (0 hits &le;2)</li><li>Our Battleships will focus on their Destroyers (&le;6), rolling 6,10,9 (1 hit)<br /><br /></li><li><b>Round 2</b>: 3 Battleships versus 2 ships. Our numbers have improved, but not enough for Fleet Size Bonus</li><li>Their Cruiser and Destroyer shoot together once more, rolling 6,6 (0 hits &le;2)</li><li>Our Battleships will focus on their last Destroyer once again (&le;6), rolling a 4 to clean that up</li><li>Their Cruiser is all that remains. Our 2 leftover Battleships will shoot now, rolling 6,10 (0 hits &le;5)<br /><br /></li><li><b>Round 3</b>: 3 Battleships versus 1 Cruiser. We have gained the Fleet Size Bonus</li><li>Their Cruiser shoots once more, rolling a 1 (hit &le;2). One of our Battleships are damaged</li><li>Our Battleships shoot once more, rolling 3,4,6 (2 hits &le;5). Their fleet is finished!</li></ol><h3>Bombardment Rounds</h3><p>On the subject of bombardment, we will roll against Vasyr first. Battlecruisers have rolled 4,9,9 (1 hit &le;6). This homeworld is gone!</p><p>Against Chulak, Battleship and Battlecruisers have rolled  2,5,9,10 (2 hits &le;6). This homeworld is also gone!</p>",
 	"actions":
 		[{
 			"placeCounter":"Miner1B",
@@ -3720,15 +3720,15 @@
 		[{
 			"name":"CSY (Blue)","size":5,"explore":1,"terraform":1,"SY":2,"move":3,"atk":1,"minesweep":1
 		},{
-			"name":"Bergelmir (Green)","minelay":1,"move":2,"size":2,"def":1,"isDead":true
+			"name":"Adrastea (Green)","minelay":1,"move":2,"size":2,"def":1,"isDead":true
 		},{
-			"name":"Valetudo (Yellow)","minelay":1,"size":3,"minesweep":1,"scan":1,"move":2,"isDead":true
+			"name":"Harpalyke (Yellow)","minelay":1,"size":3,"minesweep":1,"scan":1,"move":2,"isDead":true
 		}],
 	"alienTable":
 		[{
-			"name":"Bergelmir (Green)","eco":5,"fleet":1,"tech":0,"def":0,"delta":"---","hidden":"&mdash;"
+			"name":"Adrastea (Green)","eco":5,"fleet":1,"tech":0,"def":0,"delta":"---","hidden":"&mdash;"
 		},{
-			"name":"Valetudo (Yellow)","eco":5,"fleet":3,"tech":0,"def":0,"delta":"---","hidden":"&mdash;"
+			"name":"Harpalyke (Yellow)","eco":5,"fleet":3,"tech":0,"def":0,"delta":"---","hidden":"&mdash;"
 		}],
 	"actions":
 		[{
