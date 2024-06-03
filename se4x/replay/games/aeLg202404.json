@@ -5469,6 +5469,9 @@
 			"size":1,
 			"location":"J5"
 		},{
+			"revealCounter":"systemJ5",
+			"name":"colony5Y"
+		},{
 			"placeCounter":"systemL7",
 			"name":"home20Y"
 		}]},
