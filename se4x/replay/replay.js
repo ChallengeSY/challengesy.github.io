@@ -85,13 +85,14 @@ function dispRow(b, newDisp) {
 }
 
 function dispCol(a, newDisp) {
+	var ctrlPanel = document.getElementById("controls");
 	var affectCol = Math.floor(a);
 	
 	for (y = 0; y < 12; y++) {
 		var findObj = document.getElementById("hex"+letterRows.charAt(y)+affectCol);
 		
 		if (findObj && (a % 1 == 0 || y % 2 == 1)) {
-			if (a > 7) {
+			if (a > 7 || ctrlPanel.className == "dmBoard") {
 				if (newDisp) {
 					findObj.style.display = "";
 				} else {
@@ -264,6 +265,15 @@ function autoNameCounter(localObj) {
 		stackable = true;
 	} else if (localObj.src.indexOf("gfx/Inf") >= 0) {
 		localObj.title = "Light Infantry";
+		stackable = true;
+	} else if (localObj.src.indexOf("gfx/HI") >= 0) {
+		localObj.title = "Heavy Infantry";
+		stackable = true;
+	} else if (localObj.src.indexOf("gfx/Mar") >= 0) {
+		localObj.title = "Space Marines";
+		stackable = true;
+	} else if (localObj.src.indexOf("gfx/Tran") >= 0) {
+		localObj.title = "Troop Transport";
 		stackable = true;
 	} else if (localObj.src.indexOf("gfx/fleet1") >= 0) {
 		localObj.title = "Fleet One";
@@ -664,13 +674,21 @@ function readJson() {
 
 		}
 		
-		if (curStage.alienTable) {
+		if (curStage.alienTable || curStage.alienTableX) {
 			// Alien Player economics
 			var constructTable = "<table><caption>Alien Economics</caption> \
 				<tr><th>Player</th><th>Eco</th><th>Fleet</th><th>Tech</th><th>Def</th><th>Expo</th><th>Hidden</th></tr>";
 				
-			for (var a = 0; a < curStage.alienTable.length; a++) {
-				var activePlayer = curStage.alienTable[a];
+			var workTable;
+			
+			if (curStage.alienTableX) {
+				workTable = curStage.alienTableX;
+			} else {
+				workTable = curStage.alienTable;
+			}
+
+			for (var a = 0; a < workTable.length; a++) {
+				var activePlayer = workTable[a];
 				
 				if (activePlayer.name == dieRollsRow) {
 					var ecoRange = "&mdash;", fleetRange, techRange, defRange = "&mdash;", launchRange = "Launch &le;3";
@@ -689,7 +707,7 @@ function readJson() {
 						if (activePlayer.ecoPhase % 2 == 0) {
 							launchRange = "Launch Auto";
 						}
-					} else if (activePlayer.victoryChart) {
+					} else if (curStage.alienTableX) {
 						switch (activePlayer.ecoPhase) {
 							case 1:
 								fleetRange = "1";
@@ -904,7 +922,7 @@ function readJson() {
 				if (b > 0) {
 					if (expansionTechs) {
 						constructTable = constructTable + "<tr><th>Player</th><th colspan=\"2\">Academy</th><th colspan=\"2\">Boarding</th> \
-							<th>Security</th><th>Troops</th><th colspan=\"2\">Fastmove</th><th>AdvCon</th> \
+							<th>Security</th><th>Troops</th><th>Fastmove</th><th>BHJ</th><th>AdvCon</th> \
 							<th colspan=\"2\">Tractor</th><th colspan=\"2\">Shield Projectors</th><th>Anti-Replicator</th></tr>";
 					} else {
 						break;
@@ -944,7 +962,8 @@ function readJson() {
 							<td class=\"numeric\" colspan=\"2\">"+readValue(activePlayer.boarding,0)+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.security,0)+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.troops,1)+"</td> \
-							<td class=\"numeric\" colspan=\"2\">"+readValue(activePlayer.fastMove,0)+"</td> \
+							<td class=\"numeric\">"+readValue(activePlayer.fastMove,0)+"</td> \
+							<td class=\"numeric\">"+readValue(activePlayer.BHJ,0)+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.advCon,0)+"</td> \
 							<td class=\"numeric\" colspan=\"2\">"+readValue(activePlayer.tractor,0)+"</td> \
 							<td class=\"numeric\" colspan=\"2\">"+readValue(activePlayer.shieldProj,0)+"</td> \
@@ -983,7 +1002,7 @@ function readJson() {
 			}
 				
 			constructTable = constructTable + "</table>";
-			seekTag = "{victoryTable}";
+			seekTag = "{vpTable}";
 			
 			if (commentary.innerHTML.indexOf(seekTag) >= 0) {
 				commentary.innerHTML = commentary.innerHTML.replace(seekTag,constructTable);
@@ -1256,7 +1275,7 @@ function readJson() {
 				expansionHWs = true;
 				var plrColor = actionPool[i].playerColor;
 				
-				for (var y = 0; y <= 9; y++) {
+				for (var y = 0; y <= 11; y++) {
 					for (var x = 1; x <= 13 - y % 2; x++) {
 						if ((x == 3 || x == 10) && y == 0) {
 							placeSystemMarker(x,y,"warp1");
@@ -1265,8 +1284,10 @@ function readJson() {
 							placeCounter("galMin",x,y,"minerals10",1);
 						} else if (x >= 6 && x <= 8 - y % 2 && y >= 5 && y <= 7) {
 							placeSystemMarker(x,y,"nebula");
-						} else {
+						} else if (y <= 9) {
 							placeSystemMarker(x,y,deepSpace);
+						} else {
+							paintTile(letterRows.charAt(y)+x,"unexploredW");
 						}
 					}
 				}
@@ -1288,6 +1309,7 @@ function readJson() {
 					}
 				}
 			} else if (actionPool[i].createPreset == "doomsdaySoloSm") {
+				ctrlPanel.className = "dmBoard";
 				var plrColor = actionPool[i].playerColor;
 				
 				place3plrHomeMarkers(plrColor, "top");
@@ -1405,8 +1427,10 @@ function readJson() {
 								placeCounter("galMin",x,y,"minerals10",1);
 							} else if (x >= 6 && x <= 8 - y % 2 && y >= 5 && y <= 7) {
 								placeSystemMarker(x,y,"nebula");
-							} else if (y < 10) {
+							} else if (y <= 9) {
 								placeSystemMarker(x,y,deepSpace);
+							} else {
+								paintTile(letterRows.charAt(y)+x,"unexploredW");
 							}
 						}
 					}
@@ -1417,8 +1441,11 @@ function readJson() {
 
 				if (actionPool[i].createPreset.startsWith("doomsday")) {
 					placeSystemMarker(3,11,markerCounter+plrColors.charAt(0));
+					paintTile("A3","empty");
 					placeSystemMarker(7,11,markerCounter+"W");
+					paintTile("A7","empty");
 					placeSystemMarker(11,11,markerCounter+plrColors.charAt(1));
+					paintTile("A11","empty");
 				} else {
 					placeAlienHomeworld(4, 11, actionPool[i].alienColors.charAt(0));
 					placeAlienHomeworld(9, 11, actionPool[i].alienColors.charAt(1));
@@ -1432,6 +1459,7 @@ function readJson() {
 				paintTile("E7","unexploredW");
 				
 			} else if (actionPool[i].createPreset == "amoebaSolo") {
+				ctrlPanel.className = "dmBoard";
 				expansionHWs = true;
 				var plrColor = actionPool[i].playerColor;
 				var aomeba = ["amoeba1", "amoeba2", "amoeba3"]

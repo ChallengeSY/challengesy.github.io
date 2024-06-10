@@ -152,7 +152,7 @@
 			"name":"planetR3"
 		}]},
 	{"heading":"Stardate 2401.0 (Economic Phase 1)",
-	"commentary":"<p>Unique to this scenario is that we do not need to pay combat ship maintenance. As far as the space amoebas are concerned, spreading will begin on economic phase <b>6</b>. This gives us a considerable grace period before they even start to consume our cluster. Additionally, amoebas <i>never</i> move on thier own accord, making bids entirely pointleess. In return, we are prohibited from researching Minesweeping until we lose at least 1 ship to their destructive potential. Anyway, we buy 2 Colony Ships (-16), followed by 1 Miner (-5) and 1 Scout (-6).</p>",
+	"commentary":"<p>Unique to this scenario is that we do not need to pay combat ship maintenance. As far as the space amoebas are concerned, spreading will begin on economic phase <b>6</b>. This gives us a considerable grace period before they even start to consume our cluster. Additionally, amoebas <i>never</i> move on thier own accord, making bids entirely pointless. In return, we are prohibited from researching Minesweeping until we lose at least 1 ship to their destructive potential. Anyway, we buy 2 Colony Ships (-16), followed by 1 Miner (-5) and 1 Scout (-6).</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":0,"colonyCP":30,"mineralCP":0,"pipeCP":0,"techBuy":0,"unitBuy":27
@@ -751,7 +751,7 @@
 			"name":"minerals5"
 		},{
 			"revealCounter":"systemH9",
-			"name":"planetW1"
+			"name":"minerals10"
 		},{
 			"revealCounter":"systemJ3",
 			"name":"unexploredW"
