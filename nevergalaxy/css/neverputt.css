@@ -39,6 +39,7 @@ table.clean td{border: 0px;}
 .bindTxt {white-space: nowrap;}
 
 /* Detailed styling */
+a{white-space: nowrap;}
 a{text-decoration: underline dashed;}
 a:link{color:#40FFFF;}
 a:visited{color:#FF40FF;}

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="description" content="Complete collection of Neverball projects" />
+	<meta name="keywords" content="Neverball, Neverputt, Collection, Competition" />
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+	<title>Clockwork Dev Notes - Nevergalaxy</title>
+
+	<link type="text/css" href="../css/paxed05.css" rel="stylesheet" />
+	<style type="text/css">
+		pre {
+			background: #000;
+			color: #fff;
+			overflow: auto;
+		}
+	</style>
+</head>
+<body>
+<p id="banner"><a href="index.htm"><img src="../gfx/banner.png" alt="Nevergalaxy Banner" /></a></p>
+
+<table border="2" style="float:right; border:#00ffff 2px outset; margin-bottom: 10px;">
+<thead>
+<tr>
+<th>Library</th>
+<th>Install Status</th>
+<th>Link Status</th>
+<th>Difficulty</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<th>Overall</th>
+<td style="color:#0f0">Complete</td>
+<td style="color:#0f0">Okay</td>
+<td style="color:#f40">Very Hard</td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td>MinGW-w64</td>
+<td style="color:#0f0">Installed</td>
+<td style="color:#0f0">Okay</td>
+<td style="color:#f80">Hard</td>
+</tr>
+<tr>
+<td>PhysicsFS</td>
+<td style="color:#f80">No Makefile</td>
+<td style="color:#fff">Skipped</td>
+<td style="color:#fff">Skipped</td>
+</tr>
+<tr>
+<td>LibIntl</td>
+<td style="color:#0f0">Installed (x86)</td>
+<td style="color:#ff0">Problem</td>
+<td style="color:#fff">Unknown</td>
+</tr>
+<tr>
+<td>LibJPEG Turbo</td>
+<td style="color:#0f0">Installed (x86)</td>
+<td style="color:#0f0">Okay</td>
+<td style="color:#8f0">Medium-Easy</td>
+</tr>
+<tr>
+<td>LibOGG</td>
+<td style="color:#0f0">Compiled (x86)</td>
+<td style="color:#0f0">Okay</td>
+<td style="color:#0f0">Easy</td>
+</tr>
+<tr>
+<td>LibPNG</td>
+<td style="color:#0f0">Compiled (x86)</td>
+<td style="color:#0f0">Okay</td>
+<td style="color:#8f0">Medium-Easy</td>
+</tr>
+<tr>
+<td>LibVorbis</td>
+<td style="color:#0f0">Compiled (x86)</td>
+<td style="color:#0f0">Okay</td>
+<td style="color:#8f0">Medium-Easy</td>
+</tr>
+<tr>
+<td>SDL2</td>
+<td style="color:#0f0">Installed (x86)</td>
+<td style="color:#0f0">Okay</td>
+<td style="color:#8f0">Medium-Easy</td>
+</tr>
+<tr>
+<td>SDL2_net</td>
+<td style="color:#0f0">Installed (x86)</td>
+<td style="color:#ff0">Problem</td>
+<td style="color:#fff">Unknown</td>
+</tr>
+<tr>
+<td>SDL2_ttf</td>
+<td style="color:#0f0">Installed (x86)</td>
+<td style="color:#0f0">Okay</td>
+<td style="color:#0f0">Easy</td>
+</tr>
+<tr>
+<td>zLib</td>
+<td style="color:#0f0">Installed (both)</td>
+<td style="color:#0f0">Okay</td>
+<td style="color:#0f8">Very Easy</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Additional Notes</h2>
+<ul>
+<li><b>SDL2</b>: Parasti recommended the i686 folder for my build, but it might be a good idea to double-check your build. There are also common files that should be extracted regardless of folder selection</li>
+<li><b>SDL2_ttf</b>: Use the same folder as the parent SDL2. Is dependent on SDL[1]_ttf as well. Use of the VC version seems to be okay for SDL1_ttf</li>
+<li><b>SDL2_net</b>: Seems to be confusing to work with</li>
+<li><b>PhysicsFS</b>: Needless to say, PhysicsFS does not come with makefiles itself. I do not know how to get CMake to work, either. Thankfully, this is optional, but will result in the loss of archive support if this is omitted</li>
+<li><b>LibIntl</b>: Localization library bound to ENABLE_NLS (default: on). This library is a pain to work with</li>
+<li><b>LibJPEG Turbo</b>: LibJPEG Turbo seems to be a good substitute if one is unable to get the original LibJPEG to compile</li>
+</ul>
+
+<h2>Detailed Notes about MinGW</h2>
+<p>Being open-source under the GNU General Public License, MinGW has a wide variety of forks and builds. I first figured I'd use the original MinGW, but parasti recommends using MinGW-W64 from <a href="http://sourceforge.net/projects/mingwbuilds/">MinGW-builds</a>. I am not certain if it is just the build I'm using (which came from <a href="http://sourceforge.net/projects/mingw-w64">MinGW-w64</a>), or if it is Windows 8.1, but GCC does not seem to be reading the default include locations that it is supposed to read.</p>
+
+<p>If one has this problem, it can be worked around by setting the C_INCLUDE_PATH and LIBRARY_PATH environment variables. I managed to configure and compile LibVorbis this way, but I have not yet figured out a way to save this configuration. In the meantime, I saved the commands below to a script file named <b>sc/common.sh</b>.</p>
+
+<p>Since the MinGW build I am using defaults to building 64-bit binaries, I must supply the -m32 switch to the CC variable to build 32-bit binaries and libraries. To workaround icon-related linker errors, I must define the WINDRES variable as <span style="font-family:monospace">windres -F pe-i386</span>.</p>
+
+<pre>#!/bin/bash
+C_INCLUDE_PATH=/usr/local/include:/mingw/include
+LIBRARY_PATH=/usr/local/lib:/mingw/lib
+CC='gcc -m32'
+WINDRES='windres -F pe-i386'
+export C_INCLUDE_PATH; export LIBRARY_PATH; export CC; export WINDRES
+echo "Common parameters set"</pre>
+
+<p>The last line is completely optional, but you get no feedback if you omit this line. Just simply running the script is not enough. In order to ensure its variables carry over into the main session, I must precede the execution with the word <b>source</b> (short <b>"."</b>), as shown below.</p>
+
+<pre>csy@pjr-octo ~
+$ source sc/common.sh
+Common parameters set</pre>
+
+<h3>Detailed output from cpp</h3>
+<p>When <i><b>cpp -v</b></i> is run after the changes above are made, a couple of extra lines are gained in the <b>#include &lt;...&gt;</b> search. My build location is <b>C:\CSGames\MinGW64</b>.</p>
+
+<pre>csy@pjr-octo ~
+$ cpp -v
+Using built-in specs.
+COLLECT_GCC=c:\csgames\mingw64\bin\cpp.exe
+Target: x86_64-w64-mingw32
+Configured with: ../../../src/gcc-4.8.2/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/mingw482/x86_64-482-win32-sjlj-rt_v3-rev3/mingw64 --with-gxx-include-dir=/mingw64/x86_64-w64-mingw32/include/c++ --enable-shared --enable-static --enable-targets=all --enable-multilib --enable-languages=ada,c,c++,fortran,objc,obj-c++,lto --enable-libstdcxx-time=yes --enable-threads=win32 --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-sjlj-exceptions --disable-isl-version-check --disable-cloog-version-check --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch-32=i686 --with-arch-64=nocona --with-tune-32=generic --with-tune-64=core2 --with-libiconv --with-system-zlib --with-gmp=/c/mingw482/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/mingw482/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/mingw482/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/mingw482/prerequisites/x86_64-w64-mingw32-static --with-cloog=/c/mingw482/prerequisites/x86_64-w64-mingw32-static --enable-cloog-backend=isl --with-pkgversion='x86_64-win32-sjlj-rev3, Built by MinGW-W64 project' --with-bugurl=http://sourceforge.net/projects/mingw-w64 CFLAGS='-O2 -pipe -I/c/mingw482/x86_64-482-win32-sjlj-rt_v3-rev3/mingw64/opt/include -I/c/mingw482/prerequisites/x86_64-zlib-static/include -I/c/mingw482/prerequisites/x86_64-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -I/c/mingw482/x86_64-482-win32-sjlj-rt_v3-rev3/mingw64/opt/include -I/c/mingw482/prerequisites/x86_64-zlib-static/include -I/c/mingw482/prerequisites/x86_64-w64-mingw32-static/include' CPPFLAGS= LDFLAGS='-pipe -L/c/mingw482/x86_64-482-win32-sjlj-rt_v3-rev3/mingw64/opt/lib -L/c/mingw482/prerequisites/x86_64-zlib-static/lib -L/c/mingw482/prerequisites/x86_64-w64-mingw32-static/lib '
+Thread model: win32
+gcc version 4.8.2 (x86_64-win32-sjlj-rev3, Built by MinGW-W64 project)
+COLLECT_GCC_OPTIONS='-E' '-v' '-mtune=core2' '-march=nocona'
+ c:/csgames/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/4.8.2/cc1.exe -E -quiet -v -iprefix c:/csgames/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/4.8.2/ -U_REENTRANT - -mtune=core2 -march=nocona
+ignoring duplicate directory "c:/csgames/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/4.8.2/include"
+ignoring nonexistent directory "C:/mingw482/x86_64-482-win32-sjlj-rt_v3-rev3/mingw64D:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/4.8.2/../../../../include"
+ignoring duplicate directory "c:/csgames/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/4.8.2/include-fixed"
+ignoring duplicate directory "c:/csgames/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/4.8.2/../../../../x86_64-w64-mingw32/include"
+ignoring nonexistent directory "C:/mingw482/x86_64-482-win32-sjlj-rt_v3-rev3/mingw64/mingw/include"
+#include "..." search starts here:
+#include &lt;...&gt; search starts here:
+<span style="color:#ff0"> C:\CSGames\mingw64\msys\1.0\local\include
+ c:\csgames\mingw64\include</span>
+ c:/csgames/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/4.8.2/include
+ c:/csgames/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/4.8.2/include-fixed
+ c:/csgames/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/4.8.2/../../../../x86_64-w64-mingw32/include
+End of search list.</pre>
+
+<h3>The trial towards successfully including libintl</h3>
+<p>Despite having installed <b>libintl</b>, I <i>still</i> encounter a problem getting it to work successfully. Something in the <b>tr.po</b> file triggers a fatal error, stopping compilation.<br></p>
+
+<pre style="height:400px">csy@pjr-octo ~
+$ make PLATFORM=mingw ENABLE_FS=stdio
+scripts/version.sh: line 23: git: command not found
+Will make a "devel" build of Neverball .
+.....
+make -C po
+make[1]: Entering directory `/home/csy/neverSvn/clockwork/po'
+mkdir -p ../locale/ar/LC_MESSAGES/
+msgfmt -c --statistics -o ../locale/ar/LC_MESSAGES/neverball.mo ar.po
+8 translated messages, 351 untranslated messages.
+mkdir -p ../locale/bg/LC_MESSAGES/
+msgfmt -c --statistics -o ../locale/bg/LC_MESSAGES/neverball.mo bg.po
+130 translated messages, 229 untranslated messages.
+mkdir -p ../locale/ca/LC_MESSAGES/
+msgfmt -c --statistics -o ../locale/ca/LC_MESSAGES/neverball.mo ca.po
+140 translated messages, 219 untranslated messages.
+mkdir -p ../locale/de/LC_MESSAGES/
+msgfmt -c --statistics -o ../locale/de/LC_MESSAGES/neverball.mo de.po
+359 translated messages.
+mkdir -p ../locale/el/LC_MESSAGES/
+msgfmt -c --statistics -o ../locale/el/LC_MESSAGES/neverball.mo el.po
+58 translated messages, 301 untranslated messages.
+mkdir -p ../locale/eo/LC_MESSAGES/
+msgfmt -c --statistics -o ../locale/eo/LC_MESSAGES/neverball.mo eo.po
+263 translated messages, 96 untranslated messages.
+mkdir -p ../locale/es/LC_MESSAGES/
+msgfmt -c --statistics -o ../locale/es/LC_MESSAGES/neverball.mo es.po
+284 translated messages, 75 untranslated messages.
+mkdir -p ../locale/fi/LC_MESSAGES/
+msgfmt -c --statistics -o ../locale/fi/LC_MESSAGES/neverball.mo fi.po
+117 translated messages, 242 untranslated messages.
+mkdir -p ../locale/fr/LC_MESSAGES/
+msgfmt -c --statistics -o ../locale/fr/LC_MESSAGES/neverball.mo fr.po
+358 translated messages, 1 untranslated message.
+mkdir -p ../locale/gd/LC_MESSAGES/
+msgfmt -c --statistics -o ../locale/gd/LC_MESSAGES/neverball.mo gd.po
+359 translated messages.
+mkdir -p ../locale/gl/LC_MESSAGES/
+msgfmt -c --statistics -o ../locale/gl/LC_MESSAGES/neverball.mo gl.po
+287 translated messages, 72 untranslated messages.
+mkdir -p ../locale/hu/LC_MESSAGES/
+msgfmt -c --statistics -o ../locale/hu/LC_MESSAGES/neverball.mo hu.po
+288 translated messages, 71 untranslated messages.
+mkdir -p ../locale/it/LC_MESSAGES/
+msgfmt -c --statistics -o ../locale/it/LC_MESSAGES/neverball.mo it.po
+359 translated messages.
+mkdir -p ../locale/ko/LC_MESSAGES/
+msgfmt -c --statistics -o ../locale/ko/LC_MESSAGES/neverball.mo ko.po
+115 translated messages, 244 untranslated messages.
+mkdir -p ../locale/kw/LC_MESSAGES/
+msgfmt -c --statistics -o ../locale/kw/LC_MESSAGES/neverball.mo kw.po
+136 translated messages, 223 untranslated messages.
+mkdir -p ../locale/lv/LC_MESSAGES/
+msgfmt -c --statistics -o ../locale/lv/LC_MESSAGES/neverball.mo lv.po
+113 translated messages, 246 untranslated messages.
+mkdir -p ../locale/nl/LC_MESSAGES/
+msgfmt -c --statistics -o ../locale/nl/LC_MESSAGES/neverball.mo nl.po
+158 translated messages, 201 untranslated messages.
+mkdir -p ../locale/nn/LC_MESSAGES/
+msgfmt -c --statistics -o ../locale/nn/LC_MESSAGES/neverball.mo nn.po
+322 translated messages, 37 untranslated messages.
+mkdir -p ../locale/pl/LC_MESSAGES/
+msgfmt -c --statistics -o ../locale/pl/LC_MESSAGES/neverball.mo pl.po
+291 translated messages, 68 untranslated messages.
+mkdir -p ../locale/pt_BR/LC_MESSAGES/
+msgfmt -c --statistics -o ../locale/pt_BR/LC_MESSAGES/neverball.mo pt_BR.po
+287 translated messages, 72 untranslated messages.
+mkdir -p ../locale/ru/LC_MESSAGES/
+msgfmt -c --statistics -o ../locale/ru/LC_MESSAGES/neverball.mo ru.po
+227 translated messages, 132 untranslated messages.
+mkdir -p ../locale/sk/LC_MESSAGES/
+msgfmt -c --statistics -o ../locale/sk/LC_MESSAGES/neverball.mo sk.po
+281 translated messages, 78 untranslated messages.
+mkdir -p ../locale/sl/LC_MESSAGES/
+msgfmt -c --statistics -o ../locale/sl/LC_MESSAGES/neverball.mo sl.po
+359 translated messages.
+mkdir -p ../locale/sv/LC_MESSAGES/
+msgfmt -c --statistics -o ../locale/sv/LC_MESSAGES/neverball.mo sv.po
+215 translated messages, 144 untranslated messages.
+mkdir -p ../locale/tr/LC_MESSAGES/
+msgfmt -c --statistics -o ../locale/tr/LC_MESSAGES/neverball.mo tr.po
+c:\csgames\mingw64\bin\msgfmt.exe: tr.po: field `Last-Translator' still has initial default value
+c:\csgames\mingw64\bin\msgfmt.exe: found 1 fatal error
+make[1]: *** [../locale/tr/LC_MESSAGES/neverball.mo] Error 1
+make[1]: Leaving directory `/home/csy/neverSvn/clockwork/po'
+make: *** [locales] Error 2
+</pre>
+
+<p>I have isolated this problem. This very same problem is also in the master <q>trunk</q>, so it is not exclusive to my build. Excluding the file, and I instead endure crashes during compilation.</p>
+
+</body>
+</html>
