@@ -156,6 +156,8 @@ function autoNameCounter(localObj) {
 		localObj.title = "Colony (Size 3)"
 	} else if (localObj.src.indexOf("gfx/colony1") >= 0) {
 		localObj.title = "Colony (Size 1)"
+	} else if (localObj.src.indexOf("gfx/colony0") >= 0) {
+		localObj.title = "Colony (Size 0)"
 	} else if (localObj.src.indexOf("gfx/planet") >= 0) {
 		localObj.title = "Empty planet"
 	} else if (localObj.src.indexOf("gfx/unexplored") >= 0) {
@@ -262,6 +264,9 @@ function autoNameCounter(localObj) {
 		stackable = true;
 	} else if (localObj.src.indexOf("gfx/alienB") >= 0) {
 		localObj.title = "NPA Battlecruiser";
+		stackable = true;
+	} else if (localObj.src.indexOf("gfx/militia") >= 0) {
+		localObj.title = "Militia";
 		stackable = true;
 	} else if (localObj.src.indexOf("gfx/Inf") >= 0) {
 		localObj.title = "Light Infantry";
@@ -746,22 +751,20 @@ function readJson() {
 								launchRange = "Launch &le;4";
 								break;
 							case 7:
-								fleetRange = "1-5";
-								techRange = "6-9";
-								defRange = "10";
-								launchRange = "Launch Auto";
-								break;
+								// Fall thru
 							case 8:
-								fleetRange = "1-5";
-								techRange = "6-9";
-								defRange = "10";
-								launchRange = "Launch &le;4";
-								break;
+								// Fall thru
 							case 9:
+								var thresh = activePlayer.ecoPhase - 4;
+							
 								fleetRange = "1-5";
 								techRange = "6-9";
 								defRange = "10";
-								launchRange = "Launch &le;5";
+								if (thresh < 4) {
+									launchRange = "Launch Auto";
+								} else {
+									launchRange = "Launch &le;"+thresh;
+								}
 								break;
 							case 10:
 								// Fall thru
@@ -904,10 +907,21 @@ function readJson() {
 		}
 		
 		if (curStage.techTable || curStage.techTableX) {
-			var constructTable = "<table><caption>Player Technologies</caption> \
-				<tr><th>Player</th><th>Size</th><th>Atk</th><th>Def</th><th>Tac</th><th>Move</th> \
-				<th>Terraform</th><th>Explore</th><th>SY</th><th>Fighter</th><th>PD</th> \
-				<th>Cloak</th><th>Scan</th><th>Minelay</th><th>Minesweep</th></tr>";
+			var constructTable = "<table><caption>Player Technologies</caption><tr><th>Player</th> \
+				<th><a href=\"javascript:showBox('Ship Size')\">Size</a></th> \
+				<th><a href=\"javascript:showBox('Attack')\">Atk</a></th> \
+				<th><a href=\"javascript:showBox('Defense')\">Def</a></th> \
+				<th><a href=\"javascript:showBox('Tactics')\">Tac</a></th> \
+				<th><a href=\"javascript:showBox('Movement')\">Move</a></th> \
+				<th><a href=\"javascript:showBox('Terraforming')\">Terraform</a></th> \
+				<th><a href=\"javascript:showBox('Exploration')\">Explore</a></th> \
+				<th><a href=\"javascript:showBox('Ship Yard')\">SY</a></th> \
+				<th>"+conceptLink("Fighter")+"</th> \
+				<th><a href=\"javascript:showBox('Point-Defense')\">PD</a></th> \
+				<th><a href=\"javascript:showBox('Cloaking')\">Cloak</a></th> \
+				<th><a href=\"javascript:showBox('Scanning')\">Scan</a></th> \
+				<th><a href=\"javascript:showBox('Minelaying')\">Minelay</a></th> \
+				<th><a href=\"javascript:showBox('Minesweeping')\">Minesweep</a></th></tr>";
 				
 			var workTable, expansionTechs = false;
 			
@@ -921,9 +935,16 @@ function readJson() {
 			for (var b = 0; b < 2; b++) {
 				if (b > 0) {
 					if (expansionTechs) {
-						constructTable = constructTable + "<tr><th>Player</th><th colspan=\"2\">Academy</th><th colspan=\"2\">Boarding</th> \
-							<th>Security</th><th>Troops</th><th>Fastmove</th><th>BHJ</th><th>AdvCon</th> \
-							<th colspan=\"2\">Tractor</th><th colspan=\"2\">Shield Projectors</th><th>Anti-Replicator</th></tr>";
+						constructTable = constructTable + "<tr><th>Player</th> \
+							<th colspan=\"2\"><a href=\"javascript:showBox('Military Academy')\">Academy</a></th> \
+							<th colspan=\"2\">"+conceptLink("Boarding")+"</th> \
+							<th><a href=\"javascript:showBox('Security Forces')\">Security</a></th> \
+							<th>"+conceptLink("Troops")+"</th><th>"+conceptLink("Fastmove")+"</th> \
+							<th><a href=\"javascript:showBox('Black Hole Jumping')\">BHJ</a></th> \
+							<th><a href=\"javascript:showBox('Advanced Construction')\">AdvCon</a></th> \
+							<th colspan=\"2\"><a href=\"javascript:showBox('Tractor Beam')\">BB Tractor</a></th> \
+							<th colspan=\"2\"><a href=\"javascript:showBox('Shield Projector')\">DN Shield Proj</a></th> \
+							<th>"+conceptLink("Anti-Replicator")+"</th></tr>";
 					} else {
 						break;
 					}
@@ -985,7 +1006,7 @@ function readJson() {
 		
 		if (curStage.victoryTable) {
 			var constructTable = "<table><caption>Victory Point Chart</caption> \
-				<tr><th>Player</th><th>VP</th><th>Quota</th></tr>";
+				<tr><th>Player</th><th>VP</th></tr>";
 				
 			for (var a = 0; a < curStage.victoryTable.length; a++) {
 				var activePlayer = curStage.victoryTable[a];
@@ -997,8 +1018,7 @@ function readJson() {
 					constructTable = constructTable + "<tr>";
 				}
 				constructTable = constructTable + "<td>"+activePlayer.name+"</td> \
-					<td class=\"numeric\">"+readValue(activePlayer.VP,0)+"</td> \
-					<td class=\"numeric\">"+readValue(activePlayer.quota,"&infin;")+"</td></tr>"
+					<td class=\"numeric\">"+readValue(activePlayer.VP,0)+" / "+readValue(activePlayer.quota,"&infin;")+"</td></tr>"
 			}
 				
 			constructTable = constructTable + "</table>";
@@ -1136,6 +1156,7 @@ function readJson() {
 		}
 		
 		if (actionPool[i].placeCounter) {
+			// Place a counter. Permanent until deleted
 			workId = actionPool[i].placeCounter;
 			if (actionPool[i].name) {
 				placeCounter(workId, readX, readY, actionPool[i].name, readValue(actionPool[i].size,0));
@@ -1144,7 +1165,27 @@ function readJson() {
 				
 				placeCounter(workId, readX, readY, convertName, readValue(actionPool[i].size,0));
 			}
+		} else if (actionPool[i].placeHullsV) {
+			// Places a series of Replicator hulls
+			var startNum = actionPool[i].startId;
+			var hullsColl = actionPool[i].placeHullsV.split(",");
+			
+			for (var h = 0; h < hullsColl.length; h++) {
+				for (y = 0; y < 12; y++) {
+					if (letterRows.charAt(y) == hullsColl[h].substring(0,1)) {
+						readY = y;
+						break;
+					}
+				}
+				
+				readX = hullsColl[h].substring(1);
+
+				var workNum = startNum + h;
+				console.log(workNum);
+				placeCounter("hullV"+workNum, readX, readY, "hiddenV", 1);
+			}
 		} else if (actionPool[i].placeGhost) {
+			// Places a transparent counter. Valid for one stage
 			workId = actionPool[i].placeGhost;
 			placeCounter(workId, readX, readY, workId, -1);
 		}
@@ -1926,6 +1967,27 @@ function readJson() {
 				placeHomeworld(13,0,plrColors.charAt(1));
 				placeHomeworld(1,11,plrColors.charAt(2));
 				placeHomeworld(12,11,plrColors.charAt(3));
+			} else if (actionPool[i].createPreset == "versus5P" || actionPool[i].createPreset == "versus5Ptight") {
+				expansionHWs = true;
+				plrColors = actionPool[i].playerColors;
+				
+				for (var y = 0; y < 12; y++) {
+					for (var x = 1; x <= 13; x++) {
+						if (x < 13 || y % 2 == 0) {
+							if (false) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(0));
+							} else {
+								placeSystemMarker(x,y,deepSpace);
+							}
+						}
+					}
+				}
+				
+				placeHomeworld(7,0,plrColors.charAt(0));
+				placeHomeworld(1,4,plrColors.charAt(4));
+				placeHomeworld(13,4,plrColors.charAt(1));
+				placeHomeworld(3,11,plrColors.charAt(3));
+				placeHomeworld(11,11,plrColors.charAt(2));
 			}
 		}
 	}
