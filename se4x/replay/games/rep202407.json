@@ -4261,7 +4261,7 @@
 			"name":"home30Y"
 		}]},
 	{"heading":"Stardate 2410.8 (Game Over)",
-	"commentary":"<p>At this point, the scenario is now over. We were unable to assemble a fleet able to neutralize their colonies.</p><p>Replicator Solitaire is an entirely new beast. Even on Easy difficulty, we failed to achieve victory. It is hard to tell if it was worth trying to guard the space wreck, maybe steal initiative for that fateful economic phase, to name a few.</p><p>Barren planet arrangement was not exactly in our favor, thus we never saw fit to conquer non-player aliens, nevermind develop Terraforming 1 this playthrough.</p>",
+	"commentary":"<p>At this point, the scenario is now over. We were unable to assemble a fleet able to neutralize their colonies.</p><p>Replicator Solitaire is an entirely new beast. Even on Easy difficulty, we failed to achieve victory. It is hard to tell if it was worth trying to guard the space wreck <span class=\"bindTxt\">(which was within 3 hexes of the nearest Replicator colony)</span>, maybe steal initiative for that fateful economic phase, to name a few.</p><p>Barren planet arrangement was not exactly in our favor, thus we never saw fit to conquer non-player aliens, nevermind develop Terraforming 1 this playthrough.</p>",
 	"techTableX":
 		[{
 			"name":"CSY (Yellow)","size":4,"explore":1,"SY":4,"move":2,"atk":1,"isDead":true
