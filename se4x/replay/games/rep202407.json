@@ -3143,7 +3143,7 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2408.0",
-	"commentary":"<p>Since our homeworld is blockaded, it can neither produce CP, nor can it cash in the minerals that were unloaded. Additionally, with its pipeline destroyed, our income from this source has been nullified. It can still repair some of the damage though, regaining one stage of <q>health</q>. Nonetheless, if we are to ensure that Vasyr can survive, we <i>must</i> take initiative (-15), and attempt to deny the upcoming hulls a chance to combine with the fleet. We will also buy a Ship Yard (-6) and a Base (-12) at the colony of D4.</p><p>The Replicator environment is taking advantage of its two newest fully developed colonies. They have produced a whopping <i>10</i> hulls! Additionally, they have just enough CP to buy an extra homeworld hull. They rolled a 2, buying that extra hull, and spending the rest of its CP. These machines are doing extremely well, but are also nearing their first depletion.</p>",
+	"commentary":"<p>Since our homeworld is blockaded, it can neither produce CP, nor can it cash in the minerals that were unloaded. Additionally, with its pipeline destroyed, our income from this source has been nullified. It can still repair some of the damage though, regaining one stage of <q>health</q>. Nonetheless, if we are to ensure that Vasyr can survive, we <i>must</i> take initiative (-15), and attempt to deny the upcoming hulls a chance to combine with the fleet. We will also buy a Ship Yard (-6) and a Base (-12) at the colony of D4.</p><p>The Replicator environment is taking advantage of its two newest fully developed colonies. They have produced a whopping <i>10</i> hulls! Additionally, we have reached a stage in the playthrough where a Replicator player gets a free Movement technology level. Finally, they have just enough CP to buy an extra homeworld hull. They rolled a 2, buying that extra hull, and spending the rest of its CP. These machines are doing extremely well, but are also nearing their first depletion.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Yellow)","initCP":5,"colonyCP":41,"mineralCP":5,"pipeCP":0,"maint":12,"bidCP":15,"techBuy":0,"unitBuy":18
@@ -3156,7 +3156,7 @@
 		}],
 	"replicatorTable":
 		[{
-			"name":"Erodommoc","pdTech":1,"scanTech":1,"sweepTech":1,"moveTech":2,"purchased":2,"explore":1,"hullSize":3,"wrecks":1,"fleetSize":6,"NPA":1
+			"name":"Erodommoc","pdTech":1,"scanTech":1,"sweepTech":1,"moveTech":3,"purchased":2,"explore":1,"hullSize":3,"wrecks":1,"fleetSize":6,"NPA":1
 		}],
 	"actions":
 		[{
@@ -3333,12 +3333,17 @@
 			"size":1,
 			"location":"B6"
 		},{
+			"removeCounter":"type7V2"
+		},{
+			"removeCounter":"type4V2"
+		},{
 			"placeCounter":"FlagV",
 			"location":"B6"
 		},{
 			"placeCounter":"hullV23",
 			"size":3,
-			"location":"E5"
+			"location":"E5",
+			"name":"hiddenV"
 		},{
 			"placeCounter":"hullV24",
 			"location":"E6"
@@ -3392,59 +3397,93 @@
 			"name":"home10Y"
 		}]},
 	{"heading":"Stardate 2408.4 (Replicator Turn)",
-	"commentary":"<p>We have successfully eliminated the threat to our homeworld. However, the Type VII straggler was able to get away, and it bombards a different colony. We lost our pipeline, but we still have a ground unit present. With accuracy reduced, the Type VII rolled a 9 (miss &gt;5).</p>",
+	"commentary":"<p>We have successfully eliminated the threat to our homeworld. However, the Type VII straggler was able to get away, and it bombards a different colony. We lost our pipeline, but we still have a ground unit present. With accuracy reduced, the Type VII rolled a 9 (miss &gt;5).</p><p>In other news, thanks to the free Movement 3 that the Replicator environment has gained; the other fleet is able to assault our lightly defended colony (protected by Hull Size total 7) at D4. Even with the Base counting twice as much Hull Size, it is still inferior to their 15 hulls total. With 15 hulls total and 8 RP, this allows for 7 Type VII ships and one Type IV ship.</p><ol><li><b>Round 1</b>: They have 8 ships. We have 3 ships. They have gained the fleet size bonus</li><li>Our Base has the best weapon class, so it shoots first. We prioritize their Type IV, and roll a 5 (hit &le;6), eliminating it</li><li>Their 7 Type VIIs shoot next. Our 2 Ship Yards are the smallest ships, so they will be targeted first (&le;7 to hit). They rolled 7,1 (2 hits), cleaning that group up. They then roll 8,9,8,6,10 against our Base (0 hits &le;5)<br /><br /></li><li><b>Round 2</b>: Our Base is all alone. They keep the Fleet Size bonus unless we somehow knock them down to 1 ship</li><li>Our Base shoots once more. Only their Type VIIs remain. We rolled a 7 (miss &gt;5)</li><li>Their 7 Type VIIs shoot next. They rolled 2,3,4,6,7,9,10 (3 hits &le;5), cleanly destroying our Base<br /><br /></li><li><b>Bombardment Round</b>: Their 7 Type VIIs now have a clear surface to bombard, though our 1 Light Infantry reduces their accuracy. They rolled 3,4,5,5,8,9,9 (3 hits &le;5), cleanly destroying our colony also</li><li>One of the Type VII ships breaks down into two hulls in order to spend one to colonize the newly conquered planet</li></ol>",
 	"actions":
 		[{
 			"placeCounter":"expV2",
 			"location":"H9"
 		},{
-			"placeCounter":"fleet1V",
-			"size":12,
+			"placeGhost":"fleet1V",
 			"location":"E4"
 		},{
-			"removeCounter":"type7V2"
-		},{
-			"removeCounter":"type4V2"
+			"removeCounter":"fleet1V"
 		},{
 			"placeCounter":"type7V1",
 			"size":1,
-			"location":"C4"
+			"location":"C4",
+			"name":"type7V"
 		},{
 			"removeCounter":"FlagV"
 		},{
-			"placeCounter":"hullV23",
-			"size":3,
+			"placeCounter":"type7V2",
+			"size":7,
+			"location":"D4",
+			"name":"type7V"
+		},{
+			"placeCounter":"type4V2",
+			"size":1,
+			"location":"D4",
+			"name":"type4V"
+		},{
+			"removeCounter":"hullV23"
+		},{
+			"placeGhost":"hiddenV",
+			"location":"E5"
+		},{
+			"placeCounter":"hullV24",
 			"location":"E4",
 			"name":"hiddenV"
 		},{
-			"placeCounter":"hullV24",
-			"location":"E5",
-			"name":"hiddenV"
+			"placeGhost":"hiddenV",
+			"location":"F4"
 		},{
 			"placeCounter":"hullV29",
-			"location":"F4",
+			"location":"E4",
 			"name":"hiddenV"
+		},{
+			"placeGhost":"hiddenV",
+			"location":"F7"
 		},{
 			"placeCounter":"hullV32",
 			"size":2,
-			"location":"F7"
+			"location":"E6"
 		},{
-			"placeHullsV":"I2",
+			"placeGhost":"hiddenV",
+			"location":"I2"
+		},{
+			"placeHullsV":"H3",
 			"startId":37
+		},{
+			"placeGhost":"hiddenV",
+			"location":"I3"
 		},{
 			"placeCounter":"hullV39",
 			"size":3,
-			"location":"I3"
+			"location":"H4"
 		},{
-			"placeHullsV":"I6,I8",
+			"placeGhost":"hiddenV",
+			"location":"I6"
+		},{
+			"placeHullsV":"H6,I8",
 			"startId":40
+		},{
+			"placeGhost":"hiddenV",
+			"location":"H4"
 		},{
 			"placeCounter":"hullV42",
 			"size":2,
-			"location":"H4"
+			"location":"G4"
 		},{
-			"placeHullsV":"G4,G7,H8",
+			"placeGhost":"hiddenV",
+			"location":"G4"
+		},{
+			"placeGhost":"hiddenV",
+			"location":"G7"
+		},{
+			"placeHullsV":"F4,F7,H8",
 			"startId":44
+		},{
+			"removeCounter":"hullV47"
 		},{
 			"revealCounter":"systemH9",
 			"name":"asteroids"
@@ -3454,16 +3493,6 @@
 		},{
 			"revealCounter":"systemF9",
 			"name":"unexploredW"
-		},{
-			"placeCounter":"FlagY",
-			"location":"B6"
-		},{
-			"placeCounter":"CA2Y",
-			"location":"B6"
-		},{
-			"placeCounter":"MS7Y",
-			"location":"D4",
-			"name":"MSaY"
 		},{
 			"placeCounter":"MS8Y",
 			"location":"C4",
@@ -3476,85 +3505,91 @@
 			"revealCounter":"MS10Y",
 			"name":"MSaY"
 		},{
-			"revealCounter":"systemB6",
-			"name":"home10Y"
+			"placeCounter":"Inf3Y",
+			"size":1,
+			"location":"D4"
+		},{
+			"placeCounter":"MS7Y",
+			"location":"D4",
+			"name":"MSaY"
+		},{
+			"placeCounter":"base2Y",
+			"size":2,
+			"location":"D4"
+		},{
+			"placeCounter":"SY2Y",
+			"size":2,
+			"location":"D4"
+		},{
+			"revealCounter":"systemD4",
+			"name":"colony5Y"
 		}]},
 	{"heading":"Stardate 2408.7",
-	"commentary":"<p>Our Cruisers are fast enough to intercept the Type VII and attempt to finish it off.</p><h3>The Battle for Sector C4</h3><ol><li><b>Round 1</b>: Their Type VII has the best weapon class, as usual. It rolled a 2 against our Cruisers (hit &le;5), damaging one of them</li><li>Our 6 Cruisers respond, by rolling 1,5,5,8,9,10 (1 hit &le;3), damaging it<br /><br /></li><li><b>Round 2</b>: Their Type VII has no valid retreat hex. It shoots once more, rolling a 1 against our Cruisers (hit &le;5), and finishing it off</li><li>Our 5 surviving Cruisers respond, by rolling 1,1,2,5,6 (3 hits &le;3), finishing it off!</li></ol><hr /><p>On their turn, they were able to assemble a staggering <i>17</i> hulls to assault our colony at D4. Since we have no specialist ships at our disposal, they will simply build <i>8</i> Type VII ships, with their one leftover hull being converted to a Type IV ship. Additionally, they were able to uncover the last of the deep space hexes that they can reach without stepping foot into our home systems. As a result, the last marker that they could not reach was simply flipped face up... a meaningless Danger marker.</p><h3>The Battle for Sector D4</h3><ol><li><b>Round 1</b>: They have 9 ships. We have 3. They have gained the Fleet Size Bonus</li><li>Our Base has the best weapon class, so we go first. We will attempt to take down their Type IV, and rolled a 9 (miss &gt;6)</li><li>Their 8 Type VIIs shoot next. They will roll until they score 2 hits against our Ship Yards (&le;7 to hit): 6,7</li><li>Our Base is all that stands in the way of resistance. The rest of the Type VIIs rolled 3,5,5,7,8,9 (3 hits &le;5), cleanly destroying our Base<br /><br /></li><li><b>Bombardment Round</b>: With our colony exposed, the Type VIIs shoot again, rolling 1,3,3,3,4,4,6,10 (6 hits &le;5). Our colony has been obliterated!</li><li>With our colony glassed, the Replicators replace it with a colony of their own. This consumes their Type IV ship</li></ol>",
+	"commentary":"<p>We have decided that our fleet will remain at our damaged homeworld, so as to provide better protection and allow for rebuilding. Meanwhile, their Type Exp manages to expose a black hole. Since the last unexplored system requires crossing into our home system territory, it simply gets flipped face up.</p><p>In other news, their Type VIIs combine arms, and 3 more hulls enter into the fray, allowing for an eighth Type VII. The one leftover hull becomes a Type IV. Since our colony at C4 remains undefended, they simply bombard away. The Type VIIs rolled 2,2,2,4,6,9,10,10 (4 hits &le;5), eliminating the colony. The leftover Type IV then crashes down and creates a new colony.</p>",
 	"actions":
 		[{
 			"placeCounter":"expV2",
-			"location":"I8",
-			"name":"typeExpV"
+			"location":"H9"
 		},{
-			"removeCounter":"fleet1V"
-		},{
-			"placeGhost":"fleet1V",
-			"location":"E4"
-		},{
-			"placeCounter":"type7V2",
-			"size":8,
-			"location":"D4",
-			"name":"type7V"
+			"removeCounter":"type7V1"
 		},{
 			"placeCounter":"type4V2",
 			"size":1,
-			"location":"D4",
+			"location":"C4",
 			"name":"type4V"
 		},{
-			"placeCounter":"type7V1",
-			"size":1,
-			"location":"C4",
-			"name":"type7V"
+			"placeCounter":"type7V2",
+			"size":8,
+			"location":"C4"
 		},{
-			"removeCounter":"FlagV"
-		},{
-			"removeCounter":"hullV23"
+			"placeGhost":"hiddenV",
+			"location":"D4"
 		},{
 			"removeCounter":"hullV24"
 		},{
 			"removeCounter":"hullV29"
 		},{
 			"placeGhost":"hiddenV",
-			"location":"E6"
+			"location":"E5"
 		},{
 			"placeCounter":"hullV32",
 			"size":2,
-			"location":"E5"
-		},{
-			"placeGhost":"hiddenV",
-			"location":"H3"
-		},{
-			"placeHullsV":"H4",
-			"startId":37
+			"location":"E4"
 		},{
 			"placeGhost":"hiddenV",
 			"location":"H4"
 		},{
-			"placeCounter":"hullV39",
-			"size":3,
+			"placeHullsV":"G4",
+			"startId":37
+		},{
+			"placeGhost":"hiddenV",
 			"location":"G4"
 		},{
-			"placeHullsV":"H7,H8",
+			"placeCounter":"hullV39",
+			"size":3,
+			"location":"F5"
+		},{
+			"placeHullsV":"G5,H8",
 			"startId":40
 		},{
 			"placeGhost":"hiddenV",
-			"location":"G4"
+			"location":"F5"
 		},{
 			"placeCounter":"hullV42",
 			"size":2,
-			"location":"F4"
+			"location":"E4",
+			"name":"hiddenV"
 		},{
 			"placeGhost":"hiddenV",
-			"location":"F4"
+			"location":"E4"
 		},{
 			"placeGhost":"hiddenV",
-			"location":"F7"
+			"location":"E6"
 		},{
 			"placeGhost":"hiddenV",
 			"location":"G7"
 		},{
-			"placeHullsV":"E4,E6,F7",
+			"placeHullsV":"D4,D6,F7",
 			"startId":44
 		},{
 			"removeCounter":"hullV47"
@@ -3583,43 +3618,32 @@
 			"placeCounter":"systemF9",
 			"name":"danger"
 		},{
-			"placeCounter":"FlagY",
-			"location":"C5"
-		},{
-			"placeGhost":"CA2Y",
-			"location":"C5"
-		},{
-			"placeCounter":"CA2Y",
-			"size":6,
-			"location":"C4"
-		},{
-			"placeCounter":"MS7Y",
-			"location":"C3",
-			"name":"MSmY"
+			"removeCounter":"MS8Y"
 		},{
 			"placeCounter":"MS9Y",
 			"location":"B6",
 			"name":"MSmY"
 		},{
-			"removeCounter":"MS8Y"
+			"placeCounter":"Inf1Y",
+			"size":1,
+			"location":"C4"
 		},{
-			"placeCounter":"base2Y",
-			"location":"D4"
+			"removeCounter":"Inf3Y"
 		},{
-			"resizeCounter":"Inf1Y",
+			"resizeCounter":"Inf5Y",
 			"size":1
 		},{
-			"placeCounter":"Inf3Y",
-			"size":1,
-			"location":"D4"
+			"removeCounter":"Inf6Y"
 		},{
-			"placeCounter":"SY2Y",
-			"size":2,
-			"location":"D4"
+			"removeCounter":"MS7Y"
+		},{
+			"removeCounter":"base2Y"
+		},{
+			"removeCounter":"base3Y"
+		},{
+			"removeCounter":"SY2Y"
 		},{
 			"removeCounter":"SY3Y"
-		},{
-			"removeCounter":"SY4Y"
 		},{
 			"placeCounter":"Miner1Y",
 			"location":"C8"
@@ -3635,20 +3659,23 @@
 			"location":"C8",
 			"name":"minerals5"
 		},{
-			"revealCounter":"systemD2",
-			"name":"colony3"
-		},{
 			"revealCounter":"systemD4",
+			"name":"colony0V"
+		},{
+			"revealCounter":"systemC4",
 			"name":"colony5Y"
 		},{
 			"revealCounter":"systemB6",
 			"name":"home10Y"
+		},{
+			"revealCounter":"systemD2",
+			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2409.0",
-	"commentary":"<p>What a shame... we lost our last Ship Yards along with a colony. We are unable to reinforce our ships this phase. We will buy initiative (-15) and Attack 1 (-20), followed by a Base (-12) and a Ship Yard (-6) at C4, and a Ship Yard (-6) at B2. Since there are no minerals left on the map, and that Terraforming 2 is disabled, we have scuttled our Mining Ships.</p><p>The Replicator faction has produced their usual 10 home system hulls. This is the last economic phase before the depletion mechanic kicks in. Since they can harvest/spend no more CP, subsequent economic phases have become faster from here on out.</p>",
+	"commentary":"<p>Though we are unable to build mobile ships, we can still throw down Ship Yards, Bases, and ground units. In this case, we bought Attack 1 (-20), followed by a Ship Yard (-6) and a Base (-12) at B6. Since there are no minerals left, and that Terraforming 2 is disabled, we have scuttled our obsoleted Miners.</p><p>Since the Replicator environment has access to no more CP <span class=\"bindTxt\">(assuming they do not conquer any NPA planets)</span>, their economics are extremely simple; produce hulls at previously maxed colonies. Still, this is the last economic phase <i>before</i> the depletion mechanic takes effect.</p>",
 	"prodTable":
 		[{
-			"name":"CSY (Yellow)","initCP":6,"colonyCP":53,"mineralCP":15,"pipeCP":5,"maint":10,"bidCP":15,"techBuy":20,"unitBuy":24
+			"name":"CSY (Yellow)","initCP":6,"colonyCP":43,"mineralCP":15,"pipeCP":4,"maint":12,"bidCP":0,"techBuy":20,"unitBuy":18
 		},{
 			"name":"Erodommoc (Violet)","initCP":0,"mineralCP":0,"techBuy":0,"unitBuy":0
 		}],
@@ -3658,50 +3685,57 @@
 		}],
 	"replicatorTable":
 		[{
-			"name":"Erodommoc","pdTech":1,"scanTech":1,"sweepTech":1,"moveTech":2,"purchased":2,"explore":1,"hullSize":3,"wrecks":1,"fleetSize":6,"NPA":1
+			"name":"Erodommoc","pdTech":1,"scanTech":1,"sweepTech":1,"moveTech":3,"purchased":2,"explore":1,"hullSize":3,"wrecks":1,"fleetSize":6,"NPA":1
 		}],
 	"actions":
 		[{
-			"removeCounter":"expV2"
-		},{
-			"placeCounter":"type7V2",
-			"size":8,
-			"location":"D4"
+			"placeCounter":"expV2",
+			"location":"H9"
 		},{
 			"removeCounter":"type4V2"
 		},{
-			"removeCounter":"type7V1"
+			"placeCounter":"type7V2",
+			"size":8,
+			"location":"C4"
 		},{
 			"placeCounter":"hullV32",
-			"size":2,
-			"location":"E5"
+			"size":4,
+			"location":"E4"
 		},{
-			"placeHullsV":"H4",
+			"placeHullsV":"G4",
 			"startId":37
 		},{
 			"placeCounter":"hullV39",
 			"size":3,
-			"location":"G4"
+			"location":"F5"
 		},{
-			"placeHullsV":"H7,H8",
+			"placeHullsV":"G5,H8",
 			"startId":40
 		},{
-			"placeCounter":"hullV42",
-			"size":2,
-			"location":"F4"
+			"removeCounter":"hullV42"
 		},{
-			"placeHullsV":"E4,E6,F7,K1,K3,K4,K7,K8,J3,J4,I3,I8,I9",
+			"placeHullsV":"D4,D6,F7,K1,K3,K4,K7,K8,J3,J4,I3,I8,I9",
 			"startId":44
 		},{
 			"removeCounter":"systemF9"
 		},{
-			"placeCounter":"FlagY",
-			"location":"C5"
-		},{
 			"revealCounter":"MS9Y",
 			"name":"MSaY"
 		},{
-			"removeCounter":"SY2Y"
+			"resizeCounter":"Inf5Y",
+			"size":2
+		},{
+			"placeCounter":"Inf6Y",
+			"size":1,
+			"location":"B6"
+		},{
+			"placeCounter":"SY3Y",
+			"location":"B6"
+		},{
+			"placeCounter":"base3Y",
+			"location":"B6"
+		},{
+			"removeCounter":"Inf1Y"
 		},{
 			"removeCounter":"Miner1Y"
 		},{
@@ -3711,261 +3745,225 @@
 		},{
 			"removeCounter":"Miner2Yload"
 		},{
-			"placeCounter":"MS7Y",
-			"location":"C3",
-			"name":"MSaY"
-		},{
-			"placeCounter":"SY3Y",
-			"size":1,
-			"location":"B2"
-		},{
-			"placeCounter":"SY4Y",
-			"size":1,
-			"location":"C4"
-		},{
-			"placeCounter":"base2Y",
-			"location":"C4"
-		},{
-			"resizeCounter":"Inf1Y",
-			"size":2
-		},{
-			"placeCounter":"Inf3Y",
-			"size":1,
-			"location":"B6"
-		},{
-			"revealCounter":"systemD2",
-			"name":"colony5Y"
-		},{
 			"revealCounter":"systemD4",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemC4",
 			"name":"colony1"
 		},{
 			"revealCounter":"systemB6",
 			"name":"home20Y"
+		},{
+			"revealCounter":"systemD2",
+			"name":"colony5Y"
 		}]},
 	{"heading":"Stardate 2409.3",
-	"commentary":"<p>By now, we normally would convert their Type VIIs back into hulls now that they are at a newly founded colony. However, until they get new RP, there would be no change in compoisition. We also anticipate another battle coming soon, though it won't be right away; their Hull Size total of 16 is inferior to our total of 20 by the time it was their turn to move, but only barely. Also, self-preservation would have caused them to keep their distance, but they will <i>not</i> abandon their colonies.</p><p>We will use the 10 CP we had leftover along with the initiative to upgrade our Cruisers.</p>",
+	"commentary":"<p>The Type VIIs assault the colony at B5. Their bombardment rolls are 1,2,3,4,4,5,9,10 (6 hits &le;5), sterilizing the planet and then some. One of the Type VIIs then breaks down into two hulls so that one of them can colonize the planet.</p><p>On our turn, all we do is upgrade our existing combat ships. This process consumed 15 of our available CP.</p>",
 	"actions":
 		[{
+			"placeCounter":"expV2",
+			"location":"I8",
+			"name":"typeExpV"
+		},{
 			"placeCounter":"type7V2",
 			"size":8,
-			"location":"D4"
-		},{
-			"placeCounter":"hullV32",
-			"size":2,
-			"location":"E4"
-		},{
-			"placeHullsV":"G4",
-			"startId":37
-		},{
-			"placeCounter":"hullV39",
-			"size":3,
-			"location":"F4"
-		},{
-			"placeHullsV":"G7,G7",
-			"startId":40
-		},{
-			"placeCounter":"hullV42",
-			"size":2,
-			"location":"E4",
-			"name":"hiddenV"
-		},{
-			"placeHullsV":"D4,E5,E6,J2,J4,J4,J8,J8,I3,I3,H3,H8,I8",
-			"startId":44
-		},{
-			"placeCounter":"FlagY",
-			"location":"C4"
-		},{
-			"placeCounter":"MS7Y",
-			"location":"C2",
-			"name":"MSmY"
-		}]},
-	{"heading":"Stardate 2409.6",
-	"commentary":"<p>Now that they have a 17th hull in their fleet (converted to a Type IV), we are no longer considered the superior fleet. Thus, it is fair game for them to assault our fleet now.</p><h3>The Battle for Sector C4</h3><ol><li><b>Round 1</b>: We have 8 ships. The Replicators have 9 ships. Roughly the same size</li><li>Our Base has the best weapon class, so we get to shoot first. Targeting their Type IV, we rolled a 7 (hit &le;7)</li><li>Our Flagship is still alive, so it shoots next. We did not have the CP to upgrade it. Only their Type VIIs remain now, so we rolled a 6 (miss &gt;2)</li><li>Their 8 Type VIIs shoot next. Our newly built Ship Yard is the smallest ship, so they will target it first (&le;6 to hit). They rolled 9,9,5 this way</li><li>Our Cruisers are the next smallest ship, so the remaining ammo rolled 2,4,6,9,10 (2 hits &le;5), cleanly destroying a Cruiser</li><li>Our 4 surviving Cruisers are next in line. These ships got upgraded with Attack +1. We rolled 1,1,2,8 (3 hits &le;3), destroying one Type VII, and damaging another<br /><br /></li><li><b>Round 2</b>: We have 6 ships. The Replicators have 7 Type VIIs. Not much has changed</li><li>Our Base shoots once more. We rolled a 4 (hit &le;6), finishing off another Type VII</li><li>Our Flagship shoots next. We rolled a 1 (hit &le;2), damaging another Type VII</li><li>Their 6 surviving Type VIIs shoot next. They rolled 2,2,5,6,7,10 against our Cruisers (3 hits &le;5), destroying one Cruiser and damaging another</li><li>Our 3 surviving Cruisers are next. We rolled 3,4,8 (1 hit &le;3), finishing off another Type VII<br /><br /></li><li><b>Round 3</b>: We have 5 ships. The Replicators have 5 Type VIIs. The counts have improved a little</li><li>Our Base shoots once more, rolling a 2 (hit &le;6), damaging a Type VII</li><li>Our Flagship shoots next, rolling a 5 (miss &gt;2)</li><li>Their 5 surviving Type VIIs shoot next. They rolled 3,5,7,7,10 against our Cruisers (2 hits &le;5), cleanly destroying one Cruiser</li><li>Our 2 surviving Cruisers are next. We rolled 2,8 (1 hit &le;3), finishing off another Type VII<br /><br /></li><li><b>Round 4</b>: We have 4 ships. The Replicators have 4 Type VIIs</li><li>Our Base shoots once more, rolling a 7 (miss &gt;6)</li><li>Our Flagship shoots next, rolling a 3 (miss &gt;2)</li><li>Their 4 surviving Type VIIs shoot next. They rolled 1,2,6,8 against our Cruisers (2 hits &le;5), cleanly destroying one Cruiser</li><li>Our last surviving Cruiser is next. We rolled a 8 (miss &gt;3)<br /><br /></li><li><b>Round 5</b>: We have 3 ships. The Replicators have 4 Type VIIs. The numbers have worsened</li><li>Our Base shoots once more, rolling a 7 (miss &gt;6)</li><li>Our Flagship shoots next, rolling a 9 (miss &gt;2)</li><li>Their 4 Type VIIs shoot next. They rolled a 4 against our last Cruiser (hit &le;5), finishing it off</li><li>Leftover ammo rolls 8,9,10 (0 hits &le;5) against our Flagship (lowest Defense)<br /><br /></li><li><b>Round 6</b>: We have 2 ships. The Replicators <i>still</i> have 4 Type VIIs. They have gained the Fleet Size Bonus</li><li>Our Base shoots once more. We rolled a 9 (miss &gt;6)</li><li>Our Flagship shoots next. We rolled a 7 (miss &gt;2)</li><li>Their 4 Type VIIs shoot next. They rolled 2,7,6,6 against our Flagship (3 hits &le;6), cleanly destroying it<br /><br /></li><li><b>Round 7</b>: Our Base shoots once more. We rolled a 9 (miss &gt;6)</li><li>Their 4 Type VIIs shoot next. Only our Base remains. They rolled 4,6,7,10 (1 hit &le;5), damaging it<br /><br /></li><li><b>Round 8</b>: Our Base shoots once more, rolling a 6 (hit &le;6), damaging a Type VII</li><li>Their 4 Type VIIs shoot next, rolling 2,4,7,9 (2 hits &le;5), finishing off the Base<br /><br /></li><li><b>Bombardment Round</b>: Our colony is exposed. Their 4 Type VIIs rolled 2,4,4,9 (3 hits &le;5), cleanly destroying the colony and the 2 Light Infantry</li><li>One of their Type VIIs then breaks down into 2 hulls, so that one of them can be spent colonizing the newly conquered planet</li></ol>",
-	"actions":
-		[{
-			"placeCounter":"type7V2",
-			"size":8,
-			"location":"C4",
+			"location":"B5",
 			"name":"type7V"
-		},{
-			"placeCounter":"type4V2",
-			"location":"C4",
-			"name":"type4V"
-		},{
-			"removeCounter":"type9V2"
 		},{
 			"placeCounter":"hullV32",
 			"size":4,
 			"location":"D4",
-			"name":"hiddenV"
+			"name":"type7V"
 		},{
-			"placeHullsV":"F4",
+			"placeHullsV":"F5",
 			"startId":37
 		},{
 			"placeCounter":"hullV39",
 			"size":3,
-			"location":"E4"
+			"location":"E5"
 		},{
-			"placeCounter":"hullV40",
-			"size":2,
-			"location":"F7"
+			"placeHullsV":"F5,G7",
+			"startId":40
 		},{
-			"removeCounter":"hullV41"
+			"placeHullsV":"C4,D6,E6,J2,J4,J4,J7,J9,I3,I3,H4,H8,H9",
+			"startId":44
 		},{
-			"removeCounter":"hullV42"
-		},{
-			"removeCounter":"hullV44"
-		},{
-			"placeHullsV":"E4,E5,I2",
-			"startId":45
-		},{
-			"placeCounter":"hullV48",
-			"size":2,
-			"location":"I3"
-		},{
-			"removeCounter":"hullV49"
-		},{
-			"placeCounter":"hullV50",
-			"size":2,
-			"location":"I8"
-		},{
-			"removeCounter":"hullV51"
-		},{
-			"placeCounter":"hullV52",
-			"size":2,
-			"location":"H4"
-		},{
-			"removeCounter":"hullV53"
-		},{
-			"placeHullsV":"G2",
-			"startId":54
-		},{
-			"placeCounter":"hullV55",
-			"size":3,
-			"location":"G7"
-		},{
-			"placeHullsV":"H8",
-			"startId":56
-		},{
-			"placeCounter":"FlagY",
-			"location":"C4"
-		},{
-			"placeCounter":"CA2Y",
-			"size":5,
-			"location":"C4"
-		},{
-			"placeCounter":"MS7Y",
-			"location":"D2",
-			"name":"MSmY"
-		},{
-			"placeCounter":"MS8Y",
-			"location":"C4",
+			"placeCounter":"MS2Y",
+			"location":"B5",
 			"name":"MSaY"
 		},{
-			"placeCounter":"SY4Y",
-			"size":1,
-			"location":"C4"
-		},{
-			"placeCounter":"base2Y",
-			"location":"C4"
-		},{
-			"placeCounter":"Inf1Y",
+			"placeCounter":"Inf5Y",
 			"size":2,
-			"location":"C4"
+			"location":"B5"
 		},{
-			"revealCounter":"systemC4",
+			"revealCounter":"systemB5",
 			"name":"colony5Y"
 		}]},
-	{"heading":"Stardate 2409.9",
-	"commentary":"<p>All of our remaining mobile forces have been destroyed, including the Flagship. The 7 victorious Replicator hulls that were leftover (post-colonization) have advanced to colony B4, taking advantage of the ninth RP they gained when they learned of our Attack +1. 4 hulls from the hex behind them were also able to join in the battle.</p><p>Since the newly unlocked Type IX is a Hull Size 1 ship, they do not need to combine at all. The colony hex is already exposed, so they simply bombard away, rolling 1,2,3,3,5,6,6,6,7,8,10 (8 hits &le;6), utterly destroying the colony. They then use one of their victorious hulls and colonize the newly sterilized world.</p>",
+	{"heading":"Stardate 2409.6",
+	"commentary":"<p>A total of 17 Replicator hulls are able to challenge our homeworld, which is defended by 22 Hull Size worth of combat ships. A 29% advantage is sufficient to justify our fleet being considered a superior fleet, so the homwworld is off limits. They are just one hull shy of avoiding inferiority...</p><p>Instead, they were able to bring 20 hulls (worth 10 Type VIIs) to sector B4, and roll 2,3,3,4,6,7,8,9,9,10 to bombard (5 hits &le;6). Just like last turn, they break one of these Type VIIs down in order to colonize the newly conquered planet.</p>",
 	"actions":
 		[{
-			"placeCounter":"type9V2",
-			"size":11,
+			"placeCounter":"expV2",
+			"size":2,
+			"location":"H8",
+			"name":"hiddenV"
+		},{
+			"placeCounter":"type7V2",
+			"size":10,
 			"location":"B4",
-			"name":"type9V"
-		},{
-			"removeCounter":"type7V2"
-		},{
-			"removeCounter":"type4V2"
-		},{
-			"placeGhost":"hiddenV",
-			"location":"C4"
+			"name":"type7V"
 		},{
 			"removeCounter":"hullV32"
 		},{
-			"placeGhost":"hiddenV",
-			"location":"E3"
-		},{
-			"placeHullsV":"D4",
+			"placeHullsV":"F5",
 			"startId":37
 		},{
 			"placeGhost":"hiddenV",
-			"location":"D4"
+			"location":"E5"
+		},{
+			"placeCounter":"hullV37",
+			"size":2,
+			"location":"D6",
+			"name":"hiddenV"
 		},{
 			"placeCounter":"hullV39",
-			"size":4,
+			"size":3,
+			"location":"D6",
+			"name":"hiddenV"
+		},{
+			"removeCounter":"hullV40"
+		},{
+			"placeHullsV":"G7",
+			"startId":41
+		},{
+			"removeCounter":"hullV44"
+		},{
+			"placeGhost":"hiddenV",
 			"location":"C4"
 		},{
 			"placeGhost":"hiddenV",
-			"location":"E6"
-		},{
-			"placeCounter":"hullV40",
-			"size":2,
-			"location":"D6"
-		},{
-			"removeCounter":"hullV45"
+			"location":"B5"
 		},{
 			"placeGhost":"hiddenV",
-			"location":"E4"
+			"location":"I2"
 		},{
-			"placeCounter":"hullV46",
-			"location":"D4",
-			"name":"hiddenV"
-		},{
-			"placeGhost":"hiddenV",
-			"location":"H3"
-		},{
-			"placeCounter":"hullV47",
-			"location":"H4"
+			"placeHullsV":"D6,D6,H3",
+			"startId":45
 		},{
 			"placeGhost":"hiddenV",
-			"location":"H4"
+			"location":"I4"
 		},{
 			"placeCounter":"hullV48",
 			"size":2,
-			"location":"G4"
+			"location":"H4"
 		},{
-			"placeCounter":"hullV50",
-			"size":2,
-			"location":"H8"
+			"removeCounter":"hullV49"
 		},{
 			"placeGhost":"hiddenV",
-			"location":"G4"
+			"location":"I6"
+		},{
+			"placeHullsV":"H6,I8",
+			"startId":50
+		},{
+			"placeGhost":"hiddenV",
+			"location":"H4"
 		},{
 			"placeCounter":"hullV52",
 			"size":2,
-			"location":"F4"
+			"location":"G4"
+		},{
+			"removeCounter":"hullV53"
 		},{
 			"placeGhost":"hiddenV",
-			"location":"F3"
-		},{
-			"placeCounter":"hullV54",
-			"location":"D4",
-			"name":"hiddenV"
-		},{
-			"placeGhost":"hiddenV",
-			"location":"F7"
-		},{
-			"placeCounter":"hullV55",
-			"size":3,
-			"location":"E6"
+			"location":"G4"
 		},{
 			"placeGhost":"hiddenV",
 			"location":"G7"
 		},{
-			"placeCounter":"hullV56",
+			"placeHullsV":"F5,F7,H8",
+			"startId":54
+		},{
+			"removeCounter":"MS2Y"
+		},{
+			"placeCounter":"MS3Y",
+			"location":"B4",
+			"name":"MSaY"
+		},{
+			"removeCounter":"Inf5Y"
+		},{
+			"revealCounter":"systemB5",
+			"name":"colony0V"
+		},{
+			"revealCounter":"systemB4",
+			"name":"colony5Y"
+		}]},
+	{"heading":"Stardate 2409.9 (The Battle for Vasyr)",
+	"commentary":"<p>They are now able to assemble <i>26</i> hulls (7 more from sector D6) if they assault our homeworld. Both fleets are still considered equal, but equal is enough to justify assaulting a planet. This total is good for a whopping <b>13</b> Type VII ships!</p><ol><li><b>Round 1</b>: We have 9 ships. They have 13 ships. Neither side achieves Fleet Size Bonus</li><li>Our Base has the best weapon class, so it shoots first. We rolled a 4 (hit &le;6), damaging one of their ships</li><li>Our Flagship shoots next. We rolled a 4 (miss &gt;3)</li><li>Their 13 Type VIIs have the tactics advantage, so they shoot next. Going from smallest to largest, they rolled a 6 against our Ship Yard (&le;6 to hit)</li><li>Their 12 Type VIIs have ammo still. They rolled 7,7,7,10,7,1,10,10,2,2,7,2 against our 6 Cruisers (4 hits &le;5). This cleanly wipes out 2 Cruisers</li><li>Our 4 surviving Cruisers finally get a chance to shoot. We rolled 1,1,4,7 (2 hits &le;3), cleanly destroying a Type VII (though they still have one damaged)<br /><br /></li><li><b>Round 2</b>: We have 6 ships. They have 12 ships. They gained the Fleet Size Bonus</li><li>Our Base shoots once more. We rolled a 2 (hit &le;6), finishing one of their ships</li><li>Our Flagship shoots next. We rolled an 8 (miss &gt;3)</li><li>Their 11 surviving Type VIIs shoot next. They rolled 9,5,10,4,9,9,6,10,7,6,9 against our 4 Cruisers (4 hits &le;6), cleanly sniping another 2 Cruisers</li><li>Our 2 surviving Cruisers shoot once more. We rolled 5,8 (0 hits &le;3)<br /><br /></li><li><b>Round 3</b>: We have 4 ships. They have 11 ships</li><li>Our Base shoots once more. We rolled a 1 (hit &le;6), damaging one of them</li><li>Our Flagship shoots next. We rolled a 9 (miss &gt;3)</li><li>Their 11 Type VIIs shoot next. They rolled 8,4,1,9,8,1,9,9,8,7,5 against our 2 Cruisers (4 hits &le;6), cleanly finishing off our Cruisers<br /><br /></li><li><b>Round 4</b>: We have 2 ships. They have 11 ships</li><li>Our Base shoots once more. We rolled a 2 (hit &le;6), finishing one of them</li><li>Our Flagship shoots next. We rolled a 4 (miss &gt;3)</li><li>Their 10 surviving Type VIIs shoot once more. Our Flagship has the lowest Defense strength, so that is their next target. They rolled 3,6,2,6,3 accordingly (3 hits &le;5), finishing it off</li><li>Their 5 Type VIIs have ammo still. Our Base is all alone now. They rolled 5,8,3,10,10 (1 hit &le;4), damaging it<br /><br /></li><li><b>Round 5</b>: Our Base shoots once more. We rolled a 10 (miss &gt;6)</li><li>Their 10 Type VIIs shoot once more. They rolled 2,2,4,4,6,7,7,8,10,10 (4 hits &le;4), destroying the last of our orbital protection!<br /><br /></li><li><b>Bombardment Round</b>: Their 10 Type VIIs now have a relatively clear shot of our homeworld. They rolled 1,2,5,7,7,7,7,8,9,10 (3 hits &le;5), finishing it off exactly and taking the 1 Light Infantry out as well!</li></ol>",
+	"actions":
+		[{
+			"placeGhost":"hiddenV",
+			"location":"G7"
+		},{
+			"placeCounter":"expV2",
+			"size":3,
+			"location":"F7",
+			"name":"hiddenV"
+		},{
+			"placeGhost":"type7V",
+			"location":"B5"
+		},{
+			"placeCounter":"type7V2",
+			"size":13,
+			"location":"B6",
+			"name":"type7V"
+		},{
+			"placeHullsV":"F5",
+			"startId":37
+		},{
+			"placeGhost":"hiddenV",
+			"location":"C6"
+		},{
+			"removeCounter":"hullV37"
+		},{
+			"removeCounter":"hullV39"
+		},{
+			"placeGhost":"hiddenV",
 			"location":"F7"
+		},{
+			"placeHullsV":"E6",
+			"startId":41
+		},{
+			"removeCounter":"hullV45"
+		},{
+			"removeCounter":"hullV46"
+		},{
+			"placeHullsV":"G2",
+			"startId":47
+		},{
+			"placeGhost":"hiddenV",
+			"location":"G4"
+		},{
+			"placeCounter":"hullV48",
+			"size":2,
+			"location":"F5"
+		},{
+			"placeHullsV":"G5,H8",
+			"startId":50
+		},{
+			"placeGhost":"hiddenV",
+			"location":"F5"
+		},{
+			"placeCounter":"hullV52",
+			"size":2,
+			"location":"E5"
+		},{
+			"placeGhost":"hiddenV",
+			"location":"E6"
+		},{
+			"placeHullsV":"E5,F5",
+			"startId":54
+		},{
+			"removeCounter":"hullV56"
 		},{
 			"removeCounter":"hullV57"
 		},{
@@ -3985,308 +3983,112 @@
 		},{
 			"removeCounter":"hullV65"
 		},{
-			"removeCounter":"FlagY"
-		},{
-			"removeCounter":"CA2Y"
-		},{
-			"placeCounter":"MS3Y",
-			"location":"B4",
-			"name":"MSaY"
-		},{
-			"placeCounter":"MS7Y",
-			"location":"D1",
-			"name":"MSmY"
-		},{
-			"removeCounter":"MS8Y"
-		},{
-			"removeCounter":"SY4Y"
-		},{
-			"removeCounter":"base2Y"
-		},{
-			"removeCounter":"Inf1Y"
-		},{
-			"resizeCounter":"Inf3Y",
-			"size":1
-		},{
-			"resizeCounter":"Inf5Y",
-			"size":1
-		},{
-			"resizeCounter":"SY3Y",
-			"size":1
-		},{
-			"removeCounter":"BC1Y"
+			"removeCounter":"hullV66"
 		},{
 			"placeCounter":"systemJ4",
 			"name":"colony5V"
 		},{
+			"revealCounter":"systemD4",
+			"name":"colony1"
+		},{
 			"revealCounter":"systemC4",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemB4",
 			"name":"colony0V"
 		},{
-			"revealCounter":"systemD4",
-			"name":"colony1"
-		},{
-			"revealCounter":"systemB4",
-			"name":"colony5Y"
-		},{
-			"revealCounter":"systemB6",
-			"name":"home20Y"
-		}]},
-	{"heading":"Stardate 2410.0",
-	"commentary":"<p>Adding to the embarrassing proof, maintenance typically signifies a non-Replicator empire's strength. We have no mobile combat ships left this economic phase, so our upkeep is at <i>0</i>. To that end, we will go on ahead and buy Ship Size 4 (-20), followed by 1 Battlecruiser (-15) and 1 Ship Yard (-6) at B2, 2 Light Infantry (-4) at B5, and 2 Light Infantry (-4) at B6. Ground Units can be built at nearly any colony (up to its income in quantity) without needing Ship Yards.</p><p>As for the Replicator empire, they just had their first colony depletion at sector J4. The planet that was at that hex can no longer be used for the rest of the scenario, so it simply gets removed from the board. Because depletion occurs before hulls are produced, they only produced 9 hulls this phase.</p>",
-	"prodTable":
-		[{
-			"name":"CSY (Yellow)","initCP":0,"colonyCP":50,"mineralCP":0,"pipeCP":1,"maint":0,"bidCP":0,"techBuy":20,"unitBuy":29
-		},{
-			"name":"Erodommoc (Violet)","initCP":0,"mineralCP":0,"techBuy":0,"unitBuy":0
-		}],
-	"techTableX":
-		[{
-			"name":"CSY (Yellow)","size":4,"explore":1,"SY":4,"move":2,"atk":1
-		}],
-	"replicatorTable":
-		[{
-			"name":"Erodommoc","pdTech":1,"scanTech":1,"sweepTech":1,"moveTech":2,"purchased":2,"explore":1,"hullSize":3,"wrecks":1,"fleetSize":8,"NPA":1,"atkSeen":1
-		}],
-	"actions":
-		[{
-			"placeCounter":"type9V2",
-			"size":10,
-			"location":"B4"
-		},{
-			"placeCounter":"hullV37",
-			"size":3,
-			"location":"D4"
-		},{
-			"placeCounter":"hullV39",
-			"size":4,
-			"location":"C4",
-			"name":"hiddenV"
-		},{
-			"placeCounter":"hullV40",
-			"size":2,
-			"location":"D6"
-		},{
-			"removeCounter":"hullV46"
-		},{
-			"placeCounter":"hullV47",
-			"location":"H4"
-		},{
-			"placeCounter":"hullV48",
-			"size":2,
-			"location":"G4"
-		},{
-			"placeCounter":"hullV50",
-			"size":2,
-			"location":"H8"
-		},{
-			"placeCounter":"hullV52",
-			"size":2,
-			"location":"F4"
-		},{
-			"removeCounter":"hullV54"
-		},{
-			"placeCounter":"hullV55",
-			"size":3,
-			"location":"E6"
-		},{
-			"placeCounter":"hullV56",
-			"location":"F7"
-		},{
-			"placeHullsV":"K1,K3,K4,K7,K8,J3,I3,I8,I9",
-			"startId":57
+			"revealCounter":"systemB5",
+			"name":"colony0V"
 		},{
 			"removeCounter":"MS3Y"
-		},{
-			"revealCounter":"MS7Y",
-			"name":"MSaY"
-		},{
-			"resizeCounter":"SY3Y",
-			"size":2
-		},{
-			"placeCounter":"BC1Y",
-			"location":"B2"
-		},{
-			"resizeCounter":"Inf3Y",
-			"size":4
-		},{
-			"resizeCounter":"Inf5Y",
-			"size":4
-		},{
-			"removeCounter":"systemJ4"
-		},{
-			"revealCounter":"systemC4",
-			"name":"colony1"
-		},{
-			"revealCounter":"systemD4",
-			"name":"colony3"
-		},{
-			"revealCounter":"systemB4",
-			"name":"colony1"
-		},{
-			"revealCounter":"systemB6",
-			"name":"home30Y"
-		}]},
-	{"heading":"Stardate 2410.2",
-	"commentary":"<p>The Replicator rampage continues. The 10 Type IX ships that were leftover from the previous bombardment managed to consolidate with another 4 hulls. Their 14 Type IXs now bombard the next colony, rolling 2,2,2,3,3,3,4,5,6,7,8,8,9,10 (7 hits &le;4), wiping all lifeforms out of our colony. They then spend one of their victorious hulls colonizing the conquered planet.</p>",
-	"actions":
-		[{
-			"placeCounter":"type9V2",
-			"size":14,
-			"location":"B5"
-		},{
-			"placeCounter":"hullV37",
-			"size":3,
-			"location":"C4"
-		},{
-			"removeCounter":"hullV39"
-		},{
-			"placeCounter":"hullV40",
-			"size":2,
-			"location":"C6",
-			"name":"hiddenV"
-		},{
-			"placeCounter":"hullV47",
-			"location":"G4"
-		},{
-			"placeCounter":"hullV48",
-			"size":2,
-			"location":"F4"
-		},{
-			"placeCounter":"hullV50",
-			"size":2,
-			"location":"G7"
-		},{
-			"placeCounter":"hullV52",
-			"size":2,
-			"location":"E4"
-		},{
-			"placeCounter":"hullV55",
-			"size":3,
-			"location":"D6"
-		},{
-			"placeCounter":"hullV56",
-			"location":"E6"
-		},{
-			"placeHullsV":"J2,J4,J4,J8,J8,I3,H4,H7,I8",
-			"startId":57
-		},{
-			"placeCounter":"BC1Y",
-			"location":"B3"
-		},{
-			"placeCounter":"MS2Y",
-			"location":"B5",
-			"name":"MSaY"
-		},{
-			"placeCounter":"Inf5Y",
-			"size":4,
-			"location":"B5"
-		},{
-			"revealCounter":"systemB5",
-			"name":"colony5Y"
-		}]},
-	{"heading":"Stardate 2410.5",
-	"commentary":"<p>At this point, we are screwed. They were able to combine arms once more, giving them 15 Type IXs to bombard our homeworld. They rolled 1,1,1,3,4,4,5,6,6,7,8,9,10,10,10 (6 hits &le;4), utterly eliminating the homeworld.</p>",
-	"actions":
-		[{
-			"placeCounter":"type9V2",
-			"size":15,
-			"location":"B6"
-		},{
-			"placeCounter":"hullV37",
-			"size":3,
-			"location":"C5"
-		},{
-			"removeCounter":"hullV40"
-		},{
-			"placeCounter":"hullV47",
-			"location":"F4"
-		},{
-			"placeCounter":"hullV48",
-			"size":2,
-			"location":"E4"
-		},{
-			"placeCounter":"hullV50",
-			"size":2,
-			"location":"F7"
-		},{
-			"placeCounter":"hullV52",
-			"size":2,
-			"location":"D4"
-		},{
-			"placeCounter":"hullV55",
-			"size":3,
-			"location":"C5",
-			"name":"hiddenV"
-		},{
-			"placeCounter":"hullV56",
-			"location":"D6"
-		},{
-			"placeCounter":"hullV57",
-			"location":"J2"
-		},{
-			"placeCounter":"hullV58",
-			"size":2,
-			"location":"I4"
-		},{
-			"removeCounter":"hullV59"
-		},{
-			"placeCounter":"hullV60",
-			"size":2,
-			"location":"I8"
-		},{
-			"removeCounter":"hullV61"
-		},{
-			"placeHullsV":"H4,G4,G6,H7",
-			"startId":62
-		},{
-			"placeCounter":"BC1Y",
-			"location":"B3"
-		},{
-			"removeCounter":"MS2Y"
-		},{
-			"removeCounter":"Inf5Y"
 		},{
 			"placeCounter":"MS9Y",
 			"location":"B6",
 			"name":"MSaY"
 		},{
-			"placeCounter":"Inf3Y",
-			"size":4,
+			"placeCounter":"Inf6Y",
 			"location":"B6"
 		},{
-			"revealCounter":"systemB5",
-			"name":"colony0V"
+			"placeCounter":"FlagY",
+			"location":"B6"
+		},{
+			"placeCounter":"CA2Y",
+			"size":6,
+			"location":"B6"
+		},{
+			"placeCounter":"SY3Y",
+			"location":"B6"
+		},{
+			"placeCounter":"base3Y",
+			"location":"B6"
 		},{
 			"revealCounter":"systemB6",
-			"name":"home30Y"
+			"name":"home20Y"
 		}]},
-	{"heading":"Stardate 2410.8 (Game Over)",
-	"commentary":"<p>At this point, the scenario is now over. We were unable to assemble a fleet able to neutralize their colonies.</p><p>Replicator Solitaire is an entirely new beast. Even on Easy difficulty, we failed to achieve victory. It is hard to tell if it was worth trying to guard the space wreck <span class=\"bindTxt\">(which was within 3 hexes of the nearest Replicator colony)</span>, maybe steal initiative for that fateful economic phase, to name a few.</p><p>Barren planet arrangement was not exactly in our favor, thus we never saw fit to conquer non-player aliens, nevermind develop Terraforming 1 this playthrough.</p>",
+	{"heading":"Stardate 2410.0 (Game Over)",
+	"commentary":"<p>At this point, the scenario is now over. We were unable to assemble a fleet able to neutralize their colonies.</p><p>Replicator Solitaire is an entirely new beast. Even on Easy difficulty, we failed to achieve victory. Although it was technically unnecessary (rules-wise) for two equal fleets to clash over a space wreck, said space wreck <i>was</i> within 3 hexes of the nearest Replicator colony.</p><p>Barren planet arrangement was not exactly in our favor, thus we never saw fit to conquer non-player aliens, nevermind develop Terraforming 1. Still; this was a mixed bag between going for Anti-Replicator Transports, or Titans. We were able to achieve neither of these goals.</p>",
 	"techTableX":
 		[{
-			"name":"CSY (Yellow)","size":4,"explore":1,"SY":4,"move":2,"atk":1,"isDead":true
+			"name":"CSY (Yellow)","size":3,"explore":1,"SY":3,"move":2,"atk":1,"isDead":true
 		}],
 	"replicatorTable":
 		[{
-			"name":"Erodommoc","pdTech":1,"scanTech":1,"sweepTech":1,"moveTech":2,"purchased":2,"explore":1,"hullSize":3,"wrecks":1,"fleetSize":8,"NPA":1,"atkSeen":1
+			"name":"Erodommoc","pdTech":1,"scanTech":1,"sweepTech":1,"moveTech":3,"purchased":2,"explore":1,"hullSize":3,"wrecks":1,"fleetSize":9,"NPA":1,"atkSeen":1
 		}],
 	"actions":
 		[{
-			"placeCounter":"type9V2",
-			"size":14,
-			"location":"B6"
+			"placeCounter":"type7V2",
+			"size":9,
+			"location":"B6",
+			"name":"type7V"
 		},{
-			"placeCounter":"hullV37",
-			"size":6,
-			"location":"C5"
+			"placeCounter":"hullV48",
+			"size":3,
+			"location":"F5"
+		},{
+			"placeCounter":"hullV52",
+			"size":3,
+			"location":"E5"
+		},{
+			"removeCounter":"hullV54"
 		},{
 			"removeCounter":"hullV55"
 		},{
+			"placeCounter":"hullV57",
+			"size":1,
+			"location":"B6",
+			"name":"hiddenV"
+		},{
+			"revealCounter":"systemD4",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemC4",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemB4",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemB5",
+			"name":"colony1"
+		},{
+			"placeHullsV":"K1,K3,K4,K7,K8,J3,I3,I8,I9",
+			"startId":58
+		},{
+			"removeCounter":"systemJ4"
+		},{
 			"removeCounter":"MS9Y"
 		},{
-			"removeCounter":"Inf3Y"
+			"removeCounter":"Inf6Y"
+		},{
+			"removeCounter":"FlagY"
+		},{
+			"removeCounter":"CA2Y"
+		},{
+			"removeCounter":"SY3Y"
+		},{
+			"removeCounter":"base3Y"
 		},{
 			"revealCounter":"systemB6",
-			"name":"colony0V"
+			"name":"colony1"
 		}]}
 ]}
