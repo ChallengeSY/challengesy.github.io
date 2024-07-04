@@ -18,6 +18,7 @@
 		[{
 			"createPreset":"replicatorSolo",
 			"difficulty":1,
+			"edition":1,
 			"playerTop":"V4",
 			"playerBottom":"Y6",
 			"extraHexAway":true
@@ -4026,7 +4027,7 @@
 			"name":"home20Y"
 		}]},
 	{"heading":"Stardate 2410.0 (Game Over)",
-	"commentary":"<p>At this point, the scenario is now over. We were unable to assemble a fleet able to neutralize their colonies.</p><p>Replicator Solitaire is an entirely new beast. Even on Easy difficulty, we failed to achieve victory. Although it was technically unnecessary (rules-wise) for two equal fleets to clash over a space wreck, said space wreck <i>was</i> within 3 hexes of the nearest Replicator colony.</p><p>Barren planet arrangement was not exactly in our favor, thus we never saw fit to conquer non-player aliens, nevermind develop Terraforming 1. Still; this was a mixed bag between going for Anti-Replicator Transports, or Titans. We were able to achieve neither of these goals.</p>",
+	"commentary":"<p>At this point, the scenario is now over. We were unable to assemble a fleet able to neutralize their colonies.</p><p>Replicator Solitaire is an entirely new beast. Even on Easy difficulty, we failed to achieve victory. Although it was technically unnecessary (rules-wise) for two equal fleets to clash over a space wreck, said space wreck <i>was</i> within 3 hexes of the nearest Replicator colony.</p><p>Barren planet arrangement was not exactly in our favor, thus we never saw fit to conquer non-player aliens, nevermind develop Terraforming 1. Still; this was a mixed bag between going for Anti-Replicator Transports, or planet busting Titans. We were able to achieve neither of these goals.</p>",
 	"techTableX":
 		[{
 			"name":"CSY (Yellow)","size":3,"explore":1,"SY":3,"move":2,"atk":1,"isDead":true

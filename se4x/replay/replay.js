@@ -1181,7 +1181,6 @@ function readJson() {
 				readX = hullsColl[h].substring(1);
 
 				var workNum = startNum + h;
-				console.log(workNum);
 				placeCounter("hullV"+workNum, readX, readY, "hiddenV", 1);
 			}
 		} else if (actionPool[i].placeGhost) {
@@ -1619,11 +1618,13 @@ function readJson() {
 				var plrSlots = [actionPool[i].playerTop, actionPool[i].playerBottom];
 				var plrColors = [plrSlots[0].charAt(0), plrSlots[1].charAt(0)];
 				var difficulty = 0;
+				var repEdition = 1;
 				
 				if (actionPool[i].createPreset == "replicatorSolo") {
 					expansionHWs = true;
 					plrColors[0] = "V";
 					difficulty = actionPool[i].difficulty;
+					repEdition = actionPool[i].edition;
 				}
 				var plrCols = [plrSlots[0].substr(1), plrSlots[1].substr(1)];
 				
@@ -1655,6 +1656,10 @@ function readJson() {
 						// Easy: Player gets 2 extra Colony Ships
 						placeCounter("CO4"+plrColors[1],plrCols[1],10,"CO"+plrColors[1],1);
 						placeCounter("CO5"+plrColors[1],plrCols[1],10,"CO"+plrColors[1],1);
+						if (edition == 2) {
+							placeCounter("type0"+plrColors[0]+"6",plrCols[0],1,"type0"+plrColors[0],1);
+							placeCounter("CO6"+plrColors[1],plrCols[1],10,"CO"+plrColors[1],1);
+						}
 						break;
 					case 2:
 						// Normal: Player gets 1 extra Colony Ship. Replicator gets 1 extra hull
@@ -1665,12 +1670,18 @@ function readJson() {
 						// Hard: Replicator gets 2 extra hulls and 1 RP
 						placeCounter("type0"+plrColors[0]+"6",plrCols[0],1,"type0"+plrColors[0],1);
 						placeCounter("type0"+plrColors[0]+"7",plrCols[0],1,"type0"+plrColors[0],1);
+						if (edition == 2) {
+							placeCounter("type0"+plrColors[0]+"8",plrCols[0],1,"type0"+plrColors[0],1);
+						}
 						break;
 					case 4:
 						// Impossible: Replicator gets 3 extra hulls and 2 RP
 						placeCounter("type0"+plrColors[0]+"6",plrCols[0],1,"type0"+plrColors[0],1);
 						placeCounter("type0"+plrColors[0]+"7",plrCols[0],1,"type0"+plrColors[0],1);
 						placeCounter("type0"+plrColors[0]+"8",plrCols[0],1,"type0"+plrColors[0],1);
+						if (edition == 2) {
+							placeCounter("type0"+plrColors[0]+"9",plrCols[0],1,"type0"+plrColors[0],1);
+						}
 						break;
 				}
 				
@@ -1692,11 +1703,13 @@ function readJson() {
 				var plrSlots = [actionPool[i].playerTop, actionPool[i].playerBottom];
 				var plrColors = [plrSlots[0].charAt(0), plrSlots[1].charAt(0)];
 				var difficulty = 0;
+				var repEdition = 1;
 				
 				if (actionPool[i].createPreset == "replicatorSoloLg") {
 					expansionHWs = true;
 					plrColors[0] = "V";
 					difficulty = actionPool[i].difficulty;
+					repEdition = actionPool[i].edition;
 				}
 				var plrCols = [plrSlots[0].substr(1), plrSlots[1].substr(1)];
 				
@@ -1726,24 +1739,34 @@ function readJson() {
 				switch (difficulty) {
 					case 1:
 						// Easy: Player gets 2 extra Colony Ships
-						placeCounter("CO4"+plrColors[1],plrCols[1],10,"CO"+plrColors[1],1);
-						placeCounter("CO5"+plrColors[1],plrCols[1],10,"CO"+plrColors[1],1);
+						placeCounter("CO4"+plrColors[1],plrCols[1],11,"CO"+plrColors[1],1);
+						placeCounter("CO5"+plrColors[1],plrCols[1],11,"CO"+plrColors[1],1);
+						if (edition == 2) {
+							placeCounter("type0"+plrColors[0]+"6",plrCols[0],0,"type0"+plrColors[0],1);
+							placeCounter("CO6"+plrColors[1],plrCols[1],11,"CO"+plrColors[1],1);
+						}
 						break;
 					case 2:
 						// Normal: Player gets 1 extra Colony Ship. Replicator gets 1 extra hull
-						placeCounter("type0"+plrColors[0]+"6",plrCols[0],1,"type0"+plrColors[0],1);
-						placeCounter("CO4"+plrColors[1],plrCols[1],10,"CO"+plrColors[1],1);
+						placeCounter("type0"+plrColors[0]+"6",plrCols[0],0,"type0"+plrColors[0],1);
+						placeCounter("CO4"+plrColors[1],plrCols[1],11,"CO"+plrColors[1],1);
 						break;
 					case 3:
 						// Hard: Replicator gets 2 extra hulls and 1 RP
-						placeCounter("type0"+plrColors[0]+"6",plrCols[0],1,"type0"+plrColors[0],1);
-						placeCounter("type0"+plrColors[0]+"7",plrCols[0],1,"type0"+plrColors[0],1);
+						placeCounter("type0"+plrColors[0]+"6",plrCols[0],0,"type0"+plrColors[0],1);
+						placeCounter("type0"+plrColors[0]+"7",plrCols[0],0,"type0"+plrColors[0],1);
+						if (edition == 2) {
+							placeCounter("type0"+plrColors[0]+"8",plrCols[0],0,"type0"+plrColors[0],1);
+						}
 						break;
 					case 4:
 						// Impossible: Replicator gets 3 extra hulls and 2 RP
-						placeCounter("type0"+plrColors[0]+"6",plrCols[0],1,"type0"+plrColors[0],1);
-						placeCounter("type0"+plrColors[0]+"7",plrCols[0],1,"type0"+plrColors[0],1);
-						placeCounter("type0"+plrColors[0]+"8",plrCols[0],1,"type0"+plrColors[0],1);
+						placeCounter("type0"+plrColors[0]+"6",plrCols[0],0,"type0"+plrColors[0],1);
+						placeCounter("type0"+plrColors[0]+"7",plrCols[0],0,"type0"+plrColors[0],1);
+						placeCounter("type0"+plrColors[0]+"8",plrCols[0],0,"type0"+plrColors[0],1);
+						if (edition == 2) {
+							placeCounter("type0"+plrColors[0]+"9",plrCols[0],0,"type0"+plrColors[0],1);
+						}
 						break;
 				}
 				
@@ -1967,15 +1990,23 @@ function readJson() {
 				placeHomeworld(13,0,plrColors.charAt(1));
 				placeHomeworld(1,11,plrColors.charAt(2));
 				placeHomeworld(12,11,plrColors.charAt(3));
-			} else if (actionPool[i].createPreset == "versus5P" || actionPool[i].createPreset == "versus5Ptight") {
+			} else if (actionPool[i].createPreset == "versus5P") {
 				expansionHWs = true;
 				plrColors = actionPool[i].playerColors;
 				
 				for (var y = 0; y < 12; y++) {
 					for (var x = 1; x <= 13; x++) {
 						if (x < 13 || y % 2 == 0) {
-							if (false) {
+							if (x >= 5 + Math.floor(y/2) && x <= 9 - Math.ceil(y/2) && y <= 2) {
 								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(0));
+							} else if (x <= 2 && y >= 2 && y <= 6 || (x == 3 && y == 4)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(1));
+							} else if (x >= 11 && y >= 2 && y <= 6 && (x >= 12 || (y != 2 && y != 6))) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(2));
+							} else if (x >= 7 - Math.ceil(y/2) && x <= Math.floor(y/2) && y >= 9) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(3));
+							} else if (x >= 14 - Math.ceil(y/2) && x <= Math.floor(y/2) + 7 && y >= 9) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(4));
 							} else {
 								placeSystemMarker(x,y,deepSpace);
 							}
@@ -1984,10 +2015,20 @@ function readJson() {
 				}
 				
 				placeHomeworld(7,0,plrColors.charAt(0));
-				placeHomeworld(1,4,plrColors.charAt(4));
-				placeHomeworld(13,4,plrColors.charAt(1));
+				placeHomeworld(1,4,plrColors.charAt(1));
+				placeHomeworld(13,4,plrColors.charAt(2));
 				placeHomeworld(3,11,plrColors.charAt(3));
-				placeHomeworld(11,11,plrColors.charAt(2));
+				placeHomeworld(10,11,plrColors.charAt(4));
+				
+				extraDShexes = actionPool[i].dsHexes.split(",");
+				
+				for (var z = 0; z < extraDShexes.length; z++) {
+					var x = extraDShexes[z].substr(1);
+					var y = letterRows.indexOf(extraDShexes[z].charAt(0));
+					
+					console.log({y,x});
+					placeSystemMarker(x,y,deepSpace);
+				}
 			}
 		}
 	}
