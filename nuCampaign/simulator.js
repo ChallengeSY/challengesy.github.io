@@ -627,7 +627,8 @@ function initShips() {
 					special = "Reconnaissance pod will relay information and sweep mines while stationary in space. " + shipAbility("Recharge Station (5)");
 					break;
 				case "Accelerator":
-					special = "Support pod that will boost the distance of pods travelling through it by 50% while stationary in space while changing direction. Increased speed lasts until negated. " + shipAbility("Recharge Station (25)") + " and " + shipAbility("Tow Immunity");
+					special = "Support pod that boosts the distance speed of pods travelling through it by 50% while changing their directions. \
+						Increased speed lasts until negated. " + shipAbility("Recharge Station (25)") + " and " + shipAbility("Tow Immunity");
 					break;
 				case "Protofield":
 					special = "When it arrives at its destination or is <q>destroyed</q> in combat, it will explode and create a proto-minefield at a rate of 1 proto-unit per clan. Enemies suffer " + shipAbility("Protoinfection") + " just by moving through.";
