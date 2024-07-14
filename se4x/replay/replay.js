@@ -337,6 +337,11 @@ function autoNameCounter(localObj) {
 			localObj.title = localObj.title + " Group (Size "+stackSize+")";
 		}
 	}
+	
+	if (stackSize > 12) {
+		localObj.style.borderLeftWidth = "12px";
+		localObj.style.borderTopWidth = "12px";
+	}
 }
 
 function placeCounter(curId, newX, newY, newPic, newSize) {
@@ -369,6 +374,8 @@ function placeCounter(curId, newX, newY, newPic, newSize) {
 		} else {
 			workObj.style.zIndex = 3;
 		}
+
+		autoNameCounter(workObj);
 	}
 	if (workSlot) {
 		workSlot.appendChild(workObj);
@@ -396,22 +403,30 @@ function placeCounter(curId, newX, newY, newPic, newSize) {
 		} else if (workObj.id.startsWith("system")) {
 			paintTile(workObj, newPic);
 		}
+
+		autoNameCounter(workObj);
 	}
+
 	if (applySize > 0) {
 		workObj.style.borderLeftWidth = applySize+"px";
 		workObj.style.borderTopWidth = applySize+"px";
+
+		autoNameCounter(workObj);
 	} else if (newPic && newPic.indexOf("marker") >= 0) {
 		workObj.style.borderLeftWidth = "0px";
 		workObj.style.borderTopWidth = "0px";
 	}
-	
-	autoNameCounter(workObj);
+
 	workObj.style.left = calcX + "%";
 	workObj.style.top = calcY + "%";
 }
 
 function paintTile(baseObj, paintPic) {
-	// WIP... maybe
+	/*
+	 * WIP... maybe
+	 *
+	 * Thanks to embedded coordinates, the current system has advantages that wouldn't be available if we went with full tiles
+	 */
 	var applyPic = null;
 	var remCounter = false;
 	var hexId = "back";
@@ -1656,7 +1671,7 @@ function readJson() {
 						// Easy: Player gets 2 extra Colony Ships
 						placeCounter("CO4"+plrColors[1],plrCols[1],10,"CO"+plrColors[1],1);
 						placeCounter("CO5"+plrColors[1],plrCols[1],10,"CO"+plrColors[1],1);
-						if (edition == 2) {
+						if (repEdition == 2) {
 							placeCounter("type0"+plrColors[0]+"6",plrCols[0],1,"type0"+plrColors[0],1);
 							placeCounter("CO6"+plrColors[1],plrCols[1],10,"CO"+plrColors[1],1);
 						}
@@ -1670,7 +1685,7 @@ function readJson() {
 						// Hard: Replicator gets 2 extra hulls and 1 RP
 						placeCounter("type0"+plrColors[0]+"6",plrCols[0],1,"type0"+plrColors[0],1);
 						placeCounter("type0"+plrColors[0]+"7",plrCols[0],1,"type0"+plrColors[0],1);
-						if (edition == 2) {
+						if (repEdition == 2) {
 							placeCounter("type0"+plrColors[0]+"8",plrCols[0],1,"type0"+plrColors[0],1);
 						}
 						break;
@@ -1679,7 +1694,7 @@ function readJson() {
 						placeCounter("type0"+plrColors[0]+"6",plrCols[0],1,"type0"+plrColors[0],1);
 						placeCounter("type0"+plrColors[0]+"7",plrCols[0],1,"type0"+plrColors[0],1);
 						placeCounter("type0"+plrColors[0]+"8",plrCols[0],1,"type0"+plrColors[0],1);
-						if (edition == 2) {
+						if (repEdition == 2) {
 							placeCounter("type0"+plrColors[0]+"9",plrCols[0],1,"type0"+plrColors[0],1);
 						}
 						break;
@@ -1741,7 +1756,7 @@ function readJson() {
 						// Easy: Player gets 2 extra Colony Ships
 						placeCounter("CO4"+plrColors[1],plrCols[1],11,"CO"+plrColors[1],1);
 						placeCounter("CO5"+plrColors[1],plrCols[1],11,"CO"+plrColors[1],1);
-						if (edition == 2) {
+						if (repEdition == 2) {
 							placeCounter("type0"+plrColors[0]+"6",plrCols[0],0,"type0"+plrColors[0],1);
 							placeCounter("CO6"+plrColors[1],plrCols[1],11,"CO"+plrColors[1],1);
 						}
@@ -1755,7 +1770,7 @@ function readJson() {
 						// Hard: Replicator gets 2 extra hulls and 1 RP
 						placeCounter("type0"+plrColors[0]+"6",plrCols[0],0,"type0"+plrColors[0],1);
 						placeCounter("type0"+plrColors[0]+"7",plrCols[0],0,"type0"+plrColors[0],1);
-						if (edition == 2) {
+						if (repEdition == 2) {
 							placeCounter("type0"+plrColors[0]+"8",plrCols[0],0,"type0"+plrColors[0],1);
 						}
 						break;
@@ -1764,7 +1779,7 @@ function readJson() {
 						placeCounter("type0"+plrColors[0]+"6",plrCols[0],0,"type0"+plrColors[0],1);
 						placeCounter("type0"+plrColors[0]+"7",plrCols[0],0,"type0"+plrColors[0],1);
 						placeCounter("type0"+plrColors[0]+"8",plrCols[0],0,"type0"+plrColors[0],1);
-						if (edition == 2) {
+						if (repEdition == 2) {
 							placeCounter("type0"+plrColors[0]+"9",plrCols[0],0,"type0"+plrColors[0],1);
 						}
 						break;

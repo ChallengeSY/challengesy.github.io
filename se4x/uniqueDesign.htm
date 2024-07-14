@@ -16,7 +16,7 @@
 	<script src="pedia.js"></script>
 </head>
 <body onload="setupDesign()">
-<p id="banner"><a href="index.htm"><img src="banner.png" alt="Space Empires 4X Resourcepedia" /></a></p>
+<p id="banner"><a href="index.php"><img src="banner.png" alt="Space Empires 4X Resourcepedia" /></a></p>
 
 <hr />
 
@@ -116,6 +116,11 @@
 <td><a href="javascript:showBox('Weapon Class')">(?)</a></td>
 <td class="numeric" id="minAtkClass"></td>
 </tr>
+<tr>
+<th>Number of Abilities</th>
+<td></td>
+<td class="numeric" id="abilCount">0</td>
+</tr>
 </table>
 </fieldset></td>
 </tr>
@@ -127,9 +132,9 @@
 <hr />
 
 <h2>Instructions</h2>
-<p>Simply play around with this program and design your own unique ship, as if you were using it in a Close Encounters game.</p>
+<p>Simply play around with this program and design your own unique ship, as if you were using it in a Close Encounters game. The Summary box lists ship specifications.</p>
 
-<p>The Summary Box lists how expensive your ship is, and what Ship Size and minimum Weapon Class are also required. Abilities which are shared with another ship (pre-Advanced Construction) must also be researched before the ship can be bought.</p>
+<p>Abilities which are shared with another ship (pre-Advanced Construction) must also be researched before the ship can be bought. Additionally, there can be a maximum cost of 32 CP, the maximum cost that Ship Size 7 allows. Finally, designs can have a maximum of 2 abilities.</p>
 
 </body>
 </html>

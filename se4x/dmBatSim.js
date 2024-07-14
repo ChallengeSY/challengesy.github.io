@@ -23,6 +23,7 @@ function setupSim() {
 	addPlayerRow("Alien-D",4,"D",1,1);
 	addPlayerRow("Alien-C",5,"C",2,1);
 	addPlayerRow("Alien-B",6,"B",2,1);
+	addPlayerRow("Pirate",5,"A",0,1);
 	
 	//Close Encounters ships
 	addPlayerRow("Flagship",4,"B",1,3);
@@ -55,6 +56,7 @@ function setupSim() {
 	disableCustomization("Alien-D");
 	disableCustomization("Alien-C");
 	disableCustomization("Alien-B");
+	disableCustomization("Pirate");
 	document.getElementById("Boarding ShipAtk").max = 1;
 	document.getElementById("Boarding ShipAtk").disabled = true;
 	document.getElementById("TransportDef").max = 3;
@@ -79,7 +81,7 @@ function setupSim() {
 
 function disableCustomization(dsgnName) {
 	var minTactics = 1;
-	if (dsgnName == "Type 0" || dsgnName == "Type II" || dsgnName == "Type IV" || dsgnName == "Type V" || dsgnName == "Type SW" || dsgnName == "Type Exp") {
+	if (dsgnName == "Pirate" || dsgnName == "Type 0" || dsgnName == "Type II" || dsgnName == "Type IV" || dsgnName == "Type V" || dsgnName == "Type SW" || dsgnName == "Type Exp") {
 		minTactics = 0;
 	}
 	
@@ -282,6 +284,7 @@ function showPlrRows(rowId, rowVis) {
 		showPlrRows("Alien-D", NPAships);
 		showPlrRows("Alien-C", NPAships);
 		showPlrRows("Alien-B", NPAships);
+		showPlrRows("Pirate", NPAships);
 
 		showPlrRows("DestroyerX", sizeTech >= 2 && advConTech >= 1);
 		showPlrRows("Battle Carrier", ftrTech > 0 && advConTech >= 2);
@@ -646,6 +649,7 @@ function playerFleet() {
 	this.alienD = new playerShip("Alien-D");
 	this.alienC = new playerShip("Alien-C");
 	this.alienB = new playerShip("Alien-B");
+	this.pirates = new playerShip("Pirate");
 	//Close Encounters
 	this.flagships = new playerShip("Flagship");
 	this.boardingShips = new playerShip("Boarding Ship");
@@ -674,7 +678,7 @@ function playerFleet() {
 		return this.scouts.quantity + this.destroyers.quantity + this.cruisers.quantity + this.battlecruisers.quantity +
 			this.battleships.quantity + this.dreadnoughts.quantity + this.shipYards.quantity + this.starbases.quantity +
 			this.carriers.quantity + this.fighters.quantity + this.mines.quantity + this.raiders.quantity + this.minesweepers.quantity +
-			this.alienD.quantity + this.alienC.quantity + this.alienB.quantity +
+			this.alienD.quantity + this.alienC.quantity + this.alienB.quantity + this.pirates.quantity +
 			this.flagships.quantity + this.boardingShips.quantity + this.transports.quantity + this.titans.quantity +
 			this.destroyerXes.quantity + this.battleCarriers.quantity + this.advancedFlagships.quantity + this.raiderXes.quantity +
 			this.type0.quantity + this.type2.quantity + this.type4.quantity + this.type5.quantity +
@@ -686,7 +690,7 @@ function playerFleet() {
 		return this.scouts.getEligibleCount() + this.destroyers.getEligibleCount() + this.cruisers.getEligibleCount() + this.battlecruisers.getEligibleCount() +
 			this.battleships.getEligibleCount() + this.dreadnoughts.getEligibleCount() + this.shipYards.getEligibleCount() + this.starbases.getEligibleCount() +
 			this.carriers.getEligibleCount() + this.fighters.getEligibleCount() + this.raiders.getEligibleCount() + this.minesweepers.getEligibleCount() +
-			this.alienD.getEligibleCount() + this.alienC.getEligibleCount() + this.alienB.getEligibleCount() +
+			this.alienD.getEligibleCount() + this.alienC.getEligibleCount() + this.alienB.getEligibleCount() + this.pirates.getEligibleCount() +
 			this.flagships.getEligibleCount() + this.boardingShips.getEligibleCount() + this.transports.getEligibleCount() + this.titans.getEligibleCount() +
 			this.destroyerXes.getEligibleCount() + this.battleCarriers.getEligibleCount() + this.advancedFlagships.getEligibleCount() + this.raiderXes.getEligibleCount() +
 			this.type0.getEligibleCount() + this.type2.getEligibleCount() + this.type4.getEligibleCount() + this.type5.getEligibleCount() + 
@@ -698,7 +702,7 @@ function playerFleet() {
 		return Math.max(this.scouts.threat, this.destroyers.threat, this.cruisers.threat, this.battlecruisers.threat, 
 			this.battleships.threat, this.dreadnoughts.threat, this.shipYards.threat, this.starbases.threat, 
 			this.carriers.threat, this.fighters.threat, this.raiders.threat, this.minesweepers.threat,
-			this.alienB.threat, this.alienC.threat, this.alienD.threat,
+			this.pirates.threat, this.alienB.threat, this.alienC.threat, this.alienD.threat,
 			this.flagships.threat, this.boardingShips.threat, this.transports.threat, this.titans.threat,
 			this.destroyerXes.threat, this.battleCarriers.threat, this.advancedFlagships.threat, this.raiderXes.threat,
 			this.type0.threat, this.type2.threat, this.type4.threat, this.type5.threat,
@@ -759,6 +763,10 @@ function playerFleet() {
 
 		if (this.type0.threat == highestThreat) {
 			return this.type0;
+		}
+
+		if (this.pirates.threat == highestThreat) {
+			return this.pirates;
 		}
 
 		if (this.alienB.threat == highestThreat) {
@@ -953,6 +961,7 @@ function fireWepClass(letter) {
 				firePlrWeps(simFleet.titans, t);
 				firePlrWeps(simFleet.dreadnoughts, t);
 				firePlrWeps(simFleet.battleships, t);
+				firePlrWeps(simFleet.pirates, t);
 				firePlrWeps(simFleet.advancedFlagships, t);
 				firePlrWeps(simFleet.type13, t);
 				firePlrWeps(simFleet.type15, t);
@@ -1025,6 +1034,7 @@ function fireTacticsLv(tacLv) {
 	firePlrWeps(simFleet.titans, tacLv);
 	firePlrWeps(simFleet.dreadnoughts, tacLv);
 	firePlrWeps(simFleet.battleships, tacLv);
+	firePlrWeps(simFleet.pirates, tacLv);
 	firePlrWeps(simFleet.advancedFlagships, tacLv);
 	firePlrWeps(simFleet.type15, tacLv);
 	firePlrWeps(simFleet.type13, tacLv);
@@ -1171,7 +1181,7 @@ function rollBHsurvival(shipObj) {
 	
 			if (shipObj.quantity <= 0) {
 				pFrag = document.createElement("p");
-				pFrag.innerHTML = shipObj.toString() + " has been destroyed!";
+				pFrag.innerHTML = shipObj.namee + " has been destroyed!";
 				divFrag.appendChild(pFrag);
 			}
 		}
@@ -1195,6 +1205,8 @@ function runSimRound() {
 	numDmAttacks = dmRolls;
 	simRound++;
 	grandBody = document.getElementsByTagName("body")[0];
+	var advConTech = parseInt(document.getElementById("techAC").value);
+	var replicatorRP = parseInt(document.getElementById("repRP").value);
 	
 	divFrag = document.createElement("div");
 	
@@ -1202,30 +1214,41 @@ function runSimRound() {
 		retreatThresh = parseInt(document.getElementById("retreatThresh").value);
 	
 		if (!dmAggressor) {
-			excludeGroup(simFleet.mines);
-			excludeGroup(simFleet.starbases);
-			excludeGroup(simFleet.shipYards);
+			excludeGroup(simFleet.mines); //Mines can never be an aggressor
+			
+			if (advConTech <= 0 && replicatorRP < 0) {
+				// Replicators expansion introduces an empire advantage that allows Bases and Ship Yards to move
+				excludeGroup(simFleet.starbases);
+				excludeGroup(simFleet.shipYards);
+			}
 			
 			if (combatHex == "hexBlackHole") {
+				rollBHsurvival(simFleet.starbases);
 				rollBHsurvival(simFleet.titans);
 				rollBHsurvival(simFleet.dreadnoughts);
 				rollBHsurvival(simFleet.battleships);
+				rollBHsurvival(simFleet.pirates);
 				rollBHsurvival(simFleet.raiders);
+				rollBHsurvival(simFleet.raiderXes);
+				rollBHsurvival(simFleet.advancedFlagships);
 				rollBHsurvival(simFleet.type15);
 				rollBHsurvival(simFleet.type13);
 				
 				rollBHsurvival(simFleet.flagships);
 				rollBHsurvival(simFleet.battlecruisers);
 				rollBHsurvival(simFleet.alienB);
+				rollBHsurvival(simFleet.battleCarriers);
 				rollBHsurvival(simFleet.type11);
 				rollBHsurvival(simFleet.typeFlags);
 
+				rollBHsurvival(simFleet.shipYards);
 				rollBHsurvival(simFleet.alienC);
 				rollBHsurvival(simFleet.cruisers);
 				rollBHsurvival(simFleet.type7);
 				
 				rollBHsurvival(simFleet.alienD);
 				rollBHsurvival(simFleet.destroyers);
+				rollBHsurvival(simFleet.destroyerXes);
 				rollBHsurvival(simFleet.type9);
 				rollBHsurvival(simFleet.type5);
 				

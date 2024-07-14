@@ -5,6 +5,7 @@ function setupDesign() {
 
 function calcCost() {
 	var totalCost = 0;
+	var numAbilities = 0;
 	var subCost = 0;
 	var atkClass = 0;
 	var atkStrCosts = [1,2,3,5,6,8,11,14];
@@ -51,6 +52,7 @@ function calcCost() {
 	for (h = 0; h < skillCosts.length; h++) {
 		if (document.getElementById("skill"+h) && document.getElementById("skill"+h).checked) {
 			totalCost += skillCosts[h];
+			numAbilities++;
 			
 			if (skillCosts[h] < 0) {
 				weakness = true;
@@ -84,6 +86,9 @@ function calcCost() {
 	}
 	document.getElementById("minAtkClass").innerHTML = atkClassThresh[atkClassReq].priority;
 	document.getElementById("minAtkClass").className = isIllegal(atkClass < atkClassReq);
+
+	document.getElementById("abilCount").innerHTML = numAbilities;
+	document.getElementById("abilCount").className = isIllegal(numAbilities > 2);
 }
 
 function isIllegal(condition) {
