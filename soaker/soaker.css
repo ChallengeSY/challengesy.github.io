@@ -1,0 +1,39 @@
+#playfield {position: relative;}
+
+@media (max-width: 1440px), (max-height: 480px) {
+	.dieRoll {position: absolute; width: 75px; height: 75px; color: black; background: white; font-size: 75%; cursor: pointer;}
+	.tentative {padding-top: 15px; padding-bottom: 15px;}
+	#die0 {left: 25px; top: 25px;}
+	#die1 {left: 125px; top: 25px;}
+	#die2 {left: 225px; top: 25px;}
+	#die3 {left: 25px; top: 125px;}
+	#die4 {left: 125px; top: 125px;}
+	#die5 {left: 225px; top: 125px;}
+}
+
+@media (min-width: 1441px) and (min-height: 481px) {
+	.dieRoll {position: absolute; width: 100px; height: 100px; color: black; background: white; font-size: 200%; cursor: pointer;}
+	#die0 {left: 50px; top: 25px;}
+	#die1 {left: 200px; top: 25px;}
+	#die2 {left: 350px; top: 25px;}
+	#die3 {left: 500px; top: 25px;}
+	#die4 {left: 650px; top: 25px;}
+	#die5 {left: 800px; top: 25px;}
+}
+
+.dieLock {box-shadow: 0px 0px 4px 4px #FF0;}
+.pip1 {position: absolute; left: 25%; top: 25%; transform: translate(-50%, -50%);}
+.pip2 {position: absolute; left: 25%; top: 50%; transform: translate(-50%, -50%);}
+.pip3 {position: absolute; left: 25%; top: 75%; transform: translate(-50%, -50%);}
+.pip4 {position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);}
+.pip5 {position: absolute; left: 75%; top: 25%; transform: translate(-50%, -50%);}
+.pip6 {position: absolute; left: 75%; top: 50%; transform: translate(-50%, -50%);}
+.pip7 {position: absolute; left: 75%; top: 75%; transform: translate(-50%, -50%);}
+.green {color: #060;}
+.red {color: #600;}
+
+#scoreboard {font-family: 'Rajdhani', sans-serif; font-size: 110%; text-transform: uppercase; float: right;}
+.tentative {color: #FF0;}
+
+#commandBar {text-align: center; clear: both;}
+#helpPanel {display: none;}
