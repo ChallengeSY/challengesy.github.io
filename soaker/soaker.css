@@ -1,7 +1,9 @@
 #playfield {position: relative;}
 
-@media (max-width: 1500px), (max-height: 480px) {
-	.dieRoll {position: absolute; width: 75px; height: 75px; color: black; background: white; font-size: 75%; cursor: pointer;}
+.dieRoll {position: absolute; color: #006; background: white; cursor: pointer;}
+
+@media (min-width: 901px) and (max-width: 1525px), (max-height: 480px) {
+	.dieRoll {position: absolute; width: 75px; height: 75px; color: #006; background: white; font-size: 75%; cursor: pointer;}
 	.tentative {padding-top: 15px; padding-bottom: 15px;}
 	#die0 {left: 25px; top: 25px;}
 	#die1 {left: 125px; top: 25px;}
@@ -9,9 +11,24 @@
 	#die3 {left: 25px; top: 125px;}
 	#die4 {left: 125px; top: 125px;}
 	#die5 {left: 225px; top: 125px;}
+
+	#commandBar {text-align: center; clear: both;}
 }
 
-@media (min-width: 1501px) and (min-height: 481px) {
+@media (max-width: 900px) {
+	.dieRoll {width: 50px; height: 50px; font-size: 50%;}
+	.tentative {padding-top: 15px; padding-bottom: 15px;}
+	#die0 {left: 25px; top: 25px;}
+	#die1 {left: 100px; top: 25px;}
+	#die2 {left: 25px; top: 100px;}
+	#die3 {left: 100px; top: 100px;}
+	#die4 {left: 25px; top: 175px;}
+	#die5 {left: 100px; top: 175px;}
+
+	#commandBar {text-align: center; clear: both;}
+}
+
+@media (min-width: 1526px) and (min-height: 481px) {
 	.dieRoll {position: absolute; width: 100px; height: 100px; color: black; background: white; font-size: 200%; cursor: pointer;}
 	#die0 {left: 50px; top: 25px;}
 	#die1 {left: 200px; top: 25px;}
@@ -19,6 +36,8 @@
 	#die3 {left: 500px; top: 25px;}
 	#die4 {left: 650px; top: 25px;}
 	#die5 {left: 800px; top: 25px;}
+
+	#commandBar {position: absolute; left: 475px; top: 175px; transform: translateX(-50%);}
 }
 
 .dieLock {box-shadow: 0px 0px 4px 4px #FF0;}
@@ -35,5 +54,5 @@
 #scoreboard {font-family: 'Rajdhani', sans-serif; font-size: 110%; text-transform: uppercase; float: right;}
 .tentative {color: #FF0;}
 
-#commandBar {text-align: center; clear: both;}
+#statusBar {clear: both;}
 #helpPanel {display: none;}
