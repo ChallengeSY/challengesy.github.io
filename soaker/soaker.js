@@ -105,25 +105,33 @@ function updateButtons() {
 }
 
 function newGame(newSession) {
-	// Empty scoreboard
-	for (var k = 0; k < numScoreRows; k++) {
-		lockScore("upper"+k, false);
-		lockScore("middle"+k, false);
-		lockScore("lower"+k, false);
-	}
-	setScore("bonusL","+0");
-	updateScoreboard();
+	var askConfirm = (gameActive && getScore("totalG") > 0);
+	
+	if (!askConfirm || confirm("Abort this game and start a new game?")) {
+		if (askConfirm) {
+			playSound(overSnd);
+		}
+		
+		// Empty scoreboard
+		for (var k = 0; k < numScoreRows; k++) {
+			lockScore("upper"+k, false);
+			lockScore("middle"+k, false);
+			lockScore("lower"+k, false);
+		}
+		setScore("bonusL","+0");
+		updateScoreboard();
 
-	gameActive = false;
-	rollPhase = 0;
-	rollDice();
-	gameActive = true;
-	updateButtons();
+		gameActive = false;
+		rollPhase = 0;
+		rollDice();
+		gameActive = true;
+		updateButtons();
 
-	if (newSession) {
-		updateStatus("Welcome to SoaKer.");
-	} else {
-		updateStatus("Game started");
+		if (newSession) {
+			updateStatus("Welcome to SoaKer.");
+		} else {
+			updateStatus("Game started");
+		}
 	}
 }
 
