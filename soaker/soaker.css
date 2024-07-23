@@ -1,6 +1,6 @@
 #playfield {position: relative;}
 
-@media (max-width: 1440px), (max-height: 480px) {
+@media (max-width: 1500px), (max-height: 480px) {
 	.dieRoll {position: absolute; width: 75px; height: 75px; color: black; background: white; font-size: 75%; cursor: pointer;}
 	.tentative {padding-top: 15px; padding-bottom: 15px;}
 	#die0 {left: 25px; top: 25px;}
@@ -11,7 +11,7 @@
 	#die5 {left: 225px; top: 125px;}
 }
 
-@media (min-width: 1441px) and (min-height: 481px) {
+@media (min-width: 1501px) and (min-height: 481px) {
 	.dieRoll {position: absolute; width: 100px; height: 100px; color: black; background: white; font-size: 200%; cursor: pointer;}
 	#die0 {left: 50px; top: 25px;}
 	#die1 {left: 200px; top: 25px;}
