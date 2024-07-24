@@ -1,3 +1,6 @@
+window.onload = setupGame;
+window.onkeydown = readKeyInput;
+
 const maxRolls = 3;
 var numScoreRows;
 var rollPhase = 0;
@@ -80,8 +83,20 @@ function createScorePair(parentObj, label, scoreId) {
 	tdFrag.className = "numeric";
 	tdFrag.id = scoreId;
 	tdFrag.innerHTML = "&nbsp;";
-	tdFrag.style.cursor = "pointer";
-	tdFrag.onclick = function() { applyCombo(this) };
+	if (!scoreId.startsWith("bonus") && !scoreId.startsWith("total")) {
+		tdFrag.style.cursor = "pointer";
+		tdFrag.onclick = function() { applyCombo(this.id, true) };
+
+		var asciiCounter;
+		if (scoreId.startsWith("upper")) {
+			asciiCounter = 65 + parseInt(scoreId.charAt(5));
+		} else if (scoreId.startsWith("middle")) {
+			asciiCounter = 71 + parseInt(scoreId.charAt(5));
+		} else if (scoreId.startsWith("lower")) {
+			asciiCounter = 76 + parseInt(scoreId.charAt(5));
+		}
+		tdFrag.title = "Shortcut: ["+String.fromCharCode(asciiCounter)+"]";
+	}
 	parentObj.appendChild(tdFrag);
 }
 
@@ -121,9 +136,8 @@ function newGame(newSession) {
 		setScore("bonusL","+0");
 		updateScoreboard();
 
-		gameActive = false;
 		rollPhase = 0;
-		rollDice();
+		rollDice(true);
 		gameActive = true;
 		updateButtons();
 
@@ -135,16 +149,14 @@ function newGame(newSession) {
 	}
 }
 
-function applyCombo(localObj) {
-	localId = localObj.id;
-	
+function applyCombo(localId, mouseUsed) {
 	if (!gameActive) {
-		updateStatus("The game is already over. Tap <q>New Game</q> to start a fresh game.");
+		alreadyOver();
 	} else if (isScoreLocked(localId)) {
 		updateStatus("This box is already locked.");
 	} else if (rollPhase < 1) {
 		updateStatus("At least one roll must be done before a score can be locked.");
-	} else {
+	} else if (mouseUsed || rollPhase >= maxRolls) {
 		if (hasJoker() && getScore("lower3") > 0) {
 			updateStatus("SoaK bonus achieved! Score bonus +100");
 			setScore("bonusL", "+" + parseInt(getScore("bonusL") + 100));
@@ -164,36 +176,47 @@ function applyCombo(localObj) {
 	}
 }
 
-function toggleKeep(localObj) {
+function toggleKeep(localId) {
 	if (rollPhase > 0 && rollPhase < maxRolls && gameActive) {
-		var localId = localObj.id;
-		
 		lockDie(localId, !isDieLocked(localId));
 		playSound(lockSnd);
 	}
 }
 
-function rollDice() {
-	for (var d = 0; d < 6; d++) {
-		var workId = "die"+d;
+function rollDice(forceRoll) {
+	if (!gameActive && !forceRoll) {
+		alreadyOver();
+	} else if (rollPhase >= maxRolls) {
+		updateStatus("");
+	} else {
+		var rolledOut = false;
 		
-		if (!isDieLocked(workId) || rollPhase <= 0) {
-			diceRolls[d] = randomInt(1,6);
+		for (var d = 0; d < 6; d++) {
+			var workId = "die"+d;
+			
+			if (!isDieLocked(workId) || rollPhase <= 0) {
+				diceRolls[d] = randomInt(1,6);
 
-			renderDie(d);
-			lockDie(workId, false);
+				renderDie(d);
+				lockDie(workId, false);
+				rolledOut = true;
+			}
 		}
+		
+		if (rolledOut) {
+			if (!forceRoll) {
+				playSound(rollSnd);
+			}
+			
+			rollPhase = Math.max(rollPhase,0) + 1;
+		} else {
+			rollPhase = maxRolls;
+		}
+		updateButtons();
+		paintScoreboard();
+		
+		updateStatus("&nbsp;");
 	}
-
-	if (gameActive) {
-		playSound(rollSnd);
-	}
-	
-	rollPhase = Math.max(rollPhase,0) + 1;
-	updateButtons();
-	paintScoreboard();
-	
-	updateStatus("&nbsp;");
 }
 
 /* ------------------------------------------------------------------------ */
@@ -553,6 +576,99 @@ function paintScoreboard() {
 
 /* ------------------------------------------------------------------------ */
 
+function readKeyInput(e) {
+	e = e || event;
+	
+	var keyPressed = e.key.toLowerCase();
+	
+	switch (keyPressed) {
+		// Button controls
+		case "f1":
+			toggleHelp();
+			break;
+		case "f2":
+			newGame(false);
+			break;
+		case " ":
+			rollDice(false);
+			break;
+			
+		// Dice controls
+		case "1":
+			toggleKeep("die0");
+			break;
+		case "2":
+			toggleKeep("die1");
+			break;
+		case "3":
+			toggleKeep("die2");
+			break;
+		case "4":
+			toggleKeep("die3");
+			break;
+		case "5":
+			toggleKeep("die4");
+			break;
+		case "6":
+			toggleKeep("die5");
+			break;
+			
+		// Upper Section controls
+		case "a":
+			applyCombo("upper0", false);
+			break;
+		case "b":
+			applyCombo("upper1", false);
+			break;
+		case "c":
+			applyCombo("upper2", false);
+			break;
+		case "d":
+			applyCombo("upper3", false);
+			break;
+		case "e":
+			applyCombo("upper4", false);
+			break;
+		case "f":
+			applyCombo("upper5", false);
+			break;
+
+		// Middle Section controls
+		case "g":
+			applyCombo("middle0", false);
+			break;
+		case "h":
+			applyCombo("middle1", false);
+			break;
+		case "i":
+			applyCombo("middle2", false);
+			break;
+		case "j":
+			applyCombo("middle3", false);
+			break;
+		case "k":
+			applyCombo("middle4", false);
+			break;
+
+		// Lower Section controls
+		case "l":
+			applyCombo("lower0", false);
+			break;
+		case "m":
+			applyCombo("lower1", false);
+			break;
+		case "n":
+			applyCombo("lower2", false);
+			break;
+		case "o":
+			applyCombo("lower3", false);
+			break;
+		case "p":
+			applyCombo("lower4", false);
+			break;
+	}
+}
+
 function cloneArray(orgArray) {
 	newArray = new Array();
 	
@@ -561,6 +677,10 @@ function cloneArray(orgArray) {
 	}
 	
 	return newArray;
+}
+
+function alreadyOver() {
+	updateStatus("The game is already over. Tap <q>New Game</q> to start a fresh game.");
 }
 
 function updateStatus(newMessage) {

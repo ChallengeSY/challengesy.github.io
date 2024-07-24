@@ -11,18 +11,18 @@
 	<link type="text/css" href="soaker.css" rel="stylesheet" />
 	<script src="soaker.js"></script>
 </head>
-<body onload="setupGame()">
+<body>
 
 <p id="banner"><img src="banner.png" alt="SoaKer" /></p>
 
 <div id="playfield">
 
-<div class="dieRoll" onclick="toggleKeep(this)" id="die0"></div>
-<div class="dieRoll" onclick="toggleKeep(this)" id="die1"></div>
-<div class="dieRoll" onclick="toggleKeep(this)" id="die2"></div>
-<div class="dieRoll" onclick="toggleKeep(this)" id="die3"></div>
-<div class="dieRoll" onclick="toggleKeep(this)" id="die4"></div>
-<div class="dieRoll" onclick="toggleKeep(this)" id="die5"></div>
+<div class="dieRoll" onclick="toggleKeep(this.id)" id="die0"></div>
+<div class="dieRoll" onclick="toggleKeep(this.id)" id="die1"></div>
+<div class="dieRoll" onclick="toggleKeep(this.id)" id="die2"></div>
+<div class="dieRoll" onclick="toggleKeep(this.id)" id="die3"></div>
+<div class="dieRoll" onclick="toggleKeep(this.id)" id="die4"></div>
+<div class="dieRoll" onclick="toggleKeep(this.id)" id="die5"></div>
 
 <table id="scoreboard">
 <thead>
@@ -51,9 +51,9 @@
 </table>
 
 <div id="commandBar">
-<input class="button" type="button" id="newButton" onclick="newGame(false)" value="New game" />
-<input class="button" type="button" id="actionButton" onclick="rollDice()" value="Next roll" />
-<input class="button" type="button" id="helpButton" onclick="toggleHelp()" value="Show help" />
+<input class="button" type="button" id="newButton" onclick="newGame(false)" value="New game" title="[F2] Starts a new game" />
+<input class="button" type="button" id="actionButton" onclick="rollDice(false)" value="Next roll" title="[Spacebar] Rolls unlocked dice" />
+<input class="button" type="button" id="helpButton" onclick="toggleHelp()" value="Show help" title="[F1] Toggles game instructions" />
 </div>
 </div>
 
