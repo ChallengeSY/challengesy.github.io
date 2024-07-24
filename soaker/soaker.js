@@ -91,7 +91,7 @@ function createScorePair(parentObj, label, scoreId) {
 		if (scoreId.startsWith("upper")) {
 			asciiCounter = 65 + parseInt(scoreId.charAt(5));
 		} else if (scoreId.startsWith("middle")) {
-			asciiCounter = 71 + parseInt(scoreId.charAt(5));
+			asciiCounter = 71 + parseInt(scoreId.charAt(6));
 		} else if (scoreId.startsWith("lower")) {
 			asciiCounter = 76 + parseInt(scoreId.charAt(5));
 		}
@@ -580,6 +580,7 @@ function readKeyInput(e) {
 	e = e || event;
 	
 	var keyPressed = e.key.toLowerCase();
+	var asciiPressed = keyPressed.charCodeAt();
 	
 	switch (keyPressed) {
 		// Button controls
@@ -612,61 +613,22 @@ function readKeyInput(e) {
 		case "6":
 			toggleKeep("die5");
 			break;
-			
-		// Upper Section controls
-		case "a":
-			applyCombo("upper0", false);
-			break;
-		case "b":
-			applyCombo("upper1", false);
-			break;
-		case "c":
-			applyCombo("upper2", false);
-			break;
-		case "d":
-			applyCombo("upper3", false);
-			break;
-		case "e":
-			applyCombo("upper4", false);
-			break;
-		case "f":
-			applyCombo("upper5", false);
-			break;
-
-		// Middle Section controls
-		case "g":
-			applyCombo("middle0", false);
-			break;
-		case "h":
-			applyCombo("middle1", false);
-			break;
-		case "i":
-			applyCombo("middle2", false);
-			break;
-		case "j":
-			applyCombo("middle3", false);
-			break;
-		case "k":
-			applyCombo("middle4", false);
-			break;
-
-		// Lower Section controls
-		case "l":
-			applyCombo("lower0", false);
-			break;
-		case "m":
-			applyCombo("lower1", false);
-			break;
-		case "n":
-			applyCombo("lower2", false);
-			break;
-		case "o":
-			applyCombo("lower3", false);
-			break;
-		case "p":
-			applyCombo("lower4", false);
-			break;
 	}
+	
+	if (asciiPressed >= 97 && asciiPressed < 103) {
+		// Upper Section
+		var readCol = asciiPressed - 97;
+		applyCombo("upper"+readCol, false);
+	} else if (asciiPressed >= 103 && asciiPressed < 108) {
+		// Middle Section
+		var readCol = asciiPressed - 103;
+		applyCombo("middle"+readCol, false);
+	} else if (asciiPressed >= 108 && asciiPressed < 113) {
+		// Lower Section
+		var readCol = asciiPressed - 108;
+		applyCombo("lower"+readCol, false);
+	}
+	
 }
 
 function cloneArray(orgArray) {
