@@ -1,6 +1,6 @@
 #playfield {position: relative;}
 
-.dieRoll {position: absolute; color: #006; background: white; cursor: pointer;}
+.dieRoll {position: absolute; color: #006; border: 1px solid #000; background: white; cursor: pointer;}
 
 @media (min-width: 901px) and (max-width: 1525px), (max-height: 480px) {
 	.dieRoll {position: absolute; width: 75px; height: 75px; color: #006; background: white; font-size: 75%; cursor: pointer;}
