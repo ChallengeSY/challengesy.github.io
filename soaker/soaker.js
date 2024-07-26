@@ -187,7 +187,7 @@ function rollDice(forceRoll) {
 	if (!gameActive && !forceRoll) {
 		alreadyOver();
 	} else if (rollPhase >= maxRolls) {
-		updateStatus("");
+		updateStatus("Rolls have already been exhausted. Choose a combination to refresh your rolls.");
 	} else {
 		var rolledOut = false;
 		
