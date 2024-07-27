@@ -52,7 +52,8 @@
 .red {color: #600;}
 
 #scoreboard {font-family: 'Rajdhani', sans-serif; font-size: 110%; text-transform: uppercase; float: right;}
-.tentative {color: #FF0;}
+#scoreboard .numeric {background: #202040;}
+.tentative {color: #CCC;}
 
 #statusBar {clear: both;}
 #helpPanel {display: none;}
