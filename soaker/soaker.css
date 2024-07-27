@@ -3,7 +3,7 @@
 .dieRoll {position: absolute; color: #006; border: 1px solid #000; background: white; cursor: pointer;}
 
 @media (min-width: 901px) and (max-width: 1525px), (max-height: 480px) {
-	.dieRoll {position: absolute; width: 75px; height: 75px; color: #006; background: white; font-size: 75%; cursor: pointer;}
+	.dieRoll {position: absolute; width: 73px; height: 73px; color: #006; background: white; font-size: 75%; cursor: pointer;}
 	.tentative {padding-top: 15px; padding-bottom: 15px;}
 	#die0 {left: 25px; top: 25px;}
 	#die1 {left: 125px; top: 25px;}
@@ -16,7 +16,7 @@
 }
 
 @media (max-width: 900px) {
-	.dieRoll {width: 50px; height: 50px; font-size: 50%;}
+	.dieRoll {width: 48px; height: 48px; font-size: 50%;}
 	.tentative {padding-top: 15px; padding-bottom: 15px;}
 	#die0 {left: 25px; top: 25px;}
 	#die1 {left: 100px; top: 25px;}
@@ -29,7 +29,7 @@
 }
 
 @media (min-width: 1526px) and (min-height: 481px) {
-	.dieRoll {position: absolute; width: 100px; height: 100px; color: black; background: white; font-size: 200%; cursor: pointer;}
+	.dieRoll {position: absolute; width: 98px; height: 980px; color: black; background: white; font-size: 200%; cursor: pointer;}
 	#die0 {left: 50px; top: 25px;}
 	#die1 {left: 200px; top: 25px;}
 	#die2 {left: 350px; top: 25px;}
