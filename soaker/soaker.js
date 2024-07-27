@@ -579,6 +579,10 @@ function paintScoreboard() {
 function readKeyInput(e) {
 	e = e || event;
 	
+	if (e.ctrlKey || e.altKey) {
+		return;
+	}
+
 	var keyPressed = e.key.toLowerCase();
 	var asciiPressed = keyPressed.charCodeAt();
 	
@@ -615,18 +619,20 @@ function readKeyInput(e) {
 			break;
 	}
 	
-	if (asciiPressed >= 97 && asciiPressed < 103) {
-		// Upper Section
-		var readCol = asciiPressed - 97;
-		applyCombo("upper"+readCol, false);
-	} else if (asciiPressed >= 103 && asciiPressed < 108) {
-		// Middle Section
-		var readCol = asciiPressed - 103;
-		applyCombo("middle"+readCol, false);
-	} else if (asciiPressed >= 108 && asciiPressed < 113) {
-		// Lower Section
-		var readCol = asciiPressed - 108;
-		applyCombo("lower"+readCol, false);
+	if (keyPressed.length == 1) {
+		if (asciiPressed >= 97 && asciiPressed < 103) {
+			// Upper Section
+			var readCol = asciiPressed - 97;
+			applyCombo("upper"+readCol, false);
+		} else if (asciiPressed >= 103 && asciiPressed < 108) {
+			// Middle Section
+			var readCol = asciiPressed - 103;
+			applyCombo("middle"+readCol, false);
+		} else if (asciiPressed >= 108 && asciiPressed < 113) {
+			// Lower Section
+			var readCol = asciiPressed - 108;
+			applyCombo("lower"+readCol, false);
+		}
 	}
 	
 }
