@@ -167,8 +167,7 @@ function showBox(concept) {
 			// Fall thru
 		case "non-player alien":
 			displayTxt = "<b>Non-Player Alien</b><br />Non-aligned faction that can guard their local "+conceptLink("barren planet")+". \
-				If any ships are found, they must be defeated before the planet can be colonized or "+conceptLink("capture")+"d, \
-				and any "+conceptLink("Alien Technology")+" <span class=\"bindTxt\">(if any)</span> obtained.";
+				If any ships are found, they must be defeated before the planet can be "+conceptLink("subdue")+"d.";
 			break;
 		case "retreat":
 			displayTxt = "<b>Retreat</b><br />After the first "+conceptLink("battle")+" round, a mobile "+conceptLink("combat ship")+" may choose to retreat instead of fire upon an enemy ship.<br />\
@@ -189,6 +188,11 @@ function showBox(concept) {
 		case "scuttle":
 			displayTxt = "<b>Scuttling</b><br />A player may choose to voluntarily remove ships from the board without refund, referred to as scuttling.<br />\
 				This process is useful for freeing up counters for reconstruction, and/or to reduce "+conceptLink("maintenance")+" costs.";
+			break;
+		case "subdue":
+			displayTxt = "<b>Subdue</b><br />Automatic process that occurs when a "+conceptLink("barren planet")+" loses its last "+conceptLink("NPA")+" defenders.<br /><br />\
+				The victor has one chance ("+conceptLink("technologies")+" permitting) to conduct a ground "+conceptLink("battle")+" and attempt to "+conceptLink("capture")+" it. \
+				Otherwise, the planet is considered uncolonized, and must be colonized with a compatible "+conceptLink("Colony Ship")+".";
 			break;
 		case "space empires 4x":
 			displayTxt = "<b>Space Empires 4X</b><br />The base board game. Includes a variety of system counters, ship counters, numeric counters.\
@@ -290,7 +294,8 @@ function showBox(concept) {
 			// Fall through
 		case "barren planet":
 			displayTxt = "<b>Barren Planet</b><br />A less hospitable "+conceptLink("planet")+". Not colonizable, unless "+conceptLink("Terraforming")+" "+conceptLink("technology")+" has been developed." +
-				"<br />Barren Planets in "+conceptLink("deep space")+" may have "+conceptLink("non-player alien")+"s ambushing any stragglers that explore it.";
+				"<br />Barren Planets in "+conceptLink("deep space")+" may have "+conceptLink("non-player alien")+"s ambushing any stragglers that explore it, \
+				and/or have "+conceptLink("alien technology")+".";
 			break;
 		case "black hole":
 			displayTxt = "<b>Black Hole</b><br />Forces <em>each</em> ship that enters to roll a survival d10 roll, unless they follow a "+conceptLink("Pipeline")+" network." +
@@ -634,9 +639,9 @@ function showBox(concept) {
 			displayTxt = "<b>Boarding Technology</b><br />"+conceptLink("Close Encounters")+" technology that allows building "+conceptLink("Boarding Ship")+"s. Level 2 improves boarding odds by 1 point.";
 			break;
 		case "black hole jumping":
-			displayTxt = "<b>Black Hole Jumping Technology</b><br />Available only in solo or co-op scenarios involving a "+conceptLink("galactic capitol")+".\
-				Human player(s) can buy the tech for 40 "+conceptLink("CP")+"; provided they also have developed "+conceptLink("Movement")+" level 3, or are playing on a sufficiently low difficulty.\
-				<br /><br />Once purchased and equipped, player ships become immune to "+conceptLink("black hole")+"s, instead treating them as if they were "+conceptLink("warp point")+"s.";
+			displayTxt = "<b>Black Hole Jumping Technology</b><br />Available only in non-competitive scenarios involving a "+conceptLink("galactic capitol")+", and only to their allies.\
+				<br />Equipped ships become immune to "+conceptLink("black hole")+"s, instead treating them as "+conceptLink("warp point")+"s.\
+				Requires "+conceptLink("Movement")+" 3, or below Hard difficulty.";
 			break;
 		case "bo":
 			// Fall through
@@ -1142,15 +1147,16 @@ function showBox(concept) {
 		case "warp gates":
 			displayTxt = "<b>Warp Gates</b><br />Two "+conceptLink("Unique Ship")+"s within 3 hexes of each other are considered connected (1 hex apart). \
 				Supporting craft may use only one warp gate per "+conceptLink("turn")+".<br /><br />\
-				Replicator Explore Ships and their Flagship also gain this perk if they have the matching advantage card; \
-				and their Explore Ships count as one hull for construction/conversion purposes.";
+				"+conceptLink("Type Exp")+"s and the "+conceptLink("Type Flag")+" gain this perk if \
+				the "+conceptLink("Replicators")+" have the matching "+conceptLink("Empire Advantage")+"; \
+				and their Type Exps count as one hull for construction/conversion purposes.";
 			break;
 		case "second salvo":
 			displayTxt = "<b>Second Salvo</b><br />The first time a "+conceptLink("Unique Ship")+" hits its victim in a "+conceptLink("round")+", it gets to shoot again towards the same hull type.";
 			break;
 		case "heavy warheads":
 			displayTxt = "<b>Heavy Warheads</b><br />"+conceptLink("Unique Ship")+"s' minimum "+conceptLink("Attack")+" rating increased to 2, after "+conceptLink("Defense")+" modifiers.\
-				(Against a "+conceptLink("Titan")+", the minimum Attack is instead 1)<br /><br />\
+				(Against a "+conceptLink("Titan")+", the minimum Attack is instead 1)<br />\
 				"+conceptLink("DestroyerX")+"es are also equipped with this perk ("+conceptLink("Replicators")+" only).";
 			break;
 			
@@ -1334,7 +1340,7 @@ function keywordifyCollection(collObj) {
 	const keyTerms = ["Space Empires 4X", "Close Encounters", "Replicator", "All Good Things",
 		"Barren", "Colony", "Colonies", "Combat Ship", "CP", "Economic Phase", "Homeworld", "Hull Size", "Maintenance", "Planet", "Scuttle", "Turn",
 		"Bid", "Competitive", "Galactic Capitol", "Initiative", "Uneasy Alliance", "Victory Point", "VP", "Blood Brothers",
-		"Battle", "Blockade", "Bombard", "Fleet Size Bonus", "Non-Player Alien", "NPA", "Priority Class", "Retreat", "Round", "Screen", "Weakness", "Weapon Class",
+		"Battle", "Blockade", "Bombard", "Fleet Size Bonus", "Non-Player Alien", "NPA", "Subdue", "Priority Class", "Retreat", "Round", "Screen", "Weakness", "Weapon Class",
 		"Alien-D", "Alien-C", "Alien-B", "Doomsday Machine", "Amoeba",
 		"Alien Empires", "Alien Player", "Economic Roll", "Expansion Fleet", "Extermination Fleet", "Raider Fleet",
 		"Decoy", "Scout", "Destroyer", "Cruiser", "Dreadnought", "Titan", "Ship Yard", "Base", "Mining Ship", "Miner",
@@ -1387,6 +1393,8 @@ function keywordifyCollection(collObj) {
 		{regex: "a"+conceptLink("round"), newTxt: "around"},
 		{regex: "G"+conceptLink("round"), newTxt: "Ground"},
 		{regex: "g"+conceptLink("round"), newTxt: "ground"},
+		{regex: "Sur"+conceptLink("round"), newTxt: "Surround"},
+		{regex: "sur"+conceptLink("round"), newTxt: "surround"},
 		{regex: "Ground Unit", newTxt: conceptLink("Ground Unit")},
 		{regex: "ground unit", newTxt: conceptLink("ground unit")},
 		{regex: conceptLink("Boarding")+" Ship", newTxt: conceptLink("Boarding Ship")},
