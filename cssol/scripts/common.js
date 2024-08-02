@@ -10,7 +10,7 @@ var abandonHandling = (isFinite(getCookie("abandonPrompt")) ? getCookie("abandon
 var facedownHints = (isFinite(getCookie("downturnHints")) ? getCookie("downturnHints") : 1);
 var preferDeckId = (isFinite(getCookie("cardback")) ? getCookie("cardback") : -1);
 var playSfx = (isFinite(getCookie("playSfx")) ? getCookie("playSfx") : 1);
-var playMus = (isFinite(getCookie("playMus")) ? getCookie("playMus") : 1);
+var playMus = (isFinite(getCookie("playMus")) ? getCookie("playMus") : -1);
 var emptyAutoRefills = 0;
 var playHeight = 500;
 var wasteDealBy = 1;
@@ -47,7 +47,11 @@ function createDivFrag(newId, newX, newY, newZ) {
 	divFrag.title = "";
 	divFrag.className = "invis";
 	divFrag.style.left = newX+"px";
-	divFrag.style.top = newY+"px";
+	if (newY >= 0) {
+		divFrag.style.top = newY+"px";
+	} else {
+		divFrag.style.bottom = newY+"px";
+	}
 	divFrag.style.cursor = "pointer";
 	divFrag.style.zIndex = newZ;
 	if (!newId.startsWith("stock") && !newId.startsWith("home")) {
