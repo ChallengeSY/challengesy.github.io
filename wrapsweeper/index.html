@@ -16,8 +16,8 @@
 
 		function initPage() {
 			// Chain speed settings
-			if (getCookie("chainSpeed")) {
-				findObj = document.getElementById("chain" + getCookie("chainSpeed"));
+			if (getStorage("chainSpeed")) {
+				findObj = document.getElementById("chain" + getStorage("chainSpeed"));
 				if (findObj) {
 					findObj.checked = true;
 				}
@@ -72,7 +72,7 @@
 				}
 			}
 			
-			setCookie(cName, cVal, targetDate, "/");
+			setStorage(cName, cVal);
 			
 			if (!manualSave) {
 				findObj = document.getElementById("saveButton");

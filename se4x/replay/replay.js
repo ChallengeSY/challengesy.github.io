@@ -1,7 +1,6 @@
 var rawJson;
 var stageTotal;
 var stageNum = 0;
-var saveCookieDate = new Date;
 var multiStages = true;
 var expansionHWs = false;
 var boardCreated = false;
@@ -2054,10 +2053,8 @@ function readJson() {
 	document.getElementById("ecoL").disabled = document.getElementById("stageL").disabled;
 	document.getElementById("ecoR").disabled = document.getElementById("stageR").disabled;
 	
-	saveCookieDate.setTime(saveCookieDate.getTime() + (7*24*60*60*1000))
-
 	if (!multiStages) {
-		setCookie("se4xReplay", getParam("replay")+"~"+stageNum,saveCookieDate,"/",null,false);
+		setStorage("se4xReplay", getParam("replay")+"~"+stageNum);
 	}
 }
 
@@ -2098,8 +2095,8 @@ function getJsonFile() {
 				setupBox();
 				stageTotal = rawJson.stages.length - 1;
 				
-				if (getCookie("se4xReplay") && getCookie("se4xReplay").startsWith(getParam("replay"))) {
-					stageMem = getCookie("se4xReplay").split("~")[1];
+				if (getStorage("se4xReplay") && getStorage("se4xReplay").startsWith(getParam("replay"))) {
+					stageMem = getStorage("se4xReplay").split("~")[1];
 				}
 				
 				readJson();
@@ -2118,19 +2115,27 @@ function getJsonFile() {
 	}
 }
 
-//Cookie management
-
-function writeDateString(dateObj) {
-	var monthName = new Array("Jan", "Feb", "Mar",
-  "Apr", "May", "Jun", "Jul", "Aug", "Sep",
-  "Oct", "Nov", "Dec");
-	
-	var thisMonth = dateObj.getMonth();
-	var thisYear = dateObj.getFullYear();
-
-	return monthName[thisMonth] + " " + dateObj.getDate() + ", " + thisYear;
+//Storage
+function setStorage(sName, sValue) {
+	if (typeof(Storage) !== "undefined") {
+		localStorage.setItem(sName, sValue);
+	} else {
+		var targetDate = new Date();
+		targetDate.setTime(targetDate.getTime() + (360*24*60*60*1000));
+		
+		setCookie(sName, sValue, targetDate, "/");
+	}
 }
 
+function getStorage(sName) {
+	if (typeof(Storage) !== "undefined") {
+		return localStorage.getItem(sName);
+	} else {
+		return getCookie(sName);
+	}
+}
+
+//Fallback Cookies
 function setCookie(cName, cValue, expDate, cPath, cDomain, cSecure) {
 	if (cName && cValue != "") {
 		var cString = cName + "=" + encodeURI(cValue) + ";samesite=lax";

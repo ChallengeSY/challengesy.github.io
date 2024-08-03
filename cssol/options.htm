@@ -16,7 +16,6 @@
 		var findObj, success, searchElement;
 		var backId = 0;
 		var manualSave = false;
-		targetDate.setTime(targetDate.getTime() + (360*24*60*60*1000));
 		
 		function applyConfig(cName, cVal) {
 			if (cName == "pileDensity") {
@@ -37,7 +36,7 @@
 				}
 			}
 			
-			setCookie(cName, cVal, targetDate, "/");
+			setStorage(cName, cVal);
 			
 			if (!manualSave) {
 				findObj = document.getElementById("saveButton");
@@ -47,7 +46,7 @@
 		}
 		
 		function flipConfig(cName, falseVal, trueVal, parentObj) {
-			cVal = getCookie(cName);
+			cVal = getStorage(cName);
 			
 			if (parentObj.checked) {
 				cVal = trueVal;
@@ -80,8 +79,8 @@
 				}
 			}
 			
-			if (getCookie("pileDensity")) {
-				findObj = document.getElementById("v" + getCookie("pileDensity"));
+			if (getStorage("pileDensity")) {
+				findObj = document.getElementById("v" + getStorage("pileDensity"));
 				if (findObj) {
 					findObj.checked = true;
 					success = true;
@@ -91,7 +90,7 @@
 					findObj = document.getElementById("vertCard1");
 					
 					if (findObj) {
-						findObj.style.top = getCookie("pileDensity")+"px";
+						findObj.style.top = getStorage("pileDensity")+"px";
 					}
 				}
 			} else {
@@ -102,8 +101,8 @@
 			}
 			
 			// Cardback settings
-			if (getCookie("cardback")) {
-				findObj = document.getElementById("back" + getCookie("cardback"));
+			if (getStorage("cardback")) {
+				findObj = document.getElementById("back" + getStorage("cardback"));
 				if (findObj) {
 					findObj.checked = true;
 					success = true;
@@ -111,7 +110,7 @@
 				
 				if (success) {
 					findObj = document.getElementById("backSample");
-					applyBackId = getCookie("cardback") - 1;
+					applyBackId = getStorage("cardback") - 1;
 					
 					if (applyBackId >= 0 && findObj) {
 						findObj.className = "card back"+applyBackId;
@@ -129,8 +128,8 @@
 			}
 			
 			// Abandon game prompt settings
-			if (getCookie("abandonPrompt")) {
-				findObj = document.getElementById("ag" + getCookie("abandonPrompt"));
+			if (getStorage("abandonPrompt")) {
+				findObj = document.getElementById("ag" + getStorage("abandonPrompt"));
 				if (findObj) {
 					findObj.checked = true;
 				}
@@ -142,8 +141,8 @@
 			}
 			
 			// Downturn Hints settings
-			if (getCookie("downturnHints")) {
-				findObj = document.getElementById("fd" + getCookie("downturnHints"));
+			if (getStorage("downturnHints")) {
+				findObj = document.getElementById("fd" + getStorage("downturnHints"));
 				if (findObj) {
 					findObj.checked = true;
 				}
@@ -155,10 +154,10 @@
 			}
 			
 			// Sound Effects settings
-			if (getCookie("playSfx")) {
+			if (getStorage("playSfx")) {
 				findObj = document.getElementById("sfx1");
 				if (findObj) {
-					findObj.checked = (getCookie("playSfx") == 1);
+					findObj.checked = (getStorage("playSfx") == 1);
 				}
 			} else {
 				findObj = document.getElementById("sfx1");
@@ -167,10 +166,10 @@
 				}
 			}
 
-			if (getCookie("playMus")) {
+			if (getStorage("playMus")) {
 				findObj = document.getElementById("sfx2");
 				if (findObj) {
-					findObj.checked = (getCookie("playMus") == 1);
+					findObj.checked = (getStorage("playMus") == 1);
 				}
 			} else {
 				findObj = document.getElementById("sfx2");
@@ -180,10 +179,10 @@
 			}
 			
 			// Holiday Card settings
-			if (getCookie("holidayCards")) {
+			if (getStorage("holidayCards")) {
 				findObj = document.getElementById("holiday1");
 				if (findObj) {
-					findObj.checked = (getCookie("holidayCards") == 1);
+					findObj.checked = (getStorage("holidayCards") == 1);
 				}
 			} else {
 				findObj = document.getElementById("holiday1");

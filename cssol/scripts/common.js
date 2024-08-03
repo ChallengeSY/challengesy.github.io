@@ -5,12 +5,12 @@ var baseStatFile, passField, clockPtr, forceRender, rectangularTableau, divFrag;
 const reserveStart = 50;
 const COLUMN_WIDTH = 110;
 const FANNING_X = 16;
-var FANNING_Y = (isFinite(getCookie("pileDensity")) ? getCookie("pileDensity") : 30);
-var abandonHandling = (isFinite(getCookie("abandonPrompt")) ? getCookie("abandonPrompt") : 1);
-var facedownHints = (isFinite(getCookie("downturnHints")) ? getCookie("downturnHints") : 1);
-var preferDeckId = (isFinite(getCookie("cardback")) ? getCookie("cardback") : -1);
-var playSfx = (isFinite(getCookie("playSfx")) ? getCookie("playSfx") : 1);
-var playMus = (isFinite(getCookie("playMus")) ? getCookie("playMus") : -1);
+var FANNING_Y = (getStorage("pileDensity") && isFinite(getStorage("pileDensity")) ? getStorage("pileDensity") : 30);
+var abandonHandling = (getStorage("abandonPrompt") && isFinite(getStorage("abandonPrompt")) ? getStorage("abandonPrompt") : 1);
+var facedownHints = (getStorage("downturnHints") && isFinite(getStorage("downturnHints")) ? getStorage("downturnHints") : 1);
+var preferDeckId = (getStorage("cardback") && isFinite(getStorage("cardback")) ? getStorage("cardback") : -1);
+var playSfx = (getStorage("playSfx") && isFinite(getStorage("playSfx")) ? getStorage("playSfx") : 1);
+var playMus = (getStorage("playMus") && isFinite(getStorage("playMus")) ? getStorage("playMus") : -1);
 var emptyAutoRefills = 0;
 var playHeight = 500;
 var wasteDealBy = 1;
@@ -1224,7 +1224,27 @@ function checkNextCard() {
 	return seedSlot[cardsDealt];
 }
 
-//Cookie management
+//Storage management
+function setStorage(sName, sValue) {
+	if (typeof(Storage) !== "undefined") {
+		localStorage.setItem(sName, sValue);
+	} else {
+		var targetDate = new Date();
+		targetDate.setTime(targetDate.getTime() + (360*24*60*60*1000));
+		
+		setCookie(sName, sValue, targetDate, "/");
+	}
+}
+
+function getStorage(sName) {
+	if (typeof(Storage) !== "undefined") {
+		return localStorage.getItem(sName);
+	} else {
+		return getCookie(sName);
+	}
+}
+
+//Cookie management - Fallback for older browsers
 function writeDateString(dateObj) {
 
 	var monthName = new Array("Jan", "Feb", "Mar",

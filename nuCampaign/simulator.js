@@ -51,19 +51,8 @@ function startProgram() {
 	infoFrag.style.border = "1px #CCC solid";
 	infoFrag.style.borderRadius = "10px";
 	infoFrag.style.textAlign = "center";
-	infoFrag.style.cursor = "crosshair";
-	if (getCookie("techVisit") >= 1) {
-		infoFrag.style.display = "none";
-	} else {
-		infoFrag.innerHTML = "<b>Welcome to the Campaign Tech Simulator!</b><br />Click on a tick box to simulate a purchase or activation of a ship design or tech item.<br /><br />This bubble will pop up when you click on an item for more info. Tap anywhere on this bubble to close it.";
-	}
-	infoFrag.onclick = function() {
-		document.getElementById("infobox").style.display = "none"
-	};
+	infoFrag.style.display = "none";
 	bodyPanel.appendChild(infoFrag);
-
-	saveCookieDate.setTime(saveCookieDate.getTime() + (30*24*60*60*1000))
-	setCookie("techVisit","1",saveCookieDate,"/",null,false);
 	
 	buttonFrag = document.createElement("button");
 	buttonFrag.className = "interact";
@@ -234,8 +223,8 @@ function startProgram() {
 		var advRem = maxAdvantage - advUsed;
 		var startGC = 0;
 		
-		if (getCookie("gigacredits")) {
-			startGC = getCookie("gigacredits");
+		if (getStorage("gigacredits")) {
+			startGC = getStorage("gigacredits");
 		}
 		
 		document.getElementById("userMoney").value = startGC;
@@ -291,7 +280,7 @@ function addDesign(name, ship, mc, adv, locked) {
 function saveGigacredits() {
 	saveGC = document.getElementById("userMoney").value;
 	if (isFinite(saveGC)) { 
-		setCookie("gigacredits",saveGC,saveCookieDate,"/",null,false);
+		setStorage("gigacredits",saveGC,saveCookieDate,"/",null,false);
 	}
 }
 
@@ -392,19 +381,27 @@ function clearAll() {
 	calcCosts();
 }
 
-//Cookie management
-
-function writeDateString(dateObj) {
-	var monthName = new Array("Jan", "Feb", "Mar",
-  "Apr", "May", "Jun", "Jul", "Aug", "Sep",
-  "Oct", "Nov", "Dec");
-	
-	var thisMonth = dateObj.getMonth();
-	var thisYear = dateObj.getFullYear();
-
-	return monthName[thisMonth] + " " + dateObj.getDate() + ", " + thisYear;
+//Storage
+function setStorage(sName, sValue) {
+	if (typeof(Storage) !== "undefined") {
+		localStorage.setItem(sName, sValue);
+	} else {
+		var targetDate = new Date();
+		targetDate.setTime(targetDate.getTime() + (360*24*60*60*1000));
+		
+		setCookie(sName, sValue, targetDate, "/");
+	}
 }
 
+function getStorage(sName) {
+	if (typeof(Storage) !== "undefined") {
+		return localStorage.getItem(sName);
+	} else {
+		return getCookie(sName);
+	}
+}
+
+//Fallback Cookies
 function setCookie(cName, cValue, expDate, cPath, cDomain, cSecure) {
 	if (cName && cValue != "") {
 		var cString = cName + "=" + encodeURI(cValue) + ";samesite=lax";
@@ -737,6 +734,10 @@ function shipDesign(namee,tlevel,mass,engines,crew,beams,tubes,bays,fuel,cargo,d
 }
 
 /* ------------------------------------------------------------------------ */
+
+function closeBox() {
+	document.getElementById("infobox").style.display = "none";
+}
 
 function dispInfo(techItem) {
 	var displayTxt;
@@ -1269,7 +1270,8 @@ function dispInfo(techItem) {
 	}
 
 
-	displayTxt = "<b>" + techItem + "</b><br />" + displayTxt
+	displayTxt = "<b>" + techItem + "</b><br />" + displayTxt +
+		"<br /><br /><a class=\"interact\" href=\"javascript:closeBox();\">Close</a>";
 	
 	infoPanel.innerHTML = displayTxt;
 	infoPanel.style.display = "";
