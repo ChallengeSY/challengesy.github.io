@@ -29,6 +29,8 @@ const defaultPorts = ["DVI-D", "Parallel", "PS/2", "RJ-45", "Serial", "Stereo"];
 const defaultModules = ["bigButton", "keypad", "maze", "memory", "morse", "password", "simon", "venn", "whosOnFirst", "wires", "wireSequence"];
 const defaultNeedys = ["ventGas", "capacitor", "knob"];
 
+var grandModules = cloneArray(defaultModules).concat(["modulo"]);
+
 const needyCycleDur = 0.2;
 
 function startGame() {
@@ -46,28 +48,31 @@ function startGame() {
 
 	if (moduleFile.startsWith("endless")) {
 		goal = Infinity;
-		timeMax = 300;
+		timeMax = 180;
 		handicap = 0;
 		initialModules = irandom(3,5);
 		if (moduleFile == "endlessHardcore") {
 			initialNeedy = 0;
+			timeMax = 300;
 			lifeMax = 1;
 		} else if (moduleFile == "endless") {
 			initialNeedy = Math.max(irandom(-2,1),0);
+			timeMax = 300;
 			lifeMax = 3;
 		} else {
 			endlessNeedys = false;
 			lifeMax = 3;
 		}
 		
-		if (moduleFile == "endlessButtons") {
+		if ( moduleFile == "endlessVenn") {
+			handicap = 75;
+			initialModules = irandom(5,7);
+		} else if (moduleFile == "endlessButtons") {
 			handicap = 50;
 			initialModules = irandom(5,7);
-		} else if (moduleFile == "endlessStable") {
-			timeMax = 180;
 		}
 		moduleValid = (moduleFile == "endless" || moduleFile == "endlessStable" || moduleFile == "endlessHardcore" ||
-			moduleFile == "endlessButtons");
+			moduleFile == "endlessButtons" || moduleFile == "endlessVenn");
 	} else if (moduleFile.startsWith("short")) {
 		goal = Infinity;
 		handicap = Infinity;
@@ -113,11 +118,11 @@ function startGame() {
 		goal = 199;
 		hideSolves = true;
 		initialModules = goal;
-	} else if (moduleFile == "venn") {
+	} else if (moduleFile == "venn" || moduleFile == "wires" || moduleFile == "modulo") {
 		moduleValid = true;
 		singleSolvableFile = true;
 		goal = 16;
-	} else if (moduleFile == "bigButton" || moduleFile == "wires" || moduleFile == "debug") {
+	} else if (moduleFile == "bigButton" || moduleFile == "debug") {
 		moduleValid = true;
 		singleSolvableFile = true;
 		goal = 20;
@@ -131,7 +136,8 @@ function startGame() {
 	} else {
 		singleSolvableFile = true;
 		moduleValid = (moduleFile == "keypad" || moduleFile == "password" || moduleFile == "maze" || moduleFile == "memory" ||
-			moduleFile == "morse" || moduleFile == "password" || moduleFile == "simon" || moduleFile == "whosOnFirst" || moduleFile == "wireSequence");
+			moduleFile == "morse" || moduleFile == "password" || moduleFile == "simon" || moduleFile == "whosOnFirst" || moduleFile == "wireSequence" ||
+			moduleFile == "9ball" || moduleFile == "adjLetters" || moduleFile == "colKeys" || moduleFile == "switches");
 	}
 	
 	if (moduleValid) {
@@ -273,6 +279,8 @@ function startBombCountdown(auxAlso) {
 		makeAllMemories();
 		makeSimonSolutions();
 		makeAllWhosOnFirsts();
+		
+		makeAllModulos();
 	}
 }
 
@@ -513,6 +521,8 @@ function makeBomb(totCount, needyCount) {
 			useModuleRules = defaultModules[(k + randomAdd) % defaultModules.length];
 		} else if (moduleFile == "endlessButtons") {
 			useModuleRules = "bigButton";
+		} else if (moduleFile == "endlessVenn") {
+			useModuleRules = "venn";
 		} else {
 			if (k < needyCount) {
 				if (singleNeedyFile) {

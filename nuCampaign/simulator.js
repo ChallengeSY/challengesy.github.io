@@ -631,13 +631,13 @@ function initShips() {
 					special = "When it arrives at its destination or is <q>destroyed</q> in combat, it will explode and create a proto-minefield at a rate of 1 proto-unit per clan. Enemies suffer " + shipAbility("Protoinfection") + " just by moving through.";
 					break;
 				case "Red Mite":
-					special = shipAbility("Mite") + ". If it intercepts its victim, it deals 100kT of damage";
+					special = "If this " + shipAbility("Mite") + " reaches its target, it deals 100kT of damage";
 					break;
 				case "Blue Mite":
-					special = shipAbility("Mite") + ". If it intercepts its victim, it adds 27 points of " + shipAbility("Protoinfection");
+					special = "If this " + shipAbility("Mite") + " reaches its target, it adds 27 points of " + shipAbility("Protoinfection");
 					break;
 				case "Green Mite":
-					special = shipAbility("Mite") + ". If it intercepts its victim, it attaches itself and relays recon information to its owner";
+					special = "If this " + shipAbility("Mite") + " reaches its target, it attaches itself and relays recon information to its owner";
 					break;
 			}
 			
@@ -1186,7 +1186,7 @@ function dispInfo(techItem) {
 			displayTxt = "Hostile ships which catch this infection take damage over time. Will be removed gradually over time, and can be removed via Starbase Fix or the "+shipAbility("Repair Ship")+" mission";
 			break;
 		case "Mite":
-			displayTxt = "Specialist " + shipAbility("Pod") + "s that intercept enemy ships. If they intercept, they perform the ability outlined on the mite itself.<br /> \
+			displayTxt = "Specialist " + shipAbility("Pod") + "s that intercept enemy ships. They execute their unique abilities if successful.<br /> \
 				Warp 3 mites can intercept indefinitely. Warp 6-7 mites last 10 turns before they expire. Warp 9 mites expire after 1 turn.";
 			break;
 		// Common bonuses

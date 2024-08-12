@@ -755,11 +755,57 @@ function createBombModule(moduleObj, moduleClass) {
 		
 			moduleObj.className = "ventGasFrame";
 			break;
+			
+		// Expansion modules
+		case "modulo":
+			visorDiv = document.createElement("div");
+			visorDiv.className = "moduloDivisor";
+			visorDiv.id = moduleObj.id+"xmV";
+			moduleObj.appendChild(visorDiv);
+			
+			videnDiv = document.createElement("div");
+			videnDiv.className = "moduloDividend";
+			videnDiv.id = moduleObj.id+"xmD";
+			moduleObj.appendChild(videnDiv);
+			
+			for (var d = 1; d <= 10; d++) {
+				buttonDiv = document.createElement("div");
+				buttonDiv.className = "moduloButton";
+				createButton = document.createElement("button");
+				createButton.innerHTML = (d % 10);
+				createButton.onclick = function() {inputModDigit(moduleObj, this);}
+				buttonDiv.appendChild(createButton);
+				moduleObj.appendChild(buttonDiv);
+			}
+				
+			buttonDiv = document.createElement("div");
+			buttonDiv.className = "moduloSubmit";
+			createButton = document.createElement("button");
+			createButton.innerHTML = "S";
+			createButton.onclick = function() {submitModulo(moduleObj);}
+			buttonDiv.appendChild(createButton);
+			moduleObj.appendChild(buttonDiv);
+			
+			inputDiv = document.createElement("div");
+			inputDiv.className = "moduloInput";
+			inputDiv.id = moduleObj.id+"xmI";
+			moduleObj.appendChild(inputDiv);
+				
+			buttonDiv = document.createElement("div");
+			buttonDiv.className = "moduloClear";
+			createButton = document.createElement("button");
+			createButton.innerHTML = "C";
+			createButton.onclick = function() {clearModulo(moduleObj, true);}
+			buttonDiv.appendChild(createButton);
+			moduleObj.appendChild(buttonDiv);
+
+			moduleObj.className = "moduloFrame";
+			break;
 		
 		default: 
 			newButton = document.createElement("button");
 			newButton.className = "interact";
-			newButton.onclick = function() {solveModule(moduleObj, true, true)};
+			newButton.onclick = function() {solveModule(moduleObj, true, false)};
 			newButton.innerHTML = "Solve me!";
 			moduleObj.appendChild(newButton);
 			
