@@ -28,8 +28,9 @@ const defaultIndicators = ["SND", "CLR", "CAR", "IND", "FRQ", "SIG", "NSA", "MSA
 const defaultPorts = ["DVI-D", "Parallel", "PS/2", "RJ-45", "Serial", "Stereo"];
 const defaultModules = ["bigButton", "keypad", "maze", "memory", "morse", "password", "simon", "venn", "whosOnFirst", "wires", "wireSequence"];
 const defaultNeedys = ["ventGas", "capacitor", "knob"];
+const addonModules = ["9ball", "modulo"];
 
-var grandModules = cloneArray(defaultModules).concat(["modulo"]);
+var grandModules = cloneArray(defaultModules);
 
 const needyCycleDur = 0.2;
 
@@ -137,7 +138,7 @@ function startGame() {
 		singleSolvableFile = true;
 		moduleValid = (moduleFile == "keypad" || moduleFile == "password" || moduleFile == "maze" || moduleFile == "memory" ||
 			moduleFile == "morse" || moduleFile == "password" || moduleFile == "simon" || moduleFile == "whosOnFirst" || moduleFile == "wireSequence" ||
-			moduleFile == "9ball" || moduleFile == "adjLetters" || moduleFile == "colKeys" || moduleFile == "switches");
+			moduleFile == "9ball" || moduleFile == "adjLetters" || moduleFile == "colKeys" || moduleFile == "cruelModulo" || moduleFile == "switches");
 	}
 	
 	if (moduleValid) {
@@ -277,9 +278,10 @@ function startBombCountdown(auxAlso) {
 	if (auxAlso) {
 		makeAllMazes();
 		makeAllMemories();
-		makeSimonSolutions();
+		makeAllSimons();
 		makeAllWhosOnFirsts();
 		
+		makeAll9Balls();
 		makeAllModulos();
 	}
 }
@@ -530,9 +532,11 @@ function makeBomb(totCount, needyCount) {
 				} else {
 					useModuleRules = defaultNeedys[irandom(0,defaultNeedys.length-1)];
 				}
+			} else if (moduleFile == "endlessStable") {
+				useModuleRules = defaultModules[irandom(0,defaultModules.length-1)];
 			} else if (!singleSolvableFile) {
 				do {
-					useModuleRules = defaultModules[irandom(0,defaultModules.length-1)];
+					useModuleRules = grandModules[irandom(0,grandModules.length-1)];
 				} while (useModuleRules == "bigButton" && !isFinite(timeMax))
 			}
 		}
@@ -686,10 +690,12 @@ function hasLitIndicator(label, flag) {
 	}
 }
 
+function getLastDigit() {
+	return parseInt(getSerial().slice(-1));
+}
+
 function lastDigitEven() {
-	getDigit = parseInt(getSerial().slice(-1));
-	
-	return (getDigit % 2 == 0);
+	return (getLastDigit() % 2 == 0);
 }
 
 function serialHasVowel() {
@@ -833,10 +839,13 @@ function loadSoundEffects() {
 	explodeSnd = new sound("snd/explosion.wav");
 	gameWonSnd = new sound("snd/gameWon.wav");
 	
-	// Module effects
+	// Default Module effects
 	buttonSnds = [new sound("snd/buttonPressed.wav"), new sound("snd/buttonReleased.wav")];
 	simonSnds = [new sound("snd/selectB.wav"), new sound("snd/selectY.wav"), new sound("snd/selectR.wav"), new sound("snd/selectG.wav")];
 	fartSnd = new sound("snd/reverb_fart.wav");
+	
+	// Expansion Module effects
+	potBallSnd = new sound("snd/potBall.wav");
 }
 
 //sound object

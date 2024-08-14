@@ -757,6 +757,34 @@ function createBombModule(moduleObj, moduleClass) {
 			break;
 			
 		// Expansion modules
+		case "9ball":
+			frameDiv = document.createElement("div");
+			frameDiv.className = "nineBallFrame";
+
+			for (var b = 0; b < 9; b++) {
+				ballDiv = document.createElement("div");
+				ballDiv.className = "nineBall obj"+b;
+				ballDiv.id = moduleObj.id+"nbO"+b;
+				ballDiv.onclick = function() {pot9Ball(moduleObj, this);}
+				
+				labelDiv = document.createElement("div");
+				labelDiv.className = "nbLabel"
+				labelDiv.id = moduleObj.id+"nbL"+b;
+				ballDiv.appendChild(labelDiv);
+				frameDiv.appendChild(ballDiv);
+			}
+
+			breakDiv = document.createElement("div");
+			breakDiv.className = "nbBreak";
+			breakDiv.id = moduleObj.id+"nbK";
+			frameDiv.appendChild(breakDiv);
+
+			moduleObj.appendChild(frameDiv);
+			break;
+		
+		case "cruelModulo":
+			// Fall thru
+		
 		case "modulo":
 			visorDiv = document.createElement("div");
 			visorDiv.className = "moduloDivisor";
@@ -767,6 +795,11 @@ function createBombModule(moduleObj, moduleClass) {
 			videnDiv.className = "moduloDividend";
 			videnDiv.id = moduleObj.id+"xmD";
 			moduleObj.appendChild(videnDiv);
+			
+			expoDiv = document.createElement("div");
+			expoDiv.className = "moduloExponent";
+			expoDiv.id = moduleObj.id+"xmE";
+			moduleObj.appendChild(expoDiv);
 			
 			for (var d = 1; d <= 10; d++) {
 				buttonDiv = document.createElement("div");

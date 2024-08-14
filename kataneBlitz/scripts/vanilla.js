@@ -71,25 +71,38 @@ function validateButtonPress(event, readObj) {
 	lightObj.style.backgroundColor = defaultColors[0];
 		
 	if (previousButtonClick == null || event.type == previousButtonClick || isFinite(reqTime)) {
-		console.log("Big Button was released at "+timeLeft+" remaining. Light indicator required a "+reqTime);
-		
+		var success = false;
+		var holdReq = true;
 		if (buttonObj.innerHTML == buttonLabels[0] && buttonObj.style.backgroundColor == defaultColors[1]) {
 			// Blue Abort button
-			solveModule(readObj, timeLeft.search(reqTime.toString()) >= 0, false);
+			success = (timeLeft.search(reqTime.toString()) >= 0);
 		} else if (buttonObj.innerHTML == buttonLabels[1] && getBatteries() > 1) {
 			// Detonate button with 2 or more batteries
-			solveModule(readObj, isNaN(reqTime), false);
+			success = (isNaN(reqTime));
+			holdReq = false;
 		} else if (buttonObj.style.backgroundColor == defaultColors[3] && hasLitIndicator("CAR",true)) {
 			// White button and lit CAR indicator
-			solveModule(readObj, timeLeft.search(reqTime.toString()) >= 0, false);
+			success = (timeLeft.search(reqTime.toString()) >= 0);
 		} else if ((getBatteries() > 2 && hasLitIndicator("FRK",true)) ||
 			(buttonObj.innerHTML == buttonLabels[2] && buttonObj.style.backgroundColor == defaultColors[2])) {
 			// lit FRK indicator and 3+ batteries; OR Red Hold button
-			solveModule(readObj, isNaN(reqTime), false);
+			success = (isNaN(reqTime));
+			holdReq = false;
 		} else {
 			// All conditions exhausted
-			solveModule(readObj, timeLeft.search(reqTime.toString()) >= 0, false);
+			success = (timeLeft.search(reqTime.toString()) >= 0);
 		}
+
+		if (success) {
+			console.log("Big Button was released correctly.");
+		} else if (!holdReq) {
+			console.warn("Big Button was released incorrectly! It needed to be released immediately.");
+		} else if (isNaN(reqTime)) {
+			console.warn("Big Button was released incorrectly! A hold was required.");
+		} else {
+			console.warn("Big Button was released incorrectly! A "+reqTime+" was required somewhere in the timer. Your time remaining was "+timeLeft+".");
+		}
+		solveModule(readObj, success, false);
 		
 		playSound(buttonSnds[1]);
 		previousButtonClick = event.type;
@@ -1078,7 +1091,7 @@ function cycleSimons() {
 	}
 }
 
-function makeSimonSolutions() {
+function makeAllSimons() {
 	spanCollection = document.getElementsByTagName("span");
 	clearInterval(simonFlasher);
 	
@@ -1086,7 +1099,7 @@ function makeSimonSolutions() {
 		if (spanCollection[r].id !== undefined) {
 			if (spanCollection[r].id.endsWith("sX")) {
 				// Generate fresh flashes
-				var numStages = irandom(3,5);
+				var numStages = irandom(3,Math.min(5+Math.floor(score/25),9));
 				spanCollection[r].innerHTML = "";
 				
 				for (var t = 0; t < numStages; t++) {
@@ -1163,7 +1176,7 @@ function pressSimonButton(readObj, buttonObj) {
 						console.log("Simon Says solved.");
 						solveModule(readObj, true, false);
 						simonCycle = 4;
-						makeSimonSolutions();
+						makeAllSimons();
 					}
 				}
 			} else {

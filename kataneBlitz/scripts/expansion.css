@@ -1,9 +1,29 @@
-.moduloFrame {text-align: center; display: grid; grid-template-columns: auto auto auto auto auto;}
+.nineBallFrame {display: grid; grid-template-columns: 30px 30px 30px 30px 30px 30px; width: 180px; margin-left: auto; margin-right: auto;}
+.nineBall {position: relative; width: 0px; height: 0px; border: 30px solid #122; border-radius: 45px; margin-top: -4px; margin-bottom: -4px;}
+.nbLabel {position: absolute; width: 12px; height: 12px; padding: 0px; background: white; color: black; border: 5px solid white; border-radius: 10px; text-align: center; cursor: default; left: 50%; top: 50%; transform: translate(-50%, -50%);}
+.nbBreak {display: none;}
 
-.moduloDivisor {background: #000; color: #0F0; font-size: 200%; border: 5px solid #122;}
-.moduloDividend {background: #000; color: #F44; font-size: 200%; border: 5px solid #122; grid-column: 2 / span 4;}
-.moduloFrame button {font-size: 200%; width: 50px; height: 50px; border: 5px ridge #244;}
+.obj0, .obj4, .obj8 {grid-column: 3 / span 2;}
+.obj1, .obj6 {grid-column: 2 / span 2;}
+.obj2, .obj7 {grid-column: 4 / span 2;}
+.obj3 {grid-column: 1 / span 2;}
+.obj5 {grid-column: 5 / span 2;}
+
+.moduloFrame {text-align: center; display: grid; grid-template-columns: auto auto auto auto auto;}
+.moduloDivisor {background: #000; color: #0F0; border: 5px solid #122;}
+.moduloDividend {background: #000; color: #F44; border: 5px solid #122; grid-column: 2 / span 3;}
+.moduloExponent {background: #000; color: #FF0; border: 5px solid #122;}
+@media (max-width: 1024px), (max-height: 800px) {
+	.moduloFrame :not(legend) {font-size: 120%;}
+	.moduloFrame button {min-height: 30px;}
+}
+
+@media (min-width: 1025px) and (min-height: 801px) {
+	.moduloFrame :not(legend) {font-size: 200%;}
+	.moduloFrame button {min-height: 50px;}
+}
+.moduloFrame button {width: 90%; font-size: inherit; border: 5px ridge #244;}
 .moduloButton button {background: #000; color: #FFF;}
 .moduloSubmit button {background: #0F0; color: #000;}
-.moduloInput {background: #000; color: #0F0; font-size: 200%; border: 5px solid #122; grid-column: 2 / span 3;}
+.moduloInput {background: #000; color: #0F0; border: 5px solid #122; grid-column: 2 / span 3;}
 .moduloClear button {background: #F44; color: #000;}
