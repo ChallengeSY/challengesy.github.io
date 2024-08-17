@@ -102,7 +102,7 @@ function validateButtonPress(event, readObj) {
 		} else {
 			console.warn("Big Button was released incorrectly! A "+reqTime+" was required somewhere in the timer. Your time remaining was "+timeLeft+".");
 		}
-		solveModule(readObj, success, false);
+		solveModule(readObj, success, false, 0);
 		
 		playSound(buttonSnds[1]);
 		previousButtonClick = event.type;
@@ -148,7 +148,7 @@ function validateKeypad(readObj, keyObj) {
 	}
 	
 	if (allSolved) {
-		solveModule(readObj, true, false);
+		solveModule(readObj, true, false, 0);
 	}
 	
 	playSound(buttonSnds[0]);
@@ -618,7 +618,7 @@ function mazeMove(readObj, xDelta, yDelta) {
 			posCur = testCur;
 			if (posCur.toString() == goalCur.toString()) {
 				console.log("Maze goal reached. Module solved.")
-				solveModule(readObj, true, false);
+				solveModule(readObj, true, false, 0);
 			} else {
 				readMazeSlot(baseId, posCur).innerHTML = "&#9632;";
 			}
@@ -652,7 +652,7 @@ function prepMemoryStage(readObj) {
 	}
 
 	if (stagesFinished >= 5) {
-		solveModule(readObj, true, false);
+		solveModule(readObj, true, false, 0);
 	} else if (gameActive) {
 		setTimeout(function() { clearMemoryStage(readObj) }, 1200);
 	}
@@ -765,9 +765,9 @@ function pressMemoryButton(readObj, pressObj) {
 			
 			if (pressedCorrect) {
 				if (reqDigit != null) {
-					console.log("Stage "+stageNum+" correct. The required digit "+reqDigit+" was hit.")
+					console.log("Memory stage "+stageNum+" correct. The required digit "+reqDigit+" was hit.")
 				} else if (reqPosit != null) {
-					console.log("Stage "+stageNum+" correct. The required position "+reqPosit+" was hit.")
+					console.log("Memory stage "+stageNum+" correct. The required position "+reqPosit+" was hit.")
 				}
 				
 				pressObj.style.backgroundColor = solveColor;
@@ -775,9 +775,9 @@ function pressMemoryButton(readObj, pressObj) {
 				memPositObj.innerHTML += tappedPosit;
 			} else {
 				if (reqDigit != null) {
-					console.warn("Stage "+stageNum+" striked! You hit digit "+tappedDigit+". The required digit was "+reqDigit+".")
+					console.warn("Memory stage "+stageNum+" striked! You hit digit "+tappedDigit+". The required digit was "+reqDigit+".")
 				} else if (reqPosit != null) {
-					console.warn("Stage "+stageNum+" striked! You hit position "+tappedPosit+". The required position was "+reqPosit+".")
+					console.warn("Memory stage "+stageNum+" striked! You hit position "+tappedPosit+". The required position was "+reqPosit+".")
 				}
 				solveModule(readObj, false, false);
 				
@@ -824,7 +824,7 @@ function changeMorseFreq(readObj, forward) {
 function validateMorseCode(readObj, targetFreq) {
 	freqObj = document.getElementById(readObj.id+"f");
 	readFreq = freqObj.value;
-	solveModule(readObj, readFreq == targetFreq, false);
+	solveModule(readObj, readFreq == targetFreq, false, 0);
 
 	if (readObj.style.borderColor == solveColor) {
 		console.log(readFreq + " KHz was transmitted correctly.");
@@ -919,7 +919,7 @@ function validatePassword(readObj, expectedPass) {
 		readPass += document.getElementById(readObj.id+"p"+r).innerHTML;
 	}
 	readPass = readPass.toLowerCase();
-	solveModule(readObj, readPass == expectedPass, false);
+	solveModule(readObj, readPass == expectedPass, false, 0);
 	
 	if (readObj.style.borderColor == solveColor) {
 		console.log(readPass+" was transmitted correctly.");
@@ -1174,7 +1174,7 @@ function pressSimonButton(readObj, buttonObj) {
 					
 					if (nextStage > reqColors.length) {
 						console.log("Simon Says solved.");
-						solveModule(readObj, true, false);
+						solveModule(readObj, true, false, 0);
 						simonCycle = 4;
 						makeAllSimons();
 					}
@@ -1212,7 +1212,7 @@ function prepWhoseStage(readObj) {
 	}
 
 	if (stagesFinished >= 3) {
-		solveModule(readObj, true, false);
+		solveModule(readObj, true, false, 0);
 	} else if (gameActive) {
 		setTimeout(function(){ clearWhoseStage(readObj) }, 1700);
 	}
@@ -1418,11 +1418,11 @@ function pressWhoseButton(readObj, pressObj) {
 			var pressedCorrect = (pressWord == reqWord);
 		
 			if (pressedCorrect) {
-				console.log("Stage "+stageNum+" correct. "+pressWord+" was pressed.");
+				console.log("Who's on First stage "+stageNum+" correct. "+pressWord+" was pressed.");
 				document.getElementById(readObj.id+"wS"+stageNum).style.backgroundColor = stageColor;
 				pressObj.style.backgroundColor = solveColor;
 			} else {
-				console.warn("Stage "+stageNum+" striked! Tapped button was "+pressWord+". Correct button was "+reqWord+".")
+				console.warn("Who's on First stage "+stageNum+" striked! Tapped button was "+pressWord+". Correct button was "+reqWord+".")
 				solveModule(readObj, false, false);
 				pressObj.style.backgroundColor = strikeColor;
 			}
@@ -1538,7 +1538,7 @@ function cutVennWire(readObj, wireObj) {
 			
 			if (allWiresCut) {
 				console.log("All correct Venn wires cut.");
-				solveModule(readObj, true, false);
+				solveModule(readObj, true, false, 0);
 			}
 		} else {
 			console.warn("Venn wire "+wireCut+" was cut incorrectly!");
@@ -1654,7 +1654,7 @@ function cutWire(readObj, wireObj) {
 				break;
 		}
 		
-		solveModule(readObj, (wireCut == correctWire), true);
+		solveModule(readObj, (wireCut == correctWire), true, 0);
 		if (readObj.style.borderColor == solveColor) {
 			console.log("Wire "+wireCut+" was cut correctly.");
 		} else {
@@ -1717,7 +1717,7 @@ function queueWireSeqStage(readObj, forward) {
 				setTimeout(function() {openWireSeqStage(readObj, newStage)}, 750);
 			} else {
 				console.log("Wire Sequence solved.");
-				solveModule(readObj, true, false);
+				solveModule(readObj, true, false, 0);
 			}
 		} else {
 			console.warn("Wire Sequence striked! One or more required wires in stage "+curStage+" were missed!");

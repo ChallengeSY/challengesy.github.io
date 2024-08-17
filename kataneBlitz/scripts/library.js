@@ -781,6 +781,38 @@ function createBombModule(moduleObj, moduleClass) {
 
 			moduleObj.appendChild(frameDiv);
 			break;
+			
+		case "adjLetters":
+			var letterBank = [];
+			var rollLetter;
+			
+			frameDiv = document.createElement("div");
+			frameDiv.className = "adjLetFrame";
+
+			buttonDiv = document.createElement("div");
+			buttonDiv.className = "adjLetSubmit";
+			createButton = document.createElement("button");
+			createButton.innerHTML = "Submit";
+			createButton.onclick = function() {submitAdjLetters(moduleObj);}
+			buttonDiv.appendChild(createButton);
+			frameDiv.appendChild(buttonDiv);
+			
+			for (var l = 0; l < 12; l++) {
+				do
+					rollLetter = irandom(0,25);
+				while (letterBank[rollLetter]);
+				letterBank[rollLetter] = true;
+				
+				letterDiv = document.createElement("div");
+				letterDiv.className = "adjacentLetter";
+				letterDiv.id = moduleObj.id+"adjLet"+l;
+				letterDiv.innerHTML = String.fromCharCode(rollLetter + 65);
+				letterDiv.onclick = function() {toggleAdjLetter(moduleObj, this);}
+				frameDiv.appendChild(letterDiv);
+			}
+
+			moduleObj.appendChild(frameDiv);
+			break;
 		
 		case "cruelModulo":
 			// Fall thru
@@ -834,17 +866,79 @@ function createBombModule(moduleObj, moduleClass) {
 
 			moduleObj.className = "moduloFrame";
 			break;
+			
+		case "switches":
+			var problem, solution;
+			do {
+				problem = irandom(0,31);
+				solution = irandom(0,31);
+			} while (problem == solution || countBitDiff(problem, solution) <= 1 || !switchesValid(problem) || !switchesValid(solution));
+			
+			masterDiv = document.createElement("div");
+			masterDiv.className = "switchesFrame";
+
+			for (var t = 0; t < 5; t++) {
+				if (checkBit(solution, 4-t)) {
+					switchLight = 9898;
+					switchClass = "vennSlot led";
+				} else {
+					switchLight = 9899;
+					switchClass = "vennSlot";
+				}
+
+				lightDiv = document.createElement("div");
+				lightDiv.id = moduleObj.id+"swT"+t;
+				lightDiv.className = switchClass;
+				lightDiv.innerHTML = "&#"+switchLight+";";
+				masterDiv.appendChild(lightDiv);
+			}
+			
+			for (var f = 0; f < 5; f++) {
+				frameDiv = document.createElement("div");
+				frameDiv.className = "flipSwitch";
+				switchLabel = document.createElement("label");
+				hiddenBox = document.createElement("input");
+				hiddenBox.type = "checkbox";
+				hiddenBox.id = moduleObj.id+"swF"+f;
+				hiddenBox.checked = (checkBit(problem, 4-f));
+				hiddenBox.oninput = function() {validateSwitches(moduleObj, this)};
+				slider = document.createElement("span");
+				slider.className = "slideSwitch";
+				switchLabel.appendChild(hiddenBox);
+				switchLabel.appendChild(slider);
+				frameDiv.appendChild(switchLabel);
+				masterDiv.appendChild(frameDiv);
+			}
+			
+			for (var b = 0; b < 5; b++) {
+				if (checkBit(solution, 4-b)) {
+					switchLight = 9899;
+					switchClass = "vennSlot";
+				} else {
+					switchLight = 9898;
+					switchClass = "vennSlot led";
+				}
+
+				lightDiv = document.createElement("div");
+				lightDiv.id = moduleObj.id+"swB"+b;
+				lightDiv.className = switchClass;
+				lightDiv.innerHTML = "&#"+switchLight+";";
+				masterDiv.appendChild(lightDiv);
+			}
+			
+			moduleObj.appendChild(masterDiv);
+			break;
 		
 		default: 
 			newButton = document.createElement("button");
 			newButton.className = "interact";
-			newButton.onclick = function() {solveModule(moduleObj, true, false)};
+			newButton.onclick = function() {solveModule(moduleObj, true, false, 0)};
 			newButton.innerHTML = "Solve me!";
 			moduleObj.appendChild(newButton);
 			
 			newButton = document.createElement("button");
 			newButton.className = "interact";
-			newButton.onclick = function() {solveModule(moduleObj, false, true)};;
+			newButton.onclick = function() {solveModule(moduleObj, false, true, 0)};;
 			newButton.innerHTML = "Strike me!";
 			moduleObj.appendChild(newButton);
 			break;

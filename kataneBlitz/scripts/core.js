@@ -28,9 +28,9 @@ const defaultIndicators = ["SND", "CLR", "CAR", "IND", "FRQ", "SIG", "NSA", "MSA
 const defaultPorts = ["DVI-D", "Parallel", "PS/2", "RJ-45", "Serial", "Stereo"];
 const defaultModules = ["bigButton", "keypad", "maze", "memory", "morse", "password", "simon", "venn", "whosOnFirst", "wires", "wireSequence"];
 const defaultNeedys = ["ventGas", "capacitor", "knob"];
-const addonModules = ["9ball", "modulo"];
+const addonModules = ["9ball", "adjLetters", "modulo", "switches"];
 
-var grandModules = cloneArray(defaultModules);
+var grandModules = cloneArray(defaultModules).concat(addonModules);
 
 const needyCycleDur = 0.2;
 
@@ -91,35 +91,44 @@ function startGame() {
 		timeMax = 300;
 		initialModules = 3;
 		goal = 37;
+	} else if (moduleFile == "mixedPack1") {
+		moduleValid = true;
+		timeMax = 300;
+		initialModules = 3;
+		goal = 21;
 	} else if (moduleFile == "kiloBomb") {
 		moduleValid = true;
 		timeMax = 1500;
 		lifeMax = 5;
-		goal = 23;
+		goal = 19;
 		hideSolves = true;
 		initialModules = goal;
 	} else if (moduleFile == "megaBomb") {
 		moduleValid = true;
 		timeMax = 2700;
 		lifeMax = 8;
-		goal = 51;
+		goal = 47;
 		hideSolves = true;
 		initialModules = goal;
 	} else if (moduleFile == "gigaBomb") {
 		moduleValid = true;
 		timeMax = 4260;
 		lifeMax = 11;
-		goal = 99;
+		goal = 91;
 		hideSolves = true;
 		initialModules = goal;
 	} else if (moduleFile == "teraBomb") {
 		moduleValid = true;
 		timeMax = 5940;
 		lifeMax = 15;
-		goal = 199;
+		goal = 187;
 		hideSolves = true;
 		initialModules = goal;
-	} else if (moduleFile == "venn" || moduleFile == "wires" || moduleFile == "modulo") {
+	} else if (moduleFile == "adjLetters") {
+		moduleValid = true;
+		singleSolvableFile = true;
+		goal = 4;
+	} else if (moduleFile == "venn" || moduleFile == "wires" || moduleFile == "modulo" || moduleFile == "switches") {
 		moduleValid = true;
 		singleSolvableFile = true;
 		goal = 16;
@@ -138,7 +147,7 @@ function startGame() {
 		singleSolvableFile = true;
 		moduleValid = (moduleFile == "keypad" || moduleFile == "password" || moduleFile == "maze" || moduleFile == "memory" ||
 			moduleFile == "morse" || moduleFile == "password" || moduleFile == "simon" || moduleFile == "whosOnFirst" || moduleFile == "wireSequence" ||
-			moduleFile == "9ball" || moduleFile == "adjLetters" || moduleFile == "colKeys" || moduleFile == "cruelModulo" || moduleFile == "switches");
+			moduleFile == "9ball" || moduleFile == "cruelModulo");
 	}
 	
 	if (moduleValid) {
@@ -150,7 +159,7 @@ function startGame() {
 	}
 }
 
-function solveModule(obj, cond, postSolve) {
+function solveModule(obj, cond, postSolve, weight) {
 	// Solve the module
 	if ((postSolve && life > 0) || (gameActive && obj.style.borderColor != solveColor)) {
 		if (cond) {
@@ -161,15 +170,19 @@ function solveModule(obj, cond, postSolve) {
 			
 			score++;
 			if (!isFinite(goal) && isFinite(handicap)) {
-				if (score + handicap <= 25) {
+				var finalScore = score + handicap - weight;
+				
+				if (finalScore <= 0) {
+					timeLimit += 40;
+				} else if (finalScore <= 25) {
 					timeLimit += 30;
-				} else if (score + handicap <= 50) {
+				} else if (finalScore <= 50) {
 					timeLimit += 20;
-				} else if (score + handicap <= 75) {
+				} else if (finalScore <= 75) {
 					timeLimit += 10;
-				} else if (score + handicap <= 100) {
+				} else if (finalScore <= 100) {
 					timeLimit += 5;
-				} else if (score + handicap <= 125) {
+				} else if (finalScore <= 125) {
 					timeLimit += 3;
 				} else {
 					timeLimit += 1;
@@ -197,6 +210,18 @@ function solveModule(obj, cond, postSolve) {
 							}
 							
 							disarmBomb(nextSize,0);
+						} else if (moduleFile == "mixedPack1") {
+							var nextSize;
+							switch (score) {
+								case 3:
+									nextSize = 7;
+									break;
+								default:
+									nextSize = 11;
+									break;
+							}
+							
+							disarmBomb(nextSize,0);
 						} else if (moduleFile == "capacitor" || moduleFile == "knob" || moduleFile == "ventGas" || moduleFile == "mixedNeedy") {
 							var nextSize, nextNeedy;
 							switch (score) {
@@ -214,7 +239,7 @@ function solveModule(obj, cond, postSolve) {
 						} else if (score >= 9) {
 							disarmBomb(Math.min(goal - score,maxPerBomb),0);
 						} else {
-							disarmBomb(Math.pow((Math.sqrt(score)+1),2) - score,0);
+							disarmBomb(Math.min((Math.sqrt(score)+1) ** 2 - score,goal - score),0);
 						}
 					} else if (score % 25 <= 22) {
 						if (endlessNeedys) {
@@ -389,7 +414,8 @@ function activateNeedyModule(timerObj, newState) {
 	if (newState) {
 		meterObj.value = 0;
 		timerObj.innerHTML = meterObj.max;
-	} else if (baseObj.className.search("capacitorFrame") >= 0 && baseObj.style.borderColor == strikeColor) {
+	} else if (baseObj.className.search("capacitorFrame") >= 0 &&
+		baseObj.style.borderColor == strikeColor) {
 		/*
 		 * If a Capacitor module strikes (overloads), then it 
 		 * permanently deactivates. It can no longer award a point.
@@ -400,7 +426,7 @@ function activateNeedyModule(timerObj, newState) {
 		}
 	} else if (score >= nextBomb && !isFinite(goal)) {
 		// Score this module in Endless games
-		solveModule(baseObj, true, true);
+		solveModule(baseObj, true, true, 0);
 	}
 }
 
@@ -486,7 +512,11 @@ function makeBomb(totCount, needyCount) {
 				timeMax = 180;
 				break;
 			case 3:
-				timeMax = 300;
+				if (score < 3) {
+					timeMax = 300;
+				} else {
+					timeMax = 240;
+				}
 				break;
 			case 5:
 				timeMax = 360;
@@ -500,6 +530,10 @@ function makeBomb(totCount, needyCount) {
 					timeMax = 300;
 				}
 				break;
+		}
+		
+		if (moduleFile == "adjLetters") {
+			timeMax = timeMax * 2 - 60;
 		}
 		timeLimit = timeMax;
 		life = lifeMax;
@@ -518,9 +552,22 @@ function makeBomb(totCount, needyCount) {
 	
 	createEdgework();
 
+	var hardModules = [0, 0];
 	for (k = 0; k < totCount; k++) {
 		if (moduleFile == "mixedPractice" && totCount == 11) {
 			useModuleRules = defaultModules[(k + randomAdd) % defaultModules.length];
+		} else if (moduleFile == "mixedPack1") {
+			hardModules[1] = Math.floor(totCount/4);
+			
+			do
+				useModuleRules = addonModules[irandom(0,3)];
+			while (useModuleRules == "adjLetters" && hardModules[0] >= hardModules[1]);
+			
+			if (useModuleRules == "adjLetters") {
+				hardModules[0]++;
+				timeMax += 60;
+				timeLimit += 60;
+			}
 		} else if (moduleFile == "endlessButtons") {
 			useModuleRules = "bigButton";
 		} else if (moduleFile == "endlessVenn") {
@@ -532,12 +579,20 @@ function makeBomb(totCount, needyCount) {
 				} else {
 					useModuleRules = defaultNeedys[irandom(0,defaultNeedys.length-1)];
 				}
-			} else if (moduleFile == "endlessStable") {
+			} else if (moduleFile == "endlessStable" || moduleFile == "mixedPractice" || moduleFile == "mixedNeedy" ||
+				moduleFile == "capacitor" || moduleFile == "knob" || moduleFile == "ventGas") {
 				useModuleRules = defaultModules[irandom(0,defaultModules.length-1)];
 			} else if (!singleSolvableFile) {
 				do {
+					var difficulty = 0;
 					useModuleRules = grandModules[irandom(0,grandModules.length-1)];
-				} while (useModuleRules == "bigButton" && !isFinite(timeMax))
+					
+					if (moduleFile.startsWith("endless") || moduleFile.startsWith("short")) {
+						if (useModuleRules == "adjLetters") {
+							difficulty = 1;
+						}
+					}
+				} while (score < difficulty * 25 || (useModuleRules == "bigButton" && !isFinite(timeMax)))
 			}
 		}
 		
@@ -712,6 +767,23 @@ function getBombPorts(part) {
 }
 
 /* ----------------------------------------------------------- */
+
+function checkBit(inVal, bitId) {
+	return (inVal & (2 ** bitId));
+}
+
+function countBitDiff(valA, valB) {
+	var ceiling = Math.ceil(Math.log(Math.max(valA, valB)) / Math.log(2));
+	var bitsDiff = 0;
+	
+	for (var b = 0; b < ceiling; b++) {
+		if (checkBit(valA, b) != checkBit(valB, b)) {
+			bitsDiff++;
+		}
+	}
+	
+	return bitsDiff;
+}
 
 function renderTime(amt, dispFrac) {
 	if (!isFinite(amt)) {
