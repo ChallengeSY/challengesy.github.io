@@ -361,7 +361,7 @@ function timeDecay() {
 	
 	if (timeLimit <= 0) {
 		explodeBomb();
-	} else if (timeLimit <= 10) {
+	} else if (timeLimit <= 10 && graceTime <= 0) {
 		playSound(beepSnd);
 	}
 }
