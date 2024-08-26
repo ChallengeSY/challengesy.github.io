@@ -895,19 +895,17 @@ function createRandomPassChars(targWord) {
 function shiftPassColumn(readObj, columnObj, shiftDown) {
 	var column = columnObj.id.slice(-1);
 	
-	if (readObj.style.borderColor != solveColor) {
-		var activeObj = document.getElementById(readObj.id+"p"+column);
-		var bankObj = document.getElementById(readObj.id+"b"+column);
-		
-		if (shiftDown) {
-			bankObj.innerHTML += activeObj.innerHTML;
-			activeObj.innerHTML = bankObj.innerHTML.charAt(0);
-			bankObj.innerHTML = bankObj.innerHTML.substr(1);
-		} else {
-			bankObj.innerHTML = activeObj.innerHTML + bankObj.innerHTML;
-			activeObj.innerHTML = bankObj.innerHTML.charAt(bankObj.innerHTML.length-1);
-			bankObj.innerHTML = bankObj.innerHTML.substr(0,bankObj.innerHTML.length-1);
-		}
+	var activeObj = document.getElementById(readObj.id+"p"+column);
+	var bankObj = document.getElementById(readObj.id+"b"+column);
+	
+	if (shiftDown) {
+		bankObj.innerHTML += activeObj.innerHTML;
+		activeObj.innerHTML = bankObj.innerHTML.charAt(0);
+		bankObj.innerHTML = bankObj.innerHTML.substr(1);
+	} else {
+		bankObj.innerHTML = activeObj.innerHTML + bankObj.innerHTML;
+		activeObj.innerHTML = bankObj.innerHTML.charAt(bankObj.innerHTML.length-1);
+		bankObj.innerHTML = bankObj.innerHTML.substr(0,bankObj.innerHTML.length-1);
 	}
 
 	playSound(buttonSnds[0]);
@@ -919,9 +917,11 @@ function validatePassword(readObj, expectedPass) {
 		readPass += document.getElementById(readObj.id+"p"+r).innerHTML;
 	}
 	readPass = readPass.toLowerCase();
-	solveModule(readObj, readPass == expectedPass, false, 0);
 	
-	if (readObj.style.borderColor == solveColor) {
+	var success = (readPass == expectedPass);
+	solveModule(readObj, success, !success, 0);
+	
+	if (success) {
 		console.log(readPass+" was transmitted correctly.");
 	} else {
 		console.warn(readPass+" was transmitted incorrectly!");
