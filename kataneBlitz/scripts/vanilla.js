@@ -1249,7 +1249,7 @@ function makeWhoseStage(readObj) {
 }
 
 function pressWhoseButton(readObj, pressObj) {
-	if (gameActive && readObj.style.borderColor != solveColor) {
+	if (life > 0 && timeLimit > 0) {
 		var dispPhrase = document.getElementById(readObj.id+"wD").innerHTML;
 		var stageNum = 1;
 		for (var s = 1; s <= 3; s++) {
@@ -1259,7 +1259,7 @@ function pressWhoseButton(readObj, pressObj) {
 			}
 		}
 		var auxButton = -1;
-		var debounceClick = false;
+		var foulClick = false;
 		
 		switch (dispPhrase) {
 			case whoseLabels[0]:
@@ -1399,7 +1399,7 @@ function pressWhoseButton(readObj, pressObj) {
 			for (var b = 1; b <= 6; b++) {
 				buttonObj[b-1] = document.getElementById(readObj.id+"wB"+b);
 				if (buttonObj[b-1].style.backgroundColor != "") {
-					debounceClick = true;
+					foulClick = true;
 					break whosBankLoop;
 				}
 			}
@@ -1414,10 +1414,14 @@ function pressWhoseButton(readObj, pressObj) {
 			}
 		}
 
-		if (!debounceClick) {
+		if (pressObj.style.backgroundColor != solveColor) {
 			var pressedCorrect = (pressWord == reqWord);
 		
-			if (pressedCorrect) {
+			if (foulClick) {
+				console.warn("Who's on First stage "+stageNum+" striked! Multiple buttons were tapped!")
+				solveModule(readObj, false, true);
+				pressObj.style.backgroundColor = strikeColor;
+			} else if (pressedCorrect) {
 				console.log("Who's on First stage "+stageNum+" correct. "+pressWord+" was pressed.");
 				document.getElementById(readObj.id+"wS"+stageNum).style.backgroundColor = stageColor;
 				pressObj.style.backgroundColor = solveColor;
@@ -1427,7 +1431,9 @@ function pressWhoseButton(readObj, pressObj) {
 				pressObj.style.backgroundColor = strikeColor;
 			}
 			
-			prepWhoseStage(readObj);
+			if (!foulClick) {
+				prepWhoseStage(readObj);
+			}
 		}
 	}
 
