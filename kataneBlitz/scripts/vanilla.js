@@ -798,37 +798,35 @@ function pressMemoryButton(readObj, pressObj) {
 // Morse Code functions
 
 function changeMorseFreq(readObj, forward) {
-	if (readObj.style.borderColor != solveColor) {
-		newFreq = document.getElementById(readObj.id+"f").value;
-		if (forward) {
-			for (var f = 0; f < validMorseFreqs.length; f++) {
-				if (newFreq < 3000 + validMorseFreqs[f]) {
-					newFreq = 3000 + validMorseFreqs[f];
-					break;
-				}
-			}
-		} else {
-			for (var r = validMorseFreqs.length-1; r >=0; r--) {
-				if (newFreq > 3000 + validMorseFreqs[r]) {
-					newFreq = 3000 + validMorseFreqs[r];
-					break;
-				}
+	newFreq = document.getElementById(readObj.id+"f").value;
+	if (forward) {
+		for (var f = 0; f < validMorseFreqs.length; f++) {
+			if (newFreq < 3000 + validMorseFreqs[f]) {
+				newFreq = 3000 + validMorseFreqs[f];
+				break;
 			}
 		}
-
-		document.getElementById(readObj.id+"f").value = newFreq;
+	} else {
+		for (var r = validMorseFreqs.length-1; r >=0; r--) {
+			if (newFreq > 3000 + validMorseFreqs[r]) {
+				newFreq = 3000 + validMorseFreqs[r];
+				break;
+			}
+		}
 	}
+
+	document.getElementById(readObj.id+"f").value = newFreq;
 	playSound(buttonSnds[0]);
 }
 
 function validateMorseCode(readObj, targetFreq) {
 	freqObj = document.getElementById(readObj.id+"f");
 	readFreq = freqObj.value;
-	solveModule(readObj, readFreq == targetFreq, false, 0);
+	var success = (readFreq == targetFreq);
+	solveModule(readObj, success, !success, 0);
 
-	if (readObj.style.borderColor == solveColor) {
+	if (success) {
 		console.log(readFreq + " KHz was transmitted correctly.");
-		freqObj.readOnly = true;
 	} else {
 		console.warn(readFreq + " KHz was transmitted incorrectly!");
 		if (life <= 0) {
