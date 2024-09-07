@@ -7,6 +7,8 @@ var rollPhase = 0;
 var diceRolls = [0,0,0,0,0,0];
 var gameActive = false;
 
+var highScore = 0;
+
 function setupGame() {
 	var sectionUpper = ["Aces", "Twos", "Threes", "Fours", "Fives", "Sixes"];
 	var sectionMiddle = ["Three Pairs", "Two Trios", "Small Straight (4)", "Medium Straight (5)", "Large Straight (6)"];
@@ -61,6 +63,10 @@ function setupGame() {
 	trFrag = document.createElement("tr");
 	for (var j = 0; j < totalLetters.length; j++) {
 		createScorePair(trFrag, "Section Total", "total"+totalLetters[j], "0");
+	}
+	
+	if (getStorage("soakerHigh")) {
+		highScore = parseInt(getStorage("soakerHigh"));
 	}
 	
 	tabSect.appendChild(trFrag);
@@ -168,6 +174,13 @@ function applyCombo(localId, mouseUsed) {
 		
 		if (updateScoreboard() <= 0) {
 			updateStatus("Game over! All combinations filled!");
+			if (getScore("totalG") > highScore) {
+				if (highScore > 0) {
+					appendStatus("<br />New high score! The old score of "+highScore+" has been obsoleted!");
+				}
+				highScore = getScore("totalG");
+				setStorage("soakerHigh", highScore);
+			}
 			playSound(overSnd);
 			gameActive = false;
 		}
@@ -655,6 +668,13 @@ function updateStatus(newMessage) {
 	var statusBar = document.getElementById("statusBar");
 	
 	statusBar.innerHTML = newMessage;
+}
+
+function appendStatus(newMessage) {
+	var statusBar = document.getElementById("statusBar");
+	var oldMessage = statusBar.innerHTML;
+	
+	statusBar.innerHTML = oldMessage + newMessage;
 }
 
 function randomInt(min, max) {
