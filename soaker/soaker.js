@@ -173,14 +173,16 @@ function applyCombo(localId, mouseUsed) {
 		lockScore(localId, true);
 		
 		if (updateScoreboard() <= 0) {
-			updateStatus("Game over! All combinations filled!");
 			if (getScore("totalG") > highScore) {
+				updateStatus("New high score!");
 				if (highScore > 0) {
-					appendStatus("<br />New high score! The old score of "+highScore+" has been obsoleted!");
 				}
 				highScore = getScore("totalG");
 				setStorage("soakerHigh", highScore);
+			} else {
+				updateStatus("Game over!");
 			}
+			appendStatus(" All combinations filled!");
 			playSound(overSnd);
 			gameActive = false;
 		}
