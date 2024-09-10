@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>Campaign Tech Bonus Material - Native optimizer</title>
+	<link type="text/css" href="../planets.css" rel="stylesheet" />
+	<script type="text/javascript" src="natives.js"></script>
+</head>
+<body onload="compute()">
+
+<p id="banner"><a href="../index.htm"><img src="../banner.png" alt="" /></a></p>
+
+<div id="results" style="width: 50%; float: right; border: 1px dashed #FFF; margin-left: 10px; margin-bottom: 10px; background: #101;"></div>
+
+<h2>Native optimizer Instructions</h2>
+
+<p>This program will provide detailed specifications on the optimal number of clans, structures, and taxes, based on data inputted.</p>
+
+<table style="margin-left: 12.5%;">
+<caption>Script settings</caption>
+<tr>
+<th>Native clans</th>
+<td class="numeric"><input type="number" class="text" id="clans" size="5" onchange="compute()" onblur="compute()" value="75000" min="0" /></td>
+</tr>
+<tr>
+<th>Tax rate</th>
+<td class="numeric"><input type="number" class="text" id="tax" size="5" onchange="compute()" onblur="compute()" value="0" min="0" max="100" /></td>
+</tr>
+<tr>
+<th>Native government</th>
+<td><select class="text" id="gov" onchange="compute()">
+<option style="display: none;">Communism</option>
+<option>Anarchy</option>
+<option>Pre-Tribal</option>
+<option>Early Tribal</option>
+<option>Tribal</option>
+<option selected="selected">Feudal</option>
+<option>Monarchy</option>
+<option>Representative</option>
+<option>Participatory</option>
+<option>Unity</option>
+</select></td>
+</tr>
+<tr>
+<th>Planetary mines</th>
+<td class="numeric"><input type="number" class="text" id="mines" size="5" onchange="compute()" onblur="compute()" value="0" min="0" max="999" /></td>
+</tr>
+<tr>
+<th>Factories</th>
+<td class="numeric"><input type="number" class="text" id="fact" size="5" onchange="compute()" onblur="compute()" value="100" min="0" max="999" /></td>
+</tr>
+<tr>
+<th>Native Happy Bonuses</th>
+<td><label>Avian <input type="checkbox" id="avian" oninput="compute()" onblur="compute()" /></label>
+<label>Nebula <input type="checkbox" id="nebula" oninput="compute()" onblur="compute()" /></label></td>
+</tr>
+</table>
+
+</body>
+</html>
