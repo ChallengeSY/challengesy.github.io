@@ -16,10 +16,10 @@ function compute() {
 	var maxTaxes = getMaximumTaxes();
 
 	output = "Assuming other variables are stable...<ul>\
-		<li>The optimal native count to keep happy +1 is "+getOptimalClans(1)+" clans</li>\
-		<li>(To avoid happy -1 is "+getOptimalClans(0)+" clans)</li>\
-		<li>The maximum structure count to keep happy +1 is "+getMaximumBldgs(1)+" mines and factories</li>\
-		<li>(To avoid happy -1 is "+getMaximumBldgs(0)+" buildings)</li><li>";
+		<li>The optimal native count to keep happy +1 is "+getOptimalClans(1)+" clans\
+		<br />(To avoid happy -1 is "+getOptimalClans(0)+" clans)</li>\
+		<li>The maximum structure count to keep happy +1 is "+getMaximumBldgs(1)+" mines and factories\
+		<br />(To avoid happy -1 is "+getMaximumBldgs(0)+" buildings)</li><li>";
 	
 	if (maxTaxes >= 0) {
 		output = output + "The maximum tax to avoid happy -1 is "+maxTaxes+"%";
