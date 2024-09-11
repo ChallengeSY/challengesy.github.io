@@ -12,5 +12,5 @@
 		<label posn="-102 -25" sizen="204 5" autonewline="1" z-index="2" text="- To capture a goal post, a gold nugget needs to collected from one of the dispensers. Captures are instant once the requirements are met. Once captured, linked spawn points are no longer usable by the Infested, and linked gates (if any) will be opened." />
 		<label posn="-102 -45" sizen="204 5" autonewline="1" z-index="2" text="- Cleansing Team wins the match if they can capture all goal posts." />
 		<label posn="-102 -55" sizen="204 5" autonewline="1" z-index="2" text="- Infested Team wins the match if Cleansing Team is wiped out, or if time expires." />
-	<label posn="0 -67.5" z-index="2" halign="center" style="CardButtonMediumXL" text="Finish Manialink" action="quit" />
+	<label posn="0 -67.5" z-index="2" halign="center" style="CardButtonMediumXL" text="Return" manialink="./title.xml" />
 </manialink>
