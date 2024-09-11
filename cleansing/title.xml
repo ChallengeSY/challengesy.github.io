@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<manialink version="3">
+	<quad posn="0 0" z-index="0" sizen="320.1 180.1" halign="center" valign="center" bgcolor="600040FF" />
+	<quad posn="0 -1" z-index="1" sizen="240 110" style="Bgs1" substyle="BgWindow" halign="center" valign="center" />
+	<quad posn="0 53" z-index="2" sizen="192 10" style="Bgs1" substyle="BgWindow2" halign="center" />
+		<label posn="0 50" z-index="3" halign="center" text="$w$0f0File Details for $0ffProject Cleansing" />
+		<label posn="-100 32.5" z-index="2" text="File Type: Co-op Title Pack" />
+		<label posn="-100 40" z-index="2" text="Environment: Shootmania Storm" />
+		<label posn="-100 25" z-index="2" text="Highest Complexity: Heavy (10418c)" />
+		<label posn="-100 17.5" z-index="2" text="First Release: July 15, 2018" />
+		<quad posn="60 15" halign="center" valign="center" z-index="2" sizen="80 50" image="./smcleansing.jpg" />
+		<label posn="0 -47.5" z-index="2" halign="center" text="Download Title Pack" style="CardButtonMediumXL" url="cleansing-dl" />
+		<gauge posn="-20 -20" z-index="2" sizen="80 10" halign="right" ratio="0.5" grading="0.1" color="0000FFFF" />
+		<quad posn="-17.5 -20" z-index="2" sizen="10 10" bgcolor="FFFA" style="Icons128x128_1" substyle="Medium" />
+</manialink>
