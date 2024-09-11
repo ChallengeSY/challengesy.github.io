@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<manialink version="3">
+	<quad posn="0 0" z-index="0" sizen="320.1 180.1" halign="center" valign="center" bgcolor="600040FF" />
+	<quad posn="0 -1" z-index="1" sizen="240 125" style="Bgs1" substyle="BgWindow" halign="center" valign="center" />
+	<quad posn="0 60.5" z-index="2" sizen="192 10" style="Bgs1" substyle="BgWindow2" halign="center" />
+		<label posn="0 57.5" z-index="3" halign="center" text="$w$0f0How to play $0ffCleansing" />
+		<label posn="0 47.5" sizen="204 5" z-index="2" halign="center" text="The rules of Cleansing are not so simple." />
+		<label posn="-102 40" sizen="204 5" autonewline="1" z-index="2" text="- The game is divided into two teams. The Cleansing Team is comprised of human players and allied bots, while the Infested Team is controlled exclusively by the environment." />
+		<label posn="-102 25" sizen="204 5" autonewline="1" z-index="2" text="- The Infested Team is comprised of Cyborgs, durable bosses that are resistant to off-zone and water; and Toads, numerous small foes that spawn indefinitely, but are eliminated in one hit." />
+		<label posn="-102 10" sizen="204 5" autonewline="1" z-index="2" text="- At the beginning of each match, the Cleansing Team is given a variable quantity of time and revives, depending on the difficulty and initial team size." />
+		<label posn="-102 -5" sizen="204 5" autonewline="1" z-index="2" text="- When the match starts, Cleansing members start at their home spawn, Infested cyborgs start at each defender spawn, and the toads start spreading from their spawn points (usually monolyths)." />
+		<label posn="-102 -25" sizen="204 5" autonewline="1" z-index="2" text="- To capture a goal post, a gold nugget needs to collected from one of the dispensers. Captures are instant once the requirements are met. Once captured, linked spawn points are no longer usable by the Infested, and linked gates (if any) will be opened." />
+		<label posn="-102 -45" sizen="204 5" autonewline="1" z-index="2" text="- Cleansing Team wins the match if they can capture all goal posts." />
+		<label posn="-102 -55" sizen="204 5" autonewline="1" z-index="2" text="- Infested Team wins the match if Cleansing Team is wiped out, or if time expires." />
+	<label posn="0 -67.5" z-index="2" halign="center" style="CardButtonMediumXL" text="Finish Manialink" action="quit" />
+</manialink>

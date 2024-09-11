@@ -9,7 +9,9 @@
 		<label posn="-100 25" z-index="2" text="Highest Complexity: Heavy (10418c)" />
 		<label posn="-100 17.5" z-index="2" text="First Release: July 15, 2018" />
 		<quad posn="60 15" halign="center" valign="center" z-index="2" sizen="80 50" image="./smcleansing.jpg" />
+		<label posn="0 -40" z-index="2" halign="center" text="How to Play" style="CardButtonMediumXL" manialink="./howtoplay.xml" />
 		<label posn="0 -47.5" z-index="2" halign="center" text="Download Title Pack" style="CardButtonMediumXL" manialink="cleansing-dl" />
 		<gauge posn="-20 -20" z-index="2" sizen="80 10" halign="right" ratio="0.5" grading="0.1" color="0000FFFF" />
 		<quad posn="-17.5 -20" z-index="2" sizen="10 10" bgcolor="FFFA" style="Icons128x128_1" substyle="Medium" />
+	<label posn="0 -67.5" z-index="2" halign="center" style="CardButtonMediumXL" text="Finish Manialink" action="quit" />
 </manialink>
