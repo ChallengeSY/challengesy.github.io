@@ -679,7 +679,7 @@ function shipDesign(namee,tlevel,mass,engines,crew,beams,tubes,bays,fuel,cargo,d
 		} else {
 			grandDesc = "Tech "+this.techLevel+" ship with "+this.mass+" kT hull mass, ";
 			if (this.engines < 1) {
-				grandDesc = grandDesc + shipAbility("No engines");
+				grandDesc = grandDesc + "<a href=\"javascript:dispInfo('No engines')>no engines</a>";
 			} else if (this.engines == 1) {
 				grandDesc = grandDesc + this.engines+" engine";
 			} else {
