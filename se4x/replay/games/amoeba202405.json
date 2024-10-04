@@ -119,8 +119,7 @@
 			"location":"L5"
 		},{
 			"placeCounter":"CO2R",
-			"location":"L9",
-			"name":"COR"
+			"location":"L9"
 		},{
 			"placeCounter":"CO3R",
 			"location":"K5"
@@ -184,12 +183,10 @@
 			"location":"K5"
 		},{
 			"placeCounter":"CO4R",
-			"location":"L7",
-			"name":"COR"
+			"location":"L7"
 		},{
 			"placeCounter":"CO5R",
-			"location":"L7",
-			"name":"COR"
+			"location":"L7"
 		},{
 			"placeCounter":"Miner2R",
 			"location":"L7"
@@ -346,20 +343,16 @@
 			"location":"J12"
 		},{
 			"placeCounter":"CO1R",
-			"location":"J4",
-			"name":"COR"
+			"location":"J4"
 		},{
 			"placeCounter":"CO3R",
-			"location":"I6",
-			"name":"COR"
+			"location":"I6"
 		},{
 			"placeCounter":"CO4R",
-			"location":"J7",
-			"name":"COR"
+			"location":"J7"
 		},{
 			"placeCounter":"CO5R",
-			"location":"K9",
-			"name":"COR"
+			"location":"K9"
 		},{
 			"placeCounter":"Miner1R",
 			"location":"L7"
@@ -617,6 +610,12 @@
 		},{
 			"removeCounter":"SW2R"
 		},{
+			"removeCounter":"SY2R"
+		},{
+			"removeCounter":"SY3R"
+		},{
+			"removeCounter":"SY4R"
+		},{
 			"revealCounter":"systemJ7",
 			"name":"colony1"
 		},{
@@ -872,9 +871,9 @@
 		},{
 			"removeCounter":"SW3R"
 		},{
-			"placeCounter":"SW4R"
+			"removeCounter":"SW4R"
 		},{
-			"placeCounter":"SW5R"
+			"removeCounter":"SW5R"
 		},{
 			"revealCounter":"systemJ7",
 			"name":"colony3"
@@ -1151,16 +1150,13 @@
 			"location":"I6"
 		},{
 			"placeCounter":"CO6R",
-			"location":"J4",
-			"name":"COR"
+			"location":"J4"
 		},{
 			"placeCounter":"CO7R",
-			"location":"I6",
-			"name":"COR"
+			"location":"I6"
 		},{
 			"placeCounter":"CO8R",
-			"location":"K9",
-			"name":"COR"
+			"location":"K9"
 		},{
 			"placeCounter":"CA1R",
 			"size":2,
@@ -1182,7 +1178,7 @@
 	"commentary":"<p>Pressed for time, we attempt to wrap up our science efforts as quickly as we can.</p><ul><li>Ymir's minesweepers rolled 1,5 (3 RP / 0 losses)</li><li>Tethys' minesweepers have rolled 1,3,3,3,10 (5 RP / 1 loss)</li><li>Isonoe's first minesweeper rolls a <b>1</b> (2 RP)</li></ul><p>It is because we now have enough RP on Ymir that we roll to determine its strength. We rolled a 9. This amoeba is unable to be battled, and is vulnerable only to internal detonations.</p>",
 	"amoebaTable":
 		[{
-			"name":"Ymir (1)","RP":11,"strength":9
+			"name":"Ymir (1)","RP":11,"str":9
 		},{
 			"name":"Tethys (2)","RP":9
 		},{
@@ -1247,9 +1243,9 @@
 	"commentary":"<p>Now that Ymir is all done, we will attempt to detonate a Scout that is already adjacent to Ymir. If successful (&le;4), it will eliminate Ymir, and spare us the need to detonate our Cruisers.</p><ul><li>Ymir's scout rolled a 7 (failure)</li><li>Tethys' minesweepers have rolled 2,3,5,10 (4 RP / 1 loss)</li><li>Isonoe's first minesweeper rolls a 9 (destroyed)</li></ul><p>Tethys now has enough RP to have its strength known. We rolled a 7. This amoeba is an A7-2-2, and also being weak to <q>ship variety</q>.</p>",
 	"amoebaTable":
 		[{
-			"name":"Ymir (1)","RP":11,"strength":9
+			"name":"Ymir (1)","RP":11,"str":9
 		},{
-			"name":"Tethys (2)","RP":13,"strength":7
+			"name":"Tethys (2)","RP":13,"str":7
 		},{
 			"name":"Isonoe (3)","RP":3
 		}],
@@ -1305,9 +1301,9 @@
 	"commentary":"<p>That failure was regrettable; we could have stopped Ymir dead before it can even spread. At least Isonoe now has a fresh set of 4 minesweepers, so we will roll once more: 4,5,6,10 (2 RP / 1 loss)</p>",
 	"amoebaTable":
 		[{
-			"name":"Ymir (1)","RP":11,"strength":9
+			"name":"Ymir (1)","RP":11,"str":9
 		},{
-			"name":"Tethys (2)","RP":13,"strength":7
+			"name":"Tethys (2)","RP":13,"str":7
 		},{
 			"name":"Isonoe (3)","RP":5
 		}],
@@ -1346,16 +1342,13 @@
 			"location":"F7"
 		},{
 			"placeCounter":"CO6R",
-			"location":"I5",
-			"name":"COR"
+			"location":"I5"
 		},{
 			"placeCounter":"CO7R",
-			"location":"H6",
-			"name":"COR"
+			"location":"H6"
 		},{
 			"placeCounter":"CO8R",
-			"location":"J8",
-			"name":"COR"
+			"location":"J8"
 		},{
 			"placeCounter":"CA1R",
 			"location":"L4"
@@ -1476,9 +1469,9 @@
 	"commentary":"<p>It is a shame Random Factor was not in our favor last economic phase concerning Ymir. Our 3 surviving minesweepers continue to conduct their science, rolling 2,3,6 in the process (3 RP / 0 losses).</p>",
 	"amoebaTable":
 		[{
-			"name":"Ymir (1)","RP":11,"strength":9
+			"name":"Ymir (1)","RP":11,"str":9
 		},{
-			"name":"Tethys (2)","RP":13,"strength":7
+			"name":"Tethys (2)","RP":13,"str":7
 		},{
 			"name":"Isonoe (3)","RP":8
 		}],
@@ -1544,11 +1537,11 @@
 	"commentary":"<p>Our 3 minesweepers continue to research Isonoe still, rolling 2,5,10 (3 RP / 1 loss). We can now identify Isonoe, having rolled a 2 to learn its strength (D6-2-2).</p><p>Meanwhile, our Cruisers are now ready to detonate themselves inside Ymir. One will do so now. Cruisers are able to destroy a sensitive amoeba this way without fail. (We skipped Destroyers, because even they still have a fairly small chance of failure.)</p>",
 	"amoebaTable":
 		[{
-			"name":"Ymir (1)","RP":11,"strength":9
+			"name":"Ymir (1)","RP":11,"str":9
 		},{
-			"name":"Tethys (2)","RP":13,"strength":7
+			"name":"Tethys (2)","RP":13,"str":7
 		},{
-			"name":"Isonoe (3)","RP":11,"strength":2
+			"name":"Isonoe (3)","RP":11,"str":2
 		}],
 	"actions":
 		[{
@@ -1714,11 +1707,11 @@
 		}],
 	"amoebaTable":
 		[{
-			"name":"Ymir (1)","RP":11,"strength":9,"isDead":true
+			"name":"Ymir (1)","RP":11,"str":9,"isDead":true
 		},{
-			"name":"Tethys (2)","RP":13,"strength":7,"mineImmune":true
+			"name":"Tethys (2)","RP":13,"str":7,"noMines":true
 		},{
-			"name":"Isonoe (3)","RP":11,"strength":2,"mineImmune":true
+			"name":"Isonoe (3)","RP":11,"str":2,"noMines":true
 		}],
 	"actions":
 		[{
@@ -1964,11 +1957,11 @@
 		}],
 	"amoebaTable":
 		[{
-			"name":"Ymir (1)","RP":11,"strength":9,"isDead":true
+			"name":"Ymir (1)","RP":11,"str":9,"isDead":true
 		},{
-			"name":"Tethys (2)","RP":13,"strength":7,"mineImmune":true
+			"name":"Tethys (2)","RP":13,"str":7,"noMines":true
 		},{
-			"name":"Isonoe (3)","RP":11,"strength":2,"mineImmune":true
+			"name":"Isonoe (3)","RP":11,"str":2,"noMines":true
 		}],
 	"actions":
 		[{
@@ -2188,11 +2181,11 @@
 		}],
 	"amoebaTable":
 		[{
-			"name":"Ymir (1)","RP":11,"strength":9,"isDead":true
+			"name":"Ymir (1)","RP":11,"str":9,"isDead":true
 		},{
-			"name":"Tethys (2)","RP":13,"strength":7,"mineImmune":true,"isDead":true
+			"name":"Tethys (2)","RP":13,"str":7,"noMines":true,"isDead":true
 		},{
-			"name":"Isonoe (3)","RP":11,"strength":2,"mineImmune":true
+			"name":"Isonoe (3)","RP":11,"str":2,"noMines":true
 		}],
 	"actions":
 		[{
@@ -2361,11 +2354,11 @@
 		}],
 	"amoebaTable":
 		[{
-			"name":"Ymir (1)","RP":11,"strength":9,"isDead":true
+			"name":"Ymir (1)","RP":11,"str":9,"isDead":true
 		},{
-			"name":"Tethys (2)","RP":13,"strength":7,"mineImmune":true,"isDead":true
+			"name":"Tethys (2)","RP":13,"str":7,"noMines":true,"isDead":true
 		},{
-			"name":"Isonoe (3)","RP":11,"strength":2,"mineImmune":true,"isDead":true
+			"name":"Isonoe (3)","RP":11,"str":2,"noMines":true,"isDead":true
 		}],
 	"actions":
 		[{

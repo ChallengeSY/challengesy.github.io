@@ -135,16 +135,13 @@
 			"removeCounter":"SC5R"
 		},{
 			"placeCounter":"CO1R",
-			"location":"L6",
-			"name":"COR"
+			"location":"L6"
 		},{
 			"placeCounter":"CO2R",
-			"location":"K8",
-			"name":"COR"
+			"location":"K8"
 		},{
 			"placeCounter":"CO3R",
-			"location":"K7",
-			"name":"COR"
+			"location":"K7"
 		},{
 			"removeCounter":"CO4R"
 		},{
@@ -224,8 +221,7 @@
 			"removeCounter":"CO3R"
 		},{
 			"placeCounter":"CO4R",
-			"location":"L7",
-			"name":"COR"
+			"location":"L7"
 		},{
 			"placeCounter":"Miner1R",
 			"location":"K8"
@@ -497,20 +493,16 @@
 			"location":"I7"
 		},{
 			"placeCounter":"CO5R",
-			"location":"L7",
-			"name":"COR"
+			"location":"L7"
 		},{
 			"placeCounter":"CO6R",
-			"location":"L7",
-			"name":"COR"
+			"location":"L7"
 		},{
 			"placeCounter":"CO7R",
-			"location":"L7",
-			"name":"COR"
+			"location":"L7"
 		},{
 			"placeCounter":"CO8R",
-			"location":"L7",
-			"name":"COR"
+			"location":"L7"
 		},{
 			"placeCounter":"Miner1R",
 			"location":"K9"
@@ -810,24 +802,19 @@
 			"removeCounter":"CA1R"
 		},{
 			"placeCounter":"CO4R",
-			"location":"H7",
-			"name":"COR"
+			"location":"H7"
 		},{
 			"placeCounter":"CO5R",
-			"location":"I6",
-			"name":"COR"
+			"location":"I6"
 		},{
 			"placeCounter":"CO6R",
-			"location":"I7",
-			"name":"COR"
+			"location":"I7"
 		},{
 			"placeCounter":"CO7R",
-			"location":"I8",
-			"name":"COR"
+			"location":"I8"
 		},{
 			"placeCounter":"CO8R",
-			"location":"J9",
-			"name":"COR"
+			"location":"J9"
 		},{
 			"removeCounter":"CO9R"
 		},{
@@ -951,8 +938,7 @@
 			"removeCounter":"CO8R"
 		},{
 			"placeCounter":"CO9R",
-			"location":"L7",
-			"name":"COR"
+			"location":"L7"
 		},{
 			"placeCounter":"MS1R",
 			"location":"L7",
@@ -1128,8 +1114,7 @@
 			"location":"H7"
 		},{
 			"placeCounter":"CO9R",
-			"location":"K6",
-			"name":"COR"
+			"location":"K6"
 		},{
 			"placeCounter":"Miner1R",
 			"location":"J7"

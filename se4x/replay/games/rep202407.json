@@ -24,7 +24,7 @@
 			"extraHexAway":true
 		}]},
 	{"heading":"Stardate 2400.3 (Turn 1)",
-	"commentary":"<p>Though it will not be obvious at first, the Replicator environment has initiative by default in Replicator Solitaire; unless we bid 15 CP in an economic phase. In some fashions, the Replicators are simpler to play than a regular empire; they use their hulls in place of Colony Ships to colonize planets. (Minerals and Space Wrecks are instead cashed in instantly.)</p>",
+	"commentary":"<p>Though it will not be obvious at first, the Replicator environment has initiative by default in Replicator Solitaire; unless we bid 15 CP in an economic phase.</p>",
 	"actions":
 		[{
 			"placeCounter":"type0V1",
@@ -267,12 +267,10 @@
 			"location":"C7"
 		},{
 			"placeCounter":"CO1Y",
-			"location":"B4",
-			"name":"COY"
+			"location":"B4"
 		},{
 			"placeCounter":"CO2Y",
-			"location":"B5",
-			"name":"COY"
+			"location":"B5"
 		},{
 			"placeCounter":"CO3Y",
 			"location":"B5"
@@ -650,12 +648,10 @@
 			"location":"C8"
 		},{
 			"placeCounter":"CO3Y",
-			"location":"B2",
-			"name":"COY"
+			"location":"B2"
 		},{
 			"placeCounter":"CO4Y",
-			"location":"C4",
-			"name":"COY"
+			"location":"C4"
 		},{
 			"revealCounter":"MS3Y",
 			"name":"MSaY"
@@ -1004,8 +1000,7 @@
 			"location":"E6"
 		},{
 			"placeCounter":"CO5Y",
-			"location":"C8",
-			"name":"COY"
+			"location":"C8"
 		},{
 			"placeCounter":"Miner1Y",
 			"location":"B9"
@@ -1127,16 +1122,13 @@
 			"removeCounter":"CO5Y"
 		},{
 			"placeCounter":"CO6Y",
-			"location":"B6",
-			"name":"COY"
+			"location":"B6"
 		},{
 			"placeCounter":"CO7Y",
-			"location":"B6",
-			"name":"COY"
+			"location":"B6"
 		},{
 			"placeCounter":"CO8Y",
-			"location":"B6",
-			"name":"COY"
+			"location":"B6"
 		},{
 			"placeCounter":"Miner1Y",
 			"location":"B9"
@@ -1344,8 +1336,7 @@
 			"location":"H7"
 		},{
 			"placeCounter":"CO6Y",
-			"location":"D4",
-			"name":"COY"
+			"location":"D4"
 		},{
 			"placeCounter":"CO7Y",
 			"location":"C2"
@@ -1626,12 +1617,10 @@
 			"location":"F7"
 		},{
 			"placeCounter":"CO7Y",
-			"location":"D1",
-			"name":"COY"
+			"location":"D1"
 		},{
 			"placeCounter":"CO8Y",
-			"location":"C1",
-			"name":"COY"
+			"location":"C1"
 		},{
 			"placeCounter":"Miner1Y",
 			"location":"E6"
@@ -1681,7 +1670,7 @@
 			"removeCounter":"SY2Y"
 		}]},
 	{"heading":"Stardate 2405.0",
-	"commentary":"<p>Since they have successfully finished their home system mission, their rewards are free Exploration technology, and 3 Type Exp ships. Any full strength colonies that did not already produce a Type Exp have produced another hull. Their economy is exceptionally productive, but they are more than halfway to their first depletion.</p><p>On the CP step, they can afford an extra homeworld hull (-8), but not an extra RP or an extra Movement level. They roll a 3 (buy hull &le;4). Afterwards, they prepare two fleets, one of which will follow one of their Type Exp ships, the other will attempt to pressure the flank that has already been opened.</p><p>Our own economics have gotten a little interesting; thanks to our mature colonies, we can place one free Light Infantry on any mature colony. We will then buy another 3 Cruisers (-36) at our homeworld, followed by a forward Ship Yard at sector D4.</p>",
+	"commentary":"<p>Since they have successfully finished their home system mission, their rewards are free Exploration technology, and 3 Type Exp ships. Any full strength colonies that did not already produce a Type Exp have produced another hull. Their economy is exceptionally productive, but they are halfway to their first depletion.</p><p>On the CP step, they can afford an extra homeworld hull (-8), but not an extra RP or an extra Movement level. They roll a 3 (buy hull &le;4). Afterwards, they prepare two fleets, one of which will follow one of their Type Exp ships, the other will attempt to pressure the flank that has already been opened.</p><p>Our own economics have gotten a little interesting; thanks to our mature colonies, we can place one free Light Infantry on any mature colony. We will then buy another 3 Cruisers (-36) at our homeworld, followed by a forward Ship Yard at sector D4.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Yellow)","initCP":10,"colonyCP":54,"mineralCP":0,"pipeCP":2,"maint":10,"bidCP":0,"techBuy":0,"unitBuy":42
@@ -2270,8 +2259,7 @@
 			"location":"D1"
 		},{
 			"placeCounter":"CO9Y",
-			"location":"D4",
-			"name":"COY"
+			"location":"D4"
 		},{
 			"placeCounter":"MS4Y",
 			"location":"D4",
@@ -2646,8 +2634,7 @@
 			"removeCounter":"CA3Y"
 		},{
 			"placeCounter":"CO9Y",
-			"location":"D2",
-			"name":"COY"
+			"location":"D2"
 		},{
 			"placeCounter":"MS4Y",
 			"location":"C1",

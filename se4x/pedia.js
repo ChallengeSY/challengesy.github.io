@@ -61,7 +61,7 @@ function dmBase(strength) {
 		return "<b>Doomsday Machine (Strength "+strength+")</b><br />"+dmCommonA+dmCommonB+" <span class=\"bindTxt\">May have a "+conceptLink("weakness")+".</span>";
 	}
 	
-	return "<b>Doomsday Machine</b><br />"+dmCommonA+"<br /><br />As a scenario, the objective is for the human player(s) to defend their "+conceptLink("homeworld")+"(s) and (if present) "+conceptLink("galactic capitol")+" against 3 DMs (sometimes more), each usually stronger than the previous.";
+	return "<b>Doomsday Machine</b><br />"+dmCommonA+"<br /><br />As a scenario, the objective is for the human player(s) to defend their "+conceptLink("homeworld")+"(s) and (if present) "+conceptLink("galactic capitol")+" against 3 DMs (more in a co-op scenario), each usually stronger than the previous.";
 }
 
 function amoebaBase(strength) {
@@ -72,7 +72,9 @@ function amoebaBase(strength) {
 			Automatically destroys <b>all</b> ships (except "+conceptLink("Minesweeper")+"s and "+conceptLink("Minelayer")+"s), until fully researched.";
 	} else if (parseInt(strength) > 7) {
 		return "<b>Space Amoeba (Strength "+strength+")</b><br />"+amoebaCommon+"<br />\
-			Vulnerable only from inside detonations.";
+			Vulnerable only from inside detonations.<br /><br />\
+			Detonating "+conceptLink("Scout")+"s cleanse the hex on a &le;4. "+conceptLink("Destroyer")+"s on a &le;8. \
+			"+conceptLink("Cruiser")+"s through "+conceptLink("Titan")+"s cleanse the hex without fail.";
 	} else if (strength) {
 		return "<b>Space Amoeba (Strength "+strength+")</b><br />"+amoebaCommon+"<br />\
 			Immune to "+conceptLink("Cloaking")+" and "+conceptLink("Fighter")+"s unless specified otherwise.\
@@ -80,12 +82,13 @@ function amoebaBase(strength) {
 			Successful hits "+conceptLink("swallow")+" the victim whole.";
 	}
 	
-	return "<b>Space Amoeba</b><br />"+amoebaCommon+"<br /><br />As a solo scenario, researching and eliminating them are the primary objective before the "+conceptLink("homeworld")+" is consumed.<br />Also available in competitive scenarios as an obstacle.";
+	return "<b>Space Amoeba</b><br />"+amoebaCommon+"<br /><br />As a solo scenario, researching and eliminating them are the "+conceptLink("primary objective")+" before the "+conceptLink("homeworld")+" is consumed.<br />Also available in competitive scenarios as an obstacle.";
 }
 
 function showBox(concept) {
 	var infoPanel = document.getElementById("infobox");
 	var displayTxt = "";
+	var provideSimLinks = false;
 	
 	switch (concept.toLowerCase()) {
 		// Base Concepts
@@ -124,7 +127,7 @@ function showBox(concept) {
 			break;
 		case "competitive":
 			displayTxt = "<b>Competitive scenario</b><br />A scenario that pits two or more human players against each other. Can be a Free For All, or a Team Game.<br /><br />\
-				Unless overridden by the scenario and/or variant(s), the first player to destroy a hostile "+conceptLink("homeworld")+" is the winner.";
+				The default "+conceptLink("primary objective")+" is to be the first player to destroy a hostile "+conceptLink("homeworld")+".";
 			break;
 		case "cp":
 			displayTxt = "<b>Construction Points</b><br />Monetary currency. Earned by developing "+conceptLink("colonies")+", towing "+conceptLink("minerals")+", and connecting "+conceptLink("pipeline")+"s. Used to buy "+conceptLink("technology")+" and build ships.";
@@ -168,6 +171,9 @@ function showBox(concept) {
 		case "non-player alien":
 			displayTxt = "<b>Non-Player Alien</b><br />Non-aligned faction that can guard their local "+conceptLink("barren planet")+". \
 				If any ships are found, they must be defeated before the planet can be "+conceptLink("subdue")+"d.";
+			break;
+		case "primary objective":
+			displayTxt = "<b>Primary Objective</b><br />A scenario objective that must be completed in order to achieve victory.";
 			break;
 		case "retreat":
 			displayTxt = "<b>Retreat</b><br />After the first "+conceptLink("battle")+" round, a mobile "+conceptLink("combat ship")+" may choose to retreat instead of fire upon an enemy ship.<br />\
@@ -247,7 +253,7 @@ function showBox(concept) {
 		case "minesweeping":
 			displayTxt = "<b>Minesweeping Technology</b><br />Allows building "+conceptLink("minesweeper")+"s. "+conceptLink("Tech")+" levels 2/3 improves the number of mines swept per ship.\
 				<br />"+conceptLink("Alien Player")+" "+conceptLink("Scout")+"s also benefit from this technology.\
-				<br /><br />Also doubles as Science Technology in scenarios involving "+conceptLink("space amoeba")+".";
+				<br /><br />Also doubles as Science Technology versus "+conceptLink("space amoeba")+". Level 2 allows each vessel to roll 2 dice, keeping the best result.";
 			break;
 		case "point-defense":
 			displayTxt = "<b>Point-Defense Technology</b><br />"+conceptLink("Scout")+"s equipped with this "+conceptLink("technology")+" gain an improved "+conceptLink("Attack")+" rating versus "+conceptLink("Fighter")+"s." +
@@ -326,7 +332,7 @@ function showBox(concept) {
 				It must also be kept alive. Otherwise, the <q>environment</q> wins the scenario.";
 			break;
 		case "homeworld":
-			displayTxt = "<b>Homeworld</b><br />Starting "+conceptLink("colony")+" for an empire. It is the most powerful <span class=\"bindTxt\">(produces up to 30 "+conceptLink("CP")+")</span> and most important colony <span class=\"bindTxt\">(destruction ends a game)</span>.";
+			displayTxt = "<b>Homeworld</b><br />Starting "+conceptLink("colony")+" for an empire; being the most powerful <span class=\"bindTxt\">(produces &le;30 "+conceptLink("CP")+")</span> and most important colony <span class=\"bindTxt\">(usually a "+conceptLink("primary objective")+")</span>.";
 			break;
 		case "home system":
 			displayTxt = "<b>Home System</b><br />A set of hexes that surround a "+conceptLink("homeworld")+". These systems are relatively safe, \
@@ -454,7 +460,9 @@ function showBox(concept) {
 		case "minelayer":
 			// Fall through
 		case "mines":
-			displayTxt = "<b>Mines</b><br />Small craft that detonates upon contact with enemy ships, destroying them instantly unless "+conceptLink("sw")+"ept<br />Limited to 1 hex per "+conceptLink("movement turn")+", and may not enter enemy occupied hexes";
+			displayTxt = "<b>Mines</b><br />Small craft that detonates upon contact with enemy ships, destroying them instantly unless "+conceptLink("sw")+"ept.\
+				<br />Also inhibits spreading of "+conceptLink("space amoeba")+" for one "+conceptLink("economic phase")+", though immunity can be acquired.\
+				<br />Limited to 1 hex per "+conceptLink("movement turn")+"; and may not enter enemy occupied hexes, except versus amoeba";
 			displayTxt = displayTxt + stats(5, 1, 0, 0) + "<br /><b>Required Tech</b>: "+conceptLink("Minelaying");
 			break;
 		case "pipeline":
@@ -602,7 +610,7 @@ function showBox(concept) {
 			displayTxt =  "<b>Alien Player</b><br />Hostile empire that generates "+conceptLink("CP")+" from \
 				1 or more unique "+conceptLink("economic roll")+"s per "+conceptLink("economic phase")+".<br />\
 				Available when playing an "+conceptLink("Alien Empires")+" scenario. \
-				Starts with "+conceptLink("Minelaying")+" / "+conceptLink("Nanomachine")+" / "+conceptLink("Troops")+" 1 tech, \
+				Starts with "+conceptLink("Minelaying")+" / "+conceptLink("Nanomachine")+" tech, \
 				and with a single "+conceptLink("base")+".<br /><br />\
 				In "+conceptLink("Victory Point")+" variants, also starts with "+conceptLink("Terraforming")+" 1 and "+conceptLink("Exploration")+" 1.";
 			break;
@@ -975,8 +983,8 @@ function showBox(concept) {
 				at the expense of being prohibited from "+conceptLink("retreat")+"ing until after round 3.";
 			break;
 		case "warrior race":
-			displayTxt = "<b>Warrior Race</b><br />"+conceptLink("Attack")+" +1 to non-"+conceptLink("boarding ship")+"s in each "+conceptLink("battle")+", \
-				where this empire is the attacker. Attack -1 for each battle where the defender.";
+			displayTxt = "<b>Warrior Race</b><br />"+conceptLink("Attack")+" +1 to non-boarding "+conceptLink("combat ship")+"s in each "+conceptLink("battle")+", \
+				where this empire is the attacker. Attack -1 for each battle as the defender.";
 			break;
 		case "celestial knights":
 			displayTxt = "<b>Celestial Knights</b><br />Once per space "+conceptLink("battle")+", at the start of any "+conceptLink("round")+" after the first; \
@@ -1231,8 +1239,9 @@ function showBox(concept) {
 			// Fall through
 		case "depletion":
 			displayTxt = "<b>Depletion</b><br />"+conceptLink("Replicator")+" "+conceptLink("colonies")+" grow quickly, but also quickly consume their resources.\
-				<br /><br />Starting on "+conceptLink("Economic Phase")+" 10 (assuming no "+conceptLink("Green Replicators")+"), \
-				one colony is depleted; rendering its "+conceptLink("planet")+" no longer usable by any player for the rest of the scenario.";
+				<br />Starting on "+conceptLink("Economic Phase")+" 10, one colony is depleted; \
+				rendering its "+conceptLink("planet")+" no longer usable by any player for the rest of the scenario.\
+				<br /><br />The "+conceptLink("homeworld")+" is immune to depletion, ensuring the Replicators are always able to produce hulls.";
 			break;
 		case "self-preservation":
 			displayTxt = "<b>Self-Preservation</b><br />In "+conceptLink("Replicator")+" Solitaire, Replicator fleets will try to avoid \
@@ -1314,6 +1323,11 @@ function showBox(concept) {
 			displayTxt = "<b>Retreat Threshold</b><br />At how many ships (or less) will the simulator cause all surviving mobile ships to "+conceptLink("retreat")+"?\
 				<br />Ships unable to damage the "+conceptLink("DM")+" will attempt to retreat regardless of this setting.";
 			break;
+		case "battle simulator":
+			displayTxt = "<b>Battle Simulator</b><br />Program that simulates "+conceptLink("battle")+"s using its internal dice rolling and targeting systems.<br />\
+				For now, all we have is a program versus "+conceptLink("Doomsday Machine")+"s.";
+			provideSimLinks = true;
+			break;
 		case "threat":
 			displayTxt = "<b>Threat</b><br />Numeric value that determines how threatening this ship group is to a "+conceptLink("Doomsday Machine")+". \
 				The highest threat gets focused down by the DM.<br /><br />\
@@ -1325,7 +1339,11 @@ function showBox(concept) {
 		
 	}
 	
-	displayTxt = displayTxt + "<br /><br /><a class=\"interact\" href=\"javascript:closeBox();\">Close</a>";
+	displayTxt = displayTxt + "<br /><br />";
+	if (provideSimLinks) {
+		displayTxt = displayTxt + "<a class=\"interact\" href=\"/se4x/dmBatSim.htm\" target=\"_blank\">Open Doomsday Machine program</a>";
+	}
+	displayTxt = displayTxt + "<a class=\"interact\" href=\"javascript:closeBox();\">Close</a>";
 	infoPanel.innerHTML = displayTxt;
 	infoPanel.style.display = "";
 }
@@ -1339,7 +1357,7 @@ function keywordifyDocument() {
 function keywordifyCollection(collObj) {
 	const keyTerms = ["Space Empires 4X", "Close Encounters", "Replicator", "All Good Things",
 		"Barren", "Colony", "Colonies", "Combat Ship", "CP", "Economic Phase", "Homeworld", "Hull Size", "Maintenance", "Planet", "Scuttle", "Turn",
-		"Bid", "Competitive", "Galactic Capitol", "Initiative", "Uneasy Alliance", "Victory Point", "VP", "Blood Brothers",
+		"Bid", "Competitive", "Galactic Capitol", "Initiative", "Primary Objective", "Uneasy Alliance", "Victory Point", "VP", "Blood Brothers",
 		"Battle", "Blockade", "Bombard", "Fleet Size Bonus", "Non-Player Alien", "NPA", "Subdue", "Priority Class", "Retreat", "Round", "Screen", "Weakness", "Weapon Class",
 		"Alien-D", "Alien-C", "Alien-B", "Doomsday Machine", "Amoeba",
 		"Alien Empires", "Alien Player", "Economic Roll", "Expansion Fleet", "Extermination Fleet", "Raider Fleet",
@@ -1354,7 +1372,7 @@ function keywordifyCollection(collObj) {
 		"Transport", "Troops", "Capture", "Militia", "Light Infantry", "Space Marines", "Heavy Infantry", "Grav Armor", "Drop Ships",
 		"Experience", "Facility", "Facilities", "RP", "Boarding", "Security Forces", "Military Academy", "Flagship", "Swallow",
 		"Advanced Construction",
-		"Empire Advantage", "Industrious Race",
+		"Empire Advantage", "Industrious Race", "Horsemen of the Plains", "Warrior Race",
 		"Advanced Comm Array", "Air Support", "Cold Fusion Drive", "Soylent Purple",
 		"Resource Card",
 		"Depletion", "Deplete", "Self-Preservation",
@@ -1368,6 +1386,8 @@ function keywordifyCollection(collObj) {
 		{regex: conceptLink("Battle")+conceptLink("cruiser"), newTxt: conceptLink("Battlecruiser")},
 		{regex: conceptLink("battle")+"ship", newTxt: conceptLink("battleship")},
 		{regex: conceptLink("Battle")+"ship", newTxt: conceptLink("Battleship")},
+		{regex: conceptLink("battle")+" simulator", newTxt: conceptLink("battle simulator")},
+		{regex: conceptLink("Battle")+" Simulator", newTxt: conceptLink("Battle Simulator")},
 		{regex: conceptLink("colony")+" ship", newTxt: conceptLink("colony ship")},
 		{regex: conceptLink("Colony")+" Ship", newTxt: conceptLink("Colony Ship")},
 		{regex: conceptLink("miner")+"als", newTxt: conceptLink("minerals")},
@@ -1412,7 +1432,13 @@ function keywordifyCollection(collObj) {
 		{regex: conceptLink("Type V")+"II", newTxt: conceptLink("Type VII")},
 		{regex: conceptLink("type v")+"ii", newTxt: conceptLink("type vii")},
 		{regex: conceptLink("Type XI")+"II", newTxt: conceptLink("Type XIII")},
-		{regex: conceptLink("type xi")+"ii", newTxt: conceptLink("type xiii")}
+		{regex: conceptLink("type xi")+"ii", newTxt: conceptLink("type xiii")},
+		{regex: "</a>ment", newTxt: "ment</a>"},
+		{regex: "</a>ing", newTxt: "ing</a>"},
+		{regex: "</a>s", newTxt: "s</a>"},
+		{regex: "</a>es", newTxt: "es</a>"},
+		{regex: "</a>ed", newTxt: "ed</a>"},
+		{regex: "</a>d", newTxt: "d</a>"}
 		];
 	
 	if (!replaceAllFailed) {

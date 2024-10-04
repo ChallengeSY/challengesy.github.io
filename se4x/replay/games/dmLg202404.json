@@ -111,12 +111,10 @@
 			"location":"J8"
 		},{
 			"placeCounter":"CO1G",
-			"location":"L5",
-			"name":"COG"
+			"location":"L5"
 		},{
 			"placeCounter":"CO2G",
-			"location":"L8",
-			"name":"COG"
+			"location":"L8"
 		},{
 			"placeCounter":"CO3G",
 			"location":"K8"
@@ -181,8 +179,7 @@
 			"location":"L7"
 		},{
 			"placeCounter":"CO4G",
-			"location":"L7",
-			"name":"COG"
+			"location":"L7"
 		},{
 			"placeCounter":"SC4G",
 			"location":"L7"
@@ -332,12 +329,10 @@
 			"location":"J6"
 		},{
 			"placeCounter":"CO4G",
-			"location":"J8",
-			"name":"COG"
+			"location":"J8"
 		},{
 			"placeCounter":"CO3G",
-			"location":"H7",
-			"name":"COG"
+			"location":"H7"
 		},{
 			"placeCounter":"Miner1G",
 			"location":"K5"
@@ -414,16 +409,13 @@
 			"location":"L8"
 		},{
 			"placeCounter":"CO5G",
-			"location":"L7",
-			"name":"COG"
+			"location":"L7"
 		},{
 			"placeCounter":"CO6G",
-			"location":"L7",
-			"name":"COG"
+			"location":"L7"
 		},{
 			"placeCounter":"CO7G",
-			"location":"L7",
-			"name":"COG"
+			"location":"L7"
 		},{
 			"revealCounter":"systemL5",
 			"name":"colony3"
@@ -608,16 +600,13 @@
 			"name":"minerals5"
 		},{
 			"placeCounter":"CO5G",
-			"location":"L4",
-			"name":"COG"
+			"location":"L4"
 		},{
 			"placeCounter":"CO6G",
-			"location":"K4",
-			"name":"COG"
+			"location":"K4"
 		},{
 			"placeCounter":"CO7G",
-			"location":"J6",
-			"name":"COG"
+			"location":"J6"
 		},{
 			"placeCounter":"systemG6",
 			"name":"danger"
@@ -680,8 +669,7 @@
 			"size":5
 		},{
 			"placeCounter":"CO8G",
-			"location":"L7",
-			"name":"COG"
+			"location":"L7"
 		},{
 			"revealCounter":"systemL5",
 			"name":"colony5G"
@@ -772,8 +760,7 @@
 			"name":"minerals5"
 		},{
 			"placeCounter":"CO8G",
-			"location":"K6",
-			"name":"COG"
+			"location":"K6"
 		},{
 			"resizeCounter":"SY1G",
 			"size":5
@@ -1208,7 +1195,7 @@
 			"location":"J9"
 		}]},
 	{"heading":"Stardate 2408.7 (The Battle for Sector J8)",
-	"commentary":"<p>Here goes nothing! The <a href=\"javascript:showBox('DM5')\">first</a> Doomsday Machine has arrived and is ready to cause havoc! But, before it can destroy its first planet, it needs to defeat our 10 Raiders! Thank goodness for our battle <a href=\"../dmBatSim.htm\">simulator</a>!</p><hr /><ol><li><b>Round 1</b>: Since this is the machine's first battle, it will roll for weakness. This machine rolled a 3 (weak to minelayer ammo)</li><li>Since only our Raiders are present (and with Hull Size 2) this battle, this makes rolling easy. The DM rolled 6,1,1,1,9 (4 hits &le;7), cleaning knocking out 2 of our Raiders</li><li>Our surviving 8 Raiders respond with 9,3,7,3,1,6,8,7 (3 hits &le;5)<br /><br /></li><li><b>Round 2</b>: The DM rolled 3,7,9,8,9 (2 hits)</li><li>Our surviving 7 Raiders respond with 6,5,5,2,9,5,5 (5 hits). We have finished them off!</li></ol>",
+	"commentary":"<p>Here goes nothing! The <a href=\"javascript:showBox('DM5')\">first</a> Doomsday Machine has arrived and is ready to cause havoc! But, before it can destroy its first planet, it needs to defeat our 10 Raiders! Thank goodness for our battle simulator!</p><hr /><ol><li><b>Round 1</b>: Since this is the machine's first battle, it will roll for weakness. This machine rolled a 3 (weak to minelayer ammo)</li><li>Since only our Raiders are present (and with Hull Size 2) this battle, this makes rolling easy. The DM rolled 6,1,1,1,9 (4 hits &le;7), cleaning knocking out 2 of our Raiders</li><li>Our surviving 8 Raiders respond with 9,3,7,3,1,6,8,7 (3 hits &le;5)<br /><br /></li><li><b>Round 2</b>: The DM rolled 3,7,9,8,9 (2 hits)</li><li>Our surviving 7 Raiders respond with 6,5,5,2,9,5,5 (5 hits). We have finished them off!</li></ol>",
 	"actions":
 		[{
 			"placeCounter":"R3G",

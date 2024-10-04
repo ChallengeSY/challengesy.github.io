@@ -108,12 +108,10 @@
 			"location":"L5"
 		},{
 			"placeCounter":"CO2Y",
-			"location":"L9",
-			"name":"COY"
+			"location":"L9"
 		},{
 			"placeCounter":"CO3Y",
-			"location":"L8",
-			"name":"COY"
+			"location":"L8"
 		},{
 			"placeCounter":"Miner1Y",
 			"location":"L7"
@@ -164,12 +162,10 @@
 			"removeCounter":"CO2Y"
 		},{
 			"placeCounter":"CO4Y",
-			"location":"L7",
-			"name":"COY"
+			"location":"L7"
 		},{
 			"placeCounter":"CO5Y",
-			"location":"L7",
-			"name":"COY"
+			"location":"L7"
 		},{
 			"placeCounter":"SC4Y",
 			"location":"L7"
@@ -355,8 +351,7 @@
 			"removeCounter":"CO6Y"
 		},{
 			"placeCounter":"CO4Y",
-			"location":"L4",
-			"name":"COY"
+			"location":"L4"
 		},{
 			"revealCounter":"systemL4",
 			"name":"planetY3"
@@ -385,8 +380,7 @@
 			"location":"L7"
 		},{
 			"placeCounter":"CO6Y",
-			"location":"L7",
-			"name":"COY"
+			"location":"L7"
 		},{
 			"removeCounter":"CO4Y"
 		},{
@@ -549,8 +543,7 @@
 			"location":"I7"
 		},{
 			"placeCounter":"CO6Y",
-			"location":"I7",
-			"name":"COY"
+			"location":"I7"
 		},{
 			"revealCounter":"systemH7",
 			"name":"planetY2"
@@ -567,12 +560,10 @@
 			"removeCounter":"CO8Y"
 		},{
 			"placeCounter":"CO5Y",
-			"location":"J8",
-			"name":"COY"
+			"location":"J8"
 		},{
 			"placeCounter":"CO1Y",
-			"location":"H6",
-			"name":"COY"
+			"location":"H6"
 		},{
 			"revealCounter":"systemL4",
 			"name":"colony1"
@@ -606,12 +597,10 @@
 			"removeCounter":"Miner2Yload"
 		},{
 			"placeCounter":"CO7Y",
-			"location":"L7",
-			"name":"COY"
+			"location":"L7"
 		},{
 			"placeCounter":"CO8Y",
-			"location":"L7",
-			"name":"COY"
+			"location":"L7"
 		},{
 			"revealCounter":"systemL4",
 			"name":"colony3"
@@ -942,12 +931,10 @@
 			"location":"K10"
 		},{
 			"placeCounter":"CO7Y",
-			"location":"H7",
-			"name":"COY"
+			"location":"H7"
 		},{
 			"placeCounter":"CO8Y",
-			"location":"H8",
-			"name":"COY"
+			"location":"H8"
 		},{
 			"placeCounter":"Miner1Y",
 			"location":"H6"

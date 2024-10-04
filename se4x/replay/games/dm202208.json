@@ -1,5 +1,6 @@
 {"stages": [
-	{"commentary":"<h2>Introduction</h2><p>Welcome to the oldest Space Empires 4X Doomsday Machine playthrough. This reconstructed playthrough showcases our <i>first</i> attempt at repelling the machines; e.g. how to <i>not</i> do a Doomsday Machine run. We opted to do this on Normal difficulty.</p><p>Fair warning; this playthrough was recorded before we fully understood the rules, and was also done in a single sitting late in an evening. There will be several mistakes made as a result of misunderstandings and/or fatigue. (In fact, even the game setup was screwed up! Go figure.)</p>",
+	{"heading":"Stardate 2400.0 (Introduction)",
+	"commentary":"<p>Welcome to the oldest Space Empires 4X Doomsday Machine playthrough. This reconstructed playthrough showcases our <i>first</i> attempt at repelling the machines; e.g. how to <i>not</i> do a Doomsday Machine run. We opted to do this on Normal difficulty.</p><p>Fair warning; this playthrough was recorded before we fully understood the rules, and was also done in a single sitting late in an evening. There will be several mistakes made as a result of misunderstandings and/or fatigue. (In fact, even the game setup was screwed up! Go figure.)</p>",
 	"actions":
 		[{
 			"createPreset":"doomsdaySoloSm",
@@ -24,7 +25,8 @@
 			"location":"F4",
 			"name":"unexploredW"
 		}]},
-	{"commentary":"<h2>Movement Turn 1</h2><p>The first Doomsday Machine will not appear for 7 economic phases on Normal difficulty.</p><p>Despite our lack of knowledge, we did do one thing right that we kept in subsequent playthroughs; moving only scouts on the first turn.</p>",
+	{"heading":"Stardate 2400.3 (Turn 1)",
+	"commentary":"<p>The first Doomsday Machine will not appear for 7 economic phases on Normal difficulty.</p><p>Despite our lack of knowledge, we did do one thing right that we kept in subsequent playthroughs; moving only scouts on the first turn.</p>",
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -60,7 +62,8 @@
 			"revealCounter":"systemK5",
 			"name":"unexploredR"
 		}]},
-	{"commentary":"<h2>Movement Turn 2</h2><p>All these minerals just waiting to be towed home...</p>",
+	{"heading":"Stardate 2400.6 (Turn 2)",
+	"commentary":"<p>All these minerals just waiting to be towed home...</p>",
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -102,7 +105,8 @@
 			"revealCounter":"systemK4",
 			"name":"unexploredR"
 		}]},
-	{"commentary":"<h2>Movement Turn 3</h2><p>And already we unwisely took our first risk into deep space. Naturally, it backfired when we exposed a supernova.</p>",
+	{"heading":"Stardate 2400.9 (Turn 3)",
+	"commentary":"<p>And already we unwisely took our first risk into deep space. Naturally, it backfired when we exposed a supernova.</p>",
 	"actions":
 		[{
 			"placeGhost":"SC1R",
@@ -140,13 +144,13 @@
 			"removeCounter":"SC5R"
 		},{
 			"placeCounter":"CO1R",
-			"location":"L8",
-			"name":"COR"
+			"location":"L8"
 		},{
 			"revealCounter":"systemL8",
 			"name":"planetR5"
 		}]},
-	{"commentary":"<h2>Economic Phase 1</h2><p>We buy Ship Size Level 2 (-10) and 2 Scouts (-12 CP).</p>",
+	{"heading":"Stardate 2401.0 (Economic Phase 1)",
+	"commentary":"<p>We buy Ship Size Level 2 (-10) and 2 Scouts (-12 CP).</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":0,"colonyCP":20,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":10,"unitBuy":12
@@ -191,7 +195,8 @@
 			"revealCounter":"systemK10",
 			"name":"unexploredW"
 		}]},
-	{"commentary":"<h2>Movement Turn 4</h2><p>More systems get explored with our recently expanded scout <q>fleet</q>.</p>",
+	{"heading":"Stardate 2401.2 (Turn 4)",
+	"commentary":"<p>More systems get explored with our recently expanded scout <q>fleet</q>.</p>",
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -242,7 +247,8 @@
 			"revealCounter":"systemJ10",
 			"name":"unexploredR"
 		}]},
-	{"commentary":"<h2>Movement Turn 5</h2><p>And here is where more of our risks backfired! We have found our first Danger marker of the playthrough!</p>",
+	{"heading":"Stardate 2401.5 (Turn 5)",
+	"commentary":"<p>And here is where more of our risks backfired! We have found our first Danger marker of the playthrough!</p>",
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -302,7 +308,8 @@
 			"revealCounter":"systemJ12",
 			"name":"unexploredW"
 		}]},
-	{"commentary":"<h2>Movement Turn 6</h2><p>As if that was not enough... we ran into a second Danger marker! Already that gibs two scouts!</p>",
+	{"heading":"Stardate 2401.8 (Turn 6)",
+	"commentary":"<p>As if that was not enough... we ran into a second Danger marker! Already that gibs two scouts!</p>",
 	"actions":
 		[{
 			"removeCounter":"SC3R"
@@ -334,8 +341,7 @@
 			"location":"L7"
 		},{
 			"placeCounter":"CO3R",
-			"location":"J8",
-			"name":"COR"
+			"location":"J8"
 		},{
 			"revealCounter":"systemL4",
 			"name":"planetR9"
@@ -359,7 +365,8 @@
 			"revealCounter":"systemJ8",
 			"name":"planetR8"
 		}]},
-	{"commentary":"<h2>Economic Phase 2</h2><p>We bought one Scout (-6), one Mining Ship (-5), and one Colony Ship (-8).</p>",
+	{"heading":"Stardate 2402.0 (Economic Phase 2)",
+	"commentary":"<p>We bought one Scout (-6), one Mining Ship (-5), and one Colony Ship (-8).</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":0,"colonyCP":21,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":0,"unitBuy":19
@@ -378,8 +385,7 @@
 			"location":"L7"
 		},{
 			"placeCounter":"CO4R",
-			"location":"L7",
-			"name":"COR"
+			"location":"L7"
 		},{
 			"placeCounter":"Miner2R",
 			"location":"L7"
@@ -416,7 +422,8 @@
 			"revealCounter":"systemH8",
 			"name":"unexploredR"
 		}]},
-	{"commentary":"<h2>Movement Turn 7</h2><p>Although one of our scouts ran into yet another unfortunate danger marker, we <i>did</i> uncover a space wreck!</p>",
+	{"heading":"Stardate 2402.1 (Turn 7)",
+	"commentary":"<p>Although one of our scouts ran into yet another unfortunate danger marker, we <i>did</i> uncover a space wreck!</p>",
 	"actions":
 		[{
 			"placeCounter":"Miner1R",
@@ -473,7 +480,8 @@
 			"revealCounter":"systemJ7",
 			"name":"unexploredR"
 		}]},
-	{"commentary":"<h2>Movement Turn 8</h2><p>Yet another scout runs into danger; while a different scout gets lost in space!</p>",
+	{"heading":"Stardate 2402.4 (Turn 8)",
+	"commentary":"<p>Yet another scout runs into danger; while a different scout gets lost in space!</p>",
 	"actions":
 		[{
 			"removeCounter":"SC4R"
@@ -528,7 +536,8 @@
 			"revealCounter":"systemI7",
 			"name":"unexploredR"
 		}]},
-	{"commentary":"<h2>Movement Turn 9</h2><p>We finish this series by colonizing two empty planets.</p>",
+	{"heading":"Stardate 2402.7 (Turn 9)",
+	"commentary":"<p>We finish this series by colonizing two empty planets.</p>",
 	"actions":
 		[{
 			"removeCounter":"SC5R"
@@ -544,12 +553,10 @@
 			"location":"L6"
 		},{
 			"placeCounter":"CO2R",
-			"location":"I8",
-			"name":"COR"
+			"location":"I8"
 		},{
 			"placeCounter":"CO4R",
-			"location":"J7",
-			"name":"COR"
+			"location":"J7"
 		},{
 			"placeCounter":"SC1R",
 			"location":"I7"
@@ -590,7 +597,8 @@
 			"revealCounter":"systemI8",
 			"name":"planetR3"
 		}]},
-	{"commentary":"<h2>Economic Phase 3</h2><p>And here is where we screwed up. We bought three Scouts (-18), and two Colony Ships (-16). We went over our available Ship Yard capacity!</p>",
+	{"heading":"Stardate 2403.0 (Economic Phase 3)",
+	"commentary":"<p>And here is where we screwed up. We bought three Scouts (-18), and two Colony Ships (-16). We went over our available Ship Yard capacity!</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":4,"colonyCP":24,"mineralCP":10,"pipeCP":0,"maint":2,"bidCP":0,"techBuy":0,"unitBuy":34
@@ -615,12 +623,10 @@
 			"location":"L7"
 		},{
 			"placeCounter":"CO5R",
-			"location":"L7",
-			"name":"COR"
+			"location":"L7"
 		},{
 			"placeCounter":"CO6R",
-			"location":"L7",
-			"name":"COR"
+			"location":"L7"
 		},{
 			"revealCounter":"systemL8",
 			"name":"colony5R"
@@ -656,7 +662,8 @@
 			"revealCounter":"systemH7",
 			"name":"unexploredR"
 		}]},
-	{"commentary":"<h2>Movement Turn 10</h2><p>Took us long enough to find the obligatory black hole hex in our home systems; partially because of how foolish we are with deep space. Our vulnerable scout rolled a 4 (survived).</p>",
+	{"heading":"Stardate 2403.3 (Turn 10)",
+	"commentary":"<p>Took us long enough to find the obligatory black hole hex in our home systems; partially because of how foolish we are with deep space. Our vulnerable scout rolled a 4 (survived).</p>",
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -707,7 +714,8 @@
 			"revealCounter":"systemJ6",
 			"name":"unexploredR"
 		}]},
-	{"commentary":"<h2>Movement Turn 11</h2><p>Home system reconnaissance proves useful, as we expose a planet and more asteroids. Deep space, on the other hand, proved to be Dangerous.</p>",
+	{"heading":"Stardate 2403.6 (Turn 11)",
+	"commentary":"<p>Home system reconnaissance proves useful, as we expose a planet and more asteroids. Deep space, on the other hand, proved to be Dangerous.</p>",
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -764,7 +772,8 @@
 			"revealCounter":"systemI6",
 			"name":"unexploredR"
 		}]},
-	{"commentary":"<h2>Movement Turn 12</h2><p>Another planet and more minerals have been found in the home systems, while deep space has yet another Danger marker in store for us.</p>",
+	{"heading":"Stardate 2403.9 (Turn 12)",
+	"commentary":"<p>Another planet and more minerals have been found in the home systems, while deep space has yet another Danger marker in store for us.</p>",
 	"actions":
 		[{
 			"removeCounter":"SC2R"
@@ -794,12 +803,10 @@
 			"name":"minerals5"
 		},{
 			"placeCounter":"CO5R",
-			"location":"J6",
-			"name":"COR"
+			"location":"J6"
 		},{
 			"placeCounter":"CO6R",
-			"location":"I7",
-			"name":"COR"
+			"location":"I7"
 		},{
 			"placeCounter":"systemG5",
 			"name":"danger"
@@ -832,7 +839,8 @@
 			"revealCounter":"systemI7",
 			"name":"planetR2"
 		}]},
-	{"commentary":"<h2>Economic Phase 4</h2><p>We bought Ship Size Level 3 (-15), followed by a Colony Ship (-8) at the homeworld, and a forward Ship Yard (-6) at sector J8.</p>",
+	{"heading":"Stardate 2404.0 (Economic Phase 4)",
+	"commentary":"<p>We bought Ship Size Level 3 (-15), followed by a Colony Ship (-8) at the homeworld, and a forward Ship Yard (-6) at sector J8.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":2,"colonyCP":30,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":15,"unitBuy":14
@@ -850,8 +858,7 @@
 			"removeCounter":"Miner2Rload"
 		},{
 			"placeCounter":"CO7R",
-			"location":"L7",
-			"name":"COR"
+			"location":"L7"
 		},{
 			"placeCounter":"SY2R",
 			"size":1,
@@ -897,7 +904,8 @@
 			"revealCounter":"systemJ4",
 			"name":"unexploredR"
 		}]},
-	{"commentary":"<h2>Movement Turn 13</h2><p>Yet <i>another</i> Danger marker has shown itself! Another scout bites the dust!</p>",
+	{"heading":"Stardate 2404.2",
+	"commentary":"<p>Yet <i>another</i> Danger marker has shown itself! Another scout bites the dust!</p>",
 	"actions":
 		[{
 			"placeCounter":"SC3R",
@@ -933,7 +941,8 @@
 			"revealCounter":"systemJ3",
 			"name":"unexploredW"
 		}]},
-	{"commentary":"<h2>Movement Turn 14</h2><p>Deep Space proves to be hazardous in other ways, too. Our vulnerable scout rolled a 9 on its black hole check (sucked in). In other news, we have begun towing the space wreck.</p>",
+	{"heading":"Stardate 2404.5",
+	"commentary":"<p>Deep Space proves to be hazardous in other ways, too. Our vulnerable scout rolled a 9 on its black hole check (sucked in). In other news, we have begun towing the space wreck.</p>",
 	"actions":
 		[{
 			"removeCounter":"SC4R"
@@ -967,7 +976,8 @@
 			"revealCounter":"systemJ9",
 			"name":"unexploredR"
 		}]},
-	{"commentary":"<h2>Movement Turn 15</h2><p>(In all fairness, we did not know at the time that there was a very high risk of running into a Danger marker. Roughly 25-26% risk!)</p><p>Up to this point, we ran into <b>7</b> Danger markers, out of 15 deep space markers. This game really did not want us to explore deep space!</p>",
+	{"heading":"Stardate 2404.8",
+	"commentary":"<p>(In all fairness, we did not know at the time that there was a very high risk of running into a Danger marker. Roughly 25-26% risk!)</p><p>Up to this point, we ran into <b>7</b> Danger markers, out of 15 deep space markers. This game really did not want us to explore deep space!</p>",
 	"actions":
 		[{
 			"removeCounter":"SC3R"
@@ -976,8 +986,7 @@
 			"location":"J9"
 		},{
 			"placeCounter":"CO7R",
-			"location":"I6",
-			"name":"COR"
+			"location":"I6"
 		},{
 			"resizeCounter":"SY2R",
 			"size":1
@@ -1009,7 +1018,8 @@
 			"revealCounter":"systemI6",
 			"name":"planetR7"
 		}]},
-	{"commentary":"<h2>Economic Phase 5</h2><p>We are running low on time before the first Doomsday Machine. Thus, we buy Attack Level 1 (-20) and Tactics Level 1 (-15). We also build another Ship Yard at sector J8.</p>",
+	{"heading":"Stardate 2405.0",
+	"commentary":"<p>We are running low on time before the first Doomsday Machine. Thus, we buy Attack Level 1 (-20) and Tactics Level 1 (-15). We also build another Ship Yard at sector J8.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":5,"colonyCP":38,"mineralCP":0,"pipeCP":0,"maint":1,"bidCP":0,"techBuy":35,"unitBuy":6
@@ -1058,7 +1068,8 @@
 			"location":"J5",
 			"name":"minerals5"
 		}]},
-	{"commentary":"<h2>Movement Turn 16</h2><p>We are getting the space wreck towed home.</p>",
+	{"heading":"Stardate 2405.1",
+	"commentary":"<p>We are getting the space wreck towed home.</p>",
 	"actions":
 		[{
 			"placeCounter":"SC5R",
@@ -1082,7 +1093,8 @@
 			"revealCounter":"systemH9",
 			"name":"unexploredW"
 		}]},
-	{"commentary":"<h2>Movement Turn 17</h2><p>We uncover another lost in space marker, involuntarily moving our ship away from the deep space that was still unexplored!</p>",
+	{"heading":"Stardate 2405.4",
+	"commentary":"<p>We uncover another lost in space marker, involuntarily moving our ship away from the deep space that was still unexplored!</p>",
 	"actions":
 		[{
 			"placeGhost":"SC5R",
@@ -1109,7 +1121,8 @@
 			"placeCounter":"systemH9",
 			"name":"lost"
 		}]},
-	{"commentary":"<h2>Movement Turn 18</h2><p>Towing more minerals home...</p>",
+	{"heading":"Stardate 2405.7",
+	"commentary":"<p>Towing more minerals home...</p>",
 	"actions":
 		[{
 			"removeCounter":"systemH9"
@@ -1154,7 +1167,8 @@
 			"location":"J6",
 			"name":"minerals5"
 		}]},
-	{"commentary":"<h2>Economic Phase 6</h2><p>Before we can spend our available CP, we need to cash in our space wreck. This one granted us Attack level 2. Afterwards, we buy Terraforming level 1 (-25), followed by 3 colony ships (-24) and 1 scout (-6). One of the colony ships (plus the scout) has been placed at our forward Ship Yard, and the rest at our homeworld.</p>",
+	{"heading":"Stardate 2406.0",
+	"commentary":"<p>Before we can spend our available CP, we need to cash in our space wreck. This one granted us Attack level 2. Afterwards, we buy Terraforming level 1 (-25), followed by 3 colony ships (-24) and 1 scout (-6). One of the colony ships (plus the scout) has been placed at our forward Ship Yard, and the rest at our homeworld.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":1,"colonyCP":47,"mineralCP":10,"pipeCP":0,"maint":1,"bidCP":0,"techBuy":25,"unitBuy":30
@@ -1172,16 +1186,13 @@
 			"removeCounter":"Miner2RloadB"
 		},{
 			"placeCounter":"CO8R",
-			"location":"J8",
-			"name":"COR"
+			"location":"J8"
 		},{
 			"placeCounter":"CO9R",
-			"location":"L7",
-			"name":"COR"
+			"location":"L7"
 		},{
 			"placeCounter":"CO10R",
-			"location":"L7",
-			"name":"COR"
+			"location":"L7"
 		},{
 			"placeCounter":"SC1R",
 			"location":"J8"
@@ -1207,7 +1218,8 @@
 			"revealCounter":"systemG8",
 			"name":"unexploredW"
 		}]},
-	{"commentary":"<h2>Movement Turn 19</h2><p>We do more of our usual movement. A barren planet was found this turn.</p>",
+	{"heading":"Stardate 2406.3",
+	"commentary":"<p>We do more of our usual movement. A barren planet was found this turn.</p>",
 	"actions":
 		[{
 			"placeCounter":"CO8R",
@@ -1243,7 +1255,8 @@
 			"revealCounter":"systemF8",
 			"name":"unexploredW"
 		}]},
-	{"commentary":"<h2>Movement Turn 20</h2><p>Another danger marker has been exposed!</p><p>In other news, this marks the first time where we misunderstood movement restrictions. We incorrectly understood that nebulae (along with asteroids and black holes) were off limits to colony ships and other non-combat ships with no escort. Only unexplored hexes and hexes containing enemy ships are off limits this way (and even with an escort; should be done with much deliberation).</p>",
+	{"heading":"Stardate 2406.6",
+	"commentary":"<p>Another danger marker has been exposed!</p><p>In other news, this marks the first time where we misunderstood movement restrictions. We incorrectly understood that nebulae (along with asteroids and black holes) were off limits to colony ships and other non-combat ships with no escort. Only unexplored hexes and hexes containing enemy ships are off limits this way (and even with an escort; should be done with much deliberation).</p>",
 	"actions":
 		[{
 			"placeCounter":"CO8R",
@@ -1282,7 +1295,8 @@
 			"location":"J4",
 			"name":"minerals5"
 		}]},
-	{"commentary":"<h2>Movement Turn 21</h2><p>And thus ends our final preparation turn...</p>",
+	{"heading":"Stardate 2406.9",
+	"commentary":"<p>And thus ends our final preparation turn...</p>",
 	"actions":
 		[{
 			"removeCounter":"SC5R"
@@ -1290,15 +1304,13 @@
 			"removeCounter":"systemF8"
 		},{
 			"placeCounter":"CO8R",
-			"location":"K10",
-			"name":"COR"
+			"location":"K10"
 		},{
 			"placeCounter":"CO9R",
 			"location":"K4"
 		},{
 			"placeCounter":"CO10R",
-			"location":"J9",
-			"name":"COR"
+			"location":"J9"
 		},{
 			"placeCounter":"SC1R",
 			"location":"H6"
@@ -1334,7 +1346,8 @@
 			"revealCounter":"systemI6",
 			"name":"colony3"
 		}]},
-	{"commentary":"<h2>Economic Phase 7</h2><p>We have officially ran out of time! The first Doomsday Machine is now on the board, ready to destroy our colonies!</p><p>We buy Ship Yard tech level 2 (-20), followed by 3 Cruisers (-36); with one of them at our forward Ship Yard.</p>",
+	{"heading":"Stardate 2407.0",
+	"commentary":"<p>We have officially ran out of time! The first Doomsday Machine is now on the board, ready to destroy our colonies!</p><p>We buy Ship Yard tech level 2 (-20), followed by 3 Cruisers (-36); with one of them at our forward Ship Yard.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":2,"colonyCP":53,"mineralCP":10,"pipeCP":0,"maint":1,"bidCP":0,"techBuy":20,"unitBuy":36
@@ -1386,7 +1399,8 @@
 			"revealCounter":"systemG6",
 			"name":"unexploredW"
 		}]},
-	{"commentary":"<h2>Movement Turn 22</h2><p>Knowing our last scout is screwed, we opted to make one last delve into deep space... finding dense minerals, and greeting the Doomsday Machine head on.</p><p>Although a hopeless battle, this did prove useful in finding the weakness of our first machine... Minelayers!</p>",
+	{"heading":"Stardate 2407.2",
+	"commentary":"<p>Knowing our last scout is screwed, we opted to make one last delve into deep space... finding dense minerals, and greeting the Doomsday Machine head on.</p><p>Although a hopeless battle, this did prove useful in finding the weakness of our first machine... Minelayers!</p>",
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -1419,7 +1433,8 @@
 			"location":"K9",
 			"name":"minerals5"
 		}]},
-	{"commentary":"<h2>Movement Turn 23</h2><p>Almost prepared to defend...</p>",
+	{"heading":"Stardate 2407.5",
+	"commentary":"<p>Almost prepared to defend...</p>",
 	"actions":
 		[{
 			"removeCounter":"SC1R"
@@ -1451,7 +1466,8 @@
 			"location":"K4",
 			"name":"minerals5"
 		}]},
-	{"commentary":"<h2>Movement Turn 24</h2><p>And now for the first proper battle against this <a href=\"javascript:showBox('DM2')\">machine</a>!</p><h3>Battle for Sector I7</h3><ol><li><b>Round 1</b>: Weakness already known. Since we brought only Cruisers (7 - 1 = 6 to hit) into the battle, the DM rolls: 4,2,8,8 (2 hits). We lost one of our cruisers</li><li>We returned fire (4 + 2 - 1 = 5 to hit) with 4,5. We scored 2 hits, reducing their HP to 5<br /><br /></li><li><b>Round 2</b>: The DM continues: 6,3,1,8 (3 hits). We lost another cruiser</li><li>At this point, we opted to retreat to sector J8</li><li>Since there is no resistance left, the planet in the battle hex has been destroyed! The DM has repaired 2 damage, bringing it back up to full strength</li></ol>",
+	{"heading":"Stardate 2407.8",
+	"commentary":"<p>And now for the first proper battle against this <a href=\"javascript:showBox('DM2')\">machine</a>!</p><h3>Battle for Sector I7</h3><ol><li><b>Round 1</b>: Weakness already known. Since we brought only Cruisers (7 - 1 = 6 to hit) into the battle, the DM rolls: 4,2,8,8 (2 hits). We lost one of our cruisers</li><li>We returned fire (4 + 2 - 1 = 5 to hit) with 4,5. We scored 2 hits, reducing their HP to 5<br /><br /></li><li><b>Round 2</b>: The DM continues: 6,3,1,8 (3 hits). We lost another cruiser</li><li>At this point, we opted to retreat to sector J8</li><li>Since there is no resistance left, the planet in the battle hex has been destroyed! The DM has repaired 2 damage, bringing it back up to full strength</li></ol>",
 	"actions":
 		[{
 			"removeCounter":"SC1R"
@@ -1491,8 +1507,7 @@
 			"name":"colony5R"
 		},{
 			"placeCounter":"CO9R",
-			"location":"L4",
-			"name":"COR"
+			"location":"L4"
 		},{
 			"revealCounter":"systemL4",
 			"name":"planetR9"
@@ -1509,7 +1524,8 @@
 		},{
 			"removeCounter":"mines2R"
 		}]},
-	{"commentary":"<h2>Economic Phase 8</h2><p>Although the loss is unfortunate, we have relatively little time to cope with it. We buy Minelaying level 1 (-20), followed by 9 Minelayers (-45). We then build a forward Ship Yard (-6) at sector J6.</p>",
+	{"heading":"Stardate 2408.0",
+	"commentary":"<p>Although the loss is unfortunate, we have relatively little time to cope with it. We buy Minelaying level 1 (-20), followed by 9 Minelayers (-45). We then build a forward Ship Yard (-6) at sector J6.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":8,"colonyCP":52,"mineralCP":15,"pipeCP":0,"maint":2,"bidCP":0,"techBuy":20,"unitBuy":51
@@ -1564,7 +1580,8 @@
 			"placeCounter":"Miner2R",
 			"location":"L4"
 		}]},
-	{"commentary":"<h2>Movement Turn 25</h2><p>And now for the fun part... because a supermajority of the planets got clumped in the shuffle of home systems, this gives the first Doomsday Machine quite a <q>harvest</q> of food. (Since each planet consumed repairs 2 damage taken from battles... thus, <q>consumed</q>.)</p>",
+	{"heading":"Stardate 2408.1",
+	"commentary":"<p>And now for the fun part... because a supermajority of the planets got clumped in the shuffle of home systems, this gives the first Doomsday Machine quite a <q>harvest</q> of food. (Since each planet consumed repairs 2 damage taken from battles... thus, <q>consumed</q>.)</p>",
 	"actions":
 		[{
 			"placeCounter":"mines2R",
@@ -1589,7 +1606,8 @@
 			"location":"J12",
 			"name":"minerals10"
 		}]},
-	{"commentary":"<h2>Movement Turn 26</h2><p>We will do the best we can to stop this machine dead... despite its access to <q>healing</q>, should we fail.</p><h3>Battle for Sector J8</h3><ol><li><b>Round 1</b>: Taking advantage of the DM's weakness, our minelayers go first: We rolled 10,10,3,6,9,10,7,8,6 (1 hit)</li><li>The Doomsday Machine will prioritize our one cruiser (7 - 1 = 6 to hit): It rolled 2,5 this way, destroying it</li><li>Next victim is our Ship Yards (7 - 0 = 7 to hit). It rolled 2,1 against this group (2 hits), destroying this group also</li></ol><p>The Doomsday Machine wins again! And it gets to <q>eat</q> a planet and repair what little damage it took.</p>",
+	{"heading":"Stardate 2408.4",
+	"commentary":"<p>We will do the best we can to stop this machine dead... despite its access to <q>healing</q>, should we fail.</p><h3>Battle for Sector J8</h3><ol><li><b>Round 1</b>: Taking advantage of the DM's weakness, our minelayers go first: We rolled 10,10,3,6,9,10,7,8,6 (1 hit)</li><li>The Doomsday Machine will prioritize our one cruiser (7 - 1 = 6 to hit): It rolled 2,5 this way, destroying it</li><li>Next victim is our Ship Yards (7 - 0 = 7 to hit). It rolled 2,1 against this group (2 hits), destroying this group also</li></ol><p>The Doomsday Machine wins again! And it gets to <q>eat</q> a planet and repair what little damage it took.</p>",
 	"actions":
 		[{
 			"removeCounter":"systemJ7"
@@ -1628,7 +1646,8 @@
 			"size":2,
 			"location":"J8"
 		}]},
-	{"commentary":"<h2>Movement Turn 27</h2><p>Using the highest income rule, the machine now eats the planet at sector I8.</p>",
+	{"heading":"Stardate 2408.7",
+	"commentary":"<p>Using the highest income rule, the machine now eats the planet at sector I8.</p>",
 	"actions":
 		[{
 			"removeCounter":"mines1R"
@@ -1673,7 +1692,8 @@
 			"revealCounter":"systemJ9",
 			"name":"colony3"
 		}]},
-	{"commentary":"<h2>Economic Phase 9</h2><p>One Doomsday Machine is bad enough. Now there are two machines in play! Anyway, we buy 6 Minelayers (-30) at the homeworld, and a starbase (-12) at sector J9.</p>",
+	{"heading":"Stardate 2409.0",
+	"commentary":"<p>One Doomsday Machine is bad enough. Now there are two machines in play! Anyway, we buy 6 Minelayers (-30) at the homeworld, and a starbase (-12) at sector J9.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":2,"colonyCP":39,"mineralCP":10,"pipeCP":0,"maint":0,"bidCP":0,"techBuy":0,"unitBuy":42
@@ -1717,7 +1737,8 @@
 			"placeCounter":"dm1",
 			"location":"I8"
 		}]},
-	{"commentary":"<h2>Movement Turn 28</h2><p>The first machine enters battle once more, only this time there is a base defending.</p><h3>Battle for Sector J9</h3><ol><li>Our base has the best weapon class, so it shoots first (7 + 2 - 1 = 8 to hit). We rolled a 10 (miss)</li><li>The Doomsday Machine responds (7 - 2 = 5 to hit) with 10,6,5,5 (2 hits)<br /><br /></li><li>Our base fires once more. We rolled a 1 (hit)</li><li>The Doomsday Machine responds with 10,9,5,7 (1 hit). It has finished our base off!</li><li>... and destroyed our planet to repair what little damage we dealt!</li></ol>",
+	{"heading":"Stardate 2409.3",
+	"commentary":"<p>The first machine enters battle once more, only this time there is a base defending.</p><h3>Battle for Sector J9</h3><ol><li>Our base has the best weapon class, so it shoots first (7 + 2 - 1 = 8 to hit). We rolled a 10 (miss)</li><li>The Doomsday Machine responds (7 - 2 = 5 to hit) with 10,6,5,5 (2 hits)<br /><br /></li><li>Our base fires once more. We rolled a 1 (hit)</li><li>The Doomsday Machine responds with 10,9,5,7 (1 hit). It has finished our base off!</li><li>... and destroyed our planet to repair what little damage we dealt!</li></ol>",
 	"actions":
 		[{
 			"placeCounter":"mines1R",
@@ -1748,7 +1769,8 @@
 			"location":"J10",
 			"name":"minerals5"
 		}]},
-	{"commentary":"<h2>Movement Turn 29</h2><p>Once again, we didn't know explored asteroids and nebula were safe to enter with a non-combat ship...</p>",
+	{"heading":"Stardate 2409.6",
+	"commentary":"<p>Once again, we didn't know explored asteroids and nebula were safe to enter with a non-combat ship...</p>",
 	"actions":
 		[{
 			"removeCounter":"base1R"
@@ -1773,7 +1795,8 @@
 			"placeCounter":"dm2",
 			"location":"J10"
 		}]},
-	{"commentary":"<h2>Movement Turn 30</h2><p>More colonies bite the dust...</p><h3>Detonations in Sector L8</h3><p>Although before we resolve the destruction, we need to compute the Minelayer damage. Our mines rolled (at 5 to hit) 5,4,2,4,2,6 against the first machine, scoring 5 damage. Even after destroying the planet, it still has 3 damage on hand.</p>",
+	{"heading":"Stardate 2409.9",
+	"commentary":"<p>More colonies bite the dust...</p><h3>Detonations in Sector L8</h3><p>Although before we resolve the destruction, we need to compute the Minelayer damage. Our mines rolled (at 5 to hit) 5,4,2,4,2,6 against the first machine, scoring 5 damage. Even after destroying the planet, it still has 3 damage on hand.</p>",
 	"actions":
 		[{
 			"placeCounter":"Miner2R",
@@ -1809,7 +1832,8 @@
 		},{
 			"removeCounter":"base1R"
 		}]},
-	{"commentary":"<h2>Economic Phase 10</h2><p>Normally, this would be the phase in which the final Doomsday Machine spawns on the board. Evening fatigue was in effect, causing us to screw up multiple elements of this economic phase.</p><p>Moving along, we develop Defense level 1 (-20), followed by building a base (-12) and 2 minelayers (-10) at our homeworld. This spends all of our CP.</p>",
+	{"heading":"Stardate 2410.0",
+	"commentary":"<p>Normally, this would be the phase in which the final Doomsday Machine spawns on the board. Evening fatigue was in effect, causing us to screw up multiple elements of this economic phase.</p><p>Moving along, we develop Defense level 1 (-20), followed by building a base (-12) and 2 minelayers (-10) at our homeworld. This spends all of our CP.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":9,"colonyCP":33,"mineralCP":0,"pipeCP":0,"maint":0,"bidCP":0,"techBuy":20,"unitBuy":22
@@ -1847,7 +1871,8 @@
 			"revealCounter":"systemL4",
 			"name":"colony5R"
 		}]},
-	{"commentary":"<h2>Movement Turn 31</h2><p>Since the nearest Doomsday Machine is extremely close, we have no choice but to just stay put at our homeworld.</p><h3>The First Battle for Altair</h3><ol><li><b>Round 1</b>: Our Minelayers go first (5 to hit). They rolled 8,2 (1 hit).</li><li>Our Base gets to fire first (7 + 2 - 1 = 8 to hit). It rolled an 1 (hit).</li><li>The DM targets our Ship Yards (7 - 1 = 6 to hit). It rolled: 10,1,5,6 (3 hits)</li><li>Our 1 surviving Ship Yard (4 + 1 - 1 = 4 to hit) rolled a 3 (hit)<br /><br /></li><li><b>Round 2</b>: Since our Minelayers have no ammo left, our base goes next. It rolled an 8 (hit). We have finished off the first Doomsday Machine!</li></ol>",
+	{"heading":"Stardate 2410.2",
+	"commentary":"<p>Since the nearest Doomsday Machine is extremely close, we have no choice but to just stay put at our homeworld.</p><h3>The First Battle for Altair</h3><ol><li><b>Round 1</b>: Our Minelayers go first (5 to hit). They rolled 8,2 (1 hit).</li><li>Our Base gets to fire first (7 + 2 - 1 = 8 to hit). It rolled an 1 (hit).</li><li>The DM targets our Ship Yards (7 - 1 = 6 to hit). It rolled: 10,1,5,6 (3 hits)</li><li>Our 1 surviving Ship Yard (4 + 1 - 1 = 4 to hit) rolled a 3 (hit)<br /><br /></li><li><b>Round 2</b>: Since our Minelayers have no ammo left, our base goes next. It rolled an 8 (hit). We have finished off the first Doomsday Machine!</li></ol>",
 	"actions":
 		[{
 			"placeCounter":"Miner2R",
@@ -1868,7 +1893,8 @@
 			"size":4,
 			"location":"L7"
 		}]},
-	{"commentary":"<h2>Movement Turn 32</h2><p>This was a much important victory!</p>",
+	{"heading":"Stardate 2410.5",
+	"commentary":"<p>This was a much important victory!</p>",
 	"actions":
 		[{
 			"removeCounter":"dm1"
@@ -1885,7 +1911,8 @@
 			"placeCounter":"dm2",
 			"location":"K8"
 		}]},
-	{"commentary":"<h2>Movement Turn 33</h2><p>... though it came at a significant cost to our Ship Yard construction capacity.</p>",
+	{"heading":"Stardate 2410.8",
+	"commentary":"<p>... though it came at a significant cost to our Ship Yard construction capacity.</p>",
 	"actions":
 		[{
 			"placeCounter":"Miner2R",
@@ -1911,7 +1938,8 @@
 			"placeCounter":"systemF6",
 			"name":"markerR"
 		}]},
-	{"commentary":"<h2>Economic Phase 11</h2><p>The late entrant has finally arrived! We buy Defense level 2 (-30)... that's it.</p>",
+	{"heading":"Stardate 2411.0",
+	"commentary":"<p>The late entrant has finally arrived! We buy Defense level 2 (-30)... that's it.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":0,"colonyCP":35,"mineralCP":0,"pipeCP":0,"maint":0,"bidCP":0,"techBuy":30,"unitBuy":0
@@ -1934,7 +1962,8 @@
 			"placeCounter":"dm2",
 			"location":"K7"
 		}]},
-	{"commentary":"<h2>Movement Turn 34</h2><p>And now for the battle against the <a href=\"javascript:showBox('DM4')\">second</a> Doomsday Machine. This does not look hopeful going against a machine that is not only at higher strength, but is at full HP...</p><h3>The Second Battle for Altair</h3><ol><li><b>Round 1</b>: Since this is the DM's first battle, it rolls a 9 for weakness... none found at all</li><li>Our Base has the best weapon class, so it gets to fire first (7 + 2 - 2 = 7 to hit). We rolled a 1 (hit)</li><li>The DM will now focus on our last Ship Yard (8 - 1 = 7 to hit). Its first attack is a 1 (hit).</li><li>The DM will now use its leftover rolls against our Base (8 - 2 - 2 = 4 to hit). It rolled 6,7,5 (0 hits)<br /><br /></li><li><b>Round 2</b>: Our Base fires once more. We rolled a 7 (hit)</li><li>The DM will now return fire with 5,4,5,5 (1 hit)<br /><br /></li><li><b>Round 3</b>: Our Base fires once more. We rolled a 6 (hit)</li><li>The DM return fires with 5,10,8,5 (0 hits)<br /><br /></li><li><b>Round 4</b>: Our Base rolls a 2 (hit)</li><li>The DM rolls 9,10,2,4 (2 hits). Our protection has been destroyed!</li></ol>",
+	{"heading":"Stardate 2411.1",
+	"commentary":"<p>And now for the battle against the <a href=\"javascript:showBox('DM4')\">second</a> Doomsday Machine. This does not look hopeful going against a machine that is not only at higher strength, but is at full HP...</p><h3>The Second Battle for Altair</h3><ol><li><b>Round 1</b>: Since this is the DM's first battle, it rolls a 9 for weakness... none found at all</li><li>Our Base has the best weapon class, so it gets to fire first (7 + 2 - 2 = 7 to hit). We rolled a 1 (hit)</li><li>The DM will now focus on our last Ship Yard (8 - 1 = 7 to hit). Its first attack is a 1 (hit).</li><li>The DM will now use its leftover rolls against our Base (8 - 2 - 2 = 4 to hit). It rolled 6,7,5 (0 hits)<br /><br /></li><li><b>Round 2</b>: Our Base fires once more. We rolled a 7 (hit)</li><li>The DM will now return fire with 5,4,5,5 (1 hit)<br /><br /></li><li><b>Round 3</b>: Our Base fires once more. We rolled a 6 (hit)</li><li>The DM return fires with 5,10,8,5 (0 hits)<br /><br /></li><li><b>Round 4</b>: Our Base rolls a 2 (hit)</li><li>The DM rolls 9,10,2,4 (2 hits). Our protection has been destroyed!</li></ol>",
 	"actions":
 		[{
 			"placeCounter":"dm3",
@@ -1956,7 +1985,8 @@
 			"location":"L7",
 			"name":"home20R"
 		}]},
-	{"commentary":"<h2>Game Over</h2><p>Our homeworld has been destroyed, ending the scenario in defeat!</p><p>There were several instances where better choices could have been made, but everyone has to start somewhere. Our somewhere was with <i>this</i> playthrough.</p><p>Also worth mentioning this is a reconstructed replay. The archived After Action Report (AAR) is available <a href=\"../dmAar/\">here</a>.</p>",
+	{"heading":"Stardate 2411.4 (Game Over)",
+	"commentary":"<p>Our homeworld has been destroyed, ending the scenario in defeat!</p><p>There were several instances where better choices could have been made, but everyone has to start somewhere. Our somewhere was with <i>this</i> playthrough.</p><p>Also worth mentioning this is a reconstructed replay. The archived After Action Report (AAR) is available <a href=\"../dmAar/\">here</a>.</p>",
 	"actions":
 		[{
 			"removeCounter":"systemL7"

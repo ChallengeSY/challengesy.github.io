@@ -157,12 +157,16 @@ function autoNameCounter(localObj) {
 		localObj.title = "Colony (Size 1)"
 	} else if (localObj.src.indexOf("gfx/colony0") >= 0) {
 		localObj.title = "Colony (Size 0)"
+	} else if (localObj.src.indexOf("gfx/planetW") >= 0) {
+		localObj.title = "Empty barren planet"
 	} else if (localObj.src.indexOf("gfx/planet") >= 0) {
 		localObj.title = "Empty planet"
 	} else if (localObj.src.indexOf("gfx/unexplored") >= 0) {
 		localObj.title = "Unexplored system"
 	} else if (localObj.src.indexOf("gfx/fold") >= 0) {
 		localObj.title = "Fold in space"
+	} else if (localObj.src.indexOf("gfx/map") >= 0) {
+		localObj.title = "Regional map"
 	} else if (localObj.src.indexOf("gfx/pirate") >= 0) {
 		localObj.title = "Space Pirate"
 	} else if (localObj.src.indexOf("gfx/amoeba") >= 0) {
@@ -1057,20 +1061,20 @@ function readJson() {
 				if (readValue(activeAmoeba.isDead, false)) {
 					constructTable = constructTable + "<tr class=\"deadPlr\"><td>"+activeAmoeba.name+"</td> \
 						<td class=\"numeric\">"+readValue(activeAmoeba.RP, 0)+" / 10</td> \
-						<td class=\"numeric\">"+readValue(activeAmoeba.strength, "?")+"</td> \
-						<td class=\"center\">"+readValue(activeAmoeba.mineImmune, false)+"</td></tr>";
+						<td class=\"numeric\">"+readValue(activeAmoeba.str, "?")+"</td> \
+						<td class=\"center\">"+readValue(activeAmoeba.noMines, false)+"</td></tr>";
 				} else {
 					if (readValue(activeAmoeba.RP, 0) >= 10) {
 						classMods[0] = " increase";
 					}
-					if (readValue(activeAmoeba.mineImmune, false)) {
+					if (readValue(activeAmoeba.noMines, false)) {
 						classMods[2] = " decrease";
 					}
 					
 					constructTable = constructTable + "<tr><td>"+activeAmoeba.name+"</td> \
 						<td class=\"numeric"+classMods[0]+"\">"+readValue(activeAmoeba.RP, 0)+" / 10</td> \
-						<td class=\"numeric\"><a href=\"javascript:showBox('sa"+readValue(activeAmoeba.strength, "?")+"')\">"+readValue(activeAmoeba.strength, "?")+"</a></td> \
-						<td class=\"center"+classMods[2]+"\">"+readValue(activeAmoeba.mineImmune, false)+"</td></tr>";
+						<td class=\"numeric\"><a href=\"javascript:showBox('sa"+readValue(activeAmoeba.str, "?")+"')\">"+readValue(activeAmoeba.str, "?")+"</a></td> \
+						<td class=\"center"+classMods[2]+"\">"+readValue(activeAmoeba.noMines, false)+"</td></tr>";
 				}
 				
 			}
@@ -1176,6 +1180,9 @@ function readJson() {
 				placeCounter(workId, readX, readY, actionPool[i].name, readValue(actionPool[i].size,0));
 			} else {
 				var convertName = null;
+				if (workId.startsWith("CO")) {
+					convertName = "CO"+workId.substr(workId.length-1, 1);
+				}
 				
 				placeCounter(workId, readX, readY, convertName, readValue(actionPool[i].size,0));
 			}

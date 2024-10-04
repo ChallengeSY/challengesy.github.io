@@ -115,12 +115,10 @@
 			"location":"J8"
 		},{
 			"placeCounter":"CO1B",
-			"location":"L5",
-			"name":"COB"
+			"location":"L5"
 		},{
 			"placeCounter":"CO2B",
-			"location":"K6",
-			"name":"COB"
+			"location":"K6"
 		},{
 			"placeCounter":"Miner1B",
 			"location":"K8"
@@ -158,14 +156,6 @@
 		},{
 			"name":"Harpalyke (Yellow)","minelay":1
 		}],
-	"techTable":
-		[{
-			"name":"CSY (Blue)"
-		},{
-			"name":"Adrastea (Green)","minelay":1
-		},{
-			"name":"Harpalyke (Yellow)","minelay":1
-		}],
 	"alienTable":
 		[{
 			"name":"Adrastea (Green)","eco":1,"queue":0,"fleet":0,"tech":5,"def":0,"delta":"T","hidden":"&mdash;"
@@ -192,8 +182,7 @@
 			"location":"K7"
 		},{
 			"placeCounter":"CO4B",
-			"location":"L7",
-			"name":"COB"
+			"location":"L7"
 		},{
 			"placeCounter":"Miner1B",
 			"location":"K8"
@@ -336,12 +325,10 @@
 			"location":"K9"
 		},{
 			"placeCounter":"CO3B",
-			"location":"I8",
-			"name":"COB"
+			"location":"I8"
 		},{
 			"placeCounter":"CO4B",
-			"location":"L8",
-			"name":"COB"
+			"location":"L8"
 		},{
 			"placeCounter":"Miner1B",
 			"location":"K7"
@@ -417,8 +404,7 @@
 			"location":"L7"
 		},{
 			"placeCounter":"CO5B",
-			"location":"L7",
-			"name":"COB"
+			"location":"L7"
 		},{
 			"removeCounter":"CO3B"
 		},{
@@ -571,8 +557,7 @@
 			"name":"minerals5"
 		},{
 			"placeCounter":"CO5B",
-			"location":"K9",
-			"name":"COB"
+			"location":"K9"
 		},{
 			"revealCounter":"systemI3",
 			"name":"blackHole"
@@ -653,16 +638,13 @@
 			"location":"L5"
 		},{
 			"placeCounter":"CO6B",
-			"location":"L7",
-			"name":"COB"
+			"location":"L7"
 		},{
 			"placeCounter":"CO7B",
-			"location":"L7",
-			"name":"COB"
+			"location":"L7"
 		},{
 			"placeCounter":"CO8B",
-			"location":"L7",
-			"name":"COB"
+			"location":"L7"
 		},{
 			"placeCounter":"SY2B",
 			"location":"I8"
@@ -781,16 +763,13 @@
 			"name":"minerals5"
 		},{
 			"placeCounter":"CO6B",
-			"location":"I5",
-			"name":"COB"
+			"location":"I5"
 		},{
 			"placeCounter":"CO7B",
-			"location":"I6",
-			"name":"COB"
+			"location":"I6"
 		},{
 			"placeCounter":"CO8B",
-			"location":"J9",
-			"name":"COB"
+			"location":"J9"
 		},{
 			"placeCounter":"systemH4",
 			"name":"danger"
@@ -1591,12 +1570,10 @@
 			"location":"I5"
 		},{
 			"placeCounter":"CO9B",
-			"location":"L7",
-			"name":"COB"
+			"location":"L7"
 		},{
 			"placeCounter":"CO10B",
-			"location":"L7",
-			"name":"COB"
+			"location":"L7"
 		},{
 			"placeCounter":"MS6B",
 			"location":"K8",
@@ -1789,12 +1766,10 @@
 			"location":"I6"
 		},{
 			"placeCounter":"CO9B",
-			"location":"L6",
-			"name":"COB"
+			"location":"L6"
 		},{
 			"placeCounter":"CO10B",
-			"location":"I4",
-			"name":"COB"
+			"location":"I4"
 		},{
 			"placeCounter":"MS6B",
 			"location":"I4",
@@ -2193,8 +2168,7 @@
 			"location":"H3"
 		},{
 			"placeCounter":"CO11B",
-			"location":"I5",
-			"name":"COB"
+			"location":"I5"
 		},{
 			"placeCounter":"MS14B",
 			"location":"I5",
@@ -2473,8 +2447,7 @@
 			"removeCounter":"DD2B"
 		},{
 			"placeCounter":"CO11B",
-			"location":"G6",
-			"name":"COB"
+			"location":"G6"
 		},{
 			"revealCounter":"MS14B",
 			"name":"MSaB"
@@ -2883,12 +2856,10 @@
 			"location":"I5"
 		},{
 			"placeCounter":"CO12B",
-			"location":"I5",
-			"name":"COB"
+			"location":"I5"
 		},{
 			"placeCounter":"CO13B",
-			"location":"I8",
-			"name":"COB"
+			"location":"I8"
 		},{
 			"removeCounter":"CA3Y"
 		},{
@@ -3292,12 +3263,10 @@
 			"location":"I11"
 		},{
 			"placeCounter":"CO12B",
-			"location":"H2",
-			"name":"COB"
+			"location":"H2"
 		},{
 			"placeCounter":"CO13B",
-			"location":"E7",
-			"name":"COB"
+			"location":"E7"
 		},{
 			"revealCounter":"systemH2",
 			"name":"planetW1"
