@@ -1102,7 +1102,7 @@ function showBox(concept) {
 			break;
 		// Replicator Advantages
 		case "fast replicators":
-			displayTxt = "<b>Fast Replicators</b><br />"+conceptLink("Replicators")+" start with "+conceptLink("Movement")+" level 2. \
+			displayTxt = "<b>Fast Replicators</b><br />"+conceptLink("Replicators")+" start with an extra "+conceptLink("Movement")+" level. \
 				Subsequent levels cost 15 CP (down from 20-25 CP).";
 			break;
 		case "green replicators":
@@ -1372,7 +1372,7 @@ function keywordifyCollection(collObj) {
 		"Transport", "Troops", "Capture", "Militia", "Light Infantry", "Space Marines", "Heavy Infantry", "Grav Armor", "Drop Ships",
 		"Experience", "Facility", "Facilities", "RP", "Boarding", "Security Forces", "Military Academy", "Flagship", "Swallow",
 		"Advanced Construction",
-		"Empire Advantage", "Industrious Race", "Horsemen of the Plains", "Warrior Race",
+		"Empire Advantage", "Industrious Race", "Horsemen of the Plains", "Space Pilgrims", "Traders", "Warrior Race",
 		"Advanced Comm Array", "Air Support", "Cold Fusion Drive", "Soylent Purple",
 		"Resource Card",
 		"Depletion", "Deplete", "Self-Preservation",
@@ -1433,6 +1433,7 @@ function keywordifyCollection(collObj) {
 		{regex: conceptLink("type v")+"ii", newTxt: conceptLink("type vii")},
 		{regex: conceptLink("Type XI")+"II", newTxt: conceptLink("Type XIII")},
 		{regex: conceptLink("type xi")+"ii", newTxt: conceptLink("type xiii")},
+		{regex: "Fast "+conceptLink("Replicator")+"s", newTxt: conceptLink("Fast Replicators")},
 		{regex: "</a>ment", newTxt: "ment</a>"},
 		{regex: "</a>ing", newTxt: "ing</a>"},
 		{regex: "</a>s", newTxt: "s</a>"},
