@@ -1382,6 +1382,9 @@ function detailedReport(targetDesign) {
 			break;
 			
 		// Cyborg designs
+		case "Deep Watcher":
+			similiarDesign = "Watcher Class Scout";
+			break;
 		case "B41b Explorer":
 			similiarDesign = "B41 Explorer";
 			break;
