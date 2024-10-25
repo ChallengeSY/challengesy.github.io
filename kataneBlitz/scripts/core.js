@@ -71,9 +71,11 @@ function startGame() {
 		} else if (moduleFile == "endlessButtons") {
 			handicap = 50;
 			initialModules = irandom(5,7);
+		} else if (moduleFile == "endlessSimon") {
+			handicap = 25;
 		}
 		moduleValid = (moduleFile == "endless" || moduleFile == "endlessStable" || moduleFile == "endlessHardcore" ||
-			moduleFile == "endlessButtons" || moduleFile == "endlessVenn");
+			moduleFile == "endlessButtons" || moduleFile == "endlessSimon" || moduleFile == "endlessVenn");
 	} else if (moduleFile.startsWith("short")) {
 		goal = Infinity;
 		handicap = Infinity;
@@ -570,6 +572,8 @@ function makeBomb(totCount, needyCount) {
 			}
 		} else if (moduleFile == "endlessButtons") {
 			useModuleRules = "bigButton";
+		} else if (moduleFile == "endlessSimon") {
+			useModuleRules = "simon";
 		} else if (moduleFile == "endlessVenn") {
 			useModuleRules = "venn";
 		} else {
