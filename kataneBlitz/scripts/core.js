@@ -72,7 +72,7 @@ function startGame() {
 			handicap = 50;
 			initialModules = irandom(5,7);
 		} else if (moduleFile == "endlessSimon") {
-			handicap = 25;
+			timeMax = 120;
 		}
 		moduleValid = (moduleFile == "endless" || moduleFile == "endlessStable" || moduleFile == "endlessHardcore" ||
 			moduleFile == "endlessButtons" || moduleFile == "endlessSimon" || moduleFile == "endlessVenn");
