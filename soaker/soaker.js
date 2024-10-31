@@ -50,7 +50,7 @@ function setupGame() {
 	
 	trFrag = document.createElement("tr");
 	// Upper Section Bonus
-	createScorePair(trFrag, "Bonus (&ge;74)", "bonusU");
+	createScorePair(trFrag, "Bonus (&ge;69)", "bonusU");
 
 	// Middle Section gets no bonus
 	createEmptyPair(trFrag);
@@ -376,7 +376,7 @@ function updateScoreboard() {
 			sectionTotals[l] += getScore(readId);
 			
 			if (l == 0 && isScoreLocked(readId)) {
-				bonusCurve += -(k+1) * 3.5 + getScore(readId);
+				bonusCurve += -(k+1) * 3 - 1 + getScore(readId);
 			}
 			
 			if (!isScoreLocked(readId)) {
@@ -389,7 +389,7 @@ function updateScoreboard() {
 	if (bonusCurve >= 0) {
 		bonusCurve = "+" + bonusCurve;
 	}
-	if (sectionTotals[0] >= 74) {
+	if (sectionTotals[0] >= 69) {
 		setScore("bonusU","+40 ("+bonusCurve+")");
 		sectionTotals[0] += 40;
 	} else {
