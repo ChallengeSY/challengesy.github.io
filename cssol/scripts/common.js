@@ -864,7 +864,7 @@ function loadSoundEffects() {
 	gameWonSnd = new sound("../sfx/gameWon.wav");
 	gameLostSnd = new sound("../sfx/gameLost.wav");
 	
-	bgMusic = new sound("../sfx/mus/Wider Than Signs.mp3");
+	bgMusic = new sound("../sfx/mus/Tunnel Routine.mp3");
 }
 
 //sound object
