@@ -20,7 +20,7 @@ var timeHandle = null;
 var shiftHandle = null;
 var shiftCombo = 0;
 var shiftGrid = 1;
-var chainReactionSpeed = (isFinite(getCookie("chainSpeed")) ? parseInt(getCookie("chainSpeed")) : 50);
+var chainReactionSpeed = (isFinite(getStorage("chainSpeed")) ? parseInt(getStorage("chainSpeed")) : 50);
 
 const defaultModule = "wrapsweeper";
 
@@ -944,6 +944,7 @@ function sound(src) {
 	
 	document.body.appendChild(this.sound);
 	this.play = function(){
+		this.sound.fastSeek(0);
 		this.sound.play();
 	}
 	this.stop = function(){
