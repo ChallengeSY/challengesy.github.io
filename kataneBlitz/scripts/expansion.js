@@ -192,7 +192,9 @@ function pot9Ball(readObj, localObj) {
 			
 			console.warn("The "+readValue+"-ball was potted incorrectly during break! "+breakHint+" during the break.")
 			solveModule(readObj, false, false);
-			build9Ball(baseId);
+			if (life > 0) {
+				build9Ball(baseId);
+			}
 		} else {
 			var legalBall = 9;
 			
@@ -211,7 +213,9 @@ function pot9Ball(readObj, localObj) {
 			} else {
 				console.warn("The "+readValue+"-ball was potted incorrectly! The "+legalBall+"-ball was the required ball.")
 				solveModule(readObj, false, false);
-				build9Ball(baseId);
+				if (life > 0) {
+					build9Ball(baseId);
+				}
 			}
 		}
 	}
