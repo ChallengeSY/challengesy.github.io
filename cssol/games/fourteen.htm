@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="description" content="JavaScript solitaire games" />
+	<meta name="keywords" content="Fourteen, Pairing" />
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>Fourteen Out - CSSol</title>
+
+	<link type="text/css" href="../scripts/cards.css" rel="stylesheet" />
+	<link type="image/x-icon" href="../cssol.ico" rel="icon" />
+	<script type="text/javascript" src="../scripts/common.js"></script>
+	<script type="text/javascript" src="../scripts/fourteen.js"></script>
+</head>
+<body>
+<p id="banner"><a href="index.htm"><img src="../gfx/banner.png" alt="" /></a></p>
+<div id="tableau" style="max-height: 575px;">
+	<div id="commandPanel">
+	<input id="newGame" class="button" type="button" value="New game" onclick="newGame(false,true)" title="Starts a new game">
+	<input id="restartGame" class="button" type="button" value="Restart game" onclick="restartGame(false)" title="Restarts the game using the same password">
+	<input id="helpButton" class="button" type="button" value="Show help" onclick="toggleHelp()" title="Toggles game instructions">
+	&mdash; Casual Score: <span id="casualScore">35</span>
+	<br>Password: <input id="password" class="text" type="text" size="60" onchange="newGame(false,false)">
+	</div>
+
+	<!-- Playfield elements will be made here -->
+</div>
+
+<p id="statusBar"></p>
+
+<div id="helpPanel">
+<h2>Instructions</h2>
+<p>The cards are dealt face up into twelve columns, from left to right. The first four columns therefore receive an extra card. The exposed top cards of each column are available for play.</p>
+
+<p>As denoted by the game's name, the object is to discard pairs of cards that total fourteen. Jacks value eleven, queens twelve, and kings thirteen, all others (including the ace) at face value. So the combination of cards to be discarded are as follows:</p>
+
+<ul>
+<li>King and Ace</li>
+<li>Queen and 2</li>
+<li>Jack and 3</li>
+<li>10 and 4</li>
+<li>9 and 5</li>
+<li>8 and 6</li>
+<li>7 and 7</li>
+</ul>
+
+<p>Once a card has been discarded, the card under it becomes available. The game is won when all cards are discarded.</p>
+
+<p class="footer">Documentation is &copy; <a href="http://en.wikipedia.org">Wikipedia Contributors</a>. Freely distributable under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons (BY SA) license 3.0</a></p>
+</div>
+
+</body>
+</html>
