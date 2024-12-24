@@ -124,10 +124,20 @@ function allowDrop(event) {
 }
 
 /*
- * Logs game to server stats using AJAX
+ * Logs game using AJAX and additional aux functions
  */
 function exportLog(gameWon) {
-	// Blank function; kept for compatibility
+	if (baseStatFile == "seriesPlay") {
+		if (gameWon > 0) {
+			saveSeriesFile(true);
+			if (seriesGame <= 3) {
+				appendStatus("<br />The series has been saved.");
+			} else {
+				appendStatus("<br />The series has been successfully completed!");
+			}
+		}
+	}
+	// Server stats are not available in the HTML-reduced version
 }
 
 //Records move
@@ -182,20 +192,24 @@ function restartGame(penalize) {
 	preserveWin = solGame.recordWin;
 	gameTime = solGame.dealTime;
 	
-	//Ask if necessary
-	if (solGame.gameActive && solGame.totalMoves > 0 && !penalize && confirm("Confirm game restart?")) {
-		solGame.gameActive = false;
-	}
-	
-	//Restarts a game using the same seed
-	if (!solGame.gameActive || penalize || solGame.totalMoves == 0) {
-		newGame(false,false);
-	}
-	
-	if (solGame.totalMoves == 0) {
-		solGame.recordWin = preserveWin;
-		solGame.dealTime = gameTime;
-		updateStatus("Restart successful");
+	if (!preserveWin && baseStatFile == "seriesPlay") {
+		updateStatus("You may not restart a Series game that has been won.");
+	} else {
+		//Ask if necessary
+		if (solGame.gameActive && solGame.totalMoves > 0 && !penalize && confirm("Confirm game restart?")) {
+			solGame.gameActive = false;
+		}
+		
+		//Restarts a game using the same seed
+		if (!solGame.gameActive || penalize || solGame.totalMoves == 0) {
+			newGame(false,false);
+		}
+		
+		if (solGame.totalMoves == 0) {
+			solGame.recordWin = preserveWin;
+			solGame.dealTime = gameTime;
+			updateStatus("Restart successful");
+		}
 	}
 }
 
@@ -954,6 +968,10 @@ function solDeck(numDecks) {
 	this.dealCard = function() {
 		return this.cards.shift();
 	}
+	
+	this.createEmptyCard = function() {
+		return new solCard(suits[0], ranks[0], shuffleID);
+	}
 }
 
 //solCard object
@@ -982,7 +1000,7 @@ solCard.prototype.innerCode = function() {
 	var cornerIndex = cornerRank + "<br />" + suitPip;
 	
 	if (this.rank == "King" || this.rank == "Queen" || this.rank == "Jack") {
-		if (filepath.startsWith("/cssol/games/") || filepath.startsWith("/cssol/wizard/")) {
+		if (filepath.startsWith("/cssol/games/") || filepath.startsWith("/cssol/wizard/") || filepath.startsWith("/cssol/series/")) {
 			faceImg = "../gfx/" + this.rank.toLowerCase() + ".gif";
 		} else {
 			faceImg = "gfx/" + this.rank.toLowerCase() + ".gif";
@@ -1175,6 +1193,9 @@ function readPass(numDecks) {
 	
 		suitIndex = seedPassword.substring(startChar,startChar+1);
 		rankIndex = seedPassword.substring(startChar+1,startChar+2);
+		if (typeof seedSlot[k] === "undefined") {
+			seedSlot[k] = playDeck.createEmptyCard();
+		}
 		
 		if (suitIndex == "S") {
 			seedSlot[k].suit = "Spade";
@@ -1222,6 +1243,87 @@ function assignSeedCard() {
 
 function checkNextCard() {
 	return seedSlot[cardsDealt];
+}
+
+//Series Challenge functions
+function loadSeriesFile() {
+	var passField = document.getElementById("password");
+	
+	if (getStorage("cssolSeries")) {
+		seriesElements = getStorage("cssolSeries").split("~");
+		
+		if (seriesElements.length >= 2) {
+			seriesDiff = parseInt(seriesElements[0].charAt(0));
+			seriesGame = parseInt(seriesElements[0].charAt(1));
+			seriesLives = parseInt(seriesElements[0].charAt(2));
+			
+			seriesScore = parseInt(seriesElements[1]);
+			seriesPassword = seriesElements[2];
+		}
+		
+		if (passField) {
+			passField.value = seriesPassword;
+		}
+	} else {
+		seriesElements = null;
+	}
+}
+
+function saveSeriesFile(gameWon) {
+	var passField = document.getElementById("password");
+	var resButton = document.getElementById("restartGame");
+	
+	var seriesFields = [document.getElementById("seriesScore"),document.getElementById("seriesLives")];
+	
+	if (gameWon) {
+		var winBonus = 0;
+		switch (seriesGame) {
+			case 2:
+				winBonus = 120;
+				break;
+			case 3:
+				winBonus = 256;
+				break;
+		}
+		
+		if (seriesDiff == 4) {
+			seriesLives = seriesGame + 2;
+		}
+		
+		seriesPassword = "";
+		seriesScore += solGame.casualScore * seriesLives++ + winBonus;
+		seriesGame++;
+		
+		switch (seriesDiff) {
+			case 2:
+				seriesLives = 2 + seriesGame;
+				break;
+			case 4:
+				seriesLives = 1;
+				break;
+			default:
+				seriesLives++;
+				break;
+		}
+		
+		resButton.disabled = true;
+	} else if (passField) {
+		seriesPassword = passField.value;
+	}
+	
+	if (seriesFields[0]) {
+		seriesFields[0].innerHTML = seriesScore;
+	}
+	if (seriesFields[1]) {
+		seriesFields[1].innerHTML = seriesLives;
+	}
+	buildSaveStr = seriesDiff.toString()+seriesGame+seriesLives+"~"+seriesScore+"~"+seriesPassword;
+	
+	setStorage("cssolSeries",buildSaveStr);
+}
+
+function deleteSeriesFile() {
+	setStorage("cssolSeries",null);
 }
 
 //Storage management

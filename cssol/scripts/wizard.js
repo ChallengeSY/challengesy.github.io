@@ -9,6 +9,7 @@ var allowAnyBaseRank = false;
 var KAbuild = false;
 var deckCost = 0;
 var scoreStockCards = false;
+seriesPassword = "";
 
 function setupGame() {
 	var tableauPanel = document.getElementById("tableau");
@@ -233,7 +234,7 @@ function setupGame() {
 	selectX = -1;
 	resizeHeight();
 	loadSoundEffects();
-	newGame(true,true);
+	newGame(true,seriesPassword == "");
 }
 
 function dealStock() {
@@ -991,6 +992,8 @@ function newGame(greetings, newSeed) {
 			playSound(gameLostSnd);
 			solGame.gameActive = false;
 		}
+		
+		passField = document.getElementById("password");
 	
 		if (maxScore <= 0) {
 			updateStatus("Impossible scenario detected. Deal sequence aborted.");
@@ -1004,6 +1007,10 @@ function newGame(greetings, newSeed) {
 			cardsDealt = 0;
 			acesFound = 0;
 			resetInternals();
+			
+			if (baseStatFile == "seriesPlay" && !newSeed) {
+				passField.value = seriesPassword;
+			}
 			
 			playDeck = new solDeck(wizardDecks);
 			if (newSeed) {
@@ -1167,7 +1174,13 @@ function newGame(greetings, newSeed) {
 			renderPlayarea();
 			
 			if (greetings) {
-				updateStatus("Welcome to Solitaire Wizard.");
+				switch (baseStatFile) {
+					case "seriesPlay":
+						updateStatus("Welcome to the Solitaire Series!");
+						break;
+					default:
+						break;
+				}
 			} else if (!newSeed) {
 				if (passInvalid) {
 					updateStatus("Not a valid password. New game started");
@@ -1178,6 +1191,10 @@ function newGame(greetings, newSeed) {
 				}
 			} else {
 				updateStatus("Game started");
+			}
+			
+			if (baseStatFile == "seriesPlay") {
+				saveSeriesFile(false);
 			}
 		}
 	} catch(err) {

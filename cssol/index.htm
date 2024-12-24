@@ -10,36 +10,90 @@
 
 	<link type="text/css" href="scripts/cssol.css" rel="stylesheet" />
 	<link type="image/x-icon" href="cssol.ico" rel="icon" />
+	<style type="text/css">
+		#devMode {display: none;}
+	</style>
+	<script type="text/javascript" src="scripts/common.js"></script>
+	<script type="text/javascript" src="../quickGet.js"></script>
+	<script>
+		function openMenu(submenu) {
+			var subMenuArray = ['quick', 'series'];
+			
+			for (i = 0; i < subMenuArray.length; i++) {
+				if (submenu == subMenuArray[i]) {
+					document.getElementById(subMenuArray[i]).style.display = "";
+				} else {
+					document.getElementById(subMenuArray[i]).style.display = "none";
+				}
+			}
+			
+			if (submenu == "series") {
+				var saveInfo = document.getElementById("seriesSav");
+				loadSeriesFile();
+				
+				if (!seriesElements || seriesElements.length < 2) {
+					saveInfo.innerHTML = "<button class=\"interact\" disabled=\"disabled\" title=\"There is no saved series to resume\">Resume series</button>";
+				} else {
+					var skillLevels = ["Casual", "Regular", "Fanatic", "Hardcore"];
+					var gamePool = ["Klondike", "Yukon", "Raglan", "Conquered!"];
+					
+					var saveData = "Skill Level: "+skillLevels[seriesDiff-1]+"\nGame: "+gamePool[seriesGame-1]+"\nLives: "+seriesLives+"\nScore: "+seriesScore;
+						
+					saveInfo.innerHTML = "<a href=\"series/\" class=\"interact\" title=\""+saveData+"\">Resume series</button>";
+				}
+			}
+		}
+		
+		function replaceConfirmation() {
+			if (!seriesElements || seriesElements.length < 2) {
+				return true;
+			}
+			
+			return confirm("Warning! This will replace your existing saved series. Proceed anyway?");
+		}
+		
+		function enableDevMode() {
+			if (getParam("debug") == "true") {
+				document.getElementById("devMode").style.display = "";
+			}
+		}
+	</script>
 </head>
 <body>
 
 <p id="banner"><img src="gfx/banner.png" alt="" /></p>
 <p>Welcome to <span class="bold">CSYience Solitaire</span>, an HTML5 solitaire site! No downloads required; just play!</p>
 
-<hr />
+<p class="center"><button class="interact" onclick="openMenu('quick')">Quick Play</button>
+<a href="wizard/" class="interact">Solitaire Wizard</a>
+<button id="devMode" class="interact" onclick="openMenu('series')">Series Challenge</button></p>
 
-<h2>Available Games</h2>
+<div class="center" style="display: none;" id="quick">
 <h3>Quick Play</h3>
-<p>Easily play any of these games of varying difficulty, organized by size.</p>
-
-<p class="center"><a class="interact" href="games/klondike.htm">Klondike</a>
+Quickly play these most common games.<br />
+<a class="interact" href="games/klondike.htm">Klondike</a>
 <a class="interact" href="games/freecell.htm">FreeCell</a>
-<a class="interact" href="games/golf.htm">Golf</a>
-<a class="interact" href="games/yukon.htm">Yukon</a>
-<a class="interact" href="games/raglan.htm">Raglan</a>
-<a class="interact" href="games/fourteen.htm">Fourteen Out</a> &mdash;
 <a class="interact" href="games/spider.htm">Spider</a>
+<a class="interact" href="games/golf.htm">Golf</a>
+<a class="interact" href="games/yukon.htm">Yukon</a><br /><br />
+A few other games are also available to play.<br />
+<a class="interact" href="games/raglan.htm">Raglan</a>
+<a class="interact" href="games/fourteen.htm">Fourteen Out</a>
+<a class="interact" href="games/poker.htm">Poker Grid</a>
 <a class="interact" href="games/40thieves.htm">Forty Thieves</a>
-<a class="interact" href="games/gypsy.htm">Gypsy</a></p>
+<a class="interact" href="games/gypsy.htm">Gypsy</a>
+<a class="interact" href="games/blackjack.htm">Blackjack</a>
+</div>
 
-<h3><a href="wizard/">Solitaire Wizard</a></h3>
-<p>The Solitaire Wizard is an exceptionally powerful utility, able to generate nearly any custom game.</p>
-
-<h3><a href="games/blackjack.htm">Blackjack</a></h3>
-<p>Although not truly a solitaire game, Blackjack uses the same engine. The player can compete with 1 or more hands against the dealer, in an attempt to go as far as they can in a part Arcade part Tournament setting.</p>
-
-<h3><a href="games/poker.htm">Poker Grid</a></h3>
-<p>Arrange the 25 cards so that their 12 hands together can score a lot of points.</p>
+<div class="center" style="display: none;" id="series">
+<h3>Series Challenge</h3>
+A serial scoring challenge where three (3) games are played back to back! Skill levels significantly alter the way a series is played!<br />
+<a class="interact" href="series/?newSkill=1" onclick="return replaceConfirmation()">Casual</a>
+<a class="interact" href="series/?newSkill=2" onclick="return replaceConfirmation()">Regular</a>
+<a class="interact" href="series/?newSkill=3" onclick="return replaceConfirmation()">Fanatic</a>
+<a class="interact" href="series/?newSkill=4" onclick="return replaceConfirmation()">Hardcore!</a>
+<span id="seriesSav"></span>
+</div>
 
 <hr />
 
