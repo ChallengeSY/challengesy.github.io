@@ -1291,18 +1291,18 @@ function saveSeriesFile(gameWon) {
 		}
 		
 		seriesPassword = "";
-		seriesScore += solGame.casualScore * seriesLives++ + winBonus;
+		seriesScore += solGame.casualScore * seriesLives + winBonus;
 		seriesGame++;
 		
 		switch (seriesDiff) {
-			case 2:
-				seriesLives = 2 + seriesGame;
+			case 3:
+				seriesLives++;
 				break;
 			case 4:
 				seriesLives = 1;
 				break;
 			default:
-				seriesLives++;
+				seriesLives = 2 + seriesGame;
 				break;
 		}
 		
