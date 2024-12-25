@@ -10,9 +10,6 @@
 
 	<link type="text/css" href="scripts/cssol.css" rel="stylesheet" />
 	<link type="image/x-icon" href="cssol.ico" rel="icon" />
-	<style type="text/css">
-		#devMode {display: none;}
-	</style>
 	<script type="text/javascript" src="scripts/common.js"></script>
 	<script type="text/javascript" src="../quickGet.js"></script>
 	<script>
@@ -35,38 +32,35 @@
 					saveInfo.innerHTML = "<button class=\"interact\" disabled=\"disabled\" title=\"There is no saved series to resume\">Resume series</button>";
 				} else {
 					var skillLevels = ["Casual", "Regular", "Fanatic", "Hardcore"];
-					var gamePool = ["Klondike", "Yukon", "Raglan", "Conquered!"];
+					var gamePool = ["Klondike", "Yukon", "Raglan"];
 					
-					var saveData = "Skill Level: "+skillLevels[seriesDiff-1]+"\nGame: "+gamePool[seriesGame-1]+"\nLives: "+seriesLives+"\nScore: "+seriesScore;
-						
-					saveInfo.innerHTML = "<a href=\"series/\" class=\"interact\" title=\""+saveData+"\">Resume series</button>";
+					if (seriesGame < 1 || seriesGame > 3 || seriesLives <= 0) {
+						saveInfo.innerHTML = "<button class=\"interact\" disabled=\"disabled\" title=\"There is no saved series to resume\">Resume series</button>";
+					} else {
+						var saveData = "Skill Level: "+skillLevels[seriesDiff-1]+"\nGame: "+gamePool[seriesGame-1]+"\nLives: "+seriesLives+"\nScore: "+seriesScore;
+						saveInfo.innerHTML = "<a href=\"series/\" class=\"interact\" title=\""+saveData+"\">Resume series</button>";
+					}
 				}
 			}
 		}
 		
 		function replaceConfirmation() {
-			if (!seriesElements || seriesElements.length < 2) {
+			if (!seriesElements || seriesElements.length < 2 || seriesGame < 1 || seriesGame > 3 || seriesLives <= 0) {
 				return true;
 			}
 			
 			return confirm("Warning! This will replace your existing saved series. Proceed anyway?");
 		}
-		
-		function enableDevMode() {
-			if (getParam("debug") == "true") {
-				document.getElementById("devMode").style.display = "inline";
-			}
-		}
 	</script>
 </head>
-<body onload="enableDevMode()">
+<body>
 
 <p id="banner"><img src="gfx/banner.png" alt="" /></p>
 <p>Welcome to <span class="bold">CSYience Solitaire</span>, an HTML5 solitaire site! No downloads required; just play!</p>
 
 <p class="center"><button class="interact" onclick="openMenu('quick')">Quick Play</button>
 <a href="wizard/" class="interact">Solitaire Wizard</a>
-<button id="devMode" class="interact" onclick="openMenu('series')">Series Challenge</button></p>
+<button class="interact" onclick="openMenu('series')">Series Challenge</button></p>
 
 <div class="center" style="display: none;" id="quick">
 <h3>Quick Play</h3>

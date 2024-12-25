@@ -16,7 +16,7 @@ function finishSeriesGame() {
 					saveSeriesFile(false);
 				}
 			} else {
-				var finalScore = seriesScore + solGame.casualScore * seriesLives;
+				var finalScore = seriesScore + solGame.casualScore * seriesLives - 20;
 				
 				endSeries = confirm("Abort this game and finish this series? (Your final score will be "+finalScore+".)");
 			}

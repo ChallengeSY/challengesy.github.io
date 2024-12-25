@@ -1176,9 +1176,20 @@ function newGame(greetings, newSeed) {
 			if (greetings) {
 				switch (baseStatFile) {
 					case "seriesPlay":
-						updateStatus("Welcome to the Solitaire Series!");
+						switch (seriesGame) {
+							case 1:
+								updateStatus("Welcome to Klondike Solitaire.");
+								break;
+							case 2:
+								updateStatus("Welcome to Yukon Solitaire.");
+								break;
+							case 3:
+								updateStatus("Welcome to Raglan Solitaire.");
+								break;
+						}
 						break;
 					default:
+						updateStatus("Welcome to Solitaire Wizard.");
 						break;
 				}
 			} else if (!newSeed) {

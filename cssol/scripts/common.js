@@ -131,7 +131,7 @@ function exportLog(gameWon) {
 		if (gameWon > 0) {
 			saveSeriesFile(true);
 			if (seriesGame <= 3) {
-				appendStatus("<br />The series has been saved.");
+				appendStatus("<br />The series has been saved. Tap <q>Finish game</q> when you are ready to play the next game.");
 			} else {
 				appendStatus("<br />The series has been successfully completed!");
 			}
@@ -1259,6 +1259,9 @@ function loadSeriesFile() {
 			
 			seriesScore = parseInt(seriesElements[1]);
 			seriesPassword = seriesElements[2];
+		} else {
+			seriesGame = 0;
+			seriesLives = 0;
 		}
 		
 		if (passField) {
@@ -1266,6 +1269,7 @@ function loadSeriesFile() {
 		}
 	} else {
 		seriesElements = null;
+		seriesGame = 0;
 	}
 }
 
@@ -1277,12 +1281,14 @@ function saveSeriesFile(gameWon) {
 	
 	if (gameWon) {
 		var winBonus = 0;
+		var cardsMod = 0;
 		switch (seriesGame) {
 			case 2:
-				winBonus = 120;
+				winBonus = 128;
 				break;
 			case 3:
-				winBonus = 256;
+				winBonus = 268;
+				cardsMod = -4;
 				break;
 		}
 		
@@ -1291,19 +1297,22 @@ function saveSeriesFile(gameWon) {
 		}
 		
 		seriesPassword = "";
-		seriesScore += solGame.casualScore * seriesLives + winBonus;
-		seriesGame++;
+		seriesScore += (solGame.casualScore + cardsMod) * seriesLives + winBonus;
 		
-		switch (seriesDiff) {
-			case 3:
-				seriesLives++;
-				break;
-			case 4:
-				seriesLives = 1;
-				break;
-			default:
-				seriesLives = 2 + seriesGame;
-				break;
+		if (++seriesGame <= 3) {
+			switch (seriesDiff) {
+				case 3:
+					seriesLives++;
+					break;
+				case 4:
+					seriesLives = 1;
+					break;
+				default:
+					seriesLives = 2 + seriesGame;
+					break;
+			}
+		} else if (seriesDiff == 4) {
+			seriesLives = 1;
 		}
 		
 		resButton.disabled = true;
@@ -1319,7 +1328,11 @@ function saveSeriesFile(gameWon) {
 	}
 	buildSaveStr = seriesDiff.toString()+seriesGame+seriesLives+"~"+seriesScore+"~"+seriesPassword;
 	
-	setStorage("cssolSeries",buildSaveStr);
+	if (seriesGame <= 3) {
+		setStorage("cssolSeries",buildSaveStr);
+	} else {
+		deleteSeriesFile();
+	}
 }
 
 function deleteSeriesFile() {

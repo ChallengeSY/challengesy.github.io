@@ -59,7 +59,7 @@
 			tableauMovement = "yukonStyle";
 			break;
 			
-		default:
+		case 3:
 			// Raglan
 			tableauStructure = [1,2,3,4,5,6,7,7,7];
 			downturnDepth = [0];
@@ -68,6 +68,11 @@
 			prefilledReserve = 6;
 			startingCards = 4;
 			break;
+	}
+	
+	if (seriesGame < 1 || seriesGame > 3 || seriesLives <= 0) {
+		wizardDecks = 0;
+		tableauStructure = [];
 	}
 	tableauWidth = tableauStructure.length;
 	tableauShape = -1;
@@ -106,10 +111,46 @@
 
 <div id="helpPanel">
 <h2>Instructions</h2>
-<p>Solitaire Series is a series of 3 games played back to back (Klondike &rarr; Yukon &rarr; Raglan), with a total score and lives tracked as the series progreses. A series is successful if all 3 games are finished, and ends in a failure if lives are all exhausted.</p>
+<p>Solitaire Series is a series of 3 games played back to back, with a total score and lives tracked as the series progreses. A series is successful if all 3 games are finished, and ends in failure if lives are all exhausted.</p>
 
 <h3>Scoring</h3>
 <p>Points are awarded for each card secured, times the number of lives available (with the maximum lives being used if playing on Hardcore). This means if losses are incurred while playing on Regular or Fanatic, the score is reduced accordingly based on lives lost.</p>
+
+<table style="margin-left: auto; margin-right: auto;" summary="A breakdown of the scoring system. In short, the Win bonus increases with each subsequent game. The grand total maximum can be 1,000 points, for successfully winning the entire series on the respective first tries.">
+<thead><tr>
+	<th>Game</th>
+	<th>Base Score</th>
+	<th>Max Lives</th>
+	<th>Win Bonus</th>
+	<th>Max Score</th>
+</tr></thead>
+<tfoot><tr>
+	<td>Grand Total</th>
+	<td class="numeric">152</td>
+	<td class="numeric">&mdash;</td>
+	<td class="numeric">396</td>
+	<td class="numeric">1,000</td>
+</tr></tfoot>
+<tbody><tr>
+	<td>Klondike</th>
+	<td class="numeric">52</td>
+	<td class="numeric">3</td>
+	<td class="numeric">0</td>
+	<td class="numeric">156</td>
+</tr><tr>
+	<td>Yukon</th>
+	<td class="numeric">52</td>
+	<td class="numeric">4</td>
+	<td class="numeric">128</td>
+	<td class="numeric">336</td>
+</tr><tr>
+	<td>Raglan</th>
+	<td class="numeric">48</td>
+	<td class="numeric">5</td>
+	<td class="numeric">268</td>
+	<td class="numeric">508</td>
+</tr></tbody>
+</table>
 
 <h3>Skill Levels</h3>
 
