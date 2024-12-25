@@ -1277,7 +1277,7 @@ function saveSeriesFile(gameWon) {
 	var passField = document.getElementById("password");
 	var resButton = document.getElementById("restartGame");
 	
-	var seriesFields = [document.getElementById("seriesScore"),document.getElementById("seriesLives")];
+	var seriesFields = [document.getElementById("seriesSkill"),document.getElementById("seriesScore"),document.getElementById("seriesLives"),document.getElementById("livesDisp")];
 	
 	if (gameWon) {
 		var winBonus = 0;
@@ -1321,10 +1321,35 @@ function saveSeriesFile(gameWon) {
 	}
 	
 	if (seriesFields[0]) {
-		seriesFields[0].innerHTML = seriesScore;
+		var skillName;
+		switch (seriesDiff) {
+			case 1:
+				skillName = "Casual";
+				break;
+			case 2:
+				skillName = "Regular";
+				break;
+			case 3:
+				skillName = "Fanatic";
+				break;
+			case 4:
+				skillName = "Hardcore";
+				break;
+			default:
+				skillName = "???";
+				break;
+		}
+		seriesFields[0].innerHTML = skillName;
+		
+		if (seriesFields[3] && seriesDiff == 1) {
+			seriesFields[3].style.display = "none";
+		}
 	}
 	if (seriesFields[1]) {
-		seriesFields[1].innerHTML = seriesLives;
+		seriesFields[1].innerHTML = seriesScore;
+	}
+	if (seriesFields[2]) {
+		seriesFields[2].innerHTML = seriesLives;
 	}
 	buildSaveStr = seriesDiff.toString()+seriesGame+seriesLives+"~"+seriesScore+"~"+seriesPassword;
 	
