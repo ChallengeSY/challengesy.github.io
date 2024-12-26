@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>Campaign Tech Bonus Material - Why do weapons jam?</title>
+	<link type="text/css" href="../planets.css" rel="stylesheet" />
+	<style text="text/css">
+		img.vcr {max-width: 25%; float: right; margin-left: 20px; margin-bottom: 20px;}
+		div {display: none; clear: both;}
+		.cellAlt {background: #400040;}
+		.success {color: #C0FF40; font-weight: bold;}
+		.waste {color: #C0C0C0;}
+	</style>
+	<script type="text/javascript" src="story.js"></script>
+	<script type="text/javascript" src="weaponSeeds.js"></script>
+</head>
+<body onload="makeInfoBox()">
+
+<p id="banner"><a href="../index.htm"><img src="../banner.png" alt="" /></a></p>
+
+<h2>Why do weapons jam?</h2>
+
+<h3>Summary</h3>
+<p>The basic summary is that weapons jam as a result of the 119-seed system that VGA Planets (and Nu) uses. On paper, it <i>seems</i> fancy enough to be a prime number... except it is <b>not</b>. 119 has the factors 7 and 17, which can cause battles to cycle through very few differnt seeds in nominal conditions.</p>
+
+<div id="ch1">
+	<h3>Breakdown by weapon type</h3>
+	<h4>Fighter Bays</h4>
+	<p>Fighter Bays do not charge at all. Instead, <i>each</i> carrier consistently rolls a d20 per tick. If the result is less than or equal to the number of fighter bays, then it launches a fighter.</p>
+
+	<h4>Beam banks</h4>
+	<p>Beam banks consistently roll two dice (1d20 + 1d100) per tick. A third tick (another d20) becomes available when the ships get close enough to use them against each other.</p>
+
+	<h4>Torpedo tubes</h4>
+	<p>Torpedo tubes do not roll dice until the ships become close enough to allow their use, and only if their ammo storage is not empty.</p>
+	
+	<p>While the conditions are met, the tube constantly charges, and rolls 1d17 to determine whether to shoot (requires 31 ticks worth of charge). Additionally, if these weapons max their charge levels entirely (41 ticks worth), then it automatically shoots regardless of the previous roll.</p>
+	
+	<p>Either way, when it shoots, it then rolls 1d100 to determine whether a hit was scored against the opposing ship.</p>
+
+	<h4>Dogfights</h4>
+	<p>Finally, when two fighters are aligned vertically, one fighter automatically shoots down another. 1d100 is rolled to determine the victor.</p>
+</div>
+
+<div id="ch2">
+	<p><a href="golemPlanetVCR.png"><img class="vcr" src="golemPlanetVCR.png" alt="Golem vs Planet VCR sample" /></a></p>
+	<h3>The problem</h3>
+	<p>Now that we know where the die rolls are coming from, we can fetch samples where this becomes a problem.</p>
+
+	<h4>Golem vs Planet</h4>
+	<p>For example, my Golem on the left (6-beam carrier) fights a planet (10-beam carrier). Since both combatants are carriers, that rolls 2 dice. 16 beam banks time 2 rolls each equals 32 dice. The nominal dice per tick becomes 34 rolls; which happens to be a multiple of 17. <a href="javascript:buildSeedVisualizer(33,10,6,16,10);">Weapon jams can occur</a> whenever we have a period where no dogfights take place, but each dogfight causes the seed <q>table</q> to shift.</p>
+</div>
+
+<div id="ch3">
+	<p><a href="whiteFalconAutomaVCR.png"><img class="vcr" src="whiteFalconAutomaVCR.png" alt="White Falcon vs Automa VCR sample" /></a></p>
+	<h3>White Falcon vs Automa</h3>
+	<p>Here is another sample where <a href="javascript:buildSeedVisualizer(60,0,4,8,4);">jams have happened</a>. The White Falcon on the left (4-beam torp ship) versus my Automa on the right (4-beam carrier). 8 beam banks times 2 rolls equals 16 dice. My carrier rolls an extra die on top of that. The nominal dice per tick is 17 rolls <i>until</i> the White Falcon gets in range to fire its one tube. Hence, one of their beam banks never activates until that time. (Technically, one of my beam banks also jams, but there are no fighters to shoot down.)</p>
+	
+	<p style="clear: both;"><a href="instruPlanetVCR.png"><img class="vcr" src="instruPlanetVCR.png" alt="Instrumentality vs Planet VCR sample" /></a></p>
+	<h3>Instrumentality vs Planet</h3>
+	<p>Although not obvious from this recording, the planet on the right side was <i>unable</i> to launch its 3 fighters <a href="javascript:buildSeedVisualizer(57,7,4,3,2);">at all</a>. 6 beam banks total (times 2) plus 2 carriers equals 14 dice per nominal tick.</p>
+</div>
+
+<div id="ch4">
+	<h3>Overall</h3>
+	<p>The prime factor system makes combat quite wonky, as there is a risk that only a handful of seeds are used throughout the battle. We have a special present for those who are able to understand why these things occur in the first place... a seed simulator.</p>
+	
+	<table>
+	<thead><tr>
+		<th>Left</th>
+		<th></th>
+		<th>Right</th>
+	</tr></thead>
+	<tfoot><tr>
+		<td colspan="3" class="center"><button class="interact" onclick="buildCustomTable();">Build seed table</button></td>
+	</tr></tfoot>
+	<tbody><tr>
+		<td><input type="number" class="text" id="beamsL" value="4" min="0" max="10" size="3" /></td>
+		<th>Beams</th>
+		<td><input type="number" class="text" id="beamsR" value="4" min="0" max="10" size="3" /></td>
+	</tr><tr>
+		<td><input type="number" class="text" id="baysL" value="4" min="0" size="3" /></td>
+		<th>Bays</th>
+		<td><input type="number" class="text" id="baysR" value="4" min="0" size="3" /></td>
+	</tr></tbody>
+	</table>
+</div>
+
+<p id="stop4" class="center"><button class="interact" onclick="continueStory();">Continue Article</button> <button class="interact" onclick="finishStory();">Finish Article</button></p>
+
+</body>
+</html>
