@@ -16,7 +16,7 @@ function makeInfoBox() {
 	infoFrag.style.top = "200px";
 	infoFrag.style.marginLeft = "auto";
 	infoFrag.style.marginRight = "auto";
-	infoFrag.style.maxWidth = "1350px";
+	// infoFrag.style.maxWidth = "1350px";
 	infoFrag.style.zIndex = "3";
 	infoFrag.style.background = "#200020";
 	infoFrag.style.border = "1px #CCC solid";
