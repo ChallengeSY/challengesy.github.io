@@ -3,7 +3,7 @@ var chapter = 0;
 function continueStory() {
 	chapter++;
 	
-	document.getElementById("ch"+chapter).style.display = "initial";
+	document.getElementById("ch"+chapter).style.display = "block";
 	fetchButton = document.getElementById("stop"+chapter);
 	if (fetchButton) {
 		fetchButton.style.display = "none";
@@ -16,7 +16,7 @@ function finishStory() {
 		
 		fetchChapter = document.getElementById("ch"+chapter)
 		if (fetchChapter) {
-			fetchChapter.style.display = "initial";
+			fetchChapter.style.display = "block";
 		} else {
 			break;
 		}
