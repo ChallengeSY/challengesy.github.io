@@ -132,8 +132,10 @@ function exportLog(gameWon) {
 			saveSeriesFile(true);
 			if (seriesGame <= 3) {
 				appendStatus("<br />The series has been saved. Tap <q>Finish game</q> when you are ready to play the next game.");
-			} else {
+			} else if (seriesScore < 1000) {
 				appendStatus("<br />The series has been successfully completed!");
+			} else {
+				appendStatus("<br />A perfect score has been achieved on this series!");
 			}
 		}
 	}
