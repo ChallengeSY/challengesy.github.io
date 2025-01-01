@@ -167,6 +167,7 @@ function undoMove() {
 		}
 
 		undoCount++;
+		forceRender = true;
 		renderPlayarea();
 	}
 }
@@ -377,7 +378,7 @@ function renderPlayarea() {
 			
 			searchElement = document.getElementById("x"+x+"y"+y);
 			if (searchElement && (y <= solGame.height[x] + 2 || y <= solGame.prevHeight[x] + 2 ||
-				y == 0 || solGame.tableau[x][y] || !rectangularTableau)) {
+				y == 0 || solGame.tableau[x][y] || !rectangularTableau || forceRender)) {
 				if (solGame.tableau[x][y]) {
 					renderDiv(searchElement,"play" + (solGame.tableau[x][y].deckID % 6));
 					
