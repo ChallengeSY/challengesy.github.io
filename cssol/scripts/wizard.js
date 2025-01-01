@@ -1440,6 +1440,9 @@ function newGame(greetings, newSeed) {
 				case "russianSol":
 					title = "Russian Solitaire";
 					break;
+				case "seahaven":
+					title = "Seahaven Towers";
+					break;
 				case "spider1":
 					title = "Black Widow Solitaire";
 					break;
