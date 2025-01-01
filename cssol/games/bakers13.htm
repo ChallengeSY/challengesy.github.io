@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="description" content="JavaScript solitaire games" />
+	<meta name="keywords" content="Baker's Dozen" />
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>Baker's Dozen - CSSol</title>
+
+	<link type="text/css" href="../scripts/cards.css" rel="stylesheet" />
+	<link type="image/x-icon" href="../cssol.ico" rel="icon" />
+	<script type="text/javascript" src="../scripts/common.js"></script>
+	<script type="text/javascript" src="../scripts/homepiles.js"></script>
+	<script type="text/javascript" src="../scripts/wizard.js"></script>
+	<script type="text/javascript" src="../scripts/bakers13.js"></script>
+</head>
+<body>
+<p id="banner"><a href="index.php"><img src="../gfx/banner.png" alt="" /></a></p>
+<div id="tableau">
+	<div id="commandPanel">
+	<input id="newGame" class="button" type="button" value="New" onclick="newGame(false,true)" title="Starts a new game" />
+	<input id="restartGame" class="button" type="button" value="Restart" onclick="restartGame(false)" title="Restarts the game using the same password" />
+	<input id="autoBuild" class="button" type="button" value="Autobuild" onclick="autoFinish()" title="Automatically builds foundations where possible" />
+	<input id="helpButton" class="button" type="button" value="Help" onclick="toggleHelp()" title="Toggles game instructions" />
+	<input id="undoMove" class="button" type="button" value="Undo" onclick="undoMove()" title="Undoes the last move" />
+	<input id="passButton" class="button" type="button" value="Password" onclick="togglePass()" title="Toggles seed password display" />
+	&mdash; Casual Score: <span id="casualScore">0</span>
+	<span id="passDisp"><br />Password: <input id="password" class="text" type="text" size="60" onchange="newGame(false,false)" /></span>
+	</div>
+
+	<!-- Playfield elements will be made here -->
+</div>
+
+<p id="statusBar"></p>
+
+<div id="helpPanel">
+<h2>Instructions</h2>
+<p>Baker's Dozen is a solitaire card game using a deck of fifty-two playing cards. The game is so called because of the 13 columns in the game, the number in a baker's dozen.</p>
+
+<p>First, the cards are dealt into columns of four on the tableau, resulting in 13 columns. Any King that is in the top or middle of each column must be placed on the bottom before the game starts. Multiple Kings that are mixed into one column are placed on the bottom without changing their order.</p>
+
+<p>The object of the game is to build all the cards onto the four foundations. The player must first free up the four aces and if one of them is found, it is placed on the foundation. Building on the foundation is up by suit, each from ace to king.</p>
+
+<p>Only the top cards of each column can are available, and cards on the tableau, if they cannot be placed on the foundations yet, can be built down regardless of suit. Furthermore, once all cards are taken out of a column, the column can never be filled. The game is won when all cards end up in the foundations.</p>
+
+<p class="footer">Documentation is &copy; <a href="http://en.wikipedia.org">Wikipedia Contributors</a>. Freely distributable under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons (BY SA) license 3.0</a></p>
+</div>
+
+</body>
+</html>

@@ -1,26 +1,26 @@
 // Wizard Engine Settings
 wizardDecks = 1;
-scoringModel = "buildUpSuit";
+scoringModel = "noneScoreSpider";
 setBaseRank("Ace");
 startingCards = 0;
 
-tableauStructure = [9,8,7,6,5,4,3,2,1];
+tableauStructure = [7,7,7,7,7,7,7];
 tableauWidth = tableauStructure.length;
 tableauShape = -1;
 tableauDepth = Math.max(...tableauStructure);
 
-tableauBuilding = "downColorAlt";
-tableauMovement = "oneCard";
-emptyPileRefills = "anyCard";
+tableauBuilding = "downSuit";
+tableauMovement = "yukonStyle";
+emptyPileRefills = "finalRank";
 emptyAutoRefills = 0;
-downturnDepth = [0];
+downturnDepth = [3,3,3,3,0,0,0];
 
 stockDealTo = 2;
 wasteDealBy = 1;
 maxRedeals = 0;
 maxReserve = 0;
-prefilledReserve = 7;
-deckCost = 52;
+prefilledReserve = 0;
+deckCost = 37;
 
 function changeDiff(firstTime) {
 	var diffSel = document.getElementById("gameDiff");
@@ -50,18 +50,26 @@ function changeDiff(firstTime) {
 function applyDiffSpecs() {
 	switch (solGame.difficulty) {
 		case 2:
-			tableauStructure = [1,2,3,4,5,6,7,7,7];
-			startingCards = 4;
-			prefilledReserve = 6;
+			tableauStructure = [4,4,4,4,7,7,7];
+			downturnDepth = [0];
+			emptyAutoRefills = 3;
+			stockDealTo = -1;
 
-			baseStatFile = "raglan";
+			baseStatFile = "chelicera";
 			break;
 		case 3:
-			tableauStructure = [9,8,7,6,5,4,3,2,1];
-			startingCards = 0;
-			prefilledReserve = 7;
+			tableauStructure = [7,7,7,7,7,7,7];
+			downturnDepth = [3,3,3,3,0,0,0];
+			emptyAutoRefills = 0;
+			stockDealTo = 2;
 			
-			baseStatFile = "kingAlbert";
+			baseStatFile = "scorpion";
 			break;
+	}
+}
+
+function endingCheck() {
+	if (solGame.casualScore >= maxScore) {
+		gameWon();
 	}
 }

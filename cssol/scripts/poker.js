@@ -6,6 +6,7 @@ window.ondragover = allowDrop
 window.ondrop = deselectAll;
 
 selectedCard = [null, null];
+reverseRender = true;
 
 function setupGame() {
 	var tableauPanel = document.getElementById("tableau");
@@ -138,18 +139,17 @@ function getRankValue(inCard) {
 }
 
 function customRender() {
-	renderPlayarea();
     solGame.moneyScore = 0;
 	console.clear();
 
 	for (var i = 0; i < 5; i++) {
-        solGame.moneyScore += scoreRow([tableau[0][i],tableau[1][i],tableau[2][i],tableau[3][i],tableau[4][i]]);
+        solGame.moneyScore += scoreRow([solGame.tableau[0][i],solGame.tableau[1][i],solGame.tableau[2][i],solGame.tableau[3][i],solGame.tableau[4][i]]);
 
-        solGame.moneyScore += scoreRow([tableau[i][0],tableau[i][1],tableau[i][2],tableau[i][3],tableau[i][4]]);
+        solGame.moneyScore += scoreRow([solGame.tableau[i][0],solGame.tableau[i][1],solGame.tableau[i][2],solGame.tableau[i][3],solGame.tableau[i][4]]);
     }
 
-    solGame.moneyScore += scoreRow([tableau[0][0],tableau[1][1],tableau[2][2],tableau[3][3],tableau[4][4]]);
-    solGame.moneyScore += scoreRow([tableau[0][4],tableau[1][3],tableau[2][2],tableau[3][1],tableau[4][0]]);
+    solGame.moneyScore += scoreRow([solGame.tableau[0][0],solGame.tableau[1][1],solGame.tableau[2][2],solGame.tableau[3][3],solGame.tableau[4][4]]);
+    solGame.moneyScore += scoreRow([solGame.tableau[0][4],solGame.tableau[1][3],solGame.tableau[2][2],solGame.tableau[3][1],solGame.tableau[4][0]]);
 
 	document.getElementById("moneyScore").innerHTML = solGame.moneyScore;
 	endingCheck();
@@ -186,14 +186,14 @@ function playCard(event) {
 			selectX = -1;
 			selectY = -1;
 		} else {
-            var swapCard = tableau[selectX][selectY];
+            var swapCard = solGame.tableau[selectX][selectY];
 
-            tableau[selectX][selectY] = tableau[x][y];
-            tableau[x][y] = swapCard;
+            solGame.tableau[selectX][selectY] = solGame.tableau[x][y];
+            solGame.tableau[x][y] = swapCard;
 
 			playSound(cardDown);
             incrementMove();
-            customRender();
+            renderPlayarea();
         }
 	} catch(err) {
 		throwError(err);
@@ -206,7 +206,7 @@ function newGame(greetings, newSeed) {
 	var imgRef, passInvalid, message;
 		
 	if (newSeed) {
-		message = "Abort this game and start a new game?";
+		message = "End this game and start a new game?";
 	} else {
 		message = "Inputting in a password will end this game. Confirm?";
 	}
@@ -242,18 +242,18 @@ function newGame(greetings, newSeed) {
 			// Reset tableau
 			for (var y = 0; y < 5; y++) {
 				for (var x = 0; x < 5; x++) {
-					tableau[x][y] = null;
+					solGame.tableau[x][y] = null;
 				}
 			}
 						
 			// Sets up the tableau
 			for (var y = 0; y < 5; y++) {
 				for (var x = 0; x < 5; x++) {
-                    tableau[x][y] = assignSeedCard();
+                    solGame.tableau[x][y] = assignSeedCard();
 				}
 			}
 			
-			customRender();
+			renderPlayarea();
 			
 			if (greetings) {
 				updateStatus("Welcome to Poker Grid.");

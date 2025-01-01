@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="description" content="JavaScript solitaire games" />
+	<meta name="keywords" content="Spider" />
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>Scorpion - CSSol</title>
+
+	<link type="text/css" href="../scripts/cards.css" rel="stylesheet" />
+	<link type="image/x-icon" href="../cssol.ico" rel="icon" />
+	<script type="text/javascript" src="../scripts/common.js"></script>
+	<script type="text/javascript" src="../scripts/wizard.js"></script>
+	<script type="text/javascript" src="../scripts/scorpion.js"></script>
+</head>
+<body>
+<p id="banner"><a href="index.php"><img src="../gfx/banner.png" alt="" /></a></p>
+<div id="tableau">
+	<div id="commandPanel">
+	<input id="newGame" class="button" type="button" value="New" onclick="newGame(false,true)" title="Starts a new game" />
+	<input id="restartGame" class="button" type="button" value="Restart" onclick="restartGame(false)" title="Restarts the game using the same password" />
+	<input id="helpButton" class="button" type="button" value="Help" onclick="toggleHelp()" title="Toggles game instructions" />
+	<input id="undoMove" class="button" type="button" value="Undo" onclick="undoMove()" title="Undoes the last move" />
+	<input id="passButton" class="button" type="button" value="Password" onclick="togglePass()" title="Toggles seed password display" />
+	&mdash; Casual Score: <span id="casualScore">0</span>
+	<span id="passDisp"><br />Password: <input id="password" class="text" type="text" size="60" onchange="newGame(false,false)" /></span>
+	&mdash;
+	<select id="gameDiff" class="text" onchange="changeDiff(false)">
+		<option>Chelicera</option>
+		<option selected="selected">Scorpion</option>
+	</select>
+	</div>
+
+	<!-- Playfield elements will be made here -->
+</div>
+
+<p id="statusBar"></p>
+
+<div id="helpPanel">
+<h2>Instructions</h2>
+<p>Scorpion is a Patience game using a deck of 52 playing cards. Although somewhat related to <a href="spider.php">Spider</a>, the method of game play is akin to <a href="yukon.php">Yukon</a>. The object of this game is to form four columns of suit sequence cards from king down to ace.</p>
+
+<p>The game starts with 49 cards dealt into seven columns of seven cards each on the tableau. The first four columns each have three face-down cards with four face-up cards placed over them. The cards in the remaining three columns are all faced up. The three leftover cards are set aside for later.</p>
+
+<p>Cards in the tableau are built down by suit and every face up card is available for play, no matter where in the column it is. That means that any card can be placed on top of a card that is a rank higher. Once a card from the bottom or middle of a column is moved, all cards on top of it are moved as well, as one unit. Nothing can be placed on an ace and gaps on the tableau can only be taken by kings or sequences with Kings as their top cards. Once a face-down card is exposed, it is turned face up.</p>
+
+<p>The game is won when the object is fulfilled.</p>
+
+<h3>Chelicera</h3>
+<p>Strongly related to Scorpion, Chelicera mixes up the formula by keeping the face down cards exclusive to stock (for a total of 15 cards). Also, rather than dealing cards manually to the tableau, cards are automatically dealt 3 at a time to any empty tableau pile. The objective remains the same: Assemble four King-Ace piles built down by suit.</p>
+
+<p class="footer">Documentation is &copy; <a href="http://en.wikipedia.org">Wikipedia Contributors</a>. Freely distributable under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons (BY SA) license 3.0</a></p>
+</div>
+
+</body>
+</html>

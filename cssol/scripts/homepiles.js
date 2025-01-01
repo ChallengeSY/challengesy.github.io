@@ -2,7 +2,6 @@ var finishPtr;
 var KAbuild = false;
 var maxScore = 52;
 var foundationsReusable = false;
-var advancedFoundations = false;
 var buildFoundString = "";
 setBaseRank("Ace");
 
@@ -58,148 +57,130 @@ function playFoundation(event) {
 	var baseID, whichPile;
 	var someMovesInvalid = false;
 	
-	try {
-		baseID = this.id;
-		whichPile = baseID.substring(4,6);
-		foundationRef = document.getElementById(baseID);
-		
-		if (!solGame.gameActive) {
-			updateStatus("The game has already ended!");
-		} else if (selectX == -1) {
-			if (!foundationsReusable) {
-				updateStatus("Cards in the foundation piles are not reusable");
-			} else if (foundationPile[whichPile] == null) {
-				updateStatus("You cannot select an empty foundation pile");
-			}
-		} else if (scoringModel == "buildKASpider") {
-			if (KAbuild) {
-				if (foundationPile[whichPile] == null) {
-					foundationPile[whichPile] = tableau[selectX][height[selectX]];
-					for (d = 0; d < 13; d++) {
-						heightRef = height[selectX] - d;
-						tableau[selectX][heightRef] = null;
-					}
-					renderPlayarea();
-					incrementMove();
-					endingCheck();
-					
-					playSound(cardDown);
-					playSound(scoreCard);
-					selectDepth = 0;
-					selectX = -1;
-				} else {
-					updateStatus("A " + finalRank + "-" + baseRank + " build must be moved to an empty foundation pile");
+	baseID = this.id;
+	whichPile = baseID.substring(4,6);
+	foundationRef = document.getElementById(baseID);
+	
+	if (!solGame.gameActive) {
+		updateStatus("The game has already ended!");
+	} else if (selectX == -1) {
+		if (!foundationsReusable) {
+			updateStatus("Cards in the foundation piles are not reusable");
+		} else if (solGame.foundationPile[whichPile] == null) {
+			updateStatus("You cannot select an empty foundation pile");
+		}
+	} else if (scoringModel == "buildKASpider") {
+		if (KAbuild) {
+			if (solGame.foundationPile[whichPile] == null) {
+				recordMove();
+				solGame.foundationPile[whichPile] = solGame.tableau[selectX][solGame.height[selectX]];
+				for (d = 0; d < 13; d++) {
+					heightRef = solGame.height[selectX] - d;
+					solGame.tableau[selectX][heightRef] = null;
 				}
-			} else {
-				for (var z = 0; z <= selectDepth; z++) {
-					yRef = height[selectX] - selectDepth + z;
-					selectionRef = document.getElementById("x" + selectX + "y" + yRef);
-					deselectCard(selectionRef);
-				}
-					
-				updateStatus("Invalid move. Only full " + finalRank + "-" + baseRank + " builds may be moved to a foundation pile");
+				renderPlayarea();
+				endingCheck();
 				
-				selectDepth = 0;
-				selectX = -1;
-			}
-		} else if (selectX == 99) {
-			selectionRef = document.getElementById("waste" + solGame.wasteSize);
-			deselectCard(selectionRef);
-			
-			if (foundationCheck(foundationPile[whichPile],stockPile[solGame.wasteSize])) {
-
-				updateStatus("&emsp;");
-				foundationPile[whichPile] = stockPile[solGame.wasteSize];
-				deleteEntry();
-				
-				incrementMove();
-				solGame.casualScore++;
-				if (advancedFoundations) {
-					customRender();
-				} else {
-					renderPlayarea();
-				}
-				playSound(scoreCard);
-			} else {
-				updateStatus("Invalid move. Build up foundations "+buildFoundString+" starting with the " + baseRank);
-			}
-			
-			selectX = -1;
-			endingCheck();
-		} else if (selectX >= reserveStart) {
-			var reserveID = selectX - reserveStart;
-		
-			selectionRef = document.getElementById("open" + reserveID);
-			deselectCard(selectionRef);
-
-			if (solGame.casualScore == 0 && baseStatFile == "terrace") {
-				updateStatus("Invalid move. The first card must come from the tableau.");
-			} else if (foundationCheck(foundationPile[whichPile],reserveSlot[reserveID])) {
-				updateStatus("&emsp;");
-				foundationPile[whichPile] = reserveSlot[reserveID];
-				reserveSlot[reserveID] = null;
-
-				incrementMove();
-				solGame.casualScore++;
-				if (advancedFoundations) {
-					customRender();
-				} else {
-					renderPlayarea();
-				}
-				playSound(scoreCard);
-			} else {
-				updateStatus("Invalid move. Build up foundations "+buildFoundString+" starting with the " + baseRank);
-			}
-			
-			selectX = -1;
-			endingCheck();
-		} else {
-			if (foundationCheck(foundationPile[whichPile],tableau[selectX][height[selectX]])) {
-				for (var z = 0; z <= selectDepth; z++) {
-					yRef = height[selectX] - z;
-					selectionRef = document.getElementById("x" + selectX + "y" + yRef);
-
-					if (foundationCheck(foundationPile[whichPile],tableau[selectX][yRef])) {
-						foundationPile[whichPile] = tableau[selectX][yRef];
-						tableau[selectX][yRef] = null;
-						solGame.casualScore++;
-					} else {
-						someMovesInvalid = true;
-						break;
-					}
-				}
-
-				
-				tableau[selectX][height[selectX]] = null;
-				
-				incrementMove();
-				if (advancedFoundations) {
-					customRender();
-				} else {
-					renderPlayarea();
-				}
-				if (someMovesInvalid) {
-					updateStatus("Some cards could not be moved to foundation pile. Build up foundations "+buildFoundString+" starting with the " + baseRank);
-				}
 				playSound(cardDown);
 				playSound(scoreCard);
-				endingCheck();
+				selectDepth = 0;
+				selectX = -1;
 			} else {
-				for (var z = 0; z <= selectDepth; z++) {
-					yRef = height[selectX] - selectDepth + z;
-					selectionRef = document.getElementById("x" + selectX + "y" + yRef);
-					deselectCard(selectionRef);
-				}
-				
-				updateStatus("Invalid move. Build up foundations "+buildFoundString+" starting with the " + baseRank);
+				updateStatus("A " + finalRank + "-" + baseRank + " build must be moved to an empty foundation pile");
 			}
+		} else {
+			for (var z = 0; z <= selectDepth; z++) {
+				yRef = solGame.height[selectX] - selectDepth + z;
+				selectionRef = document.getElementById("x" + selectX + "y" + yRef);
+				deselectCard(selectionRef);
+			}
+				
+			updateStatus("Invalid move. Only full " + finalRank + "-" + baseRank + " builds may be moved to a foundation pile");
 			
 			selectDepth = 0;
 			selectX = -1;
-			document.getElementById("casualScore").innerHTML = solGame.casualScore;
 		}
-	} catch(err) {
-		throwError(err);
+	} else if (selectX == 99) {
+		selectionRef = document.getElementById("waste" + solGame.wasteSize);
+		deselectCard(selectionRef);
+		
+		if (foundationCheck(solGame.foundationPile[whichPile],solGame.stockPile[solGame.wasteSize])) {
+			recordMove();
+			updateStatus("&emsp;");
+			solGame.foundationPile[whichPile] = solGame.stockPile[solGame.wasteSize];
+			deleteEntry();
+			
+			solGame.casualScore++;
+			renderPlayarea();
+			playSound(scoreCard);
+		} else {
+			updateStatus("Invalid move. Build up foundations "+buildFoundString+" starting with the " + baseRank);
+		}
+		
+		selectX = -1;
+		endingCheck();
+	} else if (selectX >= reserveStart) {
+		var reserveID = selectX - reserveStart;
+	
+		selectionRef = document.getElementById("open" + reserveID);
+		deselectCard(selectionRef);
+
+		if (solGame.casualScore == 0 && baseStatFile == "terrace") {
+			updateStatus("Invalid move. The first card must come from the tableau.");
+		} else if (foundationCheck(solGame.foundationPile[whichPile],solGame.reserveSlot[reserveID])) {
+			recordMove();
+			updateStatus("&emsp;");
+			solGame.foundationPile[whichPile] = solGame.reserveSlot[reserveID];
+			solGame.reserveSlot[reserveID] = null;
+
+			solGame.casualScore++;
+			renderPlayarea();
+			playSound(scoreCard);
+		} else {
+			updateStatus("Invalid move. Build up foundations "+buildFoundString+" starting with the " + baseRank);
+		}
+		
+		selectX = -1;
+		endingCheck();
+	} else {
+		if (foundationCheck(solGame.foundationPile[whichPile],solGame.tableau[selectX][solGame.height[selectX]])) {
+			recordMove();
+			for (var z = 0; z <= selectDepth; z++) {
+				yRef = solGame.height[selectX] - z;
+				selectionRef = document.getElementById("x" + selectX + "y" + yRef);
+
+				if (foundationCheck(solGame.foundationPile[whichPile],solGame.tableau[selectX][yRef])) {
+					solGame.foundationPile[whichPile] = solGame.tableau[selectX][yRef];
+					solGame.tableau[selectX][yRef] = null;
+					solGame.casualScore++;
+				} else {
+					someMovesInvalid = true;
+					break;
+				}
+			}
+
+			solGame.tableau[selectX][solGame.height[selectX]] = null;
+			renderPlayarea();
+			
+			if (someMovesInvalid) {
+				updateStatus("Some cards could not be moved to foundation pile. Build up foundations "+buildFoundString+" starting with the " + baseRank);
+			}
+			playSound(cardDown);
+			playSound(scoreCard);
+			endingCheck();
+		} else {
+			for (var z = 0; z <= selectDepth; z++) {
+				yRef = solGame.height[selectX] - selectDepth + z;
+				selectionRef = document.getElementById("x" + selectX + "y" + yRef);
+				deselectCard(selectionRef);
+			}
+			
+			updateStatus("Invalid move. Build up foundations "+buildFoundString+" starting with the " + baseRank);
+		}
+		
+		selectDepth = 0;
+		selectX = -1;
+		document.getElementById("casualScore").innerHTML = solGame.casualScore;
 	}
 }
 
@@ -220,18 +201,14 @@ function autoFoundation(internalSelect, whichPile) {
 			
 			if (solGame.wasteSize < 0) {
 				//Failsafe in case waste pile is empty
-			} else if (foundationCheck(foundationPile[whichPile],stockPile[solGame.wasteSize])) {
+			} else if (foundationCheck(solGame.foundationPile[whichPile],solGame.stockPile[solGame.wasteSize])) {
+				recordMove();
 				updateStatus("&emsp;");
-				foundationPile[whichPile] = stockPile[solGame.wasteSize];
+				solGame.foundationPile[whichPile] = solGame.stockPile[solGame.wasteSize];
 				deleteEntry();
 					
-				incrementMove();
 				solGame.casualScore++;
-				if (advancedFoundations) {
-					customRender();
-				} else {
-					renderPlayarea();
-				}
+				renderPlayarea();
 				moveLegal = true;
 			}
 			
@@ -242,42 +219,34 @@ function autoFoundation(internalSelect, whichPile) {
 		
 			selectionRef = document.getElementById("open" + reserveID);
 			
-			if (!reserveSlot[reserveID]) {
+			if (!solGame.reserveSlot[reserveID]) {
 				//Failsafe in case slot is empty
-			} else if (foundationCheck(foundationPile[whichPile],reserveSlot[reserveID])) {
+			} else if (foundationCheck(solGame.foundationPile[whichPile],solGame.reserveSlot[reserveID])) {
+				recordMove();
 				updateStatus("&emsp;");
-				foundationPile[whichPile] = reserveSlot[reserveID];
-				reserveSlot[reserveID] = null;
+				solGame.foundationPile[whichPile] = solGame.reserveSlot[reserveID];
+				solGame.reserveSlot[reserveID] = null;
 				
-				incrementMove();
 				solGame.casualScore++;
-				if (advancedFoundations) {
-					customRender();
-				} else {
-					renderPlayarea();
-				}
+				renderPlayarea();
 				moveLegal = true;
 			}
 			
 			selectX = -1;
 
 		} else {
-			selectionRef = document.getElementById("x" + selectX + "y" + height[selectX]);
+			selectionRef = document.getElementById("x" + selectX + "y" + solGame.height[selectX]);
 			deselectCard(selectionRef);
 			
-			if (foundationCheck(foundationPile[whichPile],tableau[selectX][height[selectX]])) {
+			if (foundationCheck(solGame.foundationPile[whichPile],solGame.tableau[selectX][solGame.height[selectX]])) {
 				updateStatus("&emsp;");
-				foundationPile[whichPile] = tableau[selectX][height[selectX]];
-				tableau[selectX][height[selectX]] = null;
-				height[selectX]--;
+				recordMove();
+				solGame.foundationPile[whichPile] = solGame.tableau[selectX][solGame.height[selectX]];
+				solGame.tableau[selectX][solGame.height[selectX]] = null;
+				solGame.height[selectX]--;
 				
-				incrementMove();
 				solGame.casualScore++;
-				if (advancedFoundations) {
-					customRender();
-				} else {
-					renderPlayarea();
-				}
+				renderPlayarea();
 				moveLegal = true;
 			}
 			
@@ -300,7 +269,7 @@ function roboBuild(pileCount, reserveCount, wastePresent) {
 		autoRobo: {
 			if (reserveCount > 0 && (reserveReusable > 0 || reserveStacked != null)) {
 				for (var j = 0; j < reserveCount; j++) {
-					if (reserveSlot[j] && (!reserveSlot[j+1] || !reserveStacked || newSubRestack(j+1))) {
+					if (solGame.reserveSlot[j] && (!solGame.reserveSlot[j+1] || !reserveStacked || newSubRestack(j+1))) {
 						for (i = 0; i < 24; i++) {
 							success = autoFoundation(j+reserveStart,i);
 							
@@ -325,7 +294,7 @@ function roboBuild(pileCount, reserveCount, wastePresent) {
 			
 			// Tableau next
 			for (var x = 0; x < pileCount; x++) {
-				if (height[x] >= 0) {
+				if (solGame.height[x] >= 0) {
 					for (i = 0; i < 24; i++) {
 						success = autoFoundation(x,i);
 						
@@ -339,7 +308,7 @@ function roboBuild(pileCount, reserveCount, wastePresent) {
 			// Reserve Pool comes last, assuming neither of the previous two conditions were met
 			if (reserveCount > 0) {
 				for (var j = 0; j < reserveCount; j++) {
-					if (reserveSlot[j] && (!reserveSlot[j+1] || !reserveStacked || newSubRestack(j+1))) {
+					if (solGame.reserveSlot[j] && (!solGame.reserveSlot[j+1] || !reserveStacked || newSubRestack(j+1))) {
 						for (i = 0; i < 24; i++) {
 							success = autoFoundation(j+reserveStart,i);
 							

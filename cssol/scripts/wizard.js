@@ -9,6 +9,9 @@ var allowAnyBaseRank = false;
 var KAbuild = false;
 var deckCost = 0;
 var scoreStockCards = false;
+var reserveFound = 0;
+var challengeDealing = false;
+var forceFinalBottom = false;
 seriesPassword = "";
 
 function setupGame() {
@@ -63,15 +66,22 @@ function setupGame() {
 				wasteFanned = true;
 				// Create a fanned waste pile
 				for (var i = 0; i < maxScore; i++) {
-					leftPos = i * FANNING_X;
-					topPos = topPadding;
+					if (golfGame) {
+						leftPos = COLUMN_WIDTH +  i * FANNING_X;
+						topPos = 0;
+					} else {
+						leftPos = i * FANNING_X;
+						topPos = topPadding;
+					}
 
 					createDivFrag("waste"+i,leftPos,topPos,i);
 					autoAddEvents(divFrag);
 					tableauPanel.appendChild(divFrag);
 				}
 				
-				topPadding = topPadding + 140;
+				if (!golfGame) {
+					topPadding = topPadding + 140;
+				}
 			} else {
 				maxRedeals = 0;
 			}
@@ -109,8 +119,8 @@ function setupGame() {
 			leftPadding = 1;
 		}
 	} else {
-		// Avoid Trapdoor-related bugs in case there is no stock available
-		if (stockDealTo == 3) {
+		// Avoid Reserve-related bugs in case there is no stock available
+		if (stockDealTo >= 4) {
 			stockDealTo = 0;
 		}
 	}
@@ -129,13 +139,34 @@ function setupGame() {
 		// Blank catch. If these variables are undefined (no reserve slots at all), then we simply move on without them.
 	}
 	
-	if (stockDealTo == 3 && deckCost >= maxScore) {
+	if (stockDealTo == 4 && deckCost >= maxScore) {
 		stockDealTo = 0; // Invalidate Trapdoor concept; useless with no stock pile
 	}
 	
-	if (stockDealTo == 3) {
+	if (stockDealTo >= 4) {
 		reserveMultiplier = 0;
 		calcedReserveWidth = 0;
+		
+		if (stockDealTo == 5) {
+			reserveStacked = [0];
+			
+			var stackSize = Math.ceil((maxScore - deckCost) / maxReserve);
+			var leftover = (maxScore - deckCost) % maxReserve;
+			var stackPos = 0;
+			
+			for (var h = 0; h < maxReserve; h++) {
+				if (leftover == 0 || h < leftover) {
+					stackPos += stackSize;
+				} else {
+					stackPos += stackSize - 1;
+				}
+				
+				reserveStacked.push(stackPos);
+			}
+			
+			console.log(reserveStacked);
+			reserveReusable = 0;
+		}
 	} else {
 		calcedReserveWidth = Math.ceil((1 - reserveMultiplier) + Math.max(maxReserve,prefilledReserve) * reserveMultiplier);
 	}
@@ -146,13 +177,36 @@ function setupGame() {
 		calcWidthNeeded = calcWidthNeeded + wizardDecks*4;
 	}
 	
-	if (Math.max(maxReserve,prefilledReserve) > 0) {
+	if (stockDealTo == 5 && maxScore - deckCost > 0) {
+		var maxSlots = maxScore - deckCost;
+		reserveFound = maxSlots;
+		
+		for (var i = 0; i < maxSlots; i++) {
+			var pool = 0;
+			var depth = 0;
+			
+			while (pool+1 < reserveStacked.length && i >= reserveStacked[pool+1]) {
+				pool++;
+			}
+			
+			depth = i - reserveStacked[pool] ;
+			leftPos = COLUMN_WIDTH * pool + depth * 2;
+			topPos = topPadding + depth * 2;
+			
+			createDivFrag("open"+i,leftPos,topPos,"");
+			divFrag.title = "Empty Reserve Slot";
+			autoAddEvents(divFrag);
+			tableauPanel.appendChild(divFrag);
+		}
+		
+		topPadding = topPadding + 140;
+	} else if (Math.max(maxReserve,prefilledReserve) > 0) {
 		// Create reserve slots
 		for (var i = 0; i < Math.max(maxReserve,prefilledReserve); i++) {
-			if (stockDealTo < 3) {
+			if (stockDealTo < 4) {
 				leftPos = leftPadding * COLUMN_WIDTH + (i * reserveMultiplier * COLUMN_WIDTH);
 				topPos = 0;
-			} else {
+			} else if (stockDealTo == 4) {
 				leftPos = COLUMN_WIDTH * i;
 				topPos = topPadding;
 			}
@@ -175,8 +229,8 @@ function setupGame() {
 	if (scoringModel != "noneScoreSpider" && !pairingGame && !golfGame) {
 		// Create foundation piles
 		for (var i = 0; i < wizardDecks*4; i++) {
-			if (stockDealTo != 3 && (wizardDecks*4 + calcedReserveWidth > Math.max(tableauWidth + 1,screenColumns) ||
-				(Math.max(maxReserve,prefilledReserve) == 0 && (calcWidthNeeded > Math.max(tableauWidth + 1,screenColumns) || deckCost >= maxScore)))) {
+			if (stockDealTo != 4 && (wizardDecks*4 + calcedReserveWidth > Math.max(tableauWidth + 1,screenColumns) ||
+				(Math.max(maxReserve,prefilledReserve,reserveFound) == 0 && (calcWidthNeeded > Math.max(tableauWidth + 1,screenColumns) || deckCost >= maxScore)))) {
 				leftPos = Math.max(tableauWidth-wizardDecks*4,0);
 				addFoundationPadding = true;
 			} else {
@@ -198,7 +252,7 @@ function setupGame() {
 		}
 	}
 	
-	if (stockDealTo == 3) {
+	if (stockDealTo == 4) {
 		topPadding = topPadding + 140;
 	}
 	
@@ -221,6 +275,8 @@ function setupGame() {
 		
 		if (tableauMovement == "spiderStyle" || tableauBuilding == "dnUpSuit") {
 			solGame.spiderCon = "downSuit";
+		} else if (tableauMovement == "taranStyle") {
+			solGame.spiderCon = "downColor";
 		}
 	} else if (pairingGame) {
 		scoreStockCards = (stockDealTo > 1 || emptyAutoRefills > 0 || reserveReusable > 0 || emptyPileRefills == "anyCard");
@@ -232,36 +288,62 @@ function setupGame() {
 	}
 	
 	selectX = -1;
+	try {
+		// If the game has a unique setup, use its layout.
+		mutateSetup();
+	} catch(err) {
+		// Otherwise, just stick with the standard "Wizard" layout.
+	}
+	try {
+		changeDiff(true);
+	} catch(err) {
+		// Blank catch. Not all games have a difficulty system.
+	}
 	resizeHeight();
 	loadSoundEffects();
-	newGame(true,seriesPassword == "");
+	newGame(true,(baseStatFile != "seriesPlay" || seriesPassword == ""));
 }
 
 function dealStock() {
 	var newCard;
+	var emptyTableau = false;
 	
 	if (solGame.gameActive && selectX != 99) {
 		updateStatus("&emsp;");
+		for (var h = 0; h < tableauWidth; h++) {
+			if (solGame.tableau[h][0] == null) {
+				emptyTableau = true;
+				break;
+			}
+		}
+		
 		if (golfGame) {
 			if (solGame.stockRemain) {
+				recordMove();
 				solGame.wasteSize++;
-				stockPile[solGame.wasteSize] = assignSeedCard();
+				solGame.stockPile[solGame.wasteSize] = assignSeedCard();
 				solGame.stockRemain--;
-				incrementMove();
 				
 				playSound(cardDown);
 			}
 			renderPlayarea();
+			endingCheck();
 		} else if (stockDealTo < 0) {
 			updateStatus("Manual stock dealing is disabled.");
 		} else if (stockDealTo < 2) {
+			if (dynamicDealCt) {
+				wasteDealBy = solGame.redeals + 1;
+			}
+			
 			// Deal to waste
 			if (solGame.stockRemain) {
 				for (var i = 1; i <= wasteDealBy; i++) {
 					if (solGame.stockRemain > 0) {
+						if (i == 1) {
+							recordMove();
+						}
 						solGame.wasteSize++;
 						solGame.stockRemain--;
-						incrementMove();
 					}
 				}
 				playSound(cardDown);
@@ -276,37 +358,64 @@ function dealStock() {
 				}
 			}
 			renderPlayarea();
+		} else if (stockDealTo == 3 && emptyTableau) {
+			updateStatus("A new row may not be dealt while there are empty columns.");
 		} else {
 			for (var j = 0; j < wasteDealBy; j++) {
-				for (var i = 0; i < tableauWidth; i++) {
-					if (solGame.stockRemain) {
-						solGame.stockRemain--;
-						do {
-							newCard = assignSeedCard();
-						} while (startingCards >= 4 && newCard.rank == baseRank);
-						if (stockDealTo == 2) {
-							// Deal row(s) to tableau
-							tableau[i][++height[i]] = newCard;
-						} else if (stockDealTo == 3) {
-							// Push row(s) through the "trapdoor"
-							if (reserveSlot[i]) {
-								tableau[i][++height[i]] = reserveSlot[i];
+				if (stockDealTo < 5) {
+					for (var i = 0; i < tableauWidth; i++) {
+						if (solGame.stockRemain) {
+							if (i == 0 && j == 0) {
+								playSound(redealSnd);
+								recordMove();
 							}
-							reserveSlot[i] = newCard;
+							
+							solGame.stockRemain--;
+							do {
+								newCard = assignSeedCard();
+							} while (startingCards >= 4 && newCard.rank == baseRank);
+							if (stockDealTo == 2) {
+								// Deal row(s) to tableau
+								solGame.tableau[i][++solGame.height[i]] = newCard;
+							} else if (stockDealTo == 4) {
+								// Push row(s) through the "trapdoor"
+								if (solGame.reserveSlot[i]) {
+									solGame.tableau[i][++solGame.height[i]] = solGame.reserveSlot[i];
+								}
+								solGame.reserveSlot[i] = newCard;
+							}
+							
+						} else if (i > 0 && stockDealTo == 4) {
+							// Finish pushing the reserve once stock is exhausted
+							if (solGame.reserveSlot[i]) {
+								solGame.tableau[i][++solGame.height[i]] = solGame.reserveSlot[i];
+							}
+							solGame.reserveSlot[i] = null;
+						} else {
+							break;
 						}
-						
-						if (i == 0) {
-							playSound(redealSnd);
-							incrementMove();
+					}
+				} else {
+					for (var i = 0; i < reserveStacked.length-1; i++) {
+						if (solGame.stockRemain) {
+							if (i == 0) {
+								playSound(redealSnd);
+								recordMove();
+							}
+
+							solGame.stockRemain--;
+							do {
+								newCard = assignSeedCard();
+							} while (startingCards >= 4 && newCard.rank == baseRank);
+							
+							var h = reserveStacked[i];
+							
+							while (solGame.reserveSlot[h] != null) {
+								h++;
+							}
+							
+							solGame.reserveSlot[h] = newCard;
 						}
-					} else if (i > 0 && stockDealTo == 3) {
-						// Finish pushing the reserve once stock is exhausted
-						if (reserveSlot[i]) {
-							tableau[i][++height[i]] = reserveSlot[i];
-						}
-						reserveSlot[i] = null;
-					} else {
-						break;
 					}
 				}
 			}
@@ -335,9 +444,9 @@ function quickDealStock() {
 
 function deleteEntry() {
 	for (var i = solGame.wasteSize; i < 312; i++) {
-		stockPile[i] = stockPile[i+1];
+		solGame.stockPile[i] = solGame.stockPile[i+1];
 	}
-	stockPile[312] = null;
+	solGame.stockPile[312] = null;
 	solGame.wasteSize--;
 }
 
@@ -345,7 +454,7 @@ function playWaste(event) {
 	var divRef = document.getElementById("waste" + solGame.wasteSize);
 	var selectionRef;
 	if (selectX >= 0 && selectX < 49) {
-		selectionRef = document.getElementById("x" + selectX + "y" + height[selectX]);
+		selectionRef = document.getElementById("x" + selectX + "y" + solGame.height[selectX]);
 	} else if (selectX >= reserveStart && selectX < 99) {
 		selectionRef = document.getElementById("open" + (selectX - reserveStart));
 	}
@@ -353,7 +462,8 @@ function playWaste(event) {
 	if (solGame.gameActive == false) {
 		updateStatus("The game has already ended!");
 	} else if (selectX == -1) {
-		if (stockPile[solGame.wasteSize].rank == "King" && scoringModel == "pairAdd13") {
+		if (solGame.stockPile[solGame.wasteSize].rank == "King" && scoringModel == "pairAdd13") {
+			recordMove();
 			deleteEntry();
 			if (scoreStockCards) {
 				solGame.casualScore++;
@@ -361,9 +471,9 @@ function playWaste(event) {
 			
 			playSound(scoreCard);
 			renderPlayarea();
-			incrementMove();
 			endingCheck();
-		} else if (stockPile[solGame.wasteSize].rank == "Ace" && scoringModel == "pairAdd15") {
+		} else if (solGame.stockPile[solGame.wasteSize].rank == "Ace" && scoringModel == "pairAdd15") {
+			recordMove();
 			deleteEntry();
 			if (scoreStockCards) {
 				solGame.casualScore++;
@@ -371,7 +481,6 @@ function playWaste(event) {
 			
 			playSound(scoreCard);
 			renderPlayarea();
-			incrementMove();
 			endingCheck();
 		} else {
 			selectCard(divRef);
@@ -382,8 +491,9 @@ function playWaste(event) {
 		selectX = -1;
 	} else if (pairingGame) {
 		if (selectX >= reserveStart) {
-			if (pairCheck(stockPile[solGame.wasteSize],reserveSlot[selectX-reserveStart])) {
-				reserveSlot[selectX-reserveStart] = null;
+			if (pairCheck(solGame.stockPile[solGame.wasteSize],solGame.reserveSlot[selectX-reserveStart])) {
+				recordMove();
+				solGame.reserveSlot[selectX-reserveStart] = null;
 				solGame.casualScore++;
 				
 				deleteEntry();
@@ -394,7 +504,6 @@ function playWaste(event) {
 				playSound(cardDown);
 				playSound(scoreCard);
 				renderPlayarea();
-				incrementMove();
 				endingCheck();
 			} else {
 				updateStatus("Invalid move. " + buildTxt);
@@ -403,9 +512,10 @@ function playWaste(event) {
 		
 			selectDepth = 0;
 			selectX = -1;
-		} else if (pairCheck(stockPile[solGame.wasteSize],tableau[selectX][height[selectX]])) {
-			tableau[selectX][height[selectX]] = null;
-			height[selectX]--;
+		} else if (pairCheck(solGame.stockPile[solGame.wasteSize],solGame.tableau[selectX][solGame.height[selectX]])) {
+			recordMove();
+			solGame.tableau[selectX][solGame.height[selectX]] = null;
+			solGame.height[selectX]--;
 			solGame.casualScore++;
 			
 			deleteEntry();
@@ -416,7 +526,6 @@ function playWaste(event) {
 			playSound(cardDown);
 			playSound(scoreCard);
 			renderPlayarea();
-			incrementMove();
 			endingCheck();
 		} else {
 			updateStatus("Invalid move. " + buildTxt);
@@ -432,7 +541,7 @@ function playWaste(event) {
 
 // Do these two cards build, according to the configuration?
 
-function buildCheck(objA, objB, singleSuitOnly) {
+function buildCheck(objA, objB, auxConn) {
 	var rankValue = new Array(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1);
 	var outcome = false;
 	if (!pairingGame && !golfGame) {
@@ -445,6 +554,15 @@ function buildCheck(objA, objB, singleSuitOnly) {
 			outcome = true;
 		} else {
 			switch (scoringModel) {
+				case "golfUpDnAnyNoking":
+					buildTxt = "No building allowed on a King.";
+					
+					if (getRank(objB) == 11) {
+						outcome = false;
+						break;
+					}
+
+					// Fall through, unless a King has been found on the top of the Waste pile
 				case "golfUpDnAnyNowrap":
 					buildTxt = "Build up or down regardless of suit. Wrapping disabled.";
 					
@@ -475,10 +593,16 @@ function buildCheck(objA, objB, singleSuitOnly) {
 					break;
 			}
 		}
-	} else if (singleSuitOnly) {
+	} else if (auxConn == "suit") {
 		if ((rankValue[getRank(objA)] == rankValue[getRank(objB)] + 1 ||
 			objB.rank == "King" && objA.rank == "Ace") &&
 			objA.suit == objB.suit && (objB.rank != finalRank && objA.rank != baseRank)) {
+			outcome = true;
+		}
+	} else if (auxConn == "color") {
+		if ((rankValue[getRank(objA)] == rankValue[getRank(objB)] + 1 ||
+			objB.rank == "King" && objA.rank == "Ace") &&
+			getColor(objA) == getColor(objB) && (objB.rank != finalRank && objA.rank != baseRank)) {
 			outcome = true;
 		}
 	} else {
@@ -540,7 +664,7 @@ function buildCheck(objA, objB, singleSuitOnly) {
 
 // Do these two cards pair up, according to the configuration?
 
-function pairCheck(objA, objB, singleSuitOnly) {
+function pairCheck(objA, objB, auxConn) {
 	var rankValue = new Array(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1);
 	var outcome = false;
 	buildTxt = "";
@@ -607,367 +731,381 @@ function playCard(event) {
 	var kaBuildCombo = 0, aceSelected = false, kingSelected = false;
 	var rankValue = new Array(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1);
 
-	try {
-		baseID = this.id;
-		if (baseID.substring(0,4) == "open") {
-			x = parseInt(baseID.substring(4,6));
-			y = -1;
+	baseID = this.id;
+	if (baseID.substring(0,4) == "open") {
+		x = parseInt(baseID.substring(4,6));
+		y = -1;
+	} else {
+		x = parseInt(baseID.substring(1,3));
+		if (x < 10) {
+			y = parseInt(baseID.substring(3,5));
 		} else {
-			x = parseInt(baseID.substring(1,3));
-			if (x < 10) {
-				y = parseInt(baseID.substring(3,5));
-			} else {
-				y = parseInt(baseID.substring(4,6));
-			}
+			y = parseInt(baseID.substring(4,6));
 		}
+	}
 
-		divRef = document.getElementById(baseID);
-		if (selectX >= 0 && selectX < 49) {
-			selectionRef = document.getElementById("x" + selectX + "y" + height[selectX]);
-		} else if (selectX >= reserveStart && selectX < 99) {
-			selectionRef = document.getElementById("open" + (selectX - reserveStart));
-		} else if (selectX == 99) {
-			selectionRef = document.getElementById("waste" + solGame.wasteSize);
-		}
-		
-		if (solGame.gameActive == false) {
-			updateStatus("The game has already ended!");
-		} else if (y >= 0 && height[x] == -1) {
-			if (selectX == -1) {
-				updateStatus("There are no cards in the empty tableau pile to interact.");
-				if (!golfGame) {
-					skipSounds = 2;
-				}
-			} else if (selectX == 99)  {
-				if ((stockPile[solGame.wasteSize].rank == finalRank && emptyPileRefills == "finalRank") || emptyPileRefills == "anyCard") {
-					tableau[x][0] = stockPile[solGame.wasteSize];
-					height[x] = 0;
-					
-					playSound(cardDown);
-					deleteEntry();
-					incrementMove();
-					renderPlayarea();
-					endingCheck();
-				} else {
-					if (emptyPileRefills == "none") {
-						updateStatus("Invalid move. Empty tableau piles may not be filled");
-					} else if (finalRank == "") {
-						updateStatus("Invalid move. Empty tableau piles may not be filled, while foundation piles are empty");
-					} else {
-						updateStatus("Invalid move. Empty tableau piles may be filled only by a " + finalRank);
-					}
-					deselectCard(selectionRef);
-				}
-
-			} else if (selectX >= reserveStart) {
-				if ((reserveSlot[selectX-reserveStart].rank == finalRank && emptyPileRefills == "finalRank") || emptyPileRefills == "anyCard") {
-					height[x]++;
-					tableau[x][0] = reserveSlot[selectX-reserveStart];
-					reserveSlot[selectX-reserveStart] = null;
-					
-					playSound(cardDown);
-					renderPlayarea();
-					incrementMove();
-					endingCheck();
-				} else {
-					if (emptyPileRefills == "none") {
-						updateStatus("Invalid move. Empty tableau piles may not be filled");
-					} else if (finalRank == "") {
-						updateStatus("Invalid move. Empty tableau piles may not be filled, while foundation piles are empty");
-					} else {
-						updateStatus("Invalid move. Empty tableau piles may be filled only by a " + finalRank);
-					}
-					deselectCard(selectionRef);
-				}
+	divRef = document.getElementById(baseID);
+	if (selectX >= 0 && selectX < 49) {
+		selectionRef = document.getElementById("x" + selectX + "y" + solGame.height[selectX]);
+	} else if (selectX >= reserveStart && selectX < 99) {
+		selectionRef = document.getElementById("open" + (selectX - reserveStart));
+	} else if (selectX == 99) {
+		selectionRef = document.getElementById("waste" + solGame.wasteSize);
+	}
+	
+	if (solGame.gameActive == false) {
+		updateStatus("The game has already ended!");
+	} else if (y >= 0 && solGame.height[x] == -1) {
+		if (selectX == -1) {
+			updateStatus("There are no cards in the empty tableau pile to interact.");
+			event.preventDefault();
+			event.stopPropagation();
+		} else if (selectX == 99)  {
+			if ((solGame.stockPile[solGame.wasteSize].rank == finalRank && emptyPileRefills == "finalRank") || emptyPileRefills == "anyCard") {
+				recordMove();
+				solGame.tableau[x][0] = solGame.stockPile[solGame.wasteSize];
+				solGame.height[x] = 0;
 				
-			} else if (canFillColumn && ((tableau[selectX][height[selectX]-selectDepth].rank == finalRank && emptyPileRefills == "finalRank") || emptyPileRefills == "anyCard")) {
-				for (var z = 0; z <= selectDepth; z++) {
-					yRef = height[selectX] - selectDepth + z;
-					selectionRef = document.getElementById("x" + selectX + "y" + yRef);
-				
-					height[x]++;
-					tableau[x][height[x]] = tableau[selectX][yRef];
-					tableau[selectX][yRef] = null;
-				}
-
 				playSound(cardDown);
+				deleteEntry();
 				renderPlayarea();
-				incrementMove();
 				endingCheck();
 			} else {
 				if (emptyPileRefills == "none") {
 					updateStatus("Invalid move. Empty tableau piles may not be filled");
 				} else if (finalRank == "") {
 					updateStatus("Invalid move. Empty tableau piles may not be filled, while foundation piles are empty");
-				} else if (!canFillColumn) {
-					updateStatus("Invalid move. Movement capacity insufficient to fill an empty tableau pile");
 				} else {
 					updateStatus("Invalid move. Empty tableau piles may be filled only by a " + finalRank);
 				}
-				for (var z = 0; z <= selectDepth; z++) {
-					yRef = height[selectX] - selectDepth + z;
-					selectionRef = document.getElementById("x" + selectX + "y" + yRef);
-					deselectCard(selectionRef);
+				deselectCard(selectionRef);
+			}
+
+		} else if (selectX >= reserveStart) {
+			if ((solGame.reserveSlot[selectX-reserveStart].rank == finalRank && emptyPileRefills == "finalRank") || emptyPileRefills == "anyCard") {
+				recordMove();
+				solGame.height[x]++;
+				solGame.tableau[x][0] = solGame.reserveSlot[selectX-reserveStart];
+				solGame.reserveSlot[selectX-reserveStart] = null;
+				
+				playSound(cardDown);
+				renderPlayarea();
+				endingCheck();
+			} else {
+				if (emptyPileRefills == "none") {
+					updateStatus("Invalid move. Empty tableau piles may not be filled");
+				} else if (finalRank == "") {
+					updateStatus("Invalid move. Empty tableau piles may not be filled, while foundation piles are empty");
+				} else {
+					updateStatus("Invalid move. Empty tableau piles may be filled only by a " + finalRank);
 				}
-				selectDepth = 0;
+				deselectCard(selectionRef);
 			}
 			
-			selectX = -1;
-		} else if (selectX == -1) {
-			if (golfGame) {
-				if (solGame.gameActive == false) {
-					updateStatus("The game has already ended!");
-				} else if (y >= 0) {
-					if (y < height[x]) {
-						updateStatus("Only fully exposed cards are playable.");
-					} else if (buildCheck(tableau[x][y],stockPile[solGame.wasteSize])) {
-						solGame.wasteSize++;
-						stockPile[solGame.wasteSize] = tableau[x][y];
-						tableau[x][y] = null;
-						solGame.casualScore++;
-						incrementMove();
-						
-						playSound(scoreCard);
-						renderPlayarea();
-						endingCheck();
-					} else {
-						updateStatus("Invalid move. " + buildTxt);
-					}
-				} else {
-					if (buildCheck(reserveSlot[x],stockPile[solGame.wasteSize])) {
-						solGame.wasteSize++;
-						stockPile[solGame.wasteSize] = reserveSlot[x];
-						reserveSlot[x] = null;
-						solGame.casualScore++;
-						incrementMove();
-						
-						playSound(scoreCard);
-						renderPlayarea();
-						endingCheck();
-					} else {
-						updateStatus("Invalid move. " + buildTxt);
-					}
-				}
-			} else {
-				var freeSpace, spaceNeeded;
-				selectDepth = height[x] - y;
-				spaceNeeded = selectDepth + 1;
-				freeSpace = (tableauMovement == "oneCard" ? 1 : Infinity);
-				selectX = x;
-				
-				for (var k = 0; k < reserveReusable; k++) {
-					if (!reserveSlot[k]) {
-						freeSpace++;
-					}
-				}
-				
-				if (emptyPileRefills == "anyCard") {
-					for (var m = 0; m < tableauWidth; m++) {
-						if (height[m] < 0) {
-							freeSpace = freeSpace * 2;
-						}
-					}
-				}
-				
-				if (selectX >= 0 && spaceNeeded > freeSpace) {
-					if (tableauMovement == "oneCard" && emptyPileRefills != "anyCard" && reserveReusable == 0) {
-						updateStatus("Multiple cards may not be moved at once.");
-					} else {
-						updateStatus("That selection requires moving " + spaceNeeded + " cards. You only have enough space to move " + freeSpace + ".");
-					}
-					skipSounds = 2;
-					selectDepth = 0;
-					selectX = -1;
-				} else if (tableau[x][y].rank == "King" && scoringModel == "pairAdd13") {
-					tableau[x][y] = null;
-					height[x]--;
-					solGame.casualScore++;
-					
-					playSound(scoreCard);
-					renderPlayarea();
-					incrementMove();
-					endingCheck();
-				} else if (tableau[x][y].rank == "Ace" && scoringModel == "pairAdd15") {
-					tableau[x][y] = null;
-					height[x]--;
-					solGame.casualScore++;
-					
-					playSound(scoreCard);
-					renderPlayarea();
-					incrementMove();
-					endingCheck();
-				}
-				
-				canFillColumn = (spaceNeeded * 2 <= freeSpace || emptyPileRefills != "anyCard");
-				
-				switch(tableauMovement) {
-					case "yukonStyle":
-						for (var j = height[x]; j > y; j--) {
-							if (j <= downturn[x]) {
-								updateStatus("You can select multiple cards, as long as no face-down cards are involved.");
-								
-								skipSounds = 2;
-								selectDepth = 0;
-								selectX = -1;
-								break;
-							}
-						}
-						break;
-					case "spiderStyle":
-						for (var j = height[x]; j > y; j--) {
-							if (j <= downturn[x] || !buildCheck(tableau[x][j-1],tableau[x][j],true)) {
-								updateStatus("You can select multiple cards, but only if they form a single-suit build, and that no face-down cards are involved.");
-								
-								skipSounds = 2;
-								selectDepth = 0;
-								selectX = -1;
-								break;
-							}
-						}
-						break;
-					default:
-						for (var j = height[x]; j > y; j--) {
-							if (j <= downturn[x] || !buildCheck(tableau[x][j-1],tableau[x][j],false)) {
-								if ((tableauMovement == "oneCard" && emptyPileRefills != "anyCard" && reserveReusable == 0) || tableauBuilding == "none") {
-									updateStatus("Multiple cards may not be moved at once.");
-								} else {
-									updateStatus("You can select multiple cards, but only if they form a build, and that no face-down cards are involved.");
-								}
-								
-								skipSounds = 2;
-								selectDepth = 0;
-								selectX = -1;
-								break;
-							}
-						}
-						break;
-				}
-				
-				if (selectX >= 0) {
-					for (var j = height[x]; j >= y; j--) {
-						if (kaBuildCombo >= 0) {
-							if ((kaBuildCombo == 0 || cardsConnected(tableau[x][j+1],tableau[x][j])) && rankValue[getRank(tableau[x][j])] == kaBuildCombo + 1) {
-								kaBuildCombo++;
-							} else {
-								kaBuildCombo = -1;
-							}
-						}
-
-						divRef = document.getElementById("x" + x + "y" + j)
-						selectCard(divRef);
-					}
-					
-					KAbuild = (kaBuildCombo == 13);
-				}
-			}
-		} else if (x == selectX) {
+		} else if (canFillColumn && ((solGame.tableau[selectX][solGame.height[selectX]-selectDepth].rank == finalRank && emptyPileRefills == "finalRank") || emptyPileRefills == "anyCard")) {
+			recordMove();
 			for (var z = 0; z <= selectDepth; z++) {
-				yRef = height[selectX] - selectDepth + z;
+				yRef = solGame.height[selectX] - selectDepth + z;
+				selectionRef = document.getElementById("x" + selectX + "y" + yRef);
+			
+				solGame.height[x]++;
+				solGame.tableau[x][solGame.height[x]] = solGame.tableau[selectX][yRef];
+				solGame.tableau[selectX][yRef] = null;
+			}
+
+			playSound(cardDown);
+			renderPlayarea();
+			endingCheck();
+		} else {
+			if (emptyPileRefills == "none") {
+				updateStatus("Invalid move. Empty tableau piles may not be filled");
+			} else if (finalRank == "") {
+				updateStatus("Invalid move. Empty tableau piles may not be filled, while foundation piles are empty");
+			} else if (!canFillColumn) {
+				updateStatus("Invalid move. Movement capacity insufficient to fill an empty tableau pile");
+			} else {
+				updateStatus("Invalid move. Empty tableau piles may be filled only by a " + finalRank);
+			}
+			for (var z = 0; z <= selectDepth; z++) {
+				yRef = solGame.height[selectX] - selectDepth + z;
 				selectionRef = document.getElementById("x" + selectX + "y" + yRef);
 				deselectCard(selectionRef);
 			}
-
 			selectDepth = 0;
-			selectX = -1;
-		} else if (selectX >= 99) {
-			if (pairingGame && pairCheck(tableau[x][height[x]],stockPile[solGame.wasteSize])) {
-				tableau[x][height[x]] = null;
-				height[x]--;
+		}
+		
+		selectX = -1;
+	} else if (selectX == -1) {
+		if (golfGame) {
+			if (solGame.gameActive == false) {
+				updateStatus("The game has already ended!");
+			} else if (y >= 0) {
+				if (y < solGame.height[x]) {
+					updateStatus("Only fully exposed cards are playable.");
+				} else if (buildCheck(solGame.tableau[x][y],solGame.stockPile[solGame.wasteSize])) {
+					recordMove();
+					solGame.wasteSize++;
+					solGame.stockPile[solGame.wasteSize] = solGame.tableau[x][y];
+					solGame.tableau[x][y] = null;
+					solGame.casualScore++;
+					
+					playSound(scoreCard);
+					renderPlayarea();
+					endingCheck();
+				} else {
+					updateStatus("Invalid move. " + buildTxt);
+				}
+			} else {
+				if (buildCheck(solGame.reserveSlot[x],solGame.stockPile[solGame.wasteSize])) {
+					recordMove();
+					solGame.wasteSize++;
+					solGame.stockPile[solGame.wasteSize] = solGame.reserveSlot[x];
+					solGame.reserveSlot[x] = null;
+					solGame.casualScore++;
+					
+					playSound(scoreCard);
+					renderPlayarea();
+					endingCheck();
+				} else {
+					updateStatus("Invalid move. " + buildTxt);
+				}
+			}
+		} else {
+			var freeSpace, spaceNeeded;
+			selectDepth = solGame.height[x] - y;
+			spaceNeeded = selectDepth + 1;
+			freeSpace = (tableauMovement == "oneCard" ? 1 : Infinity);
+			selectX = x;
+			
+			for (var k = 0; k < reserveReusable; k++) {
+				if (!solGame.reserveSlot[k]) {
+					freeSpace++;
+				}
+			}
+			
+			if (emptyPileRefills == "anyCard") {
+				for (var m = 0; m < tableauWidth; m++) {
+					if (solGame.height[m] < 0) {
+						freeSpace = freeSpace * 2;
+					}
+				}
+			}
+			
+			if (selectX >= 0 && spaceNeeded > freeSpace) {
+				if (tableauMovement == "oneCard" && emptyPileRefills != "anyCard" && reserveReusable == 0) {
+					updateStatus("Multiple cards may not be moved at once.");
+				} else {
+					updateStatus("That selection requires moving " + spaceNeeded + " cards. You only have enough space to move " + freeSpace + ".");
+				}
+
+				selectDepth = 0;
+				selectX = -1;
+				event.preventDefault();
+				event.stopPropagation();
+			} else if (solGame.tableau[x][y].rank == "King" && scoringModel == "pairAdd13") {
+				recordMove();
+				solGame.tableau[x][y] = null;
+				solGame.height[x]--;
 				solGame.casualScore++;
 				
-				deleteEntry();
-				if (scoreStockCards) {
-					solGame.casualScore++;
+				playSound(scoreCard);
+				renderPlayarea();
+				endingCheck();
+			} else if (solGame.tableau[x][y].rank == "Ace" && scoringModel == "pairAdd15") {
+				recordMove();
+				solGame.tableau[x][y] = null;
+				solGame.height[x]--;
+				solGame.casualScore++;
+				
+				playSound(scoreCard);
+				renderPlayarea();
+				endingCheck();
+			}
+			
+			canFillColumn = (spaceNeeded * 2 <= freeSpace || emptyPileRefills != "anyCard");
+			
+			switch(tableauMovement) {
+				case "yukonStyle":
+					for (var j = solGame.height[x]; j > y; j--) {
+						if (j <= solGame.downturn[x]) {
+							updateStatus("You can select multiple cards, as long as no face-down cards are involved.");
+							
+							selectDepth = 0;
+							selectX = -1;
+							event.preventDefault();
+							event.stopPropagation();
+							break;
+						}
+					}
+					break;
+				case "spiderStyle":
+					for (var j = solGame.height[x]; j > y; j--) {
+						if (j <= solGame.downturn[x] || !buildCheck(solGame.tableau[x][j-1],solGame.tableau[x][j],"suit")) {
+							updateStatus("You can select multiple cards, but only if they form a single-suit build, and that no face-down cards are involved.");
+							
+							selectDepth = 0;
+							selectX = -1;
+							event.preventDefault();
+							event.stopPropagation();
+							break;
+						}
+					}
+					break;
+				case "taranStyle":
+					for (var j = solGame.height[x]; j > y; j--) {
+						if (j <= solGame.downturn[x] || !buildCheck(solGame.tableau[x][j-1],solGame.tableau[x][j],"color")) {
+							updateStatus("You can select multiple cards, but only if they form a single-color build, and that no face-down cards are involved.");
+							
+							selectDepth = 0;
+							selectX = -1;
+							event.preventDefault();
+							event.stopPropagation();
+							break;
+						}
+					}
+					break;
+				default:
+					for (var j = solGame.height[x]; j > y; j--) {
+						if (j <= solGame.downturn[x] || !buildCheck(solGame.tableau[x][j-1],solGame.tableau[x][j],null)) {
+							if ((tableauMovement == "oneCard" && emptyPileRefills != "anyCard" && reserveReusable == 0) || tableauBuilding == "none") {
+								updateStatus("Multiple cards may not be moved at once.");
+							} else {
+								updateStatus("You can select multiple cards, but only if they form a build, and that no face-down cards are involved.");
+							}
+							
+							selectDepth = 0;
+							selectX = -1;
+							event.preventDefault();
+							event.stopPropagation();
+							break;
+						}
+					}
+					break;
+			}
+			
+			if (selectX >= 0) {
+				for (var j = solGame.height[x]; j >= y; j--) {
+					if (kaBuildCombo >= 0) {
+						if ((kaBuildCombo == 0 || cardsConnected(solGame.tableau[x][j+1],solGame.tableau[x][j])) && rankValue[getRank(solGame.tableau[x][j])] == kaBuildCombo + 1) {
+							kaBuildCombo++;
+						} else {
+							kaBuildCombo = -1;
+						}
+					}
+
+					divRef = document.getElementById("x" + x + "y" + j)
+					selectCard(divRef);
 				}
 				
-				playSound(cardDown);
-				playSound(scoreCard);
-				renderPlayarea();
-				incrementMove();
-				endingCheck();
-			} else if (buildCheck(tableau[x][height[x]],stockPile[solGame.wasteSize])) {
-				height[x]++;
-				tableau[x][height[x]] = stockPile[solGame.wasteSize];
-				deleteEntry();
-				playSound(cardDown);
-				renderPlayarea();
-				incrementMove();
-				endingCheck();
-			} else {
-				updateStatus("Invalid move. " + buildTxt);
-				deselectCard(selectionRef);
+				KAbuild = (kaBuildCombo == 13);
 			}
-		
-			selectDepth = 0;
-			selectX = -1;
-		} else if (selectX >= reserveStart) {
-			if (pairingGame && pairCheck(tableau[x][height[x]],reserveSlot[selectX-reserveStart])) {
-				tableau[x][height[x]] = null;
-				height[x]--;
-				solGame.casualScore++;
-				reserveSlot[selectX-reserveStart] = null;
-				solGame.casualScore++;
-				
-				playSound(cardDown);
-				playSound(scoreCard);
-				renderPlayarea();
-				incrementMove();
-				endingCheck();
-			} else if (buildCheck(tableau[x][height[x]],reserveSlot[selectX-reserveStart])) {
-				height[x]++;
-				tableau[x][height[x]] = reserveSlot[selectX-reserveStart];
-				reserveSlot[selectX-reserveStart] = null;
-				
-				playSound(cardDown);
-				renderPlayarea();
-				incrementMove();
-				endingCheck();
-			} else {
-				updateStatus("Invalid move. " + buildTxt);
-				deselectCard(selectionRef);
-			}
-		
-			selectDepth = 0;
-			selectX = -1;
-		} else if (pairingGame && pairCheck(tableau[x][height[x]],tableau[selectX][height[selectX]])) {
-			tableau[x][height[x]] = null;
-			height[x]--;
+		}
+	} else if (x == selectX) {
+		for (var z = 0; z <= selectDepth; z++) {
+			yRef = solGame.height[selectX] - selectDepth + z;
+			selectionRef = document.getElementById("x" + selectX + "y" + yRef);
+			deselectCard(selectionRef);
+		}
+
+		selectDepth = 0;
+		selectX = -1;
+	} else if (selectX >= 99) {
+		if (pairingGame && pairCheck(solGame.tableau[x][solGame.height[x]],solGame.stockPile[solGame.wasteSize])) {
+			recordMove();
+			solGame.tableau[x][solGame.height[x]] = null;
+			solGame.height[x]--;
 			solGame.casualScore++;
-			tableau[selectX][height[selectX]] = null;
-			height[selectX]--;
+			
+			deleteEntry();
+			if (scoreStockCards) {
+				solGame.casualScore++;
+			}
+			
+			playSound(cardDown);
+			playSound(scoreCard);
+			renderPlayarea();
+			endingCheck();
+		} else if (buildCheck(solGame.tableau[x][solGame.height[x]],solGame.stockPile[solGame.wasteSize])) {
+			recordMove();
+			solGame.height[x]++;
+			solGame.tableau[x][solGame.height[x]] = solGame.stockPile[solGame.wasteSize];
+			deleteEntry();
+			
+			playSound(cardDown);
+			renderPlayarea();
+			endingCheck();
+		} else {
+			updateStatus("Invalid move. " + buildTxt);
+			deselectCard(selectionRef);
+		}
+	
+		selectDepth = 0;
+		selectX = -1;
+	} else if (selectX >= reserveStart) {
+		if (pairingGame && pairCheck(solGame.tableau[x][solGame.height[x]],solGame.reserveSlot[selectX-reserveStart])) {
+			recordMove();
+			solGame.tableau[x][solGame.height[x]] = null;
+			solGame.height[x]--;
+			solGame.casualScore++;
+			solGame.reserveSlot[selectX-reserveStart] = null;
 			solGame.casualScore++;
 			
 			playSound(cardDown);
 			playSound(scoreCard);
 			renderPlayarea();
-			incrementMove();
 			endingCheck();
-		} else if (buildCheck(tableau[x][height[x]],tableau[selectX][height[selectX]-selectDepth])) {
-			for (var z = 0; z <= selectDepth; z++) {
-				yRef = height[selectX] - selectDepth + z;
-				selectionRef = document.getElementById("x" + selectX + "y" + yRef);
-			
-				height[x]++;
-				tableau[x][height[x]] = tableau[selectX][yRef];
-				tableau[selectX][yRef] = null;
-			}
+		} else if (buildCheck(solGame.tableau[x][solGame.height[x]],solGame.reserveSlot[selectX-reserveStart])) {
+			recordMove();
+			solGame.height[x]++;
+			solGame.tableau[x][solGame.height[x]] = solGame.reserveSlot[selectX-reserveStart];
+			solGame.reserveSlot[selectX-reserveStart] = null;
 			
 			playSound(cardDown);
 			renderPlayarea();
-			incrementMove();
 			endingCheck();
 		} else {
 			updateStatus("Invalid move. " + buildTxt);
-			for (var z = 0; z <= selectDepth; z++) {
-				yRef = height[selectX] - selectDepth + z;
-				selectionRef = document.getElementById("x" + selectX + "y" + yRef);
-				deselectCard(selectionRef);
-			}
-			selectDepth = 0;
-			selectX = -1;
+			deselectCard(selectionRef);
 		}
-	} catch(err) {
-		throwError(err);
+	
+		selectDepth = 0;
+		selectX = -1;
+	} else if (pairingGame && pairCheck(solGame.tableau[x][solGame.height[x]],solGame.tableau[selectX][solGame.height[selectX]])) {
+		recordMove();
+		solGame.tableau[x][solGame.height[x]] = null;
+		solGame.height[x]--;
+		solGame.casualScore++;
+		solGame.tableau[selectX][solGame.height[selectX]] = null;
+		solGame.height[selectX]--;
+		solGame.casualScore++;
+		
+		playSound(cardDown);
+		playSound(scoreCard);
+		renderPlayarea();
+		endingCheck();
+	} else if (buildCheck(solGame.tableau[x][solGame.height[x]],solGame.tableau[selectX][solGame.height[selectX]-selectDepth])) {
+		recordMove();
+		for (var z = 0; z <= selectDepth; z++) {
+			yRef = solGame.height[selectX] - selectDepth + z;
+			selectionRef = document.getElementById("x" + selectX + "y" + yRef);
+		
+			solGame.height[x]++;
+			solGame.tableau[x][solGame.height[x]] = solGame.tableau[selectX][yRef];
+			solGame.tableau[selectX][yRef] = null;
+		}
+		
+		playSound(cardDown);
+		renderPlayarea();
+		endingCheck();
+	} else {
+		updateStatus("Invalid move. " + buildTxt);
+		for (var z = 0; z <= selectDepth; z++) {
+			yRef = solGame.height[selectX] - selectDepth + z;
+			selectionRef = document.getElementById("x" + selectX + "y" + yRef);
+			deselectCard(selectionRef);
+		}
+		selectDepth = 0;
+		selectX = -1;
 	}
 }
 
@@ -983,232 +1121,360 @@ function newGame(greetings, newSeed) {
 	passInvalid = false;
 	oldPassword = seedPassword;
 	
-	try {
-		if (selectX != -1) {
-			updateStatus("A new game may not be started while there is a card selected.");
-		} else if (solGame.totalMoves == 0) {
-			solGame.gameActive = false;
-		} else if (solGame.gameActive && confirm(message)) {
-			playSound(gameLostSnd);
-			solGame.gameActive = false;
+	if (selectX != -1) {
+		updateStatus("A new game may not be started while there is a card selected.");
+	} else if (solGame.totalMoves == 0) {
+		solGame.gameActive = false;
+	} else if (solGame.gameActive && confirm(message)) {
+		playSound(gameLostSnd);
+		solGame.gameActive = false;
+	}
+	
+	passField = document.getElementById("password");
+
+	if (maxScore <= 0) {
+		updateStatus("Impossible scenario detected. Deal sequence aborted.");
+		
+		document.getElementById("newGame").disabled = true;
+		document.getElementById("restartGame").disabled = true;
+	} else if (solGame.gameActive) {
+		seedPassword = oldPassword;
+		passField.value = seedPassword;
+	} else {
+		cardsDealt = 0;
+		acesFound = 0;
+		resetInternals();
+		
+		if (baseStatFile == "seriesPlay" && !newSeed) {
+			passField.value = seriesPassword;
 		}
 		
-		passField = document.getElementById("password");
-	
-		if (maxScore <= 0) {
-			updateStatus("Impossible scenario detected. Deal sequence aborted.");
-			
-			document.getElementById("newGame").disabled = true;
-			document.getElementById("restartGame").disabled = true;
-		} else if (solGame.gameActive) {
-			seedPassword = oldPassword;
-			passField.value = seedPassword;
-		} else {
-			cardsDealt = 0;
-			acesFound = 0;
-			resetInternals();
-			
-			if (baseStatFile == "seriesPlay" && !newSeed) {
-				passField.value = seriesPassword;
-			}
-			
-			playDeck = new solDeck(wizardDecks);
-			if (newSeed) {
-				shuffleDeck(wizardDecks);
-			} else if (!readPass(wizardDecks)) {
-				passInvalid = true;
-				shuffleDeck(wizardDecks);
-			}
+		playDeck = new solDeck(wizardDecks);
+		if (newSeed) {
+			shuffleDeck(wizardDecks);
+		} else if (!readPass(wizardDecks)) {
+			passInvalid = true;
+			shuffleDeck(wizardDecks);
+		}
 
-			// Reset tableau
-			for (var y = 0; y < 52*wizardDecks; y++) {
-				for (var x = 0; x < tableauWidth; x++) {
-					tableau[x][y] = null;
-					downturn[x] = 0;
+		// Reset tableau
+		for (var y = 0; y < 52*wizardDecks; y++) {
+			for (var x = 0; x < tableauWidth; x++) {
+				solGame.tableau[x][y] = null;
+				solGame.downturn[x] = 0;
+			}
+		}
+		
+		//Empties out the foundation piles
+		for (var i = 0; i < wizardDecks * 4; i++) {
+			solGame.foundationPile[i] = null;
+		}
+		
+		//If configured, sends the first card to the foundation pile, and sets the base rank.
+		if (allowAnyBaseRank) {
+			if (startingCards > 0) {
+				solGame.foundationPile[0] = assignSeedCard();
+				setBaseRank(solGame.foundationPile[0].rank);
+				solGame.casualScore++;
+				acesFound++;
+			} else {
+				setBaseRank("");
+			}
+		}
+		
+		// Sets up the reserve pool
+		reserveFound = Math.max(maxReserve,prefilledReserve,reserveFound);
+		for (var i = 0; i < reserveFound; i++) {
+			if (stockDealTo == 5) {
+				solGame.reserveSlot[i] = null;
+				
+				for (var j = 0; j < reserveStacked.length; j++) {
+					if (i == reserveStacked[j]) {
+						newCard = assignSeedCard();
+						while (startingCards >= 4 && newCard.rank == baseRank) {
+							solGame.foundationPile[acesFound] = newCard;
+							solGame.casualScore++;
+
+							acesFound++;
+							newCard = assignSeedCard();
+						}
+							
+						solGame.reserveSlot[i] = newCard;
+					}
 				}
-			}
-			
-			//Empties out the foundation piles
-			for (var i = 0; i < wizardDecks * 4; i++) {
-				foundationPile[i] = null;
-			}
-			
-			//If configured, sends the first card to the foundation pile, and sets the base rank.
-			if (allowAnyBaseRank) {
-				if (startingCards > 0) {
-					foundationPile[0] = assignSeedCard();
-					setBaseRank(foundationPile[0].rank);
-					solGame.casualScore++;
-					acesFound++;
-				} else {
-					setBaseRank("");
-				}
-			}
-			
-			// Sets up the reserve pool
-			for (var i = 0; i < Math.max(maxReserve,prefilledReserve); i++) {
+			} else {
 				if (cardsDealt < wizardDecks*52 && i < prefilledReserve) {
 					newCard = assignSeedCard();
 					while (startingCards >= 4 && newCard.rank == baseRank) {
-						foundationPile[acesFound] = newCard;
+						solGame.foundationPile[acesFound] = newCard;
 						solGame.casualScore++;
 
 						acesFound++;
 						newCard = assignSeedCard();
 					}
 						
-					reserveSlot[i] = newCard;
+					solGame.reserveSlot[i] = newCard;
 				} else {
-					reserveSlot[i] = null;
+					solGame.reserveSlot[i] = null;
 				}
 			}
-			
-			downturnPattern = downturnDepth.length;
+		}
+		
+		downturnPattern = downturnDepth.length;
 
-			// Sets up the tableau
-			if (tableauStructure) {
-				//Custom tableau (the Override field was valid)
-				for (var y = 0; y < tableauDepth; y++) {
-					for (var x = 0; x < tableauWidth; x++) {
-						if (cardsDealt < wizardDecks*52 && y < tableauStructure[x]) {
+		// Sets up the tableau
+		if (tableauStructure) {
+			//Custom tableau (the Override field was valid)
+			for (var y = 0; y < tableauDepth; y++) {
+				for (var x = 0; x < tableauWidth; x++) {
+					if (cardsDealt < wizardDecks*52 && y < tableauStructure[x]) {
+						newCard = assignSeedCard();
+						while (startingCards >= 4 && newCard && newCard.rank == baseRank) {
+							solGame.foundationPile[acesFound] = newCard;
+							solGame.casualScore++;
+
+							acesFound++;
 							newCard = assignSeedCard();
-							while (startingCards >= 4 && newCard && newCard.rank == baseRank) {
-								foundationPile[acesFound] = newCard;
-								solGame.casualScore++;
+						}
+					
+						solGame.tableau[x][y] = newCard;
+						solGame.downturn[x] = Math.min(y,downturnDepth[x % downturnPattern]);
+					}
+				}
+			}
+		} else if (tableauShape == 0) {
+			//Rectangular tableau
+			if (challengeDealing) {
+				// Challenge FreeCell-like dealing
+				var handicap = 0, testCard;
 
-								acesFound++;
-								newCard = assignSeedCard();
+				for (var y = 1; y < 7; y++) {
+					for (var x = 0; x < 8; x++) {
+						if (cardsDealt < wizardDecks*52) {
+							testCard = assignSeedCard();
+							while (testCard && (getRank(testCard) < Math.ceil(tableauWidth/4) - 1 || getRank(testCard) == 12) && cardsDealt <= wizardDecks*52) {
+								solGame.tableau[handicap][0] = testCard;
+								testCard = assignSeedCard();
+								handicap++;
 							}
-						
-							tableau[x][y] = newCard;
-							downturn[x] = Math.min(y,downturnDepth[x % downturnPattern]);
+							
+							if (testCard && cardsDealt <= wizardDecks*52) {
+								solGame.tableau[x][y] = testCard;
+								solGame.downturn[x] = Math.min(y,downturnDepth[x % downturnPattern]);
+							}
 						}
 					}
 				}
-			} else if (tableauShape == 0) {
-				//Rectangular tableau
+			} else {
+				// Regular dealing
 				for (var y = 0; y < tableauDepth; y++) {
 					for (var x = 0; x < tableauWidth; x++) {
 						if (cardsDealt < wizardDecks*52) {
 							newCard = assignSeedCard();
 							while (startingCards >= 4 && newCard && newCard.rank == baseRank) {
-								foundationPile[acesFound] = newCard;
+								solGame.foundationPile[acesFound] = newCard;
 								solGame.casualScore++;
 
 								acesFound++;
 								newCard = assignSeedCard();
 							}
 						
-							tableau[x][y] = newCard;
-							downturn[x] = Math.min(y,downturnDepth[x % downturnPattern]);
-						}
-					}
-				}
-			} else {
-				//Triangular/Trapazoidal tableau
-				for (var y = 0; y < tableauWidth+tableauDepth; y++) {
-					for (var x = 0; x < tableauWidth; x++) {
-						if (cardsDealt < wizardDecks*52 && y <= x + tableauDepth) {
-							newCard = assignSeedCard();
-							while (startingCards >= 4 && newCard && newCard.rank == baseRank) {
-								foundationPile[acesFound] = newCard;
-								solGame.casualScore++;
-
-								acesFound++;
-								newCard = assignSeedCard();
-							}
-						
-							tableau[x][y] = newCard;
-							downturn[x] = Math.min(y,downturnDepth[x % downturnPattern]);
+							solGame.tableau[x][y] = newCard;
+							solGame.downturn[x] = Math.min(y,downturnDepth[x % downturnPattern]);
 						}
 					}
 				}
 			}
-			
-			//Empties out the waste pile and create a stock pile
-			solGame.stockRemain = wizardDecks * 52 - cardsDealt;
-			solGame.wasteSize = -1;
-			if (golfGame) {
-				if (solGame.stockRemain > 0) {
-					solGame.wasteSize++;
-					stockPile[0] = assignSeedCard();
-					solGame.stockRemain--;
-				}
-			} else if (stockDealTo >= 0 && stockDealTo < 2) {
-				if (maxRedeals < 0) {
-					solGame.redeals = Infinity;
-				} else {
-					solGame.redeals = maxRedeals;
-				}
-				for (var i = 0; i < solGame.stockRemain; i++) {
-					newCard = assignSeedCard();
-					while (startingCards >= 4 && newCard && newCard.rank == baseRank) {
-						foundationPile[acesFound] = newCard;
-						solGame.casualScore++;
-						solGame.stockRemain--;
-
-						acesFound++;
+		} else {
+			//Triangular/Trapazoidal tableau
+			for (var y = 0; y < tableauWidth+tableauDepth; y++) {
+				for (var x = 0; x < tableauWidth; x++) {
+					if (cardsDealt < wizardDecks*52 && y <= x + tableauDepth) {
 						newCard = assignSeedCard();
-					}
-					stockPile[i] = newCard;
-				}
-			} else if (startingCards >= 4) {
-				var modifyCount = 0;
-				
-				while (cardsDealt < wizardDecks*52 && acesFound < wizardDecks*4) {
-					newCard = assignSeedCard();
-					if (newCard.rank == baseRank) {
-						foundationPile[acesFound] = newCard;
-						solGame.casualScore++;
-						solGame.stockRemain--;
-						
-						acesFound++;
-						modifyCount++;
-					}
-				}
-				
-				cardsDealt = wizardDecks * 52 - solGame.stockRemain - modifyCount;
-			}
-			
-			
-			renderPlayarea();
-			
-			if (greetings) {
-				switch (baseStatFile) {
-					case "seriesPlay":
-						switch (seriesGame) {
-							case 1:
-								updateStatus("Welcome to Klondike Solitaire.");
-								break;
-							case 2:
-								updateStatus("Welcome to Yukon Solitaire.");
-								break;
-							case 3:
-								updateStatus("Welcome to Raglan Solitaire.");
-								break;
+						while (startingCards >= 4 && newCard && newCard.rank == baseRank) {
+							solGame.foundationPile[acesFound] = newCard;
+							solGame.casualScore++;
+
+							acesFound++;
+							newCard = assignSeedCard();
 						}
-						break;
-					default:
-						updateStatus("Welcome to Solitaire Wizard.");
-						break;
+					
+						solGame.tableau[x][y] = newCard;
+						solGame.downturn[x] = Math.min(y,downturnDepth[x % downturnPattern]);
+					}
 				}
-			} else if (!newSeed) {
-				if (passInvalid) {
-					updateStatus("Not a valid password. New game started");
-				} else {
-					updateStatus("Password successful");
-					solGame.recordWin = false;
-					solGame.recordPlay = false;
-				}
-			} else {
-				updateStatus("Game started");
-			}
-			
-			if (baseStatFile == "seriesPlay") {
-				saveSeriesFile(false);
 			}
 		}
-	} catch(err) {
-		throwError(err);
+		
+		if (forceFinalBottom) {
+			//Re-arranges the tableau so that the final ranks are on the bottom, if activated
+			for (var x = 0; x < tableauWidth; x++) {
+				affPile = new Array();
+				affCount = 0;
+
+				// Stage 1: Tally the Final Rank cards, preserving order in the process.
+				for (var y = 0; y < tableauWidth+tableauDepth; y++) {
+					if (solGame.tableau[x][y]) {
+						if (solGame.tableau[x][y].rank == finalRank) {
+							affPile[affCount] = solGame.tableau[x][y];
+							affCount++;
+						}
+					}
+				}
+				
+				//Stage 2: Tally the rest of the cards, preserving order as before.
+				for (var y = 0; y < tableauWidth+tableauDepth; y++) {
+					if (solGame.tableau[x][y]) {
+						if (solGame.tableau[x][y].rank != finalRank) {
+							affPile[affCount] = solGame.tableau[x][y];
+							affCount++;
+						}
+					}
+				}
+				
+				//Stage 3: Apply the updated stack of cards
+				for (var y = 0; y < 4; y++) {
+					if (solGame.tableau[x][y]) {
+						solGame.tableau[x][y] = affPile[y];
+					}
+				}
+			}
+		}
+		
+		//Empties out the waste pile and create a stock pile
+		solGame.stockRemain = wizardDecks * 52 - cardsDealt;
+		solGame.wasteSize = -1;
+		if (golfGame) {
+			if (solGame.stockRemain > 0) {
+				solGame.wasteSize++;
+				solGame.stockPile[0] = assignSeedCard();
+				solGame.stockRemain--;
+			}
+		} else if (stockDealTo >= 0 && stockDealTo < 2) {
+			if (maxRedeals < 0) {
+				solGame.redeals = Infinity;
+			} else {
+				solGame.redeals = maxRedeals;
+			}
+			for (var i = 0; i < solGame.stockRemain; i++) {
+				newCard = assignSeedCard();
+				while (startingCards >= 4 && newCard && newCard.rank == baseRank) {
+					solGame.foundationPile[acesFound] = newCard;
+					solGame.casualScore++;
+					solGame.stockRemain--;
+
+					acesFound++;
+					newCard = assignSeedCard();
+				}
+				solGame.stockPile[i] = newCard;
+			}
+		} else if (startingCards >= 4) {
+			var modifyCount = 0;
+			
+			while (cardsDealt < wizardDecks*52 && acesFound < wizardDecks*4) {
+				newCard = assignSeedCard();
+				if (newCard.rank == baseRank) {
+					solGame.foundationPile[acesFound] = newCard;
+					solGame.casualScore++;
+					solGame.stockRemain--;
+					
+					acesFound++;
+					modifyCount++;
+				}
+			}
+			
+			cardsDealt = wizardDecks * 52 - solGame.stockRemain - modifyCount;
+		}
+		
+		renderPlayarea();
+		
+		if (greetings) {
+			var title = "";
+			
+			switch (baseStatFile) {
+				case "seriesPlay":
+					title = seriesName + " Solitaire";
+					break;
+				case "40thieves":
+					title = "Forty Thieves Solitaire";
+					break;
+				case "ausPat":
+					title = "Australian Patience";
+					break;
+				case "bakers13":
+					title = "Baker's Dozen Solitaire";
+					break;
+				case "bakersGame":
+					title = "Baker's Game Solitaire";
+					break;
+				case "challengeFC":
+					title = "Challenge FreeCell";
+					break;
+				case "deadKing":
+					title = "Dead King Golf";
+					break;
+				case "forecell":
+					title = "ForeCell Solitaire";
+					break;
+				case "fourteen":
+					title = "Fourteen Out";
+					break;
+				case "freecell":
+					title = "FreeCell Solitaire";
+					break;
+				case "goldRush":
+					title = "Gold Rush Solitaire";
+					break;
+				case "kingcell":
+					title = "KingCell Solitaire";
+					break;
+				case "kingAlbert":
+					title = "King Albert Solitaire";
+					break;
+				case "klondike3s":
+					title = "Klondike by Threes";
+					break;
+				case "relaxedGolf":
+					title = "Relaxed Golf Solitaire";
+					break;
+				case "russianSol":
+					title = "Russian Solitaire";
+					break;
+				case "spider1":
+					title = "Black Widow Solitaire";
+					break;
+				case "spider2":
+					title = "Tarantula Solitaire";
+					break;
+				case "superFC":
+					title = "Super Challenge FreeCell";
+					break;
+				case "thievesEgypt":
+					title = "Thieves of Egypt";
+					break;
+				case "wizard":
+					title = "Solitaire Wizard";
+					break;
+				default:
+					title = baseStatFile.charAt(0).toUpperCase()+baseStatFile.substring(1)+" Solitaire";
+					break;
+			}
+			
+			updateStatus("Welcome to "+title+".");
+		} else if (!newSeed) {
+			if (passInvalid) {
+				updateStatus("Not a valid password. New game started");
+			} else {
+				updateStatus("Password successful");
+				solGame.recordWin = false;
+				solGame.recordPlay = false;
+			}
+		} else {
+			updateStatus("Game started");
+		}
+		
+		if (baseStatFile == "seriesPlay") {
+			saveSeriesFile(false);
+		}
 	}
 }

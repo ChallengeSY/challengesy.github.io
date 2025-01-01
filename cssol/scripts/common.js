@@ -12,34 +12,26 @@ var preferDeckId = (getStorage("cardback") && isFinite(getStorage("cardback")) ?
 var playSfx = (getStorage("playSfx") && isFinite(getStorage("playSfx")) ? getStorage("playSfx") : 1);
 var playMus = (getStorage("playMus") && isFinite(getStorage("playMus")) ? getStorage("playMus") : -1);
 var emptyAutoRefills = 0;
+var undoCount = 0;
 var playHeight = 500;
 var wasteDealBy = 1;
 var wasteFanned = false;
+var reverseRender = false;
 var pairingGame = false;
 var golfGame = false;
+var tallyStreak, longestStreak;
+var dynamicDealCt = false;
 var skipSounds = 0;
 var shuffleID = Math.floor(Math.random()*4);
 var scoringModel = "buildUpSuit";
 
 var playDeck, searchElement, baseRank, finalRank, tableauWidth;
 var wizardScoring = null;
-var tableau = new Array(49);
-var height = new Array(49);
-var prevHeight = new Array(49);
-var downturn = new Array(49);
-var foundationPile = new Array(24);
-var reserveSlot = new Array(48);
-var stockPile = new Array(312);
 forceRender = false;
 rectangularTableau = true;
 traditionalStock = true;
 allowLogs = true;
 stockDealTo = 0;
-
-for (var tab = 0; tab < 49; tab++) {
-	tableau[tab] = new Array(312);
-	downturn[tab] = 0;
-}
 
 function createDivFrag(newId, newX, newY, newZ) {
 	divFrag = document.createElement("div");
@@ -131,7 +123,7 @@ function exportLog(gameWon) {
 		if (gameWon > 0) {
 			saveSeriesFile(true);
 			if (seriesGame <= 3) {
-				appendStatus("<br />The series has been saved. Tap <q>Finish game</q> when you are ready to play the next game.");
+				appendStatus("<br />The series has been saved. Tap <q>Finish</q> when you are ready to play the next game.");
 			} else if (seriesScore < 1000) {
 				appendStatus("<br />The series has been successfully completed!");
 			} else {
@@ -139,20 +131,44 @@ function exportLog(gameWon) {
 			}
 		}
 	}
-	// Server stats are not available in the HTML-reduced version
 }
 
-//Records move
-function incrementMove() {
+//Move processing
+function recordMove() {
 	if (solGame.recordPlay) {
 		solGame.recordPlay = false;
 		exportLog(0);
 	}
+	
+	gameHistory.push(new gameObj(solGame));
 	if (!clockPtr) {
 		clockPtr = setInterval(function(){incrementSecond()},1000);
 		playSound(bgMusic);
 	}
 	solGame.totalMoves++;
+}
+
+function undoMove() {
+	var historyLength = gameHistory.length - 1;
+	var undoButton = document.getElementById("undo");
+	
+	if (!solGame.recordWin && baseStatFile == "seriesPlay") {
+		updateStatus("You may not undo a Series game that has been won.");
+	} else {
+		if (historyLength >= 0) {
+			tallyStreak = 0;
+			gameHistory[historyLength].dealTime = solGame.dealTime;
+			solGame = new gameObj(gameHistory.pop());
+			
+			playSound(cardDown);
+			if (!traditionalStock) {
+				cardsDealt = wizardDecks*52 - solGame.stockRemain;
+			}
+		}
+
+		undoCount++;
+		renderPlayarea();
+	}
 }
 
 //Tracks time
@@ -170,6 +186,8 @@ function resetInternals() {
 		clearInterval(clockPtr);
 		clockPtr = null;
 	}
+
+	gameHistory = new Array();
 	
 	solGame.totalMoves = 0;
 	solGame.gameActive = true;
@@ -183,6 +201,7 @@ function resetInternals() {
 		document.getElementById("casualScore").innerHTML = solGame.casualScore;
 	}
 	
+	undoCount = 0;
 	selectX = -1;
 }
 
@@ -242,7 +261,7 @@ function selectCard(object) {
 		newClasses = object.className + " cardSelected";
 	}
 	applyClasses(object,newClasses);
-	if (!skipSounds && !finishPtr) {
+	if (!finishPtr) {
 		playSound(cardUp);
 	}
 }
@@ -253,7 +272,7 @@ function deselectCard(object) {
 		newClasses = object.className.slice(0, -13);
 	}
 	applyClasses(object,newClasses);
-	if (!skipSounds && !finishPtr) {
+	if (!finishPtr) {
 		playSound(cardDown);
 	}
 }
@@ -306,320 +325,331 @@ function cardsConnected(cardBottom, cardTop) {
 
 //Renders the entire play area
 function renderPlayarea() {
-	try {
-		var newImage, newInner, newTitle, newCard;
-		var spiderScore = 0;
-		var spiderCombo = 0;
-		var baseTopPos = 0;
-		var baseLeftPos = 0;
-		newCard = null;
-		skipSounds = 1;
-		
-		//Auto-refill empty tableau piles
-		if (emptyAutoRefills > 0 && (solGame.stockRemain > 0 || solGame.wasteSize >= 0)) {
-			for (x = 0; x < 49; x++) {
-				searchElement = document.getElementById("x"+x+"y0");
-				if (searchElement && !tableau[x][0]) {
-					for (i = 0; i < emptyAutoRefills; i++) {
-						if (solGame.stockRemain > 0) {
-							if (solGame.wasteSize < 0) {
-								newCard = quickDealStock();
-							}
-							
-							if (newCard) {
-								tableau[x][i] = newCard;
-							} else if (solGame.wasteSize >= 0) {
-								tableau[x][i] = stockPile[solGame.wasteSize];
-								deleteEntry();
-								incrementMove();
-							}
-						} else if (solGame.wasteSize >= 0) {
-							tableau[x][i] = stockPile[solGame.wasteSize];
-							deleteEntry();
-							incrementMove();
+	var newImage, newInner, newTitle, newCard;
+	var spiderScore = 0;
+	var spiderCombo = 0;
+	var baseTopPos = 0;
+	var baseLeftPos = 0;
+	newCard = null;
+	skipSounds = 1;
+
+	if (reverseRender) {
+		customRender();
+	}
+	
+	//Auto-refill empty tableau piles
+	if (emptyAutoRefills > 0 && (solGame.stockRemain > 0 || solGame.wasteSize >= 0)) {
+		for (x = 0; x < 49; x++) {
+			searchElement = document.getElementById("x"+x+"y0");
+			if (searchElement && !solGame.tableau[x][0]) {
+				for (i = 0; i < emptyAutoRefills; i++) {
+					if (solGame.stockRemain > 0) {
+						if (solGame.wasteSize < 0) {
+							newCard = quickDealStock();
 						}
+						
+						if (newCard) {
+							solGame.tableau[x][i] = newCard;
+						} else if (solGame.wasteSize >= 0) {
+							solGame.tableau[x][i] = solGame.stockPile[solGame.wasteSize];
+							deleteEntry();
+						}
+					} else if (solGame.wasteSize >= 0) {
+						solGame.tableau[x][i] = solGame.stockPile[solGame.wasteSize];
+						deleteEntry();
 					}
 				}
 			}
 		}
+	}
 
-		//Tableau
-		for (x = 0; x < 49; x++) {
-			for (y = 0; y < 312; y++) {
-				if (y == 0) {
-					prevHeight[x] = height[x];
+	//Tableau
+	for (x = 0; x < 49; x++) {
+		for (y = 0; y < 312; y++) {
+			if (y == 0) {
+				solGame.prevHeight[x] = solGame.height[x];
 
+				if (spiderCombo > 0 && spiderCombo < 12) {
+					spiderScore--;
+				}
+				spiderCombo = 0;
+			}
+			
+			searchElement = document.getElementById("x"+x+"y"+y);
+			if (searchElement && (y <= solGame.height[x] + 2 || y <= solGame.prevHeight[x] + 2 ||
+				y == 0 || solGame.tableau[x][y] || !rectangularTableau)) {
+				if (solGame.tableau[x][y]) {
+					renderDiv(searchElement,"play" + (solGame.tableau[x][y].deckID % 6));
+					
+					if (y < solGame.downturn[x]) {
+						newInner = "";
+						newTitle = "Face-down card";
+						if ((y + 1 == solGame.downturn[x] && facedownHints == 2) || facedownHints > 2) {
+							newTitle = "(" + solGame.tableau[x][y].nameParse() + ")";
+						}
+					} else {
+						newInner = solGame.tableau[x][y].innerCode();
+						newTitle = solGame.tableau[x][y].nameParse();
+						
+						if ((y == 0 && solGame.tableau[x][y].rank == "King") || (y > 0 && y > solGame.downturn[x] && cardsConnected(solGame.tableau[x][y],solGame.tableau[x][y-1]))) {
+							spiderScore++;
+							spiderCombo++;
+						} else {
+							if (spiderCombo > 0 && spiderCombo < 12) {
+								spiderScore--;
+							}
+							spiderCombo = 0;
+						}
+					}
+				} else {
+					newInner = "";
+					
 					if (spiderCombo > 0 && spiderCombo < 12) {
 						spiderScore--;
 					}
 					spiderCombo = 0;
-				}
-				
-				searchElement = document.getElementById("x"+x+"y"+y);
-				if (searchElement && (y <= height[x] + 2 || y <= prevHeight[x] + 2 ||
-					y == 0 || tableau[x][y] || !rectangularTableau)) {
-					if (tableau[x][y]) {
-						renderDiv(searchElement,"play" + (tableau[x][y].deckID % 6));
-						
-						if (y < downturn[x]) {
-							newInner = "";
-							newTitle = "Face-down card";
-							if ((y + 1 == downturn[x] && facedownHints == 2) || facedownHints > 2) {
-								newTitle = "(" + tableau[x][y].nameParse() + ")";
-							}
-						} else {
-							newInner = tableau[x][y].innerCode();
-							newTitle = tableau[x][y].nameParse();
-							
-							if ((y == 0 && tableau[x][y].rank == "King") || (y > 0 && y > downturn[x] && cardsConnected(tableau[x][y],tableau[x][y-1]))) {
-								spiderScore++;
-								spiderCombo++;
-							} else {
-								if (spiderCombo > 0 && spiderCombo < 12) {
-									spiderScore--;
-								}
-								spiderCombo = 0;
-							}
-						}
-					} else {
-						newInner = "";
-						
-						if (spiderCombo > 0 && spiderCombo < 12) {
-							spiderScore--;
-						}
-						spiderCombo = 0;
-						
-						if (y == 0) {
-							renderDiv(searchElement,"empty");
-							newTitle = "Empty tableau pile";
-							
-							height[x] = -1;
-						} else {
-							renderDiv(searchElement,"invis");
-							newTitle = "";
-
-							if (tableau[x][y-1]) {
-								height[x] = y - 1;
-							}
-						}
-					}
 					
-					if (newInner != searchElement.innerHTML || forceRender) {
-						searchElement.innerHTML = newInner;
-					}
-					searchElement.title = newTitle;
-				} else {
-					if (tableau[x][y-1]) {
-						height[x] = y - 1;
-					}
-				}
-			}
-		}
-		
-		if (rectangularTableau) {
-			//Reveal unobstructed downturned cards for rectangular tableaux
-			for (var x = 0; x < 49; x++) {
-				if (height[x] + 1 == downturn[x] && downturn[x] > 0) {
-					downturn[x]--;
-					var deltaY = height[x] - 1;
-					
-					searchElement = document.getElementById("x"+x+"y"+height[x]);
-					newInner = tableau[x][height[x]].innerCode();
-					newTitle = tableau[x][height[x]].nameParse();
-						
-					if (newInner != searchElement.innerHTML || forceRender) {
-						searchElement.innerHTML = newInner;
-						searchElement.title = newTitle;
-					}
-					
-					if (deltaY >= 0 && facedownHints >= 2) {
-						searchElement = document.getElementById("x"+x+"y"+deltaY);
-						searchElement.title = "(" + tableau[x][deltaY].nameParse() + ")";
-					}
-				}
-			}
-		}
-		
-		//Foundation piles
-		for (i = 0; i < 24; i++) {
-			searchElement = document.getElementById("home"+i);
-			
-			if (searchElement) {
-				if (foundationPile[i]) {
-					newInner = foundationPile[i].innerCode();
-					newTitle = foundationPile[i].nameParse();
-					renderDiv(searchElement,"card");
-
-					spiderScore = spiderScore + 13;
-				} else {
-					newInner = emptyFoundationSlot();
-					newTitle = "Empty Foundation Pile";
-					renderDiv(searchElement,"empty");
-				}
-				
-				if (newInner != searchElement.innerHTML || forceRender) {
-					searchElement.innerHTML = newInner;
-					searchElement.title = newTitle;
-				}
-			} else {
-				break;
-			}
-		}
-		
-		//Reserve pool
-		for (i = 0; i < 48; i++) {
-			searchElement = document.getElementById("open"+i);
-			
-			if (searchElement) {
-				if (reserveSlot[i]) {
-					newInner = reserveSlot[i].innerCode();
-					newTitle = reserveSlot[i].nameParse();
-					renderDiv(searchElement, "card");
-					
-				} else {
-					newInner = "";
-					newTitle = "Empty Reserve Slot";
-					
-					if (reserveReusable > i || stockDealTo == 3) {
-						renderDiv(searchElement, "empty");
-					} else {
-						renderDiv(searchElement, "invis");
-					}
-				}
-				
-				if (newInner != searchElement.innerHTML || forceRender) {
-					searchElement.innerHTML = newInner;
-					searchElement.title = newTitle;
-				}
-			} else {
-				break;
-			}
-		}
-		
-		//Stock pile
-		for (var i = 0; i < 104; i++) {
-			searchElement = document.getElementById("stock"+i);
-			
-			if (searchElement) {
-				if (solGame.stockRemain > 3*i) {
-					var checkWaste = document.getElementById("waste0");
-					var backID = 0;
-					
-					if (checkWaste && traditionalStock) {
-						backID = stockPile[solGame.wasteSize+1].deckID % 6;
-					} else {
-						var nextCard = checkNextCard();
-						backID = nextCard.deckID % 6;
-					}
-					
-					if (solGame.stockRemain > 3*(i+1)) {
-						renderDiv(searchElement,"playStack");
-					} else {
-						renderDiv(searchElement,"play" + backID);
-					}
-					
-					if (i == 0) {
-						searchElement.innerHTML = "";
-					}
-				} else {
-					if (i == 0) {
+					if (y == 0) {
 						renderDiv(searchElement,"empty");
-						searchElement.innerHTML = emptyStockPile();
+						newTitle = "Empty tableau pile";
+						
+						solGame.height[x] = -1;
 					} else {
 						renderDiv(searchElement,"invis");
-					}
-				}
-				
-				var tooltip = "Stock: " + solGame.stockRemain;
-				if (solGame.redeals == Infinity) {
-					tooltip += " \nRedeals: Endless";
-				} else {
-					tooltip += " \nRedeals: " + solGame.redeals;
-				}
-				searchElement.title = tooltip;
-			} else {
-				break;
-			}
-		}
-		
-		//Waste pile
-		for (var i = 0; i < 312; i++) {
-			searchElement = document.getElementById("waste"+i);
-			if (searchElement) {
-				if (!wasteFanned) {
-					if (i == 0) {
-						baseLeftPos = parseInt(searchElement.style.left.substr(0,searchElement.style.left.length - 2));
-						baseTopPos = parseInt(searchElement.style.top.substr(0,searchElement.style.top.length - 2));
-						
-						leftPos = baseLeftPos;
-						topPos = baseTopPos;
-					} else {
-						if (wasteDealBy > 1 && i >= solGame.wasteSize - (wasteDealBy - 1) && i <= solGame.wasteSize) {
-							fanStack = Math.min(wasteDealBy - 1,solGame.wasteSize) + (i - solGame.wasteSize);
-							push = FANNING_X * fanStack;
-							
-							if (fanStack <= 0) {
-								leftPos = baseLeftPos + Math.floor(i/3);
-								topPos = baseTopPos + Math.floor(i/3);
-							} else {
-								leftPos = baseLeftPos + Math.floor((i-fanStack)/3) + push;
-								topPos = baseTopPos + Math.floor((i-fanStack)/3);
-							}
-						} else {
-							leftPos = baseLeftPos + Math.floor(i/3);
-							topPos = baseTopPos + Math.floor(i/3);
+						newTitle = "";
+
+						if (solGame.tableau[x][y-1]) {
+							solGame.height[x] = y - 1;
 						}
 					}
-	
-					searchElement.style.left = leftPos+"px";
-					searchElement.style.top = topPos+"px";
-				}
-				
-				if (solGame.wasteSize >= i) {
-					renderDiv(searchElement,"card");
-					newInner = stockPile[i].innerCode();
-					newTitle = stockPile[i].nameParse();
-				} else if (i == 0 && golfGame) {
-					renderDiv(searchElement,"empty");
-					newInner = emptyFoundationSlot();
-					newTitle = "Empty foundation pile";
-				} else {
-					renderDiv(searchElement,"invis");
-					newInner = "";
-					newTitle = "";
 				}
 				
 				if (newInner != searchElement.innerHTML || forceRender) {
 					searchElement.innerHTML = newInner;
-					searchElement.title = newTitle;
 				}
+				searchElement.title = newTitle;
 			} else {
-				break;
+				if (solGame.tableau[x][y-1]) {
+					solGame.height[x] = y - 1;
+				}
 			}
 		}
-
-		//Apply Spider Scoring, if appropriate
-		if (solGame.spiderCon) {
-			solGame.casualScore = spiderScore;
-		}
-
-		searchElement = document.getElementById("casualScore");
-		if (searchElement) {
-			searchElement.innerHTML = solGame.casualScore;
-		}
-		searchElement = document.getElementById("moneyScore");
-		if (searchElement) {
-			searchElement.innerHTML = solGame.moneyScore;
-		}
-		deselectAll();
-		forceRender = false;
-		updateStatus("&emsp;");
-
-	} catch(err) {
-		throwError(err);
-	} finally {
-		skipSounds = 0;
 	}
+	
+	if (rectangularTableau) {
+		//Reveal unobstructed downturned cards for rectangular tableaux
+		for (var x = 0; x < 49; x++) {
+			if (solGame.height[x] + 1 == solGame.downturn[x] && solGame.downturn[x] > 0) {
+				solGame.downturn[x]--;
+				var deltaY = solGame.height[x] - 1;
+				
+				searchElement = document.getElementById("x"+x+"y"+solGame.height[x]);
+				newInner = solGame.tableau[x][solGame.height[x]].innerCode();
+				newTitle = solGame.tableau[x][solGame.height[x]].nameParse();
+					
+				if (newInner != searchElement.innerHTML || forceRender) {
+					searchElement.innerHTML = newInner;
+					searchElement.title = newTitle;
+				}
+				
+				if (deltaY >= 0 && facedownHints >= 2) {
+					searchElement = document.getElementById("x"+x+"y"+deltaY);
+					searchElement.title = "(" + solGame.tableau[x][deltaY].nameParse() + ")";
+				}
+			}
+		}
+	}
+	
+	//Foundation piles
+	for (i = 0; i < 24; i++) {
+		searchElement = document.getElementById("home"+i);
+		
+		if (searchElement) {
+			if (solGame.foundationPile[i]) {
+				newInner = solGame.foundationPile[i].innerCode();
+				newTitle = solGame.foundationPile[i].nameParse();
+				renderDiv(searchElement,"card");
+
+				spiderScore = spiderScore + 13;
+			} else {
+				newInner = emptyFoundationSlot();
+				newTitle = "Empty Foundation Pile";
+				renderDiv(searchElement,"empty");
+			}
+			
+			if (newInner != searchElement.innerHTML || forceRender) {
+				searchElement.innerHTML = newInner;
+				searchElement.title = newTitle;
+			}
+		} else {
+			break;
+		}
+	}
+	
+	//Reserve pool
+	for (i = 0; i < 48; i++) {
+		searchElement = document.getElementById("open"+i);
+		
+		if (searchElement) {
+			if (solGame.reserveSlot[i]) {
+				newInner = solGame.reserveSlot[i].innerCode();
+				newTitle = solGame.reserveSlot[i].nameParse();
+				renderDiv(searchElement, "card");
+				
+			} else {
+				newInner = "";
+				newTitle = "Empty Reserve Slot";
+				
+				if (reserveReusable > i || stockDealTo == 3) {
+					renderDiv(searchElement, "empty");
+				} else {
+					renderDiv(searchElement, "invis");
+				}
+			}
+			
+			if (newInner != searchElement.innerHTML || forceRender) {
+				searchElement.innerHTML = newInner;
+				searchElement.title = newTitle;
+			}
+		} else {
+			break;
+		}
+	}
+	
+	//Stock pile
+	for (var i = 0; i < 104; i++) {
+		searchElement = document.getElementById("stock"+i);
+		
+		if (searchElement) {
+			if (solGame.stockRemain > 3*i) {
+				var checkWaste = document.getElementById("waste0");
+				var backID = 0;
+				
+				if (checkWaste && traditionalStock) {
+					backID = solGame.stockPile[solGame.wasteSize+1].deckID % 6;
+				} else {
+					var nextCard = checkNextCard();
+					backID = nextCard.deckID % 6;
+				}
+				
+				if (solGame.stockRemain > 3*(i+1)) {
+					renderDiv(searchElement,"playStack");
+				} else {
+					renderDiv(searchElement,"play" + backID);
+				}
+				
+				if (i == 0) {
+					searchElement.innerHTML = "";
+				}
+			} else {
+				if (i == 0) {
+					renderDiv(searchElement,"empty");
+					searchElement.innerHTML = emptyStockPile();
+				} else {
+					renderDiv(searchElement,"invis");
+				}
+			}
+			
+			var tooltip = "Stock: " + solGame.stockRemain;
+			if (solGame.redeals == Infinity) {
+				tooltip += " \nRedeals: Endless";
+			} else {
+				tooltip += " \nRedeals: " + solGame.redeals;
+			}
+			searchElement.title = tooltip;
+		} else {
+			break;
+		}
+	}
+	
+	//Waste pile
+	for (var i = 0; i < 312; i++) {
+		searchElement = document.getElementById("waste"+i);
+		if (searchElement) {
+			if (!wasteFanned) {
+				if (i == 0) {
+					baseLeftPos = parseInt(searchElement.style.left.substr(0,searchElement.style.left.length - 2));
+					baseTopPos = parseInt(searchElement.style.top.substr(0,searchElement.style.top.length - 2));
+					
+					leftPos = baseLeftPos;
+					topPos = baseTopPos;
+				} else {
+					if (wasteDealBy > 1 && i >= solGame.wasteSize - (wasteDealBy - 1) && i <= solGame.wasteSize) {
+						fanStack = Math.min(wasteDealBy - 1,solGame.wasteSize) + (i - solGame.wasteSize);
+						push = FANNING_X * fanStack;
+						
+						if (fanStack <= 0) {
+							leftPos = baseLeftPos + Math.floor(i/3);
+							topPos = baseTopPos + Math.floor(i/3);
+						} else {
+							leftPos = baseLeftPos + Math.floor((i-fanStack)/3) + push;
+							topPos = baseTopPos + Math.floor((i-fanStack)/3);
+						}
+					} else {
+						leftPos = baseLeftPos + Math.floor(i/3);
+						topPos = baseTopPos + Math.floor(i/3);
+					}
+				}
+
+				searchElement.style.left = leftPos+"px";
+				searchElement.style.top = topPos+"px";
+			}
+			
+			if (solGame.wasteSize >= i) {
+				renderDiv(searchElement,"card");
+				newInner = solGame.stockPile[i].innerCode();
+				newTitle = solGame.stockPile[i].nameParse();
+			} else if (i == 0 && golfGame) {
+				renderDiv(searchElement,"empty");
+				newInner = emptyFoundationSlot();
+				newTitle = "Empty foundation pile";
+			} else {
+				renderDiv(searchElement,"invis");
+				newInner = "";
+				newTitle = "";
+			}
+			
+			if (newInner != searchElement.innerHTML || forceRender) {
+				searchElement.innerHTML = newInner;
+				searchElement.title = newTitle;
+			}
+		} else {
+			break;
+		}
+	}
+
+	//Apply Spider Scoring, if appropriate
+	if (solGame.spiderCon) {
+		solGame.casualScore = spiderScore;
+	}
+
+	searchElement = document.getElementById("autoBuild");
+	if (searchElement) {
+		searchElement.disabled = (baseRank == "");
+	}
+	searchElement = document.getElementById("undoMove");
+	if (searchElement) {
+		searchElement.disabled = (gameHistory.length < 1 || solGame.casualScore >= maxScore);
+	}
+	searchElement = document.getElementById("casualScore");
+	if (searchElement) {
+		searchElement.innerHTML = solGame.casualScore;
+	}
+	searchElement = document.getElementById("moneyScore");
+	if (searchElement) {
+		searchElement.innerHTML = solGame.moneyScore;
+	}
+	deselectAll();
+	skipSounds = 0;
+	forceRender = false;
+	if (!reverseRender && baseStatFile != "blackjack") {
+		try {
+			customRender();
+		} catch(err) {
+			// Blank catch. Only a few games require additional rendering
+		}
+	}
+	updateStatus("&emsp;");
 }
 
 function renderDiv(workObj, newClass) {
@@ -685,21 +715,24 @@ function emptyStockPile() {
 
 function toggleHelp() {
 	var helpPanel = document.getElementById("helpPanel");
-	var helpButton = document.getElementById("helpButton");
-	var helpKeyword = "help";
-	if (baseStatFile == "wizard") {
-		helpKeyword = "specs";
-	}
 
 	if (helpPanel.style.display == "block") {
 		helpPanel.style.display = "none";
-		helpButton.value = "Show "+helpKeyword;
 	} else {
 		helpPanel.style.display = "block";
-		helpButton.value = "Hide "+helpKeyword;
 	}
 	
 	resizeHeight();
+}
+
+function togglePass() {
+	var passPanel = document.getElementById("passDisp");
+
+	if (passPanel.style.display == "inline") {
+		passPanel.style.display = "none";
+	} else {
+		passPanel.style.display = "inline";
+	}
 }
 
 function resizeHeight() {
@@ -917,21 +950,102 @@ function sound(src) {
 	}
 } 
 
-//solGame object
-var solGame = {
-	casualScore: 0,
-	moneyScore : null,
-	stockRemain: 0,
-	wasteSize  : -1,
-	totalMoves : 0,
-	difficulty : 2,
-	redeals    : 0,
-	dealTime   : 0,
-	spiderCon  : null,
-	gameActive : false,
-	recordGame : true,
-	recordWin  : true
+// Array management
+function emptyDoubleArray(sizeA,sizeB) {
+	var createArrays = new Array(sizeA);
+	for (var o = 0; o < createArrays.length; o++) {
+		createArrays[o] = new Array(sizeB);
+	}
+	
+	return createArrays;
 }
+
+function emptySingleArray(sizeA, initA) {
+	var createArrays = new Array(49);
+	if (typeof initA !== undefined) {
+		for (var o = 0; o < createArrays.length; o++) {
+			createArrays[o] = initA;
+		}
+	}
+	
+	return createArrays;
+}
+
+function cloneDoubleArray(orgArray) {
+	newArray = new Array();
+	
+	for (var d = 0; d < orgArray.length; d++) {
+		newArray[d] = new Array();
+		
+		for (var e = 0; e < orgArray[d].length; e++) {
+			newArray[d][e] = orgArray[d][e];
+		}
+	}
+	
+	return newArray;
+}
+
+function cloneSingleArray(orgArray) {
+	newArray = new Array();
+	
+	for (var c = 0; c < orgArray.length; c++) {
+		newArray[c] = orgArray[c];
+	}
+	
+	return newArray;
+}
+
+// Game object
+function gameObj(source) {
+	if (source == null) {
+		this.tableau        = emptyDoubleArray(49,312);
+		this.height         = emptySingleArray(49,0);
+		this.prevHeight     = emptySingleArray(49,0);
+		this.downturn       = emptySingleArray(49,0);
+		this.obstructed     = emptyDoubleArray(49,104);
+		this.foundationPile = emptySingleArray(24,null);
+		this.reserveSlot    = emptySingleArray(48,null);
+		this.stockPile      = emptySingleArray(213,null);
+		this.casualScore    = 0;
+		this.moneyScore     = null;
+		this.stockRemain    = 0;
+		this.wasteSize      = -1;
+		this.totalMoves     = 0;
+		this.difficulty     = 2;
+		this.redeals        = 0;
+		this.dealTime       = 0;
+		this.spiderCon      = null;
+		this.gameActive     = false;
+		this.recordGame     = true;
+		this.recordWin      = true;
+	} else {
+		this.tableau        = cloneDoubleArray(source.tableau);
+		this.height         = cloneSingleArray(source.height);
+		this.prevHeight     = cloneSingleArray(source.prevHeight);
+		this.downturn       = cloneSingleArray(source.downturn);
+		this.obstructed     = cloneDoubleArray(source.obstructed);
+		this.foundationPile = cloneSingleArray(source.foundationPile);
+		this.reserveSlot    = cloneSingleArray(source.reserveSlot);
+		this.stockPile      = cloneSingleArray(source.stockPile);
+		this.casualScore    = source.casualScore;
+		this.moneyScore     = source.moneyScore;
+		this.stockRemain    = source.stockRemain;
+		this.wasteSize      = source.wasteSize;
+		this.totalMoves     = source.totalMoves;
+		this.difficulty     = source.difficulty;
+		this.redeals        = source.redeals;
+		this.dealTime       = source.dealTime;
+		this.spiderCon      = source.spiderCon;
+		this.gameActive     = source.gameActive;
+		this.recordGame     = source.recordGame;
+		this.recordWin      = source.recordWin;
+	}
+}
+
+var solGame = new gameObj(null);
+
+// Blank history array
+var gameHistory = new Array();
 
 //solDeck object
 function solDeck(numDecks) {
@@ -1298,8 +1412,10 @@ function saveSeriesFile(gameWon) {
 			seriesLives = seriesGame + 2;
 		}
 		
+		var undoPenalty = undoCount * (seriesDiff - 1);
+		
 		seriesPassword = "";
-		seriesScore += (solGame.casualScore + cardsMod) * seriesLives + winBonus;
+		seriesScore += Math.max((solGame.casualScore + cardsMod) * seriesLives + winBonus - undoPenalty,0);
 		
 		if (++seriesGame <= 3) {
 			switch (seriesDiff) {

@@ -34,10 +34,10 @@ function finishSeriesGame() {
 	if (endSeries) {
 		deleteSeriesFile();
 		solGame.gameActive = false;
-		self.location = "../index.htm";
+		self.location = "../index.php";
 	} else if (nextGame) {
 		solGame.gameActive = false;
-		self.location = "index.htm";
+		self.location = "index.php";
 	} else if (redoGame) {
 		seriesLives--;
 		solGame.gameActive = false;

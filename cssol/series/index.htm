@@ -44,7 +44,7 @@
 	deckCost = 52;
 	switch (seriesGame) {
 		case 1:
-			// Klondike
+			seriesName = "Klondike";
 			tableauStructure = [1,2,3,4,5,6,7];
 			downturnDepth = [6];
 			tableauMovement = "builds";
@@ -53,14 +53,14 @@
 			break;
 			
 		case 2:
-			// Yukon
+			seriesName = "Yukon";
 			tableauStructure = [1,6,7,8,9,10,11];
 			downturnDepth = [0,1,2,3,4,5,6];
 			tableauMovement = "yukonStyle";
 			break;
 			
 		case 3:
-			// Raglan
+			seriesName = "Raglan";
 			tableauStructure = [1,2,3,4,5,6,7,7,7];
 			downturnDepth = [0];
 			tableauMovement = "oneCard";
@@ -85,19 +85,17 @@
 	stockDealTo = 0;
 	wasteDealBy = 1;
 	maxReserve = 0;
-	
-	function changeDiff(firstTime) {
-		// Not available for Solitaire Series
-	}
 	</script>
 </head>
 <body>
 <p id="banner"><a href="../index.htm"><img src="../gfx/banner.png" alt="" /></a></p>
 <div id="tableau">
-	<div id="commandPanel"><input id="newGame" class="button" type="button" value="Finish game" onclick="finishSeriesGame()" title="Records the current game into the series system" />
-	<input id="restartGame" class="button" type="button" value="Restart game" onclick="restartGame(false)" title="Restarts the game using the same password" />
+	<div id="commandPanel">
+	<input id="newGame" class="button" type="button" value="Finish" onclick="finishSeriesGame()" title="Records the current game into the series system" />
+	<input id="restartGame" class="button" type="button" value="Restart" onclick="restartGame(false)" title="Restarts the game using the same password" />
 	<input id="autoBuild" class="button" type="button" value="Autobuild" onclick="autoFinish()" title="Automatically builds foundations where possible" />
-	<input id="helpButton" class="button" type="button" value="Show help" onclick="toggleHelp(false)" title="Toggles game instructions" />
+	<input id="helpButton" class="button" type="button" value="Help" onclick="toggleHelp(false)" title="Toggles game instructions" />
+	<input id="undoMove" class="button" type="button" value="Undo" onclick="undoMove()" title="Undoes the last move" />
 	<br />Current Score: <span id="casualScore">0</span>
 	&mdash; Skill: <span id="seriesSkill">Regular</span>
 	&mdash; Series Score: $<span id="seriesScore">0</span>
@@ -115,9 +113,9 @@
 <p>Solitaire Series is a series of 3 games played back to back, with a total score and lives tracked as the series progreses. A series is successful if all 3 games are finished, and ends in failure if lives are all exhausted.</p>
 
 <h3>Scoring</h3>
-<p>Points are awarded for each card secured, times the number of lives available (with the maximum lives being used if playing on Hardcore). This means if losses are incurred while playing on Regular or Fanatic, the score is reduced accordingly based on lives lost.</p>
+<p>Points are awarded for each card secured, times the number of lives available (with the maximum lives being used if playing on Hardcore), minus 0-3 points for each move that was undone.</p>
 
-<p>Games won beyond the first game also have a fixed reward that is not reduced by losses made on unsuccessful attempts.</p>
+<p>Games won beyond the first game also have a fixed reward that is not reduced by losses made on unsuccessful attempts, although the undo penalty can chew into this bonus.</p>
 
 <table style="margin-left: auto; margin-right: auto;" summary="A breakdown of the scoring system. In short, the Win bonus increases with each subsequent game. The grand total maximum can be 1,000 points, for successfully winning the entire series on the respective first tries.">
 <thead><tr>
@@ -158,10 +156,10 @@
 <h3>Skill Levels</h3>
 
 <ol>
-<li><b>Casual</b>: Simply move onto the next game in the series, whether win or loss. Lives are not subtracted for losses, but points are awarded accordingly for non-winning games</li>
-<li><b>Regular</b>: Each game must be won before the series can progress. Lives are finite, but are fully replenished with each win, and with the maximum capacity increasing by one life</li>
-<li><b>Fanatic</b>: Lives are very finite; one life is given after each win</li>
-<li><b>Hardcore</b>: One life is all that is provided to conquer the entire series! It is impossibled to earn more</li>
+<li><b>Casual</b>: Simply move onto the next game in the series, whether win or loss. Points are awarded accordingly for non-winning games. No undo penalty</li>
+<li><b>Regular</b>: Each game must be won before the series can progress. Lives are finite, but are fully replenished with each win, and with the maximum capacity increasing by one life. 1 point is deducted per undo</li>
+<li><b>Fanatic</b>: Lives are very finite; one life is given after each win. 2 points are deducted per undo</li>
+<li><b>Hardcore</b>: One life is all that is provided to conquer the entire series! It is impossibled to earn more lives. 3 points are deducted per undo</li>
 </ol>
 </div>
 

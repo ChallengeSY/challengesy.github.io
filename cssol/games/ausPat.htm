@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="description" content="JavaScript solitaire games" />
+	<meta name="keywords" content="Yukon" />
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>Australian Patience - CSSol</title>
+
+	<link type="text/css" href="../scripts/cards.css" rel="stylesheet" />
+	<link type="image/x-icon" href="../cssol.ico" rel="icon" />
+	<script type="text/javascript" src="../scripts/common.js"></script>
+	<script type="text/javascript" src="../scripts/homepiles.js"></script>
+	<script type="text/javascript" src="../scripts/wizard.js"></script>
+	<script type="text/javascript" src="../scripts/ausPat.js"></script>
+</head>
+<body>
+<p id="banner"><a href="index.php"><img src="../gfx/banner.png" alt="" /></a></p>
+<div id="tableau">
+	<div id="commandPanel">
+	<input id="newGame" class="button" type="button" value="New" onclick="newGame(false,true)" title="Starts a new game" />
+	<input id="restartGame" class="button" type="button" value="Restart" onclick="restartGame(false)" title="Restarts the game using the same password" />
+	<input id="autoBuild" class="button" type="button" value="Autobuild" onclick="autoFinish()" title="Automatically builds foundations where possible" />
+	<input id="helpButton" class="button" type="button" value="Help" onclick="toggleHelp()" title="Toggles game instructions" />
+	<input id="undoMove" class="button" type="button" value="Undo" onclick="undoMove()" title="Undoes the last move" />
+	<input id="passButton" class="button" type="button" value="Password" onclick="togglePass()" title="Toggles seed password display" />
+	&mdash; Casual Score: <span id="casualScore">0</span>
+	<span id="passDisp"><br />Password: <input id="password" class="text" type="text" size="60" onchange="newGame(false,false)" /></span>
+	</div>
+
+	<!-- Playfield elements will be made here -->
+</div>
+
+<p id="statusBar"></p>
+
+<div id="helpPanel">
+<h2>Instructions</h2>
+<p>Australian Patience is a solitaire game using one deck of playing cards. This game is a challenging combination of <a href="klondike.php">Klondike</a> and <a href="yukon.php">Yukon</a>. The object of the game is to move all of the cards to the Foundations.</p>
+
+<p>Australian Patience has four Foundations build up in suit from Ace to King. The Tableau is filled with seven piles containing four cards each. These piles build down in suit.</p>
+
+<p>Like Yukon, any face-up card can be moved, but all the unrelated cards on top of it will be moved also. Only a King (with or without a pile) can be moved to an empty space. Only one card is turned up at a time from the Deck, and these cards can be played onto the Tableau Piles or the Foundations. Australian Patience only allows one pass through the deck.</p>
+
+<p class="footer">Documentation is &copy; <a href="http://en.wikipedia.org">Wikipedia Contributors</a>. Freely distributable under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons (BY SA) license 3.0</a></p>
+</div>
+
+</body>
+</html>

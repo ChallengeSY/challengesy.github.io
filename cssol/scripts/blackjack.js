@@ -1,3 +1,4 @@
+baseStatFile = "blackjack";
 window.onload = setupGame;
 window.onresize = resizeHeight;
 window.onkeydown = readKeyInput;
@@ -53,7 +54,7 @@ function setupGame() {
 	shuffleShoe();
 	customRender(false);
 	document.getElementById("d"+curUTCday).style.backgroundColor = "#002000";
-	updateStatus("Welcome to Blackjack. You may adjust initial bet and starting hands. Tap the <q>New Round</q> button when ready.");
+	updateStatus("Welcome to Blackjack. You may adjust initial bet and starting hands. Tap the <q>New</q> button when ready.");
 }
 
 function shuffleShoe() {
@@ -158,8 +159,8 @@ function addToHand(id) {
 	}
 
 	for (b = 0; b < 10; b++) {
-		if (!tableau[id][b]) {
-			tableau[id][b] = assignSeedCard();
+		if (!solGame.tableau[id][b]) {
+			solGame.tableau[id][b] = assignSeedCard();
 			break;
 		}
 	}
@@ -170,7 +171,7 @@ function addToHand(id) {
 }
 
 function checkDealerHand(skipInsurance) {
-	if (tableau[0][0].rank == "Ace" && !skipInsurance && solGame.moneyScore >= moneyRequired * 1.5) {
+	if (solGame.tableau[0][0].rank == "Ace" && !skipInsurance && solGame.moneyScore >= moneyRequired * 1.5) {
 		offerInsurance();
 	} else if (getScore(0) == 21) {
 		endRound();
@@ -209,7 +210,7 @@ function addBluButton(onTap, txt) {
 function clearHands() {
 	for (var y = 0; y < 15; y++) {
 		for (var x = 0; x < maxPlrHands + 1; x++) {
-			tableau[x][y] = null;
+			solGame.tableau[x][y] = null;
 		}
 	}
 }
@@ -285,7 +286,7 @@ function activateHand(id) {
 	} else if (handSplit > 0) {
 		addToHand(activeHand);
 		
-		if (tableau[id][0].rank == "Ace") {
+		if (solGame.tableau[id][0].rank == "Ace") {
 			// Aces were split. Each hand split this way gets exactly two cards.
 			activateHand(id + 1);
 		} else {
@@ -357,15 +358,15 @@ function splitHand() {
 	
 	pushHandsDown();
 	
-	tableau[activeHand+1][0] = tableau[activeHand][1];
-	tableau[activeHand][1] = null;
+	solGame.tableau[activeHand+1][0] = solGame.tableau[activeHand][1];
+	solGame.tableau[activeHand][1] = null;
 	handSplit = Math.max(handSplit,1) + 1;
 	
 	addToHand(activeHand);
 	document.getElementById("double").disabled = (solGame.moneyScore < moneyRaiseReq);
 	document.getElementById("split").disabled = (!firstTwoIdentical(activeHand) || numHands >= maxPlrHands || solGame.moneyScore < moneyRaiseReq);
 	document.getElementById("surrender").disabled = true;
-	if (tableau[activeHand][0].rank == "Ace" || getScore(activeHand) == 21) {
+	if (solGame.tableau[activeHand][0].rank == "Ace" || getScore(activeHand) == 21) {
 		standHand();
 	}
 }
@@ -378,8 +379,8 @@ function pushHandsDown() {
 
 function transferHand(fromSlot, toSlot) {
 	for (e = 0; e < 15; e++) {
-		tableau[toSlot][e] = tableau[fromSlot][e];
-		tableau[fromSlot][e] = null;
+		solGame.tableau[toSlot][e] = solGame.tableau[fromSlot][e];
+		solGame.tableau[fromSlot][e] = null;
 	}
 }
 
@@ -495,7 +496,7 @@ function endRound() {
 
 function aceFound(id) {
 	for (b = 0; b < 10; b++) {
-		if (tableau[id][b] && tableau[id][b].rank == "Ace") {
+		if (solGame.tableau[id][b] && solGame.tableau[id][b].rank == "Ace") {
 			return true;
 		}
 	}
@@ -506,7 +507,7 @@ function aceFound(id) {
 function firstTwoIdentical(id) {
 	var rankValue = new Array(2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1);
 	
-	return (rankValue[getRank(tableau[id][0])] == rankValue[getRank(tableau[id][1])]);
+	return (rankValue[getRank(solGame.tableau[id][0])] == rankValue[getRank(solGame.tableau[id][1])]);
 }
 
 function getScore(id) {
@@ -514,8 +515,8 @@ function getScore(id) {
 	var handScore = 0;
 	
 	for (b = 0; b < 10; b++) {
-		if (tableau[id][b]) {
-			handScore = handScore + rankValue[getRank(tableau[id][b])];
+		if (solGame.tableau[id][b]) {
+			handScore = handScore + rankValue[getRank(solGame.tableau[id][b])];
 		}
 	}
 	
@@ -535,7 +536,7 @@ function getScore(id) {
 
 function handSize(id) {
 	for (b = 0; b < 10; b++) {
-		if (!tableau[id][b]) {
+		if (!solGame.tableau[id][b]) {
 			return b;
 		}
 	}
@@ -617,10 +618,10 @@ function customRender(hideDealerHole) {
 		}
 	}
 	
-	if (tableau[0][1] && hideDealerHole) {
+	if (solGame.tableau[0][1] && hideDealerHole) {
 		searchElement = document.getElementById("x0y1");
 		
-		renderDiv(searchElement,"play" + (tableau[0][1].deckID % 6));
+		renderDiv(searchElement,"play" + (solGame.tableau[0][1].deckID % 6));
 
 		searchElement.innerHTML = "";
 		searchElement.title = "Face-down card";

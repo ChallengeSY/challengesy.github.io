@@ -66,6 +66,33 @@
 			document.getElementById("deckCostStr").style.color = "";
 		}
 		
+		var dealToSystem = document.forms["solwizard"]["stockDealTo"].selectedIndex;
+		var reserveReuse = document.forms["solwizard"]["reserveSlots"].selectedIndex;
+		if (dealToSystem == 6 && deckCost < numDecks*52-48) {
+			document.forms["solwizard"]["stockDealTo"].className = "texterr";
+			document.forms["solwizard"]["reserveSlots"].className = "text";
+			document.getElementById("status").innerHTML = "There can be a maximum of 48 cards in the stockpile, when dealing to stacked reserve pools.";
+			formErrors++;
+		} else if (dealToSystem == 6 && reserveReuse < 2) {
+			document.forms["solwizard"]["stockDealTo"].className = "texterr";
+			document.forms["solwizard"]["reserveSlots"].className = "texterr";
+			document.getElementById("status").innerHTML = "There must be at least 2 reserve slots to deal cards.";
+			formErrors++;
+		} else {
+			document.forms["solwizard"]["stockDealTo"].className = "text";
+			document.forms["solwizard"]["reserveSlots"].className = "text";
+		}
+		
+		var dynamicDealCt = document.forms["solwizard"]["dynamicDeal"].checked;
+		var redealCt = document.forms["solwizard"]["redeals"].value;
+		if (dynamicDealCt && redealCt < 0) {
+			document.forms["solwizard"]["redeals"].className = "texterr";
+			document.getElementById("status").innerHTML = "Unlimited Redeals and Dynamic Dealing are prohibited. Please deactivate one of these two settings.";
+			formErrors++;
+		} else {
+			document.forms["solwizard"]["redeals"].className = "text";
+		}
+		
 		var formValid = (formErrors <= 0);
 			
 		if (formErrors > 1) {
@@ -242,12 +269,19 @@
 			stockDealTo.selectedIndex = 1;
 		}
 		
-		if (stockDealTo.selectedIndex == 4) {
+		if (stockDealTo.selectedIndex == 5) {
 			reserveInitial.value = calcPiles;
 			reserveInitial.readOnly = true;
 			reserveReuse.value = 0;
 			reserveReuse.readOnly = true;
-			reserveStacked.checled = false;
+			reserveStacked.checked = false;
+			reserveStacked.disabled = true;
+			
+			computeCost(true);
+		} else if (stockDealTo.selectedIndex == 6) {
+			reserveInitial.value = 0;
+			reserveInitial.readOnly = true;
+			reserveStacked.checked = false;
 			reserveStacked.disabled = true;
 			
 			computeCost(true);
@@ -357,6 +391,13 @@ The Final Rank is one rank "lower" than the Base Rank. (Example: Kings are consi
 <td colspan="2" class="helptxt">Comma separated values determine how many cards to turn face down. Pattern repeats as many times as is necessary.</td>
 </tr>
 <tr>
+<td><b>Final Rank cards in the tableau</b></td>
+<td><label for="finalBottom">Force on bottom?</label> <input type="checkbox" name="finalBottom" id="finalBottom" /></td>
+</tr>
+<tr>
+<td colspan="2" class="helptxt">If enabled, this forces all the final rank cards that have been dealt to be shifted to the bottom of the respective piles.</td>
+</tr>
+<tr>
 <td><b>Tableau Building</b></td>
 <td><select class="text" name="tableauBuilding" id="tableauBuilding" onchange="checkConflicts()">
 <option value="none">No building</option>
@@ -412,17 +453,22 @@ Depending on how the stock pile is handled, this also determines the goal of a P
 <option value="-1">None</option>
 <option value="0" selected="selected">Waste, stacked</option>
 <option value="1">Waste, fanned</option>
-<option value="2">Tableau</option>
-<option value="3">Trapdoor</option>
+<option value="2">Tableau; allow empty piles</option>
+<option value="3">Tableau; prohibit empty piles</option>
+<option value="4">Reserve, trapdoor</option>
+<option value="5">Reserve, stacked</option>
 </select></td>
 </tr>
 <tr>
 <td><b>Stock Deal</b></td>
-<td><input class="text" type="number" name="stockDealCt" id="stockDealCt" size="3" min="1" max="9" value="1" /></td>
+<td><input class="text" type="number" name="stockDealCt" id="stockDealCt" size="3" min="1" max="9" value="1" />
+<label for="dynamicDeal">Dynamic</label> <input type="checkbox" name="dynamicDeal" id="dynamicDeal" value="true" /></td>
 </tr>
 <tr>
 <td colspan="2" class="helptxt">How many cards to deal to Waste, or how many rows to deal to tableau.<br />
+Dynamic Deal starts at 1 card at a time, and adds another 1 for each redeal available.<br />
 Trapdoor will deal the reserve pool to the tableau, then refill it with new cards.</td>
+</tr>
 <tr>
 <td><b>Redeals</b></td>
 <td><input class="text" type="number" name="redeals" id="redeals" size="3" min="-1" max="99" value="0" /></td>
