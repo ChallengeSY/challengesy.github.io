@@ -40,7 +40,9 @@ function customRender() {
 			reposElement("stock"+z,COLUMN_WIDTH*8+z,z);
 		}
 		
-		reposElement("home7",0,0);
+		for (var h = 0; h < 8; h++) {
+			reposElement("home"+h,COLUMN_WIDTH*h,0);
+		}
 		
 		setupApplied = true;
 	}
