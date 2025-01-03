@@ -374,7 +374,7 @@ function dealStock() {
 							do {
 								newCard = assignSeedCard();
 							} while (startingCards >= 4 && newCard.rank == baseRank);
-							if (stockDealTo == 2) {
+							if (stockDealTo < 4) {
 								// Deal row(s) to tableau
 								solGame.tableau[i][++solGame.height[i]] = newCard;
 							} else if (stockDealTo == 4) {
@@ -1395,8 +1395,20 @@ function newGame(greetings, newSeed) {
 				case "seriesPlay":
 					title = seriesName + " Solitaire";
 					break;
+				case "8off":
+					title = "Eight Off Solitaire";
+					break;
+				case "10across":
+					title = "Ten Across Solitaire";
+					break;
 				case "40thieves":
 					title = "Forty Thieves Solitaire";
+					break;
+				case "agnesBernauer":
+					title = "Agnes Bernauer";
+					break;
+				case "agnesSorel":
+					title = "Agnes Sorel";
 					break;
 				case "ausPat":
 					title = "Australian Patience";
@@ -1422,6 +1434,9 @@ function newGame(greetings, newSeed) {
 				case "freecell":
 					title = "FreeCell Solitaire";
 					break;
+				case "garden":
+					title = "the Flower Garden";
+					break;
 				case "goldRush":
 					title = "Gold Rush Solitaire";
 					break;
@@ -1433,6 +1448,12 @@ function newGame(greetings, newSeed) {
 					break;
 				case "klondike3s":
 					title = "Klondike by Threes";
+					break;
+				case "napoleonExile":
+					title = "Napoleon's Exile";
+					break;
+				case "number12":
+					title = "Number Twelve Solitaire";
 					break;
 				case "relaxedGolf":
 					title = "Relaxed Golf Solitaire";
