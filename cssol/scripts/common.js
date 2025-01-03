@@ -161,7 +161,7 @@ function undoMove() {
 			solGame = new gameObj(gameHistory.pop());
 			
 			playSound(cardDown);
-			if (!traditionalStock) {
+			if (!traditionalStock || stockDealTo < 0 || stockDealTo > 1) {
 				cardsDealt = wizardDecks*52 - solGame.stockRemain;
 			}
 		}
