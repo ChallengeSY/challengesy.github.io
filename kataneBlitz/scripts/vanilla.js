@@ -842,6 +842,7 @@ function createRandomPassChars(targWord) {
 	letterBanks = new Array(5);
 	var columnBanks = new Array(5);
 	var dupeWords = false;
+	var lettersPerCol = Math.min(6 + Math.floor(score/25),10);
 	
 	const masterLetterBank = 'abcdefghijklmnopqrstuvwxyz';
 	
@@ -850,13 +851,13 @@ function createRandomPassChars(targWord) {
 		// Build the columns
 		for (var a = 0; a < 5; a++) {
 			columnBanks[a] = masterLetterBank;
-			letterBanks[a] = new Array(6);
-			letterBanks[a][irandom(0,5)] = targWord.charAt(a).toUpperCase();
+			letterBanks[a] = new Array(lettersPerCol);
+			letterBanks[a][irandom(0,lettersPerCol-1)] = targWord.charAt(a).toUpperCase();
 			var refChar = columnBanks[a].search(targWord.charAt(a));
 			columnBanks[a] = masterLetterBank.split("");
 			columnBanks[a].splice(refChar, 1);
 
-			for (var b = 0; b < 6; b++) {
+			for (var b = 0; b < lettersPerCol; b++) {
 				if (!letterBanks[a][b]) {
 					refChar = irandom(0,columnBanks[a].length-1);
 					letterBanks[a][b] = columnBanks[a].splice(refChar, 1)[0].toUpperCase();
@@ -868,11 +869,11 @@ function createRandomPassChars(targWord) {
 		
 		// Validate the columns
 		validate: {
-			for (var v = 0; v < 6; v++) {
-				for (var w = 0; w < 6; w++) {
-					for (var x = 0; x < 6; x++) {
-						for (var y = 0; y < 6; y++) {
-							for (var z = 0; z < 6; z++) {
+			for (var v = 0; v < lettersPerCol; v++) {
+				for (var w = 0; w < lettersPerCol; w++) {
+					for (var x = 0; x < lettersPerCol; x++) {
+						for (var y = 0; y < lettersPerCol; y++) {
+							for (var z = 0; z < lettersPerCol; z++) {
 								tempWord = (letterBanks[0][v]+letterBanks[1][w]+letterBanks[2][x]+letterBanks[3][y]+letterBanks[4][z]).toLowerCase();
 								
 								for (var c = 0; c < validPasswords.length; c++) {
@@ -911,13 +912,16 @@ function shiftPassColumn(readObj, columnObj, shiftDown) {
 
 function validatePassword(readObj, expectedPass) {
 	readPass = "";
+	var bankLen = document.getElementById(readObj.id+"b0").innerHTML.length;
 	for (var r = 0; r < 5; r++) {
 		readPass += document.getElementById(readObj.id+"p"+r).innerHTML;
 	}
 	readPass = readPass.toLowerCase();
 	
+	var handicap = Math.floor((bankLen-5)/2)*25;
+	
 	var success = (readPass == expectedPass);
-	solveModule(readObj, success, !success, 0);
+	solveModule(readObj, success, !success, handicap);
 	
 	if (success) {
 		console.log(readPass+" was transmitted correctly.");
@@ -1093,11 +1097,13 @@ function makeAllSimons() {
 	spanCollection = document.getElementsByTagName("span");
 	clearInterval(simonFlasher);
 	
+	var simonTimings = Math.max(Math.ceil(6/(9+Math.floor(score/25))*1000), 462);
+	
 	for (var r in spanCollection) {
 		if (spanCollection[r].id !== undefined) {
 			if (spanCollection[r].id.endsWith("sX")) {
 				// Generate fresh flashes
-				var numStages = irandom(3,Math.min(5+Math.floor(score/25),9));
+				var numStages = irandom(3, Math.min(5+Math.floor(score/25),9));
 				spanCollection[r].innerHTML = "";
 				
 				for (var t = 0; t < numStages; t++) {
@@ -1119,7 +1125,7 @@ function makeAllSimons() {
 	}
 	
 	simonCycle = 0;
-	simonFlasher = setInterval(cycleSimons, 667);
+	simonFlasher = setInterval(cycleSimons, simonTimings);
 }
 
 function pressSimonButton(readObj, buttonObj) {

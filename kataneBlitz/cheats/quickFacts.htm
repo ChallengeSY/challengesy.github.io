@@ -41,7 +41,7 @@
 <h3>Complicated Wires</h3>
 <p><a href="https://ktane.timwi.de/HTML/Complicated Wires.html">Complicated Wires</a> may seem intimating, but it loses part of its complications (pardon the pun) once these bullets are noted.</p>
 <ul>
-<li>Complicated Wires uses a single ruleset throughout the bomb. Once what can (and can not be cut) are known on one module, subsequent instances on the same bomb become easier.</li>
+<li>Complicated Wires uses a single ruleset throughout the bomb. Once what can (and can not) be cut are known on one module, subsequent instances on the same bomb become easier.</li>
 <li>Complicated Wires is the only vanilla module that is dependent on the ports present on a bomb.</li>
 <li>White means nothing on a complicated wire that is also blue or red. It is useful only when a wire is neither blue nor red.</li>
 <li>White featureless wires, White star wires, and Red star wires can <i>always</i> be safely cut, no matter what edgework is on the bomb.</li>
@@ -56,6 +56,9 @@
 <li>Likewise, &starf; and &Omega; symbols should <i>always</i> be tapped last, because they are consistently the lowest priority symbols throughout the module.</li>
 </ul>
 
+<h3>Maze</h3>
+<p>None of the 9 possible <a href="https://ktane.timwi.de/HTML/Maze.html">Maze</a> layouts has a circle share positions with another.</p>
+
 <h3>Memory</h3>
 <p><a href="https://ktane.timwi.de/HTML/Memory.html">Memory</a> is well up there in complexity. Yet, we have found a few shortcuts.</p>
 <ul>
@@ -63,20 +66,38 @@
 <li>Positions are important for stages 2 and 4. Labels are important for stages 3 and 5.</li>
 </ul>
 
+<h3>Morse Code</h3>
+<p><a href="https://ktane.timwi.de/HTML/Morse Code.html">Morse Code</a> itself is fairly simple... in its original package.</p>
+<ul>
+<li>Usually the first three characters is all it takes to find the correct frequency. Sometimes a solution can be found before then.</li>
+<li>Katane Blitz normally dedicates all modules to 20 sec loops, no matter the complexity of the code. However, each 25 modules solved in an Arcade mission causes the loop to shorten 1 sec (causing the flashes to be faster), to a minimum of 16 sec.</li>
+</ul>
+
 <h3>Needy Modules</h3>
 <p>The available three needy modules have a few fun facts. Some are shared, some are unique.</p>
 <ul>
+<li>Needy modules can initially activate when 90 seconds have passed, a module has been solved, or a life has been lost; whichever comes first. In Arcade mode, needies that show up after the first bomb activate immediately.</li>
 <li>If a <a href="https://ktane.timwi.de/HTML/Capacitor Discharge.html">capacitor</a> overloads, the module will <b>permanently</b> deactivate. Consequently, Katane Blitz intentionally omits blown capacitors when scoring in Endless games.</li>
-<li>Other needy modules can reactivate anywhere between 10 and 40 seconds from the last deactivation.</li>
+<li>Other needy modules can reactivate anywhere between 10 and 40 sec from the last deactivation.</li>
 <li><a href="https://ktane.timwi.de/HTML/Knob.html">Knobs</a> are unique among the <q>vanilla</q> needy modules in that it will always run its timer down to zero. When it does, if the arrow is in the correct orientation, the module quietly deactivates. Otherwise, it strikes.</li>
 <li><a href="https://ktane.timwi.de/HTML/Venting Gas.html">Venting Gas</a> has a nasty habit of tripping defusers with its questions.</li>
 </ul>
 
+<h3>Password</h3>
+<p><a href="https://ktane.timwi.de/HTML/Password.html">Password</a> is exceptionally simple... in its original package.</p>
+<ul>
+<li>Normally, there can be six characters per column.</li>
+<li>Katane Blitz takes advantage of its simplicity and increases column sizes, based on how many modules have already been disarmed in an Arcade mission. Each 25 modules increases the column size by one.</li>
+<li>To counter-balance the increased difficulty, Katane Blitz grants time extensions on 8/9 column Passwords as if 25 fewer modules were solved; and 10-column Passwords as if 50 fewer modules were solved.</li>
+</ul>
+
 <h3>Simon Says</h3>
-<p><a href="https://ktane.timwi.de/HTML/Simon Says.html">Simon Says</a> is exceptionally simple... in its original package.</p>
+<p><a href="https://ktane.timwi.de/HTML/Simon Says.html">Simon Says</a> is also exceptionally simple... again, in its original package.</p>
 <ul>
 <li>It is the only vanilla module that cares about vowels and strikes. Since Katane Blitz uses lives in place of strikes, it instead treats lives lost as if they were strikes.</li>
-<li>Katane Blitz takes advantage of its simplicity and increases its maximum stage limit, based on how many modules have already been disarmed. Each 25 modules increases this by one stage, up to a maximum of 9 stages.</li>
+<li>Katane Blitz takes advantage of its simplicity and dynamically increases its difficulty based on score.</li>
+<li>Normally, there can be 3-5 stages. Katane Blitz adds one stage to the maximum for each 25 modules. The stage range caps at 3-9.</li>
+<li>In addition to the stage limit, Katane Blitz starts the flash cycle at 667 ms, but accelerates this process similarly to increasing the maximum stages, to a minimum of 462 ms.</li>
 </ul>
 
 <h3>Who's On First</h3>
@@ -103,14 +124,6 @@
 <li>The first Black and seventh Red wires are <i>always</i> cuttable.</li>
 <li>It is technically possible, though very unlikely, to run into a Wire Sequence with no valid wires. This requires that there be no black wires, and at most 6 red wires.</li>
 <li>Contrary to what the manual may suggest, there could be 9 or 10 wires on a single Wire Sequence.</li>
-</ul>
-
-<h3>Other solvable modules</h3>
-<p>None of the remaining modules bring much to the table. They instead belong in this section.</p>
-<ul>
-<li>None of the 9 possible <a href="https://ktane.timwi.de/HTML/Maze.html">Maze</a> layouts has a circle share positions with another.</li>
-<li>Usually the first three characters in a <a href="https://ktane.timwi.de/HTML/Morse Code.html">Morse Code</a> is all it takes to find the correct frequency. Sometimes a solution can be found before then.</li>
-<li>In <a href="https://ktane.timwi.de/HTML/Password.html">Password</a>, there can be six characters per column.</li>
 </ul>
 
 <hr />

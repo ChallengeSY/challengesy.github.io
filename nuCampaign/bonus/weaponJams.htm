@@ -7,7 +7,7 @@
 	<title>Campaign Tech Bonus Material - Why do weapons jam?</title>
 	<link type="text/css" href="../planets.css" rel="stylesheet" />
 	<style text="text/css">
-		img.vcr {max-width: 25%; float: right; margin-left: 20px; margin-bottom: 20px;}
+		video, img.vcr {max-width: 25%; float: right; margin-left: 20px; margin-bottom: 20px;}
 		div {display: none; clear: both;}
 		.cellAlt {background: #400040;}
 		.success {color: #C0FF40; font-weight: bold;}
@@ -28,7 +28,7 @@
 <div id="ch1">
 	<h3>Breakdown by weapon type</h3>
 	<h4>Fighter Bays</h4>
-	<p>Fighter Bays do not charge at all. Instead, <i>each</i> carrier consistently rolls a d20 per tick. If the result is less than or equal to the number of fighter bays, then it launches a fighter.</p>
+	<p>Fighter Bays do not charge at all. Instead, <i>each</i> carrier consistently rolls 1d20 per tick. If the result is less than or equal to the number of fighter bays, then it launches a fighter.</p>
 
 	<h4>Beam banks</h4>
 	<p>Beam banks consistently roll two dice (1d20 + 1d100) per tick. A third roll (another d20) becomes available when the ships get close enough to use them against each other.</p>
@@ -48,22 +48,32 @@
 </div>
 
 <div id="ch2">
-	<p><a href="golemPlanetVCR.png"><img class="vcr" src="golemPlanetVCR.png" alt="Golem vs Planet VCR sample" /></a></p>
+	<video controls="controls">
+		<source src="wFalconVSautoma.mp4" type="video/mp4" />
+		<a href="whiteFalconAutomaVCR.png"><img class="vcr" src="whiteFalconAutomaVCR.png" alt="White Falcon vs Automa VCR sample" /></a>
+	</video>
 	<h3>The problem</h3>
 	<p>Now that we know where the die rolls are coming from, we can fetch samples where this becomes a problem.</p>
-
-	<h4>Golem vs Planet</h4>
-	<p>For example, my Golem on the left (6-beam carrier) fights a planet (10-beam carrier). Since both combatants are carriers, that rolls 2 dice. 16 beam banks time 2 rolls each equals 32 dice. The nominal dice per tick becomes 34 rolls; which happens to be a multiple of 17. <a href="javascript:buildSeedVisualizer(33,10,6,16,10);">Weapon jams can occur</a> whenever we have a period where no dogfights take place, but each dogfight causes the seed <q>table</q> to shift.</p>
+	
+	<h4>White Falcon vs Automa</h4>
+	<p>For example, the White Falcon on the left (4-beam torp ship) battles my Automa on the right (4-beam carrier). 8 beam banks times 2 rolls equals 16 dice. My carrier rolls an extra die on top of that. The nominal dice per tick is 17 rolls <i>until</i> the White Falcon gets in range to fire its one tube. This causes one of their beam banks to <a href="javascript:buildSeedVisualizer(60,0,4,8,4);">jam</a> until that time. (Technically, one of my beam banks also jams, but there are no fighters to shoot down.)</p>
 </div>
 
 <div id="ch3">
-	<p><a href="whiteFalconAutomaVCR.png"><img class="vcr" src="whiteFalconAutomaVCR.png" alt="White Falcon vs Automa VCR sample" /></a></p>
-	<h3>White Falcon vs Automa</h3>
-	<p>Here is another sample where <a href="javascript:buildSeedVisualizer(60,0,4,8,4);">jams have happened</a>. The White Falcon on the left (4-beam torp ship) versus my Automa on the right (4-beam carrier). 8 beam banks times 2 rolls equals 16 dice. My carrier rolls an extra die on top of that. The nominal dice per tick is 17 rolls <i>until</i> the White Falcon gets in range to fire its one tube. Hence, one of their beam banks never activates until that time. (Technically, one of my beam banks also jams, but there are no fighters to shoot down.)</p>
-	
-	<p style="clear: both;"><a href="instruPlanetVCR.png"><img class="vcr" src="instruPlanetVCR.png" alt="Instrumentality vs Planet VCR sample" /></a></p>
+	<video controls="controls">
+		<source src="instruVSplanet.mp4" type="video/mp4" />
+		<a href="instruPlanetVCR.png"><img class="vcr" src="instruPlanetVCR.png" alt="Instrumentality vs Planet VCR sample" /></a>
+	</video>
 	<h3>Instrumentality vs Planet</h3>
-	<p>Although not obvious from this recording, the planet on the right side was <i>unable</i> to launch its 3 fighters <a href="javascript:buildSeedVisualizer(57,7,4,3,2);">at all</a>. 6 beam banks total (times 2) plus 2 carriers equals 14 dice per nominal tick.</p>
+	<p>The planet on the right side was <i>unable</i> to launch its 3 fighters <a href="javascript:buildSeedVisualizer(57,7,4,3,2);">at all</a>. 6 beam banks total (times 2) plus 2 carriers equals 14 dice per nominal tick. If the carrier on the left was a lighter carrier with the same beam count, then it is possible the two could have been close enough to justify firing beams, which would cause it to no longer be cycling so few seeds.</p>
+
+	<br style="clear: both;" />
+	<video controls="controls">
+		<source src="golemVSplanet.mp4" type="video/mp4" />
+		<a href="golemPlanetVCR.png"><img class="vcr" src="golemPlanetVCR.png" alt="Golem vs Planet VCR sample" /></a>
+	</video>
+	<h3>Golem vs Planet</h3>
+	<p>Finally, my Golem on the left (6-beam carrier) fights a planet (10-beam carrier). Since both combatants are carriers, that rolls 2 dice. 16 beam banks time 2 rolls each equals 32 dice. The nominal dice per tick becomes 34 rolls; which happens to be a multiple of 17. <a href="javascript:buildSeedVisualizer(33,10,6,16,10);">Weapon jams can occur</a> whenever we have a period where no dogfights take place, but each dogfight causes the seed <q>table</q> to shift.</p>	
 </div>
 
 <div id="ch4">
