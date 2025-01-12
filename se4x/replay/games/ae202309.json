@@ -63,11 +63,13 @@
 			"placeCounter":"CO1B",
 			"location":"K6"
 		},{
+			"removeCounter":"Miner1Bload"
+		},{
 			"placeCounter":"Miner1B",
 			"location":"K6"
 		},{
 			"placeCounter":"systemK6",
-			"location":"K6"
+			"name":"minerals5"
 		},{
 			"placeCounter":"CO2B",
 			"location":"L8"
@@ -112,10 +114,13 @@
 			"placeCounter":"CO1B",
 			"location":"K5"
 		},{
-			"placeCounter":"Miner1B",
-			"location":"L7"
+			"removeCounter":"systemK6"
 		},{
-			"placeCounter":"systemK6",
+			"placeCounter":"Miner1Bload",
+			"location":"L7",
+			"name":"minerals5"
+		},{
+			"placeCounter":"Miner1B",
 			"location":"L7"
 		},{
 			"placeCounter":"CO2B",
@@ -165,6 +170,8 @@
 		},{
 			"placeCounter":"SC5B",
 			"location":"L7"
+		},{
+			"removeCounter":"Miner1Bload"
 		},{
 			"placeCounter":"Miner2B",
 			"location":"L7"
@@ -1906,6 +1913,9 @@
 		},{
 			"placeCounter":"CA4B",
 			"location":"H8"
+		},{
+			"placeCounter":"Miner1Bload",
+			"location":"K10"
 		},{
 			"placeCounter":"Miner1B",
 			"location":"K10"
@@ -4021,6 +4031,9 @@
 		},{
 			"removeCounter":"systemD7"
 		},{
+			"paintHex":"D7",
+			"name":"borderG"
+		},{
 			"removeCounter":"fleetR5"
 		},{
 			"resizeCounter":"DD1B",
@@ -4651,6 +4664,9 @@
 			"removeCounter":"CA4B"
 		},{
 			"removeCounter":"systemH1"
+		},{
+			"paintHex":"H1",
+			"name":"borderR"
 		},{
 			"placeCounter":"CA1B",
 			"size":4,
@@ -5948,6 +5964,9 @@
 			"removeCounter":"SC1Y"
 		},{
 			"removeCounter":"systemH13"
+		},{
+			"paintHex":"H13",
+			"name":"borderY"
 		},{
 			"resizeCounter":"CA3B",
 			"size":4

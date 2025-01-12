@@ -1,6 +1,6 @@
 {"stages": [
 	{"heading":"Stardate 2400.0 (Introduction)",
-	"commentary":"<p>Welcome to another Alien Empires playthrough of Space Empires 4X. Although we have fallen back to Easy difficulty (in response to a recent defeat), we are shaking things up a bit by throwing in the Unpredictable Research gimmick for us. This is also the first Alien Empires playthrough to use specific names for the Alien Players, named after Jupiter's moons.</p>",
+	"commentary":"<p>Welcome to another Alien Empires playthrough of Space Empires 4X. Although we have fallen back to Easy difficulty (in response to a recent defeat), we are shaking things up a bit by throwing in the Unpredictable Research gimmick for us. This Alien Empires playthrough also uses specific names for the Alien Players, named after Jupiter's moons.</p>",
 	"techTable":
 		[{
 			"name":"CSY (Blue)"
@@ -3677,8 +3677,14 @@
 		},{
 			"removeCounter":"DD2Y"
 		},{
+			"paintHex":"H13",
+			"name":"home20Y"
+		},{
 			"placeCounter":"systemH13",
 			"name":"home5Y"
+		},{
+			"paintHex":"H1",
+			"name":"home20G"
 		},{
 			"placeCounter":"systemH1",
 			"name":"home10G"
@@ -3705,7 +3711,13 @@
 		},{
 			"removeCounter":"DD1Y"
 		},{
+			"paintHex":"H13",
+			"name":"borderY"
+		},{
 			"removeCounter":"systemH13"
+		},{
+			"paintHex":"H1",
+			"name":"borderG"
 		},{
 			"removeCounter":"systemH1"
 		}]}

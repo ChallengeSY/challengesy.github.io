@@ -1384,7 +1384,10 @@
 			"placeCounter":"SW5G",
 			"location":"G6"
 		},{
-			"revealCounter":"systemL3",
+			"paintHex":"L3",
+			"name":"borderW"
+		},{
+			"placeCounter":"systemL3",
 			"name":"amoeba1R"
 		},{
 			"placeCounter":"systemJ3",
@@ -1402,7 +1405,10 @@
 			"revealCounter":"systemG6",
 			"name":"amoeba3"
 		},{
-			"revealCounter":"systemG7",
+			"paintHex":"G7",
+			"name":"borderW"
+		},{
+			"placeCounter":"systemG7",
 			"name":"amoeba3"
 		},{
 			"revealCounter":"systemF7",
@@ -1697,7 +1703,10 @@
 			"placeCounter":"systemK10",
 			"name":"amoeba2R"
 		},{
-			"revealCounter":"systemH6",
+			"paintHex":"H6",
+			"name":"borderG"
+		},{
+			"placeCounter":"systemH6",
 			"name":"amoeba3R"
 		},{
 			"placeGhost":"amoeba3R",
@@ -1954,7 +1963,10 @@
 			"revealCounter":"systemJ10",
 			"name":"amoeba2R"
 		},{
-			"revealCounter":"systemI9",
+			"paintHex":"I9",
+			"name":"borderW"
+		},{
+			"placeCounter":"systemI9",
 			"name":"amoeba2R"
 		},{
 			"placeCounter":"systemH10",
@@ -2220,7 +2232,10 @@
 			"placeCounter":"systemH9",
 			"name":"amoeba2R"
 		},{
-			"revealCounter":"systemI6",
+			"paintHex":"I6",
+			"name":"borderG"
+		},{
+			"placeCounter":"systemI6",
 			"name":"amoeba3R"
 		},{
 			"revealCounter":"systemI7",
@@ -2419,13 +2434,19 @@
 			"revealCounter":"systemI4",
 			"name":"amoeba1R"
 		},{
-			"revealCounter":"systemH5",
+			"paintHex":"H5",
+			"name":"borderW"
+		},{
+			"placeCounter":"systemH5",
 			"name":"amoeba1R"
 		},{
 			"revealCounter":"systemJ12",
 			"name":"amoeba2M"
 		},{
-			"revealCounter":"systemJ6",
+			"paintHex":"J6",
+			"name":"borderG"
+		},{
+			"placeCounter":"systemJ6",
 			"name":"amoeba3R"
 		},{
 			"placeCounter":"systemJ7",
@@ -2532,7 +2553,10 @@
 			"placeCounter":"systemK9",
 			"name":"amoeba2R"
 		},{
-			"revealCounter":"systemJ9",
+			"paintHex":"J9",
+			"name":"borderG"
+		},{
+			"placeCounter":"systemJ9",
 			"name":"amoeba2R"
 		},{
 			"placeCounter":"base1G",
@@ -2566,7 +2590,10 @@
 			"placeGhost":"amoeba3R",
 			"location":"J7"
 		},{
-			"revealCounter":"systemJ8",
+			"paintHex":"J8",
+			"name":"borderG"
+		},{
+			"placeCounter":"systemJ8",
 			"name":"amoeba3R"
 		},{
 			"placeCounter":"systemG7",
@@ -2828,6 +2855,9 @@
 			"removeCounter":"base1G"
 		},{
 			"removeCounter":"SY1G"
+		},{
+			"paintHex":"L7",
+			"name":"borderG"
 		},{
 			"revealCounter":"systemL7",
 			"name":"amoeba1R"

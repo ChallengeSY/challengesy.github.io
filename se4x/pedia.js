@@ -61,7 +61,9 @@ function dmBase(strength) {
 		return "<b>Doomsday Machine (Strength "+strength+")</b><br />"+dmCommonA+dmCommonB+" <span class=\"bindTxt\">May have a "+conceptLink("weakness")+".</span>";
 	}
 	
-	return "<b>Doomsday Machine</b><br />"+dmCommonA+"<br /><br />As a scenario, the objective is for the human player(s) to defend their "+conceptLink("homeworld")+"(s) and (if present) "+conceptLink("galactic capitol")+" against 3 DMs (more in a co-op scenario), each usually stronger than the previous.";
+	return "<b>Doomsday Machine</b><br />"+dmCommonA+"<br /><br />As a scenario, the objective is for the human player(s) to \
+		defend their "+conceptLink("homeworld")+"(s) and (if present) "+conceptLink("galactic capitol")+" against 3 DMs \
+		<span class=\"bindTxt\">(more in a co-op scenario)</span>, each usually stronger than the previous.";
 }
 
 function amoebaBase(strength) {
@@ -240,12 +242,16 @@ function showBox(concept) {
 			
 		// Technologies
 		case "cloaking":
-			displayTxt = "<b>Cloaking Technology</b><br />Allows building "+conceptLink("Raider")+"s, which cloak by default, but can be detected or otherwise nullified.<br />If a surprise is achieved, Raiders get Attack +1 on their first turn only.<br />" +
-				"Tech Level 2 upgrades "+conceptLink("Attack")+" to A5/D5 and negates "+conceptLink("Scanning")+" tech level 1.";
+			displayTxt = "<b>Cloaking Technology</b><br />Allows building "+conceptLink("Raider")+"s, \
+				which cloak by default, but can be detected or otherwise nullified.<br />\
+				If a surprise is achieved, Raiders get Attack +1 on their first turn only.<br />\
+				Level 2 upgrades "+conceptLink("Attack")+" to A5/D5 and negates "+conceptLink("Scanning")+" 1.";
 			break;
 		case "exploration":
-			displayTxt = "<b>Exploration Technology</b><br />Level 1 allows "+conceptLink("Cruiser")+"s and "+conceptLink("Type Exp")+"s to remotely explore an adjacent "+conceptLink("unexplored")+" hex during movement.<br />\
-				Level 2 allows "+conceptLink("Base")+"s, "+conceptLink("Ship Yard")+"s, Cruisers, and "+conceptLink("Flagship")+"s to respond to an adjacent "+conceptLink("battle")+" hex by sending in reinforcements with the "+conceptLink("React Move")+" ability ("+conceptLink("Close Encounters")+" only).";
+			displayTxt = "<b>Exploration Technology</b><br />Level 1 allows "+conceptLink("Cruiser")+"s / "+conceptLink("Flagship")+"s / "+conceptLink("Type Exp")+"s to \
+				remotely explore an adjacent "+conceptLink("unexplored")+" hex during movement.<br />\
+				Level 2 allows "+conceptLink("Base")+"s / "+conceptLink("Ship Yard")+"s / Cruisers / Flagships to \
+				respond to an adjacent "+conceptLink("battle")+" hex by sending in reinforcements with the "+conceptLink("React Move")+" ability ("+conceptLink("Close Encounters")+" only).";
 			break;
 		case "minelaying":
 			displayTxt = "<b>Minelaying Technology</b><br />Allows building "+conceptLink("mines")+".";
@@ -452,7 +458,7 @@ function showBox(concept) {
 		case "fighter":
 			// Fall through
 		case "f":
-			displayTxt = "<b>Fighter</b><br />Small craft, requires a "+conceptLink("Carrier")+" to move into space.<br />\
+			displayTxt = "<b>Fighter</b><br />Small craft, requires a "+conceptLink("Carrier")+" or "+conceptLink("Titan")+" to move into space. Gains Attack +1 versus Titans.<br />\
 				As a technology, each level unlocks a progressively stronger fighter craft. The first level also unlocks Carriers.";
 			displayTxt = displayTxt + stats(5, "B5 / B6 / B7 / B8", "0 / 0 / 1 / 2", 1) + "<br />\
 				<b>Required Tech</b>: Fighter tech 1-4 + "+conceptLink("Advanced Construction")+" 2 (B8 variant only)";
@@ -729,10 +735,10 @@ function showBox(concept) {
 		case "tn":
 			// Fall through
 		case "titan":
-			displayTxt = "<b>Titan</b><br />Extremely potent <q>baseship</q>. Can carry "+conceptLink("Fighter")+"s if upgraded.\
-				Deals <b>2</b> damage per hit. Immune to "+conceptLink("Boarding Ship")+"s.<br />\
-				Can instantly destroy "+conceptLink("planet")+"s. Resistant to "+conceptLink("Mines")+". Weak to "+conceptLink("Fighter")+"s. \
-				Unable to "+conceptLink("retreat")+" or be "+conceptLink("screen")+"ed.\
+			displayTxt = "<b>Titan</b><br />Extremely potent <q>baseship</q>. Can carry 3 "+conceptLink("Fighter")+"s if upgraded.\
+				Deals <b>2</b> damage per hit. Can instantly destroy "+conceptLink("planet")+"s.<br />Immune to "+conceptLink("Boarding Ship")+"s. \
+				Resistant to "+conceptLink("Mines")+" and "+conceptLink("Fleet Size Bonus")+". \
+				Weak to "+conceptLink("Fighter")+"s. Unable to "+conceptLink("retreat")+" or be "+conceptLink("screen")+"ed.\
 				" + stats(32, "A7", 3, 5) + "<br /><b>Required Tech</b>: "+conceptLink("Ship Size")+" 7";
 			break;
 			
@@ -1061,7 +1067,7 @@ function showBox(concept) {
 				as if playing with "+conceptLink("Blood Brothers")+".";
 			break;
 		case "traders":
-			displayTxt = "<b>Traders</b><br />"+conceptLink("Pipeline")+"s generate twice as much "+conceptLink("CP")+".";
+			displayTxt = "<b>Traders</b><br />"+conceptLink("Pipeline")+"-connected "+conceptLink("colonies")+" produce an extra +1 "+conceptLink("CP");
 			break;
 		case "cloaking geniuses":
 			displayTxt = "<b>Cloaking Geniuses</b><br />"+conceptLink("Scout")+"s and "+conceptLink("Destroyer")+"s benefit \
@@ -1078,7 +1084,7 @@ function showBox(concept) {
 				"+conceptLink("Movement")+" "+conceptLink("technology")+".";
 			break;
 		case "house of speed":
-			displayTxt = "<b>House of Speed</b><br />Empire starts with "+conceptLink("Movement")+" level 7, \
+			displayTxt = "<b>House of Speed</b><br />Empire starts with "+conceptLink("Movement")+" 7, \
 				at the expense of their mobile ships getting "+conceptLink("Defense")+" -2.<br />\
 				May never use "+conceptLink("Cloaking")+" technology. \
 				Captured "+conceptLink("Raider")+"s are usable, but incompatible with this advantage.";
@@ -1103,7 +1109,7 @@ function showBox(concept) {
 		// Replicator Advantages
 		case "fast replicators":
 			displayTxt = "<b>Fast Replicators</b><br />"+conceptLink("Replicators")+" start with an extra "+conceptLink("Movement")+" level. \
-				Subsequent levels cost 15 CP (down from 20-25 CP).";
+				Subsequent levels cost 15 CP (down from 20 CP).";
 			break;
 		case "green replicators":
 			displayTxt = "<b>Green Replicators</b><br />"+conceptLink("Replicator")+" "+conceptLink("colonies")+" \

@@ -706,6 +706,9 @@
 			"placeCounter":"Miner1R",
 			"location":"K9"
 		},{
+			"paintHex":"H9",
+			"name":"borderW"
+		},{
 			"removeCounter":"systemH9"
 		},{
 			"revealCounter":"systemH5",
@@ -2311,7 +2314,7 @@
 			"removeCounter":"HI5B"
 		}]},
 	{"heading":"Stardate 2406.9",
-	"commentary":"<p>Taking advantage of our recent success orbiting the galactic capitol, combined with causing Epimetheus to spend their protection budget on a colony they captured from us, we will go on ahead and pressure their homeworld. On the subject of the one extermination fleet that is still alive; we infer that by <q>beelining</q> to a given destination, that it would not make unnecessary stops, so the one marauding Destroyer simply moves on from the planet it tried to bombard.</p><h3>The Second Battle for Romulus</h3><p>As devastating as the Aliens Players are, they do have their limiations once their starting expansion CP is <i>gone</i>. They can get more CP in this bank <i>only</i> when their protection bank would otherwise exceed 50 CP. The Tech CP is also already gone, so we will go straight to the fleet step. Free Transport aside, 8 CP assigned is good for one Scout, and nothing more.</p><ol><li><b>Round 1</b>: Prometheus has 2 ships. Romulus has 4 ships, gaining the Fleet Size Bonus</li><li>The Alien-B has the best weapon class, so it shoots first. The Transport is vulnerable, so it will be targeted first. Romulus rolled a 9 (miss &gt;7)</li><li>The Alien-Cs go next. They rolled a 4 against the Transport (hit &le;6), followed by a 2 against the Scout (hit &le;7). Romulus has already won the battle!</li></ol>",
+	"commentary":"<p>Taking advantage of our recent success orbiting the galactic capitol, combined with causing Epimetheus to spend their protection budget on a colony they captured from us, we will go on ahead and pressure their homeworld. On the subject of the one extermination fleet that is still alive; we infer that by <q>beelining</q> to a given destination, that it would not make unnecessary stops, so the one marauding Destroyer simply moves on from the planet it tried to bombard.</p><h3>The Second Battle for Romulus</h3><p>As devastating as the Alien Players are, they do have their limiations once their starting expansion CP is <i>gone</i>. They can get more CP in this bank <i>only</i> when their protection bank would otherwise exceed 50 CP. The Tech CP is also already gone, so we will go straight to the fleet step. Free Transport aside, 8 CP assigned is good for one Scout, and nothing more.</p><ol><li><b>Round 1</b>: Prometheus has 2 ships. Romulus has 4 ships, gaining the Fleet Size Bonus</li><li>The Alien-B has the best weapon class, so it shoots first. The Transport is vulnerable, so it will be targeted first. Romulus rolled a 9 (miss &gt;7)</li><li>The Alien-Cs go next. They rolled a 4 against the Transport (hit &le;6), followed by a 2 against the Scout (hit &le;7). Romulus has already won the battle!</li></ol>",
 	"alienTableX":
 		[{
 			"name":"Epimetheus (Green)","eco":3,"queue":1,"fleet":9,"tech":0,"def":2,"expo":0,"delta":"Ftdh"

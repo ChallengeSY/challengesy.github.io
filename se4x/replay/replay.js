@@ -161,6 +161,8 @@ function autoNameCounter(localObj) {
 		localObj.title = "Empty barren planet"
 	} else if (localObj.src.indexOf("gfx/planet") >= 0) {
 		localObj.title = "Empty planet"
+	} else if (localObj.src.indexOf("gfx/warp") >= 0) {
+		localObj.title = "Warp Point"
 	} else if (localObj.src.indexOf("gfx/unexplored") >= 0) {
 		localObj.title = "Unexplored system"
 	} else if (localObj.src.indexOf("gfx/fold") >= 0) {
@@ -240,6 +242,9 @@ function autoNameCounter(localObj) {
 		stackable = true;
 	} else if (localObj.src.indexOf("gfx/DN") >= 0) {
 		localObj.title = "Dreadnought";
+		stackable = true;
+	} else if (localObj.src.indexOf("gfx/Titan") >= 0) {
+		localObj.title = "Titan";
 		stackable = true;
 	} else if (localObj.src.indexOf("gfx/Flag") >= 0) {
 		localObj.title = "Flagship";
@@ -398,6 +403,8 @@ function placeCounter(curId, newX, newY, newPic, newSize) {
 	} else {
 		applySize = 0;
 	}
+
+	workObj.style.visibility = "";
 	
 	if (newPic) {
 		workObj.src = "gfx/" + newPic + ".png";
@@ -426,9 +433,7 @@ function placeCounter(curId, newX, newY, newPic, newSize) {
 
 function paintTile(baseObj, paintPic) {
 	/*
-	 * WIP... maybe
-	 *
-	 * Thanks to embedded coordinates, the current system has advantages that wouldn't be available if we went with full tiles
+	 * WIP... we intend for this to be eventually configurable
 	 */
 	var applyPic = null;
 	var remCounter = false;
@@ -441,40 +446,19 @@ function paintTile(baseObj, paintPic) {
 	}
 	
 	workObj = document.getElementById(hexId);
+	var getPic = workObj.src;
 	if (workObj) {
 		switch (paintPic) {
-			case "home30B":
-				// Fall thru
-			case "home20B":
-				// Fall thru
 			case "unexploredB":
-				applyPic = "borderB";
-				break;
-			case "home30G":
-				// Fall thru
-			case "home20G":
 				// Fall thru
 			case "unexploredG":
-				applyPic = "borderG";
-				break;
-			case "home30R":
-				// Fall thru
-			case "home20R":
 				// Fall thru
 			case "unexploredR":
-				applyPic = "borderR";
-				break;
-			case "home30V":
 				// Fall thru
 			case "unexploredV":
-				applyPic = "borderV";
-				break;
-			case "home30Y":
-				// Fall thru
-			case "home20Y":
 				// Fall thru
 			case "unexploredY":
-				applyPic = "borderY";
+				applyPic = "border"+paintPic.charAt(paintPic.length-1,1);
 				break;
 			case "amoeba1":
 				// Fall thru
@@ -482,14 +466,72 @@ function paintTile(baseObj, paintPic) {
 				// Fall thru
 			case "amoeba3":
 				// Fall thru
-			case "capitol":
-				// Fall thru
-			case "warp1":
-				// Fall thru
-			case "warp2":
-				// Fall thru
 			case "unexploredW":
 				applyPic = "borderW";
+				break;
+			case "home30B":
+				// Fall thru series of homeworlds + barren planets
+			case "home20B":
+			case "planetB9":
+			case "home30G":
+			case "home20G":
+			case "planetG9":
+			case "home30R":
+			case "home20R":
+			case "planetR9":
+			case "home30V":
+			case "home30Y":
+			case "home20Y":
+			case "planetY9":
+			case "planetW1":
+				// Deep space planets
+			case "planetW2":
+			case "planetW3":
+			case "planetW4":
+			case "planetW5":
+			case "planetW6":
+			case "planetW7":
+			case "planetW8":
+			case "planetW9":
+			case "planetW10":
+			case "planetW11":
+			case "planetW12":
+			case "warp1":
+			case "warp2":
+			case "fold":
+				applyPic = paintPic;
+				remCounter = true;
+				break;
+			case "asteroids":
+				if (getPic.indexOf("border") >= 0) {
+					applyPic = "asteroids"+getPic.charAt(getPic.length-5,1);
+				}
+				remCounter = true;
+				break;
+			case "nebula":
+				if (getPic.indexOf("border") >= 0) {
+					applyPic = "nebula"+getPic.charAt(getPic.length-5,1);
+				}
+				if (applyPic == "nebulaX") {
+					applyPic = "nebulaW";
+				}
+				remCounter = true;
+				break;
+			case "blackHole":
+				if (getPic.indexOf("border") >= 0) {
+					applyPic = "blackHole"+getPic.charAt(getPic.length-5,1);
+				}
+				remCounter = true;
+				break;
+			case "supernova":
+				if (getPic.indexOf("border") >= 0) {
+					applyPic = "supernova"+getPic.charAt(getPic.length-5,1);
+				}
+				remCounter = true;
+				break;
+			case "capitol":
+				applyPic = "capitol";
+				remCounter = true;
 				break;
 			case "empty":
 				applyPic = "borderX";
@@ -498,10 +540,10 @@ function paintTile(baseObj, paintPic) {
 		
 		if (applyPic) {
 			workObj.src = "gfx/tiles/"+applyPic+".png"
-			
-			if (remCounter && baseObj) {
-				baseObj.remove();
-			}
+		}
+		
+		if (remCounter && baseObj) {
+			baseObj.style.visibility = "hidden";
 		}
 	}
 }
@@ -614,7 +656,11 @@ function renderCounter(curId, newPic) {
 		if (newPic.startsWith("minerals")) {
 			findObj.style.zIndex = 1;
 		}
+		findObj.style.visibility = "";
 	
+		if (curId.startsWith("system")) {
+			paintTile(findObj, newPic);
+		}
 		autoNameCounter(findObj);
 	}
 }
@@ -1227,6 +1273,18 @@ function readJson() {
 			if (workObj) {
 				workObj.remove();
 			}
+		} else if (actionPool[i].removeHullsV) {
+			// Removes a series of Replicator hulls
+			var hullsColl = actionPool[i].removeHullsV.split(",");
+			
+			for (var h = 0; h < hullsColl.length; h++) {
+				workId = "hullV"+hullsColl[h];
+			
+				workObj = document.getElementById(workId);
+				if (workObj) {
+					workObj.remove();
+				}
+			}
 		}
 		
 		if (actionPool[i].removeAllCounters) {
@@ -1236,6 +1294,14 @@ function readJson() {
 				if (imgCollection[h] && imgCollection[h].src.indexOf(actionPool[i].removeAllCounters) >= 0) {
 					imgCollection[h--].remove();
 				}
+			}
+		}
+		
+		if (actionPool[i].paintHex) {
+			workObj = document.getElementById("back"+actionPool[i].paintHex);
+			
+			if (workObj) {
+				workObj.src = "gfx/tiles/"+actionPool[i].name+".png";
 			}
 		}
 		
@@ -1354,13 +1420,6 @@ function readJson() {
 				}
 
 				place3plrHomeMarkers(plrColor, "top");
-
-				paintTile("G6","unexploredW");
-				paintTile("G7","unexploredW");
-				paintTile("F6","unexploredW");
-				paintTile("F8","unexploredW");
-				paintTile("E6","unexploredW");
-				paintTile("E7","unexploredW");
 				
 				if (actionPool[i].alienColors) {
 					var alienHWs = [[4,11], [9,11]];
@@ -1511,13 +1570,6 @@ function readJson() {
 					placeAlienHomeworld(4, 11, actionPool[i].alienColors.charAt(0));
 					placeAlienHomeworld(9, 11, actionPool[i].alienColors.charAt(1));
 				}
-				
-				paintTile("G6","unexploredW");
-				paintTile("G7","unexploredW");
-				paintTile("F6","unexploredW");
-				paintTile("F8","unexploredW");
-				paintTile("E6","unexploredW");
-				paintTile("E7","unexploredW");
 				
 			} else if (actionPool[i].createPreset == "amoebaSolo") {
 				ctrlPanel.className = "dmBoard";
@@ -1692,6 +1744,7 @@ function readJson() {
 						placeCounter("type0"+plrColors[0]+"6",plrCols[0],1,"type0"+plrColors[0],1);
 						placeCounter("type0"+plrColors[0]+"7",plrCols[0],1,"type0"+plrColors[0],1);
 						if (repEdition == 2) {
+							placeCounter("CO4"+plrColors[1],plrCols[1],10,"CO"+plrColors[1],1);
 							placeCounter("type0"+plrColors[0]+"8",plrCols[0],1,"type0"+plrColors[0],1);
 						}
 						break;
@@ -1701,6 +1754,7 @@ function readJson() {
 						placeCounter("type0"+plrColors[0]+"7",plrCols[0],1,"type0"+plrColors[0],1);
 						placeCounter("type0"+plrColors[0]+"8",plrCols[0],1,"type0"+plrColors[0],1);
 						if (repEdition == 2) {
+							placeCounter("CO4"+plrColors[1],plrCols[1],10,"CO"+plrColors[1],1);
 							placeCounter("type0"+plrColors[0]+"9",plrCols[0],1,"type0"+plrColors[0],1);
 						}
 						break;
@@ -1777,6 +1831,7 @@ function readJson() {
 						placeCounter("type0"+plrColors[0]+"6",plrCols[0],0,"type0"+plrColors[0],1);
 						placeCounter("type0"+plrColors[0]+"7",plrCols[0],0,"type0"+plrColors[0],1);
 						if (repEdition == 2) {
+							placeCounter("CO4"+plrColors[1],plrCols[1],11,"CO"+plrColors[1],1);
 							placeCounter("type0"+plrColors[0]+"8",plrCols[0],0,"type0"+plrColors[0],1);
 						}
 						break;
@@ -1786,6 +1841,7 @@ function readJson() {
 						placeCounter("type0"+plrColors[0]+"7",plrCols[0],0,"type0"+plrColors[0],1);
 						placeCounter("type0"+plrColors[0]+"8",plrCols[0],0,"type0"+plrColors[0],1);
 						if (repEdition == 2) {
+							placeCounter("CO4"+plrColors[1],plrCols[1],11,"CO"+plrColors[1],1);
 							placeCounter("type0"+plrColors[0]+"9",plrCols[0],0,"type0"+plrColors[0],1);
 						}
 						break;

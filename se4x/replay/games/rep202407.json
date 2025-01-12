@@ -2512,6 +2512,9 @@
 		},{
 			"removeCounter":"systemF4"
 		},{
+			"paintHex":"F4",
+			"name":"borderW"
+		},{
 			"removeCounter":"systemF5"
 		},{
 			"placeCounter":"CO9Y",
@@ -4010,6 +4013,9 @@
 			"placeCounter":"base3Y",
 			"location":"B6"
 		},{
+			"paintHex":"B6",
+			"name":"home20Y"
+		},{
 			"revealCounter":"systemB6",
 			"name":"home20Y"
 		}]},
@@ -4075,6 +4081,9 @@
 			"removeCounter":"SY3Y"
 		},{
 			"removeCounter":"base3Y"
+		},{
+			"paintHex":"B6",
+			"name":"borderY"
 		},{
 			"revealCounter":"systemB6",
 			"name":"colony1"
