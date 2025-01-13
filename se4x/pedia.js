@@ -28,7 +28,7 @@ function closeBox() {
 }
 
 function conceptLink(keyterm) {
-	return "<a href=\"javascript:showBox('"+keyterm+"')\">"+keyterm+"</a>";
+	return "<a href=\"javascript:showBox('"+keyterm.replace("'","\\\'")+"')\">"+keyterm+"</a>";
 }
 
 function stats(buildCost, atk, def, hullSize, tac) {
@@ -1379,7 +1379,7 @@ function keywordifyCollection(collObj) {
 		"Experience", "Facility", "Facilities", "RP", "Boarding", "Security Forces", "Military Academy", "Flagship", "Swallow",
 		"Advanced Construction",
 		"Empire Advantage", "Industrious Race", "Horsemen of the Plains", "Space Pilgrims", "Traders", "Warrior Race",
-		"Advanced Comm Array", "Air Support", "Cold Fusion Drive", "Soylent Purple",
+		"Advanced Comm Array", "Air Support", "The Captain's Chair", "Cold Fusion Drive", "Mobile Analysis Bay", "Soylent Purple",
 		"Resource Card",
 		"Depletion", "Deplete", "Self-Preservation",
 		"Type 0", "Type II", "Type IV", "Type V", "Type IX", "Type XI", "Type XV",
