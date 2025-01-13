@@ -1179,7 +1179,12 @@ function showBox(concept) {
 			// Fall through
 		case "replicators":
 			displayTxt =  "<b>Replicators</b><br />Second expansion to the base "+conceptLink("Space Empires 4X")+" board game.<br />\
-				Unique faction; playable by a human, or as the antagonists in a unique solitaire scenario.";
+				Unique faction; playable by a human, or as the antagonists in "+conceptLink("Replicator Solitaire")+".";
+			break;
+		case "replicator solitaire":
+			displayTxt =  "<b>Replicator Solitaire</b><br />Solo scenario that pits the human player against \
+				the "+conceptLink("Replicator")+" <q>environment</q> on a 2-player versus map. \
+				<span class=\"bindTxt\">Last "+conceptLink("homeworld")+" standing wins.</span>";
 			break;
 		case "pirate":
 			displayTxt = "<b>Space Pirate</b><br />Non-aligned ship that can be fought or hired by any ships that encounter them.<br />\
@@ -1433,6 +1438,8 @@ function keywordifyCollection(collObj) {
 		{regex: "adaptive "+conceptLink("cloaking")+" device", newTxt: conceptLink("adaptive cloaking device")},
 		{regex: conceptLink("Minesweeper")+" Jammer", newTxt: conceptLink("Minesweeper Jammer")},
 		{regex: conceptLink("minesweeper")+" jammer", newTxt: conceptLink("minesweeper jammer")},
+		{regex: conceptLink("replicator")+ " solitaire", newTxt: conceptLink("replicator solitaire")},
+		{regex: conceptLink("Replicator")+ " Solitaire", newTxt: conceptLink("Replicator Solitaire")},
 		{regex: "Anti-"+conceptLink("Replicator"), newTxt: conceptLink("Anti-Replicator")},
 		{regex: "anti-"+conceptLink("replicator"), newTxt: conceptLink("anti-replicator")},
 		{regex: conceptLink("Type V")+"II", newTxt: conceptLink("Type VII")},
