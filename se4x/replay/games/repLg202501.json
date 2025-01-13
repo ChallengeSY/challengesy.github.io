@@ -2154,7 +2154,7 @@
 			"size":1
 		}]},
 	{"heading":"Stardate 2407.0",
-	"commentary":"<p>Xinu produces another fresh batch of hulls. Normally; now that Movement 6 has been developed, this would be the point where Fast Replicators would go back to rolls to determine where to spend their CP. But; the cheapest option they can go for is an extra hull for 8 CP. They do not have that much money on hand, so the rolling process is skipped for this economic phase.</p><p>Before we can do our own economics, we need to draw alien technology cards. We can choose between The Captain's Chair and Mobile Analysis Bay, neither of which are useful towards our goal. Afterwards, we will go on ahead and buy Ship Yard 2 (-20). We then use our increased capacity to buy a <q>full</q> Titan (-32), which also includes 3 Fighters (-15).</p>",
+	"commentary":"<p>Xinu produces another fresh batch of hulls. Normally; now that Movement 6 has been developed, this would be the point where Fast Replicators would go back to rolls to determine where to spend their CP. But; the cheapest option they can go for is an extra hull for 8 CP. They do not have that much money on hand, so the rolling process is skipped for this economic phase.</p><p>Before we can do our own economics, we need to draw alien technology cards to commemorate the colonization of the NPA planet Rubkat. We can choose between The Captain's Chair and Mobile Analysis Bay, neither of which are useful towards our goal. Afterwards, we will go on ahead and buy Ship Yard 2 (-20). We then use our increased capacity to buy a <q>full</q> Titan (-32), which also includes 3 Fighters (-15).</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":0,"colonyCP":70,"mineralCP":5,"pipeCP":0,"maint":5,"bidCP":0,"techBuy":20,"unitBuy":47
