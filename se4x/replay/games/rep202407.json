@@ -2512,9 +2512,6 @@
 		},{
 			"removeCounter":"systemF4"
 		},{
-			"paintHex":"F4",
-			"name":"borderW"
-		},{
 			"removeCounter":"systemF5"
 		},{
 			"placeCounter":"CO9Y",

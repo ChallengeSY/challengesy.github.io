@@ -503,7 +503,7 @@ function paintTile(baseObj, paintPic) {
 				remCounter = true;
 				break;
 			case "asteroids":
-				if (getPic.indexOf("border") >= 0) {
+				if (getPic.indexOf("border") >= 0 || getPic.indexOf("home") >= 0 || getPic.indexOf("planet") >= 0 || getPic.indexOf("colony") >= 0) {
 					applyPic = "asteroids"+getPic.charAt(getPic.length-5,1);
 				}
 				remCounter = true;
@@ -1271,6 +1271,14 @@ function readJson() {
 			
 			workObj = document.getElementById(workId);
 			if (workObj) {
+				if (workObj.id.startsWith("system") && workObj.src.search("warp") != -1) {
+					auxObj = document.getElementById("back"+workObj.id.substring(6));
+					
+					if (auxObj) {
+						auxObj.src = "gfx/tiles/borderW.png";
+					}
+				}
+				
 				workObj.remove();
 			}
 		} else if (actionPool[i].removeHullsV) {

@@ -141,6 +141,10 @@ function showBox(concept) {
 		case "economic phase":
 			displayTxt = "<b>Economic Phase</b><br />A simultaneous phase in which all production and spending takes place. There are 3 regular "+conceptLink("turn")+"s in between each economic phase.";
 			break;
+		case "fleet":
+			displayTxt = "<b>Fleet</b><br />A fleet is a collection of starships, usually with a specific purpose. \
+				"+conceptLink("Alien Player")+"s have a bank just for ship construction.";
+			break;
 		case "fleet size bonus":
 			displayTxt = "<b>Fleet Size Bonus</b><br />If one player has at least twice as many un"+conceptLink("screen")+"ed ships as their opponent at the start of a battle "+conceptLink("round")+", all their ships get an additional "+conceptLink("Attack")+" +1 for that round.";
 			break;
@@ -622,25 +626,25 @@ function showBox(concept) {
 			break;
 		case "economic roll":
 			displayTxt =  "<b>Economic Roll</b><br />Determines where an "+conceptLink("Alien Player")+" should allocate its "+conceptLink("CP")+" \
-				(Fleets, "+conceptLink("Technology")+", or "+conceptLink("Homeworld")+" Defense),<br />\
+				("+conceptLink("Fleet")+"s, "+conceptLink("Technology")+", or "+conceptLink("Homeworld")+" Defense),<br />\
 				or if it permanently gains an <em>extra</em> economic roll 3 "+conceptLink("economic phase")+"s from the current phase.<br />\
 				CP allocated into Defense are applied with twice the standard effectiveness.";
 			break;
 		case "expansion fleet":
-			displayTxt =  "<b>Expansion Fleet</b><br />"+conceptLink("Alien Player")+" fleet that focuses on assaulting "+conceptLink("planet")+"s, \
+			displayTxt =  "<b>Expansion Fleet</b><br />"+conceptLink("Alien Player")+" "+conceptLink("fleet")+" that focuses on assaulting "+conceptLink("planet")+"s, \
 				usually in an effort to "+conceptLink("capture")+" (if able).";
 			break;
 		case "extermination fleet":
-			displayTxt =  "<b>Extermination Fleet</b><br />"+conceptLink("Alien Player")+" fleet that focuses on taking a "+conceptLink("homeworld")+" \
+			displayTxt =  "<b>Extermination Fleet</b><br />"+conceptLink("Alien Player")+" "+conceptLink("fleet")+" that focuses on taking a "+conceptLink("homeworld")+" \
 				or the "+conceptLink("galactic capitol")+". If these fleets achieve their objective, their team wins the scenario.";
 			break;
 		case "nanomachine":
 			displayTxt = "<b>Nanomachine Technology</b><br />"+conceptLink("Alien Player")+"-exclusive technology that allows building ships remotely; whenever a\
-				given fleet first enters a "+conceptLink("battle")+". Rarely used by "+conceptLink("Raider fleet")+"s.<br /><br />\
+				given "+conceptLink("fleet")+" first enters a "+conceptLink("battle")+". Rarely used by "+conceptLink("Raider fleet")+"s.<br /><br />\
 				A fleet can use only the "+conceptLink("CP")+" that was assigned at the time it was launched. Leftover CP post-construction is returned to the AP's Fleet bank.";
 			break;
 		case "raider fleet":
-			displayTxt =  "<b>Raider Fleet</b><br />"+conceptLink("Alien Player")+" fleet that contains <i>only</i> cloaked "+conceptLink("Raider")+"s. \
+			displayTxt =  "<b>Raider Fleet</b><br />"+conceptLink("Alien Player")+" "+conceptLink("fleet")+" that contains <i>only</i> cloaked "+conceptLink("Raider")+"s. \
 				They strive to be sneaky, and avoid combat with superior fleets (in terms of "+conceptLink("CP")+" cost).";
 			break;
 			
@@ -708,7 +712,7 @@ function showBox(concept) {
 		case "react move":
 			displayTxt =  "<b>React Move</b><br />Ships equipped with "+conceptLink("Exploration")+" level 2 can send in ships that have this ability to battle.\
 				<br /><br />"+conceptLink("Movement")+" level 3 also grants this ability to \
-					"+conceptLink("Scout")+"s, "+conceptLink("Destroyers")+"s, "+conceptLink("Cruiser")+"s, and "+conceptLink("Raider")+"s\
+					"+conceptLink("Scout")+"s, "+conceptLink("Destroyer")+"s, "+conceptLink("Cruiser")+"s, and "+conceptLink("Raider")+"s\
 				<br />"+conceptLink("Movement")+" level 4 also affects \
 					"+conceptLink("Flagship")+"s, "+conceptLink("Battlecruiser")+"s, and "+conceptLink("Boarding Ship")+"s\
 				<br />"+conceptLink("Movement")+" level 5 also affects \
@@ -1255,7 +1259,7 @@ function showBox(concept) {
 				<br /><br />The "+conceptLink("homeworld")+" is immune to depletion, ensuring the Replicators are always able to produce hulls.";
 			break;
 		case "self-preservation":
-			displayTxt = "<b>Self-Preservation</b><br />In "+conceptLink("Replicator")+" Solitaire, Replicator fleets will try to avoid \
+			displayTxt = "<b>Self-Preservation</b><br />In "+conceptLink("Replicator")+" Solitaire, Replicator "+conceptLink("fleet")+"s will try to avoid \
 				"+conceptLink("battle")+"s with Player fleets if the latter has a "+conceptLink("Hull Size")+" advantage of 25% or more.";
 			break;
 		
@@ -1369,9 +1373,8 @@ function keywordifyCollection(collObj) {
 	const keyTerms = ["Space Empires 4X", "Close Encounters", "Replicator", "All Good Things",
 		"Barren", "Colony", "Colonies", "Combat Ship", "CP", "Economic Phase", "Homeworld", "Hull Size", "Maintenance", "Planet", "Scuttle", "Turn",
 		"Bid", "Competitive", "Galactic Capitol", "Initiative", "Primary Objective", "Uneasy Alliance", "Victory Point", "VP", "Blood Brothers",
-		"Battle", "Blockade", "Bombard", "Fleet Size Bonus", "Non-Player Alien", "NPA", "Subdue", "Priority Class", "Retreat", "Round", "Screen", "Weakness", "Weapon Class",
-		"Alien-D", "Alien-C", "Alien-B", "Doomsday Machine", "Amoeba",
-		"Alien Empires", "Alien Player", "Economic Roll", "Expansion Fleet", "Extermination Fleet", "Raider Fleet",
+		"Battle", "Blockade", "Bombard", "Fleet", "Non-Player Alien", "NPA", "Subdue", "Priority Class", "Retreat", "Round", "Screen", "Weakness", "Weapon Class",
+		"Alien-D", "Alien-C", "Alien-B", "Doomsday Machine", "Amoeba", "Alien Empires", "Alien Player", "Economic Roll",
 		"Decoy", "Scout", "Destroyer", "Cruiser", "Dreadnought", "Titan", "Ship Yard", "Base", "Mining Ship", "Miner",
 		"Minelayer", "Minesweeper", "Carrier", "Raider", "Pipeline", "Unique Ship",
 		"Asteroid Belt", "Asteroids", "Black Hole", "Danger", "Deep Space", "Home System", "Lost in Space", "Nebula", "Space Wreck", "Supernova", "Unexplored",
@@ -1403,6 +1406,14 @@ function keywordifyCollection(collObj) {
 		{regex: conceptLink("Colony")+" Ship", newTxt: conceptLink("Colony Ship")},
 		{regex: conceptLink("miner")+"als", newTxt: conceptLink("minerals")},
 		{regex: conceptLink("Miner")+"als", newTxt: conceptLink("Minerals")},
+		{regex: conceptLink("fleet")+" size bonus", newTxt: conceptLink("fleet size bonus")},
+		{regex: conceptLink("Fleet")+" Size Bonus", newTxt: conceptLink("Fleet Size Bonus")},
+		{regex: "raider "+conceptLink("fleet"), newTxt: conceptLink("raider fleet")},
+		{regex: "Raider "+conceptLink("Fleet"), newTxt: conceptLink("Raider Fleet")},
+		{regex: "expansion "+conceptLink("fleet"), newTxt: conceptLink("expansion fleet")},
+		{regex: "Expansion "+conceptLink("Fleet"), newTxt: conceptLink("Expansion Fleet")},
+		{regex: "extermination "+conceptLink("fleet"), newTxt: conceptLink("extermination fleet")},
+		{regex: "Extermination "+conceptLink("Fleet"), newTxt: conceptLink("Extermination Fleet")},
 		{regex: conceptLink("danger")+"ous", newTxt: "dangerous"},
 		{regex: "re"+conceptLink("turn"), newTxt: "return"},
 		{regex: "Data"+conceptLink("base"), newTxt: "Database"},

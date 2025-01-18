@@ -706,9 +706,6 @@
 			"placeCounter":"Miner1R",
 			"location":"K9"
 		},{
-			"paintHex":"H9",
-			"name":"borderW"
-		},{
 			"removeCounter":"systemH9"
 		},{
 			"revealCounter":"systemH5",

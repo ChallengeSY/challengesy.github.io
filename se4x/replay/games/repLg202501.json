@@ -957,9 +957,6 @@
 		},{
 			"removeCounter":"systemD5"
 		},{
-			"paintHex":"D5",
-			"name":"borderW"
-		},{
 			"placeCounter":"systemE4",
 			"name":"danger"
 		}]},
@@ -2418,9 +2415,6 @@
 		},{
 			"removeCounter":"systemG3"
 		},{
-			"paintHex":"G3",
-			"name":"borderW"
-		},{
 			"removeCounter":"systemH5"
 		},{
 			"revealCounter":"systemG2",
@@ -2990,7 +2984,7 @@
 			"location":"L4",
 			"name":"typePDV"
 		},{
-			"placeCounter":"systemL4",
+			"revealCounter":"systemL4",
 			"name":"home30V"
 		}]},
 	{"heading":"Stardate 2409.6 (Conclusion)",
@@ -3002,9 +2996,7 @@
 		},{
 			"removeCounter":"typePDV9"
 		},{
-			"removeCounter":"systemL4"
-		},{
-			"paintHex":"L4",
-			"name":"asteroidsV"
+			"revealCounter":"systemL4",
+			"name":"asteroids"
 		}]}
 ]}
