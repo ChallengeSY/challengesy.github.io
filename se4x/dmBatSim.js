@@ -241,6 +241,7 @@ function showPlrRows(rowId, rowVis) {
 				workRow.style.display = "";
 			} else {
 				workRow.style.display = "none";
+				document.getElementById(rowId+"Qty").value = 0;
 			}
 			
 			if (rowId == "Type Flag") {

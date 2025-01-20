@@ -496,8 +496,9 @@ function initShips() {
 				case "D7b Painmaker Class Cruiser":
 					special = shipAbility("Radiation Shielding") + " and " + shipAbility("Glory Device (50-20)");
 					break;
-				case "D7 Coldpain Class Cruiser":
+				case "D7c Painmaker Class Cruiser":
 					// Series of fall throughs
+				case "D7 Coldpain Class Cruiser":
 				case "Deth Specula Class Frigate":
 				case "Deth Specula Armoured Frigate":
 				case "D3 Thorn Class Destroyer":
@@ -1338,6 +1339,8 @@ function detailedReport(targetDesign) {
 			similiarDesign = "Small Transport";
 			break;
 		case "Skyfire Class Transport":
+			// Fall through
+		case "Skyfire Class Cruiser+":
 			similiarDesign = "Skyfire Class Cruiser";
 			break;
 		case "Valiant Wind Storm-Carrier":
@@ -1356,6 +1359,8 @@ function detailedReport(targetDesign) {
 			
 		// Fascist/Fury designs
 		case "D7b Painmaker Class Cruiser":
+			// Fall through
+		case "D7c Painmaker Class Cruiser":
 			similiarDesign = "D7a Painmaker Class Cruiser";
 			break;
 		case "Little Pest Light Escort":
@@ -1435,6 +1440,8 @@ function detailedReport(targetDesign) {
 			similiarDesign = "Pawn Class Baseship";
 			break;
 		case "Cybernaut B Class Baseship":
+			// Fall through
+		case "Cybernaut Light Baseship":
 			similiarDesign = "Cybernaut Class Baseship";
 			break;
 
