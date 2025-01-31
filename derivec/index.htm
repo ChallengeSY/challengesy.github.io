@@ -7,63 +7,48 @@
 	
 	<title>Differentiation Challenge</title>
 	<link type="text/css" href="../nevergalaxy/css/csysoft.css" rel="stylesheet" />
-	<link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
 	<link type="text/css" href="derivec.css" rel="stylesheet" />
-	<script src="derivec.js"></script>
-	<script>moduleFile = "arcade";</script>
+	<script>
+		function openMenu(submenu) {
+			var hideMenu = (submenu == "arcade" ? "practice" : "arcade");
+			
+			document.getElementById(hideMenu).style.display = "none";
+			document.getElementById(submenu).style.display = "";
+		}
+	</script>
 </head>
-<body onload="startGame()">
+<body>
 
-<p id="banner"><a href="../index.htm"><img src="banner.png" style="background: rgb(0,0,0); padding: 5px;" alt="Differentiation Challenge" /></a></p>
+<p id="banner"><img src="banner.png" alt="Differentiation Challenge" /></p>
+<p>Welcome to <span class="bold">Differentiation Challenge</span>, a remastered Calculus-themed project where your knowledge will be put to the test! No downloads required; just play!</p>
 
-<fieldset id="fPanel" style="border-color: blue;">
-<legend>Message</legend>
-<div id="fTxt">Welcome to Differentiation Challenge! Best of luck on your journey!</div>
-</fieldset>
+<!-- Main menu -->
+<p class="center"><button class="interact" onclick="openMenu('arcade')">Arcade Mode</button>
+<button class="interact" onclick="openMenu('practice')">Practice Mode</button></p>
 
-<table style="margin-top: 50px; margin-left: auto; margin-right: auto;" id="scoreboard">
-<tr>
-<th>Score</th>
-<td style="min-width: 70px;" class="numeric" id="score">0 / 100</td>
-<td style="width: 300px;" id="scoreMtr"></td>
-<td style="font-weight: bold; border: none; width: 45px;" id="scoreAux"></td>
-</tr>
-<tr>
-<th>Life</th>
-<td class="numeric" id="life">0 / 10</td>
-<td id="lifeMtr"></td>
-<td style="font-weight: bold; border: none;" id="lifeAux"></td>
-</tr>
-</table>
+<!-- Arcade Mode menu -->
+<div class="center" style="display: none;" id="arcade">
+The main experience of Differentiation Challenge. Randomly generated questions of progressive difficulty! Can you reach 100 points without depleting your life pool?<br />
+<a class="interact" href="play.htm?module=arcade">Play the full challenge!</a><br /><br />
 
-<fieldset style="margin-top: 50px;">
-<legend id="qNum">Question 1</legend>
-<div id="qTxt">&nbsp;</div>
+None of the questions in this alternative challenge require a graphing calculator.<br />
+<a class="interact" href="play.htm?module=arcadeSimple">Play the condensed challenge</a><br /><br />
 
-<form autocomplete="off">
-<input style="font-size: 125%;"type="text" class="text" id="answerBox" size="50" value="" />
-<input style="font-size: 125%;"type="submit" class="interact" id="answerButton" onclick="validateAnswer(); return false;" value="Submit" />
-</form>
-</fieldset>
-
-<fieldset style="margin-top: 50px;">
-<legend>Notation</legend>
-<textarea class="text" id="notation"></textarea>
-</fieldset>
-
-<div id="help"> 
-<h2>Instructions</h2>
-<p>The rules of Differentiation Challenge are somewhat simple. The player is dealt a series of randomly generated questions, and the objective is to answer each one correctly. Correct answers award a point and allow for life regeneration. Incorrect answers deduct a large chunk of life. Difficulty increases as the score increases.</p>
-
-<p>Differentiation Challenge has several point thresholds that, when reached, increase the player's max life. The first increase is granted at 5 points, but each subsequent increase is slightly further than the one before it. Also, new question types are unlocked every 15 points. Once difficulty reaches near maximum at 60 points, no more life upgrades will be provided.</p>
-
-<p>Some questions are timed. Such questions gradually deplete life over the course of 30 seconds. If a correct answer is given, then <q>life loss</q> due to the timer is refunded. However, if an incorrect answer is given, then life loss is the amount lost to the timer, or the amount that would be lost to an untimed question, whichever is greater. Be warned, allowing the 30 seconds to expire with no correct answer given is an automatic game over!</p>
-
-<p>The game is won if the required score goal can be reached. The game is lost if the life pool empties out.</p>
+Think you can clear the entire challenge without a single miss? Tackle this challenge on!<br />
+<a class="interact" href="play.htm?module=suddenDeath">Play Sudden Death!</a>
 </div>
 
+<!-- Practice Mode menu -->
+<div class="center" style="display: none;" id="practice">
+Practice a module until the goal is reached, or your life pool reaches zero.<br />
+<a class="interact" href="play.htm?module=powerRule" title="Goal: 25">Power Rule</a>
+<a class="interact" href="play.htm?module=trigonometry" title="Goal: 12">Trigonometry</a>
+</div>
+
+<hr />
+
 <p class="footer">
-Differentiation Challenge &copy; 2010-2022 Paul Ruediger<br />
+Differentiation Challenge &copy; 2010-2025 Paul Ruediger<br />
 <a class="interact" href="../spaceYard.htm">Return to Space Yard</a>
 </p>
 

@@ -745,8 +745,14 @@ function readJson() {
 		
 		if (curStage.alienTable || curStage.alienTableX) {
 			// Alien Player economics
-			var constructTable = "<table><caption>Alien Economics</caption> \
-				<tr><th>Player</th><th>Eco</th><th>Fleet</th><th>Tech</th><th>Def</th><th>Expo</th><th>Hidden</th></tr>";
+			var constructTable = "<table><caption>Alien Economics</caption>\
+				<tr><th>Player</th>\
+				<th><a href=\"javascript:showBox('economic roll')\">Eco</a></th>\
+				<th><a href=\"javascript:showBox('fleet')\">Fleet</a></th>\
+				<th><a href=\"javascript:showBox('technology')\">Tech</a></th>\
+				<th><a href=\"javascript:showBox('defense')\">Def</a></th>\
+				<th><a href=\"javascript:showBox('expansion bank')\">Expo</a></th>\
+				<th><a href=\"javascript:showBox('hidden fleet')\">Hidden</a></th></tr>";
 				
 			var workTable;
 			
@@ -1406,7 +1412,7 @@ function readJson() {
 						}
 					}
 				}
-			} else if (actionPool[i].createPreset == "alienEmpiresSoloVP") {
+			} else if (actionPool[i].createPreset == "alienEmpiresSoloVP" || actionPool[i].createPreset == "doomsdaySoloVP") {
 				expansionHWs = true;
 				var plrColor = actionPool[i].playerColor;
 				
@@ -1429,7 +1435,14 @@ function readJson() {
 
 				place3plrHomeMarkers(plrColor, "top");
 				
-				if (actionPool[i].alienColors) {
+				if (actionPool[i].createPreset.startsWith("doomsday")) {
+					placeSystemMarker(3,11,markerCounter+plrColor);
+					paintTile("A3","empty");
+					placeSystemMarker(7,11,markerCounter+"W");
+					paintTile("A7","empty");
+					placeSystemMarker(11,11,markerCounter+plrColor);
+					paintTile("A11","empty");
+				} else if (actionPool[i].alienColors) {
 					var alienHWs = [[4,11], [9,11]];
 					
 					for (var a = 0; a < actionPool[i].alienColors.length; a++) {
@@ -1655,7 +1668,7 @@ function readJson() {
 				for (var w = 13; w > 11; w = w - 0.5) {
 					dispCol(w, false);
 				}
-			} else if (actionPool[i].createPreset == "versus2Psm") {
+			} else if (actionPool[i].createPreset == "versus2Psm" || actionPool[i].createPreset == "alienDuelsSm") {
 				ctrlPanel.className = "versusBoard";
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
 				var plrSlots = [actionPool[i].playerTop, actionPool[i].playerBottom];
@@ -1681,8 +1694,13 @@ function readJson() {
 				} else {
 					placeSystemMarker(9,9,"unexplored"+plrColors[1]);
 				}
-
-				placeHomeworld(plrCols[0],2,plrColors[0]);
+				
+				if (actionPool[i].createPreset.startsWith("alienDuels")) {
+					placeSystemMarker(plrCols[0],2,"home20"+plrColors[0]);
+					placeCounter("base1"+plrColors[0],plrCols[0],2,null,1);
+				} else {
+					placeHomeworld(plrCols[0],2,plrColors[0]);
+				}
 				placeHomeworld(plrCols[1],9,plrColors[1]);
 
 				for (var z = 0; z < 2; z++) {

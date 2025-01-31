@@ -135,15 +135,18 @@ function showBox(concept) {
 			displayTxt = "<b>Construction Points</b><br />Monetary currency. Earned by developing "+conceptLink("colonies")+", towing "+conceptLink("minerals")+", and connecting "+conceptLink("pipeline")+"s. Used to buy "+conceptLink("technology")+" and build ships.";
 			break;
 		case "defense":
-			displayTxt = "<b>Defense</b><br />Decreases the maximum d10 roll allowed by an attacker to score a hit on this ship, to a minimum "+conceptLink("Attack")+" rating of 1.<br />(Exception: Minimum Attack versus a "+conceptLink("Titan")+" or a non-competitive "+conceptLink("DM")+"  is instead 0.)" +
-				"<br /><br />Defense "+conceptLink("technology")+" adds directly to this rating, up to the maximum "+conceptLink("Hull Size")+".";
+			displayTxt = "<b>Defense</b><br />Decreases the maximum d10 roll allowed by an attacker to score a hit on this ship, to a minimum "+conceptLink("Attack")+" rating of 1.<br />\
+				(Exception: Minimum Attack versus a "+conceptLink("Titan")+" or a non-competitive "+conceptLink("DM")+" is instead 0.)\
+				<br /><br />Defense "+conceptLink("technology")+" adds directly to this rating, up to the maximum "+conceptLink("Hull Size")+".\
+				<br /><br />As an "+conceptLink("Alien Player")+" bank; this is used whenever one of their "+conceptLink("colonies")+" is being contested,\
+				and is built with twice the standard effectiveness.";
 			break;
 		case "economic phase":
 			displayTxt = "<b>Economic Phase</b><br />A simultaneous phase in which all production and spending takes place. There are 3 regular "+conceptLink("turn")+"s in between each economic phase.";
 			break;
 		case "fleet":
-			displayTxt = "<b>Fleet</b><br />A fleet is a collection of starships, usually with a specific purpose. \
-				"+conceptLink("Alien Player")+"s have a bank just for ship construction.";
+			displayTxt = "<b>Fleet</b><br />A fleet is a collection of starships, usually with a specific purpose.<br /><br />\
+				As an "+conceptLink("Alien Player")+" bank, this is spent whenever they launch ships from their "+conceptLink("homeworld")+".";
 			break;
 		case "fleet size bonus":
 			displayTxt = "<b>Fleet Size Bonus</b><br />If one player has at least twice as many un"+conceptLink("screen")+"ed ships as their opponent at the start of a battle "+conceptLink("round")+", all their ships get an additional "+conceptLink("Attack")+" +1 for that round.";
@@ -289,7 +292,10 @@ function showBox(concept) {
 		case "technologies":
 			// Fall through
 		case "technology":
-			displayTxt = "<b>Technology</b><br />Developing technologies and levels allow unlocking more powerful ships, weapons, to name a few. Any tech levels purchased affect any ships built in the same "+conceptLink("economic phase")+" (including unlocking new ships). Existing ships are unaffected, but can be "+conceptLink("upgrade")+"d.";
+			displayTxt = "<b>Technology</b><br />Developing technologies and levels allow unlocking more powerful ships, weapons, to name a few.\
+				Any tech levels purchased affect any ships built in the same "+conceptLink("economic phase")+" (including unlocking new ships).\
+				Existing ships are unaffected, but can be "+conceptLink("upgrade")+"d.<br /><br />\
+				As an "+conceptLink("Alien Player")+" bank, this is used exclusively for developing technology together with other spending.";
 			break;
 		case "terraforming":
 			displayTxt = "<b>Terraforming Technology</b><br />Level 1 allows colonizing "+conceptLink("barren planet")+"s.<br />\
@@ -626,9 +632,14 @@ function showBox(concept) {
 			break;
 		case "economic roll":
 			displayTxt =  "<b>Economic Roll</b><br />Determines where an "+conceptLink("Alien Player")+" should allocate its "+conceptLink("CP")+" \
-				("+conceptLink("Fleet")+"s, "+conceptLink("Technology")+", or "+conceptLink("Homeworld")+" Defense),<br />\
+				("+conceptLink("Fleet")+"s, "+conceptLink("Technology")+", or "+conceptLink("Defense")+"),<br />\
 				or if it permanently gains an <em>extra</em> economic roll 3 "+conceptLink("economic phase")+"s from the current phase.<br />\
 				CP allocated into Defense are applied with twice the standard effectiveness.";
+			break;
+		case "expansion bank":
+			displayTxt =  "<b>Expansion Bank</b><br />"+conceptLink("Alien Player")+" bank that is usually used to aid in launching bigger "+conceptLink("expansion fleet")+"s.\
+				<span class=\"bindTxt\">Can also be used to defend "+conceptLink("colonies")+".</span><br />\
+				Can be accumulated only via converting excess "+conceptLink("CP")+" over the "+conceptLink("Defense")+" bank cap. (If any)";
 			break;
 		case "expansion fleet":
 			displayTxt =  "<b>Expansion Fleet</b><br />"+conceptLink("Alien Player")+" "+conceptLink("fleet")+" that focuses on assaulting "+conceptLink("planet")+"s, \
@@ -637,6 +648,10 @@ function showBox(concept) {
 		case "extermination fleet":
 			displayTxt =  "<b>Extermination Fleet</b><br />"+conceptLink("Alien Player")+" "+conceptLink("fleet")+" that focuses on taking a "+conceptLink("homeworld")+" \
 				or the "+conceptLink("galactic capitol")+". If these fleets achieve their objective, their team wins the scenario.";
+			break;
+		case "hidden fleet":
+			displayTxt =  "<b>Hidden Fleet</b><br />"+conceptLink("Alien Player")+" "+conceptLink("fleet")+" whose composition is unidentified.\
+				Once it enters "+conceptLink("battle")+", it uses its "+conceptLink("nanomachine")+"s to build the ships remotely.";
 			break;
 		case "nanomachine":
 			displayTxt = "<b>Nanomachine Technology</b><br />"+conceptLink("Alien Player")+"-exclusive technology that allows building ships remotely; whenever a\
@@ -1008,7 +1023,7 @@ function showBox(concept) {
 			break;
 		case "industrious race":
 			displayTxt = "<b>Industrious Race</b><br />"+conceptLink("Terraforming")+" 1 also allows colonizing "+conceptLink("Asteroids")+". \
-				Such colonies are immune to "+conceptLink("Titan")+"s and "+conceptLink("ground unit")+"s, \
+				Such "+conceptLink("colonies")+" are immune to "+conceptLink("Titan")+"s and "+conceptLink("ground unit")+"s, \
 				but do not grant Colony "+conceptLink("VP")+"s.";
 			break;
 		case "ancient race":
@@ -1408,6 +1423,8 @@ function keywordifyCollection(collObj) {
 		{regex: conceptLink("Miner")+"als", newTxt: conceptLink("Minerals")},
 		{regex: conceptLink("fleet")+" size bonus", newTxt: conceptLink("fleet size bonus")},
 		{regex: conceptLink("Fleet")+" Size Bonus", newTxt: conceptLink("Fleet Size Bonus")},
+		{regex: "hidden "+conceptLink("fleet"), newTxt: conceptLink("hidden fleet")},
+		{regex: "Hidden "+conceptLink("Fleet"), newTxt: conceptLink("Hidden Fleet")},
 		{regex: "raider "+conceptLink("fleet"), newTxt: conceptLink("raider fleet")},
 		{regex: "Raider "+conceptLink("Fleet"), newTxt: conceptLink("Raider Fleet")},
 		{regex: "expansion "+conceptLink("fleet"), newTxt: conceptLink("expansion fleet")},

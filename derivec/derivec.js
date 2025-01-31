@@ -3,18 +3,20 @@ var lifeMax = 10;
 var lifeOrg = 0;
 var score = 0;
 var combo = 0;
+var chainLength = 1;
+var chainPos = 1;
 var questionNum = 0;
 var nextLifeUp = 0;
-var goal = 75;
+var goal = 100;
 var transitionObj = null;
 var moduleFile = null;
 var curQuestion = null; // Safety creation
 var playerAnswer = null;
 var firstLoad = false;
-const questionCount = 18;
+const questionCount = 19;
 
 // Object
-function question(newId) {
+function question(newId, newPos) {
 	var workObj;
 	
 	this.qType = newId;
@@ -24,124 +26,227 @@ function question(newId) {
 	this.txt = "";
 	this.qVars = null;
 	this.correctAns = null;
+	chainLength = 1;
 	
 	switch (this.qType) {
 		// Trigonometry
 		case 1:
-			this.qVars = new Array(1);
-			if (moduleFile == "trigonometry") {
-				this.qVars[0] = irandom(1 + score/6,1 + Math.floor(score/6) * 9);
-			} else {
-				this.qVars[0] = (irandom(1,1 + score/8));
-				this.timed = (score >= 5);
-			}
+			if (newPos < 2) {
+				// Basic question
+				if (moduleFile == "trigonometry") {
+					this.qVars = [irandom(1 + score/6,1 + Math.floor(score/6) * 9)];
+				} else {
+					this.qVars = [irandom(1,1 + score/8)];
+					this.timed = (score >= 5);
+					
+					if (moduleFile != "arcadeSimple" && score >= goal/5) {
+						chainLength = 2;
+					}
+				}
 			
-			if (this.qVars[0] <= 1) {
-				this.txt = "Differentiate f(x) = sin(x)";
-				this.correctAns = new Array("cos(x)");
+				if (this.qVars[0] <= 1) {
+					this.txt = "Differentiate f(x) = sin(x)";
+					this.correctAns = ["cos(x)"];
+				} else {
+					this.txt = "Differentiate f(x) = sin(" + markVar(this.qVars[0]) + "x)";
+					this.correctAns = [this.qVars[0]+"cos("+this.qVars[0]+"x)",
+						this.qVars[0]+"*cos("+this.qVars[0]+"x)"];
+				}
 			} else {
-				this.txt = "Differentiate f(x) = sin(" + markVar(this.qVars[0]) + "x)";
-				this.correctAns = new Array(this.qVars[0]+"cos("+this.qVars[0]+"x)", this.qVars[0]+"*cos("+this.qVars[0]+"x)");
+				// Difficult question
+				this.graphCalc = true;
+				this.qVars = [((Math.random() - 0.5) * (score - 10)).toFixed(Math.floor(score/goal*5)+2)];
+				
+				workObj = [Math.cos(this.qVars[0])];
+
+				this.txt = "If f(x) = sin(x), evaluate f'("+markVar(this.qVars[0])+") to the nearest thousandth.";
+				this.correctAns = [(Math.round(workObj[0] * 1000) / 1000).toFixed(3), (Math.trunc(workObj[0] * 1000) / 1000).toFixed(3)];
 			}
 			break;
 
 		case 2:
-			this.qVars = new Array(1);
-			if (moduleFile == "trigonometry") {
-				this.qVars[0] = irandom(1 + score/6,1 + Math.floor(score/6) * 9);
+			if (newPos < 2) {
+				// Basic question
+				if (moduleFile == "trigonometry") {
+					this.qVars = [irandom(1 + score/6,1 + Math.floor(score/6) * 9)];
+				} else {
+					this.qVars = [irandom(1,1 + score/8)];
+					this.timed = (score >= 5);
+					
+					if (moduleFile != "arcadeSimple" && score >= goal/5) {
+						chainLength = 2;
+					}
+				}
+				
+				if (this.qVars[0] <= 1) {
+					this.txt = "Differentiate f(x) = cos(x)";
+					this.correctAns = ["-sin(x)"];
+				} else {
+					this.txt = "Differentiate f(x) = cos(" + markVar(this.qVars[0]) + "x)";
+					this.correctAns = ["-"+this.qVars[0]+"sin("+this.qVars[0]+"x)",
+						"-"+this.qVars[0]+"*sin("+this.qVars[0]+"x)"];
+				}
 			} else {
-				this.qVars[0] = (irandom(1,1 + score/8));
-				this.timed = (score >= 5);
-			}
-			
-			if (this.qVars[0] <= 1) {
-				this.txt = "Differentiate f(x) = cos(x)";
-				this.correctAns = new Array("-sin(x)");
-			} else {
-				this.txt = "Differentiate f(x) = cos(" + markVar(this.qVars[0]) + "x)";
-				this.correctAns = new Array("-"+this.qVars[0]+"sin("+this.qVars[0]+"x)", "-"+this.qVars[0]+"*sin("+this.qVars[0]+"x)");
+				// Difficult question
+				this.graphCalc = true;
+				this.qVars = [((Math.random() - 0.5) * (score - 10)).toFixed(Math.floor(score/goal*5)+2)];
+				
+				workObj = [-Math.sin(this.qVars[0])];
+
+				this.txt = "If f(x) = cos(x), evaluate f'("+markVar(this.qVars[0])+") to the nearest thousandth.";
+				this.correctAns = [(Math.round(workObj[0] * 1000) / 1000).toFixed(3), (Math.trunc(workObj[0] * 1000) / 1000).toFixed(3)];
 			}
 			break;
 
 		case 3:
-			this.qDiff = 1;
-			this.qVars = new Array(1);
-			
-			if (moduleFile == "trigonometry") {
-				this.qVars[0] = irandom(1 + score/6,1 + Math.floor(score/6) * 9);
+			if (newPos < 2) {
+				// Basic question
+				this.qDiff = 1;
+				
+				if (moduleFile == "trigonometry") {
+					this.qVars = [irandom(1 + score/6,1 + Math.floor(score/6) * 9)];
+				} else {
+					this.qVars = [irandom(1,1 + score/9)];
+					this.timed = true;
+					
+					if (moduleFile != "arcadeSimple" && score >= goal*2/5) {
+						chainLength = 2;
+					}
+				}
+				
+				if (this.qVars[0] <= 1) {
+					this.txt = "Differentiate f(x) = tan(x)";
+					this.correctAns = ["(sec(x))^2","sec^2(x)"];
+				} else {
+					this.txt = "Differentiate f(x) = tan(" + markVar(this.qVars[0]) + "x)";
+					this.correctAns = [this.qVars[0]+"(sec("+this.qVars[0]+"x))^2",
+						this.qVars[0]+"sec^2("+this.qVars[0]+"x)",
+						this.qVars[0]+"*(sec("+this.qVars[0]+"x))^2",
+						this.qVars[0]+"*sec^2("+this.qVars[0]+"x)"];
+				}
 			} else {
-				this.qVars[0] = (irandom(1,1 + score/9));
-				this.timed = true;
-			}
-			
-			if (this.qVars[0] <= 1) {
-				this.txt = "Differentiate f(x) = tan(x)";
-				this.correctAns = new Array("(sec(x))^2","sec^2(x)");
-			} else {
-				this.txt = "Differentiate f(x) = tan(" + markVar(this.qVars[0]) + "x)";
-				this.correctAns = new Array(this.qVars[0]+"(sec("+this.qVars[0]+"x))^2",this.qVars[0]+"sec^2("+this.qVars[0]+"x)",
-					this.qVars[0]+"*(sec("+this.qVars[0]+"x))^2",this.qVars[0]+"*sec^2("+this.qVars[0]+"x)");
+				// Difficult question
+				this.graphCalc = true;
+				this.qVars = [((Math.random() - 0.5) * (score - 10)).toFixed(Math.floor(score/goal*5)+2)];
+				
+				workObj = [Math.pow(sec(this.qVars[0]),2)];
+
+				this.txt = "If f(x) = tan(x), evaluate f'("+markVar(this.qVars[0])+") to the nearest thousandth.";
+				this.correctAns = [(Math.round(workObj[0] * 1000) / 1000).toFixed(3), (Math.trunc(workObj[0] * 1000) / 1000).toFixed(3)];
 			}
 			break;
 
 		case 4:
-			this.qDiff = 2;
-			this.qVars = new Array(1);
-			
-			if (moduleFile == "trigonometry") {
-				this.qVars[0] = irandom(1 + score/6,1 + Math.floor(score/6) * 9);
+			if (newPos < 2) {
+				// Basic question
+				this.qDiff = 2;
+				
+				if (moduleFile == "trigonometry") {
+					this.qVars = [irandom(1 + score/6,1 + Math.floor(score/6) * 9)];
+				} else {
+					this.qVars = [irandom(1,1 + score/10)];
+					this.timed = true;
+					
+					if (moduleFile != "arcadeSimple" && score >= goal*3/5) {
+						chainLength = 2;
+					}
+				}
+				
+				if (this.qVars[0] <= 1) {
+					this.txt = "Differentiate f(x) = csc(x)";
+					this.correctAns = ["-csc(x)cot(x)","-csc(x) * cot(x)","-cot(x)csc(x)","-cot(x) * csc(x)"];
+				} else {
+					this.txt = "Differentiate f(x) = csc(" + markVar(this.qVars[0]) + "x)";
+					this.correctAns = ["-"+this.qVars[0]+"csc("+this.qVars[0]+"x)cot("+this.qVars[0]+"x)",
+						"-"+this.qVars[0]+"cot("+this.qVars[0]+"x)csc("+this.qVars[0]+"x)",
+						"-"+this.qVars[0]+" * csc("+this.qVars[0]+"x)*cot("+this.qVars[0]+"x)",
+						"-"+this.qVars[0]+"*cot("+this.qVars[0]+"x) * csc("+this.qVars[0]+"x)"];
+				}
 			} else {
-				this.qVars[0] = (irandom(1,1 + score/10));
-				this.timed = true;
-			}
-			
-			if (this.qVars[0] <= 1) {
-				this.txt = "Differentiate f(x) = csc(x)";
-				this.correctAns = new Array("-csc(x)cot(x)","-csc(x) * cot(x)","-cot(x)csc(x)","-cot(x) * csc(x)");
-			} else {
-				this.txt = "Differentiate f(x) = csc(" + markVar(this.qVars[0]) + "x)";
-				this.correctAns = new Array("-"+this.qVars[0]+"csc("+this.qVars[0]+"x)cot("+this.qVars[0]+"x)","-"+this.qVars[0]+"cot("+this.qVars[0]+"x)csc("+this.qVars[0]+"x)","-"+this.qVars[0]+" * csc("+this.qVars[0]+"x)*cot("+this.qVars[0]+"x)","-"+this.qVars[0]+"*cot("+this.qVars[0]+"x) * csc("+this.qVars[0]+"x)");
+				// Difficult question
+				this.graphCalc = true;
+				this.qVars = [((Math.random() - 0.5) * (score - 10)).toFixed(Math.floor(score/goal*5)+2)];
+				
+				workObj = [-csc(this.qVars[0]) * cot(this.qVars[0])];
+
+				this.txt = "If f(x) = csc(x), evaluate f'("+markVar(this.qVars[0])+") to the nearest thousandth.";
+				this.correctAns = [(Math.round(workObj[0] * 1000) / 1000).toFixed(3), (Math.trunc(workObj[0] * 1000) / 1000).toFixed(3)];
 			}
 			break;
 
 		case 5:
-			this.qDiff = 2;
-			this.qVars = new Array(1);
-			
-			if (moduleFile == "trigonometry") {
-				this.qVars[0] = irandom(1 + score/6,1 + Math.floor(score/6) * 9);
+			if (newPos < 2) {
+				// Basic question
+				this.qDiff = 2;
+				
+				if (moduleFile == "trigonometry") {
+					this.qVars = [irandom(1 + score/6,1 + Math.floor(score/6) * 9)];
+				} else {
+					this.qVars = [irandom(1,1 + score/10)];
+					this.timed = true;
+					
+					if (moduleFile != "arcadeSimple" && score >= goal*3/5) {
+						chainLength = 2;
+					}
+				}
+				
+				if (this.qVars[0] <= 1) {
+					this.txt = "Differentiate f(x) = sec(x)";
+					this.correctAns = ["sec(x)tan(x)","sec(x) * tan(x)","tan(x)sec(x)","tan(x) * sec(x)"];
+				} else {
+					this.txt = "Differentiate f(x) = sec(" + markVar(this.qVars[0]) + "x)";
+					this.correctAns = [this.qVars[0]+"sec("+this.qVars[0]+"x)tan("+this.qVars[0]+"x)",
+						this.qVars[0]+"tan("+this.qVars[0]+"x)sec("+this.qVars[0]+"x)",
+						this.qVars[0]+" * sec("+this.qVars[0]+"x)*tan("+this.qVars[0]+"x)",
+						this.qVars[0]+"*tan("+this.qVars[0]+"x) * sec("+this.qVars[0]+"x)"];
+				}
 			} else {
-				this.qVars[0] = (irandom(1,1 + score/10));
-				this.timed = true;
-			}
-			
-			if (this.qVars[0] <= 1) {
-				this.txt = "Differentiate f(x) = sec(x)";
-				this.correctAns = new Array("sec(x)tan(x)","sec(x) * tan(x)","tan(x)sec(x)","tan(x) * sec(x)");
-			} else {
-				this.txt = "Differentiate f(x) = sec(" + markVar(this.qVars[0]) + "x)";
-				this.correctAns = new Array(this.qVars[0]+"sec("+this.qVars[0]+"x)tan("+this.qVars[0]+"x)",this.qVars[0]+"tan("+this.qVars[0]+"x)sec("+this.qVars[0]+"x)",this.qVars[0]+" * sec("+this.qVars[0]+"x)*tan("+this.qVars[0]+"x)",this.qVars[0]+"*tan("+this.qVars[0]+"x) * sec("+this.qVars[0]+"x)");
+				// Difficult question
+				this.graphCalc = true;
+				this.qVars = [((Math.random() - 0.5) * (score - 10)).toFixed(Math.floor(score/goal*5)+2)];
+				
+				workObj = [sec(this.qVars[0]) * Math.tan(this.qVars[0])];
+
+				this.txt = "If f(x) = sec(x), evaluate f'("+markVar(this.qVars[0])+") to the nearest thousandth.";
+				this.correctAns = [(Math.round(workObj[0] * 1000) / 1000).toFixed(3), (Math.trunc(workObj[0] * 1000) / 1000).toFixed(3)];
 			}
 			break;
 
 		case 6:
-			this.qDiff = 2;
-			this.qVars = new Array(1);
-			
-			if (moduleFile == "trigonometry") {
-				this.qVars[0] = irandom(1 + score/6,1 + Math.floor(score/6) * 9);
+			if (newPos < 2) {
+				// Basic question
+				this.qDiff = 2;
+				
+				if (moduleFile == "trigonometry") {
+					this.qVars = [irandom(1 + score/6,1 + Math.floor(score/6) * 9)];
+				} else {
+					this.qVars = [irandom(1,1 + score/10)];
+					this.timed = true;
+					
+					if (moduleFile != "arcadeSimple" && score >= goal*3/5) {
+						chainLength = 2;
+					}
+				}
+				
+				if (this.qVars[0] <= 1) {
+					this.txt = "Differentiate f(x) = cot(x)";
+					this.correctAns = new Array("-csc^2(x)","-(csc(x))^2");
+				} else {
+					this.txt = "Differentiate f(x) = cot(" + markVar(this.qVars[0]) + "x)";
+					this.correctAns = new Array("-"+this.qVars[0]+"(csc("+this.qVars[0]+"x))^2",
+						"-"+this.qVars[0]+"csc^2("+this.qVars[0]+"x)",
+						"-"+this.qVars[0]+"*(csc("+this.qVars[0]+"x))^2",
+						"-"+this.qVars[0]+"*csc^2("+this.qVars[0]+"x)");
+				}
 			} else {
-				this.qVars[0] = (irandom(1,1 + score/10));
-				this.timed = true;
-			}
-			
-			if (this.qVars[0] <= 1) {
-				this.txt = "Differentiate f(x) = cot(x)";
-				this.correctAns = new Array("-csc^2(x)","-(csc(x))^2");
-			} else {
-				this.txt = "Differentiate f(x) = cot(" + markVar(this.qVars[0]) + "x)";
-				this.correctAns = new Array("-"+this.qVars[0]+"(csc("+this.qVars[0]+"x))^2","-"+this.qVars[0]+"csc^2("+this.qVars[0]+"x)",
-					"-"+this.qVars[0]+"*(csc("+this.qVars[0]+"x))^2","-"+this.qVars[0]+"*csc^2("+this.qVars[0]+"x)");
+				// Difficult question
+				this.graphCalc = true;
+				this.qVars = [((Math.random() - 0.5) * (score - 10)).toFixed(Math.floor(score/goal*5)+2)];
+				
+				workObj = [-Math.pow(csc(this.qVars[0]),2)];
+
+				this.txt = "If f(x) = cot(x), evaluate f'("+markVar(this.qVars[0])+") to the nearest thousandth.";
+				this.correctAns = [(Math.round(workObj[0] * 1000) / 1000).toFixed(3), (Math.trunc(workObj[0] * 1000) / 1000).toFixed(3)];
 			}
 			break;
 
@@ -152,33 +257,26 @@ function question(newId) {
 			if (moduleFile == "powerRule") {
 				if (score >= 5) {
 					do {
-						this.qVars[0] = (irandom(-2 - score/4,2 + score/4));
-						this.qVars[1] = (irandom(2,3+score/6));
-						this.qVars[2] = (irandom(-2 - score/4,2 + score/4));
-						this.qVars[3] = (irandom(1,2+score/6));
+						this.qVars = [irandom(-2 - score/4,2 + score/4), irandom(2,3+score/6), irandom(-2 - score/4,2 + score/4), irandom(1,2+score/6), 0];
 					} while (Math.abs(this.qVars[0]) < 2 || Math.abs(this.qVars[2]) < 2 || this.qVars[1] <= this.qVars[3]);
 				} else {
-					this.qVars[0] = (irandom(2,2 + score/4));
-					this.qVars[2] = (irandom(2,2 + score/4));
+					this.qVars = [irandom(2,2 + score/4), null, irandom(2,2 + score/4), null, 0];
+					
 					do {
 						this.qVars[1] = (irandom(2,3));
 						this.qVars[3] = (irandom(1,2));
 					} while (this.qVars[1] == this.qVars[3]);
 				}
 			} else {
-				if (score >= goal*4/5) {
-					this.timed = true;
-				}
+				this.timed = (score >= goal*4/5);
+
 				if (score >= goal/5) {
 					do {
-						this.qVars[0] = (irandom(-2 - score/8,2 + score/8));
-						this.qVars[1] = (irandom(2,3+score/12));
-						this.qVars[2] = (irandom(-2 - score/8,2 + score/8));
-						this.qVars[3] = (irandom(1,2+score/12));
+						this.qVars = [irandom(-2 - score/8,2 + score/8), irandom(2,3+score/12), irandom(-2 - score/8,2 + score/8), irandom(1,2+score/12), 0];
 					} while (Math.abs(this.qVars[0]) < 2 || Math.abs(this.qVars[2]) < 2 || this.qVars[1] <= this.qVars[3]);
 				} else {
-					this.qVars[0] = (irandom(2,2 + score/8));
-					this.qVars[2] = (irandom(2,2 + score/8));
+					this.qVars = [irandom(2,2 + score/8), null, irandom(2,2 + score/8), null, 0];
+					
 					do {
 						this.qVars[1] = (irandom(2,3));
 						this.qVars[3] = (irandom(1,2));
@@ -194,9 +292,7 @@ function question(newId) {
 				this.txt = "If f(x) = "+markVar(this.qVars[0])+"x^"+markVar(this.qVars[1])+" ";
 				if (this.qVars[2] > 0) {
 					this.txt = this.txt + "+ "+markVar(this.qVars[2])+"x";
-					this.correctAns = new Array(1);
 				} else {
-					this.correctAns = new Array(2);
 					this.txt = this.txt + "- "+markVar(Math.abs(this.qVars[2]))+"x";
 				}
 				if (this.qVars[3] > 1) {
@@ -205,15 +301,10 @@ function question(newId) {
 				
 				this.txt = this.txt + ", then evaluate f'("+markVar(this.qVars[4])+").";
 				
-				this.correctAns = new Array(1);
-				this.correctAns[0] = this.qVars[0] * this.qVars[1] * Math.pow(this.qVars[4],this.qVars[1]-1) +
-					this.qVars[2] * this.qVars[3] * Math.pow(this.qVars[4],this.qVars[3]-1);
+				this.correctAns = [this.qVars[0] * this.qVars[1] * Math.pow(this.qVars[4],this.qVars[1]-1) +
+					this.qVars[2] * this.qVars[3] * Math.pow(this.qVars[4],this.qVars[3]-1)];
 			} else {
-				workObj = new Array(4);
-				workObj[0] = this.qVars[0] * this.qVars[1];
-				workObj[1] = this.qVars[1] - 1;
-				workObj[2] = this.qVars[2] * this.qVars[3];
-				workObj[3] = this.qVars[3] - 1;
+				workObj = [this.qVars[0] * this.qVars[1], this.qVars[1] - 1, this.qVars[2] * this.qVars[3], this.qVars[3] - 1];
 				
 				this.txt = "Differentiate f(x) = "+markVar(this.qVars[0])+"x^"+markVar(this.qVars[1]);
 				if (this.qVars[2] > 0) {
@@ -228,34 +319,36 @@ function question(newId) {
 				}
 				
 				if (this.qVars[1] == 2) {
-					this.correctAns[0] = workObj[0]+"x + "+workObj[2];
+					this.correctAns = [workObj[0]+"x + "+workObj[2]];
 					if (this.qVars[2] < 0) {
-						this.correctAns[1] = workObj[0]+"x - "+Math.abs(workObj[2]);
+						this.correctAns.push(workObj[0]+"x - "+Math.abs(workObj[2]));
 					}
+					
 					if (this.qVars[3] > 2) {
 						this.correctAns[0] = this.correctAns[0] + "x^"+workObj[3];
-						if (this.correctAns[1]) {
+						if (this.correctAns.length > 1) {
 							this.correctAns[1] = this.correctAns[1] + "x^"+workObj[3];
 						}
 					} else if (this.qVars[3] == 2) {
 						this.correctAns[0] = this.correctAns[0] + "x";
-						if (this.correctAns[1]) {
+						if (this.correctAns.length > 1) {
 							this.correctAns[1] = this.correctAns[1] + "x";
 						}
 					}
+					
 				} else {
-					this.correctAns[0] = workObj[0]+"x^"+workObj[1]+" + "+workObj[2];
+					this.correctAns = [workObj[0]+"x^"+workObj[1]+" + "+workObj[2]];
 					if (this.qVars[2] < 0) {
-						this.correctAns[1] = workObj[0]+"x^"+workObj[1]+" - "+Math.abs(workObj[2]);
+						this.correctAns.push(workObj[0]+"x^"+workObj[1]+" - "+Math.abs(workObj[2]));
 					}
 					if (this.qVars[3] > 2) {
 						this.correctAns[0] = this.correctAns[0] + "x^"+workObj[3];
-						if (this.correctAns[1]) {
+						if (this.correctAns.length > 1) {
 							this.correctAns[1] = this.correctAns[1] + "x^"+workObj[3];
 						}
 					} else if (this.qVars[3] == 2) {
 						this.correctAns[0] = this.correctAns[0] + "x";
-						if (this.correctAns[1]) {
+						if (this.correctAns.length > 1) {
 							this.correctAns[1] = this.correctAns[1] + "x";
 						}
 					}
@@ -264,17 +357,14 @@ function question(newId) {
 			break;
 			
 		case 8:
-			this.qVars = new Array(3);
 			this.timed = (score >= goal*4/5);
 			
 			do {
-				this.qVars[0] = irandom(500,750+score*18);
+				this.qVars = [irandom(500,750+score*18), irandom(8,32), irandom(3,20), 0];
 				if (score < goal/5) {
 					this.qVars[1] = 16;
-				} else {
-					this.qVars[1] = irandom(8,32);
 				}
-				this.qVars[2] = irandom(3,20);
+				
 				this.qVars[3] = this.qVars[0] - this.qVars[1] * Math.pow(this.qVars[2],2);
 			} while (this.qVars[3] <= 0);
 			
@@ -285,8 +375,7 @@ function question(newId) {
 				this.txt = this.txt + "If h(t) = "+markVar(this.qVars[3])+", what is the velocity of the ball?";
 			}
 			
-			this.correctAns = new Array(1);
-			this.correctAns[0] = -2 * this.qVars[1] * this.qVars[2];
+			this.correctAns = [-2 * this.qVars[1] * this.qVars[2]];
 			break;
 
 		case 9:
@@ -297,45 +386,34 @@ function question(newId) {
 			if (moduleFile == "powerRule") {
 				if (score >= 15) {
 					do {
-						this.qVars[0] = (irandom(-2 - score/6,2 + score/6));
-						this.qVars[1] = (irandom(3,4+score/9));
-						this.qVars[2] = (irandom(-2 - score/6,2 + score/6));
-						this.qVars[3] = (irandom(2,3+score/9));
-						this.qVars[4] = (irandom(-2 - score/6,2 + score/6));
-						this.qVars[5] = (irandom(1,2+score/9));
+						this.qVars = [irandom(-2 - score/6,2 + score/6), irandom(3,4+score/9),
+							irandom(-2 - score/6,2 + score/6), irandom(2,3+score/9),
+							irandom(-2 - score/6,2 + score/6), irandom(1,2+score/9), 0];
 					} while (Math.abs(this.qVars[0]) < 2 || Math.abs(this.qVars[2]) < 2 || Math.abs(this.qVars[4]) < 2 ||
 						this.qVars[1] <= this.qVars[3] || this.qVars[3] <= this.qVars[5]);
 				} else {
-					this.qVars[0] = (irandom(2,2 + score/6));
-					this.qVars[2] = (irandom(2,2 + score/6));
-					this.qVars[4] = (irandom(2,2 + score/6));
 					do {
-						this.qVars[1] = (irandom(3,4));
-						this.qVars[3] = (irandom(2,3));
-						this.qVars[5] = (irandom(1,2));
-					} while (this.qVars[1] == this.qVars[3] || this.qVars[3] == this.qVars[5]);
+						this.qVars = [irandom(2,2 + score/6), irandom(3,4),
+							irandom(2,2 + score/6), irandom(2,3),
+							irandom(2,2 + score/6), irandom(1,2), 0];
+					} while (this.qVars[1] <= this.qVars[3] || this.qVars[3] <= this.qVars[5]);
 				}
+				
 			} else {
 				this.timed = (score >= goal*4/5);
 				if (score >= goal*2/5) {
 					do {
-						this.qVars[0] = (irandom(-2 - score/12,2 + score/12));
-						this.qVars[1] = (irandom(3,4+score/18));
-						this.qVars[2] = (irandom(-2 - score/12,2 + score/12));
-						this.qVars[3] = (irandom(2,3+score/18));
-						this.qVars[4] = (irandom(-2 - score/12,2 + score/12));
-						this.qVars[5] = (irandom(1,2+score/18));
+						this.qVars = [irandom(-2 - score/12,2 + score/12), irandom(3,4+score/18),
+							irandom(-2 - score/12,2 + score/12), irandom(2,3+score/18),
+							irandom(-2 - score/12,2 + score/12), irandom(1,2+score/18), 0];
 					} while (Math.abs(this.qVars[0]) < 2 || Math.abs(this.qVars[2]) < 2 || Math.abs(this.qVars[4]) < 2 ||
 						this.qVars[1] <= this.qVars[3] || this.qVars[3] <= this.qVars[5]);
 				} else {
-					this.qVars[0] = (irandom(2,2 + score/12));
-					this.qVars[2] = (irandom(2,2 + score/12));
-					this.qVars[4] = (irandom(2,2 + score/12));
 					do {
-						this.qVars[1] = (irandom(3,4));
-						this.qVars[3] = (irandom(2,3));
-						this.qVars[5] = (irandom(1,2));
-					} while (this.qVars[1] == this.qVars[3] || this.qVars[3] == this.qVars[5]);
+						this.qVars = [irandom(2,2 + score/12), irandom(3,4),
+							irandom(2,2 + score/12), irandom(2,3),
+							irandom(2,2 + score/12), irandom(1,2), 0];
+					} while (this.qVars[1] <= this.qVars[3] || this.qVars[3] <= this.qVars[5]);
 				}
 			}
 			
@@ -361,21 +439,14 @@ function question(newId) {
 				
 				this.txt = this.txt + ", then evaluate f'("+markVar(this.qVars[6])+").";
 				
-				this.correctAns = new Array(1);
-				this.correctAns[0] = this.qVars[0] * this.qVars[1] * Math.pow(this.qVars[6],this.qVars[1]-1) +
+				this.correctAns = [this.qVars[0] * this.qVars[1] * Math.pow(this.qVars[6],this.qVars[1]-1) +
 					this.qVars[2] * this.qVars[3] * Math.pow(this.qVars[6],this.qVars[3]-1) +
-					this.qVars[4] * this.qVars[5] * Math.pow(this.qVars[6],this.qVars[5]-1);
+					this.qVars[4] * this.qVars[5] * Math.pow(this.qVars[6],this.qVars[5]-1)];
 			} else {
-				workObj = new Array(6);
-				workObj[0] = this.qVars[0] * this.qVars[1];
-				workObj[1] = this.qVars[1] - 1;
-				workObj[2] = this.qVars[2] * this.qVars[3];
-				workObj[3] = this.qVars[3] - 1;
-				workObj[4] = this.qVars[4] * this.qVars[5];
-				workObj[5] = this.qVars[5] - 1;
+				workObj = [this.qVars[0] * this.qVars[1], this.qVars[1] - 1,
+					this.qVars[2] * this.qVars[3], this.qVars[3] - 1, this.qVars[4] * this.qVars[5], this.qVars[5] - 1];
 				
 				this.txt = "Differentiate f(x) = "+markVar(this.qVars[0])+"x^"+markVar(this.qVars[1]);
-				this.correctAns = new Array(1);
 				if (this.qVars[2] > 0) {
 					this.txt = this.txt + " + "+markVar(this.qVars[2])+"x^"+markVar(Math.abs(this.qVars[3]));
 				} else {
@@ -390,30 +461,30 @@ function question(newId) {
 					this.txt = this.txt + "^"+markVar(Math.abs(this.qVars[5]));
 				}
 				
-				this.correctAns[0] = workObj[0]+"x^"+workObj[1]+" + "+workObj[2];
+				this.correctAns = [workObj[0]+"x^"+workObj[1]+" + "+workObj[2]];
 				if (this.qVars[2] < 0) {
 					this.correctAns.push(workObj[0]+"x^"+workObj[1]+" - "+Math.abs(workObj[2]));
 				}
 				if (this.qVars[3] > 2) {
 					this.correctAns[0] = this.correctAns[0] + "x^"+workObj[3];
-					if (this.correctAns[1]) {
+					if (this.correctAns.length > 1) {
 						this.correctAns[1] = this.correctAns[1] + "x^"+workObj[3];
 					}
 				} else if (this.qVars[3] == 2) {
 					this.correctAns[0] = this.correctAns[0] + "x";
-					if (this.correctAns[1]) {
+					if (this.correctAns.length > 1) {
 						this.correctAns[1] = this.correctAns[1] + "x";
 					}
 				}
 
 				if (this.qVars[4] < 0) {
-					if (this.correctAns[1]) {
+					if (this.correctAns.length > 1) {
 						this.correctAns[1] = this.correctAns[1] + " - "+Math.abs(workObj[4]);
 					} else {
 						this.correctAns.push(this.correctAns[0] + " - "+Math.abs(workObj[4]));
 					}
 				} else {
-					if (this.correctAns[1]) {
+					if (this.correctAns.length > 1) {
 						this.correctAns[1] = this.correctAns[1] + " + "+Math.abs(workObj[4]);
 					}
 				}
@@ -435,16 +506,13 @@ function question(newId) {
 		case 10:
 			this.qDiff = 1;
 			this.qVars = new Array(3);
-			this.qVars[2] = 0;
 			if (score >= goal*3/10) {
 				this.timed = true;
 				do {
-					this.qVars[0] = irandom(-1 - score/8,1 + score/12);
+					this.qVars = [irandom(-1 - score/8,1 + score/12), irandom(1,1 + score/18), 0];
 				} while (this.qVars[0] == -1 || this.qVars[0] == 0);
-				this.qVars[1] = irandom(1,1 + score/18);
 			} else {
-				this.qVars[0] = irandom(1,score/12);
-				this.qVars[1] = irandom(1,1+score/18);
+				this.qVars = [irandom(1,score/12), irandom(1,1+score/18), 0];
 			}
 
 			if (score >= 4 && Math.random() < 0.5) {
@@ -476,13 +544,11 @@ function question(newId) {
 					}
 				}
 				
-				this.correctAns = new Array(3);
-				this.correctAns[0] = (Math.round(workObj[0]/workObj[1] * 1000) / 1000).toFixed(3);
-				this.correctAns[1] = (Math.trunc(workObj[0]/workObj[1] * 1000) / 1000).toFixed(3);
+				this.correctAns = [(Math.round(workObj[0]/workObj[1] * 1000) / 1000).toFixed(3), (Math.trunc(workObj[0]/workObj[1] * 1000) / 1000).toFixed(3)];
 				if (workObj[1] > 1) {
-					this.correctAns[2] = workObj[0] + " / " + workObj[1];
+					this.correctAns.push(workObj[0] + " / " + workObj[1]);
 				} else if (workObj[1] == 1) {
-					this.correctAns[2] = workObj[0];
+					this.correctAns.push(workObj[0]);
 				}
 			} else {
 				if (this.qVars[1] > 1) {
@@ -491,31 +557,28 @@ function question(newId) {
 					this.txt = "Differentiate f(x) = "+markVar(this.qVars[0])+"ln(x)";
 				}
 				
-				this.correctAns = new Array(2);
+				this.correctAns = new Array(1);
 				this.correctAns[0] = (this.qVars[0]*this.qVars[1]) + "/x";
 			}
 			break;
 			
 		case 11:
 			this.qDiff = 1;
-			this.qVars = new Array(1);
 			if (score >= goal*3/10) {
 				this.timed = true;
 				do {
-					this.qVars[0] = irandom(-2 - score/12,2 + score/12);
+					this.qVars = [irandom(-2 - score/12,2 + score/12)];
 				} while (this.qVars[0] == -1 || this.qVars[0] == 0);
 			} else {
-				this.qVars[0] = irandom(2,score/12);
+				this.qVars = [irandom(2,score/12)];
 			}
-			
-			this.correctAns = new Array(1);
 
 			if (this.qVars[0] != 1) {
 				this.txt = "Differentiate f(x) = e^"+markVar(this.qVars[0])+"x";
-				this.correctAns[0] = this.qVars[0]+"e^"+this.qVars[0]+"x";
+				this.correctAns = [this.qVars[0]+"e^"+this.qVars[0]+"x"];
 			} else {
 				this.txt = "Differentiate f(x) = e^x";
-				this.correctAns[0] = "e^x";
+				this.correctAns = ["e^x"];
 			}
 			break;
 			
@@ -524,119 +587,94 @@ function question(newId) {
 			this.qVars = new Array(1);
 			if (moduleFile == "productRule") {
 				do {
-					this.qVars[0] = irandom(-1 - score,1 + score);
+					this.qVars [irandom(-1 - score,1 + score)];
 				} while (this.qVars[0] == -1 || this.qVars[0] == 0);
 			} else {
 				do {
-					this.qVars[0] = irandom(-1 - score/16,1 + score/16);
+					this.qVars = [irandom(-1 - score/16,1 + score/16)];
 				} while (this.qVars[0] == -1 || this.qVars[0] == 0);
 			}
-			
-			this.correctAns = new Array(2);
 
 			if (this.qVars[0] != 1) {
 				this.txt = "Differentiate f(x) = "+markVar(this.qVars[0])+"</span>x*e^x";
-				this.correctAns[0] = "e^x("+this.qVars[0]+"x + "+this.qVars[0]+")";
-				this.correctAns[1] = this.qVars[0]+"x*e^x + "+this.qVars[0]+"e^x";
+				this.correctAns = ["e^x("+this.qVars[0]+"x + "+this.qVars[0]+")",
+					this.qVars[0]+"x*e^x + "+this.qVars[0]+"e^x"];
+					
 				if (this.qVars[0] < 0) {
 					this.correctAns.unshift(this.qVars[0]+"x*e^x - "+Math.abs(this.qVars[0])+"e^x");
 					this.correctAns.unshift("e^x("+this.qVars[0]+"x - "+Math.abs(this.qVars[0])+")");
 				}
 			} else {
 				this.txt = "Differentiate f(x) = x*e^x";
-				this.correctAns[0] = "e^x(x+1)";
-				this.correctAns[1] = "x * e^x + e^x";
+				this.correctAns = ["e^x(x+1)", "x * e^x + e^x"];
 			}
 			break;
 			
 		case 13:
 			this.qDiff = 1;
-			this.qVars = new Array(4);
-			this.qVars[0] = irandom(1,score/12);
-			this.qVars[1] = irandom(2,score/16);
-			this.qVars[2] = irandom(1,score/12);
-			this.qVars[3] = irandom(2,score/16);
-			
-			this.correctAns = new Array(1);
+			this.qVars = [irandom(1,score/12), irandom(2,score/16), irandom(1,score/12), irandom(2,score/16)];
 
-			workObj = new Array(3);
-			workObj[0] = this.qVars[0]*this.qVars[2]*4;
-			workObj[1] = 3*(this.qVars[0]*this.qVars[3] + this.qVars[1]*this.qVars[2]); 
-			workObj[2] = this.qVars[1]*this.qVars[3]*2;
+			workObj = [this.qVars[0]*this.qVars[2]*4, 3*(this.qVars[0]*this.qVars[3] + this.qVars[1]*this.qVars[2]), this.qVars[1]*this.qVars[3]*2];
 
 			this.txt = "Differentiate f(x) = ("+markVar(this.qVars[0])+"x^2 + "+markVar(this.qVars[1])+"x)("+markVar(this.qVars[2])+"x^2 + "+markVar(this.qVars[3])+"x). Simplify.";
-			this.correctAns[0] = workObj[0]+"x^3 + "+workObj[1]+"x^2 + "+workObj[2]+"x";
+			this.correctAns = [workObj[0]+"x^3 + "+workObj[1]+"x^2 + "+workObj[2]+"x"];
 			break;
 			
 		case 14:
 			this.qDiff = 4;
-			this.qVars = new Array(1);
 			do {
-				this.qVars[0] = irandom(-1 - score/24,1 + score/24);
+				this.qVars = [irandom(-1 - score/24,1 + score/24)];
 			} while (this.qVars[0] == -1 || this.qVars[0] == 0);
 
 			if (this.qVars[0] != 1) {
 				this.txt = "Differentiate f(x) = "+markVar(this.qVars[0])+"x/e^x";
-				this.correctAns = new Array(2);
-				this.correctAns[0] = this.qVars[0]+"(-x+1)/e^x";
+				this.correctAns = [this.qVars[0]+"(-x+1)/e^x"];
 				if (this.qVars[0] > 0) {
-					this.correctAns[1] = "(-"+this.qVars[0]+"x + "+this.qVars[0]+")/e^x";
+					this.correctAns.push("(-"+this.qVars[0]+"x + "+this.qVars[0]+")/e^x");
 				} else {
-					this.correctAns[1] = "("+Math.abs(this.qVars[0])+"x - "+Math.abs(this.qVars[0])+")/e^x";
+					this.correctAns.push("("+Math.abs(this.qVars[0])+"x - "+Math.abs(this.qVars[0])+")/e^x");
 					this.correctAns.push("("+Math.abs(this.qVars[0])+"x + "+this.qVars[0]+")/e^x");
 				}
 			} else {
 				this.txt = "Differentiate f(x) = x/e^x";
-				this.correctAns = new Array(1);
-				this.correctAns[0] = "(-x+1)/e^x";
+				this.correctAns = ["(-x+1)/e^x"];
 			}
 			
 			break;
 			
 		case 15:
 			this.qDiff = 2;
-			this.qVars = new Array(1);
-			this.qVars[0] = irandom(2,score/16);
-			
-			this.correctAns = new Array(4);
+			this.qVars = [irandom(2,score/16)];
 
 			this.txt = "Differentiate f(x) = "+markVar(this.qVars[0])+"^x";
-			this.correctAns[0] = "(ln "+this.qVars[0]+")("+this.qVars[0]+"^x)";
-			this.correctAns[1] = "(ln "+this.qVars[0]+")"+this.qVars[0]+"^x";
-			this.correctAns[2] = "ln "+this.qVars[0]+"("+this.qVars[0]+"^x)";
-			this.correctAns[3] = "ln "+this.qVars[0]+" * "+this.qVars[0]+"^x";
+			this.correctAns = ["(ln "+this.qVars[0]+")("+this.qVars[0]+"^x)", "(ln "+this.qVars[0]+")"+this.qVars[0]+"^x",
+				"ln "+this.qVars[0]+"("+this.qVars[0]+"^x)", "ln "+this.qVars[0]+" * "+this.qVars[0]+"^x"];
 			break;
 			
 		case 16:
 			this.qDiff = 1;
-			this.qVars = new Array(3);
-			this.qVars[0] = irandom(2,score/16);
-			this.qVars[1] = irandom(1,score/24);
-			this.qVars[2] = irandom(2,score/16);
+			this.qVars = [irandom(2,score/16), irandom(1,score/24), irandom(2,score/16)];
 			
-			workObj = new Array(3)
-			workObj[0] = this.qVars[2]*this.qVars[0];
-			workObj[1] = this.qVars[0]-1;
-			workObj[2] = this.qVars[2]-1;
+			workObj = [this.qVars[2]*this.qVars[0], this.qVars[0]-1, this.qVars[2]-1];
 			
 			this.correctAns = new Array(2);
 
 			this.txt = "Differentiate f(x) = (x^"+markVar(this.qVars[0])+" + "+markVar(this.qVars[1])+")^"+markVar(this.qVars[2])+". Do not expand.";
 			if (workObj[1] > 1) {
 				if (workObj[2] > 1) {
-					this.correctAns[0] = this.qVars[2]+"(x^"+this.qVars[0]+"+"+this.qVars[1]+")^"+workObj[2]+"*"+this.qVars[0]+"x^"+workObj[1];
-					this.correctAns[1] = workObj[0]+"x^"+workObj[1]+"(x^"+this.qVars[0]+"+"+this.qVars[1]+")^"+workObj[2];
+					this.correctAns = [this.qVars[2]+"(x^"+this.qVars[0]+"+"+this.qVars[1]+")^"+workObj[2]+"*"+this.qVars[0]+"x^"+workObj[1], 
+						workObj[0]+"x^"+workObj[1]+"(x^"+this.qVars[0]+"+"+this.qVars[1]+")^"+workObj[2]];
 				} else {
-					this.correctAns[0] = this.qVars[2]+"(x^"+this.qVars[0]+"+"+this.qVars[1]+")*"+this.qVars[0]+"x^"+workObj[1];
-					this.correctAns[1] = workObj[0]+"x^"+workObj[1]+"(x^"+this.qVars[0]+"+"+this.qVars[1]+")";
+					this.correctAns = [this.qVars[2]+"(x^"+this.qVars[0]+"+"+this.qVars[1]+")*"+this.qVars[0]+"x^"+workObj[1],
+						workObj[0]+"x^"+workObj[1]+"(x^"+this.qVars[0]+"+"+this.qVars[1]+")"];
 				}
 			} else {
 				if (workObj[2] > 1) {
-					this.correctAns[0] = this.qVars[2]+"(x^"+this.qVars[0]+"+"+this.qVars[1]+")^"+workObj[2]+"*"+this.qVars[0]+"x";
-					this.correctAns[1] = workObj[0]+"x(x^"+this.qVars[0]+"+"+this.qVars[1]+")^"+workObj[2];
+					this.correctAns = [this.qVars[2]+"(x^"+this.qVars[0]+"+"+this.qVars[1]+")^"+workObj[2]+"*"+this.qVars[0]+"x",
+						workObj[0]+"x(x^"+this.qVars[0]+"+"+this.qVars[1]+")^"+workObj[2]];
 				} else {
-					this.correctAns[0] = this.qVars[2]+"(x^"+this.qVars[0]+"+"+this.qVars[1]+")*"+this.qVars[0]+"x";
-					this.correctAns[1] = workObj[0]+"x(x^"+this.qVars[0]+"+"+this.qVars[1]+")";
+					this.correctAns = [this.qVars[2]+"(x^"+this.qVars[0]+"+"+this.qVars[1]+")*"+this.qVars[0]+"x",
+						workObj[0]+"x(x^"+this.qVars[0]+"+"+this.qVars[1]+")"];
 				}
 			}
 			break;
@@ -644,44 +682,41 @@ function question(newId) {
 		case 17:
 			this.qDiff = 4;
 			this.graphCalc = true;
-			this.qVars = new Array(4);
 
 			do {
-				this.qVars[0] = Math.round((Math.random() - 0.5) * score * 1000) / 1000;
-				this.qVars[1] = Math.round((Math.random() - 0.5) * score * 1000) / 1000;
+				this.qVars = [Math.round((Math.random() - 0.5) * score * 1000) / 1000,
+					Math.round((Math.random() - 0.5) * score * 1000) / 1000, irandom(1, score/24), irandom(2, score/36)];
 			} while (this.qVars[0] > this.qVars[1]);
-			this.qVars[2] = irandom(1, score/24);
-			this.qVars[3] = irandom(2, score/36);
 			
 			this.correctAns = new Array(2);
-			workObj = new Array(1);
 
-			this.txt = "If f(x) = "+markVar(this.qVars[2])+"x^"+markVar(this.qVars[3])+", then evaluate the average slope between "+markVar(this.qVars[0])+" and "+markVar(this.qVars[1])+" to the nearest thousandth.";
-			workObj[0] = (this.qVars[2]*Math.pow(this.qVars[1],this.qVars[3]) - this.qVars[2]*Math.pow(this.qVars[0],this.qVars[3]))/(this.qVars[1]-this.qVars[0]);
+			this.txt = "If f(x) = "+markVar(this.qVars[2])+"x^"+markVar(this.qVars[3])+", then evaluate the average slope \
+				between "+markVar(this.qVars[0])+" and "+markVar(this.qVars[1])+" to the nearest thousandth.";
+			workObj = [(this.qVars[2]*Math.pow(this.qVars[1],this.qVars[3]) - this.qVars[2]*Math.pow(this.qVars[0],this.qVars[3]))/(this.qVars[1]-this.qVars[0])];
 			
-			this.correctAns[0] = (Math.round(workObj[0] * 1000) / 1000).toFixed(3);
-			this.correctAns[1] = (Math.trunc(workObj[0] * 1000) / 1000).toFixed(3);
+			this.correctAns = [(Math.round(workObj[0] * 1000) / 1000).toFixed(3), (Math.trunc(workObj[0] * 1000) / 1000).toFixed(3)];
 			break;
 			
 		case 18:
 			this.qDiff = 3;
 			this.graphCalc = true;
-			this.qVars = new Array(3);
-
-			this.qVars[0] = irandom(2,score/24);
-			this.qVars[1] = irandom(2,score/24);
-			this.qVars[2] = Math.round((Math.random() - 0.5) * score * 1000) / 1000;
+			this.qVars = [irandom(2,score/24), irandom(2,score/24), Math.round(Math.random() * score * 500) / 1000];
 			
-			this.correctAns = new Array(2);
-			workObj = new Array(1);
-
-			this.txt = "A vehicle recently suffered an engine accident, causing the position to become erratic. "+
-					"The model becomes x(t) = sin("+markVar(this.qVars[0])+"t) + "+markVar(this.qVars[1])+"t^2.<br /><br />"+
-					"What is the velocity (nearest thousandth) "+markVar(this.qVars[2])+" seconds after the accident?";
-			workObj[0] = this.qVars[0]*Math.cos(this.qVars[0]*this.qVars[2]) + 2*this.qVars[1]*this.qVars[2];
+			this.txt = "A vehicle suffered an engine accident, causing the position to become erratic. \
+					The model becomes x(t) = sin("+markVar(this.qVars[0])+"t) + "+markVar(this.qVars[1])+"t^2.<br /><br />\
+					What is the velocity (nearest thousandth) "+markVar(this.qVars[2])+" seconds after the accident?";
+			workObj = [this.qVars[0]*Math.cos(this.qVars[0]*this.qVars[2]) + 2*this.qVars[1]*this.qVars[2]];
 			
-			this.correctAns[0] = (Math.round(workObj[0] * 1000) / 1000).toFixed(3);
-			this.correctAns[1] = (Math.trunc(workObj[0] * 1000) / 1000).toFixed(3);
+			this.correctAns = [(Math.round(workObj[0] * 1000) / 1000).toFixed(3), (Math.trunc(workObj[0] * 1000) / 1000).toFixed(3)];
+			break;
+			
+		case 19:
+			this.qDiff = 1;
+			this.qVars = [Math.max(irandom(3,2+score/goal*4),4),irandom(4,6+score/4)];
+			
+			this.txt = "A vehicle is travelling at a massively faster rate. Its position is modeled by x(t) = t^"+markVar(this.qVars[0])+".\
+					<br /><br />At t = "+markVar(this.qVars[1])+", what is the acceleration of the vehicle?";
+			this.correctAns = [this.qVars[0]*(this.qVars[0]-1)*Math.pow(this.qVars[1],this.qVars[0]-2)];
 			break;
 			
 	}
@@ -691,6 +726,26 @@ function question(newId) {
 	}
 	if (this.graphCalc) {
 		this.txt = "<b>Graphing Calculator highly recommended!</b> " + this.txt;
+	}
+}
+
+function csc(param) {
+	return 1/Math.sin(param);
+}
+function sec(param) {
+	return 1/Math.cos(param);
+}
+function cot(param) {
+	return 1/Math.tan(param);
+}
+
+function hideHelpElements(objArray) {
+	for (var i = 0; i < objArray.length; i++) {
+		var findObj = document.getElementById(objArray[i]);
+		
+		if (findObj) {
+			findObj.style.display = "none";
+		}
 	}
 }
 
@@ -705,21 +760,26 @@ function startGame() {
 	if (moduleFile == "trigonometry") {
 		moduleValid = true;
 		goal = 12;
+		hideHelpElements(["timed","arcade","sudden"]);
 	} else if (moduleFile == "powerRule") {
 		moduleValid = true;
 		goal = 25;
+		hideHelpElements(["timed","arcade","sudden"]);
 		/*
 	} else if (moduleFile == "productRule") {
 		moduleValid = true;
 		goal = 5;
+		hideHelpElements(["timed","arcade","sudden"]);
 		*/
 	} else if (moduleFile == "suddenDeath") {
 		moduleValid = true;
 		lifeMax = 30;
+		hideHelpElements(["arcade"]);
 	} else if (moduleFile == "arcade" || moduleFile == "arcadeSimple") {
 		moduleValid = true;
 		lifeMax = 10;
 		nextLifeUp = 5;
+		hideHelpElements(["sudden"]);
 	}
 	
 	if (moduleValid) {
@@ -735,26 +795,28 @@ function rollQuestion() {
 	questionNum++;
 	
 	if (moduleFile == "trigonometry") {
-		curQuestion = new question((questionNum - 1) % 6 + 1);
+		curQuestion = new question((questionNum - 1) % 6 + 1, 1);
 	} else if (moduleFile == "powerRule") {
 		if (questionNum < 4) {
-			curQuestion = new question(7);
+			curQuestion = new question(7, 1);
 		} else if (score < 10) {
-			curQuestion = new question(irandom(7,8));
+			curQuestion = new question(irandom(7,8), 1);
 		} else {
-			curQuestion = new question(irandom(7,9));
+			curQuestion = new question(irandom(7,9), 1);
 		}
 	} else if (moduleFile == "productRule") {
-		curQuestion = new question(12);
-	} else if (moduleFile == "arcadeSimple") {
-		// The user does not have access to a graphing calculator: Skip questions flagged as such
-		do {
-			curQuestion = new question(irandom(1,questionCount));
-		} while(curQuestion.qDiff > Math.floor(score/goal*5) || curQuestion.graphCalc);
+		curQuestion = new question(12, 1);
 	} else {
-		do {
-			curQuestion = new question(irandom(1,questionCount));
-		} while(curQuestion.qDiff > Math.floor(score/goal*5));
+		if (chainPos >= chainLength || combo < 0) {
+			chainPos = 1;
+			do {
+				curQuestion = new question(irandom(1,questionCount), 1);
+			} while(curQuestion.qDiff > Math.floor(score/goal*5) || (curQuestion.graphCalc && moduleFile == "arcadeSimple"));
+		} else {
+			// Some questions are chained. If the previous question was correct, deal the next question in the chain
+			reuseType = curQuestion.qType;
+			curQuestion = new question(reuseType, ++chainPos);
+		}
 	}
 	
 	if (curQuestion.timed) {
