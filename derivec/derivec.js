@@ -357,7 +357,7 @@ function question(newId, newPos) {
 			break;
 			
 		case 8:
-			this.timed = (score >= goal*4/5);
+			this.timed = (score >= goal*4/5 && moduleFile.startsWith("arcade"));
 			
 			do {
 				this.qVars = [irandom(500,750+score*18), irandom(8,32), irandom(3,20), 0];
