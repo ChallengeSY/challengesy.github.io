@@ -774,7 +774,7 @@ function startGame() {
 	} else if (moduleFile == "suddenDeath") {
 		moduleValid = true;
 		lifeMax = 30;
-		hideHelpElements(["arcade"]);
+		hideHelpElements(["arcade","timeNotes"]);
 	} else if (moduleFile == "arcade" || moduleFile == "arcadeSimple") {
 		moduleValid = true;
 		lifeMax = 10;
