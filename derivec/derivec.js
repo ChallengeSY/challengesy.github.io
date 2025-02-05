@@ -3,6 +3,7 @@ var lifeMax = 10;
 var lifeOrg = 0;
 var score = 0;
 var combo = 0;
+var timer = 59;
 var chainLength = 1;
 var chainPos = 1;
 var questionNum = 0;
@@ -13,7 +14,8 @@ var moduleFile = null;
 var curQuestion = null; // Safety creation
 var playerAnswer = null;
 var firstLoad = false;
-const questionCount = 19;
+const questionCount = 21;
+const maxTime = 30;
 
 // Object
 function question(newId, newPos) {
@@ -26,6 +28,7 @@ function question(newId, newPos) {
 	this.txt = "";
 	this.qVars = null;
 	this.correctAns = null;
+	timer = Infinity;
 	chainLength = 1;
 	
 	switch (this.qType) {
@@ -505,7 +508,54 @@ function question(newId, newPos) {
 
 		case 10:
 			this.qDiff = 1;
-			this.qVars = new Array(3);
+			if (moduleFile == "powerRule") {
+				do {
+					this.qVars = [irandom(-1 - score/6,1 + score/8), irandom(1, 1 + score/8), irandom(0, 1)];
+				} while (this.qVars[0] == 0);
+			} else {
+				this.timed = (score >= goal*4/5);
+				do {
+					this.qVars = [irandom(-1 - score/8,1 + score/8), irandom(1, 1 + score/12), irandom(0, 1)];
+				} while (this.qVars[0] == 0);
+			}
+			
+			if (this.qVars[2] == 0) {
+				if (this.qVars[1] > 1) {
+					this.txt = "Differentiate "+markVar(this.qVars[0])+"/x^"+markVar(this.qVars[1]);
+				} else {
+					this.txt = "Differentiate "+markVar(this.qVars[0])+"/x";
+				}
+			} else {
+				if (this.qVars[0] != 1) {
+					this.txt = "Differentiate "+markVar(this.qVars[0])+"x^"+markVar("-"+this.qVars[1]);
+				} else {
+					this.txt = "Differentiate x^"+markVar("-"+this.qVars[1]);
+				}
+			}
+			
+			workObj = [-this.qVars[0]*this.qVars[1],this.qVars[1]+1];
+			
+			this.correctAns = [workObj[0]+"/x^"+workObj[1], workObj[0]+"x^-"+workObj[1]];
+			
+			if (workObj[0] == 1) {
+				this.correctAns[1] = "x^-"+workObj[1];
+			} else if (workObj[0] == -1) {
+				this.correctAns[1] = "-x^-"+workObj[1];
+			}
+			break;
+			
+		case 11:
+			this.qDiff = 1;
+			
+			this.qVars = [irandom(2,3 + score/8), irandom(3,4 + score/6)];
+
+			this.txt = "A vehicle is engaging at flat out speeds. Its position is modeled by x(t) = t^4 - "+markVar(this.qVars[0])+"t^2.\
+					<br /><br />At t = "+markVar(this.qVars[1])+", what is the acceleration of the vehicle?"
+			
+			this.correctAns = [12*Math.pow(this.qVars[1],2) - 2*this.qVars[0]];
+
+		case 12:
+			this.qDiff = 1;
 			if (score >= goal*3/10) {
 				this.timed = true;
 				do {
@@ -562,7 +612,7 @@ function question(newId, newPos) {
 			}
 			break;
 			
-		case 11:
+		case 13:
 			this.qDiff = 1;
 			if (score >= goal*3/10) {
 				this.timed = true;
@@ -582,7 +632,7 @@ function question(newId, newPos) {
 			}
 			break;
 			
-		case 12:
+		case 14:
 			this.qDiff = 2;
 			this.qVars = new Array(1);
 			if (moduleFile == "productRule") {
@@ -610,7 +660,7 @@ function question(newId, newPos) {
 			}
 			break;
 			
-		case 13:
+		case 15:
 			this.qDiff = 1;
 			this.qVars = [irandom(1,score/12), irandom(2,score/16), irandom(1,score/12), irandom(2,score/16)];
 
@@ -620,7 +670,7 @@ function question(newId, newPos) {
 			this.correctAns = [workObj[0]+"x^3 + "+workObj[1]+"x^2 + "+workObj[2]+"x"];
 			break;
 			
-		case 14:
+		case 16:
 			this.qDiff = 4;
 			do {
 				this.qVars = [irandom(-1 - score/24,1 + score/24)];
@@ -642,7 +692,7 @@ function question(newId, newPos) {
 			
 			break;
 			
-		case 15:
+		case 17:
 			this.qDiff = 2;
 			this.qVars = [irandom(2,score/16)];
 
@@ -651,7 +701,7 @@ function question(newId, newPos) {
 				"ln "+this.qVars[0]+"("+this.qVars[0]+"^x)", "ln "+this.qVars[0]+" * "+this.qVars[0]+"^x"];
 			break;
 			
-		case 16:
+		case 18:
 			this.qDiff = 1;
 			this.qVars = [irandom(2,score/16), irandom(1,score/24), irandom(2,score/16)];
 			
@@ -659,27 +709,23 @@ function question(newId, newPos) {
 			
 			this.correctAns = new Array(2);
 
-			this.txt = "Differentiate f(x) = (x^"+markVar(this.qVars[0])+" + "+markVar(this.qVars[1])+")^"+markVar(this.qVars[2])+". Do not expand.";
+			this.txt = "Differentiate f(x) = (x^"+markVar(this.qVars[0])+" + "+markVar(this.qVars[1])+")^"+markVar(this.qVars[2])+". Do not expand the binomial, but simplify otherwise.";
 			if (workObj[1] > 1) {
 				if (workObj[2] > 1) {
-					this.correctAns = [this.qVars[2]+"(x^"+this.qVars[0]+"+"+this.qVars[1]+")^"+workObj[2]+"*"+this.qVars[0]+"x^"+workObj[1], 
-						workObj[0]+"x^"+workObj[1]+"(x^"+this.qVars[0]+"+"+this.qVars[1]+")^"+workObj[2]];
+					this.correctAns = [workObj[0]+"x^"+workObj[1]+"(x^"+this.qVars[0]+"+"+this.qVars[1]+")^"+workObj[2]];
 				} else {
-					this.correctAns = [this.qVars[2]+"(x^"+this.qVars[0]+"+"+this.qVars[1]+")*"+this.qVars[0]+"x^"+workObj[1],
-						workObj[0]+"x^"+workObj[1]+"(x^"+this.qVars[0]+"+"+this.qVars[1]+")"];
+					this.correctAns = [workObj[0]+"x^"+workObj[1]+"(x^"+this.qVars[0]+"+"+this.qVars[1]+")"];
 				}
 			} else {
 				if (workObj[2] > 1) {
-					this.correctAns = [this.qVars[2]+"(x^"+this.qVars[0]+"+"+this.qVars[1]+")^"+workObj[2]+"*"+this.qVars[0]+"x",
-						workObj[0]+"x(x^"+this.qVars[0]+"+"+this.qVars[1]+")^"+workObj[2]];
+					this.correctAns = [workObj[0]+"x(x^"+this.qVars[0]+"+"+this.qVars[1]+")^"+workObj[2]];
 				} else {
-					this.correctAns = [this.qVars[2]+"(x^"+this.qVars[0]+"+"+this.qVars[1]+")*"+this.qVars[0]+"x",
-						workObj[0]+"x(x^"+this.qVars[0]+"+"+this.qVars[1]+")"];
+					this.correctAns = [workObj[0]+"x(x^"+this.qVars[0]+"+"+this.qVars[1]+")"];
 				}
 			}
 			break;
 			
-		case 17:
+		case 19:
 			this.qDiff = 4;
 			this.graphCalc = true;
 
@@ -697,7 +743,7 @@ function question(newId, newPos) {
 			this.correctAns = [(Math.round(workObj[0] * 1000) / 1000).toFixed(3), (Math.trunc(workObj[0] * 1000) / 1000).toFixed(3)];
 			break;
 			
-		case 18:
+		case 20:
 			this.qDiff = 3;
 			this.graphCalc = true;
 			this.qVars = [irandom(2,score/24), irandom(2,score/24), Math.round(Math.random() * score * 500) / 1000];
@@ -710,7 +756,7 @@ function question(newId, newPos) {
 			this.correctAns = [(Math.round(workObj[0] * 1000) / 1000).toFixed(3), (Math.trunc(workObj[0] * 1000) / 1000).toFixed(3)];
 			break;
 			
-		case 19:
+		case 21:
 			this.qDiff = 1;
 			this.qVars = [Math.max(irandom(3,2+score/goal*4),4),irandom(4,6+score/4)];
 			
@@ -723,6 +769,7 @@ function question(newId, newPos) {
 	
 	if (this.timed) {
 		this.txt = "<b>Timed Question!</b> " + this.txt;
+		timer = maxTime;
 	}
 	if (this.graphCalc) {
 		this.txt = "<b>Graphing Calculator highly recommended!</b> " + this.txt;
@@ -771,9 +818,13 @@ function startGame() {
 		goal = 5;
 		hideHelpElements(["timed","arcade","sudden"]);
 		*/
+	} else if (moduleFile == "debug") {
+		moduleValid = true;
+		goal = 25;
+		lifeMax = 100;
 	} else if (moduleFile == "suddenDeath") {
 		moduleValid = true;
-		lifeMax = 30;
+		lifeMax = 1;
 		hideHelpElements(["arcade","timeNotes"]);
 	} else if (moduleFile == "arcade" || moduleFile == "arcadeSimple") {
 		moduleValid = true;
@@ -795,17 +846,21 @@ function rollQuestion() {
 	questionNum++;
 	
 	if (moduleFile == "trigonometry") {
-		curQuestion = new question((questionNum - 1) % 6 + 1, 1);
+		curQuestion = new question((questionNum - 1) % 6 + 1, 2);
 	} else if (moduleFile == "powerRule") {
 		if (questionNum < 4) {
 			curQuestion = new question(7, 1);
 		} else if (score < 10) {
 			curQuestion = new question(irandom(7,8), 1);
-		} else {
+		} else if (score < 20) {
 			curQuestion = new question(irandom(7,9), 1);
+		} else {
+			curQuestion = new question(irandom(7,10), 1);
 		}
 	} else if (moduleFile == "productRule") {
 		curQuestion = new question(12, 1);
+	} else if (moduleFile == "debug") {
+		curQuestion = new question(10, 1);
 	} else {
 		if (chainPos >= chainLength || combo < 0) {
 			chainPos = 1;
@@ -820,7 +875,7 @@ function rollQuestion() {
 	}
 	
 	if (curQuestion.timed) {
-		transitionObj = setInterval(lifeDecay, 30000 / life);
+		transitionObj = setInterval(timeDecay, 1000);
 	}
 	lifeOrg = life;
 	updateUI();
@@ -837,11 +892,11 @@ function rollQuestion() {
 	enableAnswerPanels(true);
 }
 
-function lifeDecay() {
-	life--;
+function timeDecay() {
+	timer--;
 	updateUI();
 	
-	if (life == 0) {
+	if (timer == 0) {
 		validateAnswer();
 	}
 }
@@ -849,9 +904,6 @@ function lifeDecay() {
 function validateAnswer() {
 	playerAnswer = document.getElementById("answerBox").value.replace(/\s/g, '');
 	if (answerCorrect()) {
-		if (curQuestion.timed) {
-			life = lifeOrg;
-		}
 		score++;
 		if (combo < 0) {
 			combo = 0;
@@ -884,12 +936,18 @@ function validateAnswer() {
 				curQuestion.correctAns[irandom(0,curQuestion.correctAns.length-1)] + "</span>&emsp;"+continueButton(false));
 		
 		updateUI();
-	} else if ((moduleFile == "trigonometry" && questionNum < 7) || (moduleFile == "powerRule" && questionNum < 4)) {
+	} else if ((moduleFile == "powerRule" && questionNum < 4)) {
 		combo = 0;
 
 		updateUI();
 		enableAnswerPanels(false);
 		applyFeedback(true, "All a learning process. To answer this question correctly: <span style=\"font-family: monospace;\">" + curQuestion.correctAns[0] + "</span>&emsp;"+continueButton(true));
+	} else if (curQuestion.timed && timer > 0 && life > 1) {
+		applyFeedback(false, "Incorrect! Correction and resubmission required!");
+		life--;
+		combo = Math.min(combo, 0);
+		
+		updateUI();
 	} else {
 		if (combo > 0) {
 			combo = 0;
@@ -897,18 +955,23 @@ function validateAnswer() {
 		combo--;
 		if (moduleFile == "suddenDeath") {
 			life = 0;
+		} else if (timer <= 0) {
+			life = Math.min(1,life - 2 + combo);
 		} else {
-			life = Math.min(life, lifeOrg - 2 + combo);
+			life -= 2 - combo;
 		}
 		
 		updateUI();
 		enableAnswerPanels(false);
-		if (life > 0) {
-			applyFeedback(false, "Incorrect! Your life has been reduced. One correct answer was: <span style=\"font-family: monospace;\">" + 
-				curQuestion.correctAns[irandom(0,curQuestion.correctAns.length-1)] + "</span>&emsp;"+continueButton(true));
-		} else {
+		if (life <= 0) {
 			applyFeedback(false, "Game over! Your life pool has been depleted! One correct answer was: <span style=\"font-family: monospace;\">" + 
 				curQuestion.correctAns[irandom(0,curQuestion.correctAns.length-1)] + "</span>&emsp;"+continueButton(false));
+		} else if (timer <= 0) {
+			applyFeedback(false, "Time expired! Your life has been harshly reduced! One correct answer was: <span style=\"font-family: monospace;\">" + 
+				curQuestion.correctAns[irandom(0,curQuestion.correctAns.length-1)] + "</span>&emsp;"+continueButton(true));
+		} else  {
+			applyFeedback(false, "Incorrect! Your life has been reduced. One correct answer was: <span style=\"font-family: monospace;\">" + 
+				curQuestion.correctAns[irandom(0,curQuestion.correctAns.length-1)] + "</span>&emsp;"+continueButton(true));
 		}
 	}
 	
@@ -929,32 +992,6 @@ function answerCorrect() {
 	}
 
 	return false;
-}
-
-function sendScore() {
-	if (moduleFile == "arcade" || moduleFile == "suddenDeath") {
-		if (window.XMLHttpRequest) {
-			//Code for modern browsers
-			logRequest = new XMLHttpRequest();
-		} else {
-			//Legacy code, for ancient IE versions 5 and 6
-			logRequest = new ActiveXObject("Microsoft.XMLHTTP");
-		}
-
-		logRequest.open("POST","logGame.php",true);
-		logRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		logRequest.send("score=" + score + "&questions=" + questionCount);
-		
-		logRequest.onreadystatechange = function() {
-			if (logRequest.readyState === 4) {
-				if (logRequest.status==200) {
-					appendStatus("<br />"+logRequest.responseText);
-				} else {
-					appendStatus("<br /><span style=\"color: rgb(255,128,0); font-weight: bold;\">Error</span>: "+logRequest.status);
-				}
-			}
-		}
-	}
 }
 
 function applyFeedback(good, panelTxt) {
@@ -979,9 +1016,45 @@ function enableAnswerPanels(flag) {
 	document.getElementById("notation").readOnly = !flag;
 }
 
+function renderTime(amt, dispFrac) {
+	if (!isFinite(amt)) {
+		return "-'--''"
+	}
+	
+	minutes = Math.floor(amt / 60);
+	seconds = (Math.floor(amt) % 60);
+	fraction = Math.round(amt * 1000) % 1000;
+	
+	if (!dispFrac) {
+		minutes = Math.floor((amt + 0.999) / 60);
+		seconds = Math.ceil(amt - 1e-6) % 60;
+	}
+	
+	buildStr = minutes+ "'"
+	
+	if (seconds < 10) {
+		buildStr = buildStr+"0"
+	}		
+	
+	buildStr = buildStr+seconds+"''"
+	if (dispFrac) {
+		if (fraction < 10) {
+			buildStr = buildStr+"00"
+		} else if (fraction < 100) {
+			buildStr = buildStr+"0"
+		}
+		buildStr = buildStr+fraction;
+	}
+	
+	return buildStr;
+}
+
 function updateUI() {
 	document.getElementById("score").innerHTML = score + " / " + goal;
 	document.getElementById("life").innerHTML = life + " / " + lifeMax;
+	
+	document.getElementById("time").innerHTML = renderTime(timer, false);
+	
 	
 	var meterSize = score/goal*300;
 	var curveLeft = Math.min(meterSize,3);
@@ -1004,11 +1077,11 @@ function updateUI() {
 	curveLeft = Math.min(meterSize,3);
 	curveRight = Math.min(Math.max(meterSize-297,0),3);
 	meterClass = "okay";
-	if (life <= 1 && score < goal) {
+	if (life <= 1 && score < goal && lifeMax > 1) {
 		meterClass = "nightmare";
-	} else if (lifeOrg <= 3 - Math.min(combo,0) && score < goal) {
+	} else if (life <= 3 - Math.min(combo,0) && score < goal && lifeMax > 1) {
 		meterClass = "danger";
-	} else if (life*3 < lifeMax) {
+	} else if (life*3 < lifeMax || lifeMax <= 1) {
 		meterClass = "warning";
 	} else if (life*3 < lifeMax*2) {
 		meterClass = "caution";
@@ -1027,6 +1100,27 @@ function updateUI() {
 	if (score*10 > goal) {
 		document.getElementById("help").style.display = "none";
 	}
+	
+	if (curQuestion.timed) {
+		meterSize = Math.max(timer/maxTime*300,0);
+	} else {
+		meterSize = 0;
+	}
+	curveLeft = Math.min(meterSize,3);
+	curveRight = Math.min(Math.max(meterSize-297,0),3);
+	meterClass = "okay";
+	if (timer <= 5 && score < goal) {
+		meterClass = "nightmare";
+	} else if (timer <= 10 && score < goal) {
+		meterClass = "danger";
+	} else if (timer <= 20) {
+		meterClass = "warning";
+	} else if (timer <= 30) {
+		meterClass = "caution";
+	}
+
+	document.getElementById("timeMtr").innerHTML = "<div class=\"" + meterClass + "\" style=\"width: " + meterSize + "px; border-radius: " +
+		curveLeft + "px " + curveRight + "px " + curveRight + "px " + curveLeft + "px;\"></div>";
 }
 
 function markVar(baseStr) {
@@ -1035,4 +1129,16 @@ function markVar(baseStr) {
 
 function irandom(mini, maxi) {
 	return Math.floor((Math.random() * (maxi - mini + 1)) + mini);
+}
+
+function getQueryParam(param) { 
+	var query = window.location.search.substring(1); 
+	var vars = query.split("&"); 
+	for (var i=0;i<vars.length;i++) { 
+		var pair = vars[i].split("="); 
+		if (pair[0] == param) { 
+			return pair[1]; 
+		} 
+	}
+	return -1; //not found 
 }

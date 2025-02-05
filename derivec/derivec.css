@@ -15,3 +15,8 @@ legend, #scoreboard {font-family: 'Rajdhani', sans-serif; font-size: 110%; text-
 #notation {width: 100%; height: 150px; font-size: 115%; resize: vertical;}
 
 .qvar {color: rgb(255,255,0);}
+
+/* Review styles */
+#power, #trig, #product, #quotient, #chain, #wordProbs {display: none;}
+pre {background: #202040;}
+.spoiler {background: #000; color: #000;}

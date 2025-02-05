@@ -10,7 +10,7 @@
 	<link type="text/css" href="derivec.css" rel="stylesheet" />
 	<script>
 		function openMenu(submenu) {
-			var hideMenu = (submenu == "arcade" ? "practice" : "arcade");
+			var hideMenu = (submenu == "arcade" ? "review" : "arcade");
 			
 			document.getElementById(hideMenu).style.display = "none";
 			document.getElementById(submenu).style.display = "";
@@ -24,7 +24,7 @@
 
 <!-- Main menu -->
 <p class="center"><button class="interact" onclick="openMenu('arcade')">Arcade Mode</button>
-<button class="interact" onclick="openMenu('practice')">Practice Mode</button></p>
+<button class="interact" onclick="openMenu('review')">Review Material</button></p>
 
 <!-- Arcade Mode menu -->
 <div class="center" style="display: none;" id="arcade">
@@ -38,11 +38,17 @@ Think you can clear the entire challenge without a single miss? Tackle this chal
 <a class="interact" href="play.htm?module=suddenDeath">Play Sudden Death!</a>
 </div>
 
-<!-- Practice Mode menu -->
-<div class="center" style="display: none;" id="practice">
-Practice a module until the goal is reached, or your life pool reaches zero.<br />
-<a class="interact" href="play.htm?module=powerRule" title="Goal: 25">Power Rule</a>
-<a class="interact" href="play.htm?module=trigonometry" title="Goal: 12">Trigonometry</a>
+<!-- Review menu -->
+<div class="center" style="display: none;" id="review">
+Assistance in completing the challenge may be required. While this section will not thoroughly go through the learning process, it will review key aspects used in Differentiation Challenge.
+
+<br /><br />Use the modules below to review topic(s) and reinforce knowledge.<br />
+<a class="interact" href="review.htm?module=power">Power Rule</a>
+<a class="interact" href="review.htm?module=trig">Trigonometry</a>
+<a class="interact" href="review.htm?module=product">Product Rule</a>
+<a class="interact" href="review.htm?module=quotient">Quotient Rule</a>
+<a class="interact" href="review.htm?module=chain">Chain Rule</a>
+<a class="interact" href="review.htm?module=wordProbs">Word Problems</a>
 </div>
 
 <hr />
@@ -51,6 +57,7 @@ Practice a module until the goal is reached, or your life pool reaches zero.<br 
 Differentiation Challenge &copy; 2010-2025 Paul Ruediger<br />
 <a class="interact" href="../spaceYard.htm">Return to Space Yard</a>
 </p>
+</div>
 
 </body>
 </html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta name="keywords" content="Derivatives, Differentiation, Calculus" />
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>Review - Differentiation Challenge</title>
+	<link type="text/css" href="../nevergalaxy/css/csysoft.css" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
+	<link type="text/css" href="derivec.css" rel="stylesheet" />
+	<script src="derivec.js"></script>
+	<script>
+	function generateHelp() {
+		var workObj = document.getElementById(moduleFile);
+		
+		if (workObj) {
+			workObj.style.display = "block";
+		}
+	}
+	
+	moduleFile = getQueryParam("module");
+	</script>
+</head>
+<body onload="generateHelp()">
+
+<p id="banner"><a href="index.htm"><img src="banner.png" alt="Differentiation Challenge" /></a></p>
+
+<div id="power">
+<h2>Power Rule</h2>
+<p>Prerequisite: None</p>
+
+<p>The Power Rule is simple. If f(x) = Cx<sup>n</sup>, then f'(x) = Cnx<sup>n - 1</sup>.</p>
+
+<h3>Sample Question 1</h3>
+<p>If f(x) = 5x^2, find f'(3).</p>
+
+<hr />
+
+<p>This is a relatively simple question. The power rule can be used on this function.</p>
+<pre>f'(x) = 10x</pre>
+
+<p>Now we need to evaulate f'(3).</p>
+<pre>
+f'(3) = 10(3)
+      = 30
+</pre>
+
+<p>The correct response would be 30. But this was a single term question. Let us ramp it up a little bit.</p>
+
+<h3>Sample Question 2</h3>
+<p>If f(x) = x^3 - 9x, find f'(-4).</p>
+
+<hr />
+
+<p>A little more complicated than the previous question. Differenation is done on a <i>per term</i> basis.</p>
+<pre>f'(x) = 3x^2 - 9</pre>
+
+<p>Now we need to evaulate f'(-4).</p>
+<pre>
+f'(-4) = 3(-4)^2 - 9
+       = 3(16) - 9
+       = 48 - 9
+       = 39
+</pre>
+
+<p>The correct response would be 39.</p>
+
+<h3>Your turn</h3>
+<p>There is a dedicated <a href="play.htm?module=powerRule">practice module</a> available. The goal is to score 25 points, and there is also a safety net of 3 questions. (No life is deducted for wrong answers until the safety net wears off.)</p>
+</div>
+
+<div id="trig">
+<h2>Trigonometry</h2>
+<p>Prerequisite: None</p>
+
+<p>Trigonometry has its own set of derivatives any daring individual must know. These are required to conquer Arcade mode.</p>
+
+<h3>Reference</h3>
+<table style="margin-left: auto; margin-right: auto;">
+<tr>
+	<th>Base function</th>
+	<th>Derivative</th>
+</tr><tr>
+	<td>sin x</td>
+	<td>cos x</td>
+</tr><tr>
+	<td>cos x</td>
+	<td>-sin x</td>
+</tr><tr>
+	<td>tan x</td>
+	<td>sec<sup>2</sup>x</td>
+</tr><tr>
+	<td>csc x</td>
+	<td>-csc x*cot x</td>
+</tr><tr>
+	<td>sec x</td>
+	<td>sec x*tan x</td>
+</tr><tr>
+	<td>cot x</td>
+	<td>-csc<sup>2</sup>x</td>
+</tr>
+</table>
+
+<h3>Your turn</h3>
+<p>There is a dedicated <a href="play.htm?module=trigonometry">practice module</a> available. With the assistance of a graphing calculator, the goal is to score 12 points, and there is no safety net. (Life will be immediately deducted with each wrong answer.)</p>
+</div>
+
+<div id="product">
+<h2>Product Rule</h2>
+<p>Prerequisite: Mastery of the <a href="review.htm?module=power">Power Rule</a></p>
+
+<p>The Product Rule is another important rule in differentiation. If we got f(x)*g(x), then the derivative is f'(x)g(x) + f(x)g'(x).
+</p>
+
+<h3>Sample Question</h3>
+<p><b>Note</b>: This specific question is not in the question pool itself, but another question testing this concept is in the pool.</p>
+
+<p>Differentiate (x^3 + 2x + 8)(x^3 - 4x^2 + 8).</p>
+
+<hr />
+
+<p>This question is very difficult, but still solvable. We could try to do all this multiplication manually, but it would be painful. Instead, lets use our new rule.</p>
+
+<pre>f'(x) = (3x^2 + 2)(x^3 - 4x^2 + 8) + (x^3 + 2x + 8)(3x^2 - 8x)</pre>
+
+<p>Slightly less painful, but still difficult.</p>
+
+<pre>f'(x) = 3x^5 - 12x^4 + 24x^2 + 2x^3 - 8x^2 + 16 + 3x^5 - 8x^4 + 6x^3 - 16x^2 + 24x^2 - 64x</pre>
+
+<p>Heavy use of the Distributive property makes this look very ugly.</p>
+
+<pre>f'(x) = 6x^5 - 20x^4 + 8x^3 + 24x^2 - 64x + 16</pre>
+
+<p>There, all the mess has been cleaned up. The correct, and most simplified, answer is 6x<sup>5</sup> - 20x<sup>4</sup> + 8x<sup>3</sup> + 24x<sup>2</sup> - 64x + 16.</p>
+</div>
+
+<div id="quotient">
+<h2>Quotient Rule</h2>
+<p>Prerequisite: Mastery of the <a href="review.htm?module=power">Power Rule</a></p>
+
+<p>The Quotient Rule involves a function that has a fraction containing a sub-function on each side. If we were to differentiate f(x)/g(x), then the result would be [f'(x)g(x) - f(x)g'(x)]/[g(x)]<sup>2</sup>.</p>
+
+<h3>Sample Question</h3>
+<p><b>Note</b>: This specific question is not in the question pool itself, but another question testing this concept is in the pool.</p>
+
+<p>Differentiate (x^2 + 4)/(x^4 + 2x^2 + 4).</p>
+
+<hr />
+
+<p>As usual, we've got a complicated question. This time, we need the Quotient Rule to save us.</p>
+
+<pre>f'(x) = [(2x)(x^4 + 2x^2 + 4) - (x^2 + 4)(4x^3 + 4x)]/[(x^4 + 2x^2 + 4)]^2</pre>
+
+<p>Let's try reducing this mess.</p>
+
+<pre>f'(x) = [(2x^5 + 4x^3 + 8x) - (4x^5 + 20x^3 + 16x)]/[(x^4 + 2x^2 + 4)]^2</pre>
+
+<p>Looks better, but could still be improved upon.</p>
+
+<pre>f'(x) = (-2x^5 - 16x^3 - 8x)/[(x^4 + 2x^2 + 4)]^2</pre>
+
+<p>This concludes the question. The divisor could still be expanded upon, but that is not necessary to understand this rule. Still, we will leave a spoiler anyway.</p>
+
+<p>Spoiler: (-2x<sup>5</sup> - 16x<sup>3</sup> - 8x)/<span class="spoiler">(x<sup>8</sup> + 4x<sup>6</sup> + 12x<sup>4</sup> + 16x<sup>2</sup> + 16)</span></p>
+</div>
+
+<div id="chain">
+<h2>Chain Rule</h2>
+<p>Prerequisite: General mastery of differentiation</p>
+
+<p>The Chain Rule can be very tricky to master. You start with the outside and work your way in.</p> Differentiating f(g(x)) would yield f'(g(x))*g'(x).
+
+<h3>Sample Question</h3>
+
+<p>Differentiate (x^2 + 1)^3.</p>
+
+<hr />
+
+<p>This definitely looks complicated. Lets start with the outside. Differentiating u<sup>3</sup> = 3u<sup>2</sup>*du.</p>
+
+<pre>f'(x) = 3(x^2 + 1)^2 * ???</pre>
+
+<p>Now for the inside. Differentiating x<sup>2</sup> + 1 = 2x.</p>
+
+<pre>
+f'(x) = 3(x^2 + 1)^2 * 2x
+      = 6x(x^2 + 1)^2
+</pre>
+
+<p>The correct response would be 6x(x<sup>2</sup> + 1)<sup>2</sup>.</p>
+
+<hr />
+
+<p>Though not accepted by Differenation Challenge; if you truly wanted to, you could still expand the answer further... The expanded answer is spoilered to allow for checking work.</p>
+
+<p>Spoiler: <span class="spoiler">24x<sup>5</sup> + 12x<sup>3</sup> + 6x</span></p>
+</div>
+
+<div id="wordProbs">
+<h2>Word Problems</h2>
+<p>Prerequisite: General mastery of differentiation</p>
+
+<p>Do not allow word problems to throw you off. They serve as applications of differentiation.</p>
+
+<h3>Sample Question</h3>
+<p>A ball's height is modeled by h(t) = 1327 - 16t^2.</p>
+
+<p>At t = 7, what is the velocity of the ball?</p>
+
+<hr />
+
+<p>The derivative of position (e.g. change in position) would be the velocity.</p>
+
+<pre>
+v(t) = h'(t)
+     = -32t
+
+v(7) = -32(7)
+     = -224
+</pre>
+
+<p>The correct answer would be -224.</p>
+</div>
+
+</body>
+</html>
