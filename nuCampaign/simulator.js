@@ -554,6 +554,9 @@ function initShips() {
 				case "Deep Watcher":
 					special = shipAbility("Deep Scan");
 					break;
+				case "Quietus Class Cruiser+":
+					special = shipAbility("Radiation Shielding") + " and " + shipAbility("Chunnel Self");
+					break;
 				case "Firecloud Class Cruiser":
 					special = shipAbility("Chunnel Initiator") + " and " + shipAbility("Chunnel Target");
 					break;
@@ -577,10 +580,10 @@ function initShips() {
 					special = shipAbility("Heats to 100");
 					break;
 
-				case "Super Star Cruiser":
+				case "Moscow Star Class Escort":
 					// Fall through
-				case "Super Star Cruiser II":
-					special = shipAbility("Intercept Interference");
+				case "Moscow Star Class Destroyer":
+					special = shipAbility("Radiation Shielding") + " and " + shipAbility("Intercept Interference");
 					break;
 
 				case "Pawn Class Baseship":
@@ -1398,6 +1401,9 @@ function detailedReport(targetDesign) {
 			break;
 		case "B222b Destroyer":
 			similiarDesign = "B222 Destroyer";
+			break;
+		case "Quietus Class Cruiser+":
+			similiarDesign = "Quietus Class Cruiser";
 			break;
 			
 		// Crystalline designs

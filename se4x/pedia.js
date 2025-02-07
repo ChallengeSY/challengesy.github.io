@@ -1431,6 +1431,8 @@ function keywordifyCollection(collObj) {
 		{regex: "Expansion "+conceptLink("Fleet"), newTxt: conceptLink("Expansion Fleet")},
 		{regex: "extermination "+conceptLink("fleet"), newTxt: conceptLink("extermination fleet")},
 		{regex: "Extermination "+conceptLink("Fleet"), newTxt: conceptLink("Extermination Fleet")},
+		{regex: conceptLink("attack")+"er", newTxt: "attacker"},
+		{regex: conceptLink("Attack")+"er", newTxt: "Attacker"},
 		{regex: conceptLink("danger")+"ous", newTxt: "dangerous"},
 		{regex: "re"+conceptLink("turn"), newTxt: "return"},
 		{regex: "Data"+conceptLink("base"), newTxt: "Database"},
