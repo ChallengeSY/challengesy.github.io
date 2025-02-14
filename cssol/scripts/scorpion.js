@@ -22,6 +22,25 @@ maxReserve = 0;
 prefilledReserve = 0;
 deckCost = 37;
 
+reverseRender = true;
+setupApplied = false;
+
+function customRender() {
+	if (!setupApplied) {
+		for (var d = 0; d < 5; d++) {
+			reposElement("stock"+d,7*COLUMN_WIDTH+d,d);
+		}
+		
+		for (var y = 0; y < 52; y++) {
+			for (var x = 0; x < 7; x++) {
+				reposElement("x"+x+"y"+y,x*COLUMN_WIDTH,FANNING_Y*y);
+			}
+		}
+		
+		setupApplied = true;
+	}
+}
+
 function changeDiff(firstTime) {
 	var diffSel = document.getElementById("gameDiff");
 	var index = diffSel.selectedIndex;

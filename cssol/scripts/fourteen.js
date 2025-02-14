@@ -26,11 +26,6 @@ deckCost = 60;
 reverseRender = true;
 setupApplied = false;
 
-function reposElement(objId, newX, newY) {
-	document.getElementById(objId).style.left = newX+"px";
-	document.getElementById(objId).style.top = newY+"px";
-}
-
 function customRender() {
 	if (!setupApplied) {
 		for (b = 0; b < 5; b++) {

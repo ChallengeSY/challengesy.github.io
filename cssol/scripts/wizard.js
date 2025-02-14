@@ -304,6 +304,18 @@ function setupGame() {
 	newGame(true,(baseStatFile != "seriesPlay" || seriesPassword == ""));
 }
 
+function reposElement(objId, newX, newY) {
+	var workObj = document.getElementById(objId);
+	if (workObj) {
+		if (newX < 0) {
+			workObj.remove();
+		} else {
+			workObj.style.left = newX+"px";
+			workObj.style.top = newY+"px";
+		}
+	}
+}
+
 function dealStock() {
 	var newCard;
 	var emptyTableau = false;
