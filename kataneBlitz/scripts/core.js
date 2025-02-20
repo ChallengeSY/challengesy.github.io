@@ -629,7 +629,7 @@ function makeBomb(totCount, needyCount) {
 }
 
 function createEdgework() {
-	const serialChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+	const serialChars = 'ABCDEFGHIJKLMNPQRSTUVWXZ0123456789';
 	var numBatt = irandom(0,2) + 2*irandom(0,2);
 	var numIndicators = irandom(0,3);
 	var numPortPlates = irandom(0,3);
@@ -647,9 +647,9 @@ function createEdgework() {
 	
 	for (var c = 0; c < 6; c++) {
 		if (c == 0) {
-			edgeworkFrag.innerHTML += serialChars.charAt(irandom(0,25));
+			edgeworkFrag.innerHTML += serialChars.charAt(irandom(0,23));
 		} else if (c == 5) {
-			edgeworkFrag.innerHTML += serialChars.charAt(irandom(26,serialChars.length-1));
+			edgeworkFrag.innerHTML += serialChars.charAt(irandom(24,serialChars.length-1));
 		} else {
 			edgeworkFrag.innerHTML += serialChars.charAt(irandom(0,serialChars.length-1));
 		}
