@@ -443,6 +443,9 @@ function readStorms(newData) {
 				importedTable.appendChild(trFrag);
 			}
 		}	
+		
+		nuStarmap = nuImportedGame.rst.planets;
+		console.log("Planets found: "+nuStarmap.length);
 	} else {
 		allRows = document.getElementsByTagName("tr");
 		
