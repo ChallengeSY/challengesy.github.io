@@ -445,7 +445,7 @@ function readStorms(newData) {
 		}	
 		
 		nuStarmap = nuImportedGame.rst.planets;
-		console.log("Planets found: "+nuStarmap.length);
+		console.log("Planets count for game "+gameId+": "+nuStarmap.length);
 	} else {
 		allRows = document.getElementsByTagName("tr");
 		
