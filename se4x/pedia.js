@@ -1033,7 +1033,7 @@ function showBox(concept) {
 			break;
 		case "space pilgrims":
 			displayTxt = "<b>Space Pilgrims</b><br />Empire's ships are unaffected by "+conceptLink("Asteroids")+", "+conceptLink("Nebula")+", \
-				"+conceptLink("Black Hole")+"s, or "+conceptLink("Lost in Space")+" markers when moving";
+				"+conceptLink("Black Hole")+"s, and "+conceptLink("Lost in Space")+" markers when moving";
 			break;
 		case "hive mind":
 			displayTxt = "<b>Hive Mind</b><br />Empire adapts to their opponents. Starting at "+conceptLink("round")+" 2 of each "+conceptLink("battle")+", \
@@ -1401,7 +1401,7 @@ function keywordifyCollection(collObj) {
 		"Transport", "Troops", "Capture", "Militia", "Light Infantry", "Space Marines", "Heavy Infantry", "Grav Armor", "Drop Ships",
 		"Experience", "Facility", "Facilities", "RP", "Boarding", "Security Forces", "Military Academy", "Flagship", "Swallow",
 		"Advanced Construction",
-		"Empire Advantage", "Industrious Race", "Horsemen of the Plains", "Space Pilgrims", "Traders", "Warrior Race",
+		"Empire Advantage", "And We Still Carry Swords", "Industrious Race", "Horsemen of the Plains", "Space Pilgrims", "Traders", "Warrior Race",
 		"Advanced Comm Array", "Air Support", "The Captain's Chair", "Cold Fusion Drive", "Mobile Analysis Bay", "Soylent Purple",
 		"Resource Card",
 		"Depletion", "Deplete", "Self-Preservation",
@@ -1462,14 +1462,16 @@ function keywordifyCollection(collObj) {
 		{regex: conceptLink("boarding")+" ship", newTxt: conceptLink("boarding ship")},
 		{regex: conceptLink("Black Hole")+" Jumping", newTxt: conceptLink("Black Hole Jumping")},
 		{regex: conceptLink("black hole")+" jumping", newTxt: conceptLink("black hole jumping")},
+		{regex: "green "+conceptLink("replicator")+"s", newTxt: conceptLink("green replicators")},
+		{regex: "Green "+conceptLink("Replicator")+"s", newTxt: conceptLink("Green Replicators")},
 		{regex: "Alien "+conceptLink("Technology"), newTxt: conceptLink("Alien Technology")},
 		{regex: "alien "+conceptLink("technology"), newTxt: conceptLink("alien technology")},
 		{regex: "Adaptive "+conceptLink("Cloaking")+" Device", newTxt: conceptLink("Adaptive Cloaking Device")},
 		{regex: "adaptive "+conceptLink("cloaking")+" device", newTxt: conceptLink("adaptive cloaking device")},
 		{regex: conceptLink("Minesweeper")+" Jammer", newTxt: conceptLink("Minesweeper Jammer")},
 		{regex: conceptLink("minesweeper")+" jammer", newTxt: conceptLink("minesweeper jammer")},
-		{regex: conceptLink("replicator")+ " solitaire", newTxt: conceptLink("replicator solitaire")},
-		{regex: conceptLink("Replicator")+ " Solitaire", newTxt: conceptLink("Replicator Solitaire")},
+		{regex: conceptLink("replicator")+" solitaire", newTxt: conceptLink("replicator solitaire")},
+		{regex: conceptLink("Replicator")+" Solitaire", newTxt: conceptLink("Replicator Solitaire")},
 		{regex: "Anti-"+conceptLink("Replicator"), newTxt: conceptLink("Anti-Replicator")},
 		{regex: "anti-"+conceptLink("replicator"), newTxt: conceptLink("anti-replicator")},
 		{regex: conceptLink("Type V")+"II", newTxt: conceptLink("Type VII")},

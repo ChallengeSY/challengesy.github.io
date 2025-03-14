@@ -2526,7 +2526,7 @@
 			"removeCounter":"Inf4B"
 		}]},
 	{"heading":"Stardate 2408.0",
-	"commentary":"<p>Another economic phase, another fresh batch of hulls. Normally this would open up a rematch with Aries; but we have Titans in deep space, nullifying eligibility for this mission. Much like the previous phase, Xinu is short on CP. Thus, they will skip their purchase roll. We <i>did</i> use our Titans in battle against them, giving them a <b>massive</b> RP boost! They can now build Type IXs!</p><p>We will build 2 full Carriers this time around (-54 CP total). That is it!</p>",
+	"commentary":"<p>Another economic phase, another fresh batch of hulls. Normally this would open up a rematch with Aries; but we have Titans in deep space, nullifying eligibility for this mission. Much like the previous phase, Xinu is short on CP. Instead, because we have reached economic phase 8, they get a free Movement technology. We <i>did</i> use our Titans in battle against them, giving them a <b>massive</b> RP boost! They can now build Type IXs!</p><p>We will build 2 full Carriers this time around (-54 CP total). That is it!</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":3,"colonyCP":69,"mineralCP":0,"pipeCP":0,"maint":13,"bidCP":0,"techBuy":0,"unitBuy":54
@@ -2539,7 +2539,7 @@
 		}],
 	"replicatorTable":
 		[{
-			"name":"Xinu","pdTech":1,"scanTech":1,"sweepTech":1,"moveTech":6,"explore":1,"NPA":1,"hullSize":8
+			"name":"Xinu","pdTech":1,"scanTech":1,"sweepTech":1,"moveTech":7,"explore":1,"NPA":1,"hullSize":8
 		}],
 	"actions":
 		[{
@@ -2659,7 +2659,7 @@
 			"placeGhost":"hiddenV",
 			"location":"J8"
 		},{
-			"placeHullsV":"J3,J3,J8,J8,I2,I2,J6,J7,I3,J7",
+			"placeHullsV":"J3,J3,J7,J7,I2,I2,J6,J7,I3,J7",
 			"startId":35
 		},{
 			"revealCounter":"systemG6",
@@ -2885,12 +2885,12 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2409.0",
-	"commentary":"<p>Xinu is nearing depletion, for what little it matters this playthrough. They continue to produce more hulls. Now that they have money, they roll to determine where to spend their CP. A 9 causes them to buy Movement 7 for 15 CP.</p><p>Meanwhile, we can take initiative for 15 CP. We then buy a full Titan (-47), spending our money.</p>",
+	"commentary":"<p>Xinu is nearing depletion, for what little it matters this playthrough. They continue to produce more hulls. Now that they have money, they roll to determine where to spend their CP. A 9 normally would cause them to buy Movement, except they have already maxed their Movement technology. No spending takes place this phase.</p><p>Meanwhile, we can take initiative for 15 CP. We then buy a full Titan (-47), spending our money.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":5,"colonyCP":73,"mineralCP":5,"pipeCP":0,"maint":20,"bidCP":15,"techBuy":0,"unitBuy":47
 		},{
-			"name":"Xinu (Violet)","initCP":6,"mineralCP":20,"techBuy":15,"unitBuy":0
+			"name":"Xinu (Violet)","initCP":6,"mineralCP":20,"techBuy":0,"unitBuy":0
 		}],
 	"techTableX":
 		[{
