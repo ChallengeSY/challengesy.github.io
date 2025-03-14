@@ -2885,7 +2885,7 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2409.0",
-	"commentary":"<p>Xinu is nearing depletion, for what little it matters this playthrough. They continue to produce more hulls. Now that they have money, they roll to determine where to spend their CP. A 9 normally would cause them to buy Movement, except they have already maxed their Movement technology. No spending takes place this phase.</p><p>Meanwhile, we can take initiative for 15 CP. We then buy a full Titan (-47), spending our money.</p>",
+	"commentary":"<p>Xinu is nearing depletion, for what little it matters this playthrough. They continue to produce more hulls. Now that they have money, they roll to determine where to spend their CP. A 9 normally would cause them to buy Movement technology, except they have already maxed that out. Since deep space has not yet been exhausted, no spending takes place this phase.</p><p>Meanwhile, we can take initiative for 15 CP. We then buy a full Titan (-47), spending our money.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":5,"colonyCP":73,"mineralCP":5,"pipeCP":0,"maint":20,"bidCP":15,"techBuy":0,"unitBuy":47
