@@ -11,6 +11,7 @@ var facedownHints = (getStorage("downturnHints") && isFinite(getStorage("downtur
 var preferDeckId = (getStorage("cardback") && isFinite(getStorage("cardback")) ? getStorage("cardback") : -1);
 var playSfx = (getStorage("playSfx") && isFinite(getStorage("playSfx")) ? getStorage("playSfx") : 1);
 var playMus = (getStorage("playMus") && isFinite(getStorage("playMus")) ? getStorage("playMus") : -1);
+var useJokeStyle = (scriptTime.getUTCDate() == 1 && scriptTime.getUTCMonth() == 3);
 var emptyAutoRefills = 0;
 var undoCount = 0;
 var playHeight = 500;
@@ -1107,8 +1108,26 @@ solCard.prototype.innerCode = function() {
 	var faceImg = "";
 	var cornerRank = this.rank.charAt(0);
 	var filepath = window.location.pathname;
+	var jokeSuit = null;
 	if (this.rank == "10") {
 		cornerRank = "10";
+	}
+	
+	if (useJokeStyle) {
+		switch (this.suit) {
+			case "Spade":
+				jokeSuit = "diamond";
+				break;
+			case "Heart":
+				jokeSuit = "club";
+				break;
+			case "Diamond":
+				jokeSuit = "s`ade";
+				break;
+			case "Club":
+				jokeSuit = "heart";
+				break;
+		}
 	}
 
 	if (this.suit == "Diamond") {
@@ -1221,7 +1240,11 @@ solCard.prototype.innerCode = function() {
 		}
 	}
 	
-	outerShell = "<div class=\"front " + this.suit.toLowerCase() + "s\">\n" 
+	if (useJokeStyle) {
+		outerShell = "<div class=\"front " + jokeSuit + "s\">\n" 
+	} else {
+		outerShell = "<div class=\"front " + this.suit.toLowerCase() + "s\">\n" 
+	}
 	outerShell = outerShell + innerShell + "</div>\n"; 
 	
 	return outerShell;
