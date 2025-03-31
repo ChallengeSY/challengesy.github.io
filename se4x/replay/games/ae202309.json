@@ -5932,7 +5932,7 @@
 			"name":"home20Y"
 		}]},
 	{"heading":"Stardate 2420.4 (Conclusion)",
-	"commentary":"<p>Pluto, the last of the 3, is now eliminated! This truly concludes the scenario. Yet, it is hard to say how successful we were. Black Holes got to screw over Yellow player for <b>10</b> economic phases, until we got the wisdom for them to just go around.</p><p>Originally, we considered taking a stab at the larger Alien Empires map that comes prepacked in the Close Encounters scenario book, though that was before we came up with the Replay Center idea. The original <a href=\"../aeAar/\">archived document</a> is still available.</p>",
+	"commentary":"<p>Pluto, the last of the 3, is now eliminated! This truly concludes the scenario. Yet, it is hard to say how successful we were. Black Holes got to screw over Yellow player for <b>10</b> economic phases, until we got the wisdom for them to just go around.</p><p>Originally, we considered taking a stab at the larger Alien Empires map that comes prepacked in the Close Encounters scenario book, though that was before we came up with Replay Center. The original <a href=\"../aeAar/\">archived document</a> is still available.</p>",
 	"alienTable":
 		[{
 			"name":"Haumea (Red)","eco":6,"fleet":1,"tech":10,"def":4,"delta":"---","hidden":"&mdash;"

@@ -159,6 +159,10 @@
 		[{
 			"name":"CSY (Green)"
 		}],
+	"dmTable":
+		[{
+			"soloLg":3,"ecoPhase":1
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Gload"
@@ -385,6 +389,10 @@
 	"techTable":
 		[{
 			"name":"CSY (Green)"
+		}],
+	"dmTable":
+		[{
+			"soloLg":3,"ecoPhase":2
 		}],
 	"actions":
 		[{
@@ -645,6 +653,10 @@
 		[{
 			"name":"CSY (Green)","atk":1
 		}],
+	"dmTable":
+		[{
+			"soloLg":3,"ecoPhase":3
+		}],
 	"actions":
 		[{
 			"removeCounter":"SC3G"
@@ -793,6 +805,10 @@
 		[{
 			"name":"CSY (Green)","atk":1,"cloak":1
 		}],
+	"dmTable":
+		[{
+			"soloLg":3,"ecoPhase":4
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Gload"
@@ -913,6 +929,10 @@
 		[{
 			"name":"CSY (Green)","atk":2,"cloak":2,"def":1
 		}],
+	"dmTable":
+		[{
+			"soloLg":3,"ecoPhase":5
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Gload"
@@ -1011,6 +1031,10 @@
 		[{
 			"name":"CSY (Green)","atk":2,"cloak":2,"def":2
 		}],
+	"dmTable":
+		[{
+			"soloLg":3,"ecoPhase":6
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Gload"
@@ -1099,6 +1123,10 @@
 		[{
 			"name":"CSY (Green)","atk":2,"cloak":2,"def":2,"SY":2
 		}],
+	"dmTable":
+		[{
+			"soloLg":3,"ecoPhase":7
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Gload"
@@ -1165,6 +1193,10 @@
 		[{
 			"name":"CSY (Green)","atk":2,"cloak":2,"def":2,"SY":2
 		}],
+	"dmTable":
+		[{
+			"soloLg":3,"ecoPhase":8
+		}],
 	"actions":
 		[{
 			"placeCounter":"R3G",
@@ -1217,6 +1249,10 @@
 	"techTable":
 		[{
 			"name":"CSY (Green)","atk":2,"cloak":2,"def":2,"SY":2
+		}],
+	"dmTable":
+		[{
+			"soloLg":3,"ecoPhase":9
 		}],
 	"actions":
 		[{
@@ -1276,6 +1312,10 @@
 	"techTable":
 		[{
 			"name":"CSY (Green)","atk":2,"cloak":2,"def":2,"SY":2
+		}],
+	"dmTable":
+		[{
+			"soloLg":3,"ecoPhase":10
 		}],
 	"actions":
 		[{
@@ -1350,6 +1390,10 @@
 	"techTable":
 		[{
 			"name":"CSY (Green)","atk":2,"cloak":2,"def":2,"SY":2
+		}],
+	"dmTable":
+		[{
+			"soloLg":3,"ecoPhase":11
 		}],
 	"actions":
 		[{
@@ -1428,6 +1472,10 @@
 	"techTable":
 		[{
 			"name":"CSY (Green)","atk":2,"cloak":2,"def":2,"SY":2
+		}],
+	"dmTable":
+		[{
+			"soloLg":3,"ecoPhase":12
 		}],
 	"actions":
 		[{

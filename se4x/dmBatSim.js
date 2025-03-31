@@ -533,7 +533,7 @@ function applyAllTech() {
 				if (techCells[t].id == "Fighterstk") {
 					techCells[t].value = parseInt(techCells[t].min) + Math.min(atkBonus,1) + Math.min(ftrBonus,3);
 				} else if (techCells[t].id == "FighterDef") {
-					techCells[t].value = parseInt(techCells[t].min) + Math.min(atkBonus,1) + Math.max(ftrBonus-2,0);
+					techCells[t].value = parseInt(techCells[t].min) + Math.min(defBonus,1) + Math.max(ftrBonus-2,0);
 				} else if (techCells[t].id == "RaiderAtk") {
 					techCells[t].value = parseInt(techCells[t].min) + Math.min(atkBonus,2) + Math.min(clkBonus,1);
 				} else if (techCells[t].id.endsWith("Atk")) {
@@ -870,10 +870,6 @@ function doomsdayMachine() {
 	this.toString = function() {
 		return "Doomsday Machine (" + this.hitPoints + " HP)";
 	}
-}
-
-function rollD10() {
-	return 1 + Math.floor(Math.random()*10);
 }
 
 function clearResults(removeDivs) {

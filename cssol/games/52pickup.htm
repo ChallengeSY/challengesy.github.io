@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="description" content="JavaScript solitaire games" />
+	<meta name="keywords" content="FreeCell" />
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>52 Pickup - CSSol</title>
+
+	<link type="text/css" href="../scripts/cards.css" rel="stylesheet" />
+	<link type="image/x-icon" href="../cssol.ico" rel="icon" />
+	<script type="text/javascript" src="../scripts/common.js"></script>
+	<script type="text/javascript" src="../scripts/52pickup.js"></script>
+</head>
+<body>
+<p id="banner"><a href="index.htm"><img src="../gfx/banner.png" alt="" /></a></p>
+<div id="tableau">
+	<div id="commandPanel">
+		<input id="newGame" class="button" type="button" value="New" onclick="newGame(false,true)" title="Starts a new game" />
+		<input id="helpButton" class="button" type="button" value="Help" onclick="toggleHelp()" title="Toggles game instructions" />
+		&mdash; Score: <span id="casualScore">0</span>
+	</div>
+
+	<!-- Playfield elements will be made here -->
+</div>
+
+<p id="statusBar"></p>
+
+<div id="helpPanel">
+<h2>Instructions</h2>
+<p>April Fools! There are no instructions here!</p>
+</div>
+
+</body>
+</html>

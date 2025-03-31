@@ -43,6 +43,8 @@ img.hexBack {
 .counter {border-top: 1px solid #CCC; border-left: 1px solid #CCC; transform: translate(-50%, -50%);}
 .ghost {opacity: 0.7;}
 
+.activePhase {border-color: #FF0;}
+
 @media (max-width: 1440px), (max-height: 800px) {
 	#controls:not(.talonBoard, .versusBoard, .dmBoard) {grid-template-columns: auto 45px 45px 710px 45px 45px auto;}
 	#controls.talonBoard {grid-template-columns: auto 40px 40px 870px 40px 40px auto;}

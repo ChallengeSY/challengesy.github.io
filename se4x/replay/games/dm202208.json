@@ -167,6 +167,10 @@
 		[{
 			"name":"CSY (Red)","size":2
 		}],
+	"dmTable":
+		[{
+			"soloSm":2,"ecoPhase":1
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Rload"
@@ -382,6 +386,10 @@
 	"techTable":
 		[{
 			"name":"CSY (Red)","size":2
+		}],
+	"dmTable":
+		[{
+			"soloSm":2,"ecoPhase":2
 		}],
 	"actions":
 		[{
@@ -614,6 +622,10 @@
 	"techTable":
 		[{
 			"name":"CSY (Red)","size":2
+		}],
+	"dmTable":
+		[{
+			"soloSm":2,"ecoPhase":3
 		}],
 	"actions":
 		[{
@@ -857,6 +869,10 @@
 		[{
 			"name":"CSY (Red)","size":3
 		}],
+	"dmTable":
+		[{
+			"soloSm":2,"ecoPhase":4
+		}],
 	"actions":
 		[{
 			"removeCounter":"SC1R"
@@ -1036,6 +1052,10 @@
 		[{
 			"name":"CSY (Red)","size":3,"atk":1,"tac":1
 		}],
+	"dmTable":
+		[{
+			"soloSm":2,"ecoPhase":5
+		}],
 	"actions":
 		[{
 			"revealCounter":"systemJ7",
@@ -1184,6 +1204,10 @@
 	"techTable":
 		[{
 			"name":"CSY (Red)","size":3,"atk":2,"tac":1,"terraform":1
+		}],
+	"dmTable":
+		[{
+			"soloSm":2,"ecoPhase":6
 		}],
 	"actions":
 		[{
@@ -1364,6 +1388,10 @@
 		[{
 			"name":"CSY (Red)","size":3,"atk":2,"tac":1,"terraform":1,"SY":2
 		}],
+	"dmTable":
+		[{
+			"soloSm":2,"ecoPhase":7
+		}],
 	"actions":
 		[{
 			"placeCounter":"dm1",
@@ -1541,6 +1569,10 @@
 		[{
 			"name":"CSY (Red)","size":3,"atk":2,"tac":1,"terraform":1,"SY":2,"minelaying":1
 		}],
+	"dmTable":
+		[{
+			"soloSm":2,"ecoPhase":8
+		}],
 	"actions":
 		[{
 			"removeCounter":"CA1R"
@@ -1706,6 +1738,10 @@
 		[{
 			"name":"CSY (Red)","size":3,"atk":2,"tac":1,"terraform":1,"SY":2,"minelaying":1
 		}],
+	"dmTable":
+		[{
+			"soloSm":2,"ecoPhase":9
+		}],
 	"actions":
 		[{
 			"removeCounter":"systemI8"
@@ -1846,6 +1882,10 @@
 		[{
 			"name":"CSY (Red)","size":3,"atk":2,"def":1,"tac":1,"terraform":1,"SY":2,"minelaying":1
 		}],
+	"dmTable":
+		[{
+			"soloSm":2,"ecoPhase":10
+		}],
 	"actions":
 		[{
 			"removeCounter":"systemL8"
@@ -1954,6 +1994,10 @@
 	"techTable":
 		[{
 			"name":"CSY (Red)","size":3,"atk":2,"def":2,"tac":1,"terraform":1,"SY":2,"minelaying":1
+		}],
+	"dmTable":
+		[{
+			"soloSm":2,"ecoPhase":11
 		}],
 	"actions":
 		[{

@@ -346,9 +346,9 @@ function autoNameCounter(localObj) {
 		}
 	}
 	
-	if (stackSize > 12) {
-		localObj.style.borderLeftWidth = "12px";
-		localObj.style.borderTopWidth = "12px";
+	if (stackSize > 7) {
+		localObj.style.borderLeftWidth = "7px";
+		localObj.style.borderTopWidth = "7px";
 	}
 }
 
@@ -702,8 +702,15 @@ function readJson() {
 		
 		if (curStage.prodTable) {
 			var constructTable = "<table><caption>Player Economics</caption> \
-				<tr><th>Player</th><th>Initial</th><th>Colonies</th><th>Minerals</th><th>Pipelines</th> \
-				<th>Maint</th><th>Available</th><th>Bid</th><th>Tech</th><th>Units</th><th>Leftover</th></tr>";
+				<tr><th>Player</th><th>Initial</th>\
+				<th><a href=\"javascript:showBox('colony')\">Colonies</a></th>\
+				<th><a href=\"javascript:showBox('minerals')\">Minerals</a></th>\
+				<th><a href=\"javascript:showBox('pipeline')\">Pipelines</a></th>\
+				<th><a href=\"javascript:showBox('maintenance')\">Maint</a></th>\
+				<th>Available</th>\
+				<th><a href=\"javascript:showBox('bid')\">Bid</a></th>\
+				<th><a href=\"javascript:showBox('technology')\">Tech</a></th>\
+				<th>Units</th><th>Leftover</th></tr>";
 				
 			for (var a = 0; a < curStage.prodTable.length; a++) {
 				var activePlayer = curStage.prodTable[a];
@@ -715,8 +722,8 @@ function readJson() {
 					constructTable = constructTable + "<tr>";
 				}
 				
-				var availCP = readValue(activePlayer.initCP,0) + readValue(activePlayer.colonyCP,0) + 
-					readValue(activePlayer.mineralCP,0) + readValue(activePlayer.pipeCP,0) - readValue(activePlayer.maint,0);
+				var availCP = readValue(activePlayer.initCP,0) + Math.max(readValue(activePlayer.colonyCP,0) + 
+					readValue(activePlayer.mineralCP,0) + readValue(activePlayer.pipeCP,0) - readValue(activePlayer.maint,0),0);
 				var leftoverCP = availCP - readValue(activePlayer.bidCP,0) - readValue(activePlayer.techBuy,0) - readValue(activePlayer.unitBuy,0);
 				
 				constructTable = constructTable + "<td>"+activePlayer.name+"</td> \
@@ -1074,6 +1081,90 @@ function readJson() {
 
 		}
 		
+		if (curStage.dmTable) {
+			// Doomsday Machine track
+			var constructTable = "<table><caption>Doomsday Machine track</caption><tr>";
+				
+			constructTable = "<table><caption>Doomsday Machine track</caption><tr>";
+			
+			for (var f = 1; f <= 12; f++) {
+				constructTable = constructTable + "<td>EP "+f+"</td>";
+			}
+			
+			constructTable = constructTable + "</tr><tr>";
+				
+			var dmStr = [0,0,0,0,0,0,0,0,0,0,0,0];
+			var dmDiff = 0;
+			var workTable = curStage.dmTable[0];
+			
+			console.log(workTable.ecoPhase);
+			console.log(workTable.soloSm);
+			console.log(workTable.soloLg);
+			
+			if (workTable.soloSm) {
+				dmDiff = workTable.soloSm;
+				
+				if (dmDiff % 2 == 0) {
+					dmStr[6] = 2;
+					dmStr[8] = 4;
+					dmStr[9] = 6;
+				} else {
+					dmStr[6] = 1;
+					dmStr[8] = 3;
+					dmStr[10] = 5;
+				}
+				
+				while (dmDiff > 2) {
+					dmDiff -= 2;
+					dmStr.shift();
+					dmStr.push(0);
+				}
+			} else if (workTable.soloLg) {
+				dmDiff = workTable.soloLg;
+				
+				if (dmDiff % 2 == 0) {
+					dmStr[7] = 6;
+					dmStr[9] = 8;
+					dmStr[10] = 10;
+				} else {
+					dmStr[7] = 2;
+					dmStr[9] = 4;
+					dmStr[11] = 6;
+				}
+				
+				while (dmDiff > 2) {
+					dmDiff -= 2;
+					dmStr.shift();
+					dmStr.push(0);
+				}
+			}
+			
+			for (var e = 0; e < 12; e++) {
+				if (workTable.ecoPhase == e + 1) {
+					constructTable = constructTable + "<td class=\"numeric activePhase\">";
+				} else {
+					constructTable = constructTable + "<td class=\"numeric\">";
+				}
+				
+				if (dmStr[e] > 0) {
+					constructTable = constructTable + dmStr[e];
+				} else {
+					constructTable = constructTable + "&nbsp;";
+				}
+				
+				constructTable = constructTable + "</td>";
+			}
+			
+			constructTable = constructTable + "</tr></table>";
+			
+			seekTag = "{dmTable}";
+			if (commentary.innerHTML.indexOf(seekTag) >= 0) {
+				commentary.innerHTML = commentary.innerHTML.replace(seekTag,constructTable);
+			} else {
+				commentary.innerHTML = commentary.innerHTML + constructTable;
+			}
+		}
+		
 		if (curStage.victoryTable) {
 			var constructTable = "<table><caption>Victory Point Chart</caption> \
 				<tr><th>Player</th><th>VP</th></tr>";
@@ -1144,8 +1235,11 @@ function readJson() {
 		if (curStage.replicatorTable) {
 			var activePlayer = curStage.replicatorTable[0];
 			var constructTable = "<table><caption>Replicator Empire Development ("+activePlayer.name+")</caption> \
-				<tr><th>Hull Size</th><th>Attack</th><th>Defense</th><th>Tactics</th><th>Adv Ships</th><th>Fleet Size</th> \
-				<th>Purchased</th><th>Trait</th><th>NPA</th><th>DM</th><th>Wrecks</th></tr>";
+				<tr><th>Hull Size</th><th>Attack</th><th>Defense</th><th>Tactics</th><th>Adv Ships</th><th>Fleet Size</th><th>Purchased</th>\
+				<th><a href=\"javascript:showBox('Advanced Research')\">Trait</a></th>\
+				<th><a href=\"javascript:showBox('Non-Player Alien')\">NPA</a></th>\
+				<th><a href=\"javascript:showBox('Doomsday Machine')\">DM</a></th>\
+				<th><a href=\"javascript:showBox('Space Wreck')\">Wrecks</a></th></tr>";
 			
 			var RPtotal = readValue(activePlayer.hullSize, 0) + readValue(activePlayer.atkSeen, 0) +
 				readValue(activePlayer.defSeen, 0) + Math.max(readValue(activePlayer.tacSeen, 0) - 1,0) + 
@@ -1153,29 +1247,90 @@ function readJson() {
 				readValue(activePlayer.purchased, 0) + readValue(activePlayer.advBonus, 0) + 
 				Math.min(readValue(activePlayer.NPA, 0) + readValue(activePlayer.DM, 0) + readValue(activePlayer.wrecks, 0), 3);
 
-			constructTable = constructTable + "<tr><td class=\"numeric\">"+readValue(activePlayer.hullSize, 0)+" / 8</td> \
-				<td class=\"numeric\">"+readValue(activePlayer.atkSeen, 0)+" / 3</td> \
-				<td class=\"numeric\">"+readValue(activePlayer.defSeen, 0)+" / 3</td> \
-				<td class=\"numeric\">"+readValue(activePlayer.tacSeen, 0)+" / 3</td> \
-				<td class=\"numeric\">"+readValue(activePlayer.advShips, 0)+" / 3</td> \
-				<td class=\"numeric\">"+readValue(activePlayer.fleetSize/5, 0)+" / 3</td> \
-				<td class=\"numeric\">"+readValue(activePlayer.purchased, 0)+" / 5</td> \
-				<td class=\"numeric\">"+readValue(activePlayer.advBonus, 0)+" / 1</td> \
-				<td class=\"numeric\">"+readValue(activePlayer.NPA, 0)+" / 1</td> \
-				<td class=\"numeric\">"+readValue(activePlayer.DM, 0)+" / 1</td> \
-				<td class=\"numeric\">"+readValue(activePlayer.wrecks, 0)+" / 3</td></tr>";
+			var classMods = ["","","","","","","","","","","","","","","","","",""];
+			
+			if (activePlayer.hullSize > 0) {
+				classMods[0] = " increase";
+			}
+			if (activePlayer.atkSeen > 0) {
+				classMods[1] = " increase";
+			}
+			if (activePlayer.defSeen > 0) {
+				classMods[2] = " increase";
+			}
+			if (activePlayer.tacSeen > 1) {
+				classMods[3] = " increase";
+			}
+			if (activePlayer.advShips > 1) {
+				classMods[4] = " increase";
+			}
+			if (activePlayer.fleetSize >= 5) {
+				classMods[5] = " increase";
+			}
+			if (activePlayer.purchased > 0) {
+				classMods[6] = " increase";
+			}
+			if (activePlayer.advBonus > 0) {
+				classMods[7] = " increase";
+			}
+			if (activePlayer.NPA > 0) {
+				classMods[8] = " increase";
+			}
+			if (activePlayer.DM > 0) {
+				classMods[9] = " increase";
+			}
+			if (activePlayer.wrecks > 0) {
+				classMods[10] = " increase";
+			}
+
+			constructTable = constructTable + "<tr><td class=\"numeric"+classMods[0]+"\">"+readValue(activePlayer.hullSize, 0)+" / 8</td> \
+				<td class=\"numeric"+classMods[1]+"\">"+readValue(activePlayer.atkSeen, 0)+" / 3</td> \
+				<td class=\"numeric"+classMods[2]+"\">"+readValue(activePlayer.defSeen, 0)+" / 3</td> \
+				<td class=\"numeric"+classMods[3]+"\">"+readValue(activePlayer.tacSeen, 0)+" / 3</td> \
+				<td class=\"numeric"+classMods[4]+"\">"+readValue(activePlayer.advShips, 0)+" / 3</td> \
+				<td class=\"numeric"+classMods[5]+"\">"+readValue(activePlayer.fleetSize/5, 0)+" / 3</td> \
+				<td class=\"numeric"+classMods[6]+"\">"+readValue(activePlayer.purchased, 0)+" / 5</td> \
+				<td class=\"numeric"+classMods[7]+"\">"+readValue(activePlayer.advBonus, 0)+" / 1</td> \
+				<td class=\"numeric"+classMods[8]+"\">"+readValue(activePlayer.NPA, 0)+" / 1</td> \
+				<td class=\"numeric"+classMods[9]+"\">"+readValue(activePlayer.DM, 0)+" / 1</td> \
+				<td class=\"numeric"+classMods[10]+"\">"+readValue(activePlayer.wrecks, 0)+" / 3</td></tr>";
 
 			constructTable = constructTable + "<tr><th>RP Total</th><th>PD Tech</th><th>Ftr Kills</th><th colspan=\"2\">Sweep Tech</th> \
 				<th>Sweep Count</th><th>Scan Tech</th><th colspan=\"2\">Explore Tech</th><th colspan=\"2\">Move Tech</th></tr>";
+			
+			if (RPtotal >= 15) {
+				classMods[11] = " increase";
+			}
+			if (activePlayer.pdTech > 0) {
+				classMods[12] = " increase";
+			}
+			if (activePlayer.ftrKills >= 3) {
+				classMods[13] = " increase";
+			}
+			if (activePlayer.sweepTech > 0) {
+				classMods[14] = " increase";
+			}
+			if (activePlayer.sweepCt >= 3) {
+				classMods[15] = " increase";
+			}
+			if (activePlayer.scanTech > 0) {
+				classMods[16] = " increase";
+			}
+			if (activePlayer.explore > 0) {
+				classMods[17] = " increase";
+			}
+			if (activePlayer.moveTech > 1) {
+				classMods[18] = " increase";
+			}
 
-			constructTable = constructTable + "<tr><td class=\"numeric\">"+RPtotal+" / 15</td> \
-				<td class=\"numeric\">"+readValue(activePlayer.pdTech, 0)+" / 1</td> \
-				<td class=\"numeric\">"+readValue(activePlayer.ftrKills, 0)+" / 3</td> \
-				<td class=\"numeric\" colspan=\"2\">"+readValue(activePlayer.sweepTech, 0)+" / 1</td> \
-				<td class=\"numeric\">"+readValue(activePlayer.sweepCt, 0)+" / 3</td> \
-				<td class=\"numeric\">"+readValue(activePlayer.scanTech, 0)+" / 1</td> \
-				<td class=\"numeric\" colspan=\"2\">"+readValue(activePlayer.explore, 0)+" / 1</td> \
-				<td class=\"numeric\" colspan=\"2\">"+readValue(activePlayer.moveTech, 1)+" / 7</td></tr>";
+			constructTable = constructTable + "<tr><td class=\"numeric"+classMods[11]+"\">"+RPtotal+" / 15</td> \
+				<td class=\"numeric"+classMods[12]+"\">"+readValue(activePlayer.pdTech, 0)+" / 1</td> \
+				<td class=\"numeric"+classMods[13]+"\">"+readValue(activePlayer.ftrKills, 0)+" / 3</td> \
+				<td class=\"numeric"+classMods[14]+"\" colspan=\"2\">"+readValue(activePlayer.sweepTech, 0)+" / 1</td> \
+				<td class=\"numeric"+classMods[15]+"\">"+readValue(activePlayer.sweepCt, 0)+" / 3</td> \
+				<td class=\"numeric"+classMods[16]+"\">"+readValue(activePlayer.scanTech, 0)+" / 1</td> \
+				<td class=\"numeric"+classMods[17]+"\" colspan=\"2\">"+readValue(activePlayer.explore, 0)+" / 1</td> \
+				<td class=\"numeric"+classMods[18]+"\" colspan=\"2\">"+readValue(activePlayer.moveTech, 1)+" / 7</td></tr>";
 				
 			constructTable = constructTable + "</table>";
 			seekTag = "{replicatorTable}";

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta name="description" content="Space Empires 4X Resourcepedia" />
+	<meta name="keywords" content="Space, Empires, Space Empires" />
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+	<title>SE4X - Replicator Solitaire Battle Simulator</title>
+
+	<link type="text/css" href="../nuCampaign/planets.css" rel="stylesheet" />
+	<style>
+		td.bonus, span.hit, li.median {color: #FFFF00; font-weight: bold;}
+		td.reference {color: #C0C0C0;}
+
+		div {border-radius: 12px; padding: 8px; background: rgb(32,32,64); margin-bottom: 25px;}
+		div a {white-space: nowrap;}
+	</style>
+	<script src="repBatSim.js"></script>
+	<script src="pedia.js"></script>
+</head>
+<body onload="setupSim()">
+<p id="banner"><a href="index.htm"><img src="banner.png" alt="Space Empires 4X Resourcepedia" /></a></p>
+
+<hr />
+
+<h2>Replicator Solitaire Battle Simulator</h2>
+
+<table class="clean">
+<tr>
+<td valign="top">
+
+<fieldset>
+<legend>Player Forces</legend>
+<table class="clean">
+<thead>
+<tr>
+<td></td>
+<td></td>
+<th title="How many ships of this type in the fleet?">Quantity</th>
+<th title="Raw Attack strength">Attack</th>
+<th title="Raw Defense strength">Defense</th>
+<th title="Used to break ties">Tactics</th>
+<th class="invisible">Hull Size</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<th>Total</th>
+<td colspan="2" class="numeric" id="totalPlrShips">0</td>
+<td colspan="3" class="numeric" id="totalPlrHulls">0</td>
+</tr>
+</tfoot>
+<tbody id="plrShips">
+<!-- Initially empty; will be populated with rows upon load -->
+</tbody>
+</table>
+</fieldset>
+
+</td>
+<td valign="top">
+
+<fieldset>
+<legend>Replicator Forces</legend>
+<table class="clean">
+<thead>
+<tr>
+<td></td>
+<td></td>
+<th title="How many ships of this type in the fleet?">Quantity</th>
+<th title="Raw Attack strength">Attack</th>
+<th title="Raw Defense strength">Defense</th>
+<th title="Used to break ties">Tactics</th>
+<th class="invisible">Hull Size</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<th>Total</th>
+<td colspan="2" class="numeric" id="totalRepShips">0</td>
+<td colspan="3" class="numeric" id="totalRepHulls">0</td>
+</tr>
+</tfoot>
+<tbody id="repShips">
+<!-- Initially empty; will be populated with rows upon load -->
+</tbody>
+</table>
+</fieldset>
+
+</td>
+</tr>
+<tr>
+<td valign="top">
+
+<fieldset>
+<legend>Player Technology</legend>
+<table class="clean">
+<tfoot>
+<tr>
+<td colspan="6" class="center"><button id="applyAll" class="interact" onclick="applyAllTech()">Apply to all ships</button>
+<button id="emptyFleet" class="interact" onclick="emptyFleet(false)">Empty player fleet</button></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td><label for="techAtk">Attack Level</label></td>
+<td><a href="javascript:showBox('Attack')">(?)</a></td>
+<td><input class="text numeric" type="number" id="techAtk" value="0" min="0" max="3" size="5" /></td>
+<td><label for="techDef">Defense Level</label></td>
+<td><a href="javascript:showBox('Defense')">(?)</a></td>
+<td><input class="text numeric" type="number" id="techDef" value="0" min="0" max="3" size="5" /></td>
+</tr>
+<tr>
+<td><label for="techSize">Ship Size Level</label></td>
+<td><a href="javascript:showBox('Ship Size')">(?)</a></td>
+<td><input class="text numeric" type="number" id="techSize" value="1" min="1" max="7" size="5" onchange="showPlrRows()" onblur="showPlrRows()" /></td>
+<td><label for="techTac">Tactics Level</label></td>
+<td><a href="javascript:showBox('Tactics')">(?)</a></td>
+<td><input class="text numeric" type="number" id="techTac" value="0" min="0" max="3" size="5" /></td>
+</tr>
+<tr>
+<td><label for="techFtr">Fighter Level</label></td>
+<td><a href="javascript:showBox('Fighter')">(?)</a></td>
+<td><input class="text numeric" type="number" id="techFtr" value="0" min="0" max="4" size="5" onchange="showPlrRows()" onblur="showPlrRows()" /></td>
+<td><label for="techClk">Cloaking Level</label></td>
+<td><a href="javascript:showBox('Cloaking')">(?)</a></td>
+<td><input class="text numeric" type="number" id="techClk" value="0" min="0" max="2" size="5" onchange="showPlrRows()" onblur="showPlrRows()" /></td>
+</tr>
+<tr>
+<td><label for="techAC">Advanced Construction</label></td>
+<td><a href="javascript:showBox('Advanced Construction')">(?)</a></td>
+<td><input class="text numeric" type="number" id="techAC" value="0" min="0" max="3" size="5" onchange="showPlrRows()" onblur="showPlrRows()" /></td>
+<td><label for="retreatThresh">Retreat Threshold</label></td>
+<td><a href="javascript:showBox('retreatThresh')">(?)</a></td>
+<td><input class="text numeric" type="number" id="retreatThresh" value="0" min="0" size="5" /></td>
+</tr>
+<tr>
+<td><label for="techMines">Minelayers</label></td>
+<td><a href="javascript:showBox('minelaying')">(?)</a></td>
+<td><input type="checkbox" id="techMines" onclick="showPlrRows()" oninput="showPlrRows()" /></td>
+<td><label for="plrFlagPreserve">Flagship Preservation</label></td>
+<td><a href="javascript:showBox('flagpreserve')">(?)</a></td>
+<td><input type="checkbox" id="plrFlagPreserve" /></td>
+</tr>
+<tr>
+<td><label for="techAlien">Alien Technology</label></td>
+<td><a href="javascript:showBox('Alien Technology')">(?)</a></td>
+<td><input type="checkbox" id="techAlien" onclick="showPlrRows()" oninput="showPlrRows()" disabled="disabled" /></td>
+<td><label for="techAux">Auxiliary Ships</label></td>
+<td>&nbsp;</td>
+<td><input type="checkbox" id="techAux" onclick="showPlrRows()" oninput="showPlrRows()" /></td>
+</tr>
+<tr>
+<td><label for="titanTarget">Titan targeting</label></td>
+<td><a href="javascript:showBox('titantarget')">(?)</a></td>
+<td colspan="4"><select class="text" id="titanTarget">
+<option>Fire at smallest ships throughout battle</option>
+<option>Fire at bigger ships on Round 1</option>
+<option>Fire at bigger ships throughout battle</option>
+</select></td>
+</tr>
+<tr>
+<td><label for="plrAdvantage">Player Advantage</label></td>
+<td><a href="javascript:showBox('empire advantage')">(?)</a></td>
+<td colspan="4"><select class="text" id="plrAdvantage" disabled="disabled">
+<option>None applicable</option>
+<option>Fearless Race</option>
+<option>Warrior Race</option>
+<option>Giant Race</option>
+<option>Hive Mind</option>
+<option>Insectoids</option>
+<option>Immortals</option>
+<option>Expert Tacticians</option>
+<option>Horsemen of the Plains</option>
+<option>Cloaking Geniuses</option>
+<option>Star Wolves</option>
+<option>Longbowmen</option>
+</select></td>
+</tr>
+</tbody>
+</table>
+</fieldset>
+
+</td>
+<td valign="top">
+
+<fieldset>
+<legend>Replicator Technology</legend>
+<table class="clean">
+<tfoot>
+<tr>
+<td colspan="6" class="center"><button id="runBattle" class="interact" onclick="runSimBattles(1)">Run sim battle</button>
+<button id="emptyFleet" class="interact" onclick="emptyFleet(true)">Empty replicator fleet</button><br />
+<button id="runSeries" class="interact" onclick="startSimSeries()">Run several</button>
+<button id="stopSeries" class="interact" onclick="stopSeriesEarly()" disabled="disabled">Stop series</button></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td><label for="repRP">Replicator RP</label></td>
+<td><a href="javascript:showBox('RP')">(?)</a></td>
+<td><input class="text numeric" type="number" id="repRP" value="0" min="0" max="15" size="5" onchange="showPlrRows()" onblur="showPlrRows()" /></td>
+<td><label for="repRetreat">Able to retreat?</label></td>
+<td><a href="javascript:showBox('Retreat')">(?)</a></td>
+<td><input type="checkbox" id="repRetreat" checked="checked" /></td>
+</tr>
+<tr>
+<td><label for="repRprox">Raiders nearby?</label></td>
+<td><a href="javascript:showBox('raiderprox')">(?)</a></td>
+<td><input type="checkbox" id="repRprox" /></td>
+<td><label for="repRseen">Raiders previously seen?</label></td>
+<td>&nbsp;</td>
+<td><input type="checkbox" id="repRseen" /></td>
+</tr>
+<tr>
+<td><label for="repMinesBoard">Mines on the board?</label></td>
+<td><a href="javascript:showBox('minepresence')">(?)</a></td>
+<td><input type="checkbox" id="repMinesBoard" /></td>
+<td><label for="repFtrsBoard">Fighters on the board?</label></td>
+<td><a href="javascript:showBox('ftrpresence')">(?)</a></td>
+<td><input type="checkbox" id="repFtrsBoard" /></td>
+</tr>
+<tr>
+<td><label for="repMinesSeen">Mines previously seen?</label></td>
+<td>&nbsp;</td>
+<td><input type="checkbox" id="repMinesSeen" /></td>
+<td><label for="repMineKills">Mines swept</label></td>
+<td>&nbsp;</td>
+<td><input class="text numeric" type="number" id="repMineKills" value="0" min="0" max="3" size="5" onchange="showPlrRows()" onblur="showPlrRows()" /></td>
+</tr>
+<tr>
+<td><label for="repFtrsSeen">Fighters previously seen?</label></td>
+<td>&nbsp;</td>
+<td><input type="checkbox" id="repFtrsSeen" /></td>
+<td><label for="repFtrKills">Fighters killed</label></td>
+<td>&nbsp;</td>
+<td><input class="text numeric" type="number" id="repFtrKills" value="0" min="0" max="3" size="5" onchange="showPlrRows()" onblur="showPlrRows()" /></td>
+</tr>
+<tr>
+<td><label for="repGunnery">Improved Gunnery</label></td>
+<td><a href="javascript:showBox('improved gunnery')">(?)</a></td>
+<td><input type="checkbox" id="repGunnery" disabled="disabled" /></td>
+<td><label for="numSims">Number of simulations</label></td>
+<td><a href="javascript:showBox('numSims')">(?)</a></td>
+<td><input class="text numeric" type="number" id="numSims" value="400" min="2" size="7" /></td>
+</tr>
+</tbody>
+</table>
+</fieldset>
+
+</td>
+</tr>
+<tr>
+<td valign="top" id="atChart">
+
+<fieldset>
+<legend>Alien Technology</legend>
+<table class="clean">
+<tbody>
+<tr>
+<td><label for="atAMwarhead">Anti-Matter Warhead</label></td>
+<td><a href="javascript:showBox('Anti-Matter Warhead')">(?)</a></td>
+<td><input type="checkbox" id="atAMwarhead" disabled="disabled" /></td>
+<td><label for="atLLtorp">Long Lance Torpedo</label></td>
+<td><a href="javascript:showBox('Long Lance Torpedo')">(?)</a></td>
+<td><input type="checkbox" id="atLLtorp" disabled="disabled" /></td>
+<tr>
+</tr>
+<td><label for="atEmArmor">Emissive Armor</label></td>
+<td><a href="javascript:showBox('Emissive Armor')">(?)</a></td>
+<td><input type="checkbox" id="atEmArmor" disabled="disabled" /></td>
+<td><label for="atEWmod">Electronic Warfare Module</label></td>
+<td><a href="javascript:showBox('Electronic Warfare Module')">(?)</a></td>
+<td><input type="checkbox" id="atEWmod" disabled="disabled" /></td>
+</tr>
+<tr>
+<td><label for="atMWdrive">Microwarp Drive</label></td>
+<td><a href="javascript:showBox('Microwarp Drive')">(?)</a></td>
+<td><input type="checkbox" id="atMWdrive" disabled="disabled" /></td>
+<td><label for="atComSen">Combat Sensors</label></td>
+<td><a href="javascript:showBox('Combat Sensors')">(?)</a></td>
+<td><input type="checkbox" id="atComSen" disabled="disabled" /></td>
+</tr>
+<tr>
+<td><label for="atAfterburn">Afterburners</label></td>
+<td><a href="javascript:showBox('Afterburners')">(?)</a></td>
+<td><input type="checkbox" id="atAfterburn" disabled="disabled" /></td>
+<td><label for="atPhoton">Photon Bomb</label></td>
+<td><a href="javascript:showBox('Photon Bomb')">(?)</a></td>
+<td><input type="checkbox" id="atPhoton" disabled="disabled" /></td>
+</tr>
+<tr>
+<td><label for="atSWturret">Hidden Turret</label></td>
+<td><a href="javascript:showBox('Hidden Turret')">(?)</a></td>
+<td><input type="checkbox" id="atSWturret" disabled="disabled" /></td>
+<td><label for="atAdaptCl">Adaptive Cloaking Device</label></td>
+<td><a href="javascript:showBox('Adaptive Cloaking Device')">(?)</a></td>
+<td><input type="checkbox" id="atAdaptCl" disabled="disabled" /></td>
+</tr>
+<tr>
+<td colspan="1"></td>
+<td colspan="3"><label for="atITcomp">Interlinked Targeting Computer</label></td>
+<td><a href="javascript:showBox('Interlinked Targeting Computer')">(?)</a></td>
+<td><input type="checkbox" id="atITcomp" disabled="disabled" /></td>
+</tr>
+</tbody>
+</table>
+</fieldset>
+</td>
+<td valign="top">
+
+<fieldset>
+<legend>Terrain</legend>
+<input type="radio" name="combatHex" id="hexClear" value="hexClear" checked="checked" />
+<label for="hexClear">Clear</label>
+<input type="radio" name="combatHex" id="hexAsteroids" value="hexAsteroids" />
+<label for="hexAsteroids">Asteroids</label> <a href="javascript:showBox('Asteroids')">(?)</a>
+<input type="radio" name="combatHex" id="hexNebula" value="hexNebula" />
+<label for="hexNebula">Nebula</label> <a href="javascript:showBox('Nebula')">(?)</a>
+<input type="radio" name="combatHex" id="hexBlackHole" value="hexBlackHole" />
+<label for="hexBlackHole">Black Hole</label> <a href="javascript:showBox('Black Hole')">(?)</a><br />
+<label for="aggressor"> Aggressor</label>
+<select class="text" id="aggressor">
+<option>Player</option>
+<option selected="selected">Replicator</option>
+</select>
+</fieldset>
+</td>
+</tr>
+</table>
+
+<hr />
+
+<div>
+<h2>Instructions</h2>
+<p>This Battle Simulator is designed to estimate battles between the Player and Replicator fleets.</p>
+</div>
+
+</body>
+</html>

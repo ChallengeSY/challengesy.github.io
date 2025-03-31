@@ -353,7 +353,7 @@
 		[{
 			"name":"CSY (Blue)","initCP":10,"colonyCP":30,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":10,"unitBuy":32
 		},{
-			"name":"Xinu (Violet)","initCP":0,"mineralCP":35,"techBuy":0,"unitBuy":8
+			"name":"Xinu (Violet)","initCP":0,"colonyCP":0,"mineralCP":35,"techBuy":0,"unitBuy":8
 		}],
 	"techTableX":
 		[{
@@ -744,7 +744,7 @@
 		[{
 			"name":"CSY (Blue)","initCP":0,"colonyCP":34,"mineralCP":5,"pipeCP":0,"maint":2,"bidCP":0,"techBuy":15,"unitBuy":0
 		},{
-			"name":"Xinu (Violet)","initCP":27,"mineralCP":15,"techBuy":0,"unitBuy":8
+			"name":"Xinu (Violet)","initCP":27,"colonyCP":0,"mineralCP":15,"techBuy":0,"unitBuy":8
 		}],
 	"techTableX":
 		[{
@@ -1050,7 +1050,7 @@
 		[{
 			"name":"CSY (Blue)","initCP":22,"colonyCP":44,"mineralCP":10,"pipeCP":0,"maint":1,"bidCP":0,"techBuy":55,"unitBuy":0
 		},{
-			"name":"Xinu (Violet)","initCP":34,"mineralCP":5,"techBuy":0,"unitBuy":8
+			"name":"Xinu (Violet)","initCP":34,"colonyCP":0,"mineralCP":5,"techBuy":0,"unitBuy":8
 		}],
 	"techTableX":
 		[{
@@ -1273,7 +1273,7 @@
 		[{
 			"name":"CSY (Blue)","initCP":20,"colonyCP":59,"mineralCP":0,"pipeCP":0,"maint":1,"bidCP":0,"techBuy":45,"unitBuy":6
 		},{
-			"name":"Xinu (Violet)","initCP":31,"mineralCP":10,"techBuy":15,"unitBuy":0
+			"name":"Xinu (Violet)","initCP":31,"colonyCP":0,"mineralCP":10,"techBuy":15,"unitBuy":0
 		}],
 	"techTableX":
 		[{
@@ -1502,7 +1502,7 @@
 		[{
 			"name":"CSY (Blue)","initCP":23,"colonyCP":64,"mineralCP":10,"pipeCP":0,"maint":1,"bidCP":0,"techBuy":40,"unitBuy":38
 		},{
-			"name":"Xinu (Violet)","initCP":26,"mineralCP":0,"techBuy":15,"unitBuy":0
+			"name":"Xinu (Violet)","initCP":26,"colonyCP":0,"mineralCP":0,"techBuy":15,"unitBuy":0
 		}],
 	"techTableX":
 		[{
@@ -1865,7 +1865,7 @@
 		[{
 			"name":"CSY (Blue)","initCP":18,"colonyCP":70,"mineralCP":5,"pipeCP":0,"maint":1,"bidCP":0,"techBuy":55,"unitBuy":37
 		},{
-			"name":"Xinu (Violet)","initCP":11,"mineralCP":10,"techBuy":15,"unitBuy":0
+			"name":"Xinu (Violet)","initCP":11,"colonyCP":0,"mineralCP":10,"techBuy":15,"unitBuy":0
 		}],
 	"techTableX":
 		[{
@@ -2156,7 +2156,7 @@
 		[{
 			"name":"CSY (Blue)","initCP":0,"colonyCP":70,"mineralCP":5,"pipeCP":0,"maint":5,"bidCP":0,"techBuy":20,"unitBuy":47
 		},{
-			"name":"Xinu (Violet)","initCP":6,"mineralCP":0,"techBuy":0,"unitBuy":0
+			"name":"Xinu (Violet)","initCP":6,"colonyCP":0,"mineralCP":0,"techBuy":0,"unitBuy":0
 		}],
 	"techTableX":
 		[{
@@ -2531,7 +2531,7 @@
 		[{
 			"name":"CSY (Blue)","initCP":3,"colonyCP":69,"mineralCP":0,"pipeCP":0,"maint":13,"bidCP":0,"techBuy":0,"unitBuy":54
 		},{
-			"name":"Xinu (Violet)","initCP":6,"mineralCP":0,"techBuy":0,"unitBuy":0
+			"name":"Xinu (Violet)","initCP":6,"colonyCP":0,"mineralCP":0,"techBuy":0,"unitBuy":0
 		}],
 	"techTableX":
 		[{
@@ -2696,7 +2696,7 @@
 			"location":"B7"
 		}]},
 	{"heading":"Stardate 2408.4 (The Rematch for Aries)",
-	"commentary":"<p>With the assistance of 6-9 more hulls, the primary Replicator fleet has now become equal-superior (15-18 hulls total). While the reinforcements are not quite close enough to attack <i>our</i> Titan fleet, it allows them to execute the fourth priority on their non-mission movement system; namely a rematch with Aries.</p><p>Before a battle can take place though, the 18 hulls need to be built; and a die needs to be rolled to determine the presence of a Type PD. A 5 was rolled this way. Even though Fighters were previously encountered, no Type PD gets built this time. The hulls all convert to Type IX ships.</p><ol><li><b>Round 1</b>: Xinu has 18 ships. Aries has 3 ships remaining. Xinu has the Fleet Size Bonus</li><li>Aries' 1 Alien-B has the best weapon class, so it shoots first. It rolled a 6 (miss &gt;5)</li><li>Their 2 Alien-Cs shoot next. They rolled 3,4 (2 hits &le;4)</li><li>The 16 surviving Type IX Replicators now have a chance to shoot. Prioritizing the Alien-B (but otherwise having &le;5 to hit all around), they rolled 9,5,6,9,3,9,1,10,1,10,9,2,6,1,2,10 (7 hits), easily finishing off the NPA stragglers</li><li>One of the victorious ships then deconstructs itself in order to start a new colony</li></ol><p>While Xinu was busy with Aries, we opted to take advantage of our Space Pilgrims and enter into the neighboring black hole.</p>",
+	"commentary":"<p>With the assistance of 6-9 more hulls, the primary Replicator fleet has now become equal-superior (15-18 hulls total). While the reinforcements are not quite close enough to attack <i>our</i> Titan fleet, it allows them to execute the fourth priority on their non-mission movement system; namely a rematch with Aries.</p><p>Before a battle can take place though, the 18 hulls need to be built; and a die needs to be rolled to determine the presence of a Type PD. A 5 was rolled this way. Even though Fighters were previously encountered, no Type PD gets built this time. The hulls all convert to Type IX ships.</p><ol><li><b>Round 1</b>: Xinu has 18 ships. Aries has 3 ships remaining. Xinu has the Fleet Size Bonus</li><li>Aries' 1 Alien-B has the best weapon class, so it shoots first. It rolled a 6 (miss &gt;5)</li><li>Their 2 Alien-Cs shoot next. They rolled 3,4 (2 hits &le;4)</li><li>The 16 surviving Type IX Replicators now have a chance to shoot. Prioritizing the Alien-B (but otherwise having &le;5 to hit all around), they rolled 9,5,6,9,3,9,1,10,1,10,9,2,6,1,2,10 (7 hits), easily finishing off the NPA stragglers</li><li>One of the victorious ships then deconstructs itself in order to start a new colony, and convert the alien technology into 10 CP</li></ol><p>While Xinu was busy with Aries, we opted to take advantage of our Space Pilgrims and enter into the neighboring black hole.</p>",
 	"actions":
 		[{
 			"placeGhost":"typeExpV",
@@ -2890,7 +2890,7 @@
 		[{
 			"name":"CSY (Blue)","initCP":5,"colonyCP":73,"mineralCP":5,"pipeCP":0,"maint":20,"bidCP":15,"techBuy":0,"unitBuy":47
 		},{
-			"name":"Xinu (Violet)","initCP":6,"mineralCP":20,"techBuy":0,"unitBuy":0
+			"name":"Xinu (Violet)","initCP":6,"colonyCP":10,"mineralCP":20,"techBuy":0,"unitBuy":0
 		}],
 	"techTableX":
 		[{

@@ -27,6 +27,20 @@ function closeBox() {
 	document.getElementById("infobox").style.display = "none";
 }
 
+function rollD10() {
+	return 1 + Math.floor(Math.random()*10);
+}
+
+function cloneArray(orgArray) {
+	newArray = new Array();
+	
+	for (var c = 0; c < orgArray.length; c++) {
+		newArray[c] = orgArray[c];
+	}
+	
+	return newArray;
+}
+
 function conceptLink(keyterm) {
 	return "<a href=\"javascript:showBox('"+keyterm.replace("'","\\\'")+"')\">"+keyterm+"</a>";
 }
@@ -75,7 +89,7 @@ function amoebaBase(strength) {
 	} else if (parseInt(strength) > 7) {
 		return "<b>Space Amoeba (Strength "+strength+")</b><br />"+amoebaCommon+"<br />\
 			Vulnerable only from inside detonations.<br /><br />\
-			Detonating "+conceptLink("Scout")+"s cleanse the hex on a &le;4. "+conceptLink("Destroyer")+"s on a &le;8. \
+			Detonating "+conceptLink("Scout")+"s cleanse the "+conceptLink("hex")+" on a &le;4. "+conceptLink("Destroyer")+"s on a &le;8. \
 			"+conceptLink("Cruiser")+"s through "+conceptLink("Titan")+"s cleanse the hex without fail.";
 	} else if (strength) {
 		return "<b>Space Amoeba (Strength "+strength+")</b><br />"+amoebaCommon+"<br />\
@@ -95,13 +109,14 @@ function showBox(concept) {
 	switch (concept.toLowerCase()) {
 		// Base Concepts
 		case "attack":
-			displayTxt = "<b>Attack</b><br />Determines the "+conceptLink("Weapon Class")+" this ship has in "+conceptLink("battle")+" (A-F), \
+			displayTxt = "<b>Attack</b><br />Determines the "+conceptLink("Weapon Class")+" this "+conceptLink("ship")+" has in "+conceptLink("battle")+" (A-F), \
 				followed by the maximum d10 roll allowed to score a hit.<br />(Assuming no enemy "+conceptLink("Defense")+" modifiers.)<br /><br />\
 				Attack "+conceptLink("technology")+" adds directly to this rating, up to the maximum "+conceptLink("Hull Size")+".<br />\
 				Attack level 4 is available only to "+conceptLink("Titan")+"s, if "+conceptLink("Advanced Construction")+" level 1 is developed.";
 			break;
 		case "battle":
-			displayTxt = "<b>Battle</b><br />Whenever "+conceptLink("combat ship")+"s from two opposing sides meet in a single hex, a battle will start, ceasing movement of the invading ships.<br />\
+			displayTxt = "<b>Battle</b><br />Whenever "+conceptLink("combat ship")+"s from two opposing sides meet in a single "+conceptLink("hex")+", a battle will start, \
+				ceasing movement of the invading "+conceptLink("ship")+"s.<br />\
 				(Exception: If one side has only "+conceptLink("non-combat ship")+"s, those ships get destroyed instead; without impeding movement.)<br /><br />\
 				Battles are dividied into "+conceptLink("round")+"s, lasting until only one side still has combat ships.";
 			break;
@@ -113,7 +128,7 @@ function showBox(concept) {
 			break;
 		case "blockade":
 			displayTxt = "<b>Blockade</b><br />A "+conceptLink("colony")+" is blockaded if there are enemy "+conceptLink("combat ship")+"(s) in orbit.\
-				Produces no "+conceptLink("CP")+" until the hex is clear.";
+				Produces no "+conceptLink("CP")+" until the "+conceptLink("hex")+" is clear.";
 			break;
 		case "blood brothers":
 			displayTxt = "<b>Blood Brothers</b><br />Teams with this setting take their "+conceptLink("turn")+"s together. \
@@ -122,20 +137,21 @@ function showBox(concept) {
 			break;
 		case "bombard":
 			displayTxt = "<b>Bombardment</b><br />A process in which "+conceptLink("combat ship")+"s can damage an enemy "+conceptLink("colony")+", using its "+conceptLink("Attack")+" rating and tech.<br />\
-				Each hit scored reduces colony growth by one stage until its production reaches 0 "+conceptLink("CP")+". Limit 1 roll per ship per "+conceptLink("turn");
+				Each hit scored reduces colony growth by one stage until its production reaches 0 "+conceptLink("CP")+". Limit 1 roll per "+conceptLink("ship")+" per "+conceptLink("turn");
 			break;
 		case "combat ship":
-			displayTxt = "<b>Combat ship</b><br />A ship able to conduct "+conceptLink("battle")+"s and enter "+conceptLink("unexplored")+" systems unassisted. Has at least an "+conceptLink("Attack")+" rating. Can "+conceptLink("blockade")+" and "+conceptLink("bombard")+" "+conceptLink("colonies")+".";
+			displayTxt = "<b>Combat ship</b><br />A "+conceptLink("ship")+" (or group thereof) able to conduct "+conceptLink("battle")+"s and enter "+conceptLink("unexplored")+" systems unassisted. \
+				Has at least an "+conceptLink("Attack")+" rating. Can "+conceptLink("blockade")+" and "+conceptLink("bombard")+" "+conceptLink("colonies")+".";
 			break;
 		case "competitive":
 			displayTxt = "<b>Competitive scenario</b><br />A scenario that pits two or more human players against each other. Can be a Free For All, or a Team Game.<br /><br />\
 				The default "+conceptLink("primary objective")+" is to be the first player to destroy a hostile "+conceptLink("homeworld")+".";
 			break;
 		case "cp":
-			displayTxt = "<b>Construction Points</b><br />Monetary currency. Earned by developing "+conceptLink("colonies")+", towing "+conceptLink("minerals")+", and connecting "+conceptLink("pipeline")+"s. Used to buy "+conceptLink("technology")+" and build ships.";
+			displayTxt = "<b>Construction Points</b><br />Monetary currency. Earned by developing "+conceptLink("colonies")+", towing "+conceptLink("minerals")+", and connecting "+conceptLink("pipeline")+"s. Used to buy "+conceptLink("technology")+" and build "+conceptLink("ship")+"s.";
 			break;
 		case "defense":
-			displayTxt = "<b>Defense</b><br />Decreases the maximum d10 roll allowed by an attacker to score a hit on this ship, to a minimum "+conceptLink("Attack")+" rating of 1.<br />\
+			displayTxt = "<b>Defense</b><br />Decreases the maximum d10 roll allowed by an attacker to score a hit on this "+conceptLink("ship")+", to a minimum "+conceptLink("Attack")+" rating of 1.<br />\
 				(Exception: Minimum Attack versus a "+conceptLink("Titan")+" or a non-competitive "+conceptLink("DM")+" is instead 0.)\
 				<br /><br />Defense "+conceptLink("technology")+" adds directly to this rating, up to the maximum "+conceptLink("Hull Size")+".\
 				<br /><br />As an "+conceptLink("Alien Player")+" bank; this is used whenever one of their "+conceptLink("colonies")+" is being contested,\
@@ -145,14 +161,19 @@ function showBox(concept) {
 			displayTxt = "<b>Economic Phase</b><br />A simultaneous phase in which all production and spending takes place. There are 3 regular "+conceptLink("turn")+"s in between each economic phase.";
 			break;
 		case "fleet":
-			displayTxt = "<b>Fleet</b><br />A fleet is a collection of starships, usually with a specific purpose.<br /><br />\
+			displayTxt = "<b>Fleet</b><br />A fleet is a collection of "+conceptLink("starship")+"s, usually with a specific purpose.<br /><br />\
 				As an "+conceptLink("Alien Player")+" bank, this is spent whenever they launch ships from their "+conceptLink("homeworld")+".";
 			break;
 		case "fleet size bonus":
-			displayTxt = "<b>Fleet Size Bonus</b><br />If one player has at least twice as many un"+conceptLink("screen")+"ed ships as their opponent at the start of a battle "+conceptLink("round")+", all their ships get an additional "+conceptLink("Attack")+" +1 for that round.";
+			displayTxt = "<b>Fleet Size Bonus</b><br />If one player has at least twice as many un"+conceptLink("screen")+"ed "+conceptLink("combat ship")+"s as their opponent \
+				at the start of a battle "+conceptLink("round")+", all their "+conceptLink("ship")+"s get an additional "+conceptLink("Attack")+" +1 for that round.";
+			break;
+		case "hex":
+			displayTxt = "<b>Hex</b><br />A hexagonal-shaped space on a board where pieces (example: counters) can move/be placed to.<br />\
+				"+conceptLink("Space Empires 4X")+" + expansions use these to denote systems where "+conceptLink("starship")+"s can move; and where terrain can perform their abilities.";
 			break;
 		case "hull size":
-			displayTxt = "<b>Hull Size</b><br />Determines the amount of damage a ship can take before being destroyed.<br />\
+			displayTxt = "<b>Hull Size</b><br />Determines the amount of damage a "+conceptLink("combat ship")+" can take before being destroyed.<br />\
 				Also determines the "+conceptLink("maintenance")+" cost and maximum effective levels for "+conceptLink("Attack")+" and "+conceptLink("Defense")+" "+conceptLink("tech")+"s.";
 			break;
 		case "initiative":
@@ -167,60 +188,66 @@ function showBox(concept) {
 				"+conceptLink("ground unit")+"s, and "+conceptLink("Flagship")+"s require no maintenance.)";
 			break;
 		case "movement":
-			displayTxt = "<b>Movement</b><br />The process of moving ships through space.<br /><br />\
-				As a "+conceptLink("technology")+", improving this increases the number of total hexes that "+conceptLink("combat ship")+"s and "+conceptLink("Decoy")+"s can move per "+conceptLink("economic phase")+".<br />\
-				At level 1 (default), ships can move 3 hexes per economic phase (divided into 1 + 1 + 1, for the respective "+conceptLink("turn")+"s.)<br />\
+			displayTxt = "<b>Movement</b><br />The process of moving "+conceptLink("ship")+"s through space.<br />\
+				As a "+conceptLink("technology")+", improving this increases the number of total "+conceptLink("hex")+"es that most "+conceptLink("ship")+"s can move per "+conceptLink("economic phase")+".\
+				<br />"+conceptLink("Decoy")+"s aside, "+conceptLink("non-combat ship")+"s have a fixed "+conceptLink("Movement")+" 1.\
+				<br /><br />At level 1 (default), ships can move 3 hexes per economic phase (divided into 1 + 1 + 1, for the respective "+conceptLink("turn")+"s.)<br />\
 				Each subsequent level adds another hex, favoring the later turns, but keeping it as even as possible. <span class=\"bindTxt\">(1 + 1 + 2 for level 2; 1 + 2 + 2 for level 3)</span>.";
 			break;
 		case "non-combat ship":
-			displayTxt = "<b>Non-combat ship</b><br />A ship designed to support the empire, but has no weapons to conduct "+conceptLink("battle")+"s or defend itself.";
+			displayTxt = "<b>Non-combat ship</b><br />A "+conceptLink("ship")+" designed to support the empire, but has no weapons to conduct "+conceptLink("battle")+"s or defend itself.";
 			break;
 		case "npa":
 			// Fall thru
 		case "non-player alien":
 			displayTxt = "<b>Non-Player Alien</b><br />Non-aligned faction that can guard their local "+conceptLink("barren planet")+". \
-				If any ships are found, they must be defeated before the planet can be "+conceptLink("subdue")+"d.";
+				If any "+conceptLink("ship")+"s are found, they must be defeated before the planet can be "+conceptLink("subdue")+"d.";
 			break;
 		case "primary objective":
 			displayTxt = "<b>Primary Objective</b><br />A scenario objective that must be completed in order to achieve victory.";
 			break;
 		case "retreat":
 			displayTxt = "<b>Retreat</b><br />After the first "+conceptLink("battle")+" round, a mobile "+conceptLink("combat ship")+" may choose to retreat instead of fire upon an enemy ship.<br />\
-				If it does, it must retreat to an unguarded hex that puts it equal to, or closer to the nearest "+conceptLink("colony")+"\
+				If it does, it must retreat to an unguarded "+conceptLink("hex")+" that puts it equal to, or closer to the nearest "+conceptLink("colony")+"\
 				<span class=\"bindTxt\">(not counting any colony in the battle hex)</span>.";
 			break;
 		case "round":
-			displayTxt = "<b>Battle Round</b><br />At the beginning of each "+conceptLink("battle")+" round, players "+conceptLink("screen")+" (if available) and check for "+conceptLink("Fleet Size Bonus")+" eligibility." +
-				"<br />Afterwards, ships are organized according to "+conceptLink("Weapon Class")+". Each ship chooses a target, and fires <span class=\"bindTxt\">(rolling a d10)</span>. " +
-				"<br />If the required "+conceptLink("Attack")+" (or less) has been rolled <span class=\"bindTxt\">(minus any target's "+conceptLink("Defense")+" rating)</span>, a hit has been scored." +
-				"<br />After the first round, whenever a mobile "+conceptLink("combat ship")+" would have its turn to fire, it may instead choose to "+conceptLink("retreat")+".";
+			displayTxt = "<b>Battle Round</b><br />At the beginning of each "+conceptLink("battle")+" round, players "+conceptLink("screen")+" (if available) and check for "+conceptLink("Fleet Size Bonus")+" eligibility.\
+				<br />Afterwards, "+conceptLink("ship")+"s are organized according to "+conceptLink("Weapon Class")+". Each ship chooses a target, and fires <span class=\"bindTxt\">(rolling a d10)</span>.\
+				<br />If the required "+conceptLink("Attack")+" (or less) has been rolled <span class=\"bindTxt\">(minus any target's "+conceptLink("Defense")+" rating)</span>, a hit has been scored.\
+				<br />After the first round, whenever a mobile "+conceptLink("combat ship")+" would have its turn to fire, it may instead choose to "+conceptLink("retreat")+".";
 			break;
 		case "screen":
-			displayTxt = "<b>Screening</b><br />If one side has more "+conceptLink("combat ship")+"s than the opposite side each "+conceptLink("battle")+" "+conceptLink("round")+", the larger fleet can screen ships up to the difference.<br /> \
-				Screened ships may not fire, nor be fired upon, nor do they contribute towads "+conceptLink("Fleet Size Bonus")+". Screen choices last for a full battle round.<br /><br /> \
+			displayTxt = "<b>Screening</b><br />If one side has more "+conceptLink("combat ship")+"s than the opposite side each "+conceptLink("battle")+" "+conceptLink("round")+", \
+				the larger fleet can screen "+conceptLink("ship")+"s up to the difference.<br />\
+				Screened ships may not fire, nor be fired upon, nor do they contribute towads "+conceptLink("Fleet Size Bonus")+". Screen choices last for a full battle round.<br /><br />\
 				"+conceptLink("Non-combat ship")+"s are automatically screened for the entire battle, and are eliminated if their protection has been destroyed and/or "+conceptLink("retreat")+"ed.";
 			break;
 		case "scuttle":
-			displayTxt = "<b>Scuttling</b><br />A player may choose to voluntarily remove ships from the board without refund, referred to as scuttling.<br />\
+			displayTxt = "<b>Scuttling</b><br />A player may choose to voluntarily remove "+conceptLink("ship")+"s from the board without refund, referred to as scuttling.<br />\
 				This process is useful for freeing up counters for reconstruction, and/or to reduce "+conceptLink("maintenance")+" costs.";
 			break;
+		case "starship":
+			// Fall through
+		case "ship":
+			displayTxt = "<b>Starship</b><br />Spacefaring vessel, able to travel in space. Can be built at a "+conceptLink("Ship Yard")+".";
+			break;
+		case "subduing":
+			// Fall through
 		case "subdue":
 			displayTxt = "<b>Subdue</b><br />Automatic process that occurs when a "+conceptLink("barren planet")+" loses its last "+conceptLink("NPA")+" defenders.<br /><br />\
-				The victor has one chance ("+conceptLink("technologies")+" permitting) to conduct a ground "+conceptLink("battle")+" and attempt to "+conceptLink("capture")+" it. \
-				Otherwise, the planet is considered uncolonized, and must be colonized with a compatible "+conceptLink("Colony Ship")+".";
+				The victor has one chance to conduct a ground "+conceptLink("battle")+". \
+				If unsuccessful, the planet is considered uncolonized; no longer able to be "+conceptLink("capture")+"d.";
 			break;
 		case "space empires 4x":
-			displayTxt = "<b>Space Empires 4X</b><br />The base board game. Includes a variety of system counters, ship counters, numeric counters.\
+			displayTxt = "<b>Space Empires 4X</b><br />The base board game. Includes a variety of system counters, "+conceptLink("ship")+" counters, numeric counters.\
 				Also includes "+conceptLink("competitive")+" scenarios <span class=\"bindTxt\">(2 - 4 players)</span>, plus two solo scenarios ("+conceptLink("Doomsday Machine")+"s / "+conceptLink("Alien Empires")+").";
 			break;
 		case "movement turn":
 			// Fall through
 		case "turn":
-			displayTxt = "<b>Turn</b><br />Technically a regular turn. A phase in which each player moves their ships, conducts "+conceptLink("battle")+"s, and explores systems;\
-				one player at a time.<br />3 turns occur in between each "+conceptLink("economic phase")+".<br /><br />\
-				The total number of hexes a "+conceptLink("combat ship")+" or "+conceptLink("Decoy")+" may move per economic phase \
-				is determined by their "+conceptLink("Movement")+" technology level.<br />\
-				(Other "+conceptLink("non-combat ship")+"s are limited to 1 hex per turn, regardless of technology.)";
+			displayTxt = "<b>Turn</b><br />Technically a regular turn. A phase in which each player moves their "+conceptLink("ship")+"s, conducts "+conceptLink("battle")+"s, and explores systems;\
+				one player at a time.<br />3 turns occur in between each "+conceptLink("economic phase")+".";
 			break;
 		case "uneasy alliance":
 			displayTxt = "<b>Uneasy Alliance</b><br />Teams with this setting take their "+conceptLink("turn")+"s separately. \
@@ -256,7 +283,7 @@ function showBox(concept) {
 			break;
 		case "exploration":
 			displayTxt = "<b>Exploration Technology</b><br />Level 1 allows "+conceptLink("Cruiser")+"s / "+conceptLink("Flagship")+"s / "+conceptLink("Type Exp")+"s to \
-				remotely explore an adjacent "+conceptLink("unexplored")+" hex during movement.<br />\
+				remotely explore an adjacent "+conceptLink("unexplored")+" "+conceptLink("hex")+" during movement.<br />\
 				Level 2 allows "+conceptLink("Base")+"s / "+conceptLink("Ship Yard")+"s / Cruisers / Flagships to \
 				respond to an adjacent "+conceptLink("battle")+" hex by sending in reinforcements with the "+conceptLink("React Move")+" ability ("+conceptLink("Close Encounters")+" only).";
 			break;
@@ -264,19 +291,23 @@ function showBox(concept) {
 			displayTxt = "<b>Minelaying Technology</b><br />Allows building "+conceptLink("mines")+".";
 			break;
 		case "minesweeping":
-			displayTxt = "<b>Minesweeping Technology</b><br />Allows building "+conceptLink("minesweeper")+"s. "+conceptLink("Tech")+" levels 2/3 improves the number of mines swept per ship.\
+			displayTxt = "<b>Minesweeping Technology</b><br />Allows building "+conceptLink("minesweeper")+"s. "+conceptLink("Tech")+" levels 2/3 improves the number of "+conceptLink("mines")+" swept per ship.\
 				<br />"+conceptLink("Alien Player")+" "+conceptLink("Scout")+"s also benefit from this technology.\
-				<br /><br />Also doubles as Science Technology versus "+conceptLink("space amoeba")+". Level 2 allows each vessel to roll 2 dice, keeping the best result.";
+				<br /><br />Also doubles as Science Technology versus "+conceptLink("space amoeba")+". Level 2 allows each vessel to roll 2 dice, keeping the best result.\
+				<br /><br />"+conceptLink("Replicators")+" instead can build "+conceptLink("Type SW")+" ships. They acquire it for free if they encounter mines.";
 			break;
 		case "point-defense":
-			displayTxt = "<b>Point-Defense Technology</b><br />"+conceptLink("Scout")+"s equipped with this "+conceptLink("technology")+" gain an improved "+conceptLink("Attack")+" rating versus "+conceptLink("Fighter")+"s." +
-				"<br />At level 1, Scouts attack Fighters at A6. Level 2 at A7. Level 3 at A8. (Assuming no "+conceptLink("asteroids")+" / "+conceptLink("nebula")+" interference.)";
+			displayTxt = "<b>Point-Defense Technology</b><br />"+conceptLink("Scout")+"s equipped with this "+conceptLink("technology")+" gain an improved "+conceptLink("Attack")+" rating versus "+conceptLink("Fighter")+"s.\
+				<br />At level 1, Scouts attack Fighters at A6. Level 2 at A7. Level 3 at A8. (Assuming no "+conceptLink("asteroids")+" / "+conceptLink("nebula")+" interference.)\
+				<br /><br />"+conceptLink("Replicators")+" instead can build "+conceptLink("Type PD")+" ships. They acquire it for free if they encounter fighters.";
 			break;
 		case "scanning":
-			displayTxt = "<b>Scanning Technology</b><br />"+conceptLink("Destroyer")+"s equipped with this "+conceptLink("technology")+" will detect "+conceptLink("Raider")+"s with an equal or lower "+conceptLink("cloaking")+" level.";
+			displayTxt = "<b>Scanning Technology</b><br />"+conceptLink("Destroyer")+"s equipped with this "+conceptLink("technology")+" will \
+				detect "+conceptLink("Raider")+"s with an equal or lower "+conceptLink("cloaking")+" level.<br /><br />\
+				"+conceptLink("Replicators")+" instead can build "+conceptLink("Type Scan")+" ships. They acquire it for free if they encounter raiders.";
 			break;
 		case "ship size":
-			displayTxt = "<b>Ship Size Technology</b><br />Higher "+conceptLink("tech")+" levels allow larger and more powerful ships to be built. The starting tech level is 1.<br /><br />\
+			displayTxt = "<b>Ship Size Technology</b><br />Higher "+conceptLink("tech")+" levels allow larger and more powerful "+conceptLink("ship")+"s to be built. The starting tech level is 1.<br /><br />\
 				Tech level 2 allows the construction of "+conceptLink("Destroyer")+"s and "+conceptLink("Base")+"s.<br />\
 				Tech level 3 allows the construction of "+conceptLink("Cruiser")+"s.<br />\
 				Tech level 4 allows the construction of "+conceptLink("Battlecruiser")+"s.<br />\
@@ -285,14 +316,15 @@ function showBox(concept) {
 				Tech level 7 allows the construction of "+conceptLink("Titan")+"s. ("+conceptLink("Close Encounters")+" only)";
 			break;
 		case "tactics":
-			displayTxt = "<b>Tactics Technology</b><br />Used to break ties in case two opposing ships share the same "+conceptLink("Weapon Class")+". If even this is the same level, then the defender wins the tie.";
+			displayTxt = "<b>Tactics Technology</b><br />Used to break ties in case two opposing "+conceptLink("combat ship")+"s share the same "+conceptLink("Weapon Class")+". \
+				If even this is the same level, then the defender wins the tie.";
 			break;
 		case "tech":
 			// Fall through
 		case "technologies":
 			// Fall through
 		case "technology":
-			displayTxt = "<b>Technology</b><br />Developing technologies and levels allow unlocking more powerful ships, weapons, to name a few.\
+			displayTxt = "<b>Technology</b><br />Developing technologies and levels allow unlocking more powerful "+conceptLink("ship")+"s, weapons, to name a few.\
 				Any tech levels purchased affect any ships built in the same "+conceptLink("economic phase")+" (including unlocking new ships).\
 				Existing ships are unaffected, but can be "+conceptLink("upgrade")+"d.<br /><br />\
 				As an "+conceptLink("Alien Player")+" bank, this is used exclusively for developing technology together with other spending.";
@@ -303,14 +335,15 @@ function showBox(concept) {
 				at a rate of 5 "+conceptLink("CP")+" per turn. ("+conceptLink("Close Encounters")+" only)";
 			break;
 		case "upgrade":
-			displayTxt = "<b>Upgrade</b><br />If a ship has any outdated "+conceptLink("technology")+" as a result of being built prior to any developments, it can be upgraded at a "+conceptLink("Ship Yard")+", at a cost of "+conceptLink("CP")+" equal to its "+conceptLink("Hull Size")+". The ship/group must not move for an entire "+conceptLink("movement turn")+" to perform their upgrades.<br />(Exception: "+conceptLink("Base")+"s, "+conceptLink("Decoy")+"s, and "+conceptLink("Ship Yard")+"s are automatically upgraded at no cost; effective immediately after the tech level purchase.)";
+			displayTxt = "<b>Upgrade</b><br />If a "+conceptLink("ship")+" has any outdated "+conceptLink("technology")+" as a result of being built prior to any developments, it can be upgraded at a "+conceptLink("Ship Yard")+", at a cost of "+conceptLink("CP")+" equal to its "+conceptLink("Hull Size")+". The ship group must not move for an entire "+conceptLink("turn")+" to perform their upgrades.<br />(Exception: "+conceptLink("Base")+"s, "+conceptLink("Decoy")+"s, and "+conceptLink("Ship Yard")+"s are automatically upgraded at no cost; effective immediately after the tech level purchase.)";
 			break;
 			
 		// Terrain
 		case "asteroid belt":
 			// Fall through
 		case "asteroids":
-			displayTxt = "<b>Asteroid Belt</b><br />Inhibits movement of ships, unless following a "+conceptLink("Pipeline")+" network. Nullifies "+conceptLink("Attack")+" "+conceptLink("technology")+" and reduces "+conceptLink("Weapon Class")+" to <b>E</b>.";
+			displayTxt = "<b>Asteroid Belt</b><br />Inhibits movement of "+conceptLink("ship")+"s, unless following a "+conceptLink("Pipeline")+" network. \
+				Nullifies "+conceptLink("Attack")+" "+conceptLink("technology")+" and reduces "+conceptLink("Weapon Class")+" to <b>E</b>.";
 			break;
 		case "barren":
 			// Fall through
@@ -320,28 +353,29 @@ function showBox(concept) {
 				and/or have "+conceptLink("alien technology")+".";
 			break;
 		case "black hole":
-			displayTxt = "<b>Black Hole</b><br />Forces <em>each</em> ship that enters to roll a survival d10 roll, unless they follow a "+conceptLink("Pipeline")+" network." +
+			displayTxt = "<b>Black Hole</b><br />Forces <em>each</em> "+conceptLink("ship")+" that enters to roll a survival d10 roll, unless they follow a "+conceptLink("Pipeline")+" network." +
 				"<br />A roll of 6 or less allows the ship to remain. Otherwise, the ship is destroyed.";
 			break;
 		case "colonies":
 			// Fall through
 		case "colony":
-			displayTxt = "<b>Colony</b><br />A "+conceptLink("planet")+" that has been colonized. Grows in production until it reaches 5 "+conceptLink("CP")+" in income.";
+			displayTxt = "<b>Colony</b><br />A "+conceptLink("planet")+" that has been colonized. Grows in production until it reaches 5 "+conceptLink("CP")+" in income.\
+				<br /><br />"+conceptLink("Replicator")+" colonies do not produce CP. Instead, they build "+conceptLink("hull")+"s locally once at full strength.";
 			break;
 		case "danger":
-			displayTxt = "<b>Danger!</b><br />If discovered, this system <em>instantly</em> destroys any ships in the same hex! The counter is then removed afterwards.";
+			displayTxt = "<b>Danger!</b><br />If discovered, this system <em>instantly</em> destroys any "+conceptLink("ship")+"s in the same "+conceptLink("hex")+"! The counter is then removed afterwards.";
 			break;
 		case "deep space":
-			displayTxt = "<b>Deep Space</b><br />A set of hexes that spread beyond the players' "+conceptLink("home system")+"s." +
+			displayTxt = "<b>Deep Space</b><br />A set of "+conceptLink("hex")+"es that spread beyond the players' "+conceptLink("home system")+"s." +
 				"<br />These systems have a much higher risk <span class=\"bindTxt\">(several "+conceptLink("Danger")+"! counters, and less predictability)</span>, but higher reward <span class=\"bindTxt\">("+conceptLink("minerals")+" pay better, and there can be "+conceptLink("space wreck")+"s)</span>.";
 			break;
 		case "fold":
 			// Fall through
 		case "fold in space":
-			displayTxt = "<b>Fold in Space</b><br />Terrain that allows ships to move/explore through it, as if no hex existed at all.";
+			displayTxt = "<b>Fold in Space</b><br />Terrain that allows "+conceptLink("ship")+"s to move/explore through it, as if no "+conceptLink("hex")+" existed at all.";
 			break;
 		case "galactic capitol":
-			displayTxt = "<b>Galactic Capitol</b><br />Ancient homeworld. Sanctuary hex in "+conceptLink("competitive")+" scenarios that \
+			displayTxt = "<b>Galactic Capitol</b><br />Ancient homeworld. Sanctuary "+conceptLink("hex")+" in "+conceptLink("competitive")+" scenarios that \
 				prohibits "+conceptLink("battle")+"s and provides 5 "+conceptLink("CP")+" to each "+conceptLink("Pipeline")+"-connected player.\
 				<br /><br />In solo and co-op scenarios (if present), it creates a respawnable 10-"+conceptLink("minerals")+" counter and \
 				allows human player(s) to research "+conceptLink("Black Hole Jumping")+". \
@@ -351,13 +385,13 @@ function showBox(concept) {
 			displayTxt = "<b>Homeworld</b><br />Starting "+conceptLink("colony")+" for an empire; being the most powerful <span class=\"bindTxt\">(produces &le;30 "+conceptLink("CP")+")</span> and most important colony <span class=\"bindTxt\">(usually a "+conceptLink("primary objective")+")</span>.";
 			break;
 		case "home system":
-			displayTxt = "<b>Home System</b><br />A set of hexes that surround a "+conceptLink("homeworld")+". These systems are relatively safe, \
+			displayTxt = "<b>Home System</b><br />A set of "+conceptLink("hex")+"es that surround a "+conceptLink("homeworld")+". These systems are relatively safe, \
 				with usually only a single dangerous "+conceptLink("black hole")+" counter shuffled among these 25 "+conceptLink("unexplored")+" systems.";
 			break;
 		case "lost":
 			// Fall through
 		case "lost in space":
-			displayTxt = "<b>Lost in Space</b><br />If discovered, this system sends ships in a different, involuntary direction. \
+			displayTxt = "<b>Lost in Space</b><br />If discovered, this system sends "+conceptLink("ship")+"s in a different, involuntary direction. \
 				A die roll is used in a solo or co-op game. In a "+conceptLink("competitive")+" game, an enemy player directs these ships. \
 				The counter is then removed afterwards.";
 			break;
@@ -365,28 +399,33 @@ function showBox(concept) {
 			displayTxt = "<b>Planet</b><br />A potentially habitable world. Becomes a "+conceptLink("colony")+" when colonized. Some planets are "+conceptLink("barren")+".";
 			break;
 		case "regional map":
-			displayTxt = "<b>Regional Map</b><br />Terrain allows peeking/exploring adjacent hexes, \
-				as if the ship had "+conceptLink("Exploration")+" "+conceptLink("technology")+". \
+			displayTxt = "<b>Regional Map</b><br />Terrain allows peeking/exploring adjacent "+conceptLink("hex")+"es, \
+				as if the "+conceptLink("ship")+" had "+conceptLink("Exploration")+" "+conceptLink("technology")+". \
 				The counter is removed once effects are resolved.";
 			break;
 		case "minerals":
-			displayTxt = "<b>Minerals</b><br />Can be picked up by a "+conceptLink("miner")+" and towed to a "+conceptLink("colony")+" to generate a one-time boost in "+conceptLink("CP")+" as shown on the counter(s) unloaded.";
+			displayTxt = "<b>Minerals</b><br />Can be picked up by a "+conceptLink("miner")+" and towed to a "+conceptLink("colony")+" to generate a one-time boost in "+conceptLink("CP")+" as shown on the counter(s) unloaded.\
+				<br /><br />"+conceptLink("Replicator")+" "+conceptLink("ship")+"s automatically cash them in, gaining the indicated amount directly.";
 			break;
 		case "nebula":
-			displayTxt = "<b>Nebula</b><br />Inhibits movement of ships, unless following a "+conceptLink("Pipeline")+" network. Nullifies "+conceptLink("Defense")+" and "+conceptLink("Cloaking")+" "+conceptLink("technology")+" and reduces "+conceptLink("Weapon Class")+" to <b>E</b>.";
+			displayTxt = "<b>Nebula</b><br />Inhibits movement of "+conceptLink("ship")+"s, unless following a "+conceptLink("Pipeline")+" network. \
+				Nullifies "+conceptLink("Defense")+" and "+conceptLink("Cloaking")+" "+conceptLink("technology")+" and reduces "+conceptLink("Weapon Class")+" to <b>E</b>.";
 			break;
 		case "space wreck":
-			displayTxt = "<b>Space Wreck</b><br />Can be picked up by a "+conceptLink("miner")+" and towed to a "+conceptLink("colony")+" to develop a free random "+conceptLink("technology")+".";
+			displayTxt = "<b>Space Wreck</b><br />Can be picked up by a "+conceptLink("miner")+" and towed to a "+conceptLink("colony")+" to develop a free random "+conceptLink("technology")+".\
+				<br /><br />"+conceptLink("Replicator")+" "+conceptLink("ship")+"s automatically cash them in, gaining 1 "+conceptLink("RP")+" in the process.";
 			break;
 		case "supernova":
-			displayTxt = "<b>Super Nova</b><br />If discovered, the ships that just explored it must immediately turn back. Serves as an impassable hex for the rest of the game.";
+			displayTxt = "<b>Super Nova</b><br />If discovered, the "+conceptLink("ship")+"s that just explored it must immediately turn back. Serves as an impassable "+conceptLink("hex")+" for the rest of the game.";
 			break;
 		case "unexplored":
-			displayTxt = "<b>Unexplored System</b><br />This system is shrouded in complete mystery. Can be explored by any "+conceptLink("combat ship")+" entering the hex, or via "+conceptLink("Exploration")+" "+conceptLink("technology")+"." +
-				"<br />"+conceptLink("Non-combat ship")+"s may not enter this system, unless escorted. No player ship may enter this system, while occupied by a "+conceptLink("Doomsday Machine")+" or an "+conceptLink("Alien Player")+" ship.";
+			displayTxt = "<b>Unexplored System</b><br />This system is shrouded in complete mystery. \
+				Can be explored by any "+conceptLink("combat ship")+" entering the "+conceptLink("hex")+", or via "+conceptLink("Exploration")+" "+conceptLink("technology")+".\
+				<br />"+conceptLink("Non-combat ship")+"s may not enter this system, unless escorted. \
+				No player "+conceptLink("ship")+" may enter this system, while occupied by a "+conceptLink("Doomsday Machine")+" or an "+conceptLink("Alien Player")+" ship.";
 			break;
 		case "warp point":
-			displayTxt = "<b>Warp Point</b><br />If two linked warp points are found, they can be traveled directly to each other, as if they were 1 hex away from each other.";
+			displayTxt = "<b>Warp Point</b><br />If two linked warp points are found, they can be traveled directly to each other, as if they were 1 "+conceptLink("hex")+" away from each other.";
 			break;
 			
 		// Ships
@@ -397,7 +436,7 @@ function showBox(concept) {
 		case "ship yard":
 			// Fall through
 		case "sy":
-			displayTxt = "<b>Ship Yard</b><br />Space station able to build more ships. Can not move. Can be built at any "+conceptLink("colony")+" that has produced CP this "+conceptLink("economic phase")+
+			displayTxt = "<b>Ship Yard</b><br />Space station able to build more "+conceptLink("ship")+"s. Can not move. Can be built at any "+conceptLink("colony")+" that has produced CP this "+conceptLink("economic phase")+
 				"<br />Has a dedicated "+conceptLink("technology")+" that determines how many "+conceptLink("hull size")+"s (1 / 1.5 / 2) can be built per SY per "+conceptLink("economic phase")+
 				" in a given hex.";
 			displayTxt = displayTxt + stats(6, "C3", 0, 1);
@@ -476,7 +515,7 @@ function showBox(concept) {
 		case "minelayer":
 			// Fall through
 		case "mines":
-			displayTxt = "<b>Mines</b><br />Small craft that detonates upon contact with enemy ships, destroying them instantly unless "+conceptLink("sw")+"ept.\
+			displayTxt = "<b>Mines</b><br />Small craft that detonates upon contact with enemy "+conceptLink("ship")+"s, destroying them instantly unless "+conceptLink("sw")+"ept.\
 				<br />Also inhibits spreading of "+conceptLink("space amoeba")+" for one "+conceptLink("economic phase")+", though immunity can be acquired.\
 				<br />Limited to 1 hex per "+conceptLink("movement turn")+"; and may not enter enemy occupied hexes, except versus amoeba";
 			displayTxt = displayTxt + stats(5, 1, 0, 0) + "<br /><b>Required Tech</b>: "+conceptLink("Minelaying");
@@ -520,11 +559,11 @@ function showBox(concept) {
 			break;
 		case "low maintenance":
 			displayTxt = "<b>Low Maintenance</b><br />A benefit that can be active from an optional rule, Elite "+conceptLink("experience")+", and/or "+conceptLink("alien technology")+".\
-				<br />Ships benefiting from one source pay half as much "+conceptLink("maintenance")+" (round down total). \
+				<br />"+conceptLink("Ship")+"s benefiting from one source pay half as much "+conceptLink("maintenance")+" (round down total). \
 				Ships benefiting from two or more sources pay no maintenance instead.";
 			break;
 		case "slingshot":
-			displayTxt = "<b>Slingshot</b><br />Optional rule that enables daring ships to attempt to \
+			displayTxt = "<b>Slingshot</b><br />Optional rule that enables daring "+conceptLink("ship")+"s to attempt to \
 				use the "+conceptLink("black hole")+"'s acceleration to sling their way an extra hex.\
 				<br />If they do, the threshold to destroy ship(s) decrease (6 &rarr; 4). Does not stack with "+conceptLink("Pipeline")+" bonus.";
 			break;
@@ -673,7 +712,7 @@ function showBox(concept) {
 			break;
 		case "black hole jumping":
 			displayTxt = "<b>Black Hole Jumping Technology</b><br />Available only in non-competitive scenarios involving a "+conceptLink("galactic capitol")+", and only to their allies.\
-				<br />Equipped ships become immune to "+conceptLink("black hole")+"s, instead treating them as "+conceptLink("warp point")+"s.\
+				<br />Equipped "+conceptLink("ship")+"s become immune to "+conceptLink("black hole")+"s, instead treating them as "+conceptLink("warp point")+"s.\
 				Requires "+conceptLink("Movement")+" 3, or below Hard difficulty.";
 			break;
 		case "bo":
@@ -693,8 +732,7 @@ function showBox(concept) {
 				neither have a skill level <span class=\"bindTxt\">(always counts as equal sans "+conceptLink("Hull Size")+" modifiers)</span>, \
 				nor do they award experience when destroyed.<br /><br />\
 				Ships that have an experience advantage over an opposing group gain "+conceptLink("Attack")+" +1 (1 level advantage),<br />\
-				effective "+conceptLink("Defense")+" +1 (2 level advantage versus applicable ships),<br />\
-				and can be untargetable (3 levels advantage versus applicable ships).<br /><br />\
+				effective "+conceptLink("Defense")+" +1 (2 level advantage), and can be untargetable (3 levels advantage).<br /><br />\
 				Elite+ ships benefit from "+conceptLink("low maintenance")+". Legendary ships are one "+conceptLink("Hull Size")+" more durable.";
 			break;
 		case "facilities":
@@ -704,7 +742,7 @@ function showBox(concept) {
 				"+conceptLink("Industrial Center")+"s can be built on "+conceptLink("colonies")+". Available only with "+conceptLink("Close Encounters")+".";
 			break;
 		case "fastmove":
-			displayTxt = "<b>Fastmove Technology</b><br />"+conceptLink("Close Encounters")+" technology that allows equipped compatible ships to move an extra hex,\
+			displayTxt = "<b>Fastmove Technology</b><br />"+conceptLink("Close Encounters")+" technology that allows equipped compatible "+conceptLink("ship")+"s to move an extra hex,\
 				on the first "+conceptLink("turn")+" of each "+conceptLink("economic phase")+";<br />\
 				in addition to any "+conceptLink("movement")+" that would otherwise be normally allowed<br /><br />\
 				Level 1: Compatible with "+conceptLink("Battlecruiser")+"s / "+conceptLink("Flagship")+"s / "+conceptLink("Unique Ship")+"s<br />\
@@ -721,7 +759,7 @@ function showBox(concept) {
 			displayTxt =  "<b>Industrial Center</b><br />"+conceptLink("Facility")+" that generates 5 "+conceptLink("CP")+". Points generated this way are usable similiar to other sources of CP.";
 			break;
 		case "military academy":
-			displayTxt =  "<b>Military Academy</b><br />"+conceptLink("Close Encounters")+" technology that improves the "+conceptLink("experience")+" system for starships.<br />\
+			displayTxt =  "<b>Military Academy</b><br />"+conceptLink("Close Encounters")+" technology that improves the "+conceptLink("experience")+" system for "+conceptLink("ship")+"s.<br />\
 				Level 1 causes newly built ships to start at Skilled. Level 2 makes <i>all</i> ships 10% easier to gain experience.";
 			break;
 		case "react move":
@@ -748,7 +786,7 @@ function showBox(concept) {
 				Whenever the required RP threshold is reached, a new design is simply unlocked.";
 			break;
 		case "security forces":
-			displayTxt = "<b>Security Forces</b><br />"+conceptLink("Close Encounters")+" technology that makes ships are resistant to boarding, \
+			displayTxt = "<b>Security Forces</b><br />"+conceptLink("Close Encounters")+" technology that makes "+conceptLink("ship")+"s resistant to boarding, \
 				as if they were 1-2 "+conceptLink("Hull Size")+"s larger (depending on level). Applied instantly to <i>all</i> ships once developed.";
 			break;
 		case "tn":
@@ -1023,8 +1061,8 @@ function showBox(concept) {
 			break;
 		case "industrious race":
 			displayTxt = "<b>Industrious Race</b><br />"+conceptLink("Terraforming")+" 1 also allows colonizing "+conceptLink("Asteroids")+". \
-				Such "+conceptLink("colonies")+" are immune to "+conceptLink("Titan")+"s and "+conceptLink("ground unit")+"s, \
-				but do not grant Colony "+conceptLink("VP")+"s.";
+				Such "+conceptLink("colonies")+" are immune to "+conceptLink("Titan")+"s and invading "+conceptLink("ground unit")+"s,<br />\
+				but grant neither Colony "+conceptLink("VP")+"s nor "+conceptLink("alien technology")+".";
 			break;
 		case "ancient race":
 			displayTxt = "<b>Ancient Race</b><br />A limited subset of the systems near the "+conceptLink("homeworld")+" (all adjacent hexes, plus 6 more) \
@@ -1106,7 +1144,7 @@ function showBox(concept) {
 			displayTxt = "<b>House of Speed</b><br />Empire starts with "+conceptLink("Movement")+" 7, \
 				at the expense of their mobile ships getting "+conceptLink("Defense")+" -2.<br />\
 				May never use "+conceptLink("Cloaking")+" technology. \
-				Captured "+conceptLink("Raider")+"s are usable, but incompatible with this advantage.";
+				Captured "+conceptLink("Raider")+"s are usable, but their "+conceptLink("Movement")+" equipment may not be upgraded.";
 			break;
 		case "powerful psychics":
 			displayTxt = "<b>House of Speed</b><br />Empire starts with "+conceptLink("Exploration")+" level 1. \
@@ -1137,7 +1175,7 @@ function showBox(concept) {
 		case "improved gunnery":
 			displayTxt = "<b>Improved Gunnery</b><br />"+conceptLink("Type Flag")+" + "+conceptLink("Type XIII")+" + "+conceptLink("Type XV")+" ships \
 				are equipped with "+conceptLink("Second Salvo")+". "+conceptLink("Type V")+" ships gain "+conceptLink("Attack")+" +1.<br />\
-				Additionally, upon collecting 4 "+conceptLink("RP")+", all ships gain "+conceptLink("Tactics")+" +1.";
+				Additionally, upon collecting 4 "+conceptLink("RP")+", all ships gain 1 additional "+conceptLink("Tactics")+".";
 			break;
 		case "advanced research":
 			displayTxt = "<b>Advanced Research</b><br />Replicators begin the game with one [additional] "+conceptLink("RP")+". \
@@ -1160,7 +1198,7 @@ function showBox(concept) {
 				"+conceptLink("Battle Carrier")+"s are also equipped with this perk ("+conceptLink("Replicators")+" only).";
 			break;
 		case "shield projector":
-			displayTxt = "<b>Shield Projector</b><br />Allows the "+conceptLink("Unique Ship")+" to protect another ship,\
+			displayTxt = "<b>Shield Projector</b><br />Allows the "+conceptLink("Unique Ship")+" to protect a friendly "+conceptLink("combat ship")+",\
 			allowing its mate to fire without fear of being targeted<br />\
 				"+conceptLink("Dreadnought")+"s can also research this perk (requires "+conceptLink("Advanced Construction")+" 1).";
 			break;
@@ -1173,16 +1211,16 @@ function showBox(concept) {
 			displayTxt = "<b>Construction Bay</b><br />Allows the "+conceptLink("Unique Ship")+" to contribute to "+conceptLink("Ship Yard")+" capacity while stationed at a "+conceptLink("colony")+". Counts as a SY for construction purposes by colonies";
 			break;
 		case "tractor beam":
-			displayTxt = "<b>Tractor Beam</b><br />Allows the "+conceptLink("Unique Ship")+" to pull an enemy ship to it each "+conceptLink("round")+",\
+			displayTxt = "<b>Tractor Beam</b><br />Allows the "+conceptLink("Unique Ship")+" to pull an enemy "+conceptLink("combat ship")+" to it each "+conceptLink("round")+",\
 				prohibiting the victim from "+conceptLink("retreat")+"ing.<br />\
 				"+conceptLink("Battleship")+"s can also research this perk (requires "+conceptLink("Advanced Construction")+" 1).";
 			break;
 		case "warp gates":
-			displayTxt = "<b>Warp Gates</b><br />Two "+conceptLink("Unique Ship")+"s within 3 hexes of each other are considered connected (1 hex apart). \
+			displayTxt = "<b>Warp Gates</b><br />Two "+conceptLink("Unique Ship")+"s within 3 "+conceptLink("hex")+"es of each other are considered connected (1 hex apart). \
 				Supporting craft may use only one warp gate per "+conceptLink("turn")+".<br /><br />\
 				"+conceptLink("Type Exp")+"s and the "+conceptLink("Type Flag")+" gain this perk if \
 				the "+conceptLink("Replicators")+" have the matching "+conceptLink("Empire Advantage")+"; \
-				and their Type Exps count as one hull for construction/conversion purposes.";
+				and their Type Exps count as one "+conceptLink("hull")+" for construction/conversion purposes.";
 			break;
 		case "second salvo":
 			displayTxt = "<b>Second Salvo</b><br />The first time a "+conceptLink("Unique Ship")+" hits its victim in a "+conceptLink("round")+", it gets to shoot again towards the same hull type.";
@@ -1216,11 +1254,11 @@ function showBox(concept) {
 			break;
 		case "anti-replicator":
 			displayTxt =  "<b>Anti-Replicator Technology</b><br />Allows equipped "+conceptLink("Transports")+" to finish off a \
-				"+conceptLink("Replicator")+" colony that is already at minimal strength.";
+				"+conceptLink("Replicator")+" "+conceptLink("colony")+" that is already at minimal strength.";
 			break;
 		case "advanced construction":
 			displayTxt =  "<b>Advanced Construction</b><br />"+conceptLink("Replicators")+"-exclusive technology that adds a variety of design variants and upgrades.\
-				Requires building a ship with at least "+conceptLink("Ship Size")+" 4.\
+				Requires building a "+conceptLink("ship")+" with at least "+conceptLink("Ship Size")+" 4.\
 				<br /><br />Level 1: Allows building "+conceptLink("DestroyerX")+"es, developing "+conceptLink("Attack")+" 4, and upgrading \
 					"+conceptLink("Base")+"s/"+conceptLink("Battleship")+"s/"+conceptLink("Dreadnought")+"s\
 				<br />Level 2: Allows building "+conceptLink("Fighter")+"s Lv 4, "+conceptLink("Battle Carrier")+"s, and "+conceptLink("MinerX")+"es\
@@ -1269,17 +1307,20 @@ function showBox(concept) {
 			// Fall through
 		case "depletion":
 			displayTxt = "<b>Depletion</b><br />"+conceptLink("Replicator")+" "+conceptLink("colonies")+" grow quickly, but also quickly consume their resources.\
-				<br />Starting on "+conceptLink("Economic Phase")+" 10, one colony is depleted; \
-				rendering its "+conceptLink("planet")+" no longer usable by any player for the rest of the scenario.\
+				<br />Starting on "+conceptLink("Economic Phase")+" 10 (default), one colony is depleted; \
+				rendering its "+conceptLink("planet")+" no longer usable for the rest of the scenario.\
 				<br /><br />The "+conceptLink("homeworld")+" is immune to depletion, ensuring the Replicators are always able to produce hulls.";
 			break;
 		case "self-preservation":
-			displayTxt = "<b>Self-Preservation</b><br />In "+conceptLink("Replicator")+" Solitaire, Replicator "+conceptLink("fleet")+"s will try to avoid \
+			displayTxt = "<b>Self-Preservation</b><br />In "+conceptLink("Replicator Solitaire")+", "+conceptLink("Replicator")+" "+conceptLink("fleet")+"s will try to avoid \
 				"+conceptLink("battle")+"s with Player fleets if the latter has a "+conceptLink("Hull Size")+" advantage of 25% or more.";
 			break;
 		
 			
 		// Replicator Ships
+		case "hull":
+			displayTxt = "<b>Hull</b><br />Unidentified/unspecified "+conceptLink("Replicator")+" hull, worth 1 "+conceptLink("Hull Size");
+			break;
 		case "type 0":
 			displayTxt = "<b>Type 0</b><br />Starter "+conceptLink("Replicator")+" ship" + stats(0, "E2", 0, 1, 0);
 			break;
@@ -1309,25 +1350,29 @@ function showBox(concept) {
 			break;
 		case "type xiii":
 			displayTxt = "<b>Type XIII</b><br />Heavy "+conceptLink("Replicator")+" ship\
-				" + stats(0, "A10", 4, 4, 1)+"<br /><b>Required "+conceptLink("RP")+"</b>: 13";
+				" + stats(0, "A10", 4, 4, 1)+"<br /><b>Required "+conceptLink("RP")+"</b>: 13\
+				<br /><br />Counts as 3 "+conceptLink("hull")+"s for combining/breaking purposes";
 			break;
 		case "type xv":
 			displayTxt = "<b>Type XV</b><br />Huge "+conceptLink("Replicator")+" ship\
-				" + stats(0, "A11", 5, 4, 1)+"<br /><b>Required "+conceptLink("RP")+"</b>: 15";
+				" + stats(0, "A11", 5, 4, 1)+"<br /><b>Required "+conceptLink("RP")+"</b>: 15\
+				<br /><br />Counts as 3 "+conceptLink("hull")+"s for combining/breaking purposes";
 			break;
 		case "type pd":
 			displayTxt = "<b>Type PD</b><br />Specialist "+conceptLink("Replicator")+" ship, \
-				gains a massive "+conceptLink("Attack")+" bonus versus "+conceptLink("Fighter")+"s\
-				" + stats(0, "E1 / A6", 0, 1, 1)+"<br /><b>Required Tech</b>: Point-Defense";
+				gains a massive "+conceptLink("Attack")+" bonus versus "+conceptLink("Fighter")+"s<br />\
+				Upgrades to A7 versus Fighters once 3 have been shot down in previous "+conceptLink("turn")+"s\
+				" + stats(0, "E1 / A6", 0, 1, 0)+"<br /><b>Required Tech</b>: "+conceptLink("Point-Defense");
 			break;
 		case "type scan":
 			displayTxt = "<b>Type Scan</b><br />Specialist "+conceptLink("Replicator")+" ship, \
 				equipped with "+conceptLink("Scanning")+" level 2 and gains an "+conceptLink("Attack")+" bonus versus cloaked ships\
-				" + stats(0, "E1 / C6", 0, 2, 0)+"<br /><b>Required Tech</b>: Scanning";
+				" + stats(0, "E1 / C6", 0, 2, 0)+"<br /><b>Required Tech</b>: "+conceptLink("Scanning");
 			break;
 		case "type sw":
-			displayTxt = "<b>Type SW</b><br />Specialist "+conceptLink("Replicator")+" ship, sweeps "+conceptLink("mines")+"\
-				" + stats(0, "E1", 0, 1, 0)+"<br /><b>Required Tech</b>: Sweep";
+			displayTxt = "<b>Type SW</b><br />Specialist "+conceptLink("Replicator")+" ship, sweeps "+conceptLink("mines")+"<br />\
+				Minesweeping effieincy increases (1 &rarr; 2) once 3 mines have been swept in previous "+conceptLink("turn")+"s\
+				" + stats(0, "E1", 0, 1, 0)+"<br /><b>Required Tech</b>: "+conceptLink("Minesweeping")+"";
 			break;
 		case "type exp":
 			displayTxt = "<b>Type Exp</b><br />Specialist "+conceptLink("Replicator")+" ship, equipped with "+conceptLink("Exploration")+" 1\
@@ -1345,18 +1390,24 @@ function showBox(concept) {
 			break;
 			
 		// Site exclusive concepts
-		case "numsims":
-			displayTxt = "<b>Number of simulations</b><br />Number of battles to simulate at once. \
-				Battles simulated as a series give a short summary of success rate, followed by detailed ships survived and HP remaining on each side.";
-			break;
-		case "retreatthresh":
-			displayTxt = "<b>Retreat Threshold</b><br />At how many ships (or less) will the simulator cause all surviving mobile ships to "+conceptLink("retreat")+"?\
-				<br />Ships unable to damage the "+conceptLink("DM")+" will attempt to retreat regardless of this setting.";
-			break;
 		case "battle simulator":
 			displayTxt = "<b>Battle Simulator</b><br />Program that simulates "+conceptLink("battle")+"s using its internal dice rolling and targeting systems.<br />\
-				For now, all we have is a program versus "+conceptLink("Doomsday Machine")+"s.";
+				"+conceptLink("Doomsday Machine")+" and "+conceptLink("Replicator Solitaire")+" simulations are supported.";
 			provideSimLinks = true;
+			break;
+		case "replay center":
+			displayTxt = "<b>Replay Center</b><br />Program that plays back a playthrough's <q>recording</q>. \
+				Can go forwards or backwards, one stage or "+conceptLink("economic phase")+"'s worth at a time.\
+				<br /><br />Has the ability to remember where a given playthrough was left at, but will forget it if a different playthrough is navigated.";
+			break;
+		case "numsims":
+			displayTxt = "<b>Number of simulations</b><br />Number of battles to simulate at once. \
+				Battles simulated as a series give a short summary of success rate,<br />\
+				followed by detailed ships survived and HP remaining (if against a "+conceptLink("DM")+") on each side.";
+			break;
+		case "retreatthresh":
+			displayTxt = "<b>Retreat Threshold</b><br />At how many ships (or less) will the simulator cause surviving ships to "+conceptLink("retreat")+" (if able)?\
+				<br />Ships engaged against a "+conceptLink("DM")+" that are unable to damage it will attempt to retreat regardless of this setting.";
 			break;
 		case "threat":
 			displayTxt = "<b>Threat</b><br />Numeric value that determines how threatening this ship group is to a "+conceptLink("Doomsday Machine")+". \
@@ -1365,13 +1416,33 @@ function showBox(concept) {
 				<span style=\"font-family: monospace;\" class=\"bindTxt\">10 - {hullSize} + (1 + {atkToHitDM})^(3-({hullSize}-1)/2) + {DMtoHitGroup}^2.2</span><br />\
 				Where {hullSize} is the group "+conceptLink("Hull Size")+", {atkToHitDM} and {DMtoHitGroup} represents the respective final Attack ratings.";
 			break;
-		
+		case "titantarget":
+			displayTxt = "<b>Titan Targeting</b><br />"+conceptLink("Titan")+"s that score hits against targets with one "+conceptLink("Hull Size")+" (remaining) effectively waste excess damage.\
+				<br />They can be instructed to shoot at bigger targets to attempt to improve the odds.";
+			break;
+		case "flagpreserve":
+			displayTxt = "<b>Flagship Preservation</b><br />Because it is impossible to build [more] "+conceptLink("Flagship")+"s, this setting causes the player Flagship to "+conceptLink("retreat")+" at 1 HP remaining.\
+				<br /><br />The "+conceptLink("Replicator")+" "+conceptLink("Type Flag")+" will always retreat at 1 HP, if able.";
+			break;
+		case "raiderprox":
+			displayTxt = "<b>Raider Proximity</b><br />"+conceptLink("Replicator Solitaire")+"'s environment uses "+conceptLink("Raider")+"s within 3 hexes of the "+conceptLink("battle")+", \
+				and whether Raiders have been previously encountered, to determine how many "+conceptLink("Type Scan")+"s to build.";
+			break;
+		case "minepresence":
+			displayTxt = "<b>Mine Presence</b><br />"+conceptLink("Replicator Solitaire")+"'s environment uses the presence of "+conceptLink("Mines")+" on the board, \
+				whether they are in "+conceptLink("battle")+", and whether Mines have been previously encountered, to determine how many "+conceptLink("Type SW")+"s to build.";
+			break;
+		case "ftrpresence":
+			displayTxt = "<b>Fighter Presence</b><br />"+conceptLink("Replicator Solitaire")+"'s environment uses the presence of "+conceptLink("Fighter")+"s on the board, \
+				whether they are in "+conceptLink("battle")+", and whether Fighters have been previously encountered, to determine how many "+conceptLink("Type PD")+"s to build.";
+			break;
 		
 	}
 	
 	displayTxt = displayTxt + "<br /><br />";
 	if (provideSimLinks) {
-		displayTxt = displayTxt + "<a class=\"interact\" href=\"/se4x/dmBatSim.htm\" target=\"_blank\">Open Doomsday Machine program</a>";
+		displayTxt = displayTxt + "<a class=\"interact\" href=\"/se4x/dmBatSim.htm\" target=\"_blank\">Doomsday Machine simulator</a>\
+			<a class=\"interact\" href=\"/se4x/repBatSim.htm\" target=\"_blank\">Replicator Solitaire simulator</a>";
 	}
 	displayTxt = displayTxt + "<a class=\"interact\" href=\"javascript:closeBox();\">Close</a>";
 	infoPanel.innerHTML = displayTxt;
@@ -1385,14 +1456,14 @@ function keywordifyDocument() {
 }
 
 function keywordifyCollection(collObj) {
-	const keyTerms = ["Space Empires 4X", "Close Encounters", "Replicator", "All Good Things",
-		"Barren", "Colony", "Colonies", "Combat Ship", "CP", "Economic Phase", "Homeworld", "Hull Size", "Maintenance", "Planet", "Scuttle", "Turn",
+	const keyTerms = ["Space Empires 4X", "Close Encounters", "Replicator", "All Good Things", "Replay Center",
+		"Barren", "Colony", "Colonies", "Combat Ship", "CP", "Economic Phase", "Homeworld", "Maintenance", "Planet", "Starship", "Scuttle", "Turn",
 		"Bid", "Competitive", "Galactic Capitol", "Initiative", "Primary Objective", "Uneasy Alliance", "Victory Point", "VP", "Blood Brothers",
-		"Battle", "Blockade", "Bombard", "Fleet", "Non-Player Alien", "NPA", "Subdue", "Priority Class", "Retreat", "Round", "Screen", "Weakness", "Weapon Class",
+		"Battle", "Blockade", "Bombard", "Fleet", "Non-Player Alien", "NPA", "Subdue", "Subduing", "Priority Class", "Retreat", "Round", "Screen", "Weakness", "Weapon Class",
 		"Alien-D", "Alien-C", "Alien-B", "Doomsday Machine", "Amoeba", "Alien Empires", "Alien Player", "Economic Roll",
 		"Decoy", "Scout", "Destroyer", "Cruiser", "Dreadnought", "Titan", "Ship Yard", "Base", "Mining Ship", "Miner",
 		"Minelayer", "Minesweeper", "Carrier", "Raider", "Pipeline", "Unique Ship",
-		"Asteroid Belt", "Asteroids", "Black Hole", "Danger", "Deep Space", "Home System", "Lost in Space", "Nebula", "Space Wreck", "Supernova", "Unexplored",
+		"Asteroid Belt", "Asteroids", "Black Hole", "Danger", "Deep Space", "Hex", "Home System", "Lost in Space", "Nebula", "Space Wreck", "Supernova", "Unexplored",
 		"Warp Point", "Regional Map", "Fold in Space", "Pirate",
 		"Technology", "Technologies", "Attack", "Defense", "Exploration", "Movement", "Ship Size", "Tactics", "Terraforming", "Upgrade",
 		"Cloaking", "Fighter", "Minelaying", "Minesweeping", "Nanomachine", "Scanning",
@@ -1404,8 +1475,8 @@ function keywordifyCollection(collObj) {
 		"Empire Advantage", "And We Still Carry Swords", "Industrious Race", "Horsemen of the Plains", "Space Pilgrims", "Traders", "Warrior Race",
 		"Advanced Comm Array", "Air Support", "The Captain's Chair", "Cold Fusion Drive", "Mobile Analysis Bay", "Soylent Purple",
 		"Resource Card",
-		"Depletion", "Deplete", "Self-Preservation",
-		"Type 0", "Type II", "Type IV", "Type V", "Type IX", "Type XI", "Type XV",
+		"Depletion", "Deplete", "Advanced Research", "Self-Preservation",
+		"Hull", "Type 0", "Type II", "Type IV", "Type V", "Type IX", "Type XI", "Type XV",
 		"Type Exp", "Type Flag", "Type PD", "Type Scan", "Type SW"];
 		
 	const keyExpressions = [
@@ -1417,12 +1488,14 @@ function keywordifyCollection(collObj) {
 		{regex: conceptLink("Battle")+"ship", newTxt: conceptLink("Battleship")},
 		{regex: conceptLink("battle")+" simulator", newTxt: conceptLink("battle simulator")},
 		{regex: conceptLink("Battle")+" Simulator", newTxt: conceptLink("Battle Simulator")},
-		{regex: conceptLink("colony")+" ship", newTxt: conceptLink("colony ship")},
-		{regex: conceptLink("Colony")+" Ship", newTxt: conceptLink("Colony Ship")},
+		{regex: conceptLink("colony")+" "+conceptLink("ship"), newTxt: conceptLink("colony ship")},
+		{regex: conceptLink("Colony")+" "+conceptLink("Ship"), newTxt: conceptLink("Colony Ship")},
 		{regex: conceptLink("miner")+"als", newTxt: conceptLink("minerals")},
 		{regex: conceptLink("Miner")+"als", newTxt: conceptLink("Minerals")},
 		{regex: conceptLink("fleet")+" size bonus", newTxt: conceptLink("fleet size bonus")},
 		{regex: conceptLink("Fleet")+" Size Bonus", newTxt: conceptLink("Fleet Size Bonus")},
+		{regex: conceptLink("hull")+" size", newTxt: conceptLink("hull size")},
+		{regex: conceptLink("Hull")+" Size", newTxt: conceptLink("Hull Size")},
 		{regex: "hidden "+conceptLink("fleet"), newTxt: conceptLink("hidden fleet")},
 		{regex: "Hidden "+conceptLink("Fleet"), newTxt: conceptLink("Hidden Fleet")},
 		{regex: "raider "+conceptLink("fleet"), newTxt: conceptLink("raider fleet")},

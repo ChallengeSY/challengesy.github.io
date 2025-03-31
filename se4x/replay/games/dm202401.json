@@ -153,6 +153,10 @@
 		[{
 			"name":"CSY (Yellow)"
 		}],
+	"dmTable":
+		[{
+			"soloSm":4,"ecoPhase":1
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Yload"
@@ -372,6 +376,10 @@
 		[{
 			"name":"CSY (Yellow)","size":2
 		}],
+	"dmTable":
+		[{
+			"soloSm":4,"ecoPhase":2
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Yload"
@@ -590,6 +598,10 @@
 		[{
 			"name":"CSY (Yellow)","size":3
 		}],
+	"dmTable":
+		[{
+			"soloSm":4,"ecoPhase":3
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Yload"
@@ -792,6 +804,10 @@
 		[{
 			"name":"CSY (Yellow)","size":3,"atk":1,"SY":2
 		}],
+	"dmTable":
+		[{
+			"soloSm":4,"ecoPhase":4
+		}],
 	"actions":
 		[{
 			"removeCounter":"Miner1Yload"
@@ -981,6 +997,10 @@
 		[{
 			"name":"CSY (Yellow)","size":4,"atk":1,"SY":2
 		}],
+	"dmTable":
+		[{
+			"soloSm":4,"ecoPhase":5
+		}],
 	"actions":
 		[{
 			"removeCounter":"SC3Y"
@@ -1095,6 +1115,10 @@
 	"techTable":
 		[{
 			"name":"CSY (Yellow)","size":4,"atk":2,"SY":2
+		}],
+	"dmTable":
+		[{
+			"soloSm":4,"ecoPhase":6
 		}],
 	"actions":
 		[{
@@ -1239,6 +1263,10 @@
 		[{
 			"name":"CSY (Yellow)","size":4,"atk":2,"SY":2
 		}],
+	"dmTable":
+		[{
+			"soloSm":4,"ecoPhase":7
+		}],
 	"actions":
 		[{
 			"removeCounter":"dm1"
@@ -1365,6 +1393,10 @@
 	"techTable":
 		[{
 			"name":"CSY (Yellow)","size":4,"atk":2,"SY":2
+		}],
+	"dmTable":
+		[{
+			"soloSm":4,"ecoPhase":8
 		}],
 	"actions":
 		[{
@@ -1499,6 +1531,10 @@
 	"techTable":
 		[{
 			"name":"CSY (Yellow)","size":4,"atk":2,"SY":3
+		}],
+	"dmTable":
+		[{
+			"soloSm":4,"ecoPhase":9
 		}],
 	"actions":
 		[{
