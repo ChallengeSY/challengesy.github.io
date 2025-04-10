@@ -12,6 +12,9 @@
 	<style>
 		td.bonus, span.hit, li.median {color: #FFFF00; font-weight: bold;}
 		td.reference {color: #C0C0C0;}
+		
+		.allied {color: #00FF00;}
+		.rival {color: #FF8080;}
 
 		div {border-radius: 12px; padding: 8px; background: rgb(32,32,64); margin-bottom: 25px;}
 		div a {white-space: nowrap;}
@@ -145,7 +148,7 @@
 <tr>
 <td><label for="techAlien">Alien Technology</label></td>
 <td><a href="javascript:showBox('Alien Technology')">(?)</a></td>
-<td><input type="checkbox" id="techAlien" onclick="showPlrRows()" oninput="showPlrRows()" disabled="disabled" /></td>
+<td><input type="checkbox" id="techAlien" onclick="showPlrRows()" oninput="showPlrRows()" /></td>
 <td><label for="techAux">Auxiliary Ships</label></td>
 <td>&nbsp;</td>
 <td><input type="checkbox" id="techAux" onclick="showPlrRows()" oninput="showPlrRows()" /></td>
@@ -161,11 +164,12 @@
 </tr>
 <tr>
 <td><label for="plrAdvantage">Player Advantage</label></td>
-<td><a href="javascript:showBox('empire advantage')">(?)</a></td>
-<td colspan="4"><select class="text" id="plrAdvantage" disabled="disabled">
+<td><a id="plrAdvLink" href="javascript:showBox('empire advantage')">(?)</a></td>
+<td colspan="4"><select class="text" id="plrAdvantage" onchange="showPlrRows(); applyTotals();" onblur="showPlrRows(); applyTotals();">
 <option>None applicable</option>
 <option>Fearless Race</option>
 <option>Warrior Race</option>
+<option>Celestial Knights</option>
 <option>Giant Race</option>
 <option>Hive Mind</option>
 <option>Insectoids</option>
@@ -174,6 +178,8 @@
 <option>Horsemen of the Plains</option>
 <option>Cloaking Geniuses</option>
 <option>Star Wolves</option>
+<option>House of Speed</option>
+<option>On the Move</option>
 <option>Longbowmen</option>
 </select></td>
 </tr>
@@ -239,7 +245,7 @@
 <tr>
 <td><label for="repGunnery">Improved Gunnery</label></td>
 <td><a href="javascript:showBox('improved gunnery')">(?)</a></td>
-<td><input type="checkbox" id="repGunnery" disabled="disabled" /></td>
+<td><input type="checkbox" id="repGunnery" onclick="showPlrRows()" oninput="showPlrRows()" /></td>
 <td><label for="numSims">Number of simulations</label></td>
 <td><a href="javascript:showBox('numSims')">(?)</a></td>
 <td><input class="text numeric" type="number" id="numSims" value="400" min="2" size="7" /></td>
@@ -260,48 +266,48 @@
 <tr>
 <td><label for="atAMwarhead">Anti-Matter Warhead</label></td>
 <td><a href="javascript:showBox('Anti-Matter Warhead')">(?)</a></td>
-<td><input type="checkbox" id="atAMwarhead" disabled="disabled" /></td>
+<td><input type="checkbox" id="atAMwarhead" /></td>
 <td><label for="atLLtorp">Long Lance Torpedo</label></td>
 <td><a href="javascript:showBox('Long Lance Torpedo')">(?)</a></td>
-<td><input type="checkbox" id="atLLtorp" disabled="disabled" /></td>
+<td><input type="checkbox" id="atLLtorp" /></td>
 <tr>
 </tr>
 <td><label for="atEmArmor">Emissive Armor</label></td>
 <td><a href="javascript:showBox('Emissive Armor')">(?)</a></td>
-<td><input type="checkbox" id="atEmArmor" disabled="disabled" /></td>
+<td><input type="checkbox" id="atEmArmor" /></td>
 <td><label for="atEWmod">Electronic Warfare Module</label></td>
 <td><a href="javascript:showBox('Electronic Warfare Module')">(?)</a></td>
-<td><input type="checkbox" id="atEWmod" disabled="disabled" /></td>
+<td><input type="checkbox" id="atEWmod" /></td>
 </tr>
 <tr>
 <td><label for="atMWdrive">Microwarp Drive</label></td>
 <td><a href="javascript:showBox('Microwarp Drive')">(?)</a></td>
-<td><input type="checkbox" id="atMWdrive" disabled="disabled" /></td>
+<td><input type="checkbox" id="atMWdrive" /></td>
 <td><label for="atComSen">Combat Sensors</label></td>
 <td><a href="javascript:showBox('Combat Sensors')">(?)</a></td>
-<td><input type="checkbox" id="atComSen" disabled="disabled" /></td>
+<td><input type="checkbox" id="atComSen" /></td>
 </tr>
 <tr>
 <td><label for="atAfterburn">Afterburners</label></td>
 <td><a href="javascript:showBox('Afterburners')">(?)</a></td>
-<td><input type="checkbox" id="atAfterburn" disabled="disabled" /></td>
+<td><input type="checkbox" id="atAfterburn" /></td>
 <td><label for="atPhoton">Photon Bomb</label></td>
 <td><a href="javascript:showBox('Photon Bomb')">(?)</a></td>
-<td><input type="checkbox" id="atPhoton" disabled="disabled" /></td>
+<td><input type="checkbox" id="atPhoton" /></td>
 </tr>
 <tr>
 <td><label for="atSWturret">Hidden Turret</label></td>
 <td><a href="javascript:showBox('Hidden Turret')">(?)</a></td>
-<td><input type="checkbox" id="atSWturret" disabled="disabled" /></td>
+<td><input type="checkbox" id="atSWturret" /></td>
 <td><label for="atAdaptCl">Adaptive Cloaking Device</label></td>
 <td><a href="javascript:showBox('Adaptive Cloaking Device')">(?)</a></td>
-<td><input type="checkbox" id="atAdaptCl" disabled="disabled" /></td>
+<td><input type="checkbox" id="atAdaptCl" /></td>
 </tr>
 <tr>
 <td colspan="1"></td>
 <td colspan="3"><label for="atITcomp">Interlinked Targeting Computer</label></td>
 <td><a href="javascript:showBox('Interlinked Targeting Computer')">(?)</a></td>
-<td><input type="checkbox" id="atITcomp" disabled="disabled" /></td>
+<td><input type="checkbox" id="atITcomp" onclick="showPlrRows()" oninput="showPlrRows()" /></td>
 </tr>
 </tbody>
 </table>

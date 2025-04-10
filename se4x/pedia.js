@@ -517,11 +517,11 @@ function showBox(concept) {
 		case "mines":
 			displayTxt = "<b>Mines</b><br />Small craft that detonates upon contact with enemy "+conceptLink("ship")+"s, destroying them instantly unless "+conceptLink("sw")+"ept.\
 				<br />Also inhibits spreading of "+conceptLink("space amoeba")+" for one "+conceptLink("economic phase")+", though immunity can be acquired.\
-				<br />Limited to 1 hex per "+conceptLink("movement turn")+"; and may not enter enemy occupied hexes, except versus amoeba";
+				<br />Has fixed "+conceptLink("Movement")+" 1; and may not enter enemy occupied "+conceptLink("hex")+"es, except versus amoeba";
 			displayTxt = displayTxt + stats(5, 1, 0, 0) + "<br /><b>Required Tech</b>: "+conceptLink("Minelaying");
 			break;
 		case "pipeline":
-			displayTxt = "<b>Merchant Pipeline</b><br />Support ship able to connect to Pipeline ships in adjacent hexes to assist in movement along a <q>road</q> <span class=\"bindTxt\">(+1 hex per "+conceptLink("movement turn")+" and ignores terrain)</span> and income <span class=\"bindTxt\">(+1 "+conceptLink("CP")+" if it connects a "+conceptLink("colony")+" to the "+conceptLink("homeworld")+")</span>";
+			displayTxt = "<b>Merchant Pipeline</b><br />Support ship able to connect to Pipeline ships in adjacent hexes to assist in movement along a <q>road</q> <span class=\"bindTxt\">(+1 "+conceptLink("hex")+" per "+conceptLink("turn")+" and ignores terrain)</span> and income <span class=\"bindTxt\">(+1 "+conceptLink("CP")+" if it connects a "+conceptLink("colony")+" to the "+conceptLink("homeworld")+")</span>";
 			displayTxt = displayTxt + stats(3, 0, 0, 0);
 			break;
 		case "raider":
@@ -913,7 +913,7 @@ function showBox(concept) {
 			break;
 		case "anti-matter warhead":
 			displayTxt = "<b>Anti-Matter Warhead</b><br />"+conceptLink("Destroyer")+"s have "+conceptLink("Attack")+" +1, \
-				on top of any natural "+conceptLink("technology")+".";
+				on top of any installed "+conceptLink("technology")+".";
 			break;
 		case "interlinked targeting computer":
 			displayTxt = "<b>Interlinked Targeting Computer</b><br />"+conceptLink("Destroyer")+"s' "+conceptLink("Attack")+" bonus from \
@@ -924,7 +924,7 @@ function showBox(concept) {
 			break;
 		case "long lance torpedo":
 			displayTxt = "<b>Long Lance Torpedo</b><br />"+conceptLink("Destroyer")+"s fight at "+conceptLink("Weapon Class")+" B, \
-				while outside "+conceptLink("asteroids")+" and "+conceptLink("nebula")+"e.";
+				while outside "+conceptLink("asteroids")+" and "+conceptLink("nebula")+"e. Overrides "+conceptLink("Longbowmen");
 			break;
 		case "central computer":
 			displayTxt = "<b>Central Computer</b><br />"+conceptLink("Cruiser")+"s and "+conceptLink("Battlecruiser")+"s \
@@ -947,25 +947,25 @@ function showBox(concept) {
 			break;
 		case "electronic warfare module":
 			displayTxt = "<b>Electronic Warfare Module</b><br />"+conceptLink("Cruiser")+"s have "+conceptLink("Attack")+" +1, \
-				on top of any natural "+conceptLink("technology")+".";
+				on top of any installed "+conceptLink("technology")+".";
 			break;
 		case "microwarp drive":
 			displayTxt = "<b>Microwarp Drive</b><br />"+conceptLink("Battlecruiser")+"s have "+conceptLink("Attack")+" +1, \
-				on top of any natural "+conceptLink("technology")+".";
+				on top of any installed "+conceptLink("technology")+".";
 			break;
 		case "combat sensors":
 			displayTxt = "<b>Combat Sensors</b><br />"+conceptLink("Battleship")+"s have "+conceptLink("Attack")+" +1, \
-				on top of any natural "+conceptLink("technology")+".";
+				on top of any installed "+conceptLink("technology")+".";
 			break;
 		case "afterburners":
 			displayTxt = "<b>Afterburners</b><br />"+conceptLink("Fighter")+"s have "+conceptLink("Attack")+" +1 \
 				whenever they shoot at a ship with "+conceptLink("Hull Size")+" 1 or less \
-				(after applying "+conceptLink("Giant Race")+" / "+conceptLink("Insectoids")+" modifiers.";
+				(after applying "+conceptLink("Giant Race")+" / "+conceptLink("Insectoids")+" modifiers).";
 			break;
 		case "photon bomb":
 			displayTxt = "<b>Photon Bomb</b><br />"+conceptLink("Fighter")+"s have "+conceptLink("Attack")+" +1 \
 				whenever they shoot at a ship with "+conceptLink("Hull Size")+" 2 or more \
-				(after applying "+conceptLink("Giant Race")+" / "+conceptLink("Insectoids")+" modifiers.";
+				(after applying "+conceptLink("Giant Race")+" / "+conceptLink("Insectoids")+" modifiers).";
 			break;
 		case "stim packs":
 			displayTxt = "<b>Stim Packs</b><br />"+conceptLink("Ground Unit")+"s have "+conceptLink("Attack")+" +1.";
@@ -1042,8 +1042,8 @@ function showBox(concept) {
 			break;
 		case "fearless race":
 			displayTxt = "<b>Fearless Race</b><br />For the first "+conceptLink("round")+" of each "+conceptLink("battle")+", \
-				this empire's "+conceptLink("combat ship")+"s (excluding "+conceptLink("boarding ship")+"s) shoot at "+conceptLink("Weapon Class")+" A; \
-				at the expense of being prohibited from "+conceptLink("retreat")+"ing until after round 3.";
+				this empire's "+conceptLink("combat ship")+"s (excluding "+conceptLink("boarding ship")+"s) shoot at "+conceptLink("Weapon Class")+" A;\
+				<br />at the expense of being prohibited from "+conceptLink("retreat")+"ing until after round 3.";
 			break;
 		case "warrior race":
 			displayTxt = "<b>Warrior Race</b><br />"+conceptLink("Attack")+" +1 to non-boarding "+conceptLink("combat ship")+"s in each "+conceptLink("battle")+", \
@@ -1051,13 +1051,14 @@ function showBox(concept) {
 			break;
 		case "celestial knights":
 			displayTxt = "<b>Celestial Knights</b><br />Once per space "+conceptLink("battle")+", at the start of any "+conceptLink("round")+" after the first; \
-				this empire may declare a <q>charge</q>, giving <i>each</i> mobile "+conceptLink("combat ship")+" 2 attack rolls; \
-				at the expense of enemy ships getting "+conceptLink("Attack")+" +1 for the rest of the battle and \
-				prohibiting "+conceptLink("retreat")+"s until 2 rounds after the charge";
+				this empire may declare a <q>charge</q>, giving <i>each</i> mobile "+conceptLink("combat ship")+" 2 rolls.<br />\
+				In return; enemy ships get "+conceptLink("Attack")+" +1 <i>each</i> round after the charge, \
+				and the charging empire may not "+conceptLink("retreat")+" until 2 rounds after the charge";
 			break;
 		case "giant race":
 			displayTxt = "<b>Giant Race</b><br />All non-"+conceptLink("Decoy")+" ships are built and managed \
-				as if they were one "+conceptLink("Hull Size")+" more.<br />May never use "+conceptLink("Fighter")+" technology.";
+				as if they were one "+conceptLink("Hull Size")+" more. \
+				<span class=\"bindTxt\">May never develop "+conceptLink("Fighter")+" tech</span>";
 			break;
 		case "industrious race":
 			displayTxt = "<b>Industrious Race</b><br />"+conceptLink("Terraforming")+" 1 also allows colonizing "+conceptLink("Asteroids")+". \
@@ -1091,31 +1092,31 @@ function showBox(concept) {
 			break;
 		case "master engineers":
 			displayTxt = "<b>Master Engineers</b><br />Ships may choose to move 1 more hex than normally possible, \
-				but must roll overcome their engine instability. On a roll of 9-10, the ship is immobilized for that "+conceptLink("turn")+".";
+				but must roll to overcome their engine instability. On a roll of 9-10, the ship is immobilized for that "+conceptLink("turn")+".";
 			break;
 		case "insectoids":
 			displayTxt = "<b>Insectoids</b><br />All non-"+conceptLink("Decoy")+" ships are built and managed \
 				as if they were one "+conceptLink("Hull Size")+" less; \
-				except that "+conceptLink("Hull Size")+" 0 ships still require 0.5 "+conceptLink("Ship Yard")+" capacity.<br />\
-				May never use "+conceptLink("Fighter")+" or "+conceptLink("Military Academy")+" technology.";
+				except that Size 0 ships require 0.5 "+conceptLink("Ship Yard")+" capacity.<br />\
+				May never develop "+conceptLink("Fighter")+" or "+conceptLink("Military Academy")+" tech.";
 			break;
 		case "immortals":
 			displayTxt = "<b>Immortals</b><br />Once per "+conceptLink("round")+", 1 point of damage can be ignored; \
 				at the expense of "+conceptLink("Colony Ship")+"s requiring 2 "+conceptLink("CP")+" more to build.<br />\
-				May never use "+conceptLink("Boarding")+" technology. \
-				Starts with 0 CP even when playing with "+conceptLink("Head Start")+" or "+conceptLink("Empire Advantage")+" bidding.";
+				May never develop "+conceptLink("Boarding")+" tech. \
+				Starts with 0 CP regardless of "+conceptLink("Head Start")+" or "+conceptLink("Empire Advantage")+" bidding. \
+				<span class=\"bindTxt\">(before applying bonus from "+conceptLink("replicators")+")</span>";
 			break;
 		case "expert tacticians":
 			displayTxt = "<b>Expert Tacticians</b><br />Empire gains "+conceptLink("Fleet Size Bonus")+" if they outnumber \
-				their opponent at all. Opoonents do not gain FSB until they outnumber this empire 3:1.";
+				their opponent at all. Opponents do not gain FSB until they outnumber this empire 3:1.";
 			break;
 		case "horsemen of the plains":
-			displayTxt = "<b>Horsemen of the Plains</b><br />Empire's ships can choose to "+conceptLink("retreat")+" \
-				in between "+conceptLink("round")+"s in addition to normally. \
-				Also "+conceptLink("bombard")+"s "+conceptLink("colonies")+" with "+conceptLink("Attack")+" +2.";
+			displayTxt = "<b>Horsemen of the Plains</b><br />Empire's "+conceptLink("combat ships")+" can also choose to "+conceptLink("retreat")+" \
+				in between "+conceptLink("round")+"s. Also "+conceptLink("bombard")+"s "+conceptLink("colonies")+" with "+conceptLink("Attack")+" +2.";
 			break;
 		case "and we still carry swords":
-			displayTxt = "<b>And We Still Carry Swords</b><br />Empire starts with "+conceptLink("Troops")+" level 2. \
+			displayTxt = "<b>And We Still Carry Swords</b><br />Empire starts with "+conceptLink("Troops")+" 2. \
 				Their boarding attacks gain +1. Boarding attacks against them get -1.<br />\
 				All "+conceptLink("ground unit")+"s gain "+conceptLink("Attack")+" +1 "+conceptLink("Defense")+" +1.";
 			break;
@@ -1128,7 +1129,7 @@ function showBox(concept) {
 			break;
 		case "cloaking geniuses":
 			displayTxt = "<b>Cloaking Geniuses</b><br />"+conceptLink("Scout")+"s and "+conceptLink("Destroyer")+"s benefit \
-				from "+conceptLink("Cloaking")+" level 1. "+conceptLink("Cruiser")+"s benefit from "+conceptLink("Cloaking")+" level 2.";
+				from "+conceptLink("Cloaking")+" 1+. "+conceptLink("Cruiser")+"s benefit from "+conceptLink("Cloaking")+" 2.";
 			break;
 		case "star wolves":
 			displayTxt = "<b>Star Wolves</b><br />Empire's "+conceptLink("Scout")+"s, "+conceptLink("Destroyer")+"s, and "+conceptLink("Fighter")+"s \
@@ -1143,7 +1144,7 @@ function showBox(concept) {
 		case "house of speed":
 			displayTxt = "<b>House of Speed</b><br />Empire starts with "+conceptLink("Movement")+" 7, \
 				at the expense of their mobile ships getting "+conceptLink("Defense")+" -2.<br />\
-				May never use "+conceptLink("Cloaking")+" technology. \
+				May never develop "+conceptLink("Cloaking")+" tech. \
 				Captured "+conceptLink("Raider")+"s are usable, but their "+conceptLink("Movement")+" equipment may not be upgraded.";
 			break;
 		case "powerful psychics":
@@ -1156,8 +1157,8 @@ function showBox(concept) {
 				Such groups can even enter a battle, but are eliminated if they take or deal any damage.";
 			break;
 		case "on the move":
-			displayTxt = "<b>On the Move</b><br />"+conceptLink("Ship Yard")+"s and "+conceptLink("Base")+"s can move at "+conceptLink("Movement")+" 1. \
-				These barely mobile ships may still never "+conceptLink("retreat")+".";
+			displayTxt = "<b>On the Move</b><br />"+conceptLink("Ship Yard")+"s and "+conceptLink("Base")+"s have fixed "+conceptLink("Movement")+" 1. \
+				These ships still may never "+conceptLink("retreat")+". "+conceptLink("Ship")+" construction still can only take place at a "+conceptLink("colony")+".";
 			break;
 		case "longbowmen":
 			displayTxt = "<b>Longbowmen</b><br />Empire's ships (except for "+conceptLink("Fighter")+"s) fight as if \
@@ -1366,7 +1367,7 @@ function showBox(concept) {
 			break;
 		case "type scan":
 			displayTxt = "<b>Type Scan</b><br />Specialist "+conceptLink("Replicator")+" ship, \
-				equipped with "+conceptLink("Scanning")+" level 2 and gains an "+conceptLink("Attack")+" bonus versus cloaked ships\
+				equipped with "+conceptLink("Scanning")+" 2 and gains an "+conceptLink("Attack")+" bonus versus cloaked ships\
 				" + stats(0, "E1 / C6", 0, 2, 0)+"<br /><b>Required Tech</b>: "+conceptLink("Scanning");
 			break;
 		case "type sw":
@@ -1406,8 +1407,9 @@ function showBox(concept) {
 				followed by detailed ships survived and HP remaining (if against a "+conceptLink("DM")+") on each side.";
 			break;
 		case "retreatthresh":
-			displayTxt = "<b>Retreat Threshold</b><br />At how many ships (or less) will the simulator cause surviving ships to "+conceptLink("retreat")+" (if able)?\
-				<br />Ships engaged against a "+conceptLink("DM")+" that are unable to damage it will attempt to retreat regardless of this setting.";
+			displayTxt = "<b>Retreat Threshold</b><br />At how many ships (or less) will the simulator cause surviving player ships to "+conceptLink("retreat")+"?\
+				<br />Ships engaged against a "+conceptLink("DM")+" that are unable to damage it will attempt to retreat regardless of this setting.\
+				<br />"+conceptLink("Replicator")+" ships will attempt to retreat if player hulls outnumber their hulls at 3:1 or more.";
 			break;
 		case "threat":
 			displayTxt = "<b>Threat</b><br />Numeric value that determines how threatening this ship group is to a "+conceptLink("Doomsday Machine")+". \

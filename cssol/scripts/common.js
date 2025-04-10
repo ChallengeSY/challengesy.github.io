@@ -502,7 +502,7 @@ function renderPlayarea() {
 				newInner = "";
 				newTitle = "Empty Reserve Slot";
 				
-				if (reserveReusable > i || stockDealTo == 3) {
+				if (reserveReusable > i || stockDealTo == 4) {
 					renderDiv(searchElement, "empty");
 				} else {
 					renderDiv(searchElement, "invis");

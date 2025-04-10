@@ -434,7 +434,7 @@ function computeHitChances(refreshDM) {
 					if (combatHex == "hexAsteroids") {
 						if (readId == "FighterAtk") {
 							readAtk = Math.min(parseInt(document.getElementById(readId).value),parseInt(document.getElementById(readId).max)-1);
-						} else if (readId == "RaiderAtk") {
+						} else if (readId == "RaiderAtk" || readId == "RaiderXAtk") {
 							readAtk = Math.min(parseInt(document.getElementById(readId).value),parseInt(document.getElementById(readId).max)-2);
 						} else {
 							readAtk = document.getElementById(readId).min;
@@ -451,7 +451,7 @@ function computeHitChances(refreshDM) {
 						} else {
 							bonus = true;
 						}
-					} else if (readId == "RaiderAtk") {
+					} else if (readId == "RaiderAtk" || readId == "RaiderXAtk") {
 						bonus = (dmWeak == 3 && combatHex != "hexNebula");
 					}
 					
@@ -624,7 +624,7 @@ function playerShip(baseID) {
 	this.toString = function() {
 		let totalHP = this.hullSize * this.quantity - this.damage;
 		
-		return this.namee + " group (count " + this.quantity + " / HP total " + totalHP + ")";
+		return "<span class=\"allied\">"+this.namee + " group (count " + this.quantity + " / HP total " + totalHP + ")</span>";
 	}
 }
 
@@ -868,7 +868,7 @@ function doomsdayMachine() {
 	}
 	
 	this.toString = function() {
-		return "Doomsday Machine (" + this.hitPoints + " HP)";
+		return "<span class=\"rival\">Doomsday Machine (" + this.hitPoints + " HP)</span>";
 	}
 }
 
@@ -896,6 +896,7 @@ function fireDMweps() {
 			if (simFleet.totalShips() > 0) {
 				targetShip = simFleet.targetHighest();
 			}
+			var hitThresh = Math.max(Math.min(10 - targetShip.defenseRating,9),1);
 			if (targetShip.namee != targetNamee) {
 				if (targetNamee) {
 					divFrag.appendChild(pFrag);
@@ -903,12 +904,12 @@ function fireDMweps() {
 				
 				targetNamee = targetShip.namee;
 				pFrag = document.createElement("p");
-				pFrag.innerHTML = simDM.toString() + " rolls against " + targetShip.toString() + ":";
+				pFrag.innerHTML = simDM.toString() + " rolls (at &le;"+hitThresh+") against " + targetShip.toString() + ":";
 			}
 			
 			dieRoll = rollD10();
 			
-			if (dieRoll < 10 && dieRoll <= 10 - targetShip.defenseRating) {
+			if (dieRoll <= hitThresh) {
 				pFrag.innerHTML = pFrag.innerHTML + " <span class=\"hit\">" + dieRoll + "</span>";
 				targetShip.hitShip();
 			} else {
@@ -921,7 +922,7 @@ function fireDMweps() {
 				if (!simMulti) {
 					divFrag.appendChild(pFrag);
 					pFrag = document.createElement("p");
-					pFrag.innerHTML = targetNamee + " group has been destroyed!";
+					pFrag.innerHTML = "<span class=\"allied\">" + targetNamee + " group</span> has been destroyed!";
 				}
 			}
 			
@@ -934,7 +935,7 @@ function fireDMweps() {
 			if (!simMulti) {
 				divFrag.appendChild(pFrag);
 				pFrag = document.createElement("p");
-				pFrag.innerHTML = targetNamee + " group has been destroyed!";
+				pFrag.innerHTML = "<span class=\"allied\">" + targetNamee + " group</span> has been destroyed!";
 			}
 		}
 		
@@ -1079,7 +1080,7 @@ function fireTacticsLv(tacLv) {
 function firePlrWeps(shipObj, tacLvReq) {
 	if (shipObj.quantity > 0 && (shipObj.tactics == tacLvReq || tacLvReq < 0) && simDM.hitPoints > 0) {
 		shipObj.updateSpecs();
-		if (simRound == 1 && shipObj.namee == "Raider" && simDM.weakness == 3 && combatHex != "hexNebula") {
+		if (simRound == 1 && shipObj.namee.search("Raider") >= 0 && simDM.weakness == 3 && combatHex != "hexNebula") {
 			shipObj.attackRating++;
 		}
 		
@@ -1093,13 +1094,15 @@ function firePlrWeps(shipObj, tacLvReq) {
 				divFrag.appendChild(pFrag);
 			}
 		} else if (shipObj.attackRating + largeFleetBonus > 0 || dmStr == 0) {
+			var hitThresh = shipObj.attackRating + largeFleetBonus;
+			
 			pFrag = document.createElement("p");
-			pFrag.innerHTML = shipObj.toString() + " rolls against " + simDM.toString() + ":";
+			pFrag.innerHTML = shipObj.toString() + " rolls (at &le;"+hitThresh+") against " + simDM.toString() + ":";
 			
 			for (i = shipObj.quantity; i > 0; i--) {
 				dieRoll = rollD10();
 				
-				if (dieRoll <= 1 || dieRoll <= shipObj.attackRating + largeFleetBonus) {
+				if (dieRoll <= 1 || dieRoll <= hitThresh) {
 					pFrag.innerHTML = pFrag.innerHTML + " <span class=\"hit\">" + dieRoll + "</span>";
 					if (shipObj.namee == "Titan") {
 						simDM.hitPoints--;
@@ -1123,7 +1126,7 @@ function firePlrWeps(shipObj, tacLvReq) {
 			
 				if (simDM.hitPoints <= 0) {
 					pFrag = document.createElement("p");
-					pFrag.innerHTML = "Doomsday Machine has been destroyed!";
+					pFrag.innerHTML = "<span class=\"rival\">Doomsday Machine</span> has been destroyed!";
 					divFrag.appendChild(pFrag);
 				}
 			}
@@ -1313,13 +1316,14 @@ function runSimRound() {
 		}
 	}
 	
-	if (!simMulti && simDM.weakness == 3 && simFleet.raiders.quantity > 0 && simRound == 1) {
+	if (!simMulti && simDM.weakness == 3 && simFleet.raiders.quantity + simFleet.raiderXes.quantity > 0 && simRound == 1) {
 		pFrag = document.createElement("p");
 		pFrag.innerHTML = simFleet.raiders.toString() + " successfully ambushes " + simDM.toString() + ": Attack Bonus +1 for the first round! Defense Bonus +2 for the battle!";
 		divFrag.appendChild(pFrag);
 	}
 
 	simFleet.raiders.updateSpecs();
+	simFleet.raiderXes.updateSpecs();
 
 	firePlrWeps(simFleet.mines, false);
 		
@@ -1340,6 +1344,7 @@ function runSimRound() {
 			multiDraws++;
 		} else {
 			pFrag = document.createElement("p");
+			pFrag.className = "allied";
 			pFrag.innerHTML = "Both sides have been destroyed!";
 
 			divFrag.appendChild(pFrag);
@@ -1351,7 +1356,8 @@ function runSimRound() {
 			dmHPcount.push(simDM.hitPoints);
 		} else {
 			pFrag = document.createElement("p");
-			pFrag.innerHTML = simDM.toString() + " has won the battle.";
+			pFrag.className = "rival";
+			pFrag.innerHTML = "Doomsday Machine has won the battle.";
 
 			divFrag.appendChild(pFrag);
 		}
@@ -1362,6 +1368,7 @@ function runSimRound() {
 			plrShipCount.push(simFleet.totalShips());
 		} else {
 			pFrag = document.createElement("p");
+			pFrag.className = "allied";
 			pFrag.innerHTML = "Player fleet has won the battle.";
 
 			divFrag.appendChild(pFrag);
