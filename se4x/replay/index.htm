@@ -6,8 +6,31 @@
 	
 	<title>SE4X - Replay Center</title>
 	<link type="text/css" href="replay.css" rel="stylesheet" />
+	<script type="text/javascript" src="../pedia.js" /></script>
+	<script type="text/javascript">
+		function applyFilter() {
+			divColl = document.getElementsByTagName("div");
+			filterColl = ["doomsday", "alienEmpires", "amoeba", "replicatorSol"];
+			checkBoxes = [true, true, true, true];
+			for (var c = 0; c < filterColl.length; c++) {
+				checkBoxes[c] = document.getElementById(filterColl[c]).checked;
+			}
+			
+			for (var d = 0; d < divColl.length; d++) {
+				for (var f = 0; f < filterColl.length; f++) {
+					if (divColl[d].className && divColl[d].className.search(filterColl[f]) >= 0) {
+						if (checkBoxes[f]) {
+							divColl[d].style.display = "";
+						} else {
+							divColl[d].style.display = "none";
+						}
+					}
+				}
+			}
+		}
+	</script>
 </head>
-<body>
+<body onload="setupBox(); applyFilter()">
 <p id="banner"><a href="../index.htm"><img src="../banner.png" alt="Space Empires 4X Resourcepedia" /></a></p>
 
 <hr />
@@ -15,65 +38,81 @@
 <h2>Replay Center</h2>
 <p>The SE4X Replay Center serves as a means of viewing finished playthroughs in a semi-interactive style.</p>
 
+<fieldset>
+<legend>Filter</legend>
+Due to the large quantity of playthroughs, there is a new filter feature that allows delisting playthroughs.<br />
+<input type="checkbox" checked="checked" id="doomsday" oninput="applyFilter()" onclick="applyFilter()" />
+<label for="doomsday">Doomday Machines</label> <a href="javascript:showBox('DM')">(?)</a>
+
+<input type="checkbox" checked="checked" id="alienEmpires" oninput="applyFilter()" onclick="applyFilter()" />
+<label for="alienEmpires">Alien Empires</label> <a href="javascript:showBox('Alien Empires')">(?)</a>
+
+<input type="checkbox" checked="checked" id="amoeba" oninput="applyFilter()" onclick="applyFilter()" />
+<label for="amoeba">Space Amoeba</label> <a href="javascript:showBox('Space Amoeba')">(?)</a>
+
+<input type="checkbox" checked="checked" id="replicatorSol" oninput="applyFilter()" onclick="applyFilter()" />
+<label for="replicatorSol">Replicator Solitaire</label> <a href="javascript:showBox('Replicator Solitaire')">(?)</a>
+</fieldset>
+
 <h3>Available Playthroughs</h3>
 <div id="plays">
 <div class="center bold">Title</div>
 <div class="center bold">Scenario</div>
 <div class="center bold">Date</div>
 
-<div><a href="watch.htm?replay=repLg202504">More than mere Survival</a></div>
-<div class="center">Replicator Solitaire - Large / Normal</div>
-<div class="center">April 2025</div>
+<div class="replicatorSol"><a href="watch.htm?replay=repLg202504">More than mere Survival</a></div>
+<div class="replicatorSol center">Replicator Solitaire - Large / Normal</div>
+<div class="replicatorSol center">April 2025</div>
 
-<div><a href="watch.htm?replay=aeLg202502">Building a stronger Backwall</a></div>
-<div class="center">Alien Empires - Large / Normal</div>
-<div class="center">February 2025</div>
+<div class="alienEmpires"><a href="watch.htm?replay=aeLg202502">Building a stronger Backwall</a></div>
+<div class="alienEmpires center">Alien Empires - Large / Normal</div>
+<div class="alienEmpires center">February 2025</div>
 
-<div><a href="watch.htm?replay=repLg202501">Formulation of the Resistance</a></div>
-<div class="center">Replicator Solitaire - Large / Easy</div>
-<div class="center">January 2025</div>
+<div class="replicatorSol"><a href="watch.htm?replay=repLg202501">Formulation of the Resistance</a></div>
+<div class="replicatorSol center">Replicator Solitaire - Large / Easy</div>
+<div class="replicatorSol center">January 2025</div>
 
-<div><a href="watch.htm?replay=amoeba202410">Late to the Expedition</a></div>
-<div class="center">Space Amoeba Solo - Hard</div>
-<div class="center">October 2024</div>
+<div class="amoeba"><a href="watch.htm?replay=amoeba202410">Late to the Expedition</a></div>
+<div class="amoeba center">Space Amoeba Solo - Hard</div>
+<div class="amoeba center">October 2024</div>
 
-<div><a href="watch.htm?replay=aeVP202408">Arbitrary Alien Artifacts</a></div>
-<div class="center">Alien Empires - Victory Points / Easy</div>
-<div class="center">August 2024</div>
+<div class="alienEmpires"><a href="watch.htm?replay=aeVP202408">Arbitrary Alien Artifacts</a></div>
+<div class="alienEmpires center">Alien Empires - Victory Points / Easy</div>
+<div class="alienEmpires center">August 2024</div>
 
-<div><a href="watch.htm?replay=rep202407">Rise of the Replicators</a></div>
-<div class="center">Replicator Solitaire - Medium / Easy</div>
-<div class="center">July 2024</div>
+<div class="replicatorSol"><a href="watch.htm?replay=rep202407">Rise of the Replicators</a></div>
+<div class="replicatorSol center">Replicator Solitaire - Medium / Easy</div>
+<div class="replicatorSol center">July 2024</div>
 
-<div><a href="watch.htm?replay=ae202406">Axis and Aliens</a></div>
-<div class="center">Alien Empires - Regular / Easy</div>
-<div class="center">June 2024</div>
+<div class="alienEmpires"><a href="watch.htm?replay=ae202406">Axis and Aliens</a></div>
+<div class="alienEmpires center">Alien Empires - Regular / Easy</div>
+<div class="alienEmpires center">June 2024</div>
 
-<div><a href="watch.htm?replay=amoeba202405">Learning about the Xeno-Amoebas</a></div>
-<div class="center">Space Amoeba Solo - Normal</div>
-<div class="center">May 2024</div>
+<div class="amoeba"><a href="watch.htm?replay=amoeba202405">Learning about the Xeno-Amoebas</a></div>
+<div class="amoeba center">Space Amoeba Solo - Normal</div>
+<div class="amoeba center">May 2024</div>
 
-<div><a href="watch.htm?replay=dmLg202404">Sneaking against the Machines</a></div>
-<div class="center">Doomsday Machines - Large / Hard</div>
-<div class="center">April 2024</div>
+<div class="doomsday"><a href="watch.htm?replay=dmLg202404">Sneaking against the Machines</a></div>
+<div class="doomsday center">Doomsday Machines - Large / Hard</div>
+<div class="doomsday center">April 2024</div>
 
-<div><a href="watch.htm?replay=aeLg202404">Backwalled against Alien Empires</a></div>
-<div class="center">Alien Empires - Large / Hard</div>
-<div class="center">April 2024</div>
+<div class="alienEmpires"><a href="watch.htm?replay=aeLg202404">Backwalled against Alien Empires</a></div>
+<div class="alienEmpires center">Alien Empires - Large / Hard</div>
+<div class="alienEmpires center">April 2024</div>
 
-<div><a href="watch.htm?replay=dm202401">New Year's Doomsday</a></div>
-<div class="center">Doomsday Machines - Small / Harder</div>
-<div class="center">January 2024</div>
+<div class="doomsday"><a href="watch.htm?replay=dm202401">New Year's Doomsday</a></div>
+<div class="doomsday center">Doomsday Machines - Small / Harder</div>
+<div class="doomsday center">January 2024</div>
 
-<div><a href="watch.htm?replay=ae202309">Alien Empires Hole-a-thon</a></div>
-<div class="center">Alien Empires - Regular / Normal</div>
-<div class="center">September 2023</div>
+<div class="alienEmpires"><a href="watch.htm?replay=ae202309">Alien Empires Hole-a-thon</a></div>
+<div class="alienEmpires center">Alien Empires - Regular / Normal</div>
+<div class="alienEmpires center">September 2023</div>
 
-<div><a href="watch.htm?replay=dm202208">How to not play a Doomsday scenario</a></div>
-<div class="center">Doomsday Machines - Small / Normal</div>
-<div class="center">August 2022</div>
+<div class="doomsday"><a href="watch.htm?replay=dm202208">How to not play a Doomsday scenario</a></div>
+<div class="doomsday center">Doomsday Machines - Small / Normal</div>
+<div class="doomsday center">August 2022</div>
 </div>
 
-<p class="footer">Replay Center &copy; 2024 Paul Ruediger. SE4X assets are the property of their respective owners.</p>
+<p class="footer">Replay Center &copy; 2024-2025 Paul Ruediger. SE4X assets are the property of their respective owners.</p>
 </body>
 </html>

@@ -1224,7 +1224,8 @@ function showBox(concept) {
 				and their Type Exps count as one "+conceptLink("hull")+" for construction/conversion purposes.";
 			break;
 		case "second salvo":
-			displayTxt = "<b>Second Salvo</b><br />The first time a "+conceptLink("Unique Ship")+" hits its victim in a "+conceptLink("round")+", it gets to shoot again towards the same hull type.";
+			displayTxt = "<b>Second Salvo</b><br />The first time a "+conceptLink("Unique Ship")+" hits its victim in a "+conceptLink("round")+", it gets to shoot again towards the same hull type.\
+				<br />Also available to the largest "+conceptLink("Improved Gunnery")+" "+conceptLink("Replicator")+" ships.";
 			break;
 		case "heavy warheads":
 			displayTxt = "<b>Heavy Warheads</b><br />"+conceptLink("Unique Ship")+"s' minimum "+conceptLink("Attack")+" rating increased to 2, after "+conceptLink("Defense")+" modifiers.\
