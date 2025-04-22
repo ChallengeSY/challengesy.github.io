@@ -601,6 +601,27 @@ function place3plrHomeMarkers(color, orient) {
 				}
 			}
 		}
+	} else if (orient == "topTalon") {
+		for (var a = 5; a <= 11; a++) {
+			if (a < 11) {
+				if (a == 8) {
+					placeHomeworld(a,1,color);
+				} else {
+					placeSystemMarker(a,1,homeMarker);
+				}
+			}
+			if (a > 5) {
+				placeSystemMarker(a,2,homeMarker);
+			}
+			
+			placeSystemMarker(a,3,homeMarker);
+			if (a >= 7 && a < 11) {
+				placeSystemMarker(a,4,homeMarker);
+				if (a < 10) {
+					placeSystemMarker(a,5,homeMarker);
+				}
+			}
+		}
 	} else if (orient == "left") {
 		for (var a = 1; a <= 5; a++) {
 			if (a < 5) {
@@ -1097,10 +1118,6 @@ function readJson() {
 			var dmDiff = 0;
 			var workTable = curStage.dmTable[0];
 			
-			console.log(workTable.ecoPhase);
-			console.log(workTable.soloSm);
-			console.log(workTable.soloLg);
-			
 			if (workTable.soloSm) {
 				dmDiff = workTable.soloSm;
 				
@@ -1137,6 +1154,86 @@ function readJson() {
 					dmStr.shift();
 					dmStr.push(0);
 				}
+			} else if (workTable.soloTalon || workTable.coop2P || workTable.coop3P) {
+				if (workTable.coop2P) {
+					dmDiff = workTable.coop2P;
+				} else if (workTable.coop3P) {
+					dmDiff = workTable.coop3P;
+				} else {
+					dmDiff = workTable.soloTalon;
+				}
+				
+				if (dmDiff < 3) {
+					dmStr[5] = dmDiff;
+					dmStr[6] = dmDiff + 2;
+					dmStr[7] = dmDiff + 4;
+					dmStr[9] = dmDiff + 6;
+					dmStr[11] = dmDiff + 8;
+				} else {
+					switch (dmDiff) {
+						case 3:
+							dmStr[4] = 4;
+							dmStr[5] = 5;
+							dmStr[6] = 7;
+							dmStr[8] = 9;
+							dmStr[9] = 10;
+							break;
+						case 4:
+							dmStr[4] = 5;
+							dmStr[5] = 6;
+							dmStr[6] = 8;
+							dmStr[8] = 10;
+							dmStr[9] = "8x2";
+							break;
+						case 5:
+							dmStr[4] = 6;
+							dmStr[5] = 7;
+							dmStr[6] = 9;
+							dmStr[8] = "8x2";
+							dmStr[9] = "9x3";
+							break;
+					}
+				}
+			} else if (workTable.coop4P) {
+				dmDiff = workTable.coop4P;
+				
+				switch (dmDiff) {
+					case 1:
+						dmStr[5] = 2;
+						dmStr[6] = 4;
+						dmStr[7] = 7;
+						dmStr[10] = 9;
+						dmStr[11] = "7x2";
+						break;
+					case 2:
+						dmStr[5] = 4;
+						dmStr[6] = 6;
+						dmStr[7] = 9;
+						dmStr[8] = 10;
+						dmStr[11] = "9x2";
+						break;
+					case 3:
+						dmStr[4] = 3;
+						dmStr[5] = 5;
+						dmStr[6] = 7;
+						dmStr[8] = "8x2";
+						dmStr[9] = "10x2";
+						break;
+					case 4:
+						dmStr[4] = 4;
+						dmStr[5] = 6;
+						dmStr[6] = "6x2";
+						dmStr[9] = "8x2";
+						dmStr[11] = "9x3";
+						break;
+					case 5:
+						dmStr[4] = "4x2";
+						dmStr[5] = 6;
+						dmStr[6] = "6x2";
+						dmStr[8] = "8x2";
+						dmStr[10] = "10x3";
+						break;
+				}
 			}
 			
 			for (var e = 0; e < 12; e++) {
@@ -1146,8 +1243,12 @@ function readJson() {
 					constructTable = constructTable + "<td class=\"numeric\">";
 				}
 				
-				if (dmStr[e] > 0) {
-					constructTable = constructTable + dmStr[e];
+				if (typeof dmStr[e] == "string" && dmStr[e].search("x") > 0) {
+					var strAct = dmStr[e].substring(0, dmStr[e].search("x"));
+					
+					constructTable = constructTable + "<a href=\"javascript:showBox('DM"+strAct+"')\">" + dmStr[e] + "</a>";
+				} else if (dmStr[e] > 0) {
+					constructTable = constructTable + "<a href=\"javascript:showBox('DM"+dmStr[e]+"')\">" + dmStr[e] + "</a>";
 				} else {
 					constructTable = constructTable + "&nbsp;";
 				}
@@ -1482,7 +1583,7 @@ function readJson() {
 			var ctrlPanel = document.getElementById("controls");
 			var hexBoard = document.getElementById("gameBoard");
 			
-			makeHexes(actionPool[i].createPreset.indexOf("belt") >= 0);
+			makeHexes(actionPool[i].createPreset.toLowerCase().indexOf("talon") >= 0);
 			
 			if (actionPool[i].createPreset == "alienEmpiresSolo") {
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
@@ -1567,6 +1668,69 @@ function readJson() {
 						}
 					}
 				}
+				
+			} else if (actionPool[i].createPreset == "alienEmpiresSoloTalon") {
+				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				var plrColor = actionPool[i].playerColor;
+				
+				place3plrHomeMarkers(plrColor, "topTalon");
+
+				for (var l = 1; l <= 16; l++) {
+					if ((l <= 4 || l >= 11) && l < 16) {
+						placeSystemMarker(l,1,deepSpace);
+					}
+						
+					if (l <= 5 || l >= 12) {
+						placeSystemMarker(l,2,deepSpace);
+						
+						if (l != 5 && l < 16) {
+							placeSystemMarker(l,3,deepSpace);
+						}
+					}
+
+					if (l <= 6 || l >= 10) {
+						if (l != 10) {
+							placeSystemMarker(l,4,deepSpace);
+						}
+						
+						if (l < 16) {
+							placeSystemMarker(l,5,deepSpace);
+						}
+					}
+					
+					placeSystemMarker(l,6,deepSpace);
+					if (l < 16) {
+						placeSystemMarker(l,7,deepSpace);
+					}
+				}
+
+				for (var d = 2; d <= 15; d++) {
+					if (d < 16) {
+						placeSystemMarker(d,8,deepSpace);
+					}
+					
+					if (d >= 3 && d <= 13) {
+						placeSystemMarker(d,9,deepSpace);
+						
+						if (d > 3) {
+							placeSystemMarker(d,10,deepSpace);
+							if (d < 13) {
+								placeSystemMarker(d,11,deepSpace);
+							}
+						}
+					}
+				}
+				
+				if (actionPool[i].alienColors) {
+					var alienHWs = [[1,8], [16,8], [8,11]];
+					
+					for (var a = 0; a < 3; a++) {
+						if (a < actionPool[i].alienColors.length) {
+							placeAlienHomeworld(alienHWs[a][0], alienHWs[a][1], actionPool[i].alienColors.charAt(a));
+						}
+					}
+				}
+				
 			} else if (actionPool[i].createPreset == "alienEmpiresSoloVP" || actionPool[i].createPreset == "doomsdaySoloVP") {
 				expansionHWs = true;
 				var plrColor = actionPool[i].playerColor;
@@ -1704,6 +1868,62 @@ function readJson() {
 				for (var z = 10; z < 12; z++) {
 					dispRow(letterRows.charAt(z), false);
 				}
+				
+			} else if (actionPool[i].createPreset == "doomsdaySoloTalon") {
+				expansionHWs = true;
+				var plrColor = actionPool[i].playerColor;
+				
+				place3plrHomeMarkers(plrColor, "topTalon");
+
+				for (var l = 1; l <= 16; l++) {
+					if ((l <= 4 || l >= 11) && l < 16) {
+						placeSystemMarker(l,1,deepSpace);
+					}
+						
+					if (l <= 5 || l >= 12) {
+						placeSystemMarker(l,2,deepSpace);
+						
+						if (l != 5 && l < 16) {
+							placeSystemMarker(l,3,deepSpace);
+						}
+					}
+
+					if (l <= 6 || l >= 10) {
+						if (l != 10) {
+							placeSystemMarker(l,4,deepSpace);
+						}
+						
+						if (l < 16) {
+							placeSystemMarker(l,5,deepSpace);
+						}
+					}
+				}
+
+				for (var f = 2; f <= 15; f++) {
+					placeSystemMarker(f,6,deepSpace);
+					
+					if (f < 15) {
+						placeSystemMarker(f,7,deepSpace);
+						
+						if (f > 2) {
+							placeSystemMarker(f,8,deepSpace);
+						}
+					}
+					
+					if (f >= 4 && f <= 12) {
+						placeSystemMarker(f,9,deepSpace);
+						
+						if (f > 4) {
+							placeSystemMarker(f,10,deepSpace);
+						}
+					}
+				}
+
+				placeSystemMarker(1,6,markerCounter+plrColor);
+				placeSystemMarker(16,6,markerCounter+plrColor);
+				placeSystemMarker(3,9,markerCounter+plrColor);
+				placeSystemMarker(13,9,markerCounter+plrColor);
+				placeSystemMarker(8,11,markerCounter+plrColor);
 				
 			} else if (actionPool[i].createPreset == "doomsdayCoop2P" || actionPool[i].createPreset == "alienEmpiresCoop2P") {
 				expansionHWs = true;
@@ -2131,7 +2351,7 @@ function readJson() {
 				
 				placeHomeworld(plrCols[0],0,plrColors[0]);
 				placeHomeworld(plrCols[1],11,plrColors[1]);
-			} else if (actionPool[i].createPreset == "versus2Pbelt") {
+			} else if (actionPool[i].createPreset == "versus2Ptalon") {
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
 				var plrColors = actionPool[i].playerColors;
 				

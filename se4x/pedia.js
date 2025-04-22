@@ -77,7 +77,7 @@ function dmBase(strength) {
 	
 	return "<b>Doomsday Machine</b><br />"+dmCommonA+"<br /><br />As a scenario, the objective is for the human player(s) to \
 		defend their "+conceptLink("homeworld")+"(s) and (if present) "+conceptLink("galactic capitol")+" against 3 DMs \
-		<span class=\"bindTxt\">(more in a co-op scenario)</span>, each usually stronger than the previous.";
+		<span class=\"bindTxt\">(more in a "+conceptLink("co-op")+" scenario)</span>, each usually stronger than the previous.";
 }
 
 function amoebaBase(strength) {
@@ -149,6 +149,12 @@ function showBox(concept) {
 			break;
 		case "cp":
 			displayTxt = "<b>Construction Points</b><br />Monetary currency. Earned by developing "+conceptLink("colonies")+", towing "+conceptLink("minerals")+", and connecting "+conceptLink("pipeline")+"s. Used to buy "+conceptLink("technology")+" and build "+conceptLink("ship")+"s.";
+			break;
+		case "co-op":
+			// Fall thru
+		case "cooperative":
+			displayTxt = "<b>Cooperative scenario</b><br />A scenario that pits a "+conceptLink("Blood Brothers")+" team of two or more human players against the environment.\
+				<br />"+conceptLink("Doomsday Machine")+"s and "+conceptLink("Alien Empires")+" are officially supported.";
 			break;
 		case "defense":
 			displayTxt = "<b>Defense</b><br />Decreases the maximum d10 roll allowed by an attacker to score a hit on this "+conceptLink("ship")+", to a minimum "+conceptLink("Attack")+" rating of 1.<br />\
@@ -240,8 +246,10 @@ function showBox(concept) {
 				If unsuccessful, the planet is considered uncolonized; no longer able to be "+conceptLink("capture")+"d.";
 			break;
 		case "space empires 4x":
-			displayTxt = "<b>Space Empires 4X</b><br />The base board game. Includes a variety of system counters, "+conceptLink("ship")+" counters, numeric counters.\
-				Also includes "+conceptLink("competitive")+" scenarios <span class=\"bindTxt\">(2 - 4 players)</span>, plus two solo scenarios ("+conceptLink("Doomsday Machine")+"s / "+conceptLink("Alien Empires")+").";
+			displayTxt = "<b>Space Empires 4X</b><br />The base board game of galactic conquest. \
+				Includes a variety of system counters, "+conceptLink("ship")+" counters, numeric counters.<br />\
+				Also includes "+conceptLink("competitive")+" scenarios (2 - 4 players), \
+				plus two solo scenarios ("+conceptLink("Doomsday Machine")+"s / "+conceptLink("Alien Empires")+").";
 			break;
 		case "movement turn":
 			// Fall through
@@ -260,7 +268,7 @@ function showBox(concept) {
 				<br />If an eligible player/team reaches the required VP quota, then they achieve victory and the scenario will end.";
 			break;
 		case "weakness":
-			displayTxt = "<b>Weakness</b><br />In the corresponding solo/co-op scenarios, a "+conceptLink("Doomsday Machine")+" may have a weakness, depending on a d10 roll:\
+			displayTxt = "<b>Weakness</b><br />In the corresponding solo/"+conceptLink("co-op")+" scenarios, a "+conceptLink("Doomsday Machine")+" may have a weakness, depending on a d10 roll:\
 				<br /><br />1-2: Allows "+conceptLink("Fighter")+"s to damage a DM normally\
 				<br />3-4: Detonating "+conceptLink("Mines")+" each can deal 1 damage to a DM, via rolling a 5 or less\
 				<br />5-6: "+conceptLink("Scanning")+" is jammed. "+conceptLink("Raider")+"s benefit from "+conceptLink("Cloaking")+"\
@@ -377,7 +385,7 @@ function showBox(concept) {
 		case "galactic capitol":
 			displayTxt = "<b>Galactic Capitol</b><br />Ancient homeworld. Sanctuary "+conceptLink("hex")+" in "+conceptLink("competitive")+" scenarios that \
 				prohibits "+conceptLink("battle")+"s and provides 5 "+conceptLink("CP")+" to each "+conceptLink("Pipeline")+"-connected player.\
-				<br /><br />In solo and co-op scenarios (if present), it creates a respawnable 10-"+conceptLink("minerals")+" counter and \
+				<br /><br />In solo and "+conceptLink("co-op")+" scenarios (if present), it creates a respawnable 10-"+conceptLink("minerals")+" counter and \
 				allows human player(s) to research "+conceptLink("Black Hole Jumping")+". \
 				It must also be kept alive. Otherwise, the <q>environment</q> wins the scenario.";
 			break;
@@ -657,7 +665,7 @@ function showBox(concept) {
 			
 		// Alien Empires
 		case "alien empires":
-			displayTxt =  "<b>Alien Empires</b><br />Solo or co-op scenario that pits 1-3 human player(s) against 2-3 "+conceptLink("Alien Player")+"s.<br />\
+			displayTxt =  "<b>Alien Empires</b><br />Solo or "+conceptLink("co-op")+" scenario that pits 1-3 human player(s) against 2-3 "+conceptLink("Alien Player")+"s.<br />\
 				The human players' objective is to destroy all AP "+conceptLink("homeworld")+"s,\
 				while protecting their own and (if present) the "+conceptLink("galactic capitol")+" from destruction.";
 			break;
@@ -1240,6 +1248,12 @@ function showBox(concept) {
 			displayTxt =  "<b>Replicators</b><br />Second expansion to the base "+conceptLink("Space Empires 4X")+" board game.<br />\
 				Unique faction; playable by a human, or as the antagonists in "+conceptLink("Replicator Solitaire")+".";
 			break;
+		case "talon":
+			displayTxt = "<b>Talon</b><br />Younger and faster paced sibling to the "+conceptLink("Space Empires 4X")+" board game, made by several of the very same people.<br />\
+				Rather than two or more empires duking it out on a galactic scale, two fleets duke it out in a scenario that span an entire battle.\
+				<br /><br />There are crossover scenarios that use the wider (but shorter) 170-"+conceptLink("hex")+" Talon board on a galactic scale (versus the original 150).\
+				<br />Space Empires counters can also be used in the more detailed Talon-style battles.";
+			break;
 		case "replicator solitaire":
 			displayTxt =  "<b>Replicator Solitaire</b><br />Solo scenario that pits the human player against \
 				the "+conceptLink("Replicator")+" <q>environment</q> on a 2-player versus map. \
@@ -1459,9 +1473,9 @@ function keywordifyDocument() {
 }
 
 function keywordifyCollection(collObj) {
-	const keyTerms = ["Space Empires 4X", "Close Encounters", "Replicator", "All Good Things", "Replay Center",
+	const keyTerms = ["Space Empires 4X", "Close Encounters", "Replicator", "All Good Things", "Talon", "Replay Center",
 		"Barren", "Colony", "Colonies", "Combat Ship", "CP", "Economic Phase", "Homeworld", "Maintenance", "Planet", "Starship", "Scuttle", "Turn",
-		"Bid", "Competitive", "Galactic Capitol", "Initiative", "Primary Objective", "Uneasy Alliance", "Victory Point", "VP", "Blood Brothers",
+		"Bid", "Competitive", "Cooperative", "Galactic Capitol", "Initiative", "Primary Objective", "Uneasy Alliance", "Victory Point", "VP", "Blood Brothers",
 		"Battle", "Blockade", "Bombard", "Fleet", "Non-Player Alien", "NPA", "Subdue", "Subduing", "Priority Class", "Retreat", "Round", "Screen", "Weakness", "Weapon Class",
 		"Alien-D", "Alien-C", "Alien-B", "Doomsday Machine", "Amoeba", "Alien Empires", "Alien Player", "Economic Roll",
 		"Decoy", "Scout", "Destroyer", "Cruiser", "Dreadnought", "Titan", "Ship Yard", "Base", "Mining Ship", "Miner",
