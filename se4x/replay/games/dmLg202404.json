@@ -1,6 +1,10 @@
 {"stages": [
 	{"heading":"Stardate 2400.0 (Introduction)",
-	"commentary":"<p>Welcome to a Doomsday Machine Large-sized scenario. This scenario lasts decently longer than a Small map, and is also harder in the sense that the titular Doomsday Machines are stronger in strength.</p><p>For reference compared to the <a href=\"watch.htm?replay=aeLg202404\">Large size</a> Alien Empires map that was introduced in the Close Encounters expansion, the Doomsday Machine spawn points are slightly closer (on average), and that we need only to defend to win.</p>",
+	"commentary":"<p>Welcome to a Doomsday Machine Large-sized scenario. This scenario lasts decently longer than a Small map, and is also harder in the sense that the titular Doomsday Machines are stronger in strength.</p>{dmTable}<p>For reference compared to the <a href=\"watch.htm?replay=aeLg202404\">Large size</a> Alien Empires map that was introduced in the Close Encounters expansion, the Doomsday Machine spawn points are slightly closer (on average), and that we need only to defend to win.</p>",
+	"dmTable":
+		[{
+			"soloLg":3,"ecoPhase":0
+		}],
 	"actions":
 		[{
 			"createPreset":"doomsdaySoloLg",
@@ -150,7 +154,7 @@
 			"name":"planetG6"
 		}]},
 	{"heading":"Stardate 2401.0 (Economic Phase 1)",
-	"commentary":"<p>The <a href=\"javascript:showBox('DM5')\">first</a> Doomsday Machine will spawn on economic phase 7. This gives us a decent preparation window to develop our economy and tech up. For this phase, we will buy 1 each of Scout (-6), Mining Ship (-5), and Colony Ship (-8)</p>",
+	"commentary":"<p>The first Doomsday Machine will spawn on economic phase 7. This gives us a decent preparation window to develop our economy and tech up.</p>{dmTable}<p>For this phase, we will buy 1 each of Scout (-6), Mining Ship (-5), and Colony Ship (-8)</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":0,"colonyCP":20,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":0,"unitBuy":19
@@ -644,7 +648,7 @@
 			"name":"planetG1"
 		}]},
 	{"heading":"Stardate 2403.0 (Economic Phase 3)",
-	"commentary":"<p>The previous phase's worth of turns have left us with no combat ships left to pay maintenance. Moving along, we will buy Attack level 1 (-20), followed by a Colony Ship (-8) and a Ship Yard (-6) at our homeworld.</p>",
+	"commentary":"<p>The previous phase's worth of turns have left us with no combat ships left to pay maintenance. Moving along, we will buy Attack 1 (-20), followed by a Colony Ship (-8) and a Ship Yard (-6) at our homeworld.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":2,"colonyCP":28,"mineralCP":5,"pipeCP":0,"maint":0,"bidCP":0,"techBuy":20,"unitBuy":14
@@ -796,7 +800,7 @@
 			"name":"planetG7"
 		}]},
 	{"heading":"Stardate 2404.0 (Economic Phase 4)",
-	"commentary":"<p>In order to work towards that goal, we will buy Cloaking level 1 (-30), followed by 1 Ship Yard (-6) at our homeworld.</p>",
+	"commentary":"<p>In order to work towards that goal, we will buy Cloaking 1 (-30), followed by 1 Ship Yard (-6) at our homeworld.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":2,"colonyCP":39,"mineralCP":15,"pipeCP":0,"maint":0,"bidCP":0,"techBuy":30,"unitBuy":6
@@ -920,7 +924,7 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2405.0 (Economic Phase 5)",
-	"commentary":"<p>And bam! Though we still have 2 phases worth of preparation time left. We will use this opportunity to buy Attack level 2 (-30), Defense level 1 (-20), and Cloaking level 2 (-30).</p>",
+	"commentary":"<p>And bam! Though we still have 2 phases worth of preparation time left.</p>{dmTable}<p>We will use this opportunity to buy Attack 2 (-30), Defense 1 (-20), and Cloaking 2 (-30).</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":20,"colonyCP":50,"mineralCP":10,"pipeCP":0,"maint":0,"bidCP":0,"techBuy":80,"unitBuy":0
@@ -1022,7 +1026,7 @@
 			"removeCounter":"R1G"
 		}]},
 	{"heading":"Stardate 2406.0 (Economic Phase 6)",
-	"commentary":"<p>Our preparation time is nearly exhausted; and so is the minerals we were able to uncover. Such is an unfortunate side effect of losing all our Scouts so early to deep space.</p><p>We will start by buying Defense level 2 (-30), followed by 3 Raiders (-36). This gives us combat ships back on the board.</p>",
+	"commentary":"<p>Our preparation time is nearly exhausted; and so is the minerals we were able to uncover. Such is an unfortunate side effect of losing all our Scouts so early to deep space.</p>{dmTable}<p>We will start by buying Defense 2 (-30), followed by 3 Raiders (-36). This gives us combat ships back on the board.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":0,"colonyCP":58,"mineralCP":10,"pipeCP":0,"maint":0,"bidCP":0,"techBuy":30,"unitBuy":36
@@ -1114,7 +1118,7 @@
 			"removeCounter":"dm1"
 		}]},
 	{"heading":"Stardate 2407.0 (Economic Phase 7)",
-	"commentary":"<p>We have officially ran out of time. Before we conduct our own economics, we need to roll to see where the <a href=\"javascript:showBox('DM5')\">first</a> Doomsday Machine will spawn. We roll a 10, causing it to spawn on the eastern side of the board.</p><p>Proceeding to our economics, we will buy Ship Yard tech level 2 (-20). We can then used our increased capacity to buy 4 more Raiders (-48).</p>",
+	"commentary":"<p>We have officially ran out of time. Before we conduct our own economics, we need to roll to see where the first Doomsday Machine will spawn. We roll a 10, causing it to spawn on the eastern side of the board.</p>{dmTable}<p>Proceeding to our economics, we will buy Ship Yard tech level 2 (-20). We can then used our increased capacity to buy 4 more Raiders (-48).</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":0,"colonyCP":60,"mineralCP":15,"pipeCP":0,"maint":6,"bidCP":0,"techBuy":20,"unitBuy":48
@@ -1227,7 +1231,7 @@
 			"location":"J9"
 		}]},
 	{"heading":"Stardate 2408.7 (The Battle for Sector J8)",
-	"commentary":"<p>Here goes nothing! The <a href=\"javascript:showBox('DM5')\">first</a> Doomsday Machine has arrived and is ready to cause havoc! But, before it can destroy its first planet, it needs to defeat our 10 Raiders! Thank goodness for our battle simulator!</p><hr /><ol><li><b>Round 1</b>: Since this is the machine's first battle, it will roll for weakness. This machine rolled a 3 (weak to minelayer ammo)</li><li>Since only our Raiders are present (and with Hull Size 2) this battle, this makes rolling easy. The DM rolled 6,1,1,1,9 (4 hits &le;7), cleaning knocking out 2 of our Raiders</li><li>Our surviving 8 Raiders respond with 9,3,7,3,1,6,8,7 (3 hits &le;5)<br /><br /></li><li><b>Round 2</b>: The DM rolled 3,7,9,8,9 (2 hits)</li><li>Our surviving 7 Raiders respond with 6,5,5,2,9,5,5 (5 hits). We have finished them off!</li></ol>",
+	"commentary":"<p>Here goes nothing! The <a href=\"javascript:showBox('dm5')\">first</a> Doomsday Machine has arrived and is ready to cause havoc! But, before it can destroy its first planet, it needs to defeat our 10 Raiders! Thank goodness for our battle simulator!</p><hr /><ol><li><b>Round 1</b>: Since this is the machine's first battle, it will roll for weakness. This machine rolled a 3 (weak to minelayer ammo)</li><li>Since only our Raiders are present (and with Hull Size 2) this battle, this makes rolling easy. The DM rolled 6,1,1,1,9 (4 hits &le;7), cleaning knocking out 2 of our Raiders</li><li>Our surviving 8 Raiders respond with 9,3,7,3,1,6,8,7 (3 hits &le;5)<br /><br /></li><li><b>Round 2</b>: The DM rolled 3,7,9,8,9 (2 hits)</li><li>Our surviving 7 Raiders respond with 6,5,5,2,9,5,5 (5 hits). We have finished them off!</li></ol>",
 	"actions":
 		[{
 			"placeCounter":"R3G",
@@ -1241,7 +1245,7 @@
 			"removeCounter":"dm2"
 		}]},
 	{"heading":"Stardate 2409.0",
-	"commentary":"<p>Hardly any time to rest from our recent success. To be fair, we should not forget the increased distance on this map. Still, the <a href=\"javascript:showBox('DM7')\">second</a> machine has spawned (rolled an 8), and is ready to move in.</p><p>We now have enough money for another 4 Raiders.</p>",
+	"commentary":"<p>Hardly any time to rest from our recent success. To be fair, we should not forget the increased distance on this map. Still, the second machine has spawned (rolled an 8), and is ready to move in.</p>{dmTable}<p>We now have enough money for another 4 Raiders.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":11,"colonyCP":60,"mineralCP":0,"pipeCP":0,"maint":14,"bidCP":0,"techBuy":0,"unitBuy":48
@@ -1304,7 +1308,7 @@
 			"location":"H10"
 		}]},
 	{"heading":"Stardate 2410.0",
-	"commentary":"<p>Since we are playing on neither Normal nor Harder difficulty, we get another grace phase in between the second and final Doomsday Machines. We only have enough money to buy another 3 Raiders.</p>",
+	"commentary":"<p>Since we are playing on neither Normal nor Harder difficulty, we get another grace phase in between the second and final Doomsday Machines.</p>{dmTable}<p>Thanks to relatively high maintenance, we only have enough money to buy another 3 Raiders.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":9,"colonyCP":60,"mineralCP":0,"pipeCP":0,"maint":22,"bidCP":0,"techBuy":0,"unitBuy":36
@@ -1353,7 +1357,7 @@
 			"location":"J9"
 		}]},
 	{"heading":"Stardate 2410.8 (The Battle for Sector J8)",
-	"commentary":"<p>It is battle time versus the <a href=\"javascript:showBox('DM7')\">second</a> Doomsday Machine!</p><hr /><ol><li><b>Round 1</b>: Since we get to do another fresh battle, we will roll for weakness. This machine rolled a 6 (weak to Cloaking)</li><li>The weakness is perfect for our Raiders! We have successfully ambushed them, giving us Attack +1 for this round (&le;5 to hit, then &le;4 afterwards), <b>and</b> Defense +2 for the entire battle (&gt;6 to avoid a hit)</li><li>Our Raiders have the best Weapon Class, so we will shoot first! We rolled 3,6,6,5,2,3,1,7,10,8,5,2,3,10 (8 hits). So close!!</li><li>The Doomsday Machine barely lived (<b>1</b> HP left), so it rolled 6,1,2,5,1,4 (6 hits). So much for our increased Defense.<br /><br /></li><li><b>Round 2</b>: Our surviving 11 Raiders respond with 5,7,4,8,2,10,3,3,1,8,1 (6 hits). We have finished them off!</li></ol>",
+	"commentary":"<p>It is battle time versus the <a href=\"javascript:showBox('dm7')\">second</a> Doomsday Machine!</p><hr /><ol><li><b>Round 1</b>: Since we get to do another fresh battle, we will roll for weakness. This machine rolled a 6 (weak to Cloaking)</li><li>The weakness is perfect for our Raiders! We have successfully ambushed them, giving us Attack +1 for this round (&le;5 to hit, then &le;4 afterwards), <b>and</b> Defense +2 for the entire battle (&gt;6 to avoid a hit)</li><li>Our Raiders have the best Weapon Class, so we will shoot first! We rolled 3,6,6,5,2,3,1,7,10,8,5,2,3,10 (8 hits). So close!!</li><li>The Doomsday Machine barely lived (<b>1</b> HP left), so it rolled 6,1,2,5,1,4 (6 hits). So much for our increased Defense.<br /><br /></li><li><b>Round 2</b>: Our surviving 11 Raiders respond with 5,7,4,8,2,10,3,3,1,8,1 (6 hits). We have finished them off!</li></ol>",
 	"actions":
 		[{
 			"placeCounter":"R3G",
@@ -1382,7 +1386,7 @@
 			"removeCounter":"dm3"
 		}]},
 	{"heading":"Stardate 2411.0",
-	"commentary":"<p>Despite our recent success, the <a href=\"javascript:showBox('DM9')\">final</a> machine was not far behind (rolled an 2), and is ready to move in. We now have enough money for another 4 Raiders.</p>",
+	"commentary":"<p>Despite our recent success, the final machine was not far behind (rolled an 2), and is ready to move in.</p>{dmTable}<p>We now have enough money for another 4 Raiders.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":11,"colonyCP":60,"mineralCP":0,"pipeCP":0,"maint":22,"bidCP":0,"techBuy":0,"unitBuy":48
@@ -1537,7 +1541,7 @@
 			"name":"colony5G"
 		}]},
 	{"heading":"Stardate 2412.9 (The Battle for Sector L5)",
-	"commentary":"<p>Taking advantage of the fact that the <a href=\"javascript:showBox('DM9')\">final</a> Doomsday Machine has only a single valid colony (L5) this turn, we will defend the colony accordingly with our 17 Raiders.</p><hr /><ol><li><b>Round 1</b>: The final battle is here. We will roll for weakness. This machine rolled a 8 (weak to large fleets)</li><li>This weakness also works well for our Raiders. While we have 10+ ships in our fleet, we will benefit from Fleet Size Bonus (Attack +1)</li><li>The machine has the best Weapon Class once more, so it gets to shoot first. It rolled 4,10,7,4,2,8 (5 hits &le;9)</li><li>Our 15 surviving Raiders respond with 5,4,8,2,10,6,3,10,2,7,4,3,8,2,6 (7 hits &le;4)<br /><br /></li><li><b>Round 2</b>: The machine shoots once more. It rolled 9,7,4,9,5,7 (6 hits)</li><li>Our 12 surviving Raiders respond with 9,5,2,8,8,10,8,2,2,10,4,2 (5 hits). We have finished off the final machine!</li></ol>",
+	"commentary":"<p>Taking advantage of the fact that the <a href=\"javascript:showBox('dm9')\">final</a> Doomsday Machine has only a single valid colony (L5) this turn, we will defend the colony accordingly with our 17 Raiders.</p><hr /><ol><li><b>Round 1</b>: The final battle is here. We will roll for weakness. This machine rolled a 8 (weak to large fleets)</li><li>This weakness also works well for our Raiders. While we have 10+ ships in our fleet, we will benefit from Fleet Size Bonus (Attack +1)</li><li>The machine has the best Weapon Class once more, so it gets to shoot first. It rolled 4,10,7,4,2,8 (5 hits &le;9)</li><li>Our 15 surviving Raiders respond with 5,4,8,2,10,6,3,10,2,7,4,3,8,2,6 (7 hits &le;4)<br /><br /></li><li><b>Round 2</b>: The machine shoots once more. It rolled 9,7,4,9,5,7 (6 hits)</li><li>Our 12 surviving Raiders respond with 9,5,2,8,8,10,8,2,2,10,4,2 (5 hits). We have finished off the final machine!</li></ol>",
 	"actions":
 		[{
 			"removeCounter":"systemL4"

@@ -336,6 +336,18 @@ function autoNameCounter(localObj) {
 	} else if (localObj.src.indexOf("gfx/typeSW") >= 0) {
 		localObj.title = "Type Sweeper";
 		stackable = true;
+	} else if (localObj.src.indexOf("gfx/talon/DD") >= 0) {
+		localObj.title = "Destroyer";
+	} else if (localObj.src.indexOf("gfx/talon/CL") >= 0) {
+		localObj.title = "Light Cruiser";
+	} else if (localObj.src.indexOf("gfx/talon/BCX") >= 0) {
+		localObj.title = "Battlecruiser-X";
+	} else if (localObj.src.indexOf("gfx/talon/missileDmg") >= 0) {
+		localObj.title = "Talon Missile (Damaaged)";
+		stackable = true;
+	} else if (localObj.src.indexOf("gfx/talon/missile") >= 0) {
+		localObj.title = "Talon Missile";
+		stackable = true;
 	}
 
 	if (stackable) {
@@ -352,10 +364,11 @@ function autoNameCounter(localObj) {
 	}
 }
 
-function placeCounter(curId, newX, newY, newPic, newSize) {
+function placeCounter(curId, newX, newY, newPic, newSize, talonCounter) {
 	var calcX = 50;
 	var calcY = 50;
 	var workObj, applySize = 0;
+	var missileCounter = false;
 
 	var workSlot = document.getElementById("hex"+letterRows.charAt(newY)+newX);
 	if (typeof newSize !== "undefined") {
@@ -369,13 +382,26 @@ function placeCounter(curId, newX, newY, newPic, newSize) {
 		workObj = findObj;
 	} else {
 		workObj = document.createElement("img");
-		workObj.src = "gfx/" + curId + ".png";
-		if (applySize >= 0) {
+		if (talonCounter) {
+			workObj.src = "gfx/talon/" + curId + ".png";
+			missileCounter = (curId.search("missile") >= 0);
+			
 			workObj.id = curId;
-			workObj.className = "counter";
+			if (missileCounter) {
+				workObj.className = "counter";
+			} else {
+				workObj.className = "counterBig";
+			}
 		} else {
-			workObj.className = "counter ghost";
+			workObj.src = "gfx/" + curId + ".png";
+			if (applySize >= 0) {
+				workObj.id = curId;
+				workObj.className = "counter";
+			} else {
+				workObj.className = "counter ghost";
+			}
 		}
+		
 		workObj.style.position = "absolute";
 		if (workObj.id.startsWith("system")) {
 			workObj.style.zIndex = 2;
@@ -407,7 +433,11 @@ function placeCounter(curId, newX, newY, newPic, newSize) {
 	workObj.style.visibility = "";
 	
 	if (newPic) {
-		workObj.src = "gfx/" + newPic + ".png";
+		if (talonCounter) {
+			workObj.src = "gfx/talon/" + newPic + ".png";
+		} else {
+			workObj.src = "gfx/" + newPic + ".png";
+		}
 		if (newPic.startsWith("minerals")) {
 			workObj.style.zIndex = 1;
 		} else if (workObj.id.startsWith("system")) {
@@ -420,15 +450,29 @@ function placeCounter(curId, newX, newY, newPic, newSize) {
 	if (applySize > 0) {
 		workObj.style.borderLeftWidth = applySize+"px";
 		workObj.style.borderTopWidth = applySize+"px";
+		
+		if (missileCounter) {
+			workObj.style.borderStyle = "none";
+		}
 
 		autoNameCounter(workObj);
-	} else if (newPic && newPic.indexOf("marker") >= 0) {
+	} else if (newPic && newPic.search("marker") >= 0) {
 		workObj.style.borderLeftWidth = "0px";
 		workObj.style.borderTopWidth = "0px";
 	}
 
-	workObj.style.left = calcX + "%";
-	workObj.style.top = calcY + "%";
+	if (missileCounter || !talonCounter) {
+		workObj.style.left = calcX + "%";
+		workObj.style.top = calcY + "%";
+	}
+}
+
+function rotateCounter(baseObj, newOrient) {
+	baseObj.style.transform = "translate(-50%, -50%) rotate(-"+newOrient+"deg)";
+}
+
+function embedCounter(baseObj, details) {
+	baseObj.onclick = function() { showSpecsTalon(details[0], details[1], details[2], details[3], details[4], details[5], details[6]) };
 }
 
 function paintTile(baseObj, paintPic) {
@@ -446,8 +490,9 @@ function paintTile(baseObj, paintPic) {
 	}
 	
 	workObj = document.getElementById(hexId);
-	var getPic = workObj.src;
 	if (workObj) {
+		var getPic = workObj.src;
+		
 		switch (paintPic) {
 			case "unexploredB":
 				// Fall thru
@@ -1144,9 +1189,9 @@ function readJson() {
 					dmStr[9] = 8;
 					dmStr[10] = 10;
 				} else {
-					dmStr[7] = 2;
-					dmStr[9] = 4;
-					dmStr[11] = 6;
+					dmStr[7] = 5;
+					dmStr[9] = 7;
+					dmStr[11] = 9;
 				}
 				
 				while (dmDiff > 2) {
@@ -1442,6 +1487,43 @@ function readJson() {
 				commentary.innerHTML = commentary.innerHTML + constructTable;
 			}
 		}
+		
+		if (curStage.scoreboard) {
+			var constructTable = "<table><caption>Scoreboard</caption> \
+				<tr><th>Player</th><th>Composition</th><th>Kills</th>\
+				<th>Losses</th><th>Retreats</th><th>Total</th></tr>";
+				
+			for (var a = 0; a < curStage.scoreboard.length; a++) {
+				var activePlayer = curStage.scoreboard[a];
+				
+				if (readValue(activePlayer.lostPts,0) + readValue(activePlayer.retreatPts,0) == readValue(activePlayer.initPts,0)) {
+					// Player is dead
+					constructTable = constructTable + "<tr class=\"deadPlr\">";
+				} else {
+					constructTable = constructTable + "<tr>";
+				}
+				
+				var totalScore = readValue(activePlayer.initPts,0) + readValue(activePlayer.killPts,0) -
+					readValue(activePlayer.lostPts,0);
+				
+				constructTable = constructTable + "<td>"+activePlayer.name+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.initPts,0)+"</td> \
+					<td class=\"numeric increase\">+"+readValue(activePlayer.killPts,0)+"</td> \
+					<td class=\"numeric decrease\">-"+readValue(activePlayer.lostPts,0)+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.retreatPts,0)+"</td> \
+					<td class=\"numeric\">"+totalScore+"</td></tr>"
+			}
+				
+			constructTable = constructTable + "</table>";
+			seekTag = "{prodTable}";
+			
+			if (commentary.innerHTML.indexOf(seekTag) >= 0) {
+				commentary.innerHTML = commentary.innerHTML.replace(seekTag,constructTable);
+			} else {
+				commentary.innerHTML = commentary.innerHTML + constructTable;
+			}
+
+		}
 	}
 	
 	// Ditch all "ghost" counters
@@ -1484,15 +1566,42 @@ function readJson() {
 		if (actionPool[i].placeCounter) {
 			// Place a counter. Permanent until deleted
 			workId = actionPool[i].placeCounter;
+			var largeSize = (typeof actionPool[i].rotation !== "undefined");
+			
 			if (actionPool[i].name) {
-				placeCounter(workId, readX, readY, actionPool[i].name, readValue(actionPool[i].size,0));
+				placeCounter(workId, readX, readY, actionPool[i].name, readValue(actionPool[i].size,0), largeSize);
 			} else {
 				var convertName = null;
 				if (workId.startsWith("CO")) {
 					convertName = "CO"+workId.substr(workId.length-1, 1);
 				}
 				
-				placeCounter(workId, readX, readY, convertName, readValue(actionPool[i].size,0));
+				placeCounter(workId, readX, readY, convertName, readValue(actionPool[i].size,0), largeSize);
+			}
+			
+			if (largeSize) {
+				var workObj = document.getElementById(workId);
+				
+				if (workObj) {
+					rotationAngle = actionPool[i].rotation * 60;
+					rotateCounter(workObj, rotationAngle);
+						
+					var extraFeats = new Array();
+					
+					if (readValue(actionPool[i].aft, null) != null) {
+						extraFeats.push("Afterburners x"+actionPool[i].aft)
+					}
+					if (readValue(actionPool[i].brake, null) != null) {
+						extraFeats.push("Brakes x"+actionPool[i].brake)
+					}
+					
+					var shipDetails = [workObj.title, actionPool[i].pwrCurve, readValue(actionPool[i].shields, [0,0,0,0]),
+						readValue(actionPool[i].wepCharge, []), readValue(actionPool[i].hullDmg, 0), readValue(actionPool[i].critDmg, []), extraFeats];
+					
+					if (actionPool[i].pwrCurve) {
+						embedCounter(workObj, shipDetails);
+					}
+				}
 			}
 		} else if (actionPool[i].placeHullsV) {
 			// Places a series of Replicator hulls
@@ -2021,6 +2130,8 @@ function readJson() {
 					dispRow(letterRows.charAt(z), false);
 				}
 			} else if (actionPool[i].createPreset == "versus2Pknife") {
+				ctrlPanel.className = "dmBoard";
+				expansionHWs = readValue(actionPool[i].useExpansion, false);
 				var plrColors = actionPool[i].playerColors;
 				
 				for (var y = 0; y < 5; y++) {
@@ -2034,7 +2145,11 @@ function readJson() {
 				}
 				
 				placeHomeworld(1,2,plrColors.charAt(0));
+				placeCounter("SC4"+plrColors.charAt(0),1,2);
+				placeCounter("CO4"+plrColors.charAt(0),1,2,"CO"+plrColors.charAt(0));
 				placeHomeworld(11,2,plrColors.charAt(1));
+				placeCounter("SC4"+plrColors.charAt(1),11,2);
+				placeCounter("CO4"+plrColors.charAt(1),11,2,"CO"+plrColors.charAt(1));
 
 				for (var z = 5; z < 12; z++) {
 					dispRow(letterRows.charAt(z), false);
@@ -2169,6 +2284,49 @@ function readJson() {
 
 				dispRow(letterRows.charAt(0), false);
 				dispRow(letterRows.charAt(11), false);
+				
+				for (var w = 13; w >= 10; w = w - 0.5) {
+					dispCol(w, false);
+				}
+			} else if (actionPool[i].createPreset == "versus2Pgc") {
+				ctrlPanel.className = "versusBoard";
+				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				var plrSlots = [actionPool[i].playerTop, actionPool[i].playerBottom];
+				var plrColors = [plrSlots[0].charAt(0), plrSlots[1].charAt(0)];
+				var plrExtraHexes = [plrSlots[0].charAt(1), plrSlots[1].charAt(1)];
+				var plrCols = [plrSlots[0].substr(2), plrSlots[1].substr(2)];
+				
+				dispRow(letterRows.charAt(0), false);
+				
+				for (var y = 1; y < 12; y++) {
+					for (var x = 1; x <= 9; x++) {
+						if (x < 9 || y % 2 == 0) {
+							if (y < 4) {
+								placeSystemMarker(x,y,"unexplored"+plrColors[0]);
+							} else if (y >= 9) {
+								placeSystemMarker(x,y,"unexplored"+plrColors[1]);
+							} else if (x == 5 && y == 6) {
+								placeSystemMarker(x,y,"capitol");
+							} else {
+								placeSystemMarker(x,y,deepSpace);
+							}
+						}
+					}
+				}
+				
+				if (plrExtraHexes[0] == "F") {
+					placeSystemMarker(9,3,"unexplored"+plrColors[0]);
+				} else {
+					placeSystemMarker(9,1,"unexplored"+plrColors[0]);
+				}
+				if (plrExtraHexes[1] == "F") {
+					placeSystemMarker(9,9,"unexplored"+plrColors[1]);
+				} else {
+					placeSystemMarker(9,11,"unexplored"+plrColors[1]);
+				}
+
+				placeHomeworld(plrCols[0],1,plrColors[0]);
+				placeHomeworld(plrCols[1],11,plrColors[1]);
 				
 				for (var w = 13; w >= 10; w = w - 0.5) {
 					dispCol(w, false);
@@ -2352,7 +2510,7 @@ function readJson() {
 				placeHomeworld(plrCols[0],0,plrColors[0]);
 				placeHomeworld(plrCols[1],11,plrColors[1]);
 			} else if (actionPool[i].createPreset == "versus2Ptalon") {
-				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				expansionHWs = readValue(actionPool[i].useExpansion, true);
 				var plrColors = actionPool[i].playerColors;
 				
 				for (var y = 1; y < 12; y++) {
@@ -2507,6 +2665,72 @@ function readJson() {
 					console.log({y,x});
 					placeSystemMarker(x,y,deepSpace);
 				}
+			} else if (actionPool[i].createPreset == "versus5Ptight") {
+				expansionHWs = true;
+				plrColors = actionPool[i].playerColors;
+				
+				for (var y = 0; y < 12; y++) {
+					for (var x = 1; x <= 13; x++) {
+						if (x < 13 || y % 2 == 0) {
+							if (x >= 4 + Math.floor(y/2) && x <= 10 - Math.ceil(y/2) && y <= 3) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(0));
+							} else if ((x <= 3 && y >= 2 && y <= 6) || (x == 4 && y == 4) ||
+								(x <= 2 && y == 1) || (x == 1 && y == 7)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(1));
+							} else if ((x >= 10 && y >= 2 && y <= 6 && (x >= 11 || (y != 2 && y != 6))) ||
+								(x >= 11 && y == 1) || (x == 12 && y == 7)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(2));
+							} else if (x >= 6 - Math.ceil(y/2) && x <= Math.floor(y/2) + 1 && y >= 8 &&
+								(x != 2 || y != 8) && (x != 6 || y != 11)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(3));
+							} else if (x >= 13 - Math.ceil(y/2) && x <= Math.floor(y/2) + 8 && y >= 8 &&
+								(x != 12 || y != 8) && (x != 7 || y != 11)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(4));
+							} else {
+								placeSystemMarker(x,y,deepSpace);
+							}
+						}
+					}
+				}
+				
+				placeHomeworld(7,0,plrColors.charAt(0));
+				placeHomeworld(1,4,plrColors.charAt(1));
+				placeHomeworld(13,4,plrColors.charAt(2));
+				placeHomeworld(3,11,plrColors.charAt(3));
+				placeHomeworld(10,11,plrColors.charAt(4));
+				
+				extraDShexes = actionPool[i].dsHexes.split(",");
+				
+				for (var z = 0; z < extraDShexes.length; z++) {
+					var x = extraDShexes[z].substr(1);
+					var y = letterRows.indexOf(extraDShexes[z].charAt(0));
+					
+					console.log({y,x});
+					placeSystemMarker(x,y,deepSpace);
+				}
+				
+			} else if (actionPool[i].createPreset == "talonSkirmish") {
+				useRuleset = "talon";
+				
+				for (var y = 1; y < 12; y++) {
+					for (var x = 1; x <= 16; x++) {
+						if (y <= 2) {
+							paintTile(letterRows.charAt(y)+x,"unexploredR");
+						} else if (y >= 10) {
+							paintTile(letterRows.charAt(y)+x,"unexploredB");
+						} else {
+							paintTile(letterRows.charAt(y)+x,"unexploredW");
+						}
+					}
+				}
+				
+			} else if (actionPool[i].createPreset == "clearDeployZones") {
+				for (var y = 1; y < 12; y++) {
+					for (var x = 1; x <= 16; x++) {
+						paintTile(letterRows.charAt(y)+x,"unexploredW");
+					}
+				}
+				
 			}
 		}
 	}
@@ -2525,7 +2749,7 @@ function readJson() {
 function jumpToEcoPhase(direction) {
 	do {
 		changeStage(direction);
-	} while (stageNum > 0 && stageNum < stageTotal && typeof curStage.prodTable === "undefined")
+	} while (stageNum > 0 && stageNum < stageTotal && typeof curStage.prodTable === "undefined" && typeof curStage.scoreboard === "undefined")
 }
 
 function changeStage(direction) {

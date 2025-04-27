@@ -41,6 +41,7 @@ img.hexBack {
 
 #gameBoard {margin-left: 2.5px; position: relative; padding-top: 25px;}
 .counter {border-top: 1px solid #CCC; border-left: 1px solid #CCC; transform: translate(-50%, -50%);}
+.counterBig {left: 50%; top: 50%; transform-origin: center center;}
 .ghost {opacity: 0.7;}
 
 .activePhase {border-color: #FF0;}
@@ -50,7 +51,9 @@ img.hexBack {
 	#controls.talonBoard {grid-template-columns: auto 40px 40px 870px 40px 40px auto;}
 	#controls.dmBoard {grid-template-columns: auto 50px 50px 600px 50px 50px auto;}
 	#controls.versusBoard {grid-template-columns: auto 50px 50px 518px 50px 50px auto;}
+	
 	.counter {width: 20px; height: 20px;}
+	.counterBig {width: 52px;}
 
 	div.hexSlot {
 		margin-top: -20.2167px;
@@ -69,7 +72,9 @@ img.hexBack {
 	#controls.talonBoard {grid-template-columns: auto 50px 50px 1303px 50px 50px auto;}
 	#controls.dmBoard {grid-template-columns: auto 50px 50px 900px 50px 50px auto;}
 	#controls.versusBoard {grid-template-columns: auto 60px 60px 775px 60px 60px auto;}
+
 	.counter {width: 30px; height: 30px;}
+	.counterBig {width: 79px;}
 
 	div.hexSlot {
 		margin-top: -28.325px;
