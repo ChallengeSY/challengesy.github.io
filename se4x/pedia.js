@@ -488,8 +488,13 @@ function showBox(concept) {
 		case "scout":
 			// Fall through
 		case "sc":
-			displayTxt = "<b>Scout</b><br />Light "+conceptLink("combat ship")+" suited for early exploration. Also benefits from "+conceptLink("Point-Defense")+" technology";
-			displayTxt = displayTxt + stats4X(6, "E3", 0, 1);
+			if (useRuleset == "talon") {
+				displayTxt = "<b>Scout</b> (SC)<br />Faction-exclusive light ship<br />";
+				displayTxt = displayTxt + statsTalon("Terran", 33, "Phaser", "2/1/1/1", 2);
+			} else {
+				displayTxt = "<b>Scout</b><br />Light "+conceptLink("combat ship")+" suited for early exploration. Also benefits from "+conceptLink("Point-Defense")+" technology";
+				displayTxt = displayTxt + stats4X(6, "E3", 0, 1);
+			}
 			break;
 		case "colony ship":
 			// Fall through
@@ -516,38 +521,77 @@ function showBox(concept) {
 				displayTxt = displayTxt + stats4X(9, "D4", 0, 1) + "<br /><b>Required Tech</b>: "+conceptLink("Ship Size")+" 2";
 			}
 			break;
+		case "starbase":
+			if (useRuleset == "talon") {
+				displayTxt = "<b>Starbase</b><br />Immobile Starbase<br />";
+				displayTxt = displayTxt + statsTalon("Terran", 281, "Dual Phasers x2 + Side Wave-Motion Gun x2", "10/10/10/10", 12);
+				displayTxt = displayTxt + statsTalon("Talon", 278, "Dual Disruptors x2 + Dual Missiles x2", "10/10/10/10", 12);
+				break;
+			} else {
+				// Fall thru conditionally
+			}
 		case "base":
-			displayTxt = "<b>Base</b><br />Starbase with powerful long range weaponry. Can not move. \
-				One can be built at any "+conceptLink("colony")+" that has produced CP this "+conceptLink("economic phase")+"<br />\
-				Automatically "+conceptLink("upgrade")+"s to <b>Advanced Base</b> at "+conceptLink("Advanced Construction")+" 1; \
-				those can be built in any hex connected to a "+conceptLink("colony")+" via "+conceptLink("Pipeline");
-			displayTxt = displayTxt + stats4X(12, "A7", 2, 3) + "<br /><b>Required Tech</b>: "+conceptLink("Ship Size")+" 2";
+			if (useRuleset == "talon") {
+				displayTxt = "<b>Base</b><br />Immobile Battle Station<br />";
+				displayTxt = displayTxt + statsTalon("Terran", 184, "Dual Phasers x2 + Wave-Motion Gun (R)", "7/7/7/7", 9);
+				displayTxt = displayTxt + statsTalon("Talon", 184, "Dual Disruptors x2 + Dual Missiles", "7/7/7/7", 10);
+			} else {
+				displayTxt = "<b>Base</b><br />Starbase with powerful long range weaponry. Can not move. \
+					One can be built at any "+conceptLink("colony")+" that has produced CP this "+conceptLink("economic phase")+"<br />\
+					Automatically "+conceptLink("upgrade")+"s to <b>Advanced Base</b> at "+conceptLink("Advanced Construction")+" 1; \
+					those can be built in any hex connected to a "+conceptLink("colony")+" via "+conceptLink("Pipeline");
+				displayTxt = displayTxt + stats4X(12, "A7", 2, 3) + "<br /><b>Required Tech</b>: "+conceptLink("Ship Size")+" 2";
+			}
 			break;
 		case "cruiser":
 			// Fall through
 		case "heavy cruiser":
 			// Fall through
 		case "ca":
-			displayTxt = "<b>Cruiser</b><br />Medium "+conceptLink("combat ship")+", able to benefit from "+conceptLink("Exploration")+" technology";
-			displayTxt = displayTxt + stats4X(12, "C4", 1, 2) + "<br /><b>Required Tech</b>: "+conceptLink("Ship Size")+" 3";
+			if (useRuleset == "talon") {
+				displayTxt = "<b>Cruiser</b> (BC)<br />Medium ship<br />";
+				displayTxt = displayTxt + statsTalon("Terran", 115, "Phasers x2 + Anti-Matter Torpedo", "6/5/5/4", 6);
+				displayTxt = displayTxt + statsTalon("Talon", 115, "Dual Disruptors x2", "7/4/4/3", 7);
+			} else {
+				displayTxt = "<b>Cruiser</b><br />Medium "+conceptLink("combat ship")+", able to benefit from "+conceptLink("Exploration")+" technology";
+				displayTxt = displayTxt + stats4X(12, "C4", 1, 2) + "<br /><b>Required Tech</b>: "+conceptLink("Ship Size")+" 3";
+			}
 			break;
 		case "battlecruiser":
 			// Fall through
 		case "bc":
-			displayTxt = "<b>Battlecruiser</b><br />Medium-Heavy "+conceptLink("combat ship")+", theoretically equippable with "+conceptLink("Fastmove")+" technology";
-			displayTxt = displayTxt + stats4X(15, "B5", 1, 2) + "<br /><b>Required Tech</b>: "+conceptLink("Ship Size")+" 4";
+			if (useRuleset == "talon") {
+				displayTxt = "<b>Battlecruiser</b> (BC)<br />Medium-heavy ship<br />";
+				displayTxt = displayTxt + statsTalon("Terran", 134, "Phasers x2 + Dual Anti-Matter Torpedos", "7/5/5/5", 6);
+				displayTxt = displayTxt + statsTalon("Talon", 142, "Dual Disruptors + Disruptor + Triple Missiles", "8/4/4/4", 7);
+			} else {
+				displayTxt = "<b>Battlecruiser</b> (BC)<br />Medium-Heavy "+conceptLink("combat ship")+", theoretically equippable with "+conceptLink("Fastmove")+" technology";
+				displayTxt = displayTxt + stats4X(15, "B5", 1, 2) + "<br /><b>Required Tech</b>: "+conceptLink("Ship Size")+" 4";
+			}
 			break;
 		case "battleship":
 			// Fall through
 		case "bb":
-			displayTxt = "<b>Battleship</b><br />Heavy "+conceptLink("combat ship")+", theoretically equippable with "+conceptLink("Tractor Beam")+" technology";
-			displayTxt = displayTxt + stats4X(20, "A5", 2, 3) + "<br /><b>Required Tech</b>: "+conceptLink("Ship Size")+" 5";
+			if (useRuleset == "talon") {
+				displayTxt = "<b>Battleship</b> (BB)<br />Heavy ship<br />";
+				displayTxt = displayTxt + statsTalon("Terran", 194, "Dual Phasers x2 + Wave-Motion Gun", "8/7/7/7", 9);
+				displayTxt = displayTxt + statsTalon("Talon", 179, "Dual Disruptors x2 + Fusion Cannon", "9/7/7/6", 8);
+				displayTxt = displayTxt + statsTalon("AI", 200, "Laser x1 + Cobalt Cannon x2", "9/9/9/9", 9);
+			} else {
+				displayTxt = "<b>Battleship</b><br />Heavy "+conceptLink("combat ship")+", theoretically equippable with "+conceptLink("Tractor Beam")+" technology";
+				displayTxt = displayTxt + stats4X(20, "A5", 2, 3) + "<br /><b>Required Tech</b>: "+conceptLink("Ship Size")+" 5";
+			}
 			break;
 		case "dreadnought":
 			// Fall through
 		case "dn":
-			displayTxt = "<b>Dreadnought</b><br />Huge "+conceptLink("combat ship")+", theoretically equippable with "+conceptLink("Shield Projector")+" technology";
-			displayTxt = displayTxt + stats4X(24, "A6", 3, 3) + "<br /><b>Required Tech</b>: "+conceptLink("Ship Size")+" 6";
+			if (useRuleset == "talon") {
+				displayTxt = "<b>Dreadnought</b> (DN)<br />Faction-exclusive huge ship<br />";
+				displayTxt = displayTxt + statsTalon("Talon", 218, "Dual Disruptors x2 + Dual Fusion Cannons", "11/9/9/8", 10);
+			} else {
+				displayTxt = "<b>Dreadnought</b><br />Huge "+conceptLink("combat ship")+", theoretically equippable with "+conceptLink("Shield Projector")+" technology";
+				displayTxt = displayTxt + stats4X(24, "A6", 3, 3) + "<br /><b>Required Tech</b>: "+conceptLink("Ship Size")+" 6";
+			}
 			break;
 		
 		// Advanced Ships
@@ -1490,6 +1534,10 @@ function showBox(concept) {
 		case "deployment zone":
 			displayTxt = "<b>Deployment Zone</b><br />Zone in which a given player must set up their "+conceptLink("ship")+"s.";
 			break;
+		case "center hex row":
+			displayTxt = "<b>Center Hex Row</b><br />The "+conceptLink("hex")+"es directly in front of, and directly behind, the "+conceptLink("ship")+" constitute that ship's <q>center hex row</q>.\
+				<br />This row changes whenever a ship "+conceptLink("turn")+"s or "+conceptLink("side slip")+"s.";
+			break;
 		case "impulse":
 			displayTxt = "<b>Impulse</b><br />A small segment of time. The actions a given "+conceptLink("ship")+" can do is based on how much time has passed in a given "+conceptLink("round")+".<br />\
 				A ship can generate "+conceptLink("power")+" and/or be required to move, depending on its "+conceptLink("power curve")+".<br />\
@@ -1525,10 +1573,10 @@ function showBox(concept) {
 			displayTxt = "<b>Secondary Explosion</b><br />"+conceptLink("Ship")+"s that suffer this condition instantly take an additional 3 "+conceptLink("hull")+" damage.";
 			break;
 		case "shields down":
-			displayTxt = "<b>Shields Down</b><br />"+conceptLink("Ship")+"s that have this condition are unable to use their shields to mitigate damage, until repaired with a 6 at the end of an "+conceptLink("impulse")+" following the damage";
+			displayTxt = "<b>Shields Down</b><br />"+conceptLink("Ship")+"s that have this condition are unable to use their shields to absorb damage, until repaired with a 6 at the end of an "+conceptLink("impulse")+" following the damage";
 			break;
 		case "helm down":
-			displayTxt = "<b>Helm Down</b><br />"+conceptLink("Ship")+"s that have this condition are unable to turn, until repaired with a 6 at the end of an "+conceptLink("impulse")+" following the damage. No effect on "+conceptLink("base")+"s and "+conceptLink("starbase")+"s";
+			displayTxt = "<b>Helm Down</b><br />"+conceptLink("Ship")+"s that have this condition are unable to "+conceptLink("turn")+", until repaired with a 6 at the end of an "+conceptLink("impulse")+" following the damage. No effect on "+conceptLink("base")+"s and "+conceptLink("starbase")+"s";
 			break;
 		case "manuevering thruster damage":
 			displayTxt = "<b>Manuevering Thruster Damage</b><br />"+conceptLink("Ship")+"s that have this condition have a permanently increased turn radius corrosponding to the indicated amount. Maxes out at +2. No effect on "+conceptLink("base")+"s and "+conceptLink("starbase")+"s";
@@ -1541,8 +1589,7 @@ function showBox(concept) {
 				Maxes out at -2.<br/>"+conceptLink("AI")+" ships that roll this condition instead take 1 additional "+conceptLink("hull")+" damage.";
 			break;
 		case "ftl offline":
-			displayTxt = "<b>FTL Offline</b><br />"+conceptLink("Ship")+"s that have this condition are unable to use FTL to "+conceptLink("retreat")+" while the "+conceptLink("battle")+" is in progress.\
-				<br />(Merely receiving this condition incurs 1 additional "+conceptLink("hull")+" danage.)";
+			displayTxt = "<b>FTL Offline</b><br />"+conceptLink("Ship")+"s that have this condition are unable to use FTL to "+conceptLink("retreat")+" while the "+conceptLink("battle")+" is in progress.";
 			break;
 		case "power loss":
 			displayTxt = "<b>Power Loss</b><br />"+conceptLink("Ship")+"s that have this condition are unable to receive "+conceptLink("power")+" from any source, nor adjust their "+conceptLink("power curve")+" or recharge weapons, until repaired with a 6 at the end of an "+conceptLink("impulse")+" following the damage.\
@@ -1555,21 +1602,28 @@ function showBox(concept) {
 			// Double fall thru
 		case "exploding":
 		case "explosion":
-			displayTxt = "<b>Explosion</b><br />A "+conceptLink("ship")+" that loses all of its hull points <i>or</i> suffers a meltdown with their FTL code explodes, causing damage to other ships in the same "+conceptLink("hex")+" <i>and</i> in adjacent hexes.";
+			displayTxt = "<b>Explosion</b><br />A "+conceptLink("ship")+" that loses all of its "+conceptLink("hull")+" points <i>or</i> suffers a meltdown with their FTL core explodes, causing damage to other ships in the same "+conceptLink("hex")+" <i>and</i> in adjacent hexes.";
 			break;
 			
 		// Ships only in Talon
+		case "frigate":
+			// Fall through
+		case "ff":
+			displayTxt = "<b>Frigate</b><br />Faction-exclusive light ship<br />";
+			displayTxt = displayTxt + statsTalon("Talon", 44, "Disruptors x2", "3/2/2/2", 3);
+			break;
 		case "light cruiser":
 			// Fall through
 		case "cl":
 			displayTxt = "<b>Light Cruiser</b><br />Medium-Light ship<br />";
 			displayTxt = displayTxt + statsTalon("Terran", 88, "Phaser + Anti-Matter Torpedo", "5/4/4/3", 5);
 			displayTxt = displayTxt + statsTalon("Talon", 88, "Dual Disruptors + Disruptor", "6/3/3/3", 5);
+			displayTxt = displayTxt + statsTalon("AI", 100, "Laser x2 + Cobalt Cannon", "5/5/5/3", 5);
 			break;
 		case "battlecruiser-x":
 			// Fall through
 		case "bcx":
-			displayTxt = "<b>Battlecruiser-X</b><br />Medium-Heavy ship<br />";
+			displayTxt = "<b>Battlecruiser-X</b><br />Improved varient of the "+conceptLink('Battlecruiser')+"<br />";
 			displayTxt = displayTxt + statsTalon("Terran", 156, "Phaser + Dual Anti-Matter Torpedos x2", "7/6/6/6", 6);
 			displayTxt = displayTxt + statsTalon("Talon", 161, "Dual Disruptors + Disruptor + Dual Missiles x2", "8/5/5/4", 7);
 			break;
@@ -1578,7 +1632,8 @@ function showBox(concept) {
 		// Site exclusive concepts
 		case "replay center":
 			displayTxt = "<b>Replay Center</b><br />Program that plays back a playthrough's <q>recording</q>. \
-				Can go forwards or backwards, one stage or "+conceptLink("economic phase")+"'s worth at a time.\
+				Can go forwards or backwards, one stage or one <q>key stage</q> at a time.<br />\
+				(Usually "+conceptLink("economic phase")+"s or "+conceptLink("power phase")+"s are considered key stages.)\
 				<br /><br />Has the ability to remember where a given playthrough was left at, but will forget it if a different playthrough is navigated.";
 			break;
 		case "game setup":
@@ -1657,13 +1712,12 @@ function showSpecs4X(namee, atkEquip, defEquip, moveEquip, XP) {
 		displayTxt = displayTxt + "<a href=\"showBox('experience')\">Experience</a>: "+xpLevs[XP]+"<br />";
 	}
 	
-	displayTxt = displayTxt + "<br />";
-	displayTxt = displayTxt + "<a class=\"interact\" href=\"javascript:closeBox();\">Close</a>";
+	displayTxt = displayTxt + "<br /><a class=\"interact\" href=\"javascript:closeBox();\">Close</a>";
 	infoPanel.innerHTML = displayTxt;
 	infoPanel.style.display = "";
 }
 
-function showSpecsTalon(namee, pwrCurve, shields, wepCharge, hullDmg, critDmg, auxFeat) {
+function showSpecsTalon(namee, pwrCurve, shields, wepDetails, hullDmg, critDmg, auxFeat) {
 	var infoPanel = document.getElementById("infobox");
 	var displayTxt = "";
 	
@@ -1679,20 +1733,6 @@ function showSpecsTalon(namee, pwrCurve, shields, wepCharge, hullDmg, critDmg, a
 			displayTxt = displayTxt + shields[s];
 			
 			if (s + 1 < shields.length) {
-				displayTxt = displayTxt + " / ";
-			} else {
-				displayTxt = displayTxt + "<br />";
-			}
-		}
-	}
-	
-	if (wepCharge.length > 0) {
-		displayTxt = displayTxt + "<b>Weapons</b>: ";
-		
-		for (var w = 0; w < wepCharge.length; w++) {
-			displayTxt = displayTxt + wepCharge[w];
-			
-			if (w + 1 < wepCharge.length) {
 				displayTxt = displayTxt + " / ";
 			} else {
 				displayTxt = displayTxt + "<br />";
@@ -1728,9 +1768,17 @@ function showSpecsTalon(namee, pwrCurve, shields, wepCharge, hullDmg, critDmg, a
 			}
 		}
 	}
+
 	
-	displayTxt = displayTxt + "<br />";
-	displayTxt = displayTxt + "<a class=\"interact\" href=\"javascript:closeBox();\">Close</a>";
+	if (wepDetails.length > 0) {
+		displayTxt = displayTxt + "<br /><b>Weapon Banks</b>:";
+		
+		for (var w = 0; w < wepDetails.length; w++) {
+			displayTxt = displayTxt + "<br />" + wepDetails[w].name + ": " + wepDetails[w].charge;
+		}
+	}
+	
+	displayTxt = displayTxt + "<br /><a class=\"interact\" href=\"javascript:closeBox();\">Close</a>";
 	infoPanel.innerHTML = displayTxt;
 	infoPanel.style.display = "";
 }
@@ -1865,6 +1913,8 @@ function keywordifyCollection(collObj) {
 		{regex: conceptLink("power")+" curve", newTxt: conceptLink("power curve")},
 		{regex: conceptLink("Power")+" Phase", newTxt: conceptLink("Power Phase")},
 		{regex: conceptLink("power")+" phase", newTxt: conceptLink("power phase")},
+		{regex: "Center "+conceptLink("Hex")+" Row", newTxt: conceptLink("Center Hex Row")},
+		{regex: "center "+conceptLink("hex")+" row", newTxt: conceptLink("center hex row")},
 		{regex: "Secondary "+conceptLink("Explosion"), newTxt: conceptLink("Secondary Explosion")},
 		{regex: "secondary "+conceptLink("explosion"), newTxt: conceptLink("secondary explosion")},
 		{regex: conceptLink("Shield")+"s Down", newTxt: conceptLink("Shields Down")},

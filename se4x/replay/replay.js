@@ -1595,7 +1595,9 @@ function readJson() {
 						extraFeats.push("Brakes x"+actionPool[i].brake)
 					}
 					
-					var shipDetails = [workObj.title, actionPool[i].pwrCurve, readValue(actionPool[i].shields, [0,0,0,0]),
+					var numId = workId.split("-")[1];
+					
+					var shipDetails = [workObj.title + " " + numId, actionPool[i].pwrCurve, readValue(actionPool[i].shields, [0,0,0,0]),
 						readValue(actionPool[i].wepCharge, []), readValue(actionPool[i].hullDmg, 0), readValue(actionPool[i].critDmg, []), extraFeats];
 					
 					if (actionPool[i].pwrCurve) {

@@ -74,7 +74,7 @@ img.hexBack {
 	#controls.versusBoard {grid-template-columns: auto 60px 60px 775px 60px 60px auto;}
 
 	.counter {width: 30px; height: 30px;}
-	.counterBig {width: 79px;}
+	.counterBig {width: 78px;}
 
 	div.hexSlot {
 		margin-top: -28.325px;
