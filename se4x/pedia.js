@@ -1,6 +1,8 @@
 var replaceAllFailed = false;
 var useRuleset = null;
 
+const boxFilling = ["&#9617;","&#9618;","&#9608;"];
+
 function setupBox() {
 	var bodyPanel = document.getElementsByTagName("body")[0];
 	var infoFrag;
@@ -386,19 +388,31 @@ function showBox(concept) {
 		case "asteroid belt":
 			// Fall through
 		case "asteroids":
-			displayTxt = "<b>Asteroid Belt</b><br />Inhibits movement of "+conceptLink("ship")+"s, unless following a "+conceptLink("Pipeline")+" network. \
-				Nullifies "+conceptLink("Attack")+" "+conceptLink("technology")+" and reduces "+conceptLink("Weapon Class")+" to <b>E</b>.";
+			if (useRuleset == "talon") {
+				displayTxt = "<b>Asteroid Belt</b><br />Damages any ship (except "+conceptLink("fighter")+"s) that enters the "+conceptLink("hex")+". \
+					Can also reduce accuracy and/or potency of non-missile weapon fire. Can block "+conceptLink("power")+" transmission.";
+			} else {
+				displayTxt = "<b>Asteroid Belt</b><br />Inhibits movement of "+conceptLink("ship")+"s, unless following a "+conceptLink("Pipeline")+" network. \
+					Nullifies "+conceptLink("Attack")+" "+conceptLink("technology")+" and reduces "+conceptLink("Weapon Class")+" to <b>E</b>.";
+			}
 			break;
 		case "barren":
 			// Fall through
 		case "barren planet":
-			displayTxt = "<b>Barren Planet</b><br />A less hospitable "+conceptLink("planet")+". Not colonizable, unless "+conceptLink("Terraforming")+" "+conceptLink("technology")+" has been developed." +
-				"<br />Barren Planets in "+conceptLink("deep space")+" may have "+conceptLink("non-player alien")+"s ambushing any stragglers that explore it, \
+			displayTxt = "<b>Barren Planet</b><br />A less hospitable "+conceptLink("planet")+". \
+				Not colonizable, unless "+conceptLink("Terraforming")+" "+conceptLink("technology")+" has been developed.<br />\
+				Barren Planets in "+conceptLink("deep space")+" may have "+conceptLink("non-player alien")+"s ambushing any stragglers that explore it, \
 				and/or have "+conceptLink("alien technology")+".";
 			break;
 		case "black hole":
-			displayTxt = "<b>Black Hole</b><br />Forces <em>each</em> "+conceptLink("ship")+" that enters to roll a survival d10 roll, unless they follow a "+conceptLink("Pipeline")+" network." +
-				"<br />A roll of 6 or less allows the ship to remain. Otherwise, the ship is destroyed.";
+			if (useRuleset == "talon") {
+				displayTxt = "<b>Black Hole</b><br />Sucks in "+conceptLink("ship")+"s in between "+conceptLink("round")+"s, \
+					destroying them instantly. Reduces accuracy and/or potency of non-missile weapon fire, based on distance difference.";
+			} else {
+				displayTxt = "<b>Black Hole</b><br />Forces <em>each</em> "+conceptLink("ship")+" that enters to roll a survival d10 roll, \
+					unless they follow a "+conceptLink("Pipeline")+" network.<br />\
+					A roll of 6 or less allows the ship to remain. Otherwise, the ship is destroyed.";
+			}
 			break;
 		case "colonies":
 			// Fall through
@@ -410,8 +424,12 @@ function showBox(concept) {
 			displayTxt = "<b>Danger!</b><br />If discovered, this system <em>instantly</em> destroys any "+conceptLink("ship")+"s in the same "+conceptLink("hex")+"! The counter is then removed afterwards.";
 			break;
 		case "deep space":
-			displayTxt = "<b>Deep Space</b><br />A set of "+conceptLink("hex")+"es that spread beyond the players' "+conceptLink("home system")+"s." +
-				"<br />These systems have a much higher risk <span class=\"bindTxt\">(several "+conceptLink("Danger")+"! counters, and less predictability)</span>, but higher reward <span class=\"bindTxt\">("+conceptLink("minerals")+" pay better, and there can be "+conceptLink("space wreck")+"s)</span>.";
+			if (useRuleset == "talon") {
+				displayTxt = "<b>Deep Space</b><br />Vast sections of space that spreads beyond a local solar system.";
+			} else {
+				displayTxt = "<b>Deep Space</b><br />A set of "+conceptLink("hex")+"es that spread beyond the players' "+conceptLink("home system")+"s." +
+					"<br />These systems have a much higher risk <span class=\"bindTxt\">(several "+conceptLink("Danger")+"! counters, and less predictability)</span>, but higher reward <span class=\"bindTxt\">("+conceptLink("minerals")+" pay better, and there can be "+conceptLink("space wreck")+"s)</span>.";
+			}
 			break;
 		case "fold":
 			// Fall through
@@ -440,7 +458,13 @@ function showBox(concept) {
 				The counter is then removed afterwards.";
 			break;
 		case "planet":
-			displayTxt = "<b>Planet</b><br />A potentially habitable world. Becomes a "+conceptLink("colony")+" when colonized. Some planets are "+conceptLink("barren")+".";
+			displayTxt = "<b>Planet</b><br />A potentially habitable world.";
+			if (useRuleset == "talon") {
+				displayTxt = displayTxt + " Can block weapon fire and "+conceptLink("power")+" transmission. \
+					Instantly destroys any ship (except landing "+conceptLink("Transport")+"s). Invulnerable, unless specified by scenario.";
+			} else {
+				displayTxt = displayTxt + " Becomes a "+conceptLink("colony")+" when colonized. Some planets are "+conceptLink("barren")+".";
+			}
 			break;
 		case "regional map":
 			displayTxt = "<b>Regional Map</b><br />Terrain allows peeking/exploring adjacent "+conceptLink("hex")+"es, \
@@ -452,8 +476,13 @@ function showBox(concept) {
 				<br /><br />"+conceptLink("Replicator")+" "+conceptLink("ship")+"s automatically cash them in, gaining the indicated amount directly.";
 			break;
 		case "nebula":
-			displayTxt = "<b>Nebula</b><br />Inhibits movement of "+conceptLink("ship")+"s, unless following a "+conceptLink("Pipeline")+" network. \
-				Nullifies "+conceptLink("Defense")+" and "+conceptLink("Cloaking")+" "+conceptLink("technology")+" and reduces "+conceptLink("Weapon Class")+" to <b>E</b>.";
+			if (useRuleset == "talon") {
+				displayTxt = "<b>Nebula</b><br />Prevents use of "+conceptLink("shield")+"s. Can reduce accuracy and/or potency of non-missile weapon fire. \
+					Can block "+conceptLink("power")+" transmission.";
+			} else {
+				displayTxt = "<b>Nebula</b><br />Inhibits movement of "+conceptLink("ship")+"s, unless following a "+conceptLink("Pipeline")+" network. \
+					Nullifies "+conceptLink("Defense")+" and "+conceptLink("Cloaking")+" "+conceptLink("technology")+" and reduces "+conceptLink("Weapon Class")+" to <b>E</b>.";
+			}
 			break;
 		case "space wreck":
 			displayTxt = "<b>Space Wreck</b><br />Can be picked up by a "+conceptLink("miner")+" and towed to a "+conceptLink("colony")+" to develop a free random "+conceptLink("technology")+".\
@@ -598,16 +627,26 @@ function showBox(concept) {
 		case "carrier":
 			// Fall through
 		case "cv":
-			displayTxt = "<b>Carrier</b><br />Combat transport craft, able to carry up to 3 "+conceptLink("Fighter")+"s into space";
-			displayTxt = displayTxt + stats4X(12, "E3", 0, 1) + "<br /><b>Required Tech</b>: "+conceptLink("Fighter")+" tech 1";
+			if (useRuleset == "talon") {
+				displayTxt = "<b>Carrier</b><br />Faction-exclusive transport ship, able to carry up to 4 "+conceptLink("Fighter")+" squadrons";
+				displayTxt = displayTxt + statsTalon("Terran", 70, "Phasers x2", "4/4/4/4", 6);
+			} else {
+				displayTxt = "<b>Carrier</b><br />Combat transport craft, able to carry up to 3 "+conceptLink("Fighter")+"s into space";
+				displayTxt = displayTxt + stats4X(12, "E3", 0, 1) + "<br /><b>Required Tech</b>: "+conceptLink("Fighter")+" tech 1";
+			}
 			break;
 		case "fighter":
 			// Fall through
 		case "f":
-			displayTxt = "<b>Fighter</b><br />Small craft, requires a "+conceptLink("Carrier")+" or "+conceptLink("Titan")+" to move into space. Gains Attack +1 versus Titans.<br />\
-				As a technology, each level unlocks a progressively stronger fighter craft. The first level also unlocks Carriers.";
-			displayTxt = displayTxt + stats4X(5, "B5 / B6 / B7 / B8", "0 / 0 / 1 / 2", 1) + "<br />\
-				<b>Required Tech</b>: Fighter tech 1-4 + "+conceptLink("Advanced Construction")+" 2 (B8 variant only)";
+			if (useRuleset == "talon") {
+				displayTxt = "<b>Fighter</b><br />Faction-exclusive small craft, requires a "+conceptLink("Carrier")+" or "+conceptLink("Base")+" to be deployed. Each squadron has 3 fighters";
+				displayTxt = displayTxt + statsTalon("Terran", 44, "1 Phaser per fighter", "None", "2 per fighter");
+			} else {
+				displayTxt = "<b>Fighter</b><br />Small craft, requires a "+conceptLink("Carrier")+" or "+conceptLink("Titan")+" to move into space. Gains Attack +1 versus Titans.<br />\
+					As a technology, each level unlocks a progressively stronger fighter craft. The first level also unlocks Carriers.";
+				displayTxt = displayTxt + stats4X(5, "B5 / B6 / B7 / B8", "0 / 0 / 1 / 2", 1) + "<br />\
+					<b>Required Tech</b>: Fighter tech 1-4 + "+conceptLink("Advanced Construction")+" 2 (B8 variant only)";
+			}
 			break;
 		case "minelayer":
 			// Fall through
@@ -913,8 +952,14 @@ function showBox(concept) {
 		case "tran":
 			// Fall through
 		case "transport":
-			displayTxt = "<b>Troop Transport</b><br />Utility "+conceptLink("combat ship")+", able to pick up 6 "+conceptLink("ground unit")+"s from friendly "+conceptLink("colonies")+" and use them to invade enemy colonies";
-			displayTxt = displayTxt + stats4X(6, "E1", 1, 1)+"<br /><b>Required Tech</b>: "+conceptLink("Troops")+" 1";
+			if (useRuleset == "talon") {
+				displayTxt = "<b>Transport</b><br />Utility ship, able to land on "+conceptLink("planet")+"s whenever a scenario calls for it.";
+				displayTxt = displayTxt + statsTalon("Terran", 32, "No weapons", "4/4/4/4", 4);
+				displayTxt = displayTxt + statsTalon("Talon", 36, "No weapons", "5/4/4/3", 4);
+			} else {
+				displayTxt = "<b>Troop Transport</b><br />Utility "+conceptLink("combat ship")+", able to pick up 6 "+conceptLink("ground unit")+"s from friendly "+conceptLink("colonies")+" and use them to invade enemy colonies";
+				displayTxt = displayTxt + stats4X(6, "E1", 1, 1)+"<br /><b>Required Tech</b>: "+conceptLink("Troops")+" 1";
+			}
 			break;
 		case "drop ships":
 			displayTxt = "<b>Drop ships</b><br />Upgraded "+conceptLink("Transport")+"s with this ability have "+conceptLink("Defense")+" +1. \
@@ -1534,6 +1579,9 @@ function showBox(concept) {
 		case "deployment zone":
 			displayTxt = "<b>Deployment Zone</b><br />Zone in which a given player must set up their "+conceptLink("ship")+"s.";
 			break;
+		case "last ship standing":
+			displayTxt = "<b>Last Ship Standing</b><br />Simple skirmish scenario where the objective is for one faction to destroy the other.";
+			break;
 		case "center hex row":
 			displayTxt = "<b>Center Hex Row</b><br />The "+conceptLink("hex")+"es directly in front of, and directly behind, the "+conceptLink("ship")+" constitute that ship's <q>center hex row</q>.\
 				<br />This row changes whenever a ship "+conceptLink("turn")+"s or "+conceptLink("side slip")+"s.";
@@ -1546,7 +1594,8 @@ function showBox(concept) {
 			break;
 		case "power":
 			displayTxt = "<b>Power</b><br />Energy that is not spent to move a "+conceptLink("ship")+".<br />\
-				Whenever some becomes available to spend on a given "+conceptLink("impulse")+", it can be spent as the owner sees fit, namely to reinforce shields, charge weapon banks, or manipulate "+conceptLink("initiative")+".";
+				Whenever some becomes available to spend on a given "+conceptLink("impulse")+", it can be spent as the owner sees fit.<br />\
+				Primary examples include reinforcing "+conceptLink("shield")+"s, charging weapons, manipulating "+conceptLink("initiative")+", conduct "+conceptLink("side slip")+"s, and improving "+conceptLink("turn")+"ing.";
 			break;
 		case "batteries":
 			// Fall thru
@@ -1569,33 +1618,64 @@ function showBox(concept) {
 		case "shield":
 			displayTxt = "<b>Shields</b><br />A layer of protection that "+conceptLink("ship")+"s use to absorb damage. Once shields are unusable, then the "+conceptLink("hull")+" starts taking damage.";
 			break;
-		case "secondary explosion":
+		
+		// Talon weapons
+		case "phaser":
+			displayTxt = "<b>Phaser</b><br />Basic "+conceptLink("Terran")+" weapon that deals 0-2 damage, depending on range 1-3.";
+			break;
+		case "anti-matter torpedo":
+			displayTxt = "<b>Anti-Matter Torpedo</b><br />Advnaced "+conceptLink("Terran")+" weapon that deals 4 damage. Range 2-4";
+			break;
+		case "wave-motion gun":
+			displayTxt = "<b>Wave-Motion Gun</b><br />Expert "+conceptLink("Terran")+" weapon that deals 10 damage <i>and</i> displaces the victim 1 "+conceptLink("hex")+". Very accurate. Range 2-4";
+			break;
+		case "disruptor":
+			displayTxt = "<b>Disruptor</b><br />Basic "+conceptLink("Talon")+" weapon that deals 2 damage. Range 1-4. Optimal accuracy at range 2.";
+			break;
+		case "missile launcher":
+			displayTxt = "<b>Missile Launcher</b><br />Advnaced "+conceptLink("Talon")+" weapon that launches "+conceptLink("missile")+"s.";
+			break;
+		case "fusion cannon":
+			displayTxt = "<b>Fusion Cannon</b><br />Expert "+conceptLink("Talon")+" weapon that damages ALL targets within the firing arc, dealing up to 11 damage. "+conceptLink("Fighter")+"s are immune. Range 3";
+			break;
+		case "missile":
+			displayTxt = "<b>Missile</b><br />"+conceptLink("Talon")+" seeker that attempts to home in on its victim. Deals 2 damage when connected, but can be shot down. Has a fixed "+conceptLink("power curve")+" of <u>0-6-0</u>.";
+			break;
+		case "laser":
+			displayTxt = "<b>Laser</b><br />Basic "+conceptLink("AI")+" weapon that deals 1-2 damage. Base accuracy 100%. Range 1-2";
+			break;
+		case "cobalt cannon":
+			displayTxt = "<b>Cobalt Cannon</b><br />Advanced "+conceptLink("AI")+" weapon that deals 3/5 damage. Base accuracy 100%. Range 1-3";
+			break;
+			
+		// Talon Critical Rolls
+		case "secondary explosion": // 2
 			displayTxt = "<b>Secondary Explosion</b><br />"+conceptLink("Ship")+"s that suffer this condition instantly take an additional 3 "+conceptLink("hull")+" damage.";
 			break;
-		case "shields down":
+		case "shields down": // 3
 			displayTxt = "<b>Shields Down</b><br />"+conceptLink("Ship")+"s that have this condition are unable to use their shields to absorb damage, until repaired with a 6 at the end of an "+conceptLink("impulse")+" following the damage";
 			break;
-		case "helm down":
+		case "helm down": // 4
 			displayTxt = "<b>Helm Down</b><br />"+conceptLink("Ship")+"s that have this condition are unable to "+conceptLink("turn")+", until repaired with a 6 at the end of an "+conceptLink("impulse")+" following the damage. No effect on "+conceptLink("base")+"s and "+conceptLink("starbase")+"s";
 			break;
-		case "manuevering thruster damage":
-			displayTxt = "<b>Manuevering Thruster Damage</b><br />"+conceptLink("Ship")+"s that have this condition have a permanently increased turn radius corrosponding to the indicated amount. Maxes out at +2. No effect on "+conceptLink("base")+"s and "+conceptLink("starbase")+"s";
-			break;
-		case "random weapon group destroyed":
+		case "random weapon group destroyed": // 5 or 9
 			displayTxt = "<b>Random Weapon Group Destroyed</b><br />Each time a "+conceptLink("ship")+" sustains this condition, one of their weapon groups has been permanently destroyed.";
 			break;
-		case "power relay damage":
+		case "manuevering thruster damage": // 6
+			displayTxt = "<b>Manuevering Thruster Damage</b><br />"+conceptLink("Ship")+"s that have this condition have a permanently increased turn radius corrosponding to the indicated amount. Maxes out at +2. No effect on "+conceptLink("base")+"s and "+conceptLink("starbase")+"s";
+			break;
+		case "power relay damage": // 8
 			displayTxt = "<b>Power Relay Damage</b><br />"+conceptLink("Ship")+"s that have this condition have a permanently reduced "+conceptLink("power")+" output, starting with the next "+conceptLink("power phase")+". \
 				Maxes out at -2.<br/>"+conceptLink("AI")+" ships that roll this condition instead take 1 additional "+conceptLink("hull")+" damage.";
 			break;
-		case "ftl offline":
+		case "ftl offline": // 10. Also adds 1 hull dmg
 			displayTxt = "<b>FTL Offline</b><br />"+conceptLink("Ship")+"s that have this condition are unable to use FTL to "+conceptLink("retreat")+" while the "+conceptLink("battle")+" is in progress.";
 			break;
-		case "power loss":
+		case "power loss": // 11
 			displayTxt = "<b>Power Loss</b><br />"+conceptLink("Ship")+"s that have this condition are unable to receive "+conceptLink("power")+" from any source, nor adjust their "+conceptLink("power curve")+" or recharge weapons, until repaired with a 6 at the end of an "+conceptLink("impulse")+" following the damage.\
 				<br/>"+conceptLink("AI")+" ships that roll this condition instead take 1 additional "+conceptLink("hull")+" damage.";
 			break;
-		case "ftl core breach":
+		case "ftl core breach": // 12
 			displayTxt = "<b>FTL Core Breach</b><br />Unfortunate "+conceptLink("ship")+"s that have this condition "+conceptLink("explode")+" instantly!";
 			break;
 		case "explode":
@@ -1774,7 +1854,76 @@ function showSpecsTalon(namee, pwrCurve, shields, wepDetails, hullDmg, critDmg, 
 		displayTxt = displayTxt + "<br /><b>Weapon Banks</b>:";
 		
 		for (var w = 0; w < wepDetails.length; w++) {
-			displayTxt = displayTxt + "<br />" + wepDetails[w].name + ": " + wepDetails[w].charge;
+			displayTxt = displayTxt + "<br />" + wepDetails[w].name + ": ";
+			var quota = [0,0];
+
+			// Terran weapons
+			if (wepDetails[w].name.search("Phaser") >= 0) {
+				quota[0] = 1;
+				quota[1] = 1;
+			}
+			if (wepDetails[w].name.search("Anti-Matter Torpedo") >= 0) {
+				quota[0] = 2;
+				quota[1] = 2;
+			}
+			if (wepDetails[w].name.search("Wave-Motion Gun") >= 0) {
+				quota[0] = 2;
+				quota[1] = 5;
+			}
+			
+			// Talon weapons
+			if (wepDetails[w].name.search("Disruptor") >= 0) {
+				quota[0] = 1;
+				quota[1] = 2;
+			}
+			if (wepDetails[w].name.search("Missile Launcher") >= 0) {
+				quota[0] = 2;
+				quota[1] = 0;
+			}
+			if (wepDetails[w].name.search("Fusion Cannon") >= 0) {
+				quota[0] = 3;
+				quota[1] = 3;
+			}
+			
+			// AI weapons
+			if (wepDetails[w].name.search("Laser") >= 0) {
+				quota[0] = 1;
+				quota[1] = 0;
+			}
+			if (wepDetails[w].name.search("Cobalt Cannon") >= 0) {
+				quota[0] = 3;
+				quota[1] = 0;
+			}
+			
+			// Quantity modifiers
+			if (wepDetails[w].name.search("Dual") >= 0) {
+				quota[1] *= 2;
+			}
+			if (wepDetails[w].name.search("Triple") >= 0) {
+				quota[1] *= 3;
+			}
+			
+			displayTxt = displayTxt + "<span class=\"chargeR\">";
+			for (var r = 0; r < quota[0]; r++) {
+				if (wepDetails[w].chargeR < 0) {
+					displayTxt = displayTxt + boxFilling[0];
+				} else if (wepDetails[w].chargeR > r) {
+					displayTxt = displayTxt + boxFilling[2];
+				} else {
+					displayTxt = displayTxt + boxFilling[1];
+				}
+			}
+			displayTxt = displayTxt + "</span><span class=\"chargeY\">";
+			for (var y = 0; y < quota[1]; y++) {
+				if (wepDetails[w].chargeR < 0) {
+					displayTxt = displayTxt + boxFilling[0];
+				} if (wepDetails[w].chargeY > y) {
+					displayTxt = displayTxt + boxFilling[2];
+				} else {
+					displayTxt = displayTxt + boxFilling[1];
+				}
+			}
+			displayTxt = displayTxt + "</span>";
 		}
 	}
 	
@@ -1812,7 +1961,8 @@ function keywordifyCollection(collObj) {
 		"Depletion", "Deplete", "Advanced Research", "Self-Preservation",
 		"Hull", "Type 0", "Type II", "Type IV", "Type V", "Type IX", "Type XI", "Type XV",
 		"Type Exp", "Type Flag", "Type PD", "Type Scan", "Type SW",
-		"Talon", "Terran", "AI", "SP", "Deployment Zone", "Impulse", "Power", "Battery", "Batteries", "Side Slip", "Brake", "Shield", 
+		"Talon", "Terran", "AI", "SP", "Deployment Zone", "Last Ship Standing", "Impulse", "Power", "Battery", "Batteries", "Side Slip", "Brake", "Shield",
+		"Phaser", "Anti-Matter Torpedo", "Wave-Motion Gun", "Disruptor", "Missile", "Fusion Cannon", "Laser", "Cobalt Cannon",
 		"Helm Down", "Random Weapon Group Destroyed", "Manuevering Thruster Damage", "FTL Offline", "FTL Core Breach", "Explode", "Exploding", "Explosion"];
 		
 	const keyExpressions = [
@@ -1915,6 +2065,8 @@ function keywordifyCollection(collObj) {
 		{regex: conceptLink("power")+" phase", newTxt: conceptLink("power phase")},
 		{regex: "Center "+conceptLink("Hex")+" Row", newTxt: conceptLink("Center Hex Row")},
 		{regex: "center "+conceptLink("hex")+" row", newTxt: conceptLink("center hex row")},
+		{regex: conceptLink("Missile")+" Launcher", newTxt: conceptLink("Missile Launcher")},
+		{regex: conceptLink("missile")+" launcher", newTxt: conceptLink("missile launcher")},
 		{regex: "Secondary "+conceptLink("Explosion"), newTxt: conceptLink("Secondary Explosion")},
 		{regex: "secondary "+conceptLink("explosion"), newTxt: conceptLink("secondary explosion")},
 		{regex: conceptLink("Shield")+"s Down", newTxt: conceptLink("Shields Down")},

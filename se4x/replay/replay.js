@@ -1490,7 +1490,7 @@ function readJson() {
 		
 		if (curStage.scoreboard) {
 			var constructTable = "<table><caption>Scoreboard</caption> \
-				<tr><th>Player</th><th>Composition</th><th>Kills</th>\
+				<tr><th>Player</th><th>Composition</th><th>Kills</th><th>Objectives</th>\
 				<th>Losses</th><th>Retreats</th><th>Total</th></tr>";
 				
 			for (var a = 0; a < curStage.scoreboard.length; a++) {
@@ -1503,19 +1503,19 @@ function readJson() {
 					constructTable = constructTable + "<tr>";
 				}
 				
-				var totalScore = readValue(activePlayer.initPts,0) + readValue(activePlayer.killPts,0) -
-					readValue(activePlayer.lostPts,0);
+				var totalScore = readValue(activePlayer.initPts,0) + readValue(activePlayer.killPts,0) + 	readValue(activePlayer.objPts,0) - readValue(activePlayer.lostPts,0);
 				
 				constructTable = constructTable + "<td>"+activePlayer.name+"</td> \
 					<td class=\"numeric\">"+readValue(activePlayer.initPts,0)+"</td> \
 					<td class=\"numeric increase\">+"+readValue(activePlayer.killPts,0)+"</td> \
+					<td class=\"numeric increase\">+"+readValue(activePlayer.objPts,0)+"</td> \
 					<td class=\"numeric decrease\">-"+readValue(activePlayer.lostPts,0)+"</td> \
 					<td class=\"numeric\">"+readValue(activePlayer.retreatPts,0)+"</td> \
 					<td class=\"numeric\">"+totalScore+"</td></tr>"
 			}
 				
 			constructTable = constructTable + "</table>";
-			seekTag = "{prodTable}";
+			seekTag = "{scoreboard}";
 			
 			if (commentary.innerHTML.indexOf(seekTag) >= 0) {
 				commentary.innerHTML = commentary.innerHTML.replace(seekTag,constructTable);
