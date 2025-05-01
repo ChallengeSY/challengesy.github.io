@@ -2727,9 +2727,15 @@ function readJson() {
 				}
 				
 			} else if (actionPool[i].createPreset == "clearDeployZones") {
+				var workObj;
+				
 				for (var y = 1; y < 12; y++) {
 					for (var x = 1; x <= 16; x++) {
-						paintTile(letterRows.charAt(y)+x,"unexploredW");
+						workObj = document.getElementById("back"+letterRows.charAt(y)+x)
+						
+						if (workObj && workObj.src.search("border") >= 0) {
+							paintTile(letterRows.charAt(y)+x,"unexploredW");
+						}
 					}
 				}
 				

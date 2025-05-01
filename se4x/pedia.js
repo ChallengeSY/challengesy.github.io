@@ -193,8 +193,10 @@ function showBox(concept) {
 				at the start of a battle "+conceptLink("round")+", all their "+conceptLink("ship")+"s get an additional "+conceptLink("Attack")+" +1 for that round.";
 			break;
 		case "hex":
-			displayTxt = "<b>Hex</b><br />A hexagonal-shaped space on a board where pieces (example: counters) can move/be placed to.<br />\
-				"+conceptLink("Space Empires 4X")+" + expansions use these to denote systems where "+conceptLink("starship")+"s can move; and where terrain can perform their abilities.";
+			displayTxt = "<b>Hex</b><br />A hexagonal-shaped space on a board where pieces (example: counters) can move/be placed to.";
+			if (useRuleset != "talon") {
+				displayTxt = displayTxt + "<br />"+conceptLink("Space Empires 4X")+" + expansions use these to denote systems where "+conceptLink("starship")+"s can move; and where terrain can perform their abilities.";
+			}
 			break;
 		case "hull size":
 			displayTxt = "<b>Hull Size</b><br />Determines the amount of damage a "+conceptLink("combat ship")+" can take before being destroyed.<br />\
@@ -1571,7 +1573,7 @@ function showBox(concept) {
 				eventually coming into contact with the "+conceptLink("Talon")+" faction.";
 			break;
 		case "ai":
-			displayTxt = "<b>Artificial Intelligence</b><br />Machine faction that operates their ships autonomously.";
+			displayTxt = "<b>Artificial Intelligence</b><br />Machine faction that operates their ships autonomously, introduced in "+conceptLink("Talon 1000")+".";
 			break;
 		case "sp":
 			displayTxt = "<b>Ship Points</b><br />The cost to bring this ship to a "+conceptLink("Talon")+" "+conceptLink("battle")+".";
@@ -1580,7 +1582,11 @@ function showBox(concept) {
 			displayTxt = "<b>Deployment Zone</b><br />Zone in which a given player must set up their "+conceptLink("ship")+"s.";
 			break;
 		case "last ship standing":
-			displayTxt = "<b>Last Ship Standing</b><br />Simple skirmish scenario where the objective is for one faction to destroy the other.";
+			displayTxt = "<b>Last Ship Standing</b><br />Simple "+conceptLink("Talon")+" skirmish scenario where the objective is for one faction to destroy the other.";
+			break;
+		case "ai solitaire":
+			displayTxt = "<b>AI Solitaire</b><br />Scenario (usually "+conceptLink("Last Ship Standing")+") against the [literal] "+conceptLink("AI")+" faction. \
+				Difficulty settings determine how much extra "+conceptLink("SP")+" the antagonist AI get.";
 			break;
 		case "center hex row":
 			displayTxt = "<b>Center Hex Row</b><br />The "+conceptLink("hex")+"es directly in front of, and directly behind, the "+conceptLink("ship")+" constitute that ship's <q>center hex row</q>.\
@@ -1591,6 +1597,12 @@ function showBox(concept) {
 				A ship can generate "+conceptLink("power")+" and/or be required to move, depending on its "+conceptLink("power curve")+".<br />\
 				It can use its "+conceptLink("battery")+" or "+conceptLink("afterburners")+" to gain the respective resources whenever it would otherwise get none.<br />\
 				A ship with one or more fully charged weapon banks can also shoot them, even if it did none of the previous actions.";
+			break;
+		case "collision":
+			displayTxt = "<b>Collisions</b><br />Whenever two mobile "+conceptLink("ship")+"s from the same faction enter the very same "+conceptLink("hex")+", \
+				distortions caused by their NFTL drives cause them to collide, causing each ship to sustain 3 damage.<br /><br />\
+				Due to differing signatures, two ships from opposing factions will not damage each other. \
+				"+conceptLink("AI")+" ships are immune, though they will try to avoid it.";
 			break;
 		case "power":
 			displayTxt = "<b>Power</b><br />Energy that is not spent to move a "+conceptLink("ship")+".<br />\
@@ -1624,7 +1636,7 @@ function showBox(concept) {
 			displayTxt = "<b>Phaser</b><br />Basic "+conceptLink("Terran")+" weapon that deals 0-2 damage, depending on range 1-3.";
 			break;
 		case "anti-matter torpedo":
-			displayTxt = "<b>Anti-Matter Torpedo</b><br />Advnaced "+conceptLink("Terran")+" weapon that deals 4 damage. Range 2-4";
+			displayTxt = "<b>Anti-Matter Torpedo</b><br />Advanced "+conceptLink("Terran")+" weapon that deals 4 damage. Range 2-4";
 			break;
 		case "wave-motion gun":
 			displayTxt = "<b>Wave-Motion Gun</b><br />Expert "+conceptLink("Terran")+" weapon that deals 10 damage <i>and</i> displaces the victim 1 "+conceptLink("hex")+". Very accurate. Range 2-4";
@@ -1633,7 +1645,7 @@ function showBox(concept) {
 			displayTxt = "<b>Disruptor</b><br />Basic "+conceptLink("Talon")+" weapon that deals 2 damage. Range 1-4. Optimal accuracy at range 2.";
 			break;
 		case "missile launcher":
-			displayTxt = "<b>Missile Launcher</b><br />Advnaced "+conceptLink("Talon")+" weapon that launches "+conceptLink("missile")+"s.";
+			displayTxt = "<b>Missile Launcher</b><br />Advanced "+conceptLink("Talon")+" weapon that launches seeking "+conceptLink("missile")+"s.";
 			break;
 		case "fusion cannon":
 			displayTxt = "<b>Fusion Cannon</b><br />Expert "+conceptLink("Talon")+" weapon that damages ALL targets within the firing arc, dealing up to 11 damage. "+conceptLink("Fighter")+"s are immune. Range 3";
@@ -1961,7 +1973,7 @@ function keywordifyCollection(collObj) {
 		"Depletion", "Deplete", "Advanced Research", "Self-Preservation",
 		"Hull", "Type 0", "Type II", "Type IV", "Type V", "Type IX", "Type XI", "Type XV",
 		"Type Exp", "Type Flag", "Type PD", "Type Scan", "Type SW",
-		"Talon", "Terran", "AI", "SP", "Deployment Zone", "Last Ship Standing", "Impulse", "Power", "Battery", "Batteries", "Side Slip", "Brake", "Shield",
+		"Talon", "Terran", "AI", "SP", "Deployment Zone", "Last Ship Standing", "Impulse", "Collision", "Power", "Battery", "Batteries", "Side Slip", "Brake", "Shield",
 		"Phaser", "Anti-Matter Torpedo", "Wave-Motion Gun", "Disruptor", "Missile", "Fusion Cannon", "Laser", "Cobalt Cannon",
 		"Helm Down", "Random Weapon Group Destroyed", "Manuevering Thruster Damage", "FTL Offline", "FTL Core Breach", "Explode", "Exploding", "Explosion"];
 		
@@ -2065,6 +2077,8 @@ function keywordifyCollection(collObj) {
 		{regex: conceptLink("power")+" phase", newTxt: conceptLink("power phase")},
 		{regex: "Center "+conceptLink("Hex")+" Row", newTxt: conceptLink("Center Hex Row")},
 		{regex: "center "+conceptLink("hex")+" row", newTxt: conceptLink("center hex row")},
+		{regex: conceptLink("AI")+" Solitaire", newTxt: conceptLink("AI Solitaire")},
+		{regex: conceptLink("AI")+" solitaire", newTxt: conceptLink("AI solitaire")},
 		{regex: conceptLink("Missile")+" Launcher", newTxt: conceptLink("Missile Launcher")},
 		{regex: conceptLink("missile")+" launcher", newTxt: conceptLink("missile launcher")},
 		{regex: "Secondary "+conceptLink("Explosion"), newTxt: conceptLink("Secondary Explosion")},

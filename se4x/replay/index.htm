@@ -10,7 +10,7 @@
 	<script type="text/javascript">
 		function applyFilter() {
 			divColl = document.getElementsByTagName("div");
-			filterColl = ["doomsday", "alienEmpires", "amoeba", "replicatorSol"];
+			filterColl = ["doomsday", "alienEmpires", "amoeba", "replicatorSol", "talon"];
 			checkBoxes = [true, true, true, true];
 			for (var c = 0; c < filterColl.length; c++) {
 				checkBoxes[c] = document.getElementById(filterColl[c]).checked;
@@ -52,6 +52,9 @@ Due to the large quantity of playthroughs, there is a new filter feature that al
 
 <input type="checkbox" checked="checked" id="replicatorSol" oninput="applyFilter()" onclick="applyFilter()" />
 <label for="replicatorSol">Replicator Solitaire</label> <a href="javascript:showBox('Replicator Solitaire')">(?)</a>
+
+<input type="checkbox" id="talon" oninput="applyFilter()" onclick="applyFilter()" />
+<label for="talon">Talon</label> <a href="javascript:showBox('Talon')">(?)</a>
 </fieldset>
 
 <h3>Available Playthroughs</h3>
@@ -59,6 +62,10 @@ Due to the large quantity of playthroughs, there is a new filter feature that al
 <div class="center bold">Title</div>
 <div class="center bold">Scenario</div>
 <div class="center bold">Date</div>
+
+<div class="talon"><a href="watch.htm?replay=talonSol202505">First Steps into a Frantic Adventure</a></div>
+<div class="talon center">Talon - AI Solitaire / Green / 250 SP</div>
+<div class="talon center">May 2025</div>
 
 <div class="replicatorSol"><a href="watch.htm?replay=repLg202504">More than mere Survival</a></div>
 <div class="replicatorSol center">Replicator Solitaire - Large / Normal</div>
@@ -113,6 +120,6 @@ Due to the large quantity of playthroughs, there is a new filter feature that al
 <div class="doomsday center">August 2022</div>
 </div>
 
-<p class="footer">Replay Center &copy; 2024-2025 Paul Ruediger. SE4X assets are the property of their respective owners.</p>
+<p class="footer">Replay Center &copy; 2024-2025 Paul Ruediger. Graphic assets are the property of their respective owners.</p>
 </body>
 </html>
