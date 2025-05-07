@@ -9,16 +9,22 @@ function finishSeriesGame() {
 	if (!nextGame && !endSeries) {
 		if (seriesDiff == 1) {
 			if (seriesGame < 3) {
-				nextGame = confirm("Abort this game and go to the next game in the series?");
+				var cardsWorth = solGame.casualScore * seriesLives;
+				
+				nextGame = confirm("Abort this game and go to the next game in the series? (You will bank $"+cardsWorth+" this way.)");
 				if (nextGame) {
-					seriesScore += solGame.casualScore * seriesLives++;
+					seriesScore += cardsWorth;
+					seriesLives++;
 					seriesGame++;
 					saveSeriesFile(false);
 				}
 			} else {
-				var finalScore = seriesScore + solGame.casualScore * seriesLives - 20;
+				var finalScore = seriesScore + solGame.casualScore * seriesLives;
+				if (seriesSeason == 1) {
+					finalScore -= 20;
+				}
 				
-				endSeries = confirm("Abort this game and finish this series? (Your final score will be "+finalScore+".)");
+				endSeries = confirm("Abort this game and finish this series? (Your final score will be $"+finalScore+".)");
 			}
 		} else if (seriesLives > 1) {
 			redoGame = confirm("Abort this game and start a new game? (This process will deduct one life.)");
@@ -34,10 +40,10 @@ function finishSeriesGame() {
 	if (endSeries) {
 		deleteSeriesFile();
 		solGame.gameActive = false;
-		self.location = "../index.htm";
+		self.location = "../index.php";
 	} else if (nextGame) {
 		solGame.gameActive = false;
-		self.location = "index.htm";
+		self.location = "index.php";
 	} else if (redoGame) {
 		seriesLives--;
 		solGame.gameActive = false;

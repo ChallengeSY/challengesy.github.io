@@ -1392,11 +1392,20 @@ function loadSeriesFile() {
 	if (getStorage("cssolSeries")) {
 		seriesElements = getStorage("cssolSeries").split("~");
 		
-		if (seriesElements.length >= 2) {
+		if (seriesElements.length >= 3) {
 			seriesDiff = parseInt(seriesElements[0].charAt(0));
 			seriesGame = parseInt(seriesElements[0].charAt(1));
 			seriesLives = parseInt(seriesElements[0].charAt(2));
 			
+			seriesSeason = parseInt(seriesElements[1]);
+			seriesScore = parseInt(seriesElements[2]);
+			seriesPassword = seriesElements[3];
+		} else if (seriesElements.length >= 2) {
+			seriesDiff = parseInt(seriesElements[0].charAt(0));
+			seriesGame = parseInt(seriesElements[0].charAt(1));
+			seriesLives = parseInt(seriesElements[0].charAt(2));
+			
+			seriesSeason = 1;
 			seriesScore = parseInt(seriesElements[1]);
 			seriesPassword = seriesElements[2];
 		} else {
@@ -1427,8 +1436,12 @@ function saveSeriesFile(gameWon) {
 				winBonus = 128;
 				break;
 			case 3:
-				winBonus = 268;
-				cardsMod = -4;
+				if (seriesSeason == 1) {
+					winBonus = 268;
+					cardsMod = -4;
+				} else {
+					winBonus = 248;
+				}
 				break;
 		}
 		
@@ -1440,6 +1453,8 @@ function saveSeriesFile(gameWon) {
 		
 		seriesPassword = "";
 		seriesScore += Math.max((solGame.casualScore + cardsMod) * seriesLives + winBonus - undoPenalty,0);
+		
+		genStatsLink = (solGame.casualScore + cardsMod).toString()+"~"+seriesLives+"~"+winBonus+"~"+undoPenalty;
 		
 		if (++seriesGame <= 3) {
 			switch (seriesDiff) {
@@ -1493,7 +1508,7 @@ function saveSeriesFile(gameWon) {
 	if (seriesFields[2]) {
 		seriesFields[2].innerHTML = seriesLives;
 	}
-	buildSaveStr = seriesDiff.toString()+seriesGame+seriesLives+"~"+seriesScore+"~"+seriesPassword;
+	buildSaveStr = seriesDiff.toString()+seriesGame+seriesLives+"~"+seriesSeason+"~"+seriesScore+"~"+seriesPassword;
 	
 	if (seriesGame <= 3) {
 		setStorage("cssolSeries",buildSaveStr);

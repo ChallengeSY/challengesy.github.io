@@ -20,6 +20,7 @@
 	if (getParam("newSkill") != -1) {
 		seriesGame = 1;
 		seriesDiff = parseInt(getParam("newSkill"));
+		seriesSeason = 2;
 		if (seriesDiff < 4) {
 			seriesLives = 3;
 		} else {
@@ -42,6 +43,8 @@
 	maxRedeals = 0;
 	prefilledReserve = 0;
 	deckCost = 52;
+	stockDealTo = 0;
+	forceFinalBottom = false;
 	switch (seriesGame) {
 		case 1:
 			seriesName = "Klondike";
@@ -53,20 +56,38 @@
 			break;
 			
 		case 2:
-			seriesName = "Yukon";
-			tableauStructure = [1,6,7,8,9,10,11];
-			downturnDepth = [0,1,2,3,4,5,6];
-			tableauMovement = "yukonStyle";
+			if (seriesSeason == 1) {
+				seriesName = "Yukon";
+				tableauStructure = [1,6,7,8,9,10,11];
+				downturnDepth = [0,1,2,3,4,5,6];
+				tableauMovement = "yukonStyle";
+			} else {
+				seriesName = "Baker's Dozen";
+				tableauStructure = [4,4,4,4,4,4,4,4,4,4,4,4,4];
+				downturnDepth = [0];
+				tableauMovement = "oneCard";
+				emptyPileRefills = "none";
+				forceFinalBottom = true;
+			}
 			break;
 			
 		case 3:
-			seriesName = "Raglan";
-			tableauStructure = [1,2,3,4,5,6,7,7,7];
-			downturnDepth = [0];
-			tableauMovement = "oneCard";
-			emptyPileRefills = "anyCard";
-			prefilledReserve = 6;
-			startingCards = 4;
+			if (seriesSeason == 1) {
+				seriesName = "Raglan";
+				tableauStructure = [1,2,3,4,5,6,7,7,7];
+				downturnDepth = [0];
+				tableauMovement = "oneCard";
+				emptyPileRefills = "anyCard";
+				prefilledReserve = 6;
+				startingCards = 4;
+			} else if (seriesSeason == 2) {
+				seriesName = "Scorpion";
+				tableauStructure = [7,7,7,7,7,7,7];
+				downturnDepth = [3,3,3,3,0,0,0];
+				tableauMovement = "yukonStyle";
+				stockDealTo = 2;
+				deckCost = 49;
+			}
 			break;
 	}
 	
@@ -82,7 +103,6 @@
 	emptyAutoRefills = 0;
 
 	// Auxillary Settings
-	stockDealTo = 0;
 	wasteDealBy = 1;
 	maxReserve = 0;
 	</script>
@@ -126,29 +146,29 @@
 	<th>Max Score</th>
 </tr></thead>
 <tfoot><tr>
-	<td>Grand Total</th>
-	<td class="numeric">152</td>
+	<td>Grand Total</td>
+	<td class="numeric">156</td>
 	<td class="numeric">&mdash;</td>
-	<td class="numeric">396</td>
+	<td class="numeric">376</td>
 	<td class="numeric">1,000</td>
 </tr></tfoot>
 <tbody><tr>
-	<td>Klondike</th>
+	<td>Klondike</td>
 	<td class="numeric">52</td>
 	<td class="numeric">3</td>
 	<td class="numeric">0</td>
 	<td class="numeric">156</td>
 </tr><tr>
-	<td>Yukon</th>
+	<td>Baker's Dozen</td>
 	<td class="numeric">52</td>
 	<td class="numeric">4</td>
 	<td class="numeric">128</td>
 	<td class="numeric">336</td>
 </tr><tr>
-	<td>Raglan</th>
-	<td class="numeric">48</td>
+	<td>Scorpion</td>
+	<td class="numeric">52</td>
 	<td class="numeric">5</td>
-	<td class="numeric">268</td>
+	<td class="numeric">248</td>
 	<td class="numeric">508</td>
 </tr></tbody>
 </table>
