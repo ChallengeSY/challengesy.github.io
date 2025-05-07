@@ -40,6 +40,7 @@
 	
 	// Tableau Settings
 	emptyPileRefills = "finalRank";
+	tableauBuilding = "downColorAlt";
 	maxRedeals = 0;
 	prefilledReserve = 0;
 	deckCost = 52;
@@ -66,6 +67,7 @@
 				tableauStructure = [4,4,4,4,4,4,4,4,4,4,4,4,4];
 				downturnDepth = [0];
 				tableauMovement = "oneCard";
+				tableauBuilding = "downAnySuit";
 				emptyPileRefills = "none";
 				forceFinalBottom = true;
 			}
@@ -85,6 +87,7 @@
 				tableauStructure = [7,7,7,7,7,7,7];
 				downturnDepth = [3,3,3,3,0,0,0];
 				tableauMovement = "yukonStyle";
+				tableauBuilding = "downSuit";
 				stockDealTo = 2;
 				deckCost = 49;
 			}
@@ -99,7 +102,6 @@
 	tableauShape = -1;
 	tableauDepth = Math.max(...tableauStructure);
 
-	tableauBuilding = "downColorAlt";
 	emptyAutoRefills = 0;
 
 	// Auxillary Settings
