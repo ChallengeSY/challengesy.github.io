@@ -1210,7 +1210,9 @@
 			"name":"minerals5"
 		},{
 			"placeCounter":"systemL4",
-			"location":"L4",
+			"name":"planetY3"
+		},{
+			"revealCounter":"systemL4",
 			"name":"colony5Y"
 		},{
 			"placeCounter":"dm1",
@@ -1476,7 +1478,9 @@
 			"location":"H8"
 		},{
 			"placeCounter":"systemH8",
-			"location":"H8",
+			"name":"planetY5"
+		},{
+			"revealCounter":"systemH8",
 			"name":"colony5Y"
 		}]},
 	{"heading":"Stardate 2408.7 (The Battle for Sector I7)",
@@ -1601,7 +1605,9 @@
 			"location":"H7"
 		},{
 			"placeCounter":"systemH7",
-			"location":"H7",
+			"name":"planetY2"
+		},{
+			"revealCounter":"systemH7",
 			"name":"colony5Y"
 		}]},
 	{"heading":"Stardate 2409.9 (Battle for Sector I7)",

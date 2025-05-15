@@ -4403,10 +4403,8 @@
 		},{
 			"removeCounter":"SC2B"
 		},{
-			"paintHex":"F13",
-			"name":"borderB"
-		},{
-			"removeCounter":"systemF13"
+			"revealCounter":"systemF13",
+			"name":"home0B"
 		},{
 			"revealCounter":"systemD12",
 			"name":"unexploredW"
@@ -4763,10 +4761,8 @@
 		},{
 			"removeCounter":"base1R"
 		},{
-			"removeCounter":"systemD7"
-		},{
-			"paintHex":"D7",
-			"name":"borderR"
+			"revealCounter":"systemD7",
+			"name":"home0R"
 		}]},
 	{"heading":"Stardate 2416.8 (The Bombardment of Sirius)",
 	"commentary":"<p>Europa once again visits Sirius' space. Since tech CP is insufficient, we go straight into fleet construction. They build a Cruiser (-12) + Scanning Destroyer (-9), followed by rolling a 8 for Largest Ships (2 more Cruisers for -24). Their 4 ships can then simply bombard away, and rolled 2,2,3,5 in the process (4 hits &le;5), utterly glassing the colony.</p>",
@@ -5169,7 +5165,7 @@
 			"removeCounter":"DD1Y"
 		}]},
 	{"heading":"Stardate 2418.0",
-	"commentary":"<p>We almost had it! But, since alien player homeworlds are immune to blockade effects, we are not done just yet.</p>{prodTable}{techTable}<p>Since Europa survived our bombardments, they roll 1,2,4,4,6,8,10 for economics. Fleet launch roll is skipped, because their homeworld is being besieged.</p><p>Instead, they start on the Ship Size step, and roll a 1 (buy for -20). This spends all of their tech CP. Their obligatory ships are now a Battlecruiser (-15) and a Destroyer (-9), which already puts them below 6 CP for a scout.</p>",
+	"commentary":"<p>We almost had it! But, since alien player homeworlds are immune to blockade effects, we are not done just yet.</p>{prodTable}{techTable}<p>Since Europa survived our bombardments, they roll 1,2,4,4,6,8,10 for economics. Fleet Launch roll is skipped, because their homeworld is being besieged.</p><p>Instead, they start on the Ship Size step, and roll a 1 (buy for -20). This spends all of their tech CP. Their obligatory ships are now a Battlecruiser (-15) and a Destroyer (-9), which already puts them below 6 CP for a scout.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":5,"colonyCP":75,"mineralCP":0,"pipeCP":7,"maint":26,"bidCP":0,"techBuy":0,"unitBuy":0
@@ -5297,10 +5293,8 @@
 		[{
 			"removeCounter":"systemD2"
 		},{
-			"removeCounter":"systemF1"
-		},{
-			"paintHex":"F1",
-			"name":"borderY"
+			"revealCounter":"systemF1",
+			"name":"home0Y"
 		},{
 			"removeCounter":"BC1Y"
 		},{

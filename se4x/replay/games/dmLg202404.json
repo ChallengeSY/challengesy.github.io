@@ -1538,12 +1538,18 @@
 			"location":"L4"
 		},{
 			"placeCounter":"systemL4",
+			"name":"planetG3"
+		},{
+			"revealCounter":"systemL4",
 			"name":"colony5G"
 		}]},
 	{"heading":"Stardate 2412.9 (The Battle for Sector L5)",
 	"commentary":"<p>Taking advantage of the fact that the <a href=\"javascript:showBox('dm9')\">final</a> Doomsday Machine has only a single valid colony (L5) this turn, we will defend the colony accordingly with our 17 Raiders.</p><hr /><ol><li><b>Round 1</b>: The final battle is here. We will roll for weakness. This machine rolled a 8 (weak to large fleets)</li><li>This weakness also works well for our Raiders. While we have 10+ ships in our fleet, we will benefit from Fleet Size Bonus (Attack +1)</li><li>The machine has the best Weapon Class once more, so it gets to shoot first. It rolled 4,10,7,4,2,8 (5 hits &le;9)</li><li>Our 15 surviving Raiders respond with 5,4,8,2,10,6,3,10,2,7,4,3,8,2,6 (7 hits &le;4)<br /><br /></li><li><b>Round 2</b>: The machine shoots once more. It rolled 9,7,4,9,5,7 (6 hits)</li><li>Our 12 surviving Raiders respond with 9,5,2,8,8,10,8,2,2,10,4,2 (5 hits). We have finished off the final machine!</li></ol>",
 	"actions":
 		[{
+			"revealCounter":"systemL4",
+			"name":"unexploredG"
+		},{
 			"removeCounter":"systemL4"
 		},{
 			"placeCounter":"R1G",

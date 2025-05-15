@@ -1,6 +1,6 @@
 {"stages": [
 	{"heading":"Stardate 2400.0 (Introduction)",
-	"commentary":"<p>Welcome to the Space Amoeba solitaire scenario. This is our first recorded playthrough of the scenarios introduced in the Close Encounters expansion. The names assigned to the Amoebas this playthrough are based on Jupiter and Saturn's moons.</p><p>Fortunately, we were able to do some practice before recording this playthrough. Thus, we feel comfortable doing this on Normal difficulty. Also, this scenario requires very little of the several mechanics introduced in Close Encounters; ground units, facilities, experience, and boarding ships are not used at all. Empire Advantages and Flagships seem optional, so we will use the simpler latter of the two concepts. We believe the mechanics used makes this scenario the best building block for anyone wanting to use Close Encounters content for the first time.</p>",
+	"commentary":"<p>Welcome to the Space Amoeba solitaire scenario. This is our first recorded playthrough of the scenarios introduced in the Close Encounters expansion. The names assigned to the Amoebas this playthrough are based on Jupiter and Saturn's moons.</p><p>Fortunately, we were able to do some practice before recording this playthrough. Thus, we feel comfortable doing this on Normal difficulty. Also, this scenario requires very little of the several mechanics introduced in Close Encounters; ground units, facilities, experience, and boarding ships are not used at all. Empire Advantages, Unique Ships, and Flagships seem optional. Still, we will use the simplest latter of the three concepts. We believe the mechanics used makes this scenario the best building block for anyone wanting to use Close Encounters content for the first time.</p>",
 	"amoebaTable":
 		[{
 			"name":"Ymir (1)"
@@ -1365,6 +1365,9 @@
 			"removeCounter":"systemJ3"
 		},{
 			"removeCounter":"systemK11"
+		},{
+			"revealCounter":"systemG6",
+			"name":"unexploredW"
 		},{
 			"revealCounter":"systemG6",
 			"name":"minerals10"

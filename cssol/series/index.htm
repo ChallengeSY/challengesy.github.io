@@ -46,6 +46,8 @@
 	deckCost = 52;
 	stockDealTo = 0;
 	forceFinalBottom = false;
+	emptyAutoRefills = 0;
+	
 	switch (seriesGame) {
 		case 1:
 			seriesName = "Klondike";
@@ -83,14 +85,15 @@
 				prefilledReserve = 6;
 				startingCards = 4;
 			} else if (seriesSeason == 2) {
-				seriesName = "Scorpion";
-				tableauStructure = [7,7,7,7,7,7,7];
-				downturnDepth = [3,3,3,3,0,0,0];
+				seriesName = "Chelicera";
+				tableauStructure = [4,4,4,4,7,7,7];
+				downturnDepth = [0];
 				scoringModel = "noneScoreSpider";
 				tableauMovement = "yukonStyle";
 				tableauBuilding = "downSuit";
-				stockDealTo = 2;
-				deckCost = 49;
+				stockDealTo = -1;
+				deckCost = 37;
+				emptyAutoRefills = 3;
 			}
 			break;
 	}
@@ -103,7 +106,6 @@
 	tableauShape = -1;
 	tableauDepth = Math.max(...tableauStructure);
 
-	emptyAutoRefills = 0;
 
 	// Auxillary Settings
 	wasteDealBy = 1;

@@ -3895,7 +3895,7 @@
 			"name":"colony5R"
 		},{
 			"revealCounter":"systemA4",
-			"name":"unexploredR"
+			"name":"planetR6"
 		},{
 			"revealCounter":"systemA4",
 			"name":"colony1"
@@ -4002,13 +4002,13 @@
 			"name":"asteroids"
 		},{
 			"revealCounter":"systemB4",
-			"name":"unexploredR"
+			"name":"planetR6"
 		},{
 			"revealCounter":"systemB4",
 			"name":"colony0V"
 		},{
 			"revealCounter":"systemK8",
-			"name":"unexploredV"
+			"name":"planetV4"
 		},{
 			"revealCounter":"systemK8",
 			"name":"colony5V"
@@ -4103,7 +4103,7 @@
 			"size":2
 		},{
 			"revealCounter":"systemB3",
-			"name":"unexploredR"
+			"name":"planetR4"
 		},{
 			"revealCounter":"systemB3",
 			"name":"colony0V"
@@ -4394,7 +4394,7 @@
 			"size":2
 		},{
 			"revealCounter":"systemA2",
-			"name":"unexploredR"
+			"name":"planetR3"
 		},{
 			"revealCounter":"systemA2",
 			"name":"colony1"
@@ -4662,7 +4662,7 @@
 			"location":"C5"
 		},{
 			"revealCounter":"systemC5",
-			"name":"unexploredR"
+			"name":"planetR5"
 		},{
 			"revealCounter":"systemC5",
 			"name":"colony5V"
@@ -4726,6 +4726,9 @@
 		},{
 			"placeCounter":"Titan4R",
 			"location":"D7"
+		},{
+			"placeCounter":"systemL8",
+			"name":"planetV5"
 		},{
 			"placeCounter":"systemL8",
 			"name":"colony5V"
@@ -5019,6 +5022,9 @@
 			"location":"F8"
 		},{
 			"placeCounter":"systemL7",
+			"name":"planetV7"
+		},{
+			"placeCounter":"systemL7",
 			"name":"colony5V"
 		},{
 			"revealCounter":"systemB9",
@@ -5167,7 +5173,7 @@
 			"removeCounter":"fleet3V"
 		},{
 			"revealCounter":"systemA3",
-			"name":"unexploredR"
+			"name":"home0R"
 		},{
 			"removeCounter":"MS1R"
 		},{

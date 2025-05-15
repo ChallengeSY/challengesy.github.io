@@ -1957,9 +1957,6 @@
 			"placeCounter":"CA4Y",
 			"location":"K9"
 		},{
-			"placeCounter":"CO11Y",
-			"location":"L12"
-		},{
 			"placeCounter":"CO8Y",
 			"location":"F10"
 		},{
@@ -2023,9 +2020,6 @@
 		},{
 			"placeCounter":"CA4Y",
 			"location":"K10"
-		},{
-			"placeCounter":"CO11Y",
-			"location":"L12"
 		},{
 			"placeCounter":"Miner1Y",
 			"location":"J5"
@@ -5456,9 +5450,7 @@
 			"revealCounter":"systemJ5",
 			"name":"planetW9"
 		},{
-			"paintHex":"L7",
-			"name":"borderY"
-		},{
-			"removeCounter":"systemL7"
+			"placeCounter":"systemL7",
+			"name":"home0Y"
 		}]}
 ]}

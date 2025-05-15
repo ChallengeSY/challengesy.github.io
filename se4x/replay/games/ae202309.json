@@ -3997,8 +3997,7 @@
 			"placeCounter":"base1G",
 			"location":"D7"
 		},{
-			"placeCounter":"systemD7",
-			"location":"D7",
+			"revealCounter":"systemD7",
 			"name":"home20G"
 		},{
 			"removeCounter":"CA1R"
@@ -4029,10 +4028,8 @@
 		[{
 			"removeCounter":"base1G"
 		},{
-			"removeCounter":"systemD7"
-		},{
-			"paintHex":"D7",
-			"name":"borderG"
+			"revealCounter":"systemD7",
+			"name":"home0G"
 		},{
 			"removeCounter":"fleetR5"
 		},{
@@ -4608,8 +4605,7 @@
 			"size":4,
 			"location":"H1"
 		},{
-			"placeCounter":"systemH1",
-			"location":"H1",
+			"revealCounter":"systemH1",
 			"name":"home20R"
 		},{
 			"removeCounter":"CA1B"
@@ -4663,10 +4659,8 @@
 		},{
 			"removeCounter":"CA4B"
 		},{
-			"removeCounter":"systemH1"
-		},{
-			"paintHex":"H1",
-			"name":"borderR"
+			"revealCounter":"systemH1",
+			"name":"home0R"
 		},{
 			"placeCounter":"CA1B",
 			"size":4,
@@ -5927,8 +5921,7 @@
 			"revealCounter":"MSB21",
 			"name":"MSaB"
 		},{
-			"placeCounter":"systemH13",
-			"location":"H13",
+			"revealCounter":"systemH13",
 			"name":"home20Y"
 		}]},
 	{"heading":"Stardate 2420.4 (Conclusion)",
@@ -5963,10 +5956,8 @@
 		},{
 			"removeCounter":"SC1Y"
 		},{
-			"removeCounter":"systemH13"
-		},{
-			"paintHex":"H13",
-			"name":"borderY"
+			"revealCounter":"systemH13",
+			"name":"home0Y"
 		},{
 			"resizeCounter":"CA3B",
 			"size":4

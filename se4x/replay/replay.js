@@ -336,6 +336,16 @@ function autoNameCounter(localObj) {
 	} else if (localObj.src.indexOf("gfx/typeSW") >= 0) {
 		localObj.title = "Type Sweeper";
 		stackable = true;
+	} else if (localObj.src.indexOf("gfx/talon/SCE") >= 0) {
+		localObj.title = "Scout-E";
+	} else if (localObj.src.indexOf("gfx/talon/SC") >= 0) {
+		localObj.title = "Scout";
+	} else if (localObj.src.indexOf("gfx/talon/DDE") >= 0) {
+		localObj.title = "Destroyer-E";
+	} else if (localObj.src.indexOf("gfx/talon/DDP") >= 0) {
+		localObj.title = "Destroyer-P";
+	} else if (localObj.src.indexOf("gfx/talon/DDX") >= 0) {
+		localObj.title = "Destroyer-X";
 	} else if (localObj.src.indexOf("gfx/talon/DD") >= 0) {
 		localObj.title = "Destroyer";
 	} else if (localObj.src.indexOf("gfx/talon/CL") >= 0) {
@@ -505,28 +515,91 @@ function paintTile(baseObj, paintPic) {
 			case "unexploredY":
 				applyPic = "border"+paintPic.charAt(paintPic.length-1,1);
 				break;
-			case "amoeba1":
-				// Fall thru
-			case "amoeba2":
-				// Fall thru
-			case "amoeba3":
-				// Fall thru
 			case "unexploredW":
 				applyPic = "borderW";
 				break;
+			case "amoeba1":
+				// Space amoeba series
+			case "amoeba1R":
+			case "amoeba1M":
+				applyPic = "amoeba1";
+				remCounter = (paintPic.search("M") < 0);
+				break;
+			case "amoeba2":
+			case "amoeba2R":
+			case "amoeba2M":
+				applyPic = "amoeba2";
+				remCounter = (paintPic.search("M") < 0);
+				break;
+			case "amoeba3":
+			case "amoeba3R":
+			case "amoeba3M":
+				applyPic = "amoeba3";
+				remCounter = (paintPic.search("M") < 0);
+				break;
 			case "home30B":
-				// Fall thru series of homeworlds + barren planets
+				// Fall thru series of homeworlds + planets. Starting with Blue
 			case "home20B":
+			case "home0B":
+			case "planetB1":
+			case "planetB2":
+			case "planetB3":
+			case "planetB4":
+			case "planetB5":
+			case "planetB6":
+			case "planetB7":
+			case "planetB8":
 			case "planetB9":
 			case "home30G":
+				// Green
 			case "home20G":
+			case "home0G":
+			case "planetG1":
+			case "planetG2":
+			case "planetG3":
+			case "planetG4":
+			case "planetG5":
+			case "planetG6":
+			case "planetG7":
+			case "planetG8":
 			case "planetG9":
 			case "home30R":
+				// Red
 			case "home20R":
+			case "home0R":
+			case "planetR1":
+			case "planetR2":
+			case "planetR3":
+			case "planetR4":
+			case "planetR5":
+			case "planetR6":
+			case "planetR7":
+			case "planetR8":
 			case "planetR9":
 			case "home30V":
+				// Violet
+			case "home0V":
+			case "planetV1":
+			case "planetV2":
+			case "planetV3":
+			case "planetV4":
+			case "planetV5":
+			case "planetV6":
+			case "planetV7":
+			case "planetV8":
+			case "planetV9":
 			case "home30Y":
+				// Yellow
 			case "home20Y":
+			case "home0Y":
+			case "planetY1":
+			case "planetY2":
+			case "planetY3":
+			case "planetY4":
+			case "planetY5":
+			case "planetY6":
+			case "planetY7":
+			case "planetY8":
 			case "planetY9":
 			case "planetW1":
 				// Deep space planets
@@ -544,12 +617,15 @@ function paintTile(baseObj, paintPic) {
 			case "warp1":
 			case "warp2":
 			case "fold":
+			case "capitol":
 				applyPic = paintPic;
 				remCounter = true;
 				break;
 			case "asteroids":
-				if (getPic.indexOf("border") >= 0 || getPic.indexOf("home") >= 0 || getPic.indexOf("planet") >= 0 || getPic.indexOf("colony") >= 0) {
+				if (getPic.indexOf("border") >= 0 || getPic.indexOf("planet") >= 0 || getPic.indexOf("home") >= 0) {
 					applyPic = "asteroids"+getPic.charAt(getPic.length-5,1);
+				} else if (getPic.indexOf("colony5") >= 0) {
+					applyPic = "asteroids"+getPic.charAt(getPic.length-7,1);
 				}
 				remCounter = true;
 				break;
@@ -572,10 +648,6 @@ function paintTile(baseObj, paintPic) {
 				if (getPic.indexOf("border") >= 0) {
 					applyPic = "supernova"+getPic.charAt(getPic.length-5,1);
 				}
-				remCounter = true;
-				break;
-			case "capitol":
-				applyPic = "capitol";
 				remCounter = true;
 				break;
 			case "empty":
@@ -770,7 +842,7 @@ function readJson() {
 			var constructTable = "<table><caption>Player Economics</caption> \
 				<tr><th>Player</th><th>Initial</th>\
 				<th><a href=\"javascript:showBox('colony')\">Colonies</a></th>\
-				<th><a href=\"javascript:showBox('minerals')\">Minerals</a></th>\
+				<th><a href=\"javascript:showBox('mineral')\">Minerals</a></th>\
 				<th><a href=\"javascript:showBox('pipeline')\">Pipelines</a></th>\
 				<th><a href=\"javascript:showBox('maintenance')\">Maint</a></th>\
 				<th>Available</th>\
@@ -1114,7 +1186,7 @@ function readJson() {
 							<td class=\"numeric\">"+readValue(activePlayer.terraform,0)+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.explore,0)+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.SY,1)+"</td> \
-							<td class=\"numeric\">"+readValue(activePlayer.fighter,0)+"</td> \
+							<td class=\"numeric\">"+readValue(activePlayer.ftr,0)+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.PD,0)+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.cloak,0)+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.scan,0)+"</td> \
@@ -1589,10 +1661,13 @@ function readJson() {
 					var extraFeats = new Array();
 					
 					if (readValue(actionPool[i].aft, null) != null) {
-						extraFeats.push("Afterburners x"+actionPool[i].aft)
+						extraFeats.push(conceptLink("Afterburner")+"s x"+actionPool[i].aft)
 					}
 					if (readValue(actionPool[i].brake, null) != null) {
-						extraFeats.push("Brakes x"+actionPool[i].brake)
+						extraFeats.push(conceptLink("Brake")+"s x"+actionPool[i].brake)
+					}
+					if (readValue(actionPool[i].batt, null) != null) {
+						extraFeats.push(conceptLink("Batteries")+" x"+actionPool[i].batt)
 					}
 					
 					var numId = workId.split("-")[1];
@@ -1644,11 +1719,28 @@ function readJson() {
 			
 			workObj = document.getElementById(workId);
 			if (workObj) {
-				if (workObj.id.startsWith("system") && workObj.src.search("warp") != -1) {
+				if (workObj.id.startsWith("system")) {
 					auxObj = document.getElementById("back"+workObj.id.substring(6));
 					
 					if (auxObj) {
-						auxObj.src = "gfx/tiles/borderW.png";
+						if (workObj.src.search("warp") != -1 || auxObj.src.search("planetW") != -1 ||
+							auxObj.src.search("amoeba") != -1) {
+							auxObj.src = "gfx/tiles/borderW.png";
+						} else if (auxObj.src.search("home20B") != -1 || auxObj.src.search("home30B") != -1 ||
+							auxObj.src.search("planetB") != -1) {
+							auxObj.src = "gfx/tiles/borderB.png";
+						} else if (auxObj.src.search("home20G") != -1 || auxObj.src.search("home30G") != -1 ||
+							auxObj.src.search("planetG") != -1) {
+							auxObj.src = "gfx/tiles/borderG.png";
+						} else if (auxObj.src.search("home20R") != -1 || auxObj.src.search("home30R") != -1 ||
+							auxObj.src.search("planetR") != -1) {
+							auxObj.src = "gfx/tiles/borderR.png";
+						} else if (auxObj.src.search("home30V") != -1 || auxObj.src.search("planetV") != -1) {
+							auxObj.src = "gfx/tiles/borderV.png";
+						} else if (auxObj.src.search("home20Y") != -1 || auxObj.src.search("home30Y") != -1 ||
+							auxObj.src.search("planetY") != -1) {
+							auxObj.src = "gfx/tiles/borderY.png";
+						}
 					}
 				}
 				

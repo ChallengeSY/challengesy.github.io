@@ -1109,6 +1109,9 @@
 			"removeCounter":"systemJ11"
 		},{
 			"revealCounter":"systemG6",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemG6",
 			"name":"minerals10"
 		},{
 			"revealCounter":"systemJ4",
@@ -1326,6 +1329,9 @@
 			"removeCounter":"systemK11"
 		},{
 			"removeCounter":"systemI11"
+		},{
+			"revealCounter":"systemH7",
+			"name":"unexploredG"
 		},{
 			"revealCounter":"systemH7",
 			"name":"minerals5"
@@ -1599,6 +1605,9 @@
 			"location":"G7",
 			"size":3
 		},{
+			"revealCounter":"systemH7",
+			"name":"unexploredG"
+		},{
 			"removeCounter":"systemH7"
 		},{
 			"placeCounter":"systemG7",
@@ -1610,6 +1619,9 @@
 			"removeCounter":"systemK3"
 		},{
 			"revealCounter":"systemJ4",
+			"name":"planetG4"
+		},{
+			"revealCounter":"systemJ4",
 			"name":"colony5G"
 		},{
 			"removeCounter":"systemI2"
@@ -1617,9 +1629,15 @@
 			"removeCounter":"systemK10"
 		},{
 			"revealCounter":"systemI10",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemI10",
 			"name":"minerals10"
 		},{
 			"removeCounter":"systemH11"
+		},{
+			"revealCounter":"systemH6",
+			"name":"unexploredG"
 		},{
 			"revealCounter":"systemH6",
 			"name":"nebula"
@@ -1868,6 +1886,9 @@
 			"placeCounter":"systemG7",
 			"name":"amoeba3R"
 		},{
+			"revealCounter":"systemJ4",
+			"name":"unexploredG"
+		},{
 			"removeCounter":"systemJ4"
 		},{
 			"removeCounter":"systemL3"
@@ -1881,6 +1902,9 @@
 			"removeCounter":"systemL10"
 		},{
 			"revealCounter":"systemJ10",
+			"name":"unexploredG"
+		},{
+			"revealCounter":"systemJ10",
 			"name":"minerals5"
 		},{
 			"revealCounter":"systemI9",
@@ -1889,7 +1913,13 @@
 			"removeCounter":"systemH10"
 		},{
 			"revealCounter":"systemI5",
+			"name":"unexploredG"
+		},{
+			"revealCounter":"systemI5",
 			"name":"minerals5"
+		},{
+			"revealCounter":"systemH7",
+			"name":"unexploredG"
 		},{
 			"removeCounter":"systemH7"
 		}]},
@@ -2135,6 +2165,9 @@
 		},{
 			"removeCounter":"systemG6"
 		},{
+			"revealCounter":"systemJ4",
+			"name":"unexploredG"
+		},{
 			"removeCounter":"systemJ4"
 		},{
 			"removeCounter":"systemH3"
@@ -2142,6 +2175,9 @@
 			"removeCounter":"systemH4"
 		},{
 			"removeCounter":"systemH9"
+		},{
+			"revealCounter":"systemI6",
+			"name":"unexploredG"
 		},{
 			"revealCounter":"systemI6",
 			"name":"nebula"
@@ -2357,6 +2393,9 @@
 			"removeCounter":"systemK4"
 		},{
 			"revealCounter":"systemI4",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemI4",
 			"name":"minerals10"
 		},{
 			"revealCounter":"systemH5",
@@ -2366,9 +2405,18 @@
 			"name":"amoeba2R"
 		},{
 			"revealCounter":"systemJ6",
+			"name":"unexploredG"
+		},{
+			"revealCounter":"systemJ6",
 			"name":"asteroids"
 		},{
+			"revealCounter":"systemJ7",
+			"name":"unexploredG"
+		},{
 			"removeCounter":"systemJ7"
+		},{
+			"revealCounter":"systemI7",
+			"name":"planetG6"
 		},{
 			"revealCounter":"systemI7",
 			"name":"colony3"
@@ -2500,21 +2548,39 @@
 		},{
 			"removeCounter":"SC4G"
 		},{
+			"revealCounter":"systemJ6",
+			"name":"unexploredG"
+		},{
 			"removeCounter":"systemJ6"
 		},{
 			"placeCounter":"systemJ7",
 			"name":"amoeba3R"
 		},{
+			"revealCounter":"systemL4",
+			"name":"unexploredG"
+		},{
 			"removeCounter":"systemL4"
+		},{
+			"revealCounter":"systemK4",
+			"name":"unexploredG"
 		},{
 			"removeCounter":"systemK4"
 		},{
+			"revealCounter":"systemL9",
+			"name":"unexploredG"
+		},{
 			"removeCounter":"systemL9"
+		},{
+			"revealCounter":"systemK9",
+			"name":"unexploredG"
 		},{
 			"removeCounter":"systemK9"
 		},{
 			"revealCounter":"systemJ8",
 			"name":"planetG9"
+		},{
+			"revealCounter":"systemJ9",
+			"name":"unexploredG"
 		},{
 			"revealCounter":"systemJ9",
 			"name":"asteroids"
@@ -2538,6 +2604,9 @@
 			"placeCounter":"SC2G",
 			"location":"J7",
 			"size":13
+		},{
+			"revealCounter":"systemJ7",
+			"name":"unexploredG"
 		},{
 			"removeCounter":"systemJ7"
 		},{
@@ -2565,6 +2634,9 @@
 			"removeCounter":"base2G"
 		},{
 			"revealCounter":"systemI8",
+			"name":"planetG1"
+		},{
+			"revealCounter":"systemI8",
 			"name":"colony5G"
 		},{
 			"placeGhost":"amoeba2R",
@@ -2582,6 +2654,9 @@
 			"location":"H8"
 		},{
 			"revealCounter":"systemH8",
+			"name":"planetG8"
+		},{
+			"revealCounter":"systemH8",
 			"name":"colony5G"
 		},{
 			"placeCounter":"systemJ6",
@@ -2589,9 +2664,6 @@
 		},{
 			"placeGhost":"amoeba3R",
 			"location":"J7"
-		},{
-			"paintHex":"J8",
-			"name":"borderG"
 		},{
 			"placeCounter":"systemJ8",
 			"name":"amoeba3R"
@@ -2670,6 +2742,9 @@
 		},{
 			"removeCounter":"SW2G"
 		},{
+			"revealCounter":"systemJ8",
+			"name":"unexploredG"
+		},{
 			"removeCounter":"systemJ8"
 		},{
 			"placeCounter":"systemI7",
@@ -2683,18 +2758,31 @@
 			"location":"H7",
 			"size":11
 		},{
-			"removeCounter":"systemI7"
-		},{
 			"placeCounter":"systemH7",
 			"name":"amoeba3R"
 		},{
+			"revealCounter":"systemK5",
+			"name":"unexploredG"
+		},{
 			"removeCounter":"systemK5"
+		},{
+			"revealCounter":"systemL8",
+			"name":"unexploredG"
 		},{
 			"removeCounter":"systemL8"
 		},{
+			"revealCounter":"systemJ8",
+			"name":"unexploredG"
+		},{
 			"removeCounter":"systemJ8"
 		},{
+			"revealCounter":"systemI7",
+			"name":"unexploredG"
+		},{
 			"removeCounter":"systemI7"
+		},{
+			"revealCounter":"systemJ7",
+			"name":"unexploredG"
 		},{
 			"removeCounter":"systemJ7"
 		}]},
@@ -2713,6 +2801,9 @@
 			"resizeCounter":"SC1G",
 			"size":10
 		},{
+			"revealCounter":"systemH7",
+			"name":"unexploredG"
+		},{
 			"removeCounter":"systemH7"
 		},{
 			"placeGhost":"amoeba1R",
@@ -2721,6 +2812,9 @@
 			"placeCounter":"SY2G",
 			"location":"L5",
 			"size":4
+		},{
+			"revealCounter":"systemL5",
+			"name":"planetG2"
 		},{
 			"revealCounter":"systemL5",
 			"name":"colony5G"
@@ -2748,6 +2842,9 @@
 		},{
 			"placeCounter":"base1G",
 			"location":"K6"
+		},{
+			"revealCounter":"systemK6",
+			"name":"planetG3"
 		},{
 			"revealCounter":"systemK6",
 			"name":"colony5G"
@@ -2793,7 +2890,13 @@
 			"name":"amoeba3R"
 		},{
 			"revealCounter":"systemK7",
+			"name":"planetG7"
+		},{
+			"revealCounter":"systemK7",
 			"name":"colony5G"
+		},{
+			"revealCounter":"systemL6",
+			"name":"unexploredG"
 		},{
 			"removeCounter":"systemL6"
 		}]},
@@ -2832,6 +2935,9 @@
 			"location":"K8"
 		},{
 			"revealCounter":"systemK8",
+			"name":"planetG5"
+		},{
+			"revealCounter":"systemK8",
 			"name":"colony5G"
 		},{
 			"revealCounter":"systemK7",
@@ -2843,6 +2949,9 @@
 			"placeCounter":"SC1G",
 			"location":"H7",
 			"size":2
+		},{
+			"revealCounter":"systemK8",
+			"name":"unexploredG"
 		},{
 			"removeCounter":"systemH7"
 		}]},

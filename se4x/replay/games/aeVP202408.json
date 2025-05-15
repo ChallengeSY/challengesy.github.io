@@ -5074,6 +5074,9 @@
 			"name":"colony3"
 		},{
 			"revealCounter":"systemA4",
+			"name":"home0G"
+		},{
+			"revealCounter":"systemA4",
 			"name":"colony3"
 		},{
 			"placeCounter":"CA3G",
@@ -5732,6 +5735,9 @@
 			"removeCounter":"HI3B"
 		},{
 			"removeCounter":"mines2B"
+		},{
+			"revealCounter":"systemA9",
+			"name":"home0B"
 		},{
 			"revealCounter":"systemA9",
 			"name":"colony5R"

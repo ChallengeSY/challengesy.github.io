@@ -1,6 +1,6 @@
 {"stages": [
 	{"heading":"Stardate 2400.0 (Introduction)",
-	"commentary":"<p>Welcome to the oldest Space Empires 4X Doomsday Machine playthrough. This reconstructed playthrough showcases our <i>first</i> attempt at repelling the machines; e.g. how to <i>not</i> do a Doomsday Machine run. We opted to do this on Normal difficulty.</p><p>Fair warning; this playthrough was recorded before we fully understood the rules, and was also done in a single sitting late in an evening. There will be several mistakes made as a result of misunderstandings and/or fatigue. (In fact, even the game setup was screwed up! Go figure.)</p>",
+	"commentary":"<p>Welcome to the oldest Space Empires 4X playthrough. This reconstructed playthrough showcases our <i>first</i> attempt at repelling the machines; e.g. how to <i>not</i> do a Doomsday Machine run. We opted to do this on Normal difficulty.</p><p>Fair warning; this playthrough was recorded before we fully understood the rules, and was also done in a single sitting late in an evening. There will be several mistakes made as a result of misunderstandings and/or fatigue. (In fact, even the game setup was screwed up! Go figure.)</p>",
 	"actions":
 		[{
 			"createPreset":"doomsdaySoloSm",
@@ -1543,6 +1543,9 @@
 			"location":"I7"
 		},{
 			"placeCounter":"systemI7",
+			"name":"planetR2"
+		},{
+			"revealCounter":"systemI7",
 			"name":"colony5R"
 		},{
 			"placeCounter":"CO9R",
@@ -1580,6 +1583,9 @@
 	"actions":
 		[{
 			"removeCounter":"CA1R"
+		},{
+			"revealCounter":"systemI7",
+			"name":"unexploredR"
 		},{
 			"removeCounter":"systemI7"
 		},{
@@ -1640,6 +1646,9 @@
 			"location":"J7"
 		},{
 			"placeCounter":"systemJ7",
+			"name":"planetR4"
+		},{
+			"revealCounter":"systemJ7",
 			"name":"colony5R"
 		},{
 			"removeCounter":"Miner1Rload"
@@ -1652,6 +1661,9 @@
 	"commentary":"<p>We will do the best we can to stop this machine dead... despite its access to <q>healing</q>, should we fail.</p><h3>Battle for Sector J8</h3><ol><li><b>Round 1</b>: Taking advantage of the DM's weakness, our minelayers go first: We rolled 10,10,3,6,9,10,7,8,6 (1 hit)</li><li>The Doomsday Machine will prioritize our one cruiser (7 - 1 = 6 to hit): It rolled 2,5 this way, destroying it</li><li>Next victim is our Ship Yards (7 - 0 = 7 to hit). It rolled 2,1 against this group (2 hits), destroying this group also</li></ol><p>The Doomsday Machine wins again! And it gets to <q>eat</q> a planet and repair what little damage it took.</p>",
 	"actions":
 		[{
+			"revealCounter":"systemJ7",
+			"name":"unexploredR"
+		},{
 			"removeCounter":"systemJ7"
 		},{
 			"placeCounter":"Miner1R",
@@ -1670,6 +1682,9 @@
 			"location":"J8"
 		},{
 			"placeCounter":"systemJ8",
+			"name":"planetR8"
+		},{
+			"revealCounter":"systemJ8",
 			"name":"colony5R"
 		},{
 			"placeCounter":"mines1R",
@@ -1699,6 +1714,9 @@
 		},{
 			"removeCounter":"SY2R"
 		},{
+			"revealCounter":"systemJ8",
+			"name":"unexploredR"
+		},{
 			"removeCounter":"systemJ8"
 		},{
 			"placeCounter":"Miner1R",
@@ -1715,6 +1733,9 @@
 			"location":"I8"
 		},{
 			"placeCounter":"systemI8",
+			"name":"planetR3"
+		},{
+			"revealCounter":"systemI8",
 			"name":"colony5R"
 		},{
 			"removeCounter":"dm2"
@@ -1748,6 +1769,9 @@
 		}],
 	"actions":
 		[{
+			"revealCounter":"systemI8",
+			"name":"unexploredR"
+		},{
 			"removeCounter":"systemI8"
 		},{
 			"placeCounter":"dm2",
@@ -1801,6 +1825,9 @@
 			"location":"J9"
 		},{
 			"placeCounter":"systemJ9",
+			"name":"planetR1"
+		},{
+			"revealCounter":"systemJ9",
 			"name":"colony5R"
 		},{
 			"placeCounter":"dm2",
@@ -1817,6 +1844,9 @@
 	"actions":
 		[{
 			"removeCounter":"base1R"
+		},{
+			"revealCounter":"systemJ9",
+			"name":"unexploredR"
 		},{
 			"removeCounter":"systemJ9"
 		},{
@@ -1849,6 +1879,9 @@
 			"location":"L8"
 		},{
 			"placeCounter":"systemL8",
+			"name":"planetR5"
+		},{
+			"revealCounter":"systemL8",
 			"name":"colony5R"
 		},{
 			"placeCounter":"mines1R",
@@ -1892,12 +1925,15 @@
 		}],
 	"actions":
 		[{
+			"revealCounter":"systemL8",
+			"name":"unexploredR"
+		},{
 			"removeCounter":"systemL8"
 		},{
-			"removeCounter":"systemK10"
+			"revealCounter":"systemK10",
+			"name":"unexploredW"
 		},{
-			"paintHex":"K10",
-			"name":"borderW"
+			"removeCounter":"systemK10"
 		},{
 			"removeCounter":"Miner1R"
 		},{

@@ -3711,14 +3711,10 @@
 		},{
 			"removeCounter":"DD1Y"
 		},{
-			"paintHex":"H13",
-			"name":"borderY"
+			"placeCounter":"systemH13",
+			"name":"home0Y"
 		},{
-			"removeCounter":"systemH13"
-		},{
-			"paintHex":"H1",
-			"name":"borderG"
-		},{
-			"removeCounter":"systemH1"
+			"placeCounter":"systemH1",
+			"name":"home0G"
 		}]}
 ]}
