@@ -271,7 +271,10 @@ function showBox(concept) {
 		case "starship":
 			// Fall through
 		case "ship":
-			displayTxt = "<b>Starship</b><br />Spacefaring vessel, able to travel in space. Can be built at a "+conceptLink("Ship Yard")+".";
+			displayTxt = "<b>Starship</b><br />Spacefaring vessel, able to travel in space.";
+			if (useRuleset != "talon") {
+				displayTxt = displayTxt + " Can be built at a "+conceptLink("Ship Yard")+".";
+			}
 			break;
 		case "subduing":
 			// Fall through
@@ -462,7 +465,7 @@ function showBox(concept) {
 			displayTxt = "<b>Planet</b><br />A potentially habitable world.";
 			if (useRuleset == "talon") {
 				displayTxt = displayTxt + " Can block weapon fire and "+conceptLink("power")+" transmission.<br />\
-					Instantly destroys any ship (except landing "+conceptLink("Transport")+"s). Invulnerable, unless specified by scenario.";
+					Instantly destroys any colliding ship. Invulnerable, unless specified by scenario.";
 			} else {
 				displayTxt = displayTxt + " Becomes a "+conceptLink("colony")+" when colonized. Some planets are "+conceptLink("barren")+".";
 			}
@@ -1165,7 +1168,7 @@ function showBox(concept) {
 			break;
 		case "efficient factories":
 			displayTxt = "<b>Efficient Factories</b><br />"+conceptLink("Colonies")+" that have a natural production of 5 "+conceptLink("CP")+" \
-				instead produce 6 CP per "+conceptLink("economic phase")+".";
+				produce 1 additional CP per "+conceptLink("economic phase")+".";
 			break;
 		case "omega crystals":
 			displayTxt = "<b>Omega Crystals</b><br />Equipped on "+conceptLink("CA")+"s/"+conceptLink("BC")+"s/"+conceptLink("BB")+"s/\
@@ -1418,8 +1421,7 @@ function showBox(concept) {
 		case "replicator":
 			// Fall through
 		case "replicators":
-			displayTxt =  "<b>Replicators</b><br />Second expansion to the base "+conceptLink("Space Empires 4X")+" board game.<br />\
-				Unique faction; playable by a human, or as the antagonists in "+conceptLink("Replicator Solitaire")+".";
+			displayTxt =  "<b>Replicators</b><br />Second expansion to the base "+conceptLink("Space Empires 4X")+" board game. Adds the titular unique faction, "+conceptLink("Advanced Construction")+", and "+conceptLink("resource card")+"s.";
 			break;
 		case "replicator solitaire":
 			displayTxt =  "<b>Replicator Solitaire</b><br />Solo scenario that pits the human player against \
@@ -1572,8 +1574,10 @@ function showBox(concept) {
 			
 		// All Good Things concepts
 		case "all good things":
-			displayTxt = "<b>All Good Things</b><br />Third expansion to the base "+conceptLink("Space Empires 4X")+" board game. \
-				Currently in development";
+			displayTxt = "<b>All Good Things</b><br />Capstone expansion to the base "+conceptLink("Space Empires 4X")+" board game. Adds an alternative to the vanilla faction,<br />\
+				increased variety of "+conceptLink("home system")+"s and scenarios, \
+				new <q>mission</q> "+conceptLink("resource card")+"s, new crew cards, and new "+conceptLink("facilities")+".\
+				<br />Currently in development";
 			break;
 
 		// Talon concepts
@@ -1604,9 +1608,39 @@ function showBox(concept) {
 		case "last ship standing":
 			displayTxt = "<b>Last Ship Standing</b><br />Simple "+conceptLink("Talon")+" skirmish scenario where the objective is for one faction to destroy the other.";
 			break;
+		case "base assault":
+			displayTxt = "<b>Base Assault</b><br />Moderate "+conceptLink("Talon")+" skirmish scenario where a "+conceptLink("Base")+" or "+conceptLink("Starbase")+" is the \
+				soft "+conceptLink("primary objective")+", counting double the normal "+conceptLink("SP")+" for scoreboard purposes.\
+				<br />The attacker faction needs only to destroy it to win. The defender faction must prevent its destruction to win.";
+			break;
+		case "convoy intercept":
+			displayTxt = "<b>Convoy Intercept</b><br />Simple "+conceptLink("Talon")+" skirmish scenario (limited to 200 "+conceptLink("SP")+" each) \
+				where a "+conceptLink("Transport")+" becomes a soft "+conceptLink("primary objective")+".<br />For scoreboard purposes, its escape or destruction counts <i>double</i> the normal SP.";
+			break;
+		case "worm hole blockade":
+			displayTxt = "<b>Worm Hole Blockade</b><br />Like "+conceptLink("Convoy Intercept")+", but the "+conceptLink("Transport")+" suffers from "+conceptLink("FTL Offline")+", and must use a "+conceptLink("worm hole")+" to escape";
+			break;
+		case "orbital conquest":
+			displayTxt = "<b>Orbital Conquest</b><br />Complex "+conceptLink("Talon")+" skirmish scenario where each team gets 2+ "+conceptLink("Transport")+"s. If one team lands 2 Transports on the opposing "+conceptLink("planet")+", they immediately win. Landed or destroyed Transports also count double the normal "+conceptLink("SP")+" for scoreboard purposes.";
+			break;
+		case "priority target mission":
+			displayTxt = "<b>Priority Target Mission</b><br />Complex "+conceptLink("Talon")+" skirmish scenario where the most expensive ship on each team is considered the "+conceptLink("primary objective")+". \
+			Such ships count double the normal "+conceptLink("SP")+" for scoreboard purposes.<br />\
+			If one team retreats their own <i>and</i> destroy the other, they instantly end the scenario.";
+			break;
 		case "ai solitaire":
 			displayTxt = "<b>AI Solitaire</b><br />Scenario (usually "+conceptLink("Last Ship Standing")+") against the [literal] "+conceptLink("AI")+" faction. \
 				Difficulty settings determine how much extra "+conceptLink("SP")+" the antagonist AI get.";
+			break;
+		case "priority target":
+			displayTxt = "<b>Priority Target</b><br />Concept where a given "+conceptLink("AI")+" ship focuses exclusively on its designated target \
+			until it is destroyed, or the next "+conceptLink("power phase")+" is reached; <span class=\"bindTxt\">whichever comes first.</span>";
+			break;
+		case "potential priority target":
+			displayTxt = "<b>Potential Priority Target</b><br />Candidate to be designated as a "+conceptLink("priority target")+" by one or more "+conceptLink("AI")+" ships.\
+			<br />A player "+conceptLink("ship")+" is eligibie if it is in the side/rear flank of one AI ship, without being in the front (and within 6 "+conceptLink("hex")+"es) of another AI ship.\
+			<br /><br />Random Factor can prevent a given ship from becoming a designated target. \
+			If this happens, the AI stops designating targets altogether until the next "+conceptLink("power phase")+".";
 			break;
 		case "center hex row":
 			displayTxt = "<b>Center Hex Row</b><br />The "+conceptLink("hex")+"es directly in front of, and directly behind, the "+conceptLink("ship")+" constitute that ship's <q>center hex row</q>.\
@@ -1618,6 +1652,8 @@ function showBox(concept) {
 				It can use its "+conceptLink("battery")+" or "+conceptLink("afterburners")+" to gain the respective resources whenever it would otherwise get none.<br />\
 				A ship with one or more fully charged weapon banks can also shoot them, even if it did none of the previous actions.";
 			break;
+		case "collide":
+			// Fall thru
 		case "collision":
 			displayTxt = "<b>Collisions</b><br />Whenever two mobile "+conceptLink("ship")+"s from the same faction enter the very same "+conceptLink("hex")+", \
 				distortions caused by their NFTL drives cause them to collide, dealing 3 damage to each ship.<br /><br />\
@@ -1626,8 +1662,17 @@ function showBox(concept) {
 			break;
 		case "power":
 			displayTxt = "<b>Power</b><br />Energy that is not spent to move a "+conceptLink("ship")+".<br />\
-				Whenever some becomes available to spend on a given "+conceptLink("impulse")+", it can be spent as the owner sees fit.<br />\
-				Primary examples include reinforcing "+conceptLink("shield")+"s, charging weapons, manipulating "+conceptLink("initiative")+", conduct "+conceptLink("side slip")+"s, and improving "+conceptLink("turn")+"ing.";
+				Whenever some becomes available to spend on a given "+conceptLink("impulse")+", it can be spent as the owner sees fit.<br /><br />\
+				Available actions:<ul style=\"max-width: 550px; margin-top: 0px; margin-left: auto; margin-right: auto; text-align: left;\">\
+				<li class=\"noKeywords\">Preparing a "+conceptLink("side slip")+"</li>\
+				<li class=\"noKeywords\">Accelerating a "+conceptLink("turn")+" cooldown</li>\
+				<li class=\"noKeywords\">Actively charging a weapon (adds 1 <q>yellow</q> box)</li>\
+				<li class=\"noKeywords\">Charging a "+conceptLink("battery")+" (if any)</li>\
+				<li class=\"noKeywords\">Reinforcing 1 "+conceptLink("shield")+" arc (lasts 6 "+conceptLink("impulse")+"s / limit 2 extra shields)</li>\
+				<li class=\"noKeywords\">Changing the "+conceptLink("initiative")+" (can only flip once in "+conceptLink("AI Solitaire")+")</li>\
+				<li class=\"noKeywords\">Defending the "+conceptLink("initiative")+" (unavailable in "+conceptLink("AI Solitaire")+")</li>\
+				<li class=\"noKeywords\">Transfer power to a "+conceptLink("Fighter")+" squad (only available to "+conceptLink("Base")+"s and "+conceptLink("Carrier")+"s)</li>\
+				<li class=\"noKeywords\">Selecting new "+conceptLink("missile")+" targets (only available to ships with "+conceptLink("Missile Launcher")+"s)</li></ul>";
 			break;
 		case "batteries":
 			// Fall thru
@@ -1718,7 +1763,7 @@ function showBox(concept) {
 			// Double fall thru
 		case "exploding":
 		case "explosion":
-			displayTxt = "<b>Explosion</b><br />A "+conceptLink("ship")+" that loses all of its "+conceptLink("hull")+" points <i>or</i> suffers a meltdown with their FTL core explodes, causing damage to other ships in the same "+conceptLink("hex")+" <i>and</i> in adjacent hexes.";
+			displayTxt = "<b>Explosion</b><br />A "+conceptLink("ship")+" that loses all of its "+conceptLink("hull")+" points <i>or</i> suffers a meltdown with their FTL core explodes, causing damage to other ships in the same "+conceptLink("hex")+" <i>and</i> in adjacent hexes. The ship is then removed from play.";
 			break;
 			
 		// Ships only in Talon
@@ -1840,20 +1885,27 @@ function showBox(concept) {
 	infoPanel.style.display = "";
 }
 
-function showSpecs4X(namee, atkEquip, defEquip, moveEquip, XP) {
+function showSpecs4X(namee, XP, autoEquip, atkEquip, defEquip, moveEquip, aux) {
 	var infoPanel = document.getElementById("infobox");
 	var displayTxt = "";
 	var xpLevs = ["Green", "Skilled", "Veteran", "Elite", "Legendary"];
 	
 	infoPanel.style.maxWidth = "500px";
 	
-	displayTxt = "<b>" + namee + "</b><br />\
-		<a href=\"showBox('attack')\">Attack</a>: +"+atkEquip+"<br />\
-		<a href=\"showBox('defense')\">Defense</a>: +"+defEquip+"<br />\
-		<a href=\"showBox('movement')\">Movement</a>: "+moveEquip+"<br />";
-		
+	displayTxt = "<b>" + namee + "</b><br />";
+	if (autoEquip) {
+		displayTxt = displayTxt + "<a href=\"javascript:showBox('upgrade')\">Upgrades</a>: Automatic<br />";
+	} else {
+		displayTxt = displayTxt + "<a href=\"javascript:showBox('attack')\">Attack</a>: +"+atkEquip+"<br />\
+			<a href=\"javascript:showBox('defense')\">Defense</a>: +"+defEquip+"<br />\
+			<a href=\"javascript:showBox('movement')\">Movement</a>: "+moveEquip+"<br />";
+	}
+	
 	if (XP >= 0) {
-		displayTxt = displayTxt + "<a href=\"showBox('experience')\">Experience</a>: "+xpLevs[XP]+"<br />";
+		displayTxt = displayTxt + "<a href=\"javascript:showBox('experience')\">Experience</a>: "+xpLevs[Math.min(XP, xpLevs.length-1)]+"<br />";
+	}
+	if (aux != null) {
+		displayTxt = displayTxt + "Extra <a href=\"javascript:showBox('technology')\">Tech</a>: " + aux + "<br />";
 	}
 	
 	displayTxt = displayTxt + "<br /><a class=\"interact\" href=\"javascript:closeBox();\">Close</a>";
@@ -2042,7 +2094,8 @@ function keywordifyCollection(collObj) {
 		"Depletion", "Deplete", "Advanced Research", "Self-Preservation",
 		"Hull", "Type 0", "Type II", "Type IV", "Type V", "Type IX", "Type XI", "Type XV",
 		"Type Exp", "Type Flag", "Type PD", "Type Scan", "Type SW",
-		"Talon", "Terran", "AI", "SP", "Deployment Zone", "Last Ship Standing", "Impulse", "Collision", "Power", "Battery", "Batteries", "Side Slip", "Brake", "Shield",
+		"Talon", "Terran", "AI", "SP", "Deployment Zone", "Impulse", "Collide", "Collision", "Power", "Battery", "Batteries", "Side Slip", "Brake", "Shield",
+		"Last Ship Standing", "Convoy Intercept", "Orbital Conquest", "Priority Target", 
 		"Phaser", "Anti-Matter Torpedo", "Wave-Motion Gun", "Disruptor", "Missile", "Fusion Cannon", "Laser", "Cobalt Cannon",
 		"Helm Down", "Random Weapon Group Destroyed", "Manuevering Thruster Damage", "FTL Offline", "FTL Core Breach", "Explode", "Exploding", "Explosion"];
 		
@@ -2156,8 +2209,14 @@ function keywordifyCollection(collObj) {
 		{regex: conceptLink("power")+" phase", newTxt: conceptLink("power phase")},
 		{regex: "Center "+conceptLink("Hex")+" Row", newTxt: conceptLink("Center Hex Row")},
 		{regex: "center "+conceptLink("hex")+" row", newTxt: conceptLink("center hex row")},
+		{regex: conceptLink("Base")+" Assault", newTxt: conceptLink("Base Assault")},
+		{regex: conceptLink("base")+" assault", newTxt: conceptLink("base assault")},
+		{regex: conceptLink("Priority Target")+" Mission", newTxt: conceptLink("Priority Target Mission")},
+		{regex: conceptLink("priority target")+" mission", newTxt: conceptLink("priority target mission")},
 		{regex: conceptLink("AI")+" Solitaire", newTxt: conceptLink("AI Solitaire")},
 		{regex: conceptLink("AI")+" solitaire", newTxt: conceptLink("AI solitaire")},
+		{regex: "Potential "+conceptLink("Priority Target"), newTxt: conceptLink("Potential Priority Target")},
+		{regex: "potential "+conceptLink("priority target"), newTxt: conceptLink("potential priority target")},
 		{regex: conceptLink("Missile")+" Launcher", newTxt: conceptLink("Missile Launcher")},
 		{regex: conceptLink("missile")+" launcher", newTxt: conceptLink("missile launcher")},
 		{regex: "Secondary "+conceptLink("Explosion"), newTxt: conceptLink("Secondary Explosion")},

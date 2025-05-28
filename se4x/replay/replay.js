@@ -481,8 +481,12 @@ function rotateCounter(baseObj, newOrient) {
 	baseObj.style.transform = "translate(-50%, -50%) rotate(-"+newOrient+"deg)";
 }
 
-function embedCounter(baseObj, details) {
-	baseObj.onclick = function() { showSpecsTalon(details[0], details[1], details[2], details[3], details[4], details[5], details[6]) };
+function embedCounter(baseObj, talonDets, details) {
+	if (talonDets) {
+		baseObj.onclick = function() { showSpecsTalon(details[0], details[1], details[2], details[3], details[4], details[5], details[6]) };
+	} else {
+		baseObj.onclick = function() { showSpecs4X(details[0], details[1], details[2], details[3], details[4], details[5], details[6]) };
+	}
 }
 
 function paintTile(baseObj, paintPic) {
@@ -1639,6 +1643,8 @@ function readJson() {
 			// Place a counter. Permanent until deleted
 			workId = actionPool[i].placeCounter;
 			var largeSize = (typeof actionPool[i].rotation !== "undefined");
+			var detailedCounter = (typeof actionPool[i].XP !== "undefined" || typeof actionPool[i].atk !== "undefined" ||
+				typeof actionPool[i].def !== "undefined" || typeof actionPool[i].move !== "undefined");
 			
 			if (actionPool[i].name) {
 				placeCounter(workId, readX, readY, actionPool[i].name, readValue(actionPool[i].size,0), largeSize);
@@ -1676,8 +1682,22 @@ function readJson() {
 						readValue(actionPool[i].wepCharge, []), readValue(actionPool[i].hullDmg, 0), readValue(actionPool[i].critDmg, []), extraFeats];
 					
 					if (actionPool[i].pwrCurve) {
-						embedCounter(workObj, shipDetails);
+						embedCounter(workObj, true, shipDetails);
 					}
+				}
+			} else if (detailedCounter) {
+				var workObj = document.getElementById(workId);
+				
+				if (workObj) {
+					if (workObj.title.search("Flagship") >= 0) {
+						var groupName = workObj.title;
+					} else {
+						var groupName = workObj.title + " " + workId.substring(workId.length-2);
+					}
+					
+					var shipDetails = [groupName, readValue(actionPool[i].XP, -1), readValue(actionPool[i].auto, false), readValue(actionPool[i].atk, 0), readValue(actionPool[i].def, 0), readValue(actionPool[i].move, 1), readValue(actionPool[i].aux, null)];
+					
+					embedCounter(workObj, false, shipDetails);
 				}
 			}
 		} else if (actionPool[i].placeHullsV) {

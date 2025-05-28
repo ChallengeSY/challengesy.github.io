@@ -816,7 +816,7 @@ function dispInfo(techItem) {
 				Visible only to ships at the same location while mission is effective (also requires the ship be stationary and not at a planet/warp well).";
 			break;
 		case "Disruption Field":
-			displayTxt = "Field that interferes with non-Fed ship weapons, causing them to start a battle with their weapons uncharged, and with 2 fewer fighter bays.";
+			displayTxt = "Field that interferes with non-Fed weapons, causing them to start a battle against the disrupting ship with their weapons uncharged, and with 2 fewer fighter bays.";
 			break;
 		case "Educator":
 			displayTxt = "Raises Native government level by 5% per turn, to a maximum level of Representative (140%)";
