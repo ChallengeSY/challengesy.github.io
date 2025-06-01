@@ -962,7 +962,7 @@
 			"rotation":0
 		}]},
 	{"heading":"Stardate 2227.02X",
-	"commentary":"<p>Several weapons from both sides were spent this previous round, so <q>Red</q> charge levels were filled in. Since we are deep in the conflict, we will further slow our ships down this power phase. They both get a power curve of <u>5-1-0</u>, making it easier to recharge weapon banks and redirect missiles.</p><p>2 of their 3 remaining destroyers have no targets left in their front, but targets are in their side flank; so they opt to slow down <u>0-3-0</u>. Meanwhile, since both of our ships are in the third destroyer's front arc, there are no eligible <q>potential priority targets</q>.</p>",
+	"commentary":"<p>Several weapons from both sides were spent this previous round, so <q>Red</q> charge levels were filled in. Since we are deep in the conflict, we will further slow our ships down this power phase. They both get a power curve of <u>5-1-0</u>, making it easier to recharge weapon banks and redirect missiles.</p><p>2 of their 3 remaining destroyers have no targets left in their front, but targets are in their side flank; so they opt to slow down <u>0-3-0</u>. Meanwhile, since both of our ships are in the third destroyer's front arc, there are no eligible potential priority targets.</p>",
 	"scoreboard":
 		[{
 			"name":"CSY (Red)","initPts":249,"killPts":100,"lostPts":0
@@ -1379,7 +1379,7 @@
 			"rotation":5
 		}]},
 	{"heading":"Stardate 2227.03X",
-	"commentary":"<p>Most weapons have gained more <q>Red</q> charge, sans our Dual Disruptors. Since it already has the maximum of 1 Red, it instead gains 2 Yellows (1 per weapon in the group).</p><p>Since we may need to attempt to turn twice, we will increase our speed. Our new power curve is <u>4-2-1</u>. With just one ship of ours left, the AI <q>priority target</q> system is meaningless; so we skip this step. Since our last ship is in none of these destroyers' forward arcs, they all slow down to a power curve of <u>0-3-0</u>.</p>",
+	"commentary":"<p>Most weapons have gained more <q>Red</q> charge, sans our Dual Disruptors. Since it already has the maximum of 1 Red, it instead gains 2 Yellows (1 per weapon in the group).</p><p>Since we may need to attempt to turn twice, we will increase our speed. Our new power curve is <u>4-2-1</u>. With just one ship of ours left, the AI priority target system becomes meaningless; so we skip this step from here on out. Since our last ship is in none of these destroyers' forward arcs, they all slow down to a power curve of <u>0-3-0</u>.</p>",
 	"scoreboard":
 		[{
 			"name":"CSY (Red)","initPts":249,"killPts":100,"lostPts":88

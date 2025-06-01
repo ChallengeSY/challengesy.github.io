@@ -1,6 +1,36 @@
 function setupDesign() {
 	keywordifyDocument();
+	readCode();
 	calcCost();
+}
+
+function getParam(param) { 
+	var query = window.location.search.substring(1); 
+	var vars = query.split("&"); 
+	for (var i=0;i<vars.length;i++) { 
+		var pair = vars[i].split("="); 
+		if (pair[0] == param) { 
+			return pair[1]; 
+		} 
+	}
+	return -1; //not found 
+}
+
+function readCode() {
+	if (getParam("code") != -1) {
+		var readCode = getParam("code");
+		
+		document.getElementById("atkClass").selectedIndex = parseInt(readCode.charAt(0));
+		document.getElementById("atkStr").value = parseInt(readCode.charAt(1));
+		document.getElementById("defStr").value = parseInt(readCode.charAt(2));
+		document.getElementById("hullSize").value = parseInt(readCode.charAt(3));
+		
+		for (g = 0; g < 13; g++) {
+			if (document.getElementById("skill"+g)) {
+				document.getElementById("skill"+g).checked = (readCode.charAt(g+5) == "1");
+			}
+		}
+	}
 }
 
 function calcCost() {
@@ -22,31 +52,33 @@ function calcCost() {
 		{priority: "B", maxCost: Infinity}
 		]
 	var atkClassReq = 0;
+	buildLegal = true;
+	buildCode = "";
 	
 	// Priority class
-	atkClass = document.getElementById("atkClass").selectedIndex;
-	subCost = atkClass + 1;
-	if (subCost >= 5) {
-		subCost++;
-	}
-	
+	atkClass = document.getElementById("atkClass");
+	subCost = parseInt(atkClass.value);
 	document.getElementById("cost0").innerHTML = subCost;
 	totalCost += subCost;
+	buildCode += atkClass.selectedIndex;
 	
 	// Attack rating
 	subCost = atkStrCosts[document.getElementById("atkStr").value-1];
 	document.getElementById("cost1").innerHTML = subCost;
 	totalCost += subCost;
+	buildCode += document.getElementById("atkStr").value;
 	
 	// Defense rating
 	subCost = defStrCosts[document.getElementById("defStr").value];
 	document.getElementById("cost2").innerHTML = subCost;
 	totalCost += subCost;
+	buildCode += document.getElementById("defStr").value;
 	
 	// Hull Size
 	subCost = hullSizeCosts[document.getElementById("hullSize").value-1];
 	document.getElementById("cost3").innerHTML = subCost;
 	totalCost += subCost;
+	buildCode += document.getElementById("hullSize").value+"-";
 	
 	// Total up the skills
 	for (h = 0; h < skillCosts.length; h++) {
@@ -57,6 +89,10 @@ function calcCost() {
 			if (skillCosts[h] < 0) {
 				weakness = true;
 			}
+			
+			buildCode += "1";
+		} else {
+			buildCode += "0";
 		}
 	}
 	
@@ -76,7 +112,7 @@ function calcCost() {
 		}
 	}
 	document.getElementById("shipSizeLv").innerHTML = shipSizeReq;
-	document.getElementById("shipSizeLv").className = isIllegal(!isFinite(shipSizeReq));
+	document.getElementById("shipSizeLv").className = isLegal(isFinite(shipSizeReq));
 
 	for (j = 0; j < atkClassThresh.length; j++) {
 		if (totalCost <= atkClassThresh[j].maxCost) {
@@ -85,16 +121,36 @@ function calcCost() {
 		}
 	}
 	document.getElementById("minAtkClass").innerHTML = atkClassThresh[atkClassReq].priority;
-	document.getElementById("minAtkClass").className = isIllegal(atkClass < atkClassReq);
+	document.getElementById("minAtkClass").className = isLegal(atkClass.selectedIndex >= atkClassReq);
 
 	document.getElementById("abilCount").innerHTML = numAbilities;
-	document.getElementById("abilCount").className = isIllegal(numAbilities > 2);
+	document.getElementById("abilCount").className = isLegal(numAbilities <= 2);
+	
+	var sendButton = document.getElementById("sendButton");
+	
+	sendButton.value = "Send Code";
+	sendButton.disabled = false;
 }
 
-function isIllegal(condition) {
+async function sendCode() {
+	try {
+		if (buildLegal || confirm("Design is not legal. Share it anyway?")) {
+			await navigator.clipboard.writeText(window.location.href+"?code="+buildCode);
+			var sendButton = document.getElementById("sendButton");
+
+			sendButton.value = "Sent to clipboard";
+			sendButton.disabled = true;
+		}
+	} catch (error) {
+		console.error(error.message);
+	}
+}
+
+function isLegal(condition) {
 	if (condition) {
-		return "numeric error";
-	} else {
 		return "numeric";
+	} else {
+		buildLegal = false;
+		return "numeric error";
 	}
 }

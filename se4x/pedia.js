@@ -472,7 +472,7 @@ function showBox(concept) {
 			break;
 		case "regional map":
 			displayTxt = "<b>Regional Map</b><br />Terrain allows peeking/exploring adjacent "+conceptLink("hex")+"es, \
-				as if the "+conceptLink("ship")+" had "+conceptLink("Exploration")+" "+conceptLink("technology")+". \
+				as if the "+conceptLink("ship")+" had "+conceptLink("Exploration")+" 1. \
 				The counter is removed once effects are resolved.";
 			break;
 		case "mineral":
@@ -875,8 +875,9 @@ function showBox(concept) {
 			
 		// Close Encounters concepts
 		case "close encounters":
-			displayTxt =  "<b>Close Encounters</b><br />First expansion to the base "+conceptLink("Space Empires 4X")+" board game. \
-				Adds more tech, "+conceptLink("ground unit")+"s, "+conceptLink("co-op")+" scenarios, and "+conceptLink("space amoeba");
+			displayTxt =  "<b>Close Encounters</b><br />First expansion to the base "+conceptLink("Space Empires 4X")+" board game.<br />\
+				Adds "+conceptLink("titan")+" + "+conceptLink("boarding")+" + "+conceptLink("troops")+" "+conceptLink("tech")+", "+conceptLink("experience")+", \
+				"+conceptLink("empire advantage")+"s, "+conceptLink("co-op")+", and "+conceptLink("space amoeba")+".";
 			break;
 		case "boarding":
 			displayTxt = "<b>Boarding Technology</b><br />"+conceptLink("Close Encounters")+" technology that allows building "+conceptLink("Boarding Ship")+"s. Level 2 improves boarding odds by 1 point.";
@@ -909,8 +910,8 @@ function showBox(concept) {
 		case "facilities":
 			// Fall through
 		case "facility":
-			displayTxt =  "<b>Facility</b><br />Ground structure that provide permanent benefits. "+conceptLink("Research Center")+"s and \
-				"+conceptLink("Industrial Center")+"s can be built on "+conceptLink("colonies")+". Available only with "+conceptLink("Close Encounters")+".";
+			displayTxt =  "<b>Facility</b><br />Ground structure that provide passive benefits. One can be built on any "+conceptLink("colony")+" that has produced income.<br />\
+				"+conceptLink("Close Encounters")+" introduced "+conceptLink("Research Center")+"s and "+conceptLink("Industrial Center")+"s.";
 			break;
 		case "fastmove":
 			displayTxt = "<b>Fastmove Technology</b><br />"+conceptLink("Close Encounters")+" technology that allows equipped compatible "+conceptLink("ship")+"s to move an extra hex,\
@@ -927,24 +928,26 @@ function showBox(concept) {
 				" + stats4X(0, "B4", 1, 3);
 			break;
 		case "industrial center":
-			displayTxt =  "<b>Industrial Center</b><br />"+conceptLink("Facility")+" that generates 5 "+conceptLink("CP")+". Points generated this way are usable similiar to other sources of CP.";
+			displayTxt =  "<b>Industrial Center</b><br />"+conceptLink("Facility")+" that generates 5 "+conceptLink("CP")+". \
+				Points generated this way are usable similiar to other sources of CP. Costs 5 CP to build";
 			break;
 		case "military academy":
 			displayTxt =  "<b>Military Academy</b><br />"+conceptLink("Close Encounters")+" technology that improves the "+conceptLink("experience")+" system for "+conceptLink("ship")+"s.<br />\
 				Level 1 causes newly built ships to start at Skilled. Level 2 makes <i>all</i> ships 10% easier to gain experience.";
 			break;
 		case "react move":
-			displayTxt =  "<b>React Move</b><br />Ships equipped with "+conceptLink("Exploration")+" level 2 can send in ships that have this ability to battle.\
-				<br /><br />"+conceptLink("Movement")+" level 3 also grants this ability to \
+			displayTxt =  "<b>React Move</b><br />Ships equipped with "+conceptLink("Exploration")+" 2 can send in ships that have this ability to battle.\
+				<br /><br />"+conceptLink("Movement")+" 3 grants this ability to \
 					"+conceptLink("Scout")+"s, "+conceptLink("Destroyer")+"s, "+conceptLink("Cruiser")+"s, and "+conceptLink("Raider")+"s\
-				<br />"+conceptLink("Movement")+" level 4 also affects \
+				<br />"+conceptLink("Movement")+" 4 also affects \
 					"+conceptLink("Flagship")+"s, "+conceptLink("Battlecruiser")+"s, and "+conceptLink("Boarding Ship")+"s\
-				<br />"+conceptLink("Movement")+" level 5 also affects \
-					"+conceptLink("Battleships")+"s, "+conceptLink("Carrier")+"s, "+conceptLink("Battle Carrier")+"s, "+conceptLink("Unique Ship")+"s, and "+conceptLink("Transport")+"s\
-				<br />"+conceptLink("Movement")+" level 6 also affects "+conceptLink("Dreadnought")+"s and "+conceptLink("Minesweeper")+"s";
+				<br />"+conceptLink("Movement")+" 5 also affects \
+					"+conceptLink("Battleship")+"s, "+conceptLink("Carrier")+"s, "+conceptLink("Battle Carrier")+"s, "+conceptLink("Unique Ship")+"s, and "+conceptLink("Transport")+"s\
+				<br />"+conceptLink("Movement")+" 6 also affects "+conceptLink("Dreadnought")+"s and "+conceptLink("Minesweeper")+"s";
 			break;
 		case "research center":
-			displayTxt =  "<b>Research Center</b><br />"+conceptLink("Facility")+" that generates 5 "+conceptLink("RP")+" each "+conceptLink("economic phase")+". These points are used exclusively to develop new "+conceptLink("technology")+".";
+			displayTxt =  "<b>Research Center</b><br />"+conceptLink("Facility")+" that generates 5 "+conceptLink("RP")+" each "+conceptLink("economic phase")+". \
+				These points are used exclusively to develop new "+conceptLink("technology")+". Costs 5 "+conceptLink("CP")+" to build.";
 			break;
 		case "rp":
 			displayTxt = "<b>Research Points</b><br />Specialist monetary currency. \
@@ -1222,7 +1225,7 @@ function showBox(concept) {
 		// Empire Advantages
 		case "empire advantage":
 			displayTxt = "<b>Empire Advantage</b><br />Powerful asymmetrical trait that affects an entire empire. \
-				Acquired during scenario setup.";
+				Acquired during scenario setup. Introduced in "+conceptLink("Close Encounters")+".";
 			break;
 		case "fearless race":
 			displayTxt = "<b>Fearless Race</b><br />For the first "+conceptLink("round")+" of each "+conceptLink("battle")+", \
@@ -1421,13 +1424,16 @@ function showBox(concept) {
 		case "replicator":
 			// Fall through
 		case "replicators":
-			displayTxt =  "<b>Replicators</b><br />Second expansion to the base "+conceptLink("Space Empires 4X")+" board game. Adds the titular unique faction, "+conceptLink("Advanced Construction")+", and "+conceptLink("resource card")+"s.";
+			displayTxt =  "<b>Replicators</b><br />Second expansion to the base "+conceptLink("Space Empires 4X")+" board game.<br />\
+				Adds the titular unique faction, "+conceptLink("space pirate")+"s, "+conceptLink("fold in space")+" + "+conceptLink("regional map")+" terrain, "+conceptLink("Advanced Construction")+", and "+conceptLink("resource card")+"s.";
 			break;
 		case "replicator solitaire":
 			displayTxt =  "<b>Replicator Solitaire</b><br />Solo scenario that pits the human player against \
 				the "+conceptLink("Replicator")+" <q>environment</q> on a 2-player versus map. \
 				<span class=\"bindTxt\">Last "+conceptLink("homeworld")+" standing wins.</span>";
 			break;
+		case "space pirate":
+			// Fall through
 		case "pirate":
 			displayTxt = "<b>Space Pirate</b><br />Non-aligned ship that can be fought or hired by any ships that encounter them.<br />\
 				Has fixed "+conceptLink("Movement")+" 4 and "+conceptLink("Fastmove")+" 1. Automatically self-destructs when "+conceptLink("capture")+"d. \
@@ -1576,8 +1582,7 @@ function showBox(concept) {
 		case "all good things":
 			displayTxt = "<b>All Good Things</b><br />Capstone expansion to the base "+conceptLink("Space Empires 4X")+" board game. Adds an alternative to the vanilla faction,<br />\
 				increased variety of "+conceptLink("home system")+"s and scenarios, \
-				new <q>mission</q> "+conceptLink("resource card")+"s, new crew cards, and new "+conceptLink("facilities")+".\
-				<br />Currently in development";
+				new <q>mission</q> "+conceptLink("resource card")+"s, new crew cards, and new "+conceptLink("facilities")+".";
 			break;
 
 		// Talon concepts
@@ -1610,8 +1615,8 @@ function showBox(concept) {
 			break;
 		case "base assault":
 			displayTxt = "<b>Base Assault</b><br />Moderate "+conceptLink("Talon")+" skirmish scenario where a "+conceptLink("Base")+" or "+conceptLink("Starbase")+" is the \
-				soft "+conceptLink("primary objective")+", counting double the normal "+conceptLink("SP")+" for scoreboard purposes.\
-				<br />The attacker faction needs only to destroy it to win. The defender faction must prevent its destruction to win.";
+				"+conceptLink("primary objective")+", counting double the normal "+conceptLink("SP")+" for scoreboard purposes.\
+				The attacker faction needs only to destroy it to win. The defender faction must prevent its destruction to win.";
 			break;
 		case "convoy intercept":
 			displayTxt = "<b>Convoy Intercept</b><br />Simple "+conceptLink("Talon")+" skirmish scenario (limited to 200 "+conceptLink("SP")+" each) \
