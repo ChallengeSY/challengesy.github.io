@@ -5,7 +5,7 @@ var multiStages = true;
 var expansionHWs = false;
 var boardCreated = false;
 var alienHWs = 0;
-const letterRows = "LKJIHGFEDCBA";
+const letterRows = "LKJIHGFEDCBAZYXWVUTSRQPONM";
 const deepSpace = "unexploredW";
 const markerCounter = "marker";
 
@@ -26,10 +26,10 @@ function makeHexes(talonMap) {
 		var maxCols = 13;
 		
 		if (talonMap) {
-			maxCols = 16;
+			maxCols = 24;
 		}
 			
-		for (y = 0; y < 12; y++) {
+		for (y = 0; y < 24; y++) {
 			var newRow = document.createElement("div");
 			if (y % 2 == 1) {
 				newRow.className = "hexRow even";
@@ -60,7 +60,19 @@ function makeHexes(talonMap) {
 		
 		if (talonMap) {
 			ctrlPanel.className = "talonBoard";
+
 			dispRow("L", false);
+			
+			for (var a = 12; a < 24; a++) {
+				dispRow(letterRows.charAt(a), false);
+			}
+			for (var b = 16.5; b < 24.5; b = b + 0.5) {
+				dispCol(b, false);
+			}
+		} else {
+			for (var z = 12; z < 24; z++) {
+				dispRow(letterRows.charAt(z), false);
+			}
 		}
 		
 		boardCreated = true;
@@ -70,7 +82,7 @@ function makeHexes(talonMap) {
 function dispRow(b, newDisp) {
 	var hexBoard = document.getElementById("gameBoard");
 
-	for (x = 0; x < 16; x++) {
+	for (x = 0; x < 24; x++) {
 		var findObj = document.getElementById("hex"+b+(x+1));
 		
 		if (findObj) {
@@ -87,7 +99,7 @@ function dispCol(a, newDisp) {
 	var ctrlPanel = document.getElementById("controls");
 	var affectCol = Math.floor(a);
 	
-	for (y = 0; y < 12; y++) {
+	for (y = 0; y < 24; y++) {
 		var findObj = document.getElementById("hex"+letterRows.charAt(y)+affectCol);
 		
 		if (findObj && (a % 1 == 0 || y % 2 == 1)) {
@@ -352,6 +364,12 @@ function autoNameCounter(localObj) {
 		localObj.title = "Light Cruiser";
 	} else if (localObj.src.indexOf("gfx/talon/BCX") >= 0) {
 		localObj.title = "Battlecruiser-X";
+	} else if (localObj.src.indexOf("gfx/talon/BB") >= 0) {
+		localObj.title = "Battleship";
+	} else if (localObj.src.indexOf("gfx/talon/DN") >= 0) {
+		localObj.title = "Dreadnought";
+	} else if (localObj.src.indexOf("gfx/talon/SB") >= 0) {
+		localObj.title = "Starbase";
 	} else if (localObj.src.indexOf("gfx/talon/missileDmg") >= 0) {
 		localObj.title = "Talon Missile (Damaaged)";
 		stackable = true;
@@ -1566,28 +1584,30 @@ function readJson() {
 		
 		if (curStage.scoreboard) {
 			var constructTable = "<table><caption>Scoreboard</caption> \
-				<tr><th>Player</th><th>Composition</th><th>Kills</th><th>Objectives</th>\
-				<th>Losses</th><th>Retreats</th><th>Total</th></tr>";
+				<tr><th>Player</th><th>Composition</th><th>Kills</th><th>Objectives</th><th>Score</th>\
+				<th>Losses</th><th>Retreats</th><th>Strength</th></tr>";
 				
 			for (var a = 0; a < curStage.scoreboard.length; a++) {
 				var activePlayer = curStage.scoreboard[a];
 				
-				if (readValue(activePlayer.lostPts,0) + readValue(activePlayer.retreatPts,0) == readValue(activePlayer.initPts,0)) {
+				var totalScore = [readValue(activePlayer.killPts,0) + 	readValue(activePlayer.objPts,0),
+					readValue(activePlayer.initPts,0) - readValue(activePlayer.lostPts,0) - readValue(activePlayer.retreatPts,0)];
+
+				if (totalScore[1] <= 0) {
 					// Player is dead
 					constructTable = constructTable + "<tr class=\"deadPlr\">";
 				} else {
 					constructTable = constructTable + "<tr>";
 				}
 				
-				var totalScore = readValue(activePlayer.initPts,0) + readValue(activePlayer.killPts,0) + 	readValue(activePlayer.objPts,0) - readValue(activePlayer.lostPts,0);
-				
 				constructTable = constructTable + "<td>"+activePlayer.name+"</td> \
 					<td class=\"numeric\">"+readValue(activePlayer.initPts,0)+"</td> \
 					<td class=\"numeric increase\">+"+readValue(activePlayer.killPts,0)+"</td> \
 					<td class=\"numeric increase\">+"+readValue(activePlayer.objPts,0)+"</td> \
+					<td class=\"numeric\">"+totalScore[0]+"</td> \
 					<td class=\"numeric decrease\">-"+readValue(activePlayer.lostPts,0)+"</td> \
-					<td class=\"numeric\">"+readValue(activePlayer.retreatPts,0)+"</td> \
-					<td class=\"numeric\">"+totalScore+"</td></tr>"
+					<td class=\"numeric decrease\">-"+readValue(activePlayer.retreatPts,0)+"</td> \
+					<td class=\"numeric\">"+totalScore[1]+"</td></tr>"
 			}
 				
 			constructTable = constructTable + "</table>";
@@ -2838,19 +2858,67 @@ function readJson() {
 					}
 				}
 				
-			} else if (actionPool[i].createPreset == "clearDeployZones") {
-				var workObj;
+			} else if (actionPool[i].createPreset == "talonSolitaire") {
+				useRuleset = "talon";
+				var AItop = readValue(actionPool[i].AItop, false);
 				
 				for (var y = 1; y < 12; y++) {
 					for (var x = 1; x <= 16; x++) {
-						workObj = document.getElementById("back"+letterRows.charAt(y)+x)
-						
-						if (workObj && workObj.src.search("border") >= 0) {
+						if (y <= 2) {
+							if (AItop) {
+								paintTile(letterRows.charAt(y)+x,"unexploredV");
+							} else {
+								paintTile(letterRows.charAt(y)+x,"unexploredR");
+							}
+						} else if (y >= 10) {
+							if (!AItop) {
+								paintTile(letterRows.charAt(y)+x,"unexploredV");
+							} else {
+								paintTile(letterRows.charAt(y)+x,"unexploredB");
+							}
+						} else {
 							paintTile(letterRows.charAt(y)+x,"unexploredW");
 						}
 					}
 				}
 				
+			} else if (actionPool[i].createPreset == "paintEmptyTiles") {
+				var workObj;
+				var newTerrain = actionPool[i].brush;
+				
+				for (var y = 1; y < 24; y++) {
+					for (var x = 1; x <= 24; x++) {
+						workObj = document.getElementById("back"+letterRows.charAt(y)+x)
+						
+						if (workObj && workObj.src.search("border") >= 0) {
+							paintTile(letterRows.charAt(y)+x,newTerrain);
+						}
+					}
+				}
+				
+			} else if (actionPool[i].createPreset == "resizeBoard") {
+				var extraSize = [readValue(actionPool[i].wide, false), readValue(actionPool[i].tall, false)];
+				var ctrlPanel = document.getElementById("controls");
+				
+				for (var a = 16.5; a <= 24; a = a + 0.5) {
+					dispCol(a, extraSize[0]);
+				}
+				
+				for (var b = 12; b < 24; b++) {
+					dispRow(letterRows.charAt(b), extraSize[1]);
+				}
+				dispRow("L", false);
+				
+				if (ctrlPanel.className.search("talon") >= 0) {
+					if (extraSize[0]) {
+						ctrlPanel.className = "talonBoardWide";
+					} else {
+						ctrlPanel.className = "talonBoard";
+						for (var a = 16.5; a <= 24; a = a + 0.5) {
+							dispCol(a, false);
+						}
+					}
+				}
 			}
 		}
 	}

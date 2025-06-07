@@ -1,6 +1,6 @@
 {"stages": [
 	{"heading":"Stardate 2227.00X",
-	"commentary":"<p>Welcome to a brand new adventure. For the first time, we try our hand at Talon, a faster-paced game that typically covers a single battle; as opposed to Space Empires 4X's galactic conquest. We augment our Replay Center with new functionality to facilitate this playthrough.</p><p>We also take advantage of the possibilities that come with Talon 1000. This expansion adds many new possibilities, while adding relatively little complexity. This gives Talon an advantage that Space Empires 4X does not have.</p><p>Since this is our first adventure, we have hand picked the setup for this Green difficulty AI Solitaire. No terrain is present on this map. Playing as the Talon, and with 250 SP granted to each faction, we get 1 Light Cruiser and 1 Battlecruiser-X; while the AI gets 5 Destroyers. Forces have been set up in the respective deployment zones (only that the AI takes the place of the Terran faction), and we are ready to begin.</p>",
+	"commentary":"<p>Welcome to a brand new adventure. For the first time, we try our hand at Talon, a faster-paced game that typically covers a single battle; as opposed to Space Empires 4X's galactic conquest. We augment our Replay Center with new functionality to facilitate this playthrough.</p><p>We also take advantage of the possibilities that come with Talon 1000. This expansion adds many new possibilities, while adding relatively little complexity. This gives Talon an advantage that Space Empires 4X does not have.</p><p>Since this is our first adventure, we have hand picked the setup for this Green difficulty AI Solitaire. No terrain is present on this map. Playing as the Talon, and with 250 SP granted to each faction, we get 1 Light Cruiser and 1 Battlecruiser-X; while the AI gets 5 Destroyers. Forces have been set up in the respective deployment zones (the AI uses the borders of the Replicator player, as these two factions are loosely related), and we are ready to begin.</p>",
 	"scoreboard":
 		[{
 			"name":"CSY (Red)","initPts":249,"killPts":0,"lostPts":0
@@ -9,7 +9,7 @@
 		}],
 	"actions":
 		[{
-			"createPreset":"talonSkirmish"
+			"createPreset":"talonSolitaire"
 		},{
 			"placeCounter":"DD-A1",
 			"location":"A11",
@@ -135,7 +135,8 @@
 	"commentary":"<p>Loosely related to an individual Space Empires 4X battle, a Talon battle is divided into rounds. Each round is further divided into six impulses. We will use impulse as the dividing unit for Talon playthroughs, occasionally dividing it up as necessary.</p><p>For this first impulse, the AI destroyers all side slip, so as to put our ships in one of their center hex rows. Our light cruiser also generates power. We use its power to fortify its front shields.</p>",
 	"actions":
 		[{
-			"createPreset":"clearDeployZones"
+			"createPreset":"paintEmptyTiles",
+			"brush":"unexploredW"
 		},{
 			"placeCounter":"DD-A1",
 			"location":"A10",
@@ -2239,7 +2240,7 @@
 			"rotation":5
 		}]},
 	{"heading":"Stardate 2227.07D (Conclusion)",
-	"commentary":"<p>And thus concludes this playthrough! We have achieved a tactical victory with this setup. (73 SP or fewer in losses were required for a decisive victory against a 250 SP fleet.)</p><p>There were certainly a few hiccups that required reminders of <i>where</i> a ship could side slip, and whether they had a turning cooldown. This is one of the reasons we handpicked a 250 SP battle. Talon 1000 has hundreds of Last Ship Standing setups up to an amazing 1100 SP, and that is <i>before</i> applying terrain and difficulty modifiers; and even more hundreds of other skirmish scenarios (plus 12/13 storyline scenarios) when <i>not</i> doing AI Solitaire.</p>",
+	"commentary":"<p>And thus concludes this playthrough! We have achieved a tactical victory with this setup. (83 SP or fewer in losses were required for a decisive victory against a 250 SP fleet.)</p><p>There were certainly a few hiccups that required reminders of <i>where</i> a ship could side slip, and whether they had a turning cooldown. This is one of the reasons we handpicked a 250 SP battle. Talon 1000 has hundreds of Last Ship Standing setups up to an amazing 1100 SP, and that is <i>before</i> applying terrain and difficulty modifiers; and even more hundreds of other skirmish scenarios (plus 12/13 storyline scenarios) when <i>not</i> doing AI Solitaire.</p>",
 	"scoreboard":
 		[{
 			"name":"CSY (Red)","initPts":249,"killPts":250,"lostPts":88
