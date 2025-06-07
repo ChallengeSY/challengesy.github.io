@@ -13,7 +13,7 @@ function setupBox() {
 	infoFrag.style.position = "fixed";
 	infoFrag.style.left = "0px";
 	infoFrag.style.right = "0px";
-	infoFrag.style.top = "150px";
+	infoFrag.style.top = "125px";
 	infoFrag.style.marginLeft = "auto";
 	infoFrag.style.marginRight = "auto";
 	infoFrag.style.zIndex = "3";
@@ -1598,7 +1598,7 @@ function showBox(concept) {
 			if (useRuleset == "talon") {
 				displayTxt = "<b>Starbase</b><br />Immobile Starbase<br />";
 				displayTxt = displayTxt + statsTalon("Terran", 281, "Dual Phasers x2 + Side Wave-Motion Gun x2", "10/10/10/10", 12);
-				displayTxt = displayTxt + statsTalon("Talon", 278, "Dual Disruptors x2 + Dual Missiles x2", "10/10/10/10", 12);
+				displayTxt = displayTxt + statsTalon("Talon", 278, "Dual Disruptors x2 + Dual Missile Launchers x2", "10/10/10/10", 12);
 			} else {
 				// NYI for AGT
 			}
@@ -1925,7 +1925,9 @@ function showBox(concept) {
 		
 	}
 	
-	displayTxt = displayTxt + "<br /><br />";
+	if (!displayTxt.endsWith("</table>")) {
+		displayTxt = displayTxt + "<br /><br />";
+	}
 	switch (provideLinks) {
 		case 1:
 			displayTxt = displayTxt + "<a class=\"interact\" href=\"/se4x/dmBatSim.htm\" target=\"_blank\">Doomsday Machine simulator</a>\

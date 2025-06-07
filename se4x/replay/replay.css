@@ -51,9 +51,10 @@ img.hexBack {
 @media (max-width: 1440px), (max-height: 800px) {
 	#controls:not(.talonBoard, .versusBoard, .dmBoard) {grid-template-columns: auto 45px 45px 710px 45px 45px auto;}
 	#controls.talonBoard {grid-template-columns: auto 40px 40px 870px 40px 40px auto;}
+	#controls.talonBoardWide {grid-template-columns: auto 30px 30px 1300px 30px 30px auto;}
 	#controls.dmBoard {grid-template-columns: auto 50px 50px 600px 50px 50px auto;}
 	#controls.versusBoard {grid-template-columns: auto 50px 50px 518px 50px 50px auto;}
-	
+
 	.counter {width: 20px; height: 20px;}
 	.counterBig {width: 52px;}
 
@@ -72,6 +73,7 @@ img.hexBack {
 @media (min-width: 1441px) and (min-height: 801px) {
 	#controls:not(.talonBoard, .versusBoard, .dmBoard) {grid-template-columns: auto 50px 50px 1060px 50px 50px auto;}
 	#controls.talonBoard {grid-template-columns: auto 50px 50px 1303px 50px 50px auto;}
+	#controls.talonBoardWide {grid-template-columns: auto 35px 35px 1950px 35px 35px auto;}
 	#controls.dmBoard {grid-template-columns: auto 50px 50px 900px 50px 50px auto;}
 	#controls.versusBoard {grid-template-columns: auto 60px 60px 775px 60px 60px auto;}
 
