@@ -209,7 +209,10 @@ function showBox(concept) {
 				and is built with twice the standard effectiveness.";
 			break;
 		case "economic phase":
-			displayTxt = "A simultaneous phase in which all production and spending takes place. There are 3 regular "+conceptLink("turn")+"s in between each economic phase.";
+			displayTxt = "A simultaneous phase in which all production and spending takes place.";
+			if (useRuleset != "talon") {
+				displayTxt = displayTxt + " There are 3 regular "+conceptLink("turn")+"s in between each economic phase.";
+			}
 			break;
 		case "fleet":
 			displayTxt = "A fleet is a collection of "+conceptLink("starship")+"s, usually with a specific purpose.";
