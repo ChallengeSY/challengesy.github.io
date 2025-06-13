@@ -371,7 +371,7 @@ function autoNameCounter(localObj) {
 	} else if (localObj.src.indexOf("gfx/talon/SB") >= 0) {
 		localObj.title = "Starbase";
 	} else if (localObj.src.indexOf("gfx/talon/missileDmg") >= 0) {
-		localObj.title = "Talon Missile (Damaaged)";
+		localObj.title = "Talon Missile (Damaged)";
 		stackable = true;
 	} else if (localObj.src.indexOf("gfx/talon/missile") >= 0) {
 		localObj.title = "Talon Missile";

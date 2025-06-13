@@ -1,6 +1,8 @@
 /* Common styling */
+@import url("https://fonts.googleapis.com/css?family=Oxanium");
+
 body{background: #101020; background-image: url('planetsBack.png'); color:#FFFFFF; font-family:sans-serif;}
-h2,h3,h4{text-align: center;}
+h2,h3,h4 {text-align: center; font-family: 'Oxanium', sans-serif;} 
 .larger{font-size:larger;}
 p#menu, .center{text-align:center;}
 label, .bold {font-weight:bold;}
@@ -42,6 +44,8 @@ input.button:disabled{background:#600000;}
 .interact:disabled {background:#A0A0A0; color:#0000FF; font: inherit; display: inline; border: 2px outset #00f; padding: 0px;}
 
 /* Campaign Tech styling */
+.headOx,legend,caption {font-family: 'Oxanium', sans-serif;}
+
 .changed {color: #FFFF00;}
 .improved{color: #80FF80;}
 .weakened{color: #FF8080;}
@@ -55,6 +59,8 @@ input.button:disabled{background:#600000;}
 @media (min-width: 1025px) and (min-height: 801px) {
 	.smScreen {display: none}
 }
+
+.invisible {display: none;}
 
 /* Nu Events styling */
 .today {border-color: white;}

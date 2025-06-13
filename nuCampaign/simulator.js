@@ -619,7 +619,7 @@ function initShips() {
 					
 				case "Hive":
 					special = "Can scatter their clans to planets within 100 LY, destroying the Hive in the process.<br /> \
-						These ships count as starbases for scoreboard and combat purposes.<br />" + shipAbility("Fear") + ", " + shipAbility("Tow Immunity (>5000)") + " and " + shipAbility("Chunnel Immunity");
+						Counts as a starbase. " + shipAbility("Fear") + ", " + shipAbility("Tow Immunity (>5000)") + " and " + shipAbility("Chunnel Immunity");
 					break;
 				case "Jacker":
 					special = shipAbility("Heavy Armor");
@@ -1277,7 +1277,7 @@ function dispInfo(techItem) {
 	}
 
 
-	displayTxt = "<b>" + techItem + "</b><br />" + displayTxt +
+	displayTxt = "<b class=\"headOx\">" + techItem + "</b><br />" + displayTxt +
 		"<br /><br /><a class=\"interact\" href=\"javascript:closeBox();\">Close</a>";
 	
 	infoPanel.innerHTML = displayTxt;

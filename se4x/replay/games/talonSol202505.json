@@ -853,7 +853,7 @@
 			"rotation":5
 		}]},
 	{"heading":"Stardate 2227.02F",
-	"commentary":"<p>Their farther destroyers move as usual, while the closer destroyers use their brakes to stand still.</p><p>Our ships gain their last power for this round. Our light cruiser uses it to accelerate recharging of one of the weapons. Our battlecruiser-x uses its power to redirect its remaining 3 missiles towards the next destroyer in sequence.</p><hr /><p>The missiles do their damage now. The first missile deals another 2 damage, and cause a critical roll to be made. 6+6 (12) causes a FTL Core Breach! What devastation!</p>",
+	"commentary":"<p>Their farther destroyers move as usual, while the closer destroyers use their brakes to stand still.</p><p>Our ships gain their last power for this round. Our light cruiser uses it to accelerate recharging of one of the weapons. Our battlecruiser-x uses its power to redirect its remaining 3 missiles towards the next destroyer in sequence. (Misunderstandings are fun when it comes to missiles.)</p><hr /><p>The missiles do their damage now. The first missile deals another 2 damage, and cause a critical roll to be made. 6+6 (12) causes a FTL Core Breach! What devastation!</p><p>Even though AI Destroyers have an explosion rating of <b>0</b>; they are still larger than fighters. As a consequence, we infer that the +1 damage bonus to ships in the same hex is still applied; damaging <i>all</i> of our remaining missiles.</p>",
 	"actions":
 		[{
 			"placeCounter":"DD-A2",
@@ -959,6 +959,7 @@
 		},{
 			"placeCounter":"missile1",
 			"location":"E7",
+			"name":"missile",
 			"size":2,
 			"rotation":0
 		}]},
@@ -1061,6 +1062,7 @@
 		},{
 			"placeCounter":"missile1",
 			"location":"E7",
+			"name":"missileDmg",
 			"size":2,
 			"rotation":0
 		}]},
@@ -1158,7 +1160,7 @@
 		},{
 			"placeCounter":"missile1",
 			"location":"E8",
-			"name":"missile",
+			"name":"missileDmg",
 			"size":2,
 			"rotation":0
 		}]},
@@ -2240,7 +2242,7 @@
 			"rotation":5
 		}]},
 	{"heading":"Stardate 2227.07D (Conclusion)",
-	"commentary":"<p>And thus concludes this playthrough! We have achieved a tactical victory with this setup. (83 SP or fewer in losses were required for a decisive victory against a 250 SP fleet.)</p><p>There were certainly a few hiccups that required reminders of <i>where</i> a ship could side slip, and whether they had a turning cooldown. This is one of the reasons we handpicked a 250 SP battle. Talon 1000 has hundreds of Last Ship Standing setups up to an amazing 1100 SP, and that is <i>before</i> applying terrain and difficulty modifiers; and even more hundreds of other skirmish scenarios (plus 12/13 storyline scenarios) when <i>not</i> doing AI Solitaire.</p>",
+	"commentary":"<p>And thus concludes this playthrough! We have achieved a tactical victory with this setup. (3:1 score ratio required for a decisive victory.)</p><p>There were certainly a few hiccups that required reminders of <i>where</i> a ship could side slip, and whether they had a turning cooldown. Additionally, we misunderstood on how power can be used to redirect missiles. These are one of the reasons we handpicked a 250 SP battle. Talon 1000 has hundreds of Last Ship Standing setups up to an amazing 1100 SP, and that is <i>before</i> applying terrain and difficulty modifiers; and even more hundreds/thousands of other skirmish scenarios (plus 12/13 storyline scenarios) when <i>not</i> doing AI Solitaire.</p>",
 	"scoreboard":
 		[{
 			"name":"CSY (Red)","initPts":249,"killPts":250,"lostPts":88
