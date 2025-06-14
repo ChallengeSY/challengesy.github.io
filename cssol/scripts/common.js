@@ -26,6 +26,7 @@ var skipSounds = 0;
 var shuffleID = Math.floor(Math.random()*4);
 var scoringModel = "buildUpSuit";
 
+var filepath = window.location.pathname;
 var playDeck, searchElement, baseRank, finalRank, tableauWidth;
 var wizardScoring = null;
 forceRender = false;
@@ -757,7 +758,8 @@ function resizeHeight() {
 		var cmdPanel = document.getElementById("commandPanel");
 		
 		if (cmdPanel) {
-			if (!stockPile || foundationPool) {
+			if (!stockPile || foundationPool ||
+				filepath.search("/games/scorpion") >= 0 || filepath.search("/games/tripeaks") >= 0) {
 				maxHeight = document.getElementById("tableau").style.maxHeight;
 				commandOffset = 85 + helpPanel.offsetHeight;
 				
@@ -1107,7 +1109,6 @@ solCard.prototype.innerCode = function() {
 	var suitPip = "&" + this.suit.toLowerCase() + "s;";
 	var faceImg = "";
 	var cornerRank = this.rank.charAt(0);
-	var filepath = window.location.pathname;
 	var jokeSuit = null;
 	if (this.rank == "10") {
 		cornerRank = "10";

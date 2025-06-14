@@ -13,8 +13,10 @@
  */
 
 /* Common styling */
+@import url("https://fonts.googleapis.com/css?family=Tektur");
+
 body{font-family: sans-serif;}
-h2,h3,h4{text-align: center;}
+h2,h3,h4{font-family: "Tektur", sans-serif; text-align: center;}
 .larger{font-size:larger;}
 .center{text-align:center;}
 .bold{font-weight:bold;}

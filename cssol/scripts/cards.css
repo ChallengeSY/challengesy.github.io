@@ -5,7 +5,6 @@
  */
 
 @import "cssol.css";
-/* @import url("https://fonts.googleapis.com/css?family=Ubuntu"); */
 
 .card {
   border-color: #808080 #000000 #000000 #808080;
@@ -18,7 +17,7 @@
 .card, .empty {
   border-width: 1px;
   border-style: solid;
-  /* font-family: "Ubuntu"; */
+  font-family: "Ubuntu", sans-serif;
   font-size: 20pt;
   position: absolute;
   width:  3.75em;
