@@ -1833,6 +1833,11 @@ function readJson() {
 				var plrColor = actionPool[i].playerColor;
 				
 				place3plrHomeMarkers(plrColor, "top");
+				if (expansionHWs) {
+					useRuleset = "CE";
+				} else {
+					useRuleset = "SE4X";
+				}
 				
 				for (var l = 1; l <= 12; l++) {
 					if (l <= 3 || l >= 10) {
@@ -1897,6 +1902,11 @@ function readJson() {
 				}
 
 				placeHomeworld(7,0,plrColor);
+				if (expansionHWs) {
+					useRuleset = "CE";
+				} else {
+					useRuleset = "SE4X";
+				}
 
 				for (var z = 9; z < 12; z++) {
 					dispRow(letterRows.charAt(z), false);
@@ -1917,6 +1927,11 @@ function readJson() {
 				var plrColor = actionPool[i].playerColor;
 				
 				place3plrHomeMarkers(plrColor, "topTalon");
+				if (expansionHWs) {
+					useRuleset = "CE";
+				} else {
+					useRuleset = "SE4X";
+				}
 
 				for (var l = 1; l <= 16; l++) {
 					if ((l <= 4 || l >= 11) && l < 16) {
@@ -1996,6 +2011,11 @@ function readJson() {
 				}
 
 				place3plrHomeMarkers(plrColor, "top");
+				if (readValue(actionPool[i].useExpansion, false)) {
+					useRuleset = "rep";
+				} else {
+					useRuleset = "CE";
+				}
 				
 				if (actionPool[i].createPreset.startsWith("doomsday")) {
 					placeSystemMarker(3,11,markerCounter+plrColor);
@@ -2016,6 +2036,11 @@ function readJson() {
 				var plrColor = actionPool[i].playerColor;
 				
 				place3plrHomeMarkers(plrColor, "top");
+				if (plrColor == "V") {
+					useRuleset = "rep";
+				} else if (plrColor != "O" && plrColor != "U") {
+					useRuleset = "SE4X";
+				}
 				
 				placeSystemMarker(3,0,deepSpace);
 				placeSystemMarker(10,0,deepSpace);
@@ -2068,6 +2093,11 @@ function readJson() {
 				var plrColor = actionPool[i].playerColor;
 				
 				place3plrHomeMarkers(plrColor, "top");
+				if (plrColor == "V") {
+					useRuleset = "rep";
+				} else if (plrColor != "O" && plrColor != "U") {
+					useRuleset = "SE4X";
+				}
 
 				for (var l = 1; l <= 13; l++) {
 					if (l <= 3 || l >= 10) {
@@ -2117,6 +2147,11 @@ function readJson() {
 				var plrColor = actionPool[i].playerColor;
 				
 				place3plrHomeMarkers(plrColor, "topTalon");
+				if (plrColor == "V") {
+					useRuleset = "rep";
+				} else if (plrColor != "O" && plrColor != "U") {
+					useRuleset = "SE4X";
+				}
 
 				for (var l = 1; l <= 16; l++) {
 					if ((l <= 4 || l >= 11) && l < 16) {
@@ -2197,6 +2232,13 @@ function readJson() {
 				
 				placeHomeworld(6,2,plrColors.charAt(0));
 				placeHomeworld(9,2,plrColors.charAt(1));
+				if (plrColors.search("O") >= 0 || plrColors.search("U") >= 0) {
+					useRuleset = "AGT";
+				} else if (plrColors.search("V") >= 0) {
+					useRuleset = "rep";
+				} else {
+					useRuleset = "CE";
+				}
 
 				if (actionPool[i].createPreset.startsWith("doomsday")) {
 					placeSystemMarker(3,11,markerCounter+plrColors.charAt(0));
@@ -2217,6 +2259,13 @@ function readJson() {
 				var aomeba = ["amoeba1", "amoeba2", "amoeba3"]
 				
 				place3plrHomeMarkers(plrColor, "top");
+				if (plrColor.search("O") >= 0 || plrColor.search("U") >= 0) {
+					useRuleset = "AGT";
+				} else if (plrColor.search("V") >= 0) {
+					useRuleset = "rep";
+				} else {
+					useRuleset = "CE";
+				}
 				
 				placeSystemMarker(3,0,deepSpace);
 				placeSystemMarker(10,0,deepSpace);
@@ -2292,7 +2341,7 @@ function readJson() {
 				for (var w = 13; w > 11; w = w - 0.5) {
 					dispCol(w, false);
 				}
-			} else if (actionPool[i].createPreset == "versus2Psm" || actionPool[i].createPreset == "alienDuelsSm") {
+			} else if (actionPool[i].createPreset == "versus2Psm") {
 				ctrlPanel.className = "versusBoard";
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
 				var plrSlots = [actionPool[i].playerTop, actionPool[i].playerBottom];
@@ -2348,6 +2397,12 @@ function readJson() {
 					plrColors[0] = "V";
 					difficulty = actionPool[i].difficulty;
 					repEdition = actionPool[i].edition;
+					
+					if (plrColors.search("O") >= 0 || plrColors.search("U") >= 0) {
+						useRuleset = "AGT";
+					} else {
+						useRuleset = "rep";
+					}
 				}
 				var plrCols = [plrSlots[0].substr(1), plrSlots[1].substr(1)];
 				
@@ -2478,6 +2533,12 @@ function readJson() {
 					plrColors[0] = "V";
 					difficulty = actionPool[i].difficulty;
 					repEdition = actionPool[i].edition;
+
+					if (plrColors.search("O") >= 0 || plrColors.search("U") >= 0) {
+						useRuleset = "AGT";
+					} else {
+						useRuleset = "rep";
+					}
 				}
 				var plrCols = [plrSlots[0].substr(1), plrSlots[1].substr(1)];
 				
@@ -2684,6 +2745,13 @@ function readJson() {
 					
 					placeSystemMarker(7,6,"capitol");
 					placeCounter("galMin",7,6,"minerals10",1);
+					if (plrColors.search("O") >= 0 || plrColors.search("U") >= 0) {
+						useRuleset = "AGT";
+					} else if (plrColors.search("V") >= 0) {
+						useRuleset = "rep";
+					} else {
+						useRuleset = "CE";
+					}
 					
 					placeSystemMarker(6,5,"nebula");
 					placeSystemMarker(7,5,"nebula");
@@ -2742,6 +2810,13 @@ function readJson() {
 					
 					placeSystemMarker(7,0,"capitol");
 					placeCounter("galMin",7,0,"minerals10",1);
+					if (plrColors.search("O") >= 0 || plrColors.search("U") >= 0) {
+						useRuleset = "AGT";
+					} else if (plrColors.search("V") >= 0) {
+						useRuleset = "rep";
+					} else {
+						useRuleset = "CE";
+					}
 					
 					placeSystemMarker(6,0,"nebula");
 					placeSystemMarker(6,1,"nebula");
