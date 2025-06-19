@@ -2398,7 +2398,7 @@ function readJson() {
 					difficulty = actionPool[i].difficulty;
 					repEdition = actionPool[i].edition;
 					
-					if (plrColors.search("O") >= 0 || plrColors.search("U") >= 0) {
+					if (plrColors[1].search("O") >= 0 || plrColors[1].search("U") >= 0) {
 						useRuleset = "AGT";
 					} else {
 						useRuleset = "rep";
@@ -2534,7 +2534,7 @@ function readJson() {
 					difficulty = actionPool[i].difficulty;
 					repEdition = actionPool[i].edition;
 
-					if (plrColors.search("O") >= 0 || plrColors.search("U") >= 0) {
+					if (plrColors[1].search("O") >= 0 || plrColors[1].search("U") >= 0) {
 						useRuleset = "AGT";
 					} else {
 						useRuleset = "rep";
