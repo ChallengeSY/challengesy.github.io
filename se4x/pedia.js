@@ -690,7 +690,7 @@ function showBox(concept) {
 				if (useRuleset == "rep" || useRuleset == "AGT") {
 					displayTxt = displayTxt + "<br />\
 						Automatically "+conceptLink("upgrade")+"s to <b>Advanced Base</b> at "+conceptLink("Advanced Construction")+" 1; \
-						those can be built in any "+conceptLink("hex")+" connected to a "+conceptLink("colony")+" via "+conceptLink("Pipeline")";
+						those can be built in any "+conceptLink("hex")+" connected to a "+conceptLink("colony")+" via "+conceptLink("Pipeline");
 				}
 				displayTxt = displayTxt + stats4X("Common", 12, "A7", 2, 3, -1, conceptLink("Ship Size")+" 2");
 			}
