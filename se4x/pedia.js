@@ -686,9 +686,12 @@ function showBox(concept) {
 				displayTxt = displayTxt + statsTalon("Talon", 184, "Dual Disruptors x2 + Dual Missiles", "7/7/7/7", 10);
 			} else {
 				displayTxt = "Battle Station with powerful long range weaponry. Can not move. \
-					One can be built at any "+conceptLink("colony")+" that has produced CP this "+conceptLink("economic phase")+"<br />\
-					Automatically "+conceptLink("upgrade")+"s to <b>Advanced Base</b> at "+conceptLink("Advanced Construction")+" 1; \
-					those can be built in any hex connected to a "+conceptLink("colony")+" via "+conceptLink("Pipeline");
+					One can be built at any "+conceptLink("colony")+" that has produced CP this "+conceptLink("economic phase");
+				if (useRuleset == "rep" || useRuleset == "AGT") {
+					displayTxt = displayTxt + "<br />\
+						Automatically "+conceptLink("upgrade")+"s to <b>Advanced Base</b> at "+conceptLink("Advanced Construction")+" 1; \
+						those can be built in any "+conceptLink("hex")+" connected to a "+conceptLink("colony")+" via "+conceptLink("Pipeline")";
+				}
 				displayTxt = displayTxt + stats4X("Common", 12, "A7", 2, 3, -1, conceptLink("Ship Size")+" 2");
 			}
 			break;
@@ -714,7 +717,10 @@ function showBox(concept) {
 				displayTxt = displayTxt + statsTalon("Terran", 134, "Phasers x2 + Dual Anti-Matter Torpedos", "7/5/5/5", 6);
 				displayTxt = displayTxt + statsTalon("Talon", 142, "Dual Disruptors + Disruptor + Triple Missiles", "8/4/4/4", 7);
 			} else {
-				displayTxt = "Medium-Heavy "+conceptLink("combat ship")+", theoretically equippable with "+conceptLink("Fastmove")+" technology";
+				displayTxt = "Medium-Heavy "+conceptLink("combat ship");
+				if (useRuleset != "SE4X") {
+					displayTxt = displayTxt + ", able to benefit from "+conceptLink("Fastmove")+" technology";
+				}
 				displayTxt = displayTxt + stats4X("Common", 15, "B5", 1, 2, -1, conceptLink("Ship Size")+" 4");
 			}
 			break;
@@ -726,7 +732,10 @@ function showBox(concept) {
 				displayTxt = displayTxt + statsTalon("Talon", 179, "Dual Disruptors x2 + Fusion Cannon", "9/7/7/6", 8);
 				displayTxt = displayTxt + statsTalon("AI", 200, "Laser x1 + Cobalt Cannon x2", "9/9/9/9", 9);
 			} else {
-				displayTxt = "Heavy "+conceptLink("combat ship")+", theoretically equippable with "+conceptLink("Tractor Beam")+" technology";
+				displayTxt = "Heavy "+conceptLink("combat ship");
+				if (useRuleset == "rep" || useRuleset == "AGT") {
+					displayTxt = displayTxt + ", able to benefit from "+conceptLink("Tractor Beam")+" technology";
+				}
 				displayTxt = displayTxt + stats4X("Base", 20, "A5", 2, 3, -1, conceptLink("Ship Size")+" 5");
 				displayTxt = displayTxt + stats4X("Alternate", "?", "B6", 2, 3, -1, conceptLink("Ship Size")+" 5");
 			}
@@ -737,7 +746,10 @@ function showBox(concept) {
 				displayTxt = "Faction-exclusive huge ship<br />";
 				displayTxt = displayTxt + statsTalon("Talon", 218, "Dual Disruptors x2 + Dual Fusion Cannons", "11/9/9/8", 10);
 			} else {
-				displayTxt = "Huge "+conceptLink("combat ship")+", theoretically equippable with "+conceptLink("Shield Projector")+" technology";
+				displayTxt = "Huge "+conceptLink("combat ship");
+				if (useRuleset == "rep" || useRuleset == "AGT") {
+					displayTxt = displayTxt + ", able to benefit from "+conceptLink("Shield Projector")+" technology";
+				}
 				displayTxt = displayTxt + stats4X("Base", 24, "A6", 3, 3, -1, conceptLink("Ship Size")+" 6");
 				displayTxt = displayTxt + stats4X("Alternate", "?", "A7", 3, 3, -1, conceptLink("Ship Size")+" 6");
 			}
@@ -2400,7 +2412,8 @@ function keywordifyCollection(collObj) {
 		"Depletion", "Deplete", "Advanced Research", "Self-Preservation",
 		"Hull", "Type 0", "Type II", "Type IV", "Type V", "Type IX", "Type XI", "Type XV",
 		"Type Exp", "Type Flag", "Type PD", "Type Scan", "Type SW",
-		"Talon", "Terran", "AI", "Empire War", "EFV", "SP", "Deployment Zone", "Impulse", "Collide", "Collision", "Power", "Battery", "Batteries", "Side Slip", "Brake", "Shield",
+		"Talon", "Terran", "AI", "Empire War", "EFV", "SP", "LP", "Deployment Zone", "Reserve",
+		"Impulse", "Collide", "Collision", "Power", "Battery", "Batteries", "Side Slip", "Brake", "Shield",
 		"Last Ship Standing", "Convoy Intercept", "Orbital Conquest", "Priority Target", 
 		"Phaser", "Anti-Matter Torpedo", "Wave-Motion Gun", "Disruptor", "Missile", "Fusion Cannon", "Laser", "Cobalt Cannon",
 		"Helm Down", "Random Weapon Group Destroyed", "Manuevering Thruster Damage", "FTL Offline", "FTL Core Breach", "Explode", "Exploding", "Explosion"];
