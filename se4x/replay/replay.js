@@ -507,6 +507,14 @@ function embedCounter(baseObj, talonDets, details) {
 	}
 }
 
+function deleteCounter(baseId) {
+	workObj = document.getElementById(baseId);
+	
+	if (workObj) {
+		workObj.remove();
+	}
+}
+
 function paintTile(baseObj, paintPic) {
 	/*
 	 * WIP... we intend for this to be eventually configurable
@@ -530,9 +538,13 @@ function paintTile(baseObj, paintPic) {
 				// Fall thru
 			case "unexploredG":
 				// Fall thru
+			case "unexploredO":
+				// Fall thru
 			case "unexploredR":
 				// Fall thru
 			case "unexploredV":
+				// Fall thru
+			case "unexploredU":
 				// Fall thru
 			case "unexploredY":
 				applyPic = "border"+paintPic.charAt(paintPic.length-1,1);
@@ -809,7 +821,7 @@ function placeAlienHomeworld(newX, newY, color) {
 	placeCounter("base1"+color,newX,newY,null,1);
 }
 
-function renderCounter(curId, newPic) {
+function renderCounter(curId, newPic, newId) {
 	findObj = document.getElementById(curId);
 	if (findObj) {
 		findObj.src = "gfx/" + newPic + ".png";
@@ -818,7 +830,9 @@ function renderCounter(curId, newPic) {
 		}
 		findObj.style.visibility = "";
 	
-		if (curId.startsWith("system")) {
+		if (newId) {
+			findObj.id = newId;
+		} else if (curId.startsWith("system")) {
 			paintTile(findObj, newPic);
 		}
 		autoNameCounter(findObj);
@@ -1153,12 +1167,12 @@ function readJson() {
 				<th><a href=\"javascript:showBox('Terraforming')\">Terraform</a></th> \
 				<th><a href=\"javascript:showBox('Exploration')\">Explore</a></th> \
 				<th><a href=\"javascript:showBox('Ship Yard')\">SY</a></th> \
-				<th>"+conceptLink("Fighter")+"</th> \
+				<th><a href=\"javascript:showBox('Fighter')\">Ftr</a></th> \
 				<th><a href=\"javascript:showBox('Point-Defense')\">PD</a></th> \
 				<th><a href=\"javascript:showBox('Cloaking')\">Cloak</a></th> \
 				<th><a href=\"javascript:showBox('Scanning')\">Scan</a></th> \
 				<th><a href=\"javascript:showBox('Minelaying')\">Minelay</a></th> \
-				<th><a href=\"javascript:showBox('Minesweeping')\">Minesweep</a></th></tr>";
+				<th><a href=\"javascript:showBox('Minesweeping')\">Sweep</a></th></tr>";
 				
 			var workTable, expansionTechs = false;
 			
@@ -1181,7 +1195,7 @@ function readJson() {
 							<th><a href=\"javascript:showBox('Advanced Construction')\">AdvCon</a></th> \
 							<th colspan=\"2\"><a href=\"javascript:showBox('Tractor Beam')\">BB Tractor</a></th> \
 							<th colspan=\"2\"><a href=\"javascript:showBox('Shield Projector')\">DN Shield Proj</a></th> \
-							<th>"+conceptLink("Anti-Replicator")+"</th></tr>";
+							<th><a href=\"javascript:showBox('Anti-Replicator')\">Anti-Rep</a></th></tr>";
 					} else {
 						break;
 					}
@@ -1784,19 +1798,14 @@ function readJson() {
 					}
 				}
 				
-				workObj.remove();
+				deleteCounter(workId);
 			}
 		} else if (actionPool[i].removeHullsV) {
 			// Removes a series of Replicator hulls
 			var hullsColl = actionPool[i].removeHullsV.split(",");
 			
 			for (var h = 0; h < hullsColl.length; h++) {
-				workId = "hullV"+hullsColl[h];
-			
-				workObj = document.getElementById(workId);
-				if (workObj) {
-					workObj.remove();
-				}
+				deleteCounter("hullV"+hullsColl[h]);
 			}
 		}
 		
@@ -1804,7 +1813,7 @@ function readJson() {
 			imgCollection = document.getElementsByTagName("img")
 			
 			for (var h = 0; h < imgCollection.length; h++) {
-				if (imgCollection[h] && imgCollection[h].src.indexOf(actionPool[i].removeAllCounters) >= 0) {
+				if (imgCollection[h] && imgCollection[h].src.search(actionPool[i].removeAllCounters) >= 0) {
 					imgCollection[h--].remove();
 				}
 			}
@@ -2398,6 +2407,10 @@ function readJson() {
 					difficulty = actionPool[i].difficulty;
 					repEdition = actionPool[i].edition;
 					
+					for (var g = 1; g <= 9; g++) {
+						deleteCounter("hull"+plrColors[0]+g);
+					}
+
 					if (plrColors[1].search("O") >= 0 || plrColors[1].search("U") >= 0) {
 						useRuleset = "AGT";
 					} else {
@@ -2466,8 +2479,8 @@ function readJson() {
 				}
 				
 				if (actionPool[i].createPreset == "replicatorSolo") {
-					for (var h = 1; h <= 8; h++) {
-						renderCounter("type0"+plrColors[0]+h,"hidden"+plrColors[0]);
+					for (var h = 1; h <= 9; h++) {
+						renderCounter("type0"+plrColors[0]+h, "hidden"+plrColors[0], "hull"+plrColors[0]+h);
 					}
 				}
 
@@ -2533,6 +2546,10 @@ function readJson() {
 					plrColors[0] = "V";
 					difficulty = actionPool[i].difficulty;
 					repEdition = actionPool[i].edition;
+
+					for (var g = 1; g <= 9; g++) {
+						deleteCounter("hull"+plrColors[0]+g);
+					}
 
 					if (plrColors[1].search("O") >= 0 || plrColors[1].search("U") >= 0) {
 						useRuleset = "AGT";
@@ -2602,8 +2619,8 @@ function readJson() {
 				}
 				
 				if (actionPool[i].createPreset == "replicatorSoloLg") {
-					for (var h = 1; h <= 8; h++) {
-						renderCounter("type0"+plrColors[0]+h,"hidden"+plrColors[0]);
+					for (var h = 1; h <= 9; h++) {
+						renderCounter("type0"+plrColors[0]+h, "hidden"+plrColors[0], "hull"+plrColors[0]+h);
 					}
 				}
 				
@@ -2833,6 +2850,36 @@ function readJson() {
 				
 				placeHomeworld(1,0,plrColors.charAt(0));
 				placeHomeworld(13,0,plrColors.charAt(1));
+				placeHomeworld(1,11,plrColors.charAt(2));
+				placeHomeworld(12,11,plrColors.charAt(3));
+			} else if (actionPool[i].createPreset == "versus4Pds") {
+				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				var plrColors = "GYRB";
+				
+				if (actionPool[i].playerColors) {
+					plrColors = actionPool[i].playerColors;
+				}
+				
+				for (var y = 0; y < 12; y++) {
+					for (var x = 1; x <= 13; x++) {
+						if (x < 13 || y % 2 == 0) {
+							if (y < 4 && x <= Math.floor(y/2)+3) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(0));
+							} else if (y < 4 && x >= 11 - Math.floor((y+1)/2)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(1));
+							} else if (y > 7 && x <= Math.floor(y/2)-1) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(2));
+							} else if (y > 7 && x >= 15-Math.ceil(y/2)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(3));
+							} else {
+								placeSystemMarker(x,y,deepSpace);
+							}
+						}
+					}
+				}
+				
+				placeHomeworld(2,0,plrColors.charAt(0));
+				placeHomeworld(12,0,plrColors.charAt(1));
 				placeHomeworld(1,11,plrColors.charAt(2));
 				placeHomeworld(12,11,plrColors.charAt(3));
 			} else if (actionPool[i].createPreset == "versus5P") {

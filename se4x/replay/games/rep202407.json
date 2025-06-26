@@ -1,8 +1,10 @@
 {"stages": [
 	{"heading":"Stardate 2400.0 (Introduction)",
-	"commentary":"<p>Welcome to Replicator Solitaire. This is one of the most complex solo scenarioes (versus the environment) that has been released so far for Space Empires 4X. Like Alien Empires, the objective is to have the last homeworld standing. In a competitive game, regular players start with 3 Colony Ships, while a Replicator player would start with 5 Type 0 ships.</p><p>Additionally, to help keep the <q>ceiling</q> reasonable, several elements throughout Space Empires 4X are never used when replicators are used in <i>any</i> game. Unused elements are Facilities, Terraforming 2, Unique Ships, Experience, Exploration 2, Space Amoebas, Blood Brothers teams, and the Galactic Capitol.</p>",
+	"commentary":"<p>Welcome to Replicator Solitaire. This is one of the most complex solo scenarioes that has been released so far for Space Empires 4X. Like Alien Empires, the objective is to have the last homeworld standing. In a competitive game, regular players start with 3 Colony Ships, while a Replicator player would start with 5 Type 0 ships.</p><p>Additionally, to help keep the <q>ceiling</q> reasonable, several elements throughout Space Empires 4X are never used when replicators are used in <i>any</i> game. Unused elements are Facilities, Terraforming 2, Unique Ships, Experience, Exploration 2, Space Amoebas, Blood Brothers teams, and the Galactic Capitol.</p>",
 	"actions":
 		[{
+			"removeAllCounters":"hiddenV"
+		},{
 			"createPreset":"versus2Pmed",
 			"playerTop":"V4",
 			"playerBottom":"Y6",
@@ -27,22 +29,8 @@
 	"commentary":"<p>Though it will not be obvious at first, the Replicator environment has initiative by default in Replicator Solitaire; unless we bid 15 CP in an economic phase.</p>",
 	"actions":
 		[{
-			"placeCounter":"type0V1",
-			"location":"K3",
-			"name":"hiddenV"
-		},{
-			"placeCounter":"type0V2",
-			"location":"J4",
-			"name":"hiddenV"
-		},{
-			"placeCounter":"type0V3",
-			"location":"J4"
-		},{
-			"placeCounter":"type0V4",
-			"location":"J5"
-		},{
-			"placeCounter":"type0V5",
-			"location":"K5"
+			"placeHullsV":"K3,J4,J4,J5,K5",
+			"startId":1
 		},{
 			"placeCounter":"FlagV",
 			"location":"J5"
@@ -108,19 +96,10 @@
 	"commentary":"<p>In some fashions, the Replicators are simpler to play than a regular empire; they use their hulls in place of Colony Ships to colonize planets. (Minerals and Space Wrecks are instead cashed in instantly.)</p>",
 	"actions":
 		[{
-			"removeCounter":"type0V1"
+			"removeHullsV":"1,2"
 		},{
-			"removeCounter":"type0V2"
-		},{
-			"placeCounter":"type0V3",
-			"location":"J3",
-			"name":"hiddenV"
-		},{
-			"placeCounter":"type0V4",
-			"location":"J6"
-		},{
-			"placeCounter":"type0V5",
-			"location":"K6"
+			"placeHullsV":"J3,J6,K6",
+			"startId":3
 		},{
 			"placeCounter":"FlagV",
 			"location":"I5"
@@ -214,14 +193,10 @@
 	"commentary":"<p>The Replicators have a higher end-game potential, being able to assemble all the way up to a Type XV. However, it requires accumumulating a total of 15 RP, only some of which can be bought with CP.</p><p>Additionally, starting on economic phase 10 (2410.0), their colonies are subject to a unique depletion mechanic. Depleted colonies become useless for the rest of a playthrough. They neither produce Replicator hulls, nor can they be recolonized by <i>any</i> player.</p>",
 	"actions":
 		[{
-			"removeCounter":"type0V3"
+			"removeHullsV":"3,6,7"
 		},{
-			"placeCounter":"type0V4",
-			"location":"J7"
-		},{
-			"placeCounter":"type0V5",
-			"location":"K7",
-			"name":"hiddenV"
+			"placeHullsV":"J7,K7",
+			"startId":4
 		},{
 			"placeCounter":"FlagV",
 			"location":"I6"
@@ -308,10 +283,6 @@
 			"revealCounter":"systemB5",
 			"name":"planetY6"
 		},{
-			"removeCounter":"hullV6"
-		},{
-			"removeCounter":"hullV7"
-		},{
 			"removeCounter":"Miner2Y"
 		},{
 			"removeCounter":"MS1Y"
@@ -338,10 +309,10 @@
 		}],
 	"actions":
 		[{
-			"removeCounter":"type0V5"
+			"removeHullsV":"5"
 		},{
-			"placeCounter":"type0V4",
-			"location":"J7"
+			"placeHullsV":"J7",
+			"startId":4
 		},{
 			"placeHullsV":"K4,K4",
 			"startId":6
@@ -426,14 +397,14 @@
 	"commentary":"<p>The Replicators continue to work on their first <q>mission</q>, to fully explore their home system. Somehow, they ran into a supernova! This will slow their progression down.</p>",
 	"actions":
 		[{
-			"placeCounter":"type0V4",
-			"location":"J8"
-		},{
 			"placeCounter":"FlagV",
 			"location":"I6"
 		},{
 			"placeGhost":"FlagV",
 			"location":"I7"
+		},{
+			"placeHullsV":"J8",
+			"startId":4
 		},{
 			"placeHullsV":"K3,J4",
 			"startId":6
@@ -517,12 +488,11 @@
 	"commentary":"<p>Both empires continue to uncover the remaining home systems. The Replicators are able to do it faster, thanks to 2 extra starting hulls. We, on the other hand, are hesitant to risk our Flagship while our obligatory black hole is still unexplored.</p>",
 	"actions":
 		[{
-			"placeCounter":"type0V4",
-			"location":"K8",
-			"name":"hiddenV"
-		},{
 			"placeCounter":"FlagV",
 			"location":"I5"
+		},{
+			"placeHullsV":"K8",
+			"startId":4
 		},{
 			"placeHullsV":"K2,I3",
 			"startId":6
@@ -604,12 +574,10 @@
 	"commentary":"<p>More planets have been found on both sides of the map.</p>",
 	"actions":
 		[{
-			"removeCounter":"type0V4"
-		},{
-			"removeCounter":"hullV7"
-		},{
 			"placeCounter":"FlagV",
 			"location":"I4"
+		},{
+			"removeHullsV":"4,7,8,9"
 		},{
 			"placeHullsV":"K1",
 			"startId":6
@@ -694,10 +662,6 @@
 			"revealCounter":"systemC8",
 			"name":"planetY5"
 		},{
-			"removeCounter":"hullV8"
-		},{
-			"removeCounter":"hullV9"
-		},{
 			"removeCounter":"CA1Y"
 		}]},
 	{"heading":"Stardate 2402.0 (Economic Phase 2)",
@@ -718,10 +682,10 @@
 		}],
 	"actions":
 		[{
-			"removeCounter":"hullV6"
-		},{
 			"placeCounter":"FlagV",
 			"location":"I4"
+		},{
+			"removeHullsV":"6"
 		},{
 			"placeHullsV":"K4,K4",
 			"startId":8
@@ -948,6 +912,8 @@
 			"placeCounter":"FlagV",
 			"location":"I1"
 		},{
+			"removeHullsV":"10,11"
+		},{
 			"placeHullsV":"J2,J2",
 			"startId":8
 		},{
@@ -1047,10 +1013,6 @@
 		},{
 			"revealCounter":"systemC8",
 			"name":"planetY5"
-		},{
-			"removeCounter":"hullV10"
-		},{
-			"removeCounter":"hullV11"
 		},{
 			"removeCounter":"CO6Y"
 		},{
@@ -1314,6 +1276,8 @@
 			"placeGhost":"hiddenV",
 			"location":"J5"
 		},{
+			"removeHullsV":"12,13,14,15,16"
+		},{
 			"placeHullsV":"J4,J4,J6,J6",
 			"startId":8
 		},{
@@ -1387,16 +1351,6 @@
 		},{
 			"revealCounter":"systemD4",
 			"name":"planetY2"
-		},{
-			"removeCounter":"hullV12"
-		},{
-			"removeCounter":"hullV13"
-		},{
-			"removeCounter":"hullV14"
-		},{
-			"removeCounter":"hullV15"
-		},{
-			"removeCounter":"hullV16"
 		},{
 			"removeCounter":"CA2Y"
 		}]},
@@ -1593,6 +1547,8 @@
 			"placeGhost":"hiddenV",
 			"location":"K7"
 		},{
+			"removeHullsV":"17,18,19,20"
+		},{
 			"placeHullsV":"J7,J7,I8,I8,J7,K8,I9,J7,J7",
 			"startId":8
 		},{
@@ -1649,14 +1605,6 @@
 			"revealCounter":"systemD1",
 			"name":"planetY4"
 		},{
-			"removeCounter":"hullV17"
-		},{
-			"removeCounter":"fleet1V"
-		},{
-			"removeCounter":"hullV19"
-		},{
-			"removeCounter":"hullV20"
-		},{
 			"removeCounter":"expV1"
 		},{
 			"removeCounter":"expV2"
@@ -1709,26 +1657,14 @@
 			"size":5,
 			"location":"J7"
 		},{
-			"removeCounter":"hullV8"
-		},{
-			"removeCounter":"hullV9"
-		},{
-			"removeCounter":"hullV10"
+			"removeHullsV":"8,9,10,12,14,15,16"
 		},{
 			"placeCounter":"hullV11",
 			"location":"I8"
 		},{
-			"removeCounter":"hullV12"
-		},{
 			"placeCounter":"hullV13",
 			"size":2,
 			"location":"K8"
-		},{
-			"removeCounter":"hullV14"
-		},{
-			"removeCounter":"hullV15"
-		},{
-			"removeCounter":"hullV16"
 		},{
 			"placeCounter":"hullV17",
 			"location":"K1",
@@ -1910,7 +1846,7 @@
 			"placeCounter":"FlagV",
 			"location":"H6"
 		},{
-			"removeCounter":"hullV11"
+			"removeHullsV":"11,19"
 		},{
 			"placeCounter":"hullV13",
 			"size":3,
@@ -1918,8 +1854,6 @@
 		},{
 			"placeCounter":"hullV17",
 			"location":"I2"
-		},{
-			"removeCounter":"hullV19"
 		},{
 			"placeCounter":"hullV20",
 			"location":"I6"
@@ -2067,7 +2001,7 @@
 			"placeCounter":"FlagV",
 			"location":"J7"
 		},{
-			"removeCounter":"hullV11"
+			"removeHullsV":"11,19,21,22,23,24,25,26,27,28"
 		},{
 			"placeCounter":"hullV13",
 			"size":3,
@@ -2077,27 +2011,9 @@
 			"placeCounter":"hullV17",
 			"location":"H2"
 		},{
-			"removeCounter":"hullV19"
-		},{
 			"placeCounter":"hullV20",
 			"location":"J7",
 			"name":"hiddenV"
-		},{
-			"removeCounter":"hullV21"
-		},{
-			"removeCounter":"hullV22"
-		},{
-			"removeCounter":"hullV23"
-		},{
-			"removeCounter":"hullV24"
-		},{
-			"removeCounter":"hullV25"
-		},{
-			"removeCounter":"hullV26"
-		},{
-			"removeCounter":"hullV27"
-		},{
-			"removeCounter":"hullV28"
 		},{
 			"revealCounter":"systemI8",
 			"name":"colony1"
@@ -2218,15 +2134,11 @@
 			"placeCounter":"FlagV",
 			"location":"J7"
 		},{
-			"removeCounter":"hullV11"
-		},{
-			"removeCounter":"hullV13"
-		},{
 			"placeCounter":"hullV17",
 			"location":"H2",
 			"name":"hiddenV"
 		},{
-			"removeCounter":"hullV20"
+			"removeHullsV":"11,13,20"
 		},{
 			"placeHullsV":"K1,K3,K4,K8,J3,J4,I3,K7",
 			"startId":21
@@ -2480,7 +2392,7 @@
 			"placeCounter":"FlagV",
 			"location":"H7"
 		},{
-			"removeCounter":"hullV17"
+			"removeHullsV":"17,26"
 		},{
 			"placeHullsV":"I2,I3",
 			"startId":21
@@ -2491,8 +2403,6 @@
 		},{
 			"placeHullsV":"J7,H3",
 			"startId":24
-		},{
-			"removeCounter":"hullV26"
 		},{
 			"placeHullsV":"H3,I6",
 			"startId":27
@@ -2592,28 +2502,10 @@
 			"placeHullsV":"I6",
 			"startId":24
 		},{
-			"removeCounter":"hullV25"
-		},{
-			"removeCounter":"hullV27"
+			"removeHullsV":"25,27,29,30,31,32,33,34,35,36"
 		},{
 			"placeHullsV":"H7",
 			"startId":28
-		},{
-			"removeCounter":"hullV29"
-		},{
-			"removeCounter":"hullV30"
-		},{
-			"removeCounter":"hullV31"
-		},{
-			"removeCounter":"hullV32"
-		},{
-			"removeCounter":"hullV33"
-		},{
-			"removeCounter":"hullV34"
-		},{
-			"removeCounter":"hullV35"
-		},{
-			"removeCounter":"hullV36"
 		},{
 			"placeCounter":"systemF7",
 			"name":"minerals10"
@@ -2717,9 +2609,7 @@
 			"placeCounter":"FlagV",
 			"location":"F7"
 		},{
-			"removeCounter":"hullV21"
-		},{
-			"removeCounter":"hullV22"
+			"removeHullsV":"21,22"
 		},{
 			"placeCounter":"hullV23",
 			"location":"H6"
@@ -2868,10 +2758,10 @@
 			"size":3,
 			"location":"F7"
 		},{
+			"removeHullsV":"28"
+		},{
 			"placeHullsV":"G6",
 			"startId":24
-		},{
-			"removeCounter":"hullV28"
 		},{
 			"placeHullsV":"I2,I3,I3,I6,J7,H3,H3,H3",
 			"startId":29
@@ -2940,10 +2830,10 @@
 			"size":3,
 			"location":"D6"
 		},{
+			"removeHullsV":"28,31,34,35,36"
+		},{
 			"placeHullsV":"F7",
 			"startId":24
-		},{
-			"removeCounter":"hullV28"
 		},{
 			"placeGhost":"hiddenV",
 			"location":"H3"
@@ -2959,19 +2849,11 @@
 			"location":"G4",
 			"name":"hiddenV"
 		},{
-			"removeCounter":"hullV31"
-		},{
 			"placeHullsV":"H7,H7",
 			"startId":32
 		},{
 			"placeGhost":"hiddenV",
 			"location":"I6"
-		},{
-			"removeCounter":"hullV34"
-		},{
-			"removeCounter":"hullV35"
-		},{
-			"removeCounter":"hullV36"
 		},{
 			"placeCounter":"FlagY",
 			"location":"E4"
@@ -3046,33 +2928,11 @@
 			"placeHullsV":"H4",
 			"startId":29
 		},{
-			"removeCounter":"hullV30"
+			"removeHullsV":"30,33,37,38,39,40,41,42,43,44,45,46"
 		},{
 			"placeCounter":"hullV32",
 			"size":2,
 			"location":"H7"
-		},{
-			"removeCounter":"hullV33"
-		},{
-			"removeCounter":"hullV37"
-		},{
-			"removeCounter":"hullV38"
-		},{
-			"removeCounter":"hullV39"
-		},{
-			"removeCounter":"hullV40"
-		},{
-			"removeCounter":"hullV41"
-		},{
-			"removeCounter":"hullV42"
-		},{
-			"removeCounter":"hullV43"
-		},{
-			"removeCounter":"hullV44"
-		},{
-			"removeCounter":"hullV45"
-		},{
-			"removeCounter":"hullV46"
 		},{
 			"placeCounter":"FlagY",
 			"location":"D4"
@@ -3343,10 +3203,10 @@
 			"size":2,
 			"location":"G7"
 		},{
+			"removeHullsV":"38,43"
+		},{
 			"placeHullsV":"J2",
 			"startId":37
-		},{
-			"removeCounter":"hullV38"
 		},{
 			"placeCounter":"hullV39",
 			"size":3,
@@ -3358,8 +3218,6 @@
 			"placeCounter":"hullV42",
 			"size":2,
 			"location":"I3"
-		},{
-			"removeCounter":"hullV43"
 		},{
 			"placeHullsV":"H4,H8,I8",
 			"startId":44
@@ -3413,7 +3271,7 @@
 			"location":"D4",
 			"name":"type4V"
 		},{
-			"removeCounter":"hullV23"
+			"removeHullsV":"23"
 		},{
 			"placeGhost":"hiddenV",
 			"location":"E5"
@@ -3471,7 +3329,7 @@
 			"placeHullsV":"F4,F7,H8",
 			"startId":44
 		},{
-			"removeCounter":"hullV47"
+			"removeHullsV":"47"
 		},{
 			"revealCounter":"systemH9",
 			"name":"asteroids"
@@ -3533,9 +3391,7 @@
 			"placeGhost":"hiddenV",
 			"location":"D4"
 		},{
-			"removeCounter":"hullV24"
-		},{
-			"removeCounter":"hullV29"
+			"removeHullsV":"24,25,47,48,49,50,51,52,53,54,55,56"
 		},{
 			"placeGhost":"hiddenV",
 			"location":"E5"
@@ -3579,26 +3435,6 @@
 		},{
 			"placeHullsV":"D4,D6,F7",
 			"startId":44
-		},{
-			"removeCounter":"hullV47"
-		},{
-			"removeCounter":"hullV48"
-		},{
-			"removeCounter":"hullV49"
-		},{
-			"removeCounter":"hullV50"
-		},{
-			"removeCounter":"hullV51"
-		},{
-			"removeCounter":"hullV52"
-		},{
-			"removeCounter":"hullV53"
-		},{
-			"removeCounter":"hullV54"
-		},{
-			"removeCounter":"hullV55"
-		},{
-			"removeCounter":"hullV56"
 		},{
 			"revealCounter":"systemG8",
 			"name":"blackHole"
@@ -3700,7 +3536,7 @@
 			"placeHullsV":"G5,H8",
 			"startId":40
 		},{
-			"removeCounter":"hullV42"
+			"removeHullsV":"42"
 		},{
 			"placeHullsV":"D4,D6,F7,K1,K3,K4,K7,K8,J3,J4,I3,I8,I9",
 			"startId":44
@@ -3801,7 +3637,7 @@
 			"location":"B4",
 			"name":"type7V"
 		},{
-			"removeCounter":"hullV32"
+			"removeHullsV":"32,40,44,49,53"
 		},{
 			"placeHullsV":"F5",
 			"startId":37
@@ -3819,12 +3655,8 @@
 			"location":"D6",
 			"name":"hiddenV"
 		},{
-			"removeCounter":"hullV40"
-		},{
 			"placeHullsV":"G7",
 			"startId":41
-		},{
-			"removeCounter":"hullV44"
 		},{
 			"placeGhost":"hiddenV",
 			"location":"C4"
@@ -3845,8 +3677,6 @@
 			"size":2,
 			"location":"H4"
 		},{
-			"removeCounter":"hullV49"
-		},{
 			"placeGhost":"hiddenV",
 			"location":"I6"
 		},{
@@ -3859,8 +3689,6 @@
 			"placeCounter":"hullV52",
 			"size":2,
 			"location":"G4"
-		},{
-			"removeCounter":"hullV53"
 		},{
 			"placeGhost":"hiddenV",
 			"location":"G4"
@@ -3911,19 +3739,13 @@
 			"placeGhost":"hiddenV",
 			"location":"C6"
 		},{
-			"removeCounter":"hullV37"
-		},{
-			"removeCounter":"hullV39"
+			"removeHullsV":"37,39,45,46,56,57,58,59,60,61,62,63,64,65,66"
 		},{
 			"placeGhost":"hiddenV",
 			"location":"F7"
 		},{
 			"placeHullsV":"E6",
 			"startId":41
-		},{
-			"removeCounter":"hullV45"
-		},{
-			"removeCounter":"hullV46"
 		},{
 			"placeHullsV":"G2",
 			"startId":47
@@ -3950,28 +3772,6 @@
 		},{
 			"placeHullsV":"E5,F5",
 			"startId":54
-		},{
-			"removeCounter":"hullV56"
-		},{
-			"removeCounter":"hullV57"
-		},{
-			"removeCounter":"hullV58"
-		},{
-			"removeCounter":"hullV59"
-		},{
-			"removeCounter":"hullV60"
-		},{
-			"removeCounter":"hullV61"
-		},{
-			"removeCounter":"hullV62"
-		},{
-			"removeCounter":"hullV63"
-		},{
-			"removeCounter":"hullV64"
-		},{
-			"removeCounter":"hullV65"
-		},{
-			"removeCounter":"hullV66"
 		},{
 			"placeCounter":"systemJ4",
 			"name":"colony5V"
@@ -4041,9 +3841,7 @@
 			"size":3,
 			"location":"E5"
 		},{
-			"removeCounter":"hullV54"
-		},{
-			"removeCounter":"hullV55"
+			"removeHullsV":"54,55"
 		},{
 			"placeCounter":"hullV57",
 			"size":1,

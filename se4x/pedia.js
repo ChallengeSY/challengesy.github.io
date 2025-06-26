@@ -233,6 +233,26 @@ function showBox(concept) {
 				displayTxt = displayTxt + " There are 3 regular "+conceptLink("turn")+"s in between each economic phase.";
 			}
 			break;
+		case "exploration":
+			displayTxt = "The concept of exploring new terrain and uncovering their mysteries.";
+			if (useRuleset == "talon") {
+				displayTxt = displayTxt + " Not available in "+conceptLink("Talon")+" "+conceptLink("battle")+"s.";
+			} else {
+				displayTxt = displayTxt + "<br /><br />As a "+conceptLink("technology")+", level 1 allows "+conceptLink("Cruiser")+"s";
+				if (useRuleset != "SE4X") {
+					displayTxt = displayTxt + " / "+conceptLink("Flagship")+"s";
+					if (useRuleset != "CE") {
+						displayTxt = displayTxt + " / "+conceptLink("Type Exp")+"s";
+					}
+				}
+				displayTxt = displayTxt + " to remotely explore an adjacent "+conceptLink("unexplored")+" "+conceptLink("hex")+" just before movement.";
+				
+				if (useRuleset != "SE4X") {
+					displayTxt = displayTxt + "<br />Level 2 allows "+conceptLink("Base")+"s / "+conceptLink("Ship Yard")+"s / Cruisers / Flagships to respond to \
+						an adjacent "+conceptLink("battle")+" hex by sending in reinforcements with the "+conceptLink("React Move")+" ability.";
+				}
+			}
+			break;
 		case "fleet":
 			displayTxt = "A fleet is a collection of "+conceptLink("starship")+"s, usually with a specific purpose.";
 			if (useRuleset != "talon") {
@@ -246,9 +266,12 @@ function showBox(concept) {
 			break;
 		case "hex":
 			displayTxt = "A hexagonal-shaped space on a board where pieces (example: counters) can move/be placed to.";
-			if (useRuleset != "talon") {
-				displayTxt = displayTxt + "<br />"+conceptLink("Space Empires 4X")+" + expansions use these to denote systems where "+conceptLink("starship")+"s can move; and where terrain can perform their abilities.";
+			if (useRuleset == "talon") {
+				displayTxt = displayTxt + "<br />"+conceptLink("Talon")+" uses these to denote small chunks of space";
+			} else {
+				displayTxt = displayTxt + "<br />"+conceptLink("Space Empires 4X")+" + expansions use these to denote systems";
 			}
+			displayTxt = displayTxt + " where "+conceptLink("starship")+"s can move; and where terrain can perform their abilities.";
 			break;
 		case "hull size":
 			displayTxt = "Determines the amount of damage a "+conceptLink("combat ship")+" can take before being destroyed.<br />\
@@ -270,6 +293,10 @@ function showBox(concept) {
 				<br />(Exception: "+conceptLink("Base")+"s, "+conceptLink("Ship Yard")+"s";
 			if (useRuleset != "SE4X") {
 				displayTxt = displayTxt + ", " + conceptLink("ground unit")+"s, "+conceptLink("Flagship")+"s";
+				
+				if (useRuleset != "CE") {
+					displayTxt = displayTxt + ", "+conceptLink("Replicators");
+				}
 			}
 			displayTxt = displayTxt + " require no maintenance.)";
 			break;
@@ -399,23 +426,6 @@ function showBox(concept) {
 			displayTxt = "Allows building "+conceptLink("Raider")+"s, which cloak by default, but can be detected or otherwise nullified.<br />\
 				If a surprise is achieved, Raiders get Attack +1 on their first turn only.<br />\
 				Level 2 equipment adds an additional "+conceptLink("Attack")+" and negates "+conceptLink("Scanning")+" 1.";
-			break;
-		case "exploration":
-			if (useRuleset == "talon") {
-				headingTxt = "Exploration";
-				displayTxt = "The concept of exploring new terrain. Not available in "+conceptLink("Talon")+" "+conceptLink("battle")+"s.";
-			} else {
-				headingTxt = "Exploration Technology";
-				displayTxt = "Level 1 allows "+conceptLink("Cruiser")+"s";
-				if (useRuleset != "SE4X") {
-					displayTxt = displayTxt + " / "+conceptLink("Flagship")+"s / "+conceptLink("Type Exp")+"s";
-				}
-				displayTxt = displayTxt + " to remotely explore an adjacent "+conceptLink("unexplored")+" "+conceptLink("hex")+" during movement.";
-				if (useRuleset != "SE4X") {
-					displayTxt = displayTxt + "<br />Level 2 allows "+conceptLink("Base")+"s / "+conceptLink("Ship Yard")+"s / Cruisers / Flagships to respond to \
-						an adjacent "+conceptLink("battle")+" hex by sending in reinforcements with the "+conceptLink("React Move")+" ability.";
-				}
-			}
 			break;
 		case "minelaying":
 			headingTxt = "Minelaying Technology";
@@ -629,9 +639,18 @@ function showBox(concept) {
 				<br />"+conceptLink("Non-combat ship")+"s may not enter this system, unless escorted. No player "+conceptLink("ship")+" may enter this system, \
 				while occupied by a "+conceptLink("Doomsday Machine")+" or an "+conceptLink("Alien Player")+" ship.";
 			break;
+		case "worm hole":
+			// Fall thru
 		case "warp point":
-			displayTxt = "If two linked warp points are found, they can be traveled directly to each other, as if they were 1 "+conceptLink("hex")+" away from each other.";
-			break;
+			if (useRuleset == "talon") {
+				headingTxt = "Worm Hole";
+				displayTxt = "Terrain that is used to "+conceptLink("retreat")+" from a "+conceptLink("Talon")+" "+conceptLink("battle")+", even for ships that suffer from "+conceptLink("FTL Offline")+".";
+				break;
+			} else {
+				headingTxt = "Warp Point";
+				displayTxt = "If two linked warp points are found, they can be traveled directly to each other, as if they were 1 "+conceptLink("hex")+" away from each other.";
+				break;
+			}
 			
 		// Ships
 		case "decoy":
@@ -781,9 +800,14 @@ function showBox(concept) {
 			// Fall through
 		case "mines":
 			headingTxt = "Mines";
-			displayTxt = "Small craft that detonates upon contact with enemy "+conceptLink("ship")+"s, destroying them instantly unless "+conceptLink("sw")+"ept.\
-				<br />Also inhibits spreading of "+conceptLink("space amoeba")+" for one "+conceptLink("economic phase")+", though immunity can be acquired.\
-				<br />Has fixed "+conceptLink("Movement")+" 1; and may not enter enemy occupied "+conceptLink("hex")+"es, except versus amoeba";
+			displayTxt = "Small craft that detonates upon contact with enemy "+conceptLink("ship")+"s, destroying them instantly unless "+conceptLink("sw")+"ept.";
+			if (useRuleset != "SE4X") {
+				displayTxt = displayTxt + "<br />Also inhibits spreading of "+conceptLink("space amoeba")+" for one "+conceptLink("economic phase")+", though immunity can be acquired.";
+			}
+			displayTxt = displayTxt + "<br />Has fixed "+conceptLink("Movement")+" 1; and may not enter enemy occupied "+conceptLink("hex")+"es";
+			if (useRuleset != "SE4X") {
+				displayTxt = displayTxt + ", except versus amoeba";
+			}
 			displayTxt = displayTxt + stats4X("Common", 5, "&infin;", 0, 1, -1, conceptLink("Minelaying"));
 			break;
 		case "pipeline":
@@ -800,10 +824,13 @@ function showBox(concept) {
 			break;
 		case "sw":
 			// Fall through
+		case "science vessel":
+			// Fall through
 		case "minesweeper":
 			headingTxt = "Minesweeper";
 			displayTxt = "Utility "+conceptLink("combat ship")+" that sweeps "+conceptLink("mines");
 			if (useRuleset != "SE4X" && useRuleset != "talon") {
+				headingTxt = headingTxt + " / Science Vessel";
 				displayTxt = displayTxt + " and researches "+conceptLink("space amoeba");
 			}
 			displayTxt = displayTxt + stats4X("Common", 6, "E1", 0, 1, -1, conceptLink("Minesweeping")+" 1");
@@ -1209,7 +1236,7 @@ function showBox(concept) {
 		case "swallow":
 			headingTxt = "Swallowing";
 			displayTxt = conceptLink("Space Amoeba")+" will swallow ships whole whenever they would otherwise damage a ship, \
-				at the expense of their "+conceptLink("Attack")+" being further reduced for each "+conceptLink("Hull Size")+" beyond 1.<br /><br />\
+				at the expense of their "+conceptLink("Attack")+" being further reduced for each "+conceptLink("Hull Size")+" beyond 1. (with the maximum reduction at Hull Size 3.)<br /><br />\
 				In addition, for <em>each</em> successful swallow that is achieved by 2 or more under the threshold, it gains a chained swallow roll for the "+conceptLink("round")+".";
 			break;
 			
@@ -1367,8 +1394,8 @@ function showBox(concept) {
 				but grant neither Colony "+conceptLink("VP")+"s nor "+conceptLink("alien technology")+".";
 			break;
 		case "ancient race":
-			displayTxt = "A limited subset of the systems near the "+conceptLink("homeworld")+" (all adjacent hexes, plus 6 more) are explored at scenario start. \
-				Up to 3 non-"+conceptLink("barren")+" "+conceptLink("planet")+"s are pre-colonized (at 0 income), \
+			displayTxt = "A limited subset of the systems near the "+conceptLink("homeworld")+" (all adjacent "+conceptLink("hex")+"es, plus &le;6 more at distance 2) are explored at scenario start. \
+				<span class=\"bindTxt\">Up to 3 non-"+conceptLink("barren")+" "+conceptLink("planet")+"s</span> are pre-colonized (at 0 income), \
 				and up to 3 "+conceptLink("minerals")+" are automatically relocated to the "+conceptLink("homeworld")+".";
 			break;
 		case "space pilgrims":
@@ -1389,8 +1416,8 @@ function showBox(concept) {
 			displayTxt = "Technologies cost 33% less "+conceptLink("CP")+", at the expense of <i>all</i> ships costing 1 more CP to build.";
 			break;
 		case "master engineers":
-			displayTxt = "Ships may choose to move 1 more hex than normally possible, but must roll to overcome their engine instability. \
-				On a roll of 9-10, the ship is immobilized for that "+conceptLink("turn")+".";
+			displayTxt = "Ships may choose to attempt to move 1 more "+conceptLink("hex")+" than normally possible, but must roll for engine instability.\
+				<br />On a roll of &ge;9, the ship is immobilized from engine failure for that "+conceptLink("turn")+".";
 			break;
 		case "insectoids":
 			displayTxt = "All non-"+conceptLink("Decoy")+" ships are built and managed as if they were one "+conceptLink("Hull Size")+" less; \
@@ -1468,8 +1495,8 @@ function showBox(concept) {
 				Additionally, subsequent "+conceptLink("RP")+" require 25 "+conceptLink("CP")+" (down from 30 CP).";
 			break;
 		case "replicator capitol":
-			displayTxt = "The "+conceptLink("Replicator")+" "+conceptLink("homeworld")+" produces 2 Hulls each odd "+conceptLink("economic phase")+". \
-				(before applying "+conceptLink("RP")+" modifiers.) Player also starts with 10 extra "+conceptLink("CP")+".";
+			displayTxt = "The "+conceptLink("Replicator")+" "+conceptLink("homeworld")+" produces an extra "+conceptLink("hulll")+" each odd "+conceptLink("economic phase")+". \
+				Player also starts with 10 extra "+conceptLink("CP")+".";
 			break;
 			
 		// Unique ship-exclusive concepts
@@ -2066,7 +2093,7 @@ function showBox(concept) {
 			provideLinks = 1;
 			break;
 		case "unique designer":
-			displayTxt = "Program that allows building custom "+conceptLink("Unique Ship")+" configurations.";
+			displayTxt = "Program that allows building/sharing "+conceptLink("Unique Ship")+" configurations.";
 			provideLinks = 2;
 			break;
 		case "numsims":
@@ -2405,7 +2432,7 @@ function keywordifyCollection(collObj) {
 		"Experience", "Facility", "Facilities", "RP", "Boarding", "Security Forces", "Military Academy", "Flagship", "Swallow",
 		"Advanced Construction",
 		"Empire Advantage", "And We Still Carry Swords", "Industrious Race", "Horsemen of the Plains", "Space Pilgrims", "Traders",
-		"Warrior Race", "Ancient Race", "Giant Race", "House of Speed", "On the Move", "Longbowmen", "Amazing Diplomats",
+		"Warrior Race", "Ancient Race", "Giant Race", "Master Engineers", "House of Speed", "On the Move", "Longbowmen", "Amazing Diplomats",
 		"Advanced Comm Array", "Afterburner", "Air Support", "The Captain's Chair", "Cold Fusion Drive", "Combat Sensors", "Efficient Factories",
 		"Electronic Warfare Module", "Holodeck", "Minesweep Jammer", "Mobile Analysis Bay", "Photon Bomb", "Soylent Purple",
 		"Resource Card",
@@ -2518,6 +2545,7 @@ function keywordifyCollection(collObj) {
 		{regex: conceptLink("Type XI")+"II", newTxt: conceptLink("Type XIII")},
 		{regex: conceptLink("type xi")+"ii", newTxt: conceptLink("type xiii")},
 		{regex: "Fast "+conceptLink("Replicator")+"s", newTxt: conceptLink("Fast Replicators")},
+		{regex: conceptLink("Replicator")+" Capitol", newTxt: conceptLink("Replicator Capitol")},
 		{regex: "Light "+conceptLink("Cruiser"), newTxt: conceptLink("Light Cruiser")},
 		{regex: "light "+conceptLink("cruiser"), newTxt: conceptLink("light cruiser")},
 		{regex: "Heavy "+conceptLink("Cruiser"), newTxt: conceptLink("Heavy Cruiser")},

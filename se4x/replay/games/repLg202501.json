@@ -22,21 +22,8 @@
 	"commentary":"<p>Xinu having access to Movement 3 from the get go will make things tougher; not to mention they can buy subsequent Movement technology cheaper.</p><p><i>But</i>, our own empire advantage allows us to safely uncover the entirety of the home systems from the beginning. We do not have to hold our Flagship + other ships back; even if they run into a black hole, we need not worry about destruction.</p>",
 	"actions":
 		[{
-			"placeCounter":"type0V1",
-			"location":"L3"
-		},{
-			"placeCounter":"type0V2",
-			"location":"K3",
-			"name":"hiddenV"
-		},{
-			"placeCounter":"type0V3",
-			"location":"K4"
-		},{
-			"placeCounter":"type0V4",
-			"location":"L5"
-		},{
-			"placeCounter":"type0V5",
-			"location":"L3"
+			"placeHullsV":"L3,K3,K4,L5,L3",
+			"startId":1
 		},{
 			"placeCounter":"FlagV",
 			"location":"K3"
@@ -120,21 +107,13 @@
 	"commentary":"<p>As aggressive as the Replicator environment is when colonizing planets, they will never spend their Type Flag to perform this task.</p>",
 	"actions":
 		[{
-			"placeCounter":"type0V1",
-			"location":"L2",
-			"name":"hiddenV"
+			"removeHullsV":"2"
 		},{
-			"removeCounter":"type0V2"
+			"placeHullsV":"L2",
+			"startId":1
 		},{
-			"placeCounter":"type0V3",
-			"location":"J5"
-		},{
-			"placeCounter":"type0V4",
-			"location":"L6"
-		},{
-			"placeCounter":"type0V5",
-			"location":"K2",
-			"name":"hiddenV"
+			"placeHullsV":"J5,L6,K2",
+			"startId":3
 		},{
 			"placeCounter":"FlagV",
 			"location":"J3"
@@ -238,23 +217,16 @@
 	"commentary":"<p>Xinu has ran into their supernova early. This slows their mission down.</p><p>Normally, we would be screwed by our home system barren planet. But, because Replicators are present in this scenario, we can colonize it as if it was a regular planet. We still have to develop Terraforming 1 in order to colonize deep space barren planets, a process we may or may not do because of the presence of non-player aliens.</p>",
 	"actions":
 		[{
-			"removeCounter":"type0V1"
+			"removeHullsV":"1,5,6,7"
 		},{
 			"placeGhost":"hiddenV",
 			"location":"K5"
 		},{
-			"placeCounter":"type0V3",
-			"location":"J5"
-		},{
-			"placeCounter":"type0V4",
-			"location":"L7"
-		},{
-			"removeCounter":"type0V5"
+			"placeHullsV":"J5,L7",
+			"startId":3
 		},{
 			"placeCounter":"FlagV",
 			"location":"J4"
-		},{
-			"removeHullsV":"6,7"
 		},{
 			"placeGhost":"minerals5",
 			"location":"L3"
@@ -365,14 +337,11 @@
 		}],
 	"actions":
 		[{
-			"placeCounter":"type0V3",
-			"location":"J5"
-		},{
-			"placeCounter":"type0V4",
-			"location":"L7"
-		},{
 			"placeCounter":"FlagV",
 			"location":"J4"
+		},{
+			"placeHullsV":"J5,L7",
+			"startId":3
 		},{
 			"placeHullsV":"L4,L4",
 			"startId":6
@@ -460,15 +429,11 @@
 	"commentary":"<p>Normally, we would need to conduct a black hole check for our Flagship. Space Pilgrims allows us to bypass this check.</p>",
 	"actions":
 		[{
-			"placeCounter":"type0V3",
-			"location":"J6"
-		},{
-			"placeCounter":"type0V4",
-			"location":"L8",
-			"name":"hiddenV"
-		},{
 			"placeCounter":"FlagV",
 			"location":"J3"
+		},{
+			"placeHullsV":"J6,L8",
+			"startId":3
 		},{
 			"placeHullsV":"K3,L3",
 			"startId":6
@@ -544,13 +509,13 @@
 	"commentary":"<p>We have found the last of our home system planets.</p>",
 	"actions":
 		[{
-			"placeCounter":"type0V3",
-			"location":"J7"
-		},{
-			"removeCounter":"type0V4"
-		},{
 			"placeCounter":"FlagV",
 			"location":"J2"
+		},{
+			"removeHullsV":"4"
+		},{
+			"placeHullsV":"J7",
+			"startId":3
 		},{
 			"placeHullsV":"J3,L2",
 			"startId":6
@@ -637,13 +602,13 @@
 	"commentary":"<p>Danger markers still instantly destroy our ships. Space Pilgrims does not guard against this.</p>",
 	"actions":
 		[{
-			"placeCounter":"type0V3",
-			"location":"K7"
-		},{
 			"placeCounter":"FlagV",
 			"location":"J1"
 		},{
 			"removeHullsV":"6,8,9"
+		},{
+			"placeHullsV":"K7",
+			"startId":3
 		},{
 			"placeHullsV":"K1",
 			"startId":7
@@ -756,11 +721,11 @@
 		}],
 	"actions":
 		[{
-			"placeCounter":"type0V3",
-			"location":"K7"
-		},{
 			"placeCounter":"FlagV",
 			"location":"J1"
+		},{
+			"placeHullsV":"K7",
+			"startId":3
 		},{
 			"placeHullsV":"K1,L4,L4",
 			"startId":7
@@ -852,12 +817,11 @@
 	"commentary":"<p>We have found a warp point marker. Too bad this terrain is never used in Replicator Solitaire.</p>",
 	"actions":
 		[{
-			"placeCounter":"type0V3",
-			"location":"K6",
-			"name":"hiddenV"
-		},{
 			"placeCounter":"FlagV",
 			"location":"J2"
+		},{
+			"placeHullsV":"K6",
+			"startId":3
 		},{
 			"placeHullsV":"L1,L5,L5",
 			"startId":7
@@ -908,8 +872,6 @@
 	"commentary":"<p>Deep Space itself claims another Scout.</p>",
 	"actions":
 		[{
-			"removeCounter":"type0V3"
-		},{
 			"placeGhost":"FlagV",
 			"location":"J3"
 		},{
@@ -921,6 +883,8 @@
 		},{
 			"placeGhost":"hiddenV",
 			"location":"L6"
+		},{
+			"removeHullsV":"3"
 		},{
 			"placeHullsV":"L3,L7,L7",
 			"startId":7

@@ -22,25 +22,8 @@
 	"commentary":"<p>Space Pilgrims left us so spoiled last time. We should hold back our more expensive starships and our Miner this time.</p>",
 	"actions":
 		[{
-			"placeCounter":"type0V1",
-			"location":"L8",
-			"name":"hiddenV"
-		},{
-			"placeCounter":"type0V2",
-			"location":"K8",
-			"name":"hiddenV"
-		},{
-			"placeCounter":"type0V3",
-			"location":"L8"
-		},{
-			"placeCounter":"type0V4",
-			"location":"K8"
-		},{
-			"placeCounter":"type0V5",
-			"location":"L8"
-		},{
-			"placeCounter":"type0V6",
-			"location":"K8"
+			"placeHullsV":"L8,K8,L8,K8,L8,K8",
+			"startId":1
 		},{
 			"placeCounter":"FlagV",
 			"location":"L8"
@@ -109,22 +92,10 @@
 	"commentary":"<p>Not every day that every home system uncovered on the first turn is a planet, and on both sides of the map.</p>",
 	"actions":
 		[{
-			"removeCounter":"type0V1"
+			"removeHullsV":"1,2"
 		},{
-			"removeCounter":"type0V2"
-		},{
-			"placeCounter":"type0V3",
-			"location":"L7",
-			"name":"hiddenV"
-		},{
-			"placeCounter":"type0V4",
-			"location":"J8"
-		},{
-			"placeCounter":"type0V5",
-			"location":"K7"
-		},{
-			"placeCounter":"type0V6",
-			"location":"J9"
+			"placeHullsV":"L7,J8,K7,J9",
+			"startId":3
 		},{
 			"placeCounter":"FlagV",
 			"location":"K7"
@@ -199,22 +170,13 @@
 	"commentary":"<p>Overall, both sides can enjoy a very good start to this scenario.</p>",
 	"actions":
 		[{
-			"removeCounter":"type0V3"
+			"removeHullsV":"3,7,8"
 		},{
-			"placeCounter":"type0V4",
-			"location":"J7"
-		},{
-			"placeCounter":"type0V5",
-			"location":"K6",
-			"name":"hiddenV"
-		},{
-			"placeCounter":"type0V6",
-			"location":"J8"
+			"placeHullsV":"J7,K6,J8",
+			"startId":4
 		},{
 			"placeCounter":"FlagV",
 			"location":"K6"
-		},{
-			"removeHullsV":"7,8"
 		},{
 			"revealCounter":"systemL8",
 			"name":"colony0V"
@@ -299,19 +261,16 @@
 		}],
 	"actions":
 		[{
-			"removeCounter":"type0V5"
+			"placeHullsV":"J7",
+			"startId":4
 		},{
-			"placeCounter":"type0V4",
-			"location":"J7"
+			"removeHullsV":"5"
 		},{
-			"placeCounter":"type0V6",
-			"location":"J8"
+			"placeHullsV":"J8,L9,L9",
+			"startId":6
 		},{
 			"placeCounter":"FlagV",
 			"location":"K6"
-		},{
-			"placeHullsV":"L9,L9",
-			"startId":7
 		},{
 			"revealCounter":"systemL8",
 			"name":"colony1"
@@ -381,17 +340,14 @@
 	"commentary":"<p>The environment will never use their Type Flag to colonize a planet. Meanwhile, we will go on ahead and upgrade our Flagship with Exploration 1 (-3).</p>",
 	"actions":
 		[{
-			"placeCounter":"type0V4",
-			"location":"J6"
+			"placeHullsV":"J6",
+			"startId":4
 		},{
-			"placeCounter":"type0V6",
-			"location":"J7"
+			"placeHullsV":"J7,L8,L8",
+			"startId":6
 		},{
 			"placeCounter":"FlagV",
 			"location":"L6"
-		},{
-			"placeHullsV":"L8,L8",
-			"startId":7
 		},{
 			"revealCounter":"systemJ6",
 			"name":"asteroids"
@@ -454,20 +410,17 @@
 	"commentary":"<p>We have each ran into our respective home system obstacles. The Replicator supernova simply slows down further reconissance. We have uncovered our first black hole, threatening one of our Scouts with its destructive pull. We rolled a 4, avoiding its grasp.</p>",
 	"actions":
 		[{
-			"placeCounter":"type0V4",
-			"location":"K5"
+			"placeHullsV":"K5",
+			"startId":4
 		},{
-			"placeCounter":"type0V6",
-			"location":"J6"
+			"placeHullsV":"J6,L7,L7",
+			"startId":6
 		},{
 			"placeGhost":"FlagV",
 			"location":"L5"
 		},{
 			"placeCounter":"FlagV",
 			"location":"L6"
-		},{
-			"placeHullsV":"L7,L7",
-			"startId":7
 		},{
 			"revealCounter":"systemK5",
 			"name":"nebula"
@@ -528,18 +481,14 @@
 	"commentary":"<p>We finally unload our first minerals...</p>",
 	"actions":
 		[{
-			"placeCounter":"type0V4",
-			"location":"K4",
-			"name":"hiddenV"
+			"placeHullsV":"K4",
+			"startId":4
 		},{
-			"placeCounter":"type0V6",
-			"location":"J5"
+			"placeHullsV":"J5,L6,L6",
+			"startId":6
 		},{
 			"placeCounter":"FlagV",
 			"location":"K5"
-		},{
-			"placeHullsV":"L6,L6",
-			"startId":7
 		},{
 			"removeHullsV":"9,10"
 		},{
@@ -637,18 +586,16 @@
 		}],
 	"actions":
 		[{
-			"removeCounter":"type0V4"
+			"removeHullsV":"4,7"
 		},{
-			"placeCounter":"type0V6",
-			"location":"J5"
+			"placeHullsV":"J5",
+			"startId":6
 		},{
 			"placeCounter":"FlagV",
 			"location":"K5"
 		},{
 			"placeHullsV":"L6,L9,L9",
 			"startId":8
-		},{
-			"removeHullsV":"7"
 		},{
 			"revealCounter":"systemL8",
 			"name":"colony3"
@@ -739,11 +686,11 @@
 	"commentary":"<p>Leykeber has been both funneled and inhibited at the same time. Even with the extra Type 0 it started the playthrough with (relative to Easy difficulty), it may still take a considerable while before they can finish uncovering their home systems.</p><p>Since we are playing a <q>living</q> faction, we are not confined to our home systems at all. Thus, we can step foot into deep space as appropriate.</p>",
 	"actions":
 		[{
-			"placeCounter":"type0V6",
-			"location":"J4"
-		},{
 			"placeCounter":"FlagV",
 			"location":"K4"
+		},{
+			"placeHullsV":"J4",
+			"startId":6
 		},{
 			"placeHullsV":"K5,L8,L8",
 			"startId":8
@@ -818,11 +765,11 @@
 	"commentary":"<p>And thus concludes the last of our home systems. Only deep space remains for us. Pirates are not used at all in this scenario, so this marker does nothing to us.</p>",
 	"actions":
 		[{
-			"placeCounter":"type0V6",
-			"location":"J3"
-		},{
 			"placeCounter":"FlagV",
 			"location":"K3"
+		},{
+			"placeHullsV":"J3",
+			"startId":6
 		},{
 			"placeHullsV":"K4,L7,L7",
 			"startId":8
@@ -909,12 +856,11 @@
 	"commentary":"<p>We run into two barren planets on the very same turn. Because non-player aliens are active, we are ambushed by their defenders.</p><h3>The Trespass of Abydos</h3><p>Abydos' defenders rolled 8,1,4,1 (3 hits &le;4), easily eliminating this trespasser.</p><h3>The Trespass of Cobol</h3><p>Cobol's defenders rolled 10,3,5,9 (3 hits &le;5), also eliminating this straggler.</p>",
 	"actions":
 		[{
-			"placeCounter":"type0V6",
-			"location":"K3",
-			"name":"hiddenV"
-		},{
 			"placeCounter":"FlagV",
 			"location":"L3"
+		},{
+			"placeHullsV":"K3",
+			"startId":6
 		},{
 			"placeHullsV":"L4,L6,L6",
 			"startId":8
@@ -1051,10 +997,10 @@
 		}],
 	"actions":
 		[{
-			"removeCounter":"type0V6"
-		},{
 			"placeCounter":"FlagV",
 			"location":"L3"
+		},{
+			"removeHullsV":"6"
 		},{
 			"placeHullsV":"L4,L6,L6,L9,L9",
 			"startId":8

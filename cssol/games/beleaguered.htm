@@ -2,22 +2,22 @@
 <html lang="en">
 <head>
 	<meta name="description" content="JavaScript solitaire games" />
-	<meta name="keywords" content="Forty Thieves" />
+	<meta name="keywords" content="Yukon" />
 	<meta name="author" content="Paul Ruediger" />
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 	
-	<title>Forty Thieves - CSSol</title>
+	<title>Beleaguered Castle - CSSol</title>
 
 	<link type="text/css" href="../scripts/cards.css" rel="stylesheet" />
 	<link type="image/x-icon" href="../cssol.ico" rel="icon" />
 	<script type="text/javascript" src="../scripts/common.js"></script>
 	<script type="text/javascript" src="../scripts/homepiles.js"></script>
 	<script type="text/javascript" src="../scripts/wizard.js"></script>
-	<script type="text/javascript" src="../scripts/40thieves.js"></script>
+	<script type="text/javascript" src="../scripts/beleaguered.js"></script>
 </head>
 <body>
 <p id="banner"><a href="../index.htm"><img src="../gfx/banner.png" alt="" /></a></p>
-<div id="tableau">
+<div id="tableau" style="max-height: 560px;">
 	<div id="commandPanel">
 	<input id="newGame" class="button" type="button" value="New" onclick="newGame(false,true)" title="Starts a new game" />
 	<input id="restartGame" class="button" type="button" value="Restart" onclick="restartGame(false)" title="Restarts the game using the same password" />
@@ -29,11 +29,11 @@
 	<span id="passDisp"><br />Password: <input id="password" class="text" type="text" size="60" onchange="newGame(false,false)" /></span>
 	&mdash;
 	<select id="gameDiff" class="text" onchange="changeDiff(false)">
-		<option>Napoleon's Exile</option>
-		<option selected="selected">Forty Thieves</option>
+	<option selected="selected">Beleaguered Castle</option>
+	<option>Streets and Alleys</option>
 	</select>
 	</div>
-	
+
 	<!-- Playfield elements will be made here -->
 </div>
 
@@ -41,18 +41,13 @@
 
 <div id="helpPanel">
 <h2>Instructions</h2>
-<p>The objective in Forty Thieves is to move all cards from tableau and stock to foundations. This is a very difficult card game, requiring tremendous amounts of skill and luck. </p>
+<p>First, the player removes the aces from the deck and aligns them vertically without overlapping them. They form the foundations. Then cards are dealt to the left and right of the aces, forming eight rows of six overlapping cards each.</p>
 
-<ul>
-<li>Two decks are used (104 cards). Deal ten tableau piles of four cards each, all face up and all visible.</li>
-<li>The player may only move the top card from any tableau pile. They may place any single card in an empty tableau space.</li>
-<li>The foundations are built up by suit, from ace to king. Likewise, the tableau piles are built down by suit.</li>
-<li>The player may deal one card at a time from the stock to the waste, of which the very top card you may use onto the tableau or the foundation. There are no redeals.</li>
-</ul>
+<p>The top card of each row (the cards that are exposed) is available for play either on the foundations or on any other row. The foundations are built up to kings by suit. Cards in the rows are built down in sequence regardless of suit. Once a row becomes empty, it can be filled by any card.</p>
 
-<p>There exists an easier version called <strong>Napoleon's Exile</strong> where you build down regardless of suit, but none of the other rules have changed.</p>
+<p>The game is won when all of the cards are built onto the foundations. However, this is easier said than done because most games are doomed to fail in just a few moves.</p>
 
-<p class="footer">Documentation is &copy; Paul Ruediger. Freely distributable under the <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons (BY) license 4.0</a></p>
+<p class="footer">Documentation is &copy; <a href="http://en.wikipedia.org">Wikipedia Contributors</a>. Freely distributable under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons (BY SA) license 3.0</a></p>
 </div>
 
 </body>
