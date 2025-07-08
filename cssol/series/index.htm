@@ -42,20 +42,33 @@
 	emptyPileRefills = "finalRank";
 	tableauBuilding = "downColorAlt";
 	maxRedeals = 0;
-	prefilledReserve = 0;
 	deckCost = 52;
 	stockDealTo = 0;
 	forceFinalBottom = false;
 	emptyAutoRefills = 0;
 	
+	// Auxillary Settings
+	wasteDealBy = 1;
+	prefilledReserve = 0;
+	maxReserve = 0;
+	
 	switch (seriesGame) {
 		case 1:
-			seriesName = "Klondike";
-			tableauStructure = [1,2,3,4,5,6,7];
-			downturnDepth = [6];
-			tableauMovement = "builds";
-			maxRedeals = -1;
-			deckCost = 28;
+			if (seriesSeason < 3) {
+				seriesName = "Klondike";
+				tableauStructure = [1,2,3,4,5,6,7];
+				downturnDepth = [6];
+				tableauMovement = "builds";
+				maxRedeals = -1;
+				deckCost = 28;
+			} else {
+				seriesName = "FreeCell";
+				tableauStructure = [8,8,8,8,7,7,7,7];
+				downturnDepth = [0];
+				tableauMovement = "oneCard";
+				emptyPileRefills = "anyCard";
+				maxReserve = 4;
+			}
 			break;
 			
 		case 2:
@@ -64,7 +77,7 @@
 				tableauStructure = [1,6,7,8,9,10,11];
 				downturnDepth = [0,1,2,3,4,5,6];
 				tableauMovement = "yukonStyle";
-			} else {
+			} else if (seriesSeason == 2) {
 				seriesName = "Baker's Dozen";
 				tableauStructure = [4,4,4,4,4,4,4,4,4,4,4,4,4];
 				downturnDepth = [0];
@@ -72,6 +85,14 @@
 				tableauBuilding = "downAnySuit";
 				emptyPileRefills = "none";
 				forceFinalBottom = true;
+			} else if (seriesSeason == 3) {
+				seriesName = "Rushdike";
+				tableauStructure = [1,2,3,4,5,6,7];
+				downturnDepth = [6];
+				tableauMovement = "yukonStyle";
+				tableauBuilding = "downSuit";
+				stockDealTo = 2;
+				deckCost = 28;
 			}
 			break;
 			
@@ -94,6 +115,18 @@
 				stockDealTo = -1;
 				deckCost = 37;
 				emptyAutoRefills = 3;
+			} else if (seriesSeason == 3) {
+				seriesName = "Tarantula";
+				wizardDecks = 2;
+				tableauStructure = [6,6,6,6,5,5,5,5,5,5];
+				downturnDepth = [5];
+				scoringModel = "buildKASpider";
+				tableauBuilding = "downAnySuit";
+				tableauMovement = "taranStyle";
+				emptyPileRefills = "none";
+				emptyPileRefills = "anyCard";
+				stockDealTo = 3;
+				deckCost = 54;
 			}
 			break;
 	}
@@ -105,11 +138,6 @@
 	tableauWidth = tableauStructure.length;
 	tableauShape = -1;
 	tableauDepth = Math.max(...tableauStructure);
-
-
-	// Auxillary Settings
-	wasteDealBy = 1;
-	maxReserve = 0;
 	</script>
 </head>
 <body>
@@ -142,7 +170,7 @@
 
 <p>Games won beyond the first game also have a fixed reward that is not reduced by losses made on unsuccessful attempts, although the undo penalty can chew into this bonus.</p>
 
-<table style="margin-left: auto; margin-right: auto;" summary="A breakdown of the scoring system. In short, the Win bonus increases with each subsequent game. The grand total maximum can be 1,000 points, for successfully winning the entire series on the respective first tries.">
+<table style="margin-left: auto; margin-right: auto;" summary="A breakdown of the scoring system. In short, the Win bonus increases with each subsequent game. The grand total maximum can be $1,000; for successfully winning the entire series on the respective first tries, and without using undo.">
 <thead><tr>
 	<th>Game</th>
 	<th>Base Score</th>
@@ -152,29 +180,29 @@
 </tr></thead>
 <tfoot><tr>
 	<td>Grand Total</td>
-	<td class="numeric">156</td>
+	<td class="numeric">208</td>
 	<td class="numeric">&mdash;</td>
-	<td class="numeric">376</td>
+	<td class="numeric">116</td>
 	<td class="numeric">1,000</td>
 </tr></tfoot>
 <tbody><tr>
-	<td>Klondike</td>
+	<td>FreeCell</td>
 	<td class="numeric">52</td>
 	<td class="numeric">3</td>
 	<td class="numeric">0</td>
 	<td class="numeric">156</td>
 </tr><tr>
-	<td>Baker's Dozen</td>
+	<td>Rushdike</td>
 	<td class="numeric">52</td>
 	<td class="numeric">4</td>
-	<td class="numeric">128</td>
-	<td class="numeric">336</td>
-</tr><tr>
-	<td>Scorpion</td>
 	<td class="numeric">52</td>
+	<td class="numeric">260</td>
+</tr><tr>
+	<td>Tarantula</td>
+	<td class="numeric">104</td>
 	<td class="numeric">5</td>
-	<td class="numeric">248</td>
-	<td class="numeric">508</td>
+	<td class="numeric">64</td>
+	<td class="numeric">584</td>
 </tr></tbody>
 </table>
 

@@ -29,6 +29,7 @@ var scoringModel = "buildUpSuit";
 var filepath = window.location.pathname;
 var playDeck, searchElement, baseRank, finalRank, tableauWidth;
 var wizardScoring = null;
+var bestCasual = 0;
 forceRender = false;
 rectangularTableau = true;
 traditionalStock = true;
@@ -131,6 +132,7 @@ function exportLog(gameWon) {
 			} else {
 				appendStatus("<br />A perfect score has been achieved on this series!");
 			}
+			appendStatus(" <a href=\"javascript:readSeriesStats('"+genStatsLink+"')\">Check your stats!</a>");
 		}
 	}
 }
@@ -625,6 +627,7 @@ function renderPlayarea() {
 	if (solGame.spiderCon) {
 		solGame.casualScore = spiderScore;
 	}
+	bestCasual = Math.max(bestCasual, solGame.casualScore);
 
 	searchElement = document.getElementById("autoBuild");
 	if (searchElement) {
@@ -1299,6 +1302,7 @@ function getRank(object) {
 function shuffleDeck(decks) {
 	passField = document.getElementById("password");
 	numShuffles = 2 + decks * 5;
+	bestCasual = 0;
 
 	for (var i = 0; i < numShuffles; i++) {
 		playDeck.shuffle();
@@ -1423,6 +1427,18 @@ function loadSeriesFile() {
 	}
 }
 
+function readSeriesStats(detailedStats) {
+	detailFrags = detailedStats.split("~");
+	var moneyWon = Math.max(parseInt(detailFrags[0]) * parseInt(detailFrags[1]) + parseInt(detailFrags[2]) - parseInt(detailFrags[3]), 0);
+	
+	alert("Cards secured: "+detailFrags[0]+
+		"\nLives multiplier: x"+detailFrags[1]+
+		"\nSolve bonus: +$"+detailFrags[2]+
+		"\nUndo penalty: -$"+detailFrags[3]+
+		"\n------------------------------"+
+		"\nTotal game winnings: $"+moneyWon);
+}
+
 function saveSeriesFile(gameWon) {
 	var passField = document.getElementById("password");
 	var resButton = document.getElementById("restartGame");
@@ -1434,14 +1450,20 @@ function saveSeriesFile(gameWon) {
 		var cardsMod = 0;
 		switch (seriesGame) {
 			case 2:
-				winBonus = 128;
+				if (seriesSeason < 3) {
+					winBonus = 128;
+				} else {
+					winBonus = 52;
+				}
 				break;
 			case 3:
 				if (seriesSeason == 1) {
 					winBonus = 268;
 					cardsMod = -4;
-				} else {
+				} else if (seriesSeason == 2) {
 					winBonus = 248;
+				} else {
+					winBonus = 64;
 				}
 				break;
 		}

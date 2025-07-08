@@ -9,7 +9,7 @@ function finishSeriesGame() {
 	if (!nextGame && !endSeries) {
 		if (seriesDiff == 1) {
 			if (seriesGame < 3) {
-				var cardsWorth = solGame.casualScore * seriesLives;
+				var cardsWorth = bestCasual * seriesLives;
 				
 				nextGame = confirm("Abort this game and go to the next game in the series? (You will bank $"+cardsWorth+" this way.)");
 				if (nextGame) {

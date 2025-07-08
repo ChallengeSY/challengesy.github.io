@@ -32,12 +32,14 @@
 					saveInfo.innerHTML = "<button class=\"interact\" disabled=\"disabled\" title=\"There is no saved series to resume\">Resume series</button>";
 				} else {
 					var skillLevels = ["Casual", "Regular", "Fanatic", "Hardcore"];
-					var gamePool = ["Klondike", "Baker's Dozen", "Chelicera"];
+					var gamePool = [["Klondike", "Yukon", "Raglan"],
+						["Klondike", "Baker's Dozen", "Chelicera"],
+						["FreeCell", "Rushdike", "Tarantula"]];
 					
 					if (seriesGame < 1 || seriesGame > 3 || seriesLives <= 0) {
 						saveInfo.innerHTML = "<button class=\"interact\" disabled=\"disabled\" title=\"There is no saved series to resume\">Resume series</button>";
 					} else {
-						var saveData = "Skill Level: "+skillLevels[seriesDiff-1]+"\nGame: "+gamePool[seriesGame-1]+"\nLives: "+seriesLives+"\nScore: "+seriesScore;
+						var saveData = "Skill Level: "+skillLevels[seriesDiff-1]+"\nGame: "+gamePool[seriesSeason-1][seriesGame-1]+"\nLives: "+seriesLives+"\nScore: "+seriesScore;
 						saveInfo.innerHTML = "<a href=\"series/\" class=\"interact\" title=\""+saveData+"\">Resume series</button>";
 					}
 				}
