@@ -2,9 +2,9 @@ baseStatFile = "seriesPlay";
 window.onbeforeunload = function(event) {confirmLeave(event, "Leaving this game will save your series, but reset your current attempt to the beginning.")};
 
 function finishSeriesGame() {
-	var nextGame = !solGame.recordWin;
+	var nextGame = (!solGame.recordWin || !solGame.gameActive0);
 	var redoGame = false;
-	var endSeries = (seriesGame > 3);
+	var endSeries = (seriesGame > 3 || seriesLives < 1);
 	
 	if (!nextGame && !endSeries) {
 		if (seriesDiff == 1) {
