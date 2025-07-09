@@ -371,7 +371,9 @@ function dealStock() {
 			}
 			renderPlayarea();
 		} else if (stockDealTo == 3 && emptyTableau) {
-			updateStatus("A new row may not be dealt while there are empty columns.");
+			if (solGame.stockRemain > 0) {
+				updateStatus("A new row may not be dealt while there are empty columns.");
+			}
 		} else {
 			for (var j = 0; j < wasteDealBy; j++) {
 				if (stockDealTo < 5) {
