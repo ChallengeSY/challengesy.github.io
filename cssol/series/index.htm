@@ -35,7 +35,6 @@
 	wizardDecks = 1;
 	scoringModel = "buildUpSuit";
 	setBaseRank("Ace");
-	var allowAutobuild = true;
 	startingCards = 0;
 	
 	// Tableau Settings
@@ -138,6 +137,8 @@
 	tableauWidth = tableauStructure.length;
 	tableauShape = -1;
 	tableauDepth = Math.max(...tableauStructure);
+
+	allowAutobuild = (scoringModel == "buildUpSuit" || scoringModel == "buildUpColorAlt");
 	</script>
 </head>
 <body>
@@ -146,7 +147,11 @@
 	<div id="commandPanel">
 	<input id="newGame" class="button" type="button" value="Finish" onclick="finishSeriesGame()" title="Records the current game into the series system" />
 	<input id="restartGame" class="button" type="button" value="Restart" onclick="restartGame(false)" title="Restarts the game using the same password" />
-	<input id="autoBuild" class="button" type="button" value="Autobuild" onclick="autoFinish()" title="Automatically builds foundations where possible" />
+	<script type="text/javascript">
+	if (allowAutobuild) {
+		document.write('<input id="autoBuild" class="button" type="button" value="Autobuild" onclick="autoFinish()" title="Automatically builds foundations where possible" />');
+	}
+	</script>
 	<input id="helpButton" class="button" type="button" value="Help" onclick="toggleHelp(false)" title="Toggles game instructions" />
 	<input id="undoMove" class="button" type="button" value="Undo" onclick="undoMove()" title="Undoes the last move" />
 	<br />Current Score: <span id="casualScore">0</span>
