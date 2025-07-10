@@ -36,18 +36,28 @@ function buildDieCell(result, maxRoll) {
 	return "<td>"+result+"</td>";
 }
 
-function buildSeedVisualizer(seedInit, baysL, beamsL, baysR, beamsR) {
+function buildSeedVisualizer(seedInit, baysL, beamsL, baysR, beamsR, shootShips) {
 	var infoPanel = document.getElementById("infobox");
 	var workSeed = seedInit;
 	var rowsDone = 0;
 	
 	displayTxt = "<table><thead><tr>";
 	displayTxt += "<th title=\"Seed at tick start\">Seed</th>";
-	for (var a = 0; a < beamsL; a++) {
-		displayTxt += "<th title=\"Left Combatant Beam "+a+"\">bL"+a+"</th>";
+	if (shootShips) {
+		for (var a = 0; a < beamsL; a++) {
+			displayTxt += "<th title=\"Left Combatant Beam "+a+"R\">oL"+a+"</th>";
+		}
 	}
-	for (var b = 0; b < beamsR; b++) {
-		displayTxt += "<th title=\"Right Combatant Beam "+b+"\">bR"+b+"</th>";
+	for (var b = 0; b < beamsL; b++) {
+		displayTxt += "<th title=\"Left Combatant Beam "+b+"F\">bL"+b+"</th>";
+	}
+	for (var c = 0; c < beamsR; c++) {
+		displayTxt += "<th title=\"Right Combatant Beam "+c+"F\">bR"+c+"</th>";
+	}
+	if (shootShips) {
+		for (var d = 0; d < beamsR; d++) {
+			displayTxt += "<th title=\"Right Combatant Beam "+d+"R\">oR"+d+"</th>";
+		}
 	}
 	if (baysL > 0) {
 		displayTxt += "<th title=\"Left Combatant Fighter Bay\">fL</th>";
@@ -55,23 +65,35 @@ function buildSeedVisualizer(seedInit, baysL, beamsL, baysR, beamsR) {
 	if (baysR > 0) {
 		displayTxt += "<th title=\"Left Combatant Fighter Bay\">fR</th>";
 	}
-	for (var a = 0; a < beamsL; a++) {
-		displayTxt += "<th title=\"Left Combatant Recharge "+a+"\">eL"+a+"</th>";
+	for (var e = 0; e < beamsL; e++) {
+		displayTxt += "<th title=\"Left Combatant Recharge "+e+"\">eL"+e+"</th>";
 	}
-	for (var b = 0; b < beamsR; b++) {
-		displayTxt += "<th title=\"Right Combatant Recharge "+b+"\">eR"+b+"</th>";
+	for (var f = 0; f < beamsR; f++) {
+		displayTxt += "<th title=\"Right Combatant Recharge "+f+"\">eR"+f+"</th>";
 	}
 	displayTxt += "</tr></thead><tbody>";
 	do {
 		displayTxt += "<tr>";
 		displayTxt += "<td>"+workSeed+"</td>";
-		for (var a = 0; a < beamsL; a++) {
+		if (shootShips) {
+			for (var a = 0; a < beamsL; a++) {
+				displayTxt += buildDieCell(seedTableTwenty[workSeed],6);
+				workSeed = (workSeed + 1) % 119;
+			}
+		}
+		for (var b = 0; b < beamsL; b++) {
 			displayTxt += buildDieCell(seedTableTwenty[workSeed],4);
 			workSeed = (workSeed + 1) % 119;
 		}
-		for (var b = 0; b < beamsR; b++) {
+		for (var c = 0; c < beamsR; c++) {
 			displayTxt += buildDieCell(seedTableTwenty[workSeed],4);
 			workSeed = (workSeed + 1) % 119;
+		}
+		if (shootShips) {
+			for (var d = 0; d < beamsR; d++) {
+				displayTxt += buildDieCell(seedTableTwenty[workSeed],6);
+				workSeed = (workSeed + 1) % 119;
+			}
 		}
 		if (baysL > 0) {
 			displayTxt += buildDieCell(seedTableTwenty[workSeed],baysL);
@@ -81,11 +103,11 @@ function buildSeedVisualizer(seedInit, baysL, beamsL, baysR, beamsR) {
 			displayTxt += buildDieCell(seedTableTwenty[workSeed],baysR);
 			workSeed = (workSeed + 1) % 119;
 		}
-		for (var a = 0; a < beamsL; a++) {
+		for (var e = 0; e < beamsL; e++) {
 			displayTxt += buildDieCell(seedTableTwenty[workSeed],0);
 			workSeed = (workSeed + 1) % 119;
 		}
-		for (var b = 0; b < beamsR; b++) {
+		for (var f = 0; f < beamsR; f++) {
 			displayTxt += buildDieCell(seedTableTwenty[workSeed],0);
 			workSeed = (workSeed + 1) % 119;
 		}
@@ -118,19 +140,19 @@ function buildSeedVisualizer(seedInit, baysL, beamsL, baysR, beamsR) {
 	nextSeed = (seedInit + 1) % 119;
 
 	displayTxt = "<b>"+headerTxt+"</b><br />" + displayTxt + "<br /><br />\
-		<a class=\"interact\" href=\"javascript:buildSeedVisualizer("+prevSeed+","+baysL+","+beamsL+","+baysR+","+beamsR+");\">&lArr;</a>\
+		<a class=\"interact\" href=\"javascript:buildSeedVisualizer("+prevSeed+","+baysL+","+beamsL+","+baysR+","+beamsR+","+shootShips+");\">&lArr;</a>\
 		<a class=\"interact\" href=\"javascript:closeBox();\">Close</a>\
-		<a class=\"interact\" href=\"javascript:buildSeedVisualizer("+nextSeed+","+baysL+","+beamsL+","+baysR+","+beamsR+");\">&rArr;</a>";
+		<a class=\"interact\" href=\"javascript:buildSeedVisualizer("+nextSeed+","+baysL+","+beamsL+","+baysR+","+beamsR+","+shootShips+");\">&rArr;</a>";
 	
 	infoPanel.innerHTML = displayTxt;
 	infoPanel.style.display = "initial";
 }
 
-function buildCustomTable() {
+function buildCustomTable(shootShips) {
 	var beamBanks = [document.getElementById("beamsL").value, document.getElementById("beamsR").value];
 	var fighterBays = [document.getElementById("baysL").value, document.getElementById("baysR").value];
 	
-	buildSeedVisualizer(Math.floor(Math.random()*119),fighterBays[0],beamBanks[0],fighterBays[1],beamBanks[1]);
+	buildSeedVisualizer(Math.floor(Math.random()*119),fighterBays[0],beamBanks[0],fighterBays[1],beamBanks[1],shootShips);
 }
 
 function closeBox() {

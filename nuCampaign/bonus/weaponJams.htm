@@ -56,7 +56,7 @@
 	<p>Now that we know where the die rolls are coming from, we can fetch samples where this becomes a problem.</p>
 	
 	<h4>White Falcon vs Automa</h4>
-	<p>For example, the White Falcon on the left (4-beam torp ship) battles my Automa on the right (4-beam carrier). 8 beam banks times 2 rolls equals 16 dice. My carrier rolls an extra die on top of that. The nominal dice per tick is 17 rolls <i>until</i> the White Falcon gets in range to fire its one tube. This causes one of their beam banks to <a href="javascript:buildSeedVisualizer(60,0,4,8,4);">jam</a> until that time. (Technically, one of my beam banks also jams, but there are no fighters to shoot down.)</p>
+	<p>For example, the White Falcon on the left (4-beam torp ship) battles my Automa on the right (4-beam carrier). 8 beam banks times 2 rolls equals 16 dice. My carrier rolls an extra die on top of that. The nominal dice per tick is 17 rolls <i>until</i> the White Falcon gets in range to fire its one tube. This causes one of their beam banks to <a href="javascript:buildSeedVisualizer(60,0,4,8,4,false);">jam</a> until that time. (Technically, one of my beam banks also jams, but there are no fighters to shoot down.)</p>
 </div>
 
 <div id="ch3">
@@ -65,7 +65,7 @@
 		<a href="instruPlanetVCR.png"><img class="vcr" src="instruPlanetVCR.png" alt="Instrumentality vs Planet VCR sample" /></a>
 	</video>
 	<h3>Instrumentality vs Planet</h3>
-	<p>The planet on the right side was <i>unable</i> to launch its 3 fighters <a href="javascript:buildSeedVisualizer(57,7,4,3,2);">at all</a>. 6 beam banks total (times 2) plus 2 carriers equals 14 dice per nominal tick. If the carrier on the left was a lighter carrier with the same beam count, then it is possible the two could have been close enough to justify firing beams, which would cause it to no longer be cycling so few seeds.</p>
+	<p>The planet on the right side was <i>unable</i> to launch its 3 fighters <a href="javascript:buildSeedVisualizer(57,7,4,3,2,false);">at all</a>. 6 beam banks total (times 2) plus 2 carriers equals 14 dice per nominal tick. If the carrier on the left was a lighter carrier with the same beam count, then it is possible the two could have been close enough to justify firing beams, which would cause it to no longer be cycling so few seeds.</p>
 
 	<br style="clear: both;" />
 	<video controls="controls">
@@ -73,10 +73,21 @@
 		<a href="golemPlanetVCR.png"><img class="vcr" src="golemPlanetVCR.png" alt="Golem vs Planet VCR sample" /></a>
 	</video>
 	<h3>Golem vs Planet</h3>
-	<p>Finally, my Golem on the left (6-beam carrier) fights a planet (10-beam carrier). Since both combatants are carriers, that rolls 2 dice. 16 beam banks time 2 rolls each equals 32 dice. The nominal dice per tick becomes 34 rolls; which happens to be a multiple of 17. <a href="javascript:buildSeedVisualizer(33,10,6,16,10);">Weapon jams can occur</a> whenever we have a period where no dogfights take place, but each dogfight causes the seed <q>table</q> to shift.</p>	
+	<p>Finally, my Golem on the left (6-beam carrier) fights a planet (10-beam carrier). Since both combatants are carriers, that rolls 2 dice. 16 beam banks time 2 rolls each equals 32 dice. The nominal dice per tick becomes 34 rolls; which happens to be a multiple of 17. <a href="javascript:buildSeedVisualizer(33,10,6,16,10,false);">Weapon jams can occur</a> whenever we have a period where no dogfights take place, but each dogfight causes the seed <q>table</q> to shift.</p>	
 </div>
 
 <div id="ch4">
+	<video controls="controls">
+		<source src="qtankerVSserpent.mp4" type="video/mp4" />
+		<a href="qtankerSerpentVCR.png"><img class="vcr" src="qtankerSerpentVCR.png" alt="Q Tanker vs Serpent VCR sample" /></a>
+	</video>
+	<h3>Q Tanker vs Serpent</h3>
+	<p>This battle showcases one of the few times where jams happen <a href="javascript:buildSeedVisualizer(89,1,0,0,2,true);">partway through the battle</a>, instead of at the beginning. Early in the battle, 1 bay and 2 beam banks equate to 5 seeds per tick, which is not a multiple of either factor of 119.</p>
+	
+	<p>Once the Serpent becomes able to shoot at its rival ship, an extra two rolls are made (one for each beam bank throughout the battle), causing 7 rolls per tick... which <i>is</i> a factor of 119.</p>
+</div>
+
+<div id="ch5">
 	<h3>Overall</h3>
 	<p>The prime factor system makes combat quite wonky, as there is a risk that only a handful of seeds are used throughout the battle. We have a special present for those who are able to understand why these things occur in the first place... a seed simulator.</p>
 	
@@ -87,7 +98,7 @@
 		<th>Right</th>
 	</tr></thead>
 	<tfoot><tr>
-		<td colspan="3" class="center"><button class="interact" onclick="buildCustomTable();">Build seed table</button></td>
+		<td colspan="3" class="center"><button class="interact" onclick="buildCustomTable(false);">Build seed table (&ge;20 km)</button> <button class="interact" onclick="buildCustomTable(true);">Build seed table (&lt;20 km)</button></td>
 	</tr></tfoot>
 	<tbody><tr>
 		<td><input type="number" class="text" id="beamsL" value="4" min="0" max="10" size="3" /></td>
@@ -101,7 +112,7 @@
 	</table>
 </div>
 
-<p id="stop4" class="center"><button class="interact" onclick="continueStory();">Continue Article</button> <button class="interact" onclick="finishStory();">Finish Article</button></p>
+<p id="stop5" class="center"><button class="interact" onclick="continueStory();">Continue Article</button> <button class="interact" onclick="finishStory();">Finish Article</button></p>
 
 </body>
 </html>
