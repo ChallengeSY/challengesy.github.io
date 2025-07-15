@@ -24,3 +24,16 @@ prefilledReserve = 0;
 deckCost = 52;
 
 forceFinalBottom = true;
+
+reverseRender = true;
+setupApplied = false;
+
+function customRender() {
+	if (!setupApplied) {
+		for (var h = 0; h < 4; h++) {
+			reposElement("home"+h,COLUMN_WIDTH*(h+4.5),0);
+		}
+		
+		setupApplied = true;
+	}
+}

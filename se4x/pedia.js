@@ -81,10 +81,10 @@ function stats4X(faction, buildCost, atk, def, hullSize, tac, tech) {
 function statsTalon(faction, buildCost, weps, shields, hull) {
 	var fragTxt = "<br />";
 	fragTxt = fragTxt + "<b class=\"headOx\">"+faction+" Stats</b><br />";
-	fragTxt = fragTxt + "<b>Fleet Cost</b>: "+buildCost+" "+conceptLink("SP")+"<br />";
+	fragTxt = fragTxt + "<b>Cost</b>: "+buildCost+" "+conceptLink("SP")+"<br />";
 	fragTxt = fragTxt + "<b>Armaments</b>: "+weps+"<br />";
-	fragTxt = fragTxt + "<a href=\"javascript:showBox('shield')\">Shields</a>: "+shields+"<br />";
-	fragTxt = fragTxt + "<a href=\"javascript:showBox('hull')\">Hull</a> (points): "+hull+"<br />";
+	fragTxt = fragTxt + "<b><a href=\"javascript:showBox('shield')\">Shields</a></b>: "+shields+"<br />";
+	fragTxt = fragTxt + "<b>" + conceptLink("Hull")+" (points)</b>: "+hull+"<br />";
 	
 	return fragTxt;
 }
@@ -93,7 +93,7 @@ function discardVal(baseAmt, repAmt) {
 	var fragTxt = "<br /><br />";
 	fragTxt = fragTxt + "<b>Base Discard Value</b>: " + baseAmt + " "+conceptLink("CP");
 	if (repAmt) {
-		fragTxt = fragTxt + "<br /><b>Discard Value w/ "+conceptLink("Replicator")+"s</b>: \
+		fragTxt = fragTxt + "<br /><b>Discard Value w/ "+conceptLink("Replicators")+"</b>: \
 			" + repAmt + " "+conceptLink("CP");
 	}
 	
@@ -246,7 +246,11 @@ function showBox(concept) {
 				displayTxt = displayTxt + " There are 3 regular "+conceptLink("turn")+"s in between each economic phase.";
 			}
 			break;
+		case "explore":
+			// Fall thru, twice
+		case "exploring":
 		case "exploration":
+			headingTxt = "Exploration";
 			displayTxt = "The concept of exploring new terrain and uncovering their mysteries.";
 			if (useRuleset == "talon") {
 				displayTxt = displayTxt + " Not available in "+conceptLink("Talon")+" "+conceptLink("battle")+"s.";
@@ -338,8 +342,9 @@ function showBox(concept) {
 			break;
 		case "retreat":
 			if (useRuleset == "talon") {
-				displayTxt = "Process by which a "+conceptLink("ship")+" removes itself from battle alive. Usually requires spinning up FTL drives. \
-					Can be performed on the very last step of a "+conceptLink("power phase")+".";
+				displayTxt = "Process by which a "+conceptLink("ship")+" removes itself from "+conceptLink("battle")+" alive. Can be performed by entering a "+conceptLink("worm hole")+"; \
+					or by punching the FTL drive on the very last step of a "+conceptLink("power phase")+", \
+					provided the ship has been in battle for at least the number of "+conceptLink("rounds")+" equal to its max "+conceptLink("hull")+".";
 			} else {
 				displayTxt = "After the first "+conceptLink("battle")+" round, a mobile "+conceptLink("combat ship")+" may choose to retreat instead of fire upon an enemy ship.<br />\
 					If it does, it must retreat to an unguarded "+conceptLink("hex")+" that puts it equal to, or closer to the nearest "+conceptLink("colony")+"\
@@ -401,7 +406,7 @@ function showBox(concept) {
 		case "turn":
 			headingTxt = "Turn";
 			if (useRuleset == "talon") {
-				displayTxt = "Procedure in which a "+conceptLink("ship")+" or missile adjusts its heading. It then moves afterwards.";
+				displayTxt = "Procedure in which a "+conceptLink("ship")+" or missile adjusts its heading. It then moves afterwards, and its "+conceptLink("turn radius")+" is applied.";
 			} else {
 				displayTxt = "Technically a regular turn. A phase in which each player moves their "+conceptLink("ship")+"s, conducts "+conceptLink("battle")+"s, and explores systems;\
 					one player at a time.<br />3 turns occur in between each "+conceptLink("economic phase")+".";
@@ -1690,7 +1695,7 @@ function showBox(concept) {
 			break;
 		case "self-destruct":
 			headingTxt = "Self-Destruct";
-			displayTxt = "(Play when a ship gets "+conceptLink("capture")+"d. "+conceptLink("Pirate")+"s have this as an triggered ability.)<br />\
+			displayTxt = "(Play when a ship gets "+conceptLink("capture")+"d. "+conceptLink("Pirate")+"s have this as a triggered ability.)<br />\
 				The ship immediately detonates, denying the victor knowledge of anything other than rolling for "+conceptLink("experience")+". \
 				Also usable as a "+conceptLink("cancel card")+". " + discardVal(4,2);
 			break;
@@ -1955,8 +1960,8 @@ function showBox(concept) {
 		// All Good Things concepts
 		case "all good things":
 			displayTxt = "Capstone expansion to the base "+conceptLink("Space Empires 4X")+" board game. Adds an alternative to the vanilla faction,<br />\
-				increased variety of "+conceptLink("home system")+"s and scenarios, \
-				new <q>mission</q> "+conceptLink("resource card")+"s, new crew cards, and new "+conceptLink("facilities")+".";
+				increased variety of "+conceptLink("home system")+"s and scenarios, scenario cards, \
+				mission cards, crew cards, and more "+conceptLink("facilities")+".";
 			break;
 		case "starbase":
 			if (useRuleset == "talon") {
@@ -1998,7 +2003,7 @@ function showBox(concept) {
 		case "ai":
 			headingTxt = "Artificial Intelligence (AI)";
 			displayTxt = "Extremely antagonistic machine faction that operates their ships autonomously, introduced in "+conceptLink("Talon 1000")+".\
-				<br />Their ships use "+conceptLink("Laser")+"s and "+conceptLink("Cobalt Cannon")+"s.";
+				<br />Their ships use "+conceptLink("Laser")+"s and "+conceptLink("Cobalt Cannon")+"s, and have neither utility nor capacity for "+conceptLink("power")+".";
 			break;
 		case "empire war":
 			displayTxt = "Strategic "+conceptLink("Talon")+" "+conceptLink("campaign")+" where \
@@ -2007,7 +2012,7 @@ function showBox(concept) {
 			break;
 		case "sp":
 			headingTxt = "Ship Points (SP)";
-			displayTxt = "The cost to bring this ship to a "+conceptLink("Talon")+" "+conceptLink("battle")+", or to build it in an "+conceptLink("Empire War")+".";
+			displayTxt = "The cost to bring this ship to a "+conceptLink("Talon")+" "+conceptLink("battle")+", or to build it in an "+conceptLink("Empire War")+". Also used as the value for scoreboard purposes.";
 			break;
 		case "lp":
 			headingTxt = "Logistics Points (LP)";
@@ -2024,9 +2029,9 @@ function showBox(concept) {
 			displayTxt = "Simple "+conceptLink("Talon")+" skirmish scenario where the objective is for one team to destroy the other.";
 			break;
 		case "base assault":
-			displayTxt = "Moderate "+conceptLink("Talon")+" skirmish scenario where a "+conceptLink("Base")+" or "+conceptLink("Starbase")+" is the \
+			displayTxt = "Moderate "+conceptLink("Talon")+" skirmish scenario where a "+conceptLink("Base")+" is the \
 				"+conceptLink("primary objective")+", counting double the normal "+conceptLink("SP")+" for scoreboard purposes.\
-				The attacker team needs only to destroy it to win. The defender team must prevent its destruction to win.";
+				<span class=\"bindTxt\">The attacker team</span> needs only to destroy it to win. The defender team must prevent its destruction to win.";
 			break;
 		case "convoy intercept":
 			displayTxt = "Simple "+conceptLink("Talon")+" skirmish scenario (limited to 200 "+conceptLink("SP")+" each) \
@@ -2038,7 +2043,10 @@ function showBox(concept) {
 		case "planetary invasion":
 			displayTxt = "Complex "+conceptLink("Talon")+" skirmish scenario where the attacker team gets 2+ "+conceptLink("Transport")+"s. \
 				If they land 2 more Transports than the defender on the latter's "+conceptLink("planet")+", the attackers immediately win. \
-				Landed or destroyed Transports also count double the normal "+conceptLink("SP")+" for scoreboard purposes.";
+				Landed or destroyed Transports also count double the normal "+conceptLink("SP")+" for scoreboard purposes.<br /><br />\
+				The attacker may not land Transports if the defender has a "+conceptLink("Base")+" in the "+conceptLink("battle")+". \
+				<span class=\"bindTxt\">(If the "+conceptLink("AI")+" is defending, <i>all</i> of their ships count as Bases.)</span><br />\
+				Since the AI does not use Transports, if they eliminate all defenders, they automatically capture the planet.";
 			break;
 		case "orbital conquest":
 			displayTxt = "Complex "+conceptLink("Talon")+" skirmish scenario where each team gets 2+ "+conceptLink("Transport")+"s. \
@@ -2048,7 +2056,7 @@ function showBox(concept) {
 		case "priority target mission":
 			displayTxt = "Complex "+conceptLink("Talon")+" skirmish scenario where the most expensive ship on each team is considered the "+conceptLink("primary objective")+". \
 			Such ships count double the normal "+conceptLink("SP")+" for scoreboard purposes.<br />\
-			If one team retreats their own <i>and</i> destroy the other, they instantly end the scenario.";
+			If one team retreats their own <i>and</i> destroys the other, they instantly end the scenario.";
 			break;
 		case "ai solitaire":
 			headingTxt = "AI Solitaire";
@@ -2122,17 +2130,22 @@ function showBox(concept) {
 				to non-"+conceptLink("AI")+" "+conceptLink("ship")+"s in "+conceptLink("impulse")+"s where the ship would otherwise get none.";
 			break;
 		case "power curve":
-			displayTxt = "Specifications that denotes the amount of "+conceptLink("power")+" and movement "+conceptLink("hex")+"es a ship gets each "+conceptLink("round")+", \
-				followed by the number of hexes a ship must move straight in between "+conceptLink("turn")+"s.<br /><br />\
+			displayTxt = "Specifications that denotes the amount of "+conceptLink("power")+" and movement "+conceptLink("hex")+"es a ship gets \
+				each "+conceptLink("round")+", followed by the "+conceptLink("turn radius")+".<br /><br />\
 				Some ships (example: "+conceptLink("Base")+"s) are immobile. Their curve instead denotes power and number of clockwise rotations per round.<br /><br />\
 				Hull and Critical damage can decrease the power available. If power drops below zero at the end of a "+conceptLink("power phase")+", the ship's FTL core suffers a meltdown, and "+conceptLink("explode")+"s.";
+			break;
+		case "turn radius":
+			displayTxt = "Denotes how sharply a "+conceptLink("ship")+" can "+conceptLink("turn")+". The number is measured in the number of "+conceptLink("hex")+"es a ship must move forward in between "+conceptLink("turn")+"s, \
+				assuming no acceleration via "+conceptLink("power")+" usage. Can be aggrevated via "+conceptLink("Manuevering Thruster Damage")+" (+X).";
 			break;
 		case "power phase":
 			displayTxt = "A regrouping phase after each 6 "+conceptLink("impulse")+"s where "+conceptLink("ship")+"s can recharge their weapon banks and adjust their "+conceptLink("power curve")+" by one stage.\
 				<br /><br />Afterwards, reinforcements can be brought out of "+conceptLink("reserve")+" (scenario permitting), or ships can "+conceptLink("retreat")+" (if able).";
 			break;
 		case "side slip":
-			displayTxt = "A "+conceptLink("ship")+" can spend "+conceptLink("power")+" to prepare this procedure. The next move they do, they can choose to <q>strafe</q> instead of move straight.";
+			displayTxt = "A "+conceptLink("ship")+" can spend "+conceptLink("power")+" to prepare this procedure. The next move they do, they can choose to <q>strafe</q> instead of move straight. \
+				<span class=\"bindTxt\">"+conceptLink("AI")+" ships can conduct this procedure</span> without power (as they have none).";
 			break;
 		case "brake":
 			headingTxt = "Brakes";
@@ -2171,7 +2184,7 @@ function showBox(concept) {
 				"+talWepDmgChart([[7,7,9,9,11,11], [4,4,6,6,8,8], [0,0,2,2,4,4]]);
 			break;
 		case "missile":
-			displayTxt = conceptLink("Talon")+" seeker that attempts to home in on its victim. Deals 2 damage when connected, but can be shot down. Has a fixed "+conceptLink("power curve")+" of <u>0-6-0</u>.";
+			displayTxt = conceptLink("Talon")+" seeker that homes in on its victim. Deals 2 damage when connected, but can be shot down. Has a fixed "+conceptLink("power curve")+" of <u>0-6-0</u>.";
 			break;
 		case "laser":
 			displayTxt = "Basic "+conceptLink("AI")+" weapon that deals low damage, but recharges very quickly (1R0Y).\
@@ -2199,7 +2212,8 @@ function showBox(concept) {
 			displayTxt = "Each time a "+conceptLink("ship")+" sustains this condition, one of their weapon groups has been permanently destroyed.";
 			break;
 		case "manuevering thruster damage": // 6
-			displayTxt = conceptLink("Ship")+"s that have this condition have a permanently increased turn radius corresponding to the indicated amount. Maxes out at +2. \
+			headingTxt = "Manuevering Thruster Damage +X";
+			displayTxt = conceptLink("Ship")+"s that have this condition have a permanently increased "+conceptLink("turn radius")+" corresponding to the indicated amount. Maxes out at +2. \
 				No effect on "+conceptLink("base")+"s and "+conceptLink("starbase")+"s";
 			break;
 		case "power relay damage": // 8
@@ -2208,7 +2222,7 @@ function showBox(concept) {
 			break;
 		case "ftl offline": // 10. Also adds 1 hull dmg
 			headingTxt = "FTL Offline";
-			displayTxt = "<b class=\"headOx\"></b><br />"+conceptLink("Ship")+"s that have this condition are unable to use FTL to "+conceptLink("retreat")+" while the "+conceptLink("battle")+" is in progress.";
+			displayTxt = conceptLink("Ship")+"s that have this condition are unable to use FTL to "+conceptLink("retreat")+". Repaired at the end of the "+conceptLink("battle")+".";
 			break;
 		case "power loss": // 11
 			displayTxt = conceptLink("Ship")+"s that have this condition are unable to receive "+conceptLink("power")+" from any source, \
@@ -2331,8 +2345,12 @@ function showBox(concept) {
 			displayTxt = "Program that allows building/sharing "+conceptLink("Unique Ship")+" configurations.";
 			provideLinks = 2;
 			break;
+		case "zen solitaire":
+			displayTxt = "Custom solo scenario that lacks a specific antagonist. The primary objective instead is to explore the entire map, \
+				and eliminate any local threats that may be encountered.";
+			break;
 		case "numsims":
-			headingTxt = "Number of simulations";
+			headingTxt = "Number of Simulations";
 			displayTxt = "Number of battles to simulate at once. Battles simulated as a series give a short summary of success rate,\
 				<br />followed by detailed ships survived and HP remaining (if against a "+conceptLink("DM")+") on each side.";
 			break;
@@ -2362,17 +2380,17 @@ function showBox(concept) {
 		case "raiderprox":
 			headingTxt = "Raider Proximity";
 			displayTxt = conceptLink("Replicator Solitaire")+"'s environment uses "+conceptLink("Raider")+"s within 3 hexes of the "+conceptLink("battle")+", \
-				and whether Raiders have been previously encountered, to determine how many "+conceptLink("Type Scan")+"s to build.";
+				and whether they have been previously encountered, to determine how many "+conceptLink("Type Scan")+"s to build.";
 			break;
 		case "minepresence":
 			headingTxt = "Mine Presence";
 			displayTxt = conceptLink("Replicator Solitaire")+"'s environment uses the presence of "+conceptLink("Mines")+" on the board, \
-				whether they are in "+conceptLink("battle")+", and whether Mines have been previously encountered, to determine how many "+conceptLink("Type SW")+"s to build.";
+				whether they are in "+conceptLink("battle")+", and whether they have been previously encountered, to determine how many "+conceptLink("Type SW")+"s to build.";
 			break;
 		case "ftrpresence":
 			headingTxt = "Fighter Presence";
 			displayTxt = conceptLink("Replicator Solitaire")+"'s environment uses the presence of "+conceptLink("Fighter")+"s on the board, \
-				whether they are in "+conceptLink("battle")+", and whether Fighters have been previously encountered, to determine how many "+conceptLink("Type PD")+"s to build.";
+				whether they are in "+conceptLink("battle")+", and whether they have been previously encountered, to determine how many "+conceptLink("Type PD")+"s to build.";
 			break;
 		
 	}
@@ -2433,10 +2451,10 @@ function showSpecsTalon(namee, pwrCurve, shields, wepDetails, hullDmg, critDmg, 
 	infoPanel.style.maxWidth = "500px";
 	
 	displayTxt = "<b class=\"headOx\">" + namee + "</b><br />\
-		<a href=\"javascript:showBox('power curve')\">Power Curve</a>: "+pwrCurve+"<br />";
+		<b><a href=\"javascript:showBox('power curve')\">Power Curve</a></b>: "+pwrCurve+"<br />";
 	
 	if (shields.length > 0) {
-		displayTxt = displayTxt + "<a href=\"javascript:showBox('shield')\">Shields</a>: ";
+		displayTxt = displayTxt + "<b><a href=\"javascript:showBox('shield')\">Shields</a></b>: ";
 		
 		for (var s = 0; s < shields.length; s++) {
 			displayTxt = displayTxt + shields[s];
@@ -2449,7 +2467,7 @@ function showSpecsTalon(namee, pwrCurve, shields, wepDetails, hullDmg, critDmg, 
 		}
 	}
 
-	displayTxt = displayTxt + "<a href=\"javascript:showBox('hull')\">Hull Damage</a>: "+hullDmg+"<br />";
+	displayTxt = displayTxt + "<b><a href=\"javascript:showBox('hull')\">Hull Damage</a></b>: "+hullDmg+"<br />";
 	if (critDmg.length > 0) {
 		displayTxt = displayTxt + "<b>Critical Dmg</b>: ";
 		
@@ -2650,7 +2668,8 @@ function keywordifyDocument() {
 }
 
 function keywordifyCollection(collObj) {
-	const keyTerms = ["Space Empires 4X", "Close Encounters", "Replicator", "All Good Things", "Replay Center", "Unique Designer",
+	const keyTerms = ["Space Empires 4X", "Close Encounters", "Replicator", "All Good Things",
+		"Replay Center", "Unique Designer", "Zen Solitaire",
 		"Barren", "Campaign", "Colony", "Colonies", "Combat Ship", "CP", "Economic Phase", "Homeworld", "Maintenance", "Planet", "Starship", "Scuttle", "Turn",
 		"Bid", "Competitive", "Cooperative", "Galactic Capitol", "Initiative", "Primary Objective", "Uneasy Alliance", "Victory Point", "VP", "Blood Brothers",
 		"Battle", "Battling", "Blockade", "Bombard", "Fleet", "Non-Player Alien", "NPA", "Subdue", "Subduing", "Priority Class", "Retreat", "Round", "Screen", "Weakness", "Weapon Class",
@@ -2763,8 +2782,10 @@ function keywordifyCollection(collObj) {
 		{regex: conceptLink("boarding")+" ship", newTxt: conceptLink("boarding ship")},
 		{regex: conceptLink("Black Hole")+" Jumping", newTxt: conceptLink("Black Hole Jumping")},
 		{regex: conceptLink("black hole")+" jumping", newTxt: conceptLink("black hole jumping")},
-		{regex: "green "+conceptLink("replicator")+"s", newTxt: conceptLink("green replicators")},
+		{regex: "Space "+conceptLink("Pirate"), newTxt: conceptLink("Space Pirate")},
+		{regex: "space "+conceptLink("pirate"), newTxt: conceptLink("space pirate")},
 		{regex: "Green "+conceptLink("Replicator")+"s", newTxt: conceptLink("Green Replicators")},
+		{regex: "green "+conceptLink("replicator")+"s", newTxt: conceptLink("green replicators")},
 		{regex: "Alien "+conceptLink("Technology"), newTxt: conceptLink("Alien Technology")},
 		{regex: "alien "+conceptLink("technology"), newTxt: conceptLink("alien technology")},
 		{regex: "Alien "+conceptLink("Technologies"), newTxt: conceptLink("Alien Technologies")},
@@ -2785,6 +2806,8 @@ function keywordifyCollection(collObj) {
 		{regex: "light "+conceptLink("cruiser"), newTxt: conceptLink("light cruiser")},
 		{regex: "Heavy "+conceptLink("Cruiser"), newTxt: conceptLink("Heavy Cruiser")},
 		{regex: "heavy "+conceptLink("cruiser"), newTxt: conceptLink("heavy cruiser")},
+		{regex: conceptLink("Turn")+" Radius", newTxt: conceptLink("Turn Radius")},
+		{regex: conceptLink("turn")+" radius", newTxt: conceptLink("turn radius")},
 		{regex: conceptLink("Power")+" Curve", newTxt: conceptLink("Power Curve")},
 		{regex: conceptLink("power")+" curve", newTxt: conceptLink("power curve")},
 		{regex: conceptLink("Power")+" Phase", newTxt: conceptLink("Power Phase")},
