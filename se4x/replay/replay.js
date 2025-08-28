@@ -29,7 +29,7 @@ function makeHexes(talonMap) {
 			maxCols = 24;
 		}
 			
-		for (y = 0; y < 24; y++) {
+		for (y = 0; y < 26; y++) {
 			var newRow = document.createElement("div");
 			if (y % 2 == 1) {
 				newRow.className = "hexRow even";
@@ -63,14 +63,14 @@ function makeHexes(talonMap) {
 
 			dispRow("L", false);
 			
-			for (var a = 12; a < 24; a++) {
+			for (var a = 12; a < 26; a++) {
 				dispRow(letterRows.charAt(a), false);
 			}
 			for (var b = 16.5; b < 24.5; b = b + 0.5) {
 				dispCol(b, false);
 			}
 		} else {
-			for (var z = 12; z < 24; z++) {
+			for (var z = 12; z < 26; z++) {
 				dispRow(letterRows.charAt(z), false);
 			}
 		}
@@ -533,22 +533,14 @@ function paintTile(baseObj, paintPic) {
 	if (workObj) {
 		var getPic = workObj.src;
 		
+		if (paintPic.startsWith("unexplored")) {
+			applyPic = "border"+paintPic.charAt(paintPic.length-1,1);
+		} else if (paintPic.startsWith("planet")) {
+			applyPic = paintPic;
+			remCounter = true;
+		}
+		
 		switch (paintPic) {
-			case "unexploredB":
-				// Fall thru
-			case "unexploredG":
-				// Fall thru
-			case "unexploredO":
-				// Fall thru
-			case "unexploredR":
-				// Fall thru
-			case "unexploredV":
-				// Fall thru
-			case "unexploredU":
-				// Fall thru
-			case "unexploredY":
-				applyPic = "border"+paintPic.charAt(paintPic.length-1,1);
-				break;
 			case "unexploredW":
 				applyPic = "borderW";
 				break;
@@ -575,84 +567,44 @@ function paintTile(baseObj, paintPic) {
 				// Fall thru series of homeworlds + planets. Starting with Blue
 			case "home20B":
 			case "home0B":
-			case "planetB1":
-			case "planetB2":
-			case "planetB3":
-			case "planetB4":
-			case "planetB5":
-			case "planetB6":
-			case "planetB7":
-			case "planetB8":
-			case "planetB9":
 			case "home30G":
 				// Green
 			case "home20G":
 			case "home0G":
-			case "planetG1":
-			case "planetG2":
-			case "planetG3":
-			case "planetG4":
-			case "planetG5":
-			case "planetG6":
-			case "planetG7":
-			case "planetG8":
-			case "planetG9":
+			case "home30O":
+				// Orange
+			case "home20O":
+			case "home0O":
 			case "home30R":
 				// Red
 			case "home20R":
 			case "home0R":
-			case "planetR1":
-			case "planetR2":
-			case "planetR3":
-			case "planetR4":
-			case "planetR5":
-			case "planetR6":
-			case "planetR7":
-			case "planetR8":
-			case "planetR9":
+			case "home30U":
+				// Gold
+			case "home20U":
+			case "home0U":
 			case "home30V":
 				// Violet
 			case "home0V":
-			case "planetV1":
-			case "planetV2":
-			case "planetV3":
-			case "planetV4":
-			case "planetV5":
-			case "planetV6":
-			case "planetV7":
-			case "planetV8":
-			case "planetV9":
 			case "home30Y":
 				// Yellow
 			case "home20Y":
 			case "home0Y":
-			case "planetY1":
-			case "planetY2":
-			case "planetY3":
-			case "planetY4":
-			case "planetY5":
-			case "planetY6":
-			case "planetY7":
-			case "planetY8":
-			case "planetY9":
-			case "planetW1":
-				// Deep space planets
-			case "planetW2":
-			case "planetW3":
-			case "planetW4":
-			case "planetW5":
-			case "planetW6":
-			case "planetW7":
-			case "planetW8":
-			case "planetW9":
-			case "planetW10":
-			case "planetW11":
-			case "planetW12":
 			case "warp1":
 			case "warp2":
-			case "fold":
+			case "pulsarA":
+			case "pulsarD":
+			case "pulsarM":
+			case "quantumFilament":
+			case "quasar":
 			case "capitol":
 				applyPic = paintPic;
+				remCounter = true;
+				break;
+			case "ionStorm":
+				// Fall thru
+			case "plasmaStorm":
+				applyPic = paintPic+"W";
 				remCounter = true;
 				break;
 			case "asteroids":
@@ -663,6 +615,14 @@ function paintTile(baseObj, paintPic) {
 				}
 				remCounter = true;
 				break;
+			case "fold":
+				if (getPic.indexOf("border") >= 0) {
+					applyPic = "fold"+getPic.charAt(getPic.length-5,1);
+				}
+				if (applyPic == "foldX") {
+					applyPic = "foldW";
+				}
+				remCounter = true;
 			case "nebula":
 				if (getPic.indexOf("border") >= 0) {
 					applyPic = "nebula"+getPic.charAt(getPic.length-5,1);
@@ -925,11 +885,11 @@ function readJson() {
 		}
 		
 		if (curStage.alienTable || curStage.alienTableX) {
-			// Alien Player economics
+			// Alien Player economics (pre-AP bot)
 			var constructTable = "<table><caption>Alien Economics</caption>\
 				<tr><th>Player</th>\
 				<th><a href=\"javascript:showBox('economic roll')\">Eco</a></th>\
-				<th><a href=\"javascript:showBox('fleet')\">Fleet</a></th>\
+				<th>"+conceptLink("Fleet")+"</th>\
 				<th><a href=\"javascript:showBox('technology')\">Tech</a></th>\
 				<th><a href=\"javascript:showBox('defense')\">Def</a></th>\
 				<th><a href=\"javascript:showBox('expansion bank')\">Expo</a></th>\
@@ -1114,7 +1074,7 @@ function readJson() {
 						<td class=\"numeric\">"+launchRange+"</td></tr>"
 				} else {
 					var classMods = ["","","","","",""];
-					var baseDelta = activePlayer.delta;
+					var baseDelta = readValue(activePlayer.delta, "");
 					
 					if (baseDelta.indexOf("---") >= 0) {
 						// Alien Player is dead. They get no more economic rolls for the rest of the playthrough
@@ -1157,6 +1117,94 @@ function readJson() {
 			}
 		}
 		
+		if (curStage.botTable) {
+			// AP Bot table
+			var constructTable = "<table><caption>Bot Status</caption>\
+				<tr><th>Player</th>\
+				<th>HS Init</th>\
+				<th title=\"How many colonies are damaged or destroyed\">HS Dmg</th>\
+				<th><a href=\"javascript:showBox('maintenance')\">Maint</a></th>\
+				<th>DS <a href=\"javascript:showBox('mineral')\">Minerals</a></th>\
+				<th><a href=\"javascript:showBox('home system')\">HS</a> <a href=\"javascript:showBox('economic roll')\">Eco</a></th>\
+				<th>DS Colonies</th>\
+				<th><a href=\"javascript:showBox('terraforming')\">Nebulae</a></th>\
+				<th><a href=\"javascript:showBox('deep space')\">DS</a> Eco</th>\
+				<th>"+conceptLink("Paranoia")+"</th></tr>";
+				
+			var workTable = curStage.botTable;
+			var paranoiaThresh = [5,9,16,26,37,50,62,74,84,91];
+
+			for (var a = 0; a < workTable.length; a++) {
+				var activePlayer = workTable[a];
+				
+				if (readValue(activePlayer.isDead, false)) {
+					// Alien Player is dead. Their empire has been destroyed.
+					constructTable = constructTable + "<tr class=\"deadPlr\">";
+				} else {
+					constructTable = constructTable + "<tr>";
+				}
+				
+				var HStotal = Math.max(readValue(activePlayer.baseHS,7) - readValue(activePlayer.HSdmg,0) - readValue(activePlayer.maint,0) + readValue(activePlayer.DSmin,0), 1); 
+				var DStotal = readValue(activePlayer.DScol,0) + readValue(activePlayer.nebMin,0);
+				
+				constructTable = constructTable + "<td>"+activePlayer.name+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.baseHS,7)+"</td> \
+					<td class=\"numeric decrease\">-"+readValue(activePlayer.HSdmg,0)+"</td> \
+					<td class=\"numeric decrease\">-"+readValue(activePlayer.maint,0)+"</td> \
+					<td class=\"numeric increase\">+"+readValue(activePlayer.DSmin,0)+"</td> \
+					<td class=\"numeric\">"+HStotal+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.DScol,0)+"</td> \
+					<td class=\"numeric increase\">+"+readValue(activePlayer.nebMin,0)+"</td> \
+					<td class=\"numeric\">"+DStotal+"</td> \
+					<td class=\"numeric\">"+paranoiaThresh[readValue(activePlayer.paranoia,1)-1]+"</td></tr>";
+			}
+			
+			constructTable = constructTable + "<tr><th>Player</th>\
+				<th>"+conceptLink("Fleet")+" Init</th>\
+				<th title=\"1-7 to gain from a roll. Leftovers post-construction also return here\">Gains</th>\
+				<th title=\"&le;8 to launch after mods\">Spent</th>\
+				<th>Leftover</th>\
+				<th>"+conceptLink("Tech")+" Init</th>\
+				<th title=\"8-10\">Eco Gains</th>\
+				<th>Spent</th>\
+				<th>Leftover</th>\
+				<th><a href=\"javascript:showBox('hidden fleet')\">Hidden</a></th></tr>";
+			
+			for (var b = 0; b < workTable.length; b++) {
+				var activePlayer = workTable[b];
+				
+				if (readValue(activePlayer.isDead, false)) {
+					constructTable = constructTable + "<tr class=\"deadPlr\">";
+				} else {
+					constructTable = constructTable + "<tr>";
+				}
+				
+				var totalBanks = [readValue(activePlayer.fleetInit,30) + readValue(activePlayer.fleetGain,0) - readValue(activePlayer.fleetSpend,0),
+					readValue(activePlayer.techInit,120) + readValue(activePlayer.techGain,0) - readValue(activePlayer.techSpend,0)]; 
+				
+				constructTable = constructTable + "<td>"+activePlayer.name+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.fleetInit,30)+"</td> \
+					<td class=\"numeric increase\">+"+readValue(activePlayer.fleetGain,0)+"</td> \
+					<td class=\"numeric decrease\">-"+readValue(activePlayer.fleetSpend,0)+"</td> \
+					<td class=\"numeric\">"+totalBanks[0]+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.techInit,120)+"</td> \
+					<td class=\"numeric increase\">+"+readValue(activePlayer.techGain,0)+"</td> \
+					<td class=\"numeric decrease\">-"+readValue(activePlayer.techSpend,0)+"</td> \
+					<td class=\"numeric\">"+totalBanks[1]+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.hidden,"&mdash;")+"</td></tr>";
+			}
+			
+			constructTable = constructTable + "</table>";
+			seekTag = "{botTable}";
+			
+			if (commentary.innerHTML.indexOf(seekTag) >= 0) {
+				commentary.innerHTML = commentary.innerHTML.replace(seekTag,constructTable);
+			} else {
+				commentary.innerHTML = commentary.innerHTML + constructTable;
+			}
+			
+		}
+		
 		if (curStage.techTable || curStage.techTableX) {
 			var constructTable = "<table><caption>Player Technologies</caption><tr><th>Player</th> \
 				<th><a href=\"javascript:showBox('Ship Size')\">Size</a></th> \
@@ -1188,14 +1236,17 @@ function readJson() {
 					if (expansionTechs) {
 						constructTable = constructTable + "<tr><th>Player</th> \
 							<th colspan=\"2\"><a href=\"javascript:showBox('Military Academy')\">Academy</a></th> \
-							<th colspan=\"2\">"+conceptLink("Boarding")+"</th> \
-							<th><a href=\"javascript:showBox('Security Forces')\">Security</a></th> \
-							<th>"+conceptLink("Troops")+"</th><th>"+conceptLink("Fastmove")+"</th> \
+							<th><a href=\"javascript:showBox('Boarding')\">BD</a></th> \
+							<th><a href=\"javascript:showBox('Security Forces')\">Sec</a></th> \
+							<th>"+conceptLink("Troops")+"</th><th><a href=\"javascript:showBox('auxiliary')\">BC Aux</a></th> \
 							<th><a href=\"javascript:showBox('Black Hole Jumping')\">BHJ</a></th> \
-							<th><a href=\"javascript:showBox('Advanced Construction')\">AdvCon</a></th> \
-							<th colspan=\"2\"><a href=\"javascript:showBox('Tractor Beam')\">BB Tractor</a></th> \
-							<th colspan=\"2\"><a href=\"javascript:showBox('Shield Projector')\">DN Shield Proj</a></th> \
-							<th><a href=\"javascript:showBox('Anti-Replicator')\">Anti-Rep</a></th></tr>";
+							<th><a href=\"javascript:showBox('Advanced Construction')\">AC</a></th> \
+							<th><a href=\"javascript:showBox('auxiliary')\">BB Aux</a></th> \
+							<th><a href=\"javascript:showBox('auxiliary')\">DN Aux</a></th> \
+							<th><a href=\"javascript:showBox('Anti-Replicator')\">Anti-Rep</a></th> \
+							<th><a href=\"javascript:showBox('Missile Boat')\">Missiles</a></th> \
+							<th>"+conceptLink("Jammer")+"</th> \
+							<th><a href=\"javascript:showBox('Supply Range')\">Supply</a></th></tr>";
 					} else {
 						break;
 					}
@@ -1231,15 +1282,18 @@ function readJson() {
 					} else {
 						constructTable = constructTable + "\
 							<td class=\"numeric\" colspan=\"2\">"+readValue(activePlayer.academy,0)+"</td> \
-							<td class=\"numeric\" colspan=\"2\">"+readValue(activePlayer.boarding,0)+"</td> \
+							<td class=\"numeric\">"+readValue(activePlayer.boarding,0)+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.security,0)+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.troops,1)+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.fastMove,0)+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.BHJ,0)+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.advCon,0)+"</td> \
-							<td class=\"numeric\" colspan=\"2\">"+readValue(activePlayer.tractor,0)+"</td> \
-							<td class=\"numeric\" colspan=\"2\">"+readValue(activePlayer.shieldProj,0)+"</td> \
-							<td class=\"numeric\">"+readValue(activePlayer.antiRep,0)+"</td></tr>";
+							<td class=\"numeric\">"+readValue(activePlayer.tractor,0)+"</td> \
+							<td class=\"numeric\">"+readValue(activePlayer.shieldProj,0)+"</td> \
+							<td class=\"numeric\">"+readValue(activePlayer.antiRep,0)+"</td> \
+							<td class=\"numeric\">"+readValue(activePlayer.missile,0)+"</td> \
+							<td class=\"numeric\">"+readValue(activePlayer.jammer,0)+"</td> \
+							<td class=\"numeric\">"+readValue(activePlayer.supply,1)+"</td></tr>";
 					}
 				}
 			}
@@ -1810,7 +1864,7 @@ function readJson() {
 		}
 		
 		if (actionPool[i].removeAllCounters) {
-			imgCollection = document.getElementsByTagName("img")
+			imgCollection = document.getElementsByTagName("img");
 			
 			for (var h = 0; h < imgCollection.length; h++) {
 				if (imgCollection[h] && imgCollection[h].src.search(actionPool[i].removeAllCounters) >= 0) {
@@ -1842,7 +1896,11 @@ function readJson() {
 				var plrColor = actionPool[i].playerColor;
 				
 				place3plrHomeMarkers(plrColor, "top");
-				if (expansionHWs) {
+				if (plrColor == "O" || plrColor == "U") {
+					useRuleset = "AGT";
+				} else if (plrColor == "V") {
+					useRuleset = "rep";
+				} else if (expansionHWs) {
 					useRuleset = "CE";
 				} else {
 					useRuleset = "SE4X";
@@ -1911,7 +1969,11 @@ function readJson() {
 				}
 
 				placeHomeworld(7,0,plrColor);
-				if (expansionHWs) {
+				if (plrColor == "O" || plrColor == "U") {
+					useRuleset = "AGT";
+				} else if (plrColor == "V") {
+					useRuleset = "rep";
+				} else if (expansionHWs) {
 					useRuleset = "CE";
 				} else {
 					useRuleset = "SE4X";
@@ -2043,12 +2105,17 @@ function readJson() {
 			} else if (actionPool[i].createPreset == "doomsdaySoloSm") {
 				ctrlPanel.className = "dmBoard";
 				var plrColor = actionPool[i].playerColor;
+				expansionHWs = readValue(actionPool[i].useExpansion, false);
 				
 				place3plrHomeMarkers(plrColor, "top");
 				if (plrColor == "V") {
 					useRuleset = "rep";
 				} else if (plrColor != "O" && plrColor != "U") {
-					useRuleset = "SE4X";
+					if (expansionHWs) {
+						useRuleset = "CE";
+					} else {
+						useRuleset = "SE4X";
+					}
 				}
 				
 				placeSystemMarker(3,0,deepSpace);
@@ -2100,12 +2167,17 @@ function readJson() {
 				}
 			} else if (actionPool[i].createPreset == "doomsdaySoloLg") {
 				var plrColor = actionPool[i].playerColor;
+				expansionHWs = readValue(actionPool[i].useExpansion, false);
 				
 				place3plrHomeMarkers(plrColor, "top");
 				if (plrColor == "V") {
 					useRuleset = "rep";
 				} else if (plrColor != "O" && plrColor != "U") {
-					useRuleset = "SE4X";
+					if (expansionHWs) {
+						useRuleset = "CE";
+					} else {
+						useRuleset = "SE4X";
+					}
 				}
 
 				for (var l = 1; l <= 13; l++) {
@@ -2148,6 +2220,61 @@ function readJson() {
 				placeSystemMarker(7,9,markerCounter+plrColor);
 				
 				for (var z = 10; z < 12; z++) {
+					dispRow(letterRows.charAt(z), false);
+				}
+				
+			} else if (actionPool[i].createPreset == "doomsdaySoloGC") {
+				var plrColor = actionPool[i].playerColor;
+				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				
+				place3plrHomeMarkers(plrColor, "top");
+				if (plrColor == "V") {
+					useRuleset = "rep";
+				} else if (plrColor != "O" && plrColor != "U") {
+					if (expansionHWs) {
+						useRuleset = "CE";
+					} else {
+						useRuleset = "SE4X";
+					}
+				}
+
+				for (var l = 1; l <= 13; l++) {
+					if (l <= 3 || l >= 10) {
+						placeSystemMarker(l,0,deepSpace);
+						
+						if (l < 13) {
+							placeSystemMarker(l,1,deepSpace);
+						}
+						if (l != 10) {
+							placeSystemMarker(l,2,deepSpace);
+						}
+					}
+
+					if (l <= 4 || (l >= 9 && l < 13)) {
+						placeSystemMarker(l,3,deepSpace);
+					}
+				}
+
+				for (var h = 1; h <= 13; h++) {
+					if (h != 1 && h != 13 && (h <= 5 || h >= 9)) {
+						placeSystemMarker(h,4,deepSpace);
+					}
+					
+					placeSystemMarker(h,5,deepSpace);
+					placeSystemMarker(h,6,deepSpace);
+					placeSystemMarker(h,7,deepSpace);
+					if (h != 3 && h != 7 && h != 11) {
+						placeSystemMarker(h,8,deepSpace);
+					}
+				}
+
+				placeSystemMarker(1,4,markerCounter+plrColor);
+				placeSystemMarker(13,4,markerCounter+plrColor);
+				placeSystemMarker(3,8,markerCounter+plrColor);
+				placeSystemMarker(11,8,markerCounter+plrColor);
+				placeSystemMarker(7,8,markerCounter+plrColor);
+				
+				for (var z = 9; z < 12; z++) {
 					dispRow(letterRows.charAt(z), false);
 				}
 				
@@ -2743,6 +2870,39 @@ function readJson() {
 				
 				placeHomeworld(1,1,plrColors.charAt(0));
 				placeHomeworld(15,11,plrColors.charAt(1));
+			} else if (actionPool[i].createPreset == "versus2PtalonW") {
+				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				var plrColors = actionPool[i].playerColors;
+				var ctrlPanel = document.getElementById("controls");
+				
+				if (ctrlPanel.className.search("talon") >= 0) {
+					ctrlPanel.className = "talonBoardWide";
+				}
+				
+				for (var a = 16.5; a <= 24; a = a + 0.5) {
+					dispCol(a, true);
+				}
+				dispRow("L", false);
+				for (var b = 12; b < 24; b++) {
+					dispRow(letterRows.charAt(b), false);
+				}
+				
+				for (var y = 1; y < 12; y++) {
+					for (var x = 1; x <= 24; x++) {
+						if (x < 24 || y % 2 == 0) {
+							if ((x < 4 - y % 2 && (y != 10 || x < 3)) || (x < 7 - y && x < 5)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(0));
+							} else if ((x > 21 && (y != 2 || x > 22)) || (x > 30 - y || (x == 21 && y == 9))) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(1));
+							} else {
+								placeSystemMarker(x,y,deepSpace);
+							}
+						}
+					}
+				}
+				
+				placeHomeworld(1,1,plrColors.charAt(0));
+				placeHomeworld(23,11,plrColors.charAt(1));
 			} else if (actionPool[i].createPreset == "versus3P" || actionPool[i].createPreset == "doomsdayCoop3P" ||
 				actionPool[i].createPreset == "alienEmpiresCoop3P") {
 				var plrColors = actionPool[i].playerColors;
@@ -2882,6 +3042,313 @@ function readJson() {
 				placeHomeworld(12,0,plrColors.charAt(1));
 				placeHomeworld(1,11,plrColors.charAt(2));
 				placeHomeworld(12,11,plrColors.charAt(3));
+			} else if (actionPool[i].createPreset == "versus4P3row") {
+				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				var plrColors = "GYRB";
+				
+				if (actionPool[i].playerColors) {
+					plrColors = actionPool[i].playerColors;
+				}
+				
+				for (var y = 0; y < 12; y++) {
+					for (var x = 1; x <= 13; x++) {
+						if (x < 13 || y % 2 == 0) {
+							if (y < 4) {
+								if (x < 7 || (x == 7 && y == 2)) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(0));
+								} else {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(1));
+								}
+							} else if (y > 6) {
+								if (x < 7 || (x == 7 && y == 10)) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(2));
+								} else {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(3));
+								}
+							} else {
+								placeSystemMarker(x,y,deepSpace);
+							}
+						}
+					}
+				}
+				
+				placeHomeworld(4,0,plrColors.charAt(0));
+				placeHomeworld(10,0,plrColors.charAt(1));
+				placeHomeworld(4,10,plrColors.charAt(2));
+				placeHomeworld(10,10,plrColors.charAt(3));
+
+				dispRow("A", false);
+			} else if (actionPool[i].createPreset == "versus4P4row") {
+				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				var plrColors = "GYRB";
+				
+				if (actionPool[i].playerColors) {
+					plrColors = actionPool[i].playerColors;
+				}
+				
+				for (var y = 0; y < 12; y++) {
+					for (var x = 1; x <= 13; x++) {
+						if (x < 13 || y % 2 == 0) {
+							if (y < 4) {
+								if (x < 7 || (x == 7 && y == 2)) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(0));
+								} else {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(1));
+								}
+							} else if (y > 7) {
+								if (x < 7 || (x == 7 && y == 10)) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(2));
+								} else {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(3));
+								}
+							} else {
+								placeSystemMarker(x,y,deepSpace);
+							}
+						}
+					}
+				}
+				
+				placeHomeworld(4,0,plrColors.charAt(0));
+				placeHomeworld(10,0,plrColors.charAt(1));
+				placeHomeworld(4,11,plrColors.charAt(2));
+				placeHomeworld(9,11,plrColors.charAt(3));
+			} else if (actionPool[i].createPreset == "versus4Pdouble") {
+				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				var plrColors = "GYRB";
+				
+				if (actionPool[i].playerColors) {
+					plrColors = actionPool[i].playerColors;
+				}
+				
+				for (var b = 0; b < 26; b++) {
+					dispRow(letterRows.charAt(b), b != 0);
+				}
+
+				for (var y = 1; y < 26; y++) {
+					for (var x = 1; x <= 13; x++) {
+						if (x < 13 || y % 2 == 0) {
+							if (x <= 3 - y % 2) {
+								if (y < 13 || (x == 2 && y == 13)) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(0));
+								} else {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(2));
+								}
+							} else if (x >= 11) {
+								if (y < 13 || (x == 12 && y == 13)) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(1));
+								} else {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(3));
+								}
+							} else {
+								placeSystemMarker(x,y,deepSpace);
+							}
+						}
+					}
+				}
+				
+				placeHomeworld(1,6,plrColors.charAt(0));
+				placeHomeworld(13,6,plrColors.charAt(1));
+				placeHomeworld(1,20,plrColors.charAt(2));
+				placeHomeworld(13,20,plrColors.charAt(3));
+				
+			} else if (actionPool[i].createPreset == "versus4PdoubleCorner") {
+				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				var plrColors = "GYRB";
+				
+				if (actionPool[i].playerColors) {
+					plrColors = actionPool[i].playerColors;
+				}
+				
+				for (var b = 0; b < 26; b++) {
+					dispRow(letterRows.charAt(b), b != 0);
+				}
+
+				for (var y = 1; y < 26; y++) {
+					for (var x = 1; x <= 13; x++) {
+						if (x < 13 || y % 2 == 0) {
+							if (x <= 3 && y <= 10) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(0));
+							} else if (x >= 11 - y % 2 && y <= 10) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(1));
+							} else if (x <= 3 && y >= 16) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(2));
+							} else if (x >= 11 - y % 2 && y >= 16) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(3));
+							} else {
+								placeSystemMarker(x,y,deepSpace);
+							}
+						}
+					}
+				}
+				
+				placeHomeworld(1,5,plrColors.charAt(0));
+				placeHomeworld(12,5,plrColors.charAt(1));
+				placeHomeworld(1,21,plrColors.charAt(2));
+				placeHomeworld(12,21,plrColors.charAt(3));
+				
+			} else if (actionPool[i].createPreset == "versus4Ptalon") {
+				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				var plrColors = "GYRB";
+				
+				if (actionPool[i].playerColors) {
+					plrColors = actionPool[i].playerColors;
+				}
+				
+				for (var y = 1; y < 12; y++) {
+					for (var x = 1; x <= 16; x++) {
+						if (x < 16 || y % 2 == 0) {
+							if ((y <= 3 && x <= 6 + Math.floor(y/2)) || (y == 4 && x < 7)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(0));
+							} else if (y < 4) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(1));
+							} else if ((y >= 9 && x >= 5 + Math.floor(y/2)) || (y == 8 && x > 10)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(3));
+							} else if (y >= 9) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(2));
+							} else {
+								placeSystemMarker(x,y,deepSpace);
+							}
+						}
+					}
+				}
+				
+				placeHomeworld(3,1,plrColors.charAt(0));
+				placeHomeworld(11,1,plrColors.charAt(1));
+				placeHomeworld(5,11,plrColors.charAt(2));
+				placeHomeworld(13,11,plrColors.charAt(3));
+				
+			} else if (actionPool[i].createPreset == "versus4PtalonWL") {
+				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				var plrColors = "GYRB";
+				
+				if (actionPool[i].playerColors) {
+					plrColors = actionPool[i].playerColors;
+				}
+				var ctrlPanel = document.getElementById("controls");
+				
+				if (ctrlPanel.className.search("talon") >= 0) {
+					ctrlPanel.className = "talonBoardWide";
+				}
+				
+				for (var a = 16.5; a <= 24; a = a + 0.5) {
+					dispCol(a, true);
+				}
+				dispRow("L", false);
+				for (var b = 12; b < 24; b++) {
+					dispRow(letterRows.charAt(b), false);
+				}
+				
+				for (var y = 1; y < 12; y++) {
+					for (var x = 1; x <= 24; x++) {
+						if (x < 24 || y % 2 == 0) {
+							if ((y <= 2 && x <= 12) || (y == 3 && x < 3)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(0));
+							} else if (y < 3 || (y == 3 && x > 20)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(1));
+							} else if ((y >= 10 && x <= 12 - y % 2) || (y == 9 && x < 4)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(2));
+							} else if (y >= 10 || (y == 9 && x > 21)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(3));
+							} else {
+								placeSystemMarker(x,y,deepSpace);
+							}
+						}
+					}
+				}
+				
+				placeHomeworld(6,1,plrColors.charAt(0));
+				placeHomeworld(18,1,plrColors.charAt(1));
+				placeHomeworld(6,11,plrColors.charAt(2));
+				placeHomeworld(18,11,plrColors.charAt(3));
+				
+			} else if (actionPool[i].createPreset == "versus4PtalonWS") {
+				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				var plrColors = "GYRB";
+				
+				if (actionPool[i].playerColors) {
+					plrColors = actionPool[i].playerColors;
+				}
+				var ctrlPanel = document.getElementById("controls");
+				
+				if (ctrlPanel.className.search("talon") >= 0) {
+					ctrlPanel.className = "talonBoardWide";
+				}
+				
+				for (var a = 16.5; a <= 24; a = a + 0.5) {
+					dispCol(a, true);
+				}
+				dispRow("L", false);
+				for (var b = 12; b < 24; b++) {
+					dispRow(letterRows.charAt(b), false);
+				}
+				
+				for (var y = 1; y < 12; y++) {
+					for (var x = 1; x <= 24; x++) {
+						if (x < 24 || y % 2 == 0) {
+							if ((y <= 5 && x <= Math.min(5,6-Math.ceil(y/2))) || (y == 6 && x > 2 && x < 5)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(0));
+							} else if (x < Math.min(6,2+Math.floor(y/2))) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(2));
+							} else if ((y <= 5 && x >= Math.max(20 - y % 2, y + 15)) || (y == 6 && x > 22)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(1));
+							} else if (x > Math.max(19 - y % 2, 26 - y)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(3));
+							} else {
+								placeSystemMarker(x,y,deepSpace);
+							}
+						}
+					}
+				}
+				
+				placeHomeworld(1,3,plrColors.charAt(0));
+				placeHomeworld(23,3,plrColors.charAt(1));
+				placeHomeworld(1,9,plrColors.charAt(2));
+				placeHomeworld(23,9,plrColors.charAt(3));
+				
+			} else if (actionPool[i].createPreset == "versus4PtalonWC") {
+				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				var plrColors = "GYRB";
+				
+				if (actionPool[i].playerColors) {
+					plrColors = actionPool[i].playerColors;
+				}
+				var ctrlPanel = document.getElementById("controls");
+				
+				if (ctrlPanel.className.search("talon") >= 0) {
+					ctrlPanel.className = "talonBoardWide";
+				}
+				
+				for (var a = 16.5; a <= 24; a = a + 0.5) {
+					dispCol(a, true);
+				}
+				dispRow("L", false);
+				for (var b = 12; b < 24; b++) {
+					dispRow(letterRows.charAt(b), false);
+				}
+				
+				for (var y = 1; y < 12; y++) {
+					for (var x = 1; x <= 24; x++) {
+						if (x < 24 || y % 2 == 0) {
+							if ((y <= 2 && x <= 8 + y) || (y == 3 && x < 8)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(0));
+							} else if ((y < 3 && x > 14) || (y == 3 && x > 16)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(1));
+							} else if ((y >= 10 && x <= 10 - y % 2) || (y == 9 && x < 8)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(2));
+							} else if ((y >= 10 && x > 14) || (y == 9 && x > 16)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(3));
+							} else {
+								placeSystemMarker(x,y,deepSpace);
+							}
+						}
+					}
+				}
+				
+				placeHomeworld(5,1,plrColors.charAt(0));
+				placeHomeworld(19,1,plrColors.charAt(1));
+				placeHomeworld(5,11,plrColors.charAt(2));
+				placeHomeworld(19,11,plrColors.charAt(3));
+				
 			} else if (actionPool[i].createPreset == "versus5P") {
 				expansionHWs = true;
 				plrColors = actionPool[i].playerColors;
@@ -2963,6 +3430,158 @@ function readJson() {
 					
 					console.log({y,x});
 					placeSystemMarker(x,y,deepSpace);
+				}
+				
+			} else if (actionPool[i].createPreset == "versus6P") {
+				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				plrColors = actionPool[i].playerColors;
+				
+				for (var y = 0; y < 12; y++) {
+					for (var x = 1; x <= 13; x++) {
+						if (x < 13 || y % 2 == 0) {
+							if (y < 5) {
+								if (x < 5 || (y == 0 && x == 5)) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(0));
+								} else if (x < 10 || (y == 2 && x == 10)) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(1));
+								} else {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(2));
+								}
+							} else if (y > 6) {
+								if (x < 5 || (y == 8 && x == 5)) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(3));
+								} else if (x < 9 || (y == 8 && x == 9)) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(4));
+								} else {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(5));
+								}
+							} else {
+								placeSystemMarker(x,y,deepSpace);
+							}
+						}
+					}
+				}
+				
+				placeHomeworld(2,0,plrColors.charAt(0));
+				placeHomeworld(7,0,plrColors.charAt(1));
+				placeHomeworld(12,0,plrColors.charAt(2));
+				placeHomeworld(2,11,plrColors.charAt(3));
+				placeHomeworld(6,11,plrColors.charAt(4));
+				placeHomeworld(11,11,plrColors.charAt(5));
+
+			} else if (actionPool[i].createPreset == "versus6Pdouble") {
+				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				plrColors = actionPool[i].playerColors;
+				
+				for (var b = 0; b < 26; b++) {
+					dispRow(letterRows.charAt(b), b != 0);
+				}
+
+				for (var y = 1; y < 26; y++) {
+					for (var x = 1; x <= 13; x++) {
+						if (x < 13 || y % 2 == 0) {
+							if ((x <= 3 && y > 9 && y < 17) || (x == 3 && (y == 9 || y == 17)) || (x == 4 && (y == 12 || y == 14 || y == 16))) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(2));
+							} else if (x <= 3 && y < 10) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(0));
+							} else if (x <= 3) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(4));
+							} else if ((x >= 10 && y > 9 && y < 17 && (x != 10 || y != 10)) || (x == 10 && (y == 9 || y == 17))) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(3));
+							} else if (x >= 10 + (1 - y % 2) && y < 10) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(1));
+							} else if (x >= 10 + (1 - y % 2)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(5));
+							} else {
+								placeSystemMarker(x,y,deepSpace);
+							}
+						}
+					}
+				}
+				
+				placeHomeworld(1,5,plrColors.charAt(0));
+				placeHomeworld(12,5,plrColors.charAt(1));
+				placeHomeworld(1,13,plrColors.charAt(2));
+				placeHomeworld(12,13,plrColors.charAt(3));
+				placeHomeworld(1,21,plrColors.charAt(4));
+				placeHomeworld(12,21,plrColors.charAt(5));
+
+			} else if (actionPool[i].createPreset == "versus6PtalonW") {
+				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				plrColors = actionPool[i].playerColors;
+				var ctrlPanel = document.getElementById("controls");
+				
+				if (ctrlPanel.className.search("talon") >= 0) {
+					ctrlPanel.className = "talonBoardWide";
+				}
+				
+				for (var a = 16.5; a <= 24; a = a + 0.5) {
+					dispCol(a, true);
+				}
+				dispRow("L", false);
+				for (var b = 12; b < 24; b++) {
+					dispRow(letterRows.charAt(b), false);
+				}
+				
+				for (var y = 1; y < 12; y++) {
+					for (var x = 1; x <= 24; x++) {
+						if (x < 24 || y % 2 == 0) {
+							if ((x <= 8 && y < 4) || (x < 3 && y == 4)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(0));
+							} else if ((x <= 16 - y % 2 && y < 4) || (x >= 11 && x <= 14 && y == 4)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(1));
+							} else if (y < 4 || (x >= 23 && y == 4)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(2));
+							} else if ((x <= 8 && y > 8) || (x < 3 && y == 8)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(3));
+							} else if ((x <= 16 - y % 2 && y > 8) || (x >= 11 && x <= 14 && y == 8)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(4));
+							} else if (y > 8 || (x >= 23 && y == 8)) {
+								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(5));
+							} else {
+								placeSystemMarker(x,y,deepSpace);
+							}
+						}
+					}
+				}
+				
+				placeHomeworld(4,1,plrColors.charAt(0));
+				placeHomeworld(12,1,plrColors.charAt(1));
+				placeHomeworld(20,1,plrColors.charAt(2));
+				placeHomeworld(4,11,plrColors.charAt(3));
+				placeHomeworld(12,11,plrColors.charAt(4));
+				placeHomeworld(20,11,plrColors.charAt(5));
+
+			} else if (actionPool[i].createPreset == "zenSolo") {
+				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				var plrColor = actionPool[i].playerColor;
+				var numRows = readValue(actionPool[i].numRows, 9);
+				
+				for (var y = 0; y < numRows; y++) {
+					for (var x = 1; x <= 13; x++) {
+						if (x < 13 || y % 2 == 0) {
+							if (y < 2) {
+								placeSystemMarker(x,y,"unexplored"+plrColor);
+							} else {
+								placeSystemMarker(x,y,deepSpace);
+							}
+						}
+					}
+				}
+
+				placeHomeworld(7,0,plrColor);
+				if (plrColor == "O" || plrColor == "U") {
+					useRuleset = "AGT";
+				} else if (plrColor == "V") {
+					useRuleset = "rep";
+				} else if (expansionHWs) {
+					useRuleset = "CE";
+				} else {
+					useRuleset = "SE4X";
+				}
+
+				for (var z = numRows; z < 12; z++) {
+					dispRow(letterRows.charAt(z), false);
 				}
 				
 			} else if (actionPool[i].createPreset == "talonSkirmish") {
