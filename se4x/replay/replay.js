@@ -1165,7 +1165,7 @@ function readJson() {
 				<th title=\"&le;8 to launch after mods\">Spent</th>\
 				<th>Leftover</th>\
 				<th>"+conceptLink("Tech")+" Init</th>\
-				<th title=\"8-10\">Eco Gains</th>\
+				<th title=\"8-10\">Gains</th>\
 				<th>Spent</th>\
 				<th>Leftover</th>\
 				<th><a href=\"javascript:showBox('hidden fleet')\">Hidden</a></th></tr>";
@@ -1307,6 +1307,116 @@ function readJson() {
 				commentary.innerHTML = commentary.innerHTML + constructTable;
 			}
 
+		}
+		
+		if (curStage.replicatorTable) {
+			var activePlayer = curStage.replicatorTable[0];
+			var constructTable = "<table><caption>Replicator Empire Development ("+activePlayer.name+")</caption> \
+				<tr><th>Hull Size</th><th>Attack</th><th>Defense</th><th>Tactics</th><th>Adv Ships</th><th>Fleet Size</th><th>Purchased</th>\
+				<th><a href=\"javascript:showBox('Advanced Research')\">Trait</a></th>\
+				<th><a href=\"javascript:showBox('Non-Player Alien')\">NPA</a></th>\
+				<th><a href=\"javascript:showBox('Doomsday Machine')\">DM</a></th>\
+				<th><a href=\"javascript:showBox('Space Wreck')\">Wrecks</a></th></tr>";
+			
+			var RPtotal = readValue(activePlayer.hullSize, 0) + readValue(activePlayer.atkSeen, 0) +
+				readValue(activePlayer.defSeen, 0) + Math.max(readValue(activePlayer.tacSeen, 0) - 1,0) + 
+				readValue(activePlayer.advShips, 0) + Math.min(Math.floor(readValue(activePlayer.fleetSize, 0) / 5),3) +
+				readValue(activePlayer.purchased, 0) + readValue(activePlayer.advBonus, 0) + 
+				Math.min(readValue(activePlayer.NPA, 0) + readValue(activePlayer.DM, 0) + readValue(activePlayer.wrecks, 0), 3);
+
+			var classMods = ["","","","","","","","","","","","","","","","","",""];
+			
+			if (activePlayer.hullSize > 0) {
+				classMods[0] = " increase";
+			}
+			if (activePlayer.atkSeen > 0) {
+				classMods[1] = " increase";
+			}
+			if (activePlayer.defSeen > 0) {
+				classMods[2] = " increase";
+			}
+			if (activePlayer.tacSeen > 1) {
+				classMods[3] = " increase";
+			}
+			if (activePlayer.advShips > 1) {
+				classMods[4] = " increase";
+			}
+			if (activePlayer.fleetSize >= 5) {
+				classMods[5] = " increase";
+			}
+			if (activePlayer.purchased > 0) {
+				classMods[6] = " increase";
+			}
+			if (activePlayer.advBonus > 0) {
+				classMods[7] = " increase";
+			}
+			if (activePlayer.NPA > 0) {
+				classMods[8] = " increase";
+			}
+			if (activePlayer.DM > 0) {
+				classMods[9] = " increase";
+			}
+			if (activePlayer.wrecks > 0) {
+				classMods[10] = " increase";
+			}
+
+			constructTable = constructTable + "<tr><td class=\"numeric"+classMods[0]+"\">"+readValue(activePlayer.hullSize, 0)+" / 8</td> \
+				<td class=\"numeric"+classMods[1]+"\">"+readValue(activePlayer.atkSeen, 0)+" / 3</td> \
+				<td class=\"numeric"+classMods[2]+"\">"+readValue(activePlayer.defSeen, 0)+" / 3</td> \
+				<td class=\"numeric"+classMods[3]+"\">"+readValue(activePlayer.tacSeen, 0)+" / 3</td> \
+				<td class=\"numeric"+classMods[4]+"\">"+readValue(activePlayer.advShips, 0)+" / 3</td> \
+				<td class=\"numeric"+classMods[5]+"\">"+readValue(activePlayer.fleetSize/5, 0)+" / 3</td> \
+				<td class=\"numeric"+classMods[6]+"\">"+readValue(activePlayer.purchased, 0)+" / 5</td> \
+				<td class=\"numeric"+classMods[7]+"\">"+readValue(activePlayer.advBonus, 0)+" / 1</td> \
+				<td class=\"numeric"+classMods[8]+"\">"+readValue(activePlayer.NPA, 0)+" / 1</td> \
+				<td class=\"numeric"+classMods[9]+"\">"+readValue(activePlayer.DM, 0)+" / 1</td> \
+				<td class=\"numeric"+classMods[10]+"\">"+readValue(activePlayer.wrecks, 0)+" / 3</td></tr>";
+
+			constructTable = constructTable + "<tr><th>RP Total</th><th>PD Tech</th><th>Ftr Kills</th><th colspan=\"2\">Sweep Tech</th> \
+				<th>Sweep Count</th><th>Scan Tech</th><th colspan=\"2\">Explore Tech</th><th colspan=\"2\">Move Tech</th></tr>";
+			
+			if (RPtotal >= 15) {
+				classMods[11] = " increase";
+			}
+			if (activePlayer.pdTech > 0) {
+				classMods[12] = " increase";
+			}
+			if (activePlayer.ftrKills >= 3) {
+				classMods[13] = " increase";
+			}
+			if (activePlayer.sweepTech > 0) {
+				classMods[14] = " increase";
+			}
+			if (activePlayer.sweepCt >= 3) {
+				classMods[15] = " increase";
+			}
+			if (activePlayer.scanTech > 0) {
+				classMods[16] = " increase";
+			}
+			if (activePlayer.explore > 0) {
+				classMods[17] = " increase";
+			}
+			if (activePlayer.moveTech > 1) {
+				classMods[18] = " increase";
+			}
+
+			constructTable = constructTable + "<tr><td class=\"numeric"+classMods[11]+"\">"+RPtotal+" / 15</td> \
+				<td class=\"numeric"+classMods[12]+"\">"+readValue(activePlayer.pdTech, 0)+" / 1</td> \
+				<td class=\"numeric"+classMods[13]+"\">"+readValue(activePlayer.ftrKills, 0)+" / 3</td> \
+				<td class=\"numeric"+classMods[14]+"\" colspan=\"2\">"+readValue(activePlayer.sweepTech, 0)+" / 1</td> \
+				<td class=\"numeric"+classMods[15]+"\">"+readValue(activePlayer.sweepCt, 0)+" / 3</td> \
+				<td class=\"numeric"+classMods[16]+"\">"+readValue(activePlayer.scanTech, 0)+" / 1</td> \
+				<td class=\"numeric"+classMods[17]+"\" colspan=\"2\">"+readValue(activePlayer.explore, 0)+" / 1</td> \
+				<td class=\"numeric"+classMods[18]+"\" colspan=\"2\">"+readValue(activePlayer.moveTech, 1)+" / 7</td></tr>";
+				
+			constructTable = constructTable + "</table>";
+			seekTag = "{replicatorTable}";
+			
+			if (commentary.innerHTML.indexOf(seekTag) >= 0) {
+				commentary.innerHTML = commentary.innerHTML.replace(seekTag,constructTable);
+			} else {
+				commentary.innerHTML = commentary.innerHTML + constructTable;
+			}
 		}
 		
 		if (curStage.dmTable) {
@@ -1532,116 +1642,6 @@ function readJson() {
 				
 			constructTable = constructTable + "</table>";
 			seekTag = "{amoebaTable}";
-			
-			if (commentary.innerHTML.indexOf(seekTag) >= 0) {
-				commentary.innerHTML = commentary.innerHTML.replace(seekTag,constructTable);
-			} else {
-				commentary.innerHTML = commentary.innerHTML + constructTable;
-			}
-		}
-		
-		if (curStage.replicatorTable) {
-			var activePlayer = curStage.replicatorTable[0];
-			var constructTable = "<table><caption>Replicator Empire Development ("+activePlayer.name+")</caption> \
-				<tr><th>Hull Size</th><th>Attack</th><th>Defense</th><th>Tactics</th><th>Adv Ships</th><th>Fleet Size</th><th>Purchased</th>\
-				<th><a href=\"javascript:showBox('Advanced Research')\">Trait</a></th>\
-				<th><a href=\"javascript:showBox('Non-Player Alien')\">NPA</a></th>\
-				<th><a href=\"javascript:showBox('Doomsday Machine')\">DM</a></th>\
-				<th><a href=\"javascript:showBox('Space Wreck')\">Wrecks</a></th></tr>";
-			
-			var RPtotal = readValue(activePlayer.hullSize, 0) + readValue(activePlayer.atkSeen, 0) +
-				readValue(activePlayer.defSeen, 0) + Math.max(readValue(activePlayer.tacSeen, 0) - 1,0) + 
-				readValue(activePlayer.advShips, 0) + Math.min(Math.floor(readValue(activePlayer.fleetSize, 0) / 5),3) +
-				readValue(activePlayer.purchased, 0) + readValue(activePlayer.advBonus, 0) + 
-				Math.min(readValue(activePlayer.NPA, 0) + readValue(activePlayer.DM, 0) + readValue(activePlayer.wrecks, 0), 3);
-
-			var classMods = ["","","","","","","","","","","","","","","","","",""];
-			
-			if (activePlayer.hullSize > 0) {
-				classMods[0] = " increase";
-			}
-			if (activePlayer.atkSeen > 0) {
-				classMods[1] = " increase";
-			}
-			if (activePlayer.defSeen > 0) {
-				classMods[2] = " increase";
-			}
-			if (activePlayer.tacSeen > 1) {
-				classMods[3] = " increase";
-			}
-			if (activePlayer.advShips > 1) {
-				classMods[4] = " increase";
-			}
-			if (activePlayer.fleetSize >= 5) {
-				classMods[5] = " increase";
-			}
-			if (activePlayer.purchased > 0) {
-				classMods[6] = " increase";
-			}
-			if (activePlayer.advBonus > 0) {
-				classMods[7] = " increase";
-			}
-			if (activePlayer.NPA > 0) {
-				classMods[8] = " increase";
-			}
-			if (activePlayer.DM > 0) {
-				classMods[9] = " increase";
-			}
-			if (activePlayer.wrecks > 0) {
-				classMods[10] = " increase";
-			}
-
-			constructTable = constructTable + "<tr><td class=\"numeric"+classMods[0]+"\">"+readValue(activePlayer.hullSize, 0)+" / 8</td> \
-				<td class=\"numeric"+classMods[1]+"\">"+readValue(activePlayer.atkSeen, 0)+" / 3</td> \
-				<td class=\"numeric"+classMods[2]+"\">"+readValue(activePlayer.defSeen, 0)+" / 3</td> \
-				<td class=\"numeric"+classMods[3]+"\">"+readValue(activePlayer.tacSeen, 0)+" / 3</td> \
-				<td class=\"numeric"+classMods[4]+"\">"+readValue(activePlayer.advShips, 0)+" / 3</td> \
-				<td class=\"numeric"+classMods[5]+"\">"+readValue(activePlayer.fleetSize/5, 0)+" / 3</td> \
-				<td class=\"numeric"+classMods[6]+"\">"+readValue(activePlayer.purchased, 0)+" / 5</td> \
-				<td class=\"numeric"+classMods[7]+"\">"+readValue(activePlayer.advBonus, 0)+" / 1</td> \
-				<td class=\"numeric"+classMods[8]+"\">"+readValue(activePlayer.NPA, 0)+" / 1</td> \
-				<td class=\"numeric"+classMods[9]+"\">"+readValue(activePlayer.DM, 0)+" / 1</td> \
-				<td class=\"numeric"+classMods[10]+"\">"+readValue(activePlayer.wrecks, 0)+" / 3</td></tr>";
-
-			constructTable = constructTable + "<tr><th>RP Total</th><th>PD Tech</th><th>Ftr Kills</th><th colspan=\"2\">Sweep Tech</th> \
-				<th>Sweep Count</th><th>Scan Tech</th><th colspan=\"2\">Explore Tech</th><th colspan=\"2\">Move Tech</th></tr>";
-			
-			if (RPtotal >= 15) {
-				classMods[11] = " increase";
-			}
-			if (activePlayer.pdTech > 0) {
-				classMods[12] = " increase";
-			}
-			if (activePlayer.ftrKills >= 3) {
-				classMods[13] = " increase";
-			}
-			if (activePlayer.sweepTech > 0) {
-				classMods[14] = " increase";
-			}
-			if (activePlayer.sweepCt >= 3) {
-				classMods[15] = " increase";
-			}
-			if (activePlayer.scanTech > 0) {
-				classMods[16] = " increase";
-			}
-			if (activePlayer.explore > 0) {
-				classMods[17] = " increase";
-			}
-			if (activePlayer.moveTech > 1) {
-				classMods[18] = " increase";
-			}
-
-			constructTable = constructTable + "<tr><td class=\"numeric"+classMods[11]+"\">"+RPtotal+" / 15</td> \
-				<td class=\"numeric"+classMods[12]+"\">"+readValue(activePlayer.pdTech, 0)+" / 1</td> \
-				<td class=\"numeric"+classMods[13]+"\">"+readValue(activePlayer.ftrKills, 0)+" / 3</td> \
-				<td class=\"numeric"+classMods[14]+"\" colspan=\"2\">"+readValue(activePlayer.sweepTech, 0)+" / 1</td> \
-				<td class=\"numeric"+classMods[15]+"\">"+readValue(activePlayer.sweepCt, 0)+" / 3</td> \
-				<td class=\"numeric"+classMods[16]+"\">"+readValue(activePlayer.scanTech, 0)+" / 1</td> \
-				<td class=\"numeric"+classMods[17]+"\" colspan=\"2\">"+readValue(activePlayer.explore, 0)+" / 1</td> \
-				<td class=\"numeric"+classMods[18]+"\" colspan=\"2\">"+readValue(activePlayer.moveTech, 1)+" / 7</td></tr>";
-				
-			constructTable = constructTable + "</table>";
-			seekTag = "{replicatorTable}";
 			
 			if (commentary.innerHTML.indexOf(seekTag) >= 0) {
 				commentary.innerHTML = commentary.innerHTML.replace(seekTag,constructTable);
@@ -2645,19 +2645,25 @@ function readJson() {
 				
 				if (plrExtraHexes[0] == "F") {
 					placeSystemMarker(9,3,"unexplored"+plrColors[0]);
-				} else {
+				} else if (plrExtraHexes[0] != "n") {
 					placeSystemMarker(9,1,"unexplored"+plrColors[0]);
 				}
 				if (plrExtraHexes[1] == "F") {
 					placeSystemMarker(9,9,"unexplored"+plrColors[1]);
-				} else {
+				} else if (plrExtraHexes[1] != "n") {
 					placeSystemMarker(9,11,"unexplored"+plrColors[1]);
 				}
 
 				placeHomeworld(plrCols[0],1,plrColors[0]);
 				placeHomeworld(plrCols[1],11,plrColors[1]);
 				
-				for (var w = 13; w >= 10; w = w - 0.5) {
+				var maxWidth = 10;
+				
+				if (plrExtraHexes[0] == "n" && plrExtraHexes[1] == "n") {
+					maxWidth = 9.5;
+				}
+				
+				for (var w = 13; w >= maxWidth; w = w - 0.5) {
 					dispCol(w, false);
 				}
 			} else if (actionPool[i].createPreset == "versus2Plg" || actionPool[i].createPreset == "replicatorSoloLg") {

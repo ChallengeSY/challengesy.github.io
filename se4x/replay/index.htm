@@ -10,7 +10,7 @@
 	<script type="text/javascript">
 		function applyFilter() {
 			divColl = document.getElementsByTagName("div");
-			filterColl = ["doomsday", "alienEmpires", "amoeba", "replicatorSol", "lastShip"];
+			filterColl = ["doomsday", "alienEmpires", "amoeba", "replicatorSol", "botSol", "lastShip"];
 			checkBoxes = [true];
 			for (var c = 0; c < filterColl.length; c++) {
 				checkBoxes[c] = document.getElementById(filterColl[c]).checked;
@@ -54,6 +54,9 @@
 
 <input type="checkbox" checked="checked" id="replicatorSol" oninput="applyFilter()" onclick="applyFilter()" />
 <label for="replicatorSol">Replicator Solitaire</label> <a href="javascript:showBox('Replicator Solitaire')">(?)</a>
+
+<input type="checkbox" checked="checked" id="botSol" oninput="applyFilter()" onclick="applyFilter()" />
+<label for="botSol">AP Bot Solitaire</label> <a href="javascript:showBox('AP Bot')">(?)</a>
 </fieldset>
 
 <fieldset>
@@ -67,6 +70,10 @@
 <div class="center bold headOx">Title</div>
 <div class="center bold headOx">Scenario</div>
 <div class="center bold headOx">Date</div>
+
+<div class="botSol"><a href="watch.htm?replay=botSol202509">The Beginning of a new Era</a></div>
+<div class="botSol center">Bot Solitaire - 2P Small / Easy</div>
+<div class="botSol center">Sept 2025</div>
 
 <div class="replicatorSol"><a href="watch.htm?replay=rep202507">Emerging from Cryostasis</a></div>
 <div class="replicatorSol center">Replicator Solitaire - Medium / Normal</div>

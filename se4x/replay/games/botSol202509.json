@@ -1,6 +1,6 @@
 {"stages": [
 	{"heading":"Stardate 2400.0 (Introduction)",
-	"commentary":"<p>Welcome to the first AP Bot solitaire adventure, introduced in All Good Things. This expansion introduces the most complex AI system the Space Empires Anthology has seen so far. Considering that AGT is the capstone expansion, it is truly fitting that the team went out with a <b>bang</b>!</p><p>AP Bots are kinda a hybrid when it comes to initial activity. Loosely resembling Doomsday Machines, AP Bots are relatively <q>sendentary</q> for a given period of time. In this case; AP Bots activate on economic phase 5, <i>or</i> if a human ship gets within 2 hexes of their home systems; whichever comes first. In return, they start with a fixed 150 CP, budgeted as shown in the table below.</p>{botTable}<p>They also have a number of economic rolls based on the difficulty and homeworld setup. Since we are using 20 CP homeworlds and without using facilities, the AP Bot normally starts with 6 home system economic rolls. Since this is our very first adventure, we are starting with Easy difficulty (-1 roll). Thus, they start with just 5 rolls. They can temporarily gain home system rolls by cashing in deep space minerals; and also gain deep space rolls by making use of any Terraforming technology they may research. Finally, we flip a coin to determine who would go first, once they launch their first ships. Heads, we gain the initiative!</p>",
+	"commentary":"<p>Welcome to the first AP Bot solitaire adventure, introduced in All Good Things. This expansion introduces the most complex AI system the Space Empires Anthology has seen, able to play on <i>nearly any</i> versus map. Considering that AGT is the capstone expansion, it is truly fitting that the team went out with a <b>bang</b>!</p><p>AP bots are kinda a hybrid when it comes to initial activity. Loosely resembling Doomsday Machines, AP bots are relatively <q>sendentary</q> for a given period of time. In this case; AP bots activate on economic phase 5, <i>or</i> if a human ship gets within 2 hexes of their home systems; whichever comes first. In return, they start with a fixed 150 CP, budgeted as shown in the table below.</p>{botTable}<p>They also have a number of economic rolls based on the difficulty and homeworld setup. Since we are using 20 CP homeworlds and without using facilities, the AP bot normally starts with 6 home system economic rolls. Since this is our very first adventure, we are starting with Easy difficulty (-1 roll). Thus, they start with just 5 rolls. They can temporarily gain home system rolls by cashing in deep space minerals; and also gain deep space rolls by making use of any Terraforming technology they may research. Finally, we flip a coin to determine who would go first, once they launch their first ships. Heads, we gain the initiative!</p>",
 	"botTable":
 		[{
 			"name":"Hermes (Yellow)",
@@ -70,7 +70,7 @@
 			"name":"unexploredR"
 		}]},
 	{"heading":"Stardate 2400.6 (Turn 2)",
-	"commentary":"<p>Useful, because understanding how AP Bots work proved to be a tall hurdle to climb (given that 19 pages were dedicated to just this system), and we have only just gotten started.</p>",
+	"commentary":"<p>Useful, because understanding how AP bots work proved to be a tall hurdle to climb (given that 19 pages were dedicated to just this system), and we have only just gotten started.</p>",
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -120,7 +120,7 @@
 			"name":"unexploredR"
 		}]},
 	{"heading":"Stardate 2400.9 (Turn 3)",
-	"commentary":"<p>Because proximity is one of the ways to activate the AP Bot, we should not step into deep space until we are ready to do so.</p>",
+	"commentary":"<p>Because proximity is one of the ways to activate the AP bot, we should not step into deep space until we are ready to do so.</p>",
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -760,7 +760,7 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2404.2",
-	"commentary":"<p>Since the AP Bot will activate anyway on the <i>next</i> economic phase (due to the expiration of the grace period), it no longer matters on whether or not we manuever too close to their space.</p>",
+	"commentary":"<p>Since the AP bot will activate anyway on the <i>next</i> economic phase (due to the expiration of the grace period), it no longer matters on whether or not we manuever too close to their space.</p>",
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -951,7 +951,7 @@
 			"removeCounter":"fleet1Y"
 		}]},
 	{"heading":"Stardate 2405.0",
-	"commentary":"<p>The most explosive economic phase (so far) has arrived! We buy another 2 Cruisers (-24) at the homeworld, and an extra Ship Yard (-6) at our border planet.</p>{prodTable}{techTable}<p>And now for the explosive segment of this phase:</p><ol><li>Hermes finishes its preparation, causing <i>all</i> of their home system markers to be revealed! Non-barren planets are already pre-colonized!</li><li>With a map size of 2, the AP Bot gets 1 Exploration Vessel</li><li>The bot now rolls its home system economic rolls: 1,6,8,8,10. If it had any deep space rolls, it would roll them also</li><li>Since there are no empty home system planets, the Colony Ships step is skipped</li><li>The Space Wreck step is skipped, because none have been cashed in by the bot</li><li>The AP Bot has the minimum number of exploration vessels. Besides, it has also achieved the goal of <b>0</b> deep space colonies. If it loses its starting ships, it will not replace them</li><li>On the Exploration technology step, it makes its first paranoia check: It rolls an 85, which is a pass. This step is skipped</li><li>Since this map is too small (only 2 rows of deep space), the Terraforming goal is level <b>0</b>. If it needed to buy, it would also make a paranoia check, only it would buy it if it passed the check</li><li>If we were playing with Experience, Military Academy would be the next step. One of their colonies is even threatened. Failing a paranoia check would cause this tech to be bought</li><li>And speaking of colony threatened, we skip another paranoia check. The bot bids as if the check failed. 2d10 rolls are made: 8,10. The lowest amount is 8, a fixed deduction of 3 is made, and then the current paranoia level (1) is added. 6 CP is bid, deducted from the Tech bank. This causes the AP Bot to go first</li><li>On the Fleet Launch step; since no deep space colonies are required, launch is never automatic. A 1 is rolled, which causes a fleet to launch (&le;8). Since there is less than 120 CP available, this is an expansion fleet; and will spend 60 CP total. (Drawing from the Tech bank to replace the shortage as necessary.)</li><li>Launch was successful, and there is still 60+ Tech CP to work with. Movement 2 is purchased automatically (-20). Another 1 is rolled, causing Movement 3 (-25) to be purchased also</li><li>The bot places their launched fleet. They have no forward operating bases. Besides, we have ships adjacent to their home systems. They place their fleet at their homeworld.</li><li>The bot then grows its colonies</li><li>There is a mercy rule. If the bot loses 3 or more home system colonies (destruction or capture), a paranoia check is performed. Failing the check would cause it to concede</li></ol>",
+	"commentary":"<p>The most explosive economic phase (so far) has arrived! We buy another 2 Cruisers (-24) at the homeworld, and an extra Ship Yard (-6) at our border planet.</p>{prodTable}{techTable}<p>And now for the explosive segment of this phase:</p><ol><li>Hermes finishes its preparation, causing <i>all</i> of their home system markers to be revealed! Non-barren planets are already pre-colonized!</li><li>With a map size of 2, the AP bot gets 1 Exploration Vessel</li><li>The bot now rolls its home system economic rolls: 1,6,8,8,10. If it had any deep space rolls, it would roll them also</li><li>Since there are no empty home system planets, the Colony Ships step is skipped</li><li>The Space Wreck step is skipped, because none have been cashed in by the bot</li><li>The AP bot has the minimum number of exploration vessels. Besides, it has also achieved the goal of <b>0</b> deep space colonies. If it loses its starting ships, it will not replace them</li><li>On the Exploration technology step, it makes its first paranoia check: It rolls an 85, which is a pass. This step is skipped</li><li>Since this map is too small (only 2 rows of deep space), the Terraforming goal is level <b>0</b>. If it needed to buy, it would also make a paranoia check, only it would buy it if it passed the check</li><li>If we were playing with Experience, Military Academy would be the next step. One of their colonies is even threatened. Failing a paranoia check would cause this tech to be bought</li><li>And speaking of colony threatened, we skip another paranoia check. The bot bids as if the check failed. 2d10 rolls are made: 8,10. The lowest amount is 8, a fixed deduction of 3 is made, and then the current paranoia level (1) is added. 6 CP is bid, deducted from the Tech bank. This causes the AP bot to go first</li><li>On the Fleet Launch step; since no deep space colonies are required, launch is never automatic. A 1 is rolled, which causes a fleet to launch (&le;8). Since there is less than 120 CP available, this is an expansion fleet; and will spend 60 CP total. (Drawing from the Tech bank to replace the shortage as necessary.)</li><li>Launch was successful, and there is still 60+ Tech CP to work with. Movement 2 is purchased automatically (-20). Another 1 is rolled, causing Movement 3 (-25) to be purchased also</li><li>The bot places their launched fleet. They have no forward operating bases. Besides, we have ships adjacent to their home systems. They place their fleet at their homeworld.</li><li>The bot then grows its colonies</li><li>There is a mercy rule. If the bot loses 3 or more home system colonies (destruction or capture), a paranoia check is performed. Failing the check would cause it to concede</li></ol>",
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":5,"colonyCP":46,"mineralCP":5,"pipeCP":0,"maint":6,"bidCP":0,"techBuy":0,"unitBuy":30
@@ -1083,7 +1083,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2405.1",
-	"commentary":"<p>Now that the most explosive economic phase is done, we will proceed back to tactical turns. Since the AP Bot stole the initiative, it goes first for this set of turns. Their exploration vessel goes first, and uncovers a barren planet on the only non-threatened path. With a colony threatened, their first fleet assumes Defense Posture, and moves accordingly.</p><p>During our turn, we opt to see how effective our bombardment is. Before we do that, we roll an 8 to see how many ground units Vega gets... 2 Light Infantry. Our Scouts do not have Attack 1 equipped though, so we will have to roll <q>quite lucky</q> to damage the colony. We rolled a 6... a miss.</p>",
+	"commentary":"<p>Now that the most explosive economic phase is done, we will proceed back to tactical turns. Since Hermes stole the initiative, it goes first for this set of turns. Their exploration vessel goes first, and uncovers a barren planet on the only non-threatened path. With a colony threatened, their first fleet assumes Defense Posture, and moves accordingly.</p><p>During our turn, we opt to see how effective our bombardment is. Before we do that, we roll an 8 to see how many ground units Vega gets... 2 Light Infantry. Our Scouts do not have Attack 1 equipped though, so we will have to roll <q>quite lucky</q> to damage the colony. We rolled a 6... a miss.</p>",
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -1125,7 +1125,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2405.4",
-	"commentary":"<p>Their first fleet arrives to greet our farthest straggler. Since no fleet strategy was already developed, the AP Bot will proceed as if it just failed a paranoia check (sans actually resetting the level). A 22 was rolled, giving the AP Bot the fleet strategy of Buffed Cruisers. On the counter-tech step, a 2 was rolled, causing them to buy Point-Defense 1 (-20). Some of the assigned CP was also spent on Scouts (-18).</p><p>The fleet strategy is then used to buy Ship Size (-25), followed by Defense 1 (-20) until it is no longer able to afford technology. It then goes for the largest ships available; 3 Cruisers + 1 more Scout spends the rest of the assigned CP. Since we have only one straggler, rolling is extremely easy. Their Cruisers rolled 3,6,9 (1 hit &le;5), easily dispatching our ship.</p>{techTable}{botTable}<p>Since their fleet has proven to be scary, we will consolidate our remaining ships.</p>",
+	"commentary":"<p>Their first fleet arrives to greet our farthest straggler. Since no fleet strategy was already developed, Hermes will proceed as if it just failed a paranoia check (sans actually resetting the level). A 22 was rolled, giving the AP bot the fleet strategy of Buffed Cruisers. On the counter-tech step, a 2 was rolled, causing them to buy Point-Defense 1 (-20). Some of the assigned CP was also spent on Scouts (-18).</p><p>The fleet strategy is then used to buy Ship Size (-25), followed by Defense 1 (-20) until it is no longer able to afford technology. It then goes for the largest ships available; 3 Cruisers + 1 more Scout spends the rest of the assigned CP. Since we have only one straggler, rolling is extremely easy. Their Cruisers rolled 3,6,9 (1 hit &le;5), easily dispatching our ship.</p>{techTable}{botTable}<p>Since their fleet has proven to be scary, we will consolidate our remaining ships.</p>",
 	"techTableX":
 		[{
 			"name":"CSY (Red)","size":3,"atk":1
@@ -1226,7 +1226,7 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2406.0",
-	"commentary":"<p>We get a chance to regroup. First off, we bid 1 CP in an attempt to retake the initiative. We then buy Tactics 1 (-15) in an attempt to gain an advantage, followed by 3 Cruisers (-36) to fill all Ship Yard capacity.</p>{prodTable}{techTable}<p>Hermes gets to regroup also, but has a harder time due to maintenance. Thus, they get only 4 economic rolls; 1,2,3,4. On the Exploration step, it rolled a 61 (pass to skip). On the Bid step, it rolled a 68 (pass for 0 bid).</p><p>For fleet launch, a 1 was rolled (launch &le;8). Since there is &lt; 60 CP in both banks combined, <b>all</b> banked CP is assigned to this new fleet. This concludes their economic phase. Since we out-bid them, we have reclaimed the initiative.</p>",
+	"commentary":"<p>We get a chance to regroup. First off, we bid 1 CP in an attempt to retake the initiative. We then buy Tactics 1 (-15) in an attempt to gain an advantage, followed by 3 Cruisers (-36) to fill all Ship Yard capacity.</p>{prodTable}{techTable}<p>Hermes gets to regroup also, but has a harder time due to maintenance. Thus, they get only 4 economic rolls; 1,2,3,4. On the Exploration step, it rolled a 61 (pass to skip). On the Bid step, it rolled a 68 (pass for 0 bid).</p><p>For fleet launch, a 1 was rolled (launch &le;8). Since there is &lt;60 CP in both banks combined, <b>all</b> banked CP is assigned to this new fleet. This concludes their economic phase. Since we out-bid them, we have reclaimed the initiative.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":20,"colonyCP":50,"mineralCP":10,"pipeCP":0,"maint":9,"bidCP":1,"techBuy":15,"unitBuy":36
@@ -1292,7 +1292,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2406.3",
-	"commentary":"<p>We take this time to upgrade the rest of our outdated ships. This process deducted 9 CP from our account. The AP Bot got to uncover and utilize a regional map, allowing them to finish uncovering the eastern segment of the board.</p>",
+	"commentary":"<p>We take this time to upgrade the rest of our outdated ships. This process deducted 9 CP from our account. Hermes got to uncover and utilize a regional map, allowing them to finish uncovering the eastern segment of the board.</p>",
 	"actions":
 		[{
 			"placeCounter":"SC2R",
@@ -1390,7 +1390,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2406.9 (The Battle for Gath)",
-	"commentary":"<h3>Player Turn</h3><p>We have decided to make a sweeping advance into Gath, the planet they just retreated to.</p><ol><li><b>Round 1</b>: We have 7 Cruisers. Hermes has 5 ships. No Fleet Size Bonus takes place, still</li><li>Our 7 Cruisers rolled 5,8,7,2,7,3 against their Scouts (2 hits &le;4), followed by an 8 against their Cruisers (0 hits &le;3)</li><li>Their 3 Cruisers rolled 7,9,10 (0 hits &le;3)<br /><br /></li><li><b>Round 2</b>: With the ratio improved to 7:3, we have gained the FSB. Their morale threshold is also at 50 (+4 tiers from losses and +1 tier from FSB)</li><li>Our 7 Cruisers rolled 2,4,6,7,7,9,10 (2 hits &le;4)</li><li>They roll another morale check. 81 versus 50; a pass. Their 2 Cruisers rolled 7,9 (0 hits &le;3)<br /><br /></li><li><b>Round 3</b>: Their morale threshold falls to 37 (losses from more than 1 round ago are no longer factored in), our 7 Cruisers rolled 5,6,7,7,8,10,10 (0 hits &le;4)</li><li>Their 2 Cruisers rolled a 7 for a morale check (failure &le;74), causing them to retreat... again, only to the asteroid belt being sandwiched by Gath and Vega.</li></ol><h3>Bot Turn</h3><p>Where one shattered fleet runs away, a paranoia check is rolled to determine posture. Being a 90 (pass &gt;16), it then quickly merges with another fleet that is about to exert pressure.</p><p>Since this composition is only partially known, we will identify the <i>newest</i> starships, worth 53 CP. With no Tech CP available (thus, skipping a paranoia check along the way), it goes straight to its counter ships (3 Scouts), followed by largest ships (2 Cruisers + 1 Destroyer), crediting a leftover 2 CP back to the Fleet bank.</p><ol><li><b>Round 1</b>: We have 7 Cruisers still. Hermes now has 8 ships. Neither side gets FSB</li><li>Our 7 Cruisers rolled 4,2,4 against their Scouts, a 1 against their Destroyer, adn 4,9,3 against their Cruisers (5 hits &le;4/4/3)</li><li>With all of their cheaper ships gone, their 4 Cruisers rolled 1,2,3,5 (3 hits &le;3)<br /><br /></li><li><b>Round 2</b>: We are now down to 6 Cruisers. They at 4 ships. Their many losses (+8 tiers total) brings their morale threshold to a very high 84. They also have one damaged ship (+1 tier), but so do we (-1 tier)</li><li>Our 6 Cruisers rolled 1,2,4,6,7,8,10 against their Cruisers (2 hits &le;2)</li><li>For a morale check, they rolled a 51 (fail &le;84), causing them to retreat their surviving Cruisers... yet again to the very same asteroid belt.</li></ol><p>The AP Bot has one last action; to explore the newest deep space hex... which ends up a black hole. They try to avoid entering these hexes <i>if</i> they can help it... which they could not, with Exploration 0. A 5 was rolled. Their Exploration Vessel lives to continue its voyage.</p>",
+	"commentary":"<h3>Player Turn</h3><p>We have decided to make a sweeping advance into Gath, the planet they just retreated to.</p><ol><li><b>Round 1</b>: We have 7 Cruisers. Hermes has 5 ships. No Fleet Size Bonus takes place, still</li><li>Our 7 Cruisers rolled 5,8,7,2,7,3 against their Scouts (2 hits &le;4), followed by an 8 against their Cruisers (0 hits &le;3)</li><li>Their 3 Cruisers rolled 7,9,10 (0 hits &le;3)<br /><br /></li><li><b>Round 2</b>: With the ratio improved to 7:3, we have gained the FSB. Their morale threshold is also at 50 (+4 tiers from losses and +1 tier from FSB)</li><li>Our 7 Cruisers rolled 2,4,6,7,7,9,10 (2 hits &le;4)</li><li>They roll another morale check. 81 versus 50; a pass. Their 2 Cruisers rolled 7,9 (0 hits &le;3)<br /><br /></li><li><b>Round 3</b>: Their morale threshold falls to 37 (losses from more than 1 round ago are no longer factored in), our 7 Cruisers rolled 5,6,7,7,8,10,10 (0 hits &le;4)</li><li>Their 2 Cruisers rolled a 7 for a morale check (failure), causing them to retreat... again, only to the asteroid belt being sandwiched by Gath and Vega.</li></ol><h3>Bot Turn</h3><p>Where one shattered fleet runs away, a paranoia check is rolled to determine posture. Being a 90 (pass &gt;16), it then quickly merges with another fleet that is about to exert pressure.</p><p>Since this composition is only partially known, we will identify the <i>newest</i> starships, worth 53 CP. With no Tech CP available (thus, skipping a paranoia check along the way), it goes straight to its counter ships (3 Scouts), followed by largest ships (2 Cruisers + 1 Destroyer), crediting a leftover 2 CP back to the Fleet bank.</p><ol><li><b>Round 1</b>: We have 7 Cruisers still. Hermes now has 8 ships. Neither side gets FSB</li><li>Our 7 Cruisers rolled 4,2,4 against their Scouts, a 1 against their Destroyer, and 4,9,3 against their Cruisers (5 hits &le;4/4/3)</li><li>With all of their cheaper ships gone, their 4 Cruisers rolled 1,2,3,5 (3 hits &le;3)<br /><br /></li><li><b>Round 2</b>: We are now down to 6 Cruisers. They at 4 ships. Their many losses (+8 tiers total) brings their morale threshold to a very high 84. They also have one damaged ship (+1 tier), but so do we (-1 tier)</li><li>Our 6 Cruisers rolled 1,2,4,6,7,8,10 against their Cruisers (2 hits &le;2)</li><li>For a morale check, they rolled a 51 (fail &le;84), causing them to retreat their surviving Cruisers... yet again to the very same asteroid belt.</li></ol><p>The AP bot has one last action; to explore the newest deep space hex... which ends up a black hole. They try to avoid entering these hexes <i>if</i> they can help it... which they could not, with Exploration 0. A 5 was rolled. Their Exploration Vessel lives to continue its voyage.</p>",
 	"actions":
 		[{
 			"removeCounter":"SC2R"
@@ -1583,7 +1583,7 @@
 			"name":"colony5Y"
 		}]},
 	{"heading":"Stardate 2407.8",
-	"commentary":"<p>Not confident that we can take out the homeworld, we continue bombardment with 2,3,3,4,4,10; finishing the colony off.</p>",
+	"commentary":"<p>Not confident that we can take out the homeworld (especially it defends as if it has its own forward operating base), we continue bombardment with 2,3,3,4,4,10; finishing the colony off.</p>",
 	"actions":
 		[{
 			"placeCounter":"CA1R",
@@ -1688,7 +1688,7 @@
 			"name":"planetY7"
 		}]},
 	{"heading":"Stardate 2408.1",
-	"commentary":"<p>While we consolidate our oldest cruisers, the bot utilizes an opportunity to take their shattered fleet, and consolidate it with their newest fleet. Since we are in their space, a paranoia check is pointless when it is going to cause them to go to Defense Posture. Since their fleet bank is empty, random encounters are pointless when they are unable to build any for us.</p>",
+	"commentary":"<p>While we consolidate our oldest cruisers, the bot utilizes an opportunity to take their shattered fleet, and consolidate it with their newest fleet. Since we are in their space, they assume Defense Posture despite the lack of threats to their fleet. Since their fleet bank is empty, random encounters are pointless when they are unable to build any for us.</p>",
 	"actions":
 		[{
 			"placeCounter":"CA1R",
@@ -1769,7 +1769,7 @@
 			"name":"colony5Y"
 		}]},
 	{"heading":"Stardate 2408.7 (The Battle for Valhalla)",
-	"commentary":"<p>We are now ready to assault Valhalla. Since it is defended, we will set up the battle. With a nearly empty Tech bank, and out of the 60 CP that is unidentified; Hermes builds 3 Scouts before going for largest ships (3 Cruisers + 1 more Scout). This spends all of the assigned money. Finally, to top things off, we roll a 9. This gives them 4 Light Infantry.</p><ol><li><b>Round 1P</b>: We have 8 Cruisers. Hermes has 9 ships. Neither side gets Fleet Size Bonus</li><li>Our 8 Cruisers rolled 7,6,2,6,9,4,10,6 against their scouts (2 hits &le;4)</li><li>Their 5 Cruisers rolled 1,3,6,8,8 (2 hits &le;3)</li><li>Their 2 remaining Scouts rolled 1,10 (1 hit &le;2)<br /><br /></li><li><b>Round 2P</b>: We have 7 Cruisers. Hermes has 7 ships. They have also lost 2 ships (+4 tiers), but we have a damaged ship (-1 tier). Their morale threshold is now 26.</li><li>Our 7 Cruisers rolled 7,2,6,2 against their scouts (2 hits &le;4), followed by 2,6,8 against their cruisers (1 hit &le;3)</li><li>Their 5 Cruisers rolled a 10 for a morale check (failure), causing them to retreat; abandoning their planet in the process<br /><br /></li><li><b>Bombardment Round</b>: Our 7 Cruisers now rolled 2,3,5,6,7,9,10 (2 hits &le;3). Not quite enough to clean up the colony...<br /><br /></li><li><b>Round 1B</b>: The AP Bot quickly circles their retreated fleet around and has a rematch with our fleet</li><li>Our 7 Cruisers rolled 1,4,5,7,7,8,10 (1 hit &le;3)</li><li>Their 5 Cruisers rolled 2,2,3,4,5 (3 hits &le;3)<br /><br /></li><li><b>Round 2B</b>: Hermes' morale threshold remains stable at 5. Still, they have a damaged ship...</li><li>Our 6 Cruisers rolled 2,4,5,5,7,8 (1 hit &le;3)</li><li>Their 4 Cruisers rolled a 26 for morale (pass), followed by 2,2,3,6 (3 hits &le;3)<br /><br /></li><li><b>Round 3B</b>: Hermes' morale threshold increased to 16 because they lost a ship.</li><li>Our 4 Cruisers rolled 4,5,10,10 (0 hits &le;3)</li><li>Their 4 Cruisers rolled a 41 for morale, followed by 1,5,6,8 (1 hit &le;3)<br /><br /></li><li><b>Round 4B</b>: Hermes' morale threshold decreased back to 5, because of no new losses.</li><li>Our 4 Cruisers decided they had it with the jammed weapons, and have retreated to Draconis.</li></ol>",
+	"commentary":"<p>We are now ready to assault Valhalla. Since it is defended, we will set up the battle. With a nearly empty Tech bank, and out of the 60 CP that is unidentified; Hermes builds 3 Scouts before going for largest ships (3 Cruisers + 1 more Scout). This spends all of the assigned money. Finally, to top things off, we roll a 9. This gives them 4 Light Infantry.</p><ol><li><b>Round 1P</b>: We have 8 Cruisers. Hermes has 9 ships. Neither side gets Fleet Size Bonus</li><li>Our 8 Cruisers rolled 7,6,2,6,9,4,10,6 against their scouts (2 hits &le;4)</li><li>Their 5 Cruisers rolled 1,3,6,8,8 (2 hits &le;3)</li><li>Their 2 remaining Scouts rolled 1,10 (1 hit &le;2)<br /><br /></li><li><b>Round 2P</b>: We have 7 Cruisers. Hermes has 7 ships. They have also lost 2 ships (+4 tiers), but we have a damaged ship (-1 tier). Their morale threshold is now 26.</li><li>Our 7 Cruisers rolled 7,2,6,2 against their scouts (2 hits &le;4), followed by 2,6,8 against their cruisers (1 hit &le;3)</li><li>Their 5 Cruisers rolled a 10 for a morale check (failure), causing them to retreat; abandoning their planet in the process<br /><br /></li><li><b>Bombardment Round</b>: Our 7 Cruisers now rolled 2,3,5,6,7,9,10 (2 hits &le;3). Not quite enough to clean up the colony...<br /><br /></li><li><b>Round 1B</b>: The AP bot quickly circles their retreated fleet around and has a rematch with our fleet</li><li>Our 7 Cruisers rolled 1,4,5,7,7,8,10 (1 hit &le;3)</li><li>Their 5 Cruisers rolled 2,2,3,4,5 (3 hits &le;3)<br /><br /></li><li><b>Round 2B</b>: Hermes' morale threshold remains stable at 5. Still, they have a damaged ship...</li><li>Our 6 Cruisers rolled 2,4,5,5,7,8 (1 hit &le;3)</li><li>Their 4 Cruisers rolled a 26 for morale (pass), followed by 2,2,3,6 (3 hits &le;3)<br /><br /></li><li><b>Round 3B</b>: Hermes' morale threshold increased to 16 because they lost a ship.</li><li>Our 4 Cruisers rolled 4,5,10,10 (0 hits &le;3)</li><li>Their 4 Cruisers rolled a 41 for morale, followed by 1,5,6,8 (1 hit &le;3)<br /><br /></li><li><b>Round 4B</b>: Hermes' morale threshold decreased back to 5, because of no new losses.</li><li>Our 4 Cruisers decided they had it with the jammed weapons, and have retreated to Draconis.</li></ol>",
 	"actions":
 		[{
 			"placeCounter":"CA1R",
@@ -1820,7 +1820,7 @@
 			"name":"colony5Y"
 		}]},
 	{"heading":"Stardate 2409.0",
-	"commentary":"<p>We can try our hand at another colony. Only so much they can do while they are still on Defense Posture. We take advantage of their very finite potential, and placed a bid they are unable to overcome. We then buy 4 Cruisers, using <i>all</i> available Ship Yard capacity.</p>{prodTable}{techTable}<p>Hermes is quite vulnerable. They get only a single economic roll; a 3. Skipping to the bid step, they rolled 10,1. <span class=\"bindTxt\">1 - 3 + 7 = 5 CP to bid</span>.</p><p>This leaves them with just 7 CP leftover for a fleet launch. They rolled a 3 (+1 modifier for fleets). They launch anyway, but as a shattered fleet.</p>",
+	"commentary":"<p>We can try our hand at another colony. Only so much they can do while they are still on Defense Posture. We take advantage of their very finite potential, and placed a bid they are unable to overcome. We then buy 4 Cruisers, using <i>all</i> available Ship Yard capacity.</p>{prodTable}{techTable}<p>Hermes is quite vulnerable. They get only a single economic roll; a 3. Skipping to the bid step, they rolled 10,1. <span class=\"bindTxt\">1 - 3 + 7 = 5 CP to bid</span>.</p><p>This leaves them with just 7 CP leftover for a fleet launch. They rolled a 3 (+1 modifier for fleets). They launch anyway, but as a shattered fleet. They also did not successfully overcome our bid, so we keep the initiative.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":17,"colonyCP":60,"mineralCP":0,"pipeCP":0,"maint":13,"bidCP":13,"techBuy":0,"unitBuy":48
@@ -1991,7 +1991,7 @@
 			"name":"nebula"
 		}]},
 	{"heading":"Stardate 2410.0",
-	"commentary":"<p>This may possibly be the very final legitimate <q>stage</q> for this playthrough. We will proceed as if Hermes somehow overcomes the odds. We buy 3 Cruisers at our homeworld (-36), but opt to forgo bidding.</p>{prodTable}{techTable}<p>Since Hermes no longer has any proper fleets, they get 2 economic rolls this time; 1,6. On the bid step, they rolled 1,2. <span class=\"bindTxt\">1 - 3 + 10 = 8 CP to bid</span></p><p>On the Fleet Launch step, a 1. Even with the previous consolidation though, a 22 CP fleet is still considered shattered. And now for the most pinnacle step. A 22 was rolled on the concession step. Since this paranoia check failed, the bot simply concedes.</p>",
+	"commentary":"<p>This may possibly be the very final legitimate <q>stage</q> for this playthrough. We will proceed as if Hermes somehow overcomes the odds. We buy 3 Cruisers at our homeworld (-36), but opt to forgo bidding.</p>{prodTable}{techTable}<p>Since Hermes no longer has any proper fleets, they get 2 economic rolls this time; 1,6. On the bid step, they rolled 1,2. <span class=\"bindTxt\">1 - 3 + 10 = 8 CP to bid</span></p><p>On the Fleet Launch step, a 1. Even with the previous consolidation though, a 22 CP fleet is still considered shattered. And now for the most pinnacle step; a 22 was rolled on the concession step. Since <em>this</em> paranoia check failed, the AP bot simply concedes.</p>",
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":3,"colonyCP":60,"mineralCP":0,"pipeCP":0,"maint":21,"bidCP":0,"techBuy":0,"unitBuy":36
@@ -2008,29 +2008,9 @@
 		}],
 	"actions":
 		[{
-			"placeCounter":"CA1R",
-			"location":"I7",
-			"size":6
-		},{
-			"placeCounter":"CA2R",
-			"location":"F8",
-			"size":3
-		},{
-			"placeCounter":"CA4R",
-			"location":"H8",
-			"size":1
-		},{
 			"placeCounter":"CA3R",
 			"location":"C8",
 			"size":3
-		},{
-			"placeCounter":"SC4R",
-			"location":"F2",
-			"size":1
-		},{
-			"placeCounter":"Miner1R",
-			"location":"F3",
-			"size":1
 		},{
 			"removeCounter":"CA1Y"
 		},{
@@ -2039,8 +2019,8 @@
 			"revealCounter":"systemI7",
 			"name":"planetY6"
 		}]},
-	{"heading":"Stardate 2411.0 (Conclusion)",
-	"commentary":"<p>Hermes conceded, ending this playthrough in victory for us. 19 pages may seem confusing, but we found the newly introduced AP Bot system easier to follow as we progressed through this playthrough. Damaging/destroying their colonies has a profound impact on their ability to sustain fleets, especially on lower difficulty settings where they get <i>fewer</i> home system economic rolls.</p><p>Since this was our first adventure, we made no assumptions on how easy or difficult it would be. Not all scenarios are created equal. Still, we opted to scale back on complexity where we could. Whenever we do another one, we probably will add some complexity back into the mixture.</p>",
+	{"heading":"Stardate 2410.2 (Conclusion)",
+	"commentary":"<p>Hermes conceded, ending this playthrough in victory for us. 19 pages may seem confusing, but we found the newly introduced AP Bot system easier to follow as we progressed through this playthrough. Damaging/destroying their colonies has a profound impact on their ability to sustain fleets, especially on lower difficulty settings where they get <i>fewer</i> home system economic rolls. On top of that, sufficiently small maps (at most 2 rows of deep space) effectively cap their income, as the value of Terraforming technology becomes next to non-existant; making deep space economic rols unobtainable.</p><p>Since this was our first adventure, we made no assumptions on how easy or difficult it would be. Not all scenarios are created equal. Still, we opted to scale back on complexity where we could. Whenever we do another one, we probably will add some complexity back into the mixture.</p>",
 	"actions":
 		[]}
 ]}
