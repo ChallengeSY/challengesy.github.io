@@ -42,6 +42,7 @@ function calcCost() {
 	var defStrCosts = [0,1,3,5];
 	var hullSizeCosts = [2,4,7];
 	var skillCosts = [1,1,1,2,2,3,3,-1,4,2,5,4,2];
+	var exploration = false;
 	var weakness = false;
 	var shipSizeThresh = [6,9,12,15,20,24,32];
 	var shipSizeReq = 1;
@@ -86,7 +87,9 @@ function calcCost() {
 			totalCost += skillCosts[h];
 			numAbilities++;
 			
-			if (skillCosts[h] < 0) {
+			if (h == 2) {
+				exploration = true;
+			} else if (skillCosts[h] < 0) {
 				weakness = true;
 			}
 			
@@ -104,6 +107,8 @@ function calcCost() {
 	// Total 'em up
 	
 	document.getElementById("costTotal").innerHTML = totalCost;
+	document.getElementById("costTotal").className = isLegal(totalCost >= 9 || (totalCost >= 5 && !exploration));
+	
 	shipSizeReq = Infinity;
 	for (i = 0; i < shipSizeThresh.length; i++) {
 		if (totalCost <= shipSizeThresh[i]) {

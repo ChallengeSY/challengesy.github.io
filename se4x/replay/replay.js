@@ -2538,7 +2538,7 @@ function readJson() {
 						deleteCounter("hull"+plrColors[0]+g);
 					}
 
-					if (plrColors[1].search("O") >= 0 || plrColors[1].search("U") >= 0) {
+					if (plrColors[1].search("O") >= 0 || plrColors[1].search("U") >= 0 || repEdition >= 2) {
 						useRuleset = "AGT";
 					} else {
 						useRuleset = "rep";
@@ -2574,13 +2574,13 @@ function readJson() {
 						// Easy: Player gets 2 extra Colony Ships
 						placeCounter("CO4"+plrColors[1],plrCols[1],10,"CO"+plrColors[1],1);
 						placeCounter("CO5"+plrColors[1],plrCols[1],10,"CO"+plrColors[1],1);
-						if (repEdition == 2) {
+						if (repEdition > 1) {
 							placeCounter("type0"+plrColors[0]+"6",plrCols[0],1,"type0"+plrColors[0],1);
 							placeCounter("CO6"+plrColors[1],plrCols[1],10,"CO"+plrColors[1],1);
 						}
 						break;
 					case 2:
-						// Normal: Player gets 1 extra Colony Ship. Replicator gets 1 extra hull
+						// Normal: Player gets 1 extra Colony Ship. Replicator gets 1 extra hull (first edition only)
 						placeCounter("type0"+plrColors[0]+"6",plrCols[0],1,"type0"+plrColors[0],1);
 						placeCounter("CO4"+plrColors[1],plrCols[1],10,"CO"+plrColors[1],1);
 						break;
@@ -2588,7 +2588,7 @@ function readJson() {
 						// Hard: Replicator gets 2 extra hulls and 1 RP
 						placeCounter("type0"+plrColors[0]+"6",plrCols[0],1,"type0"+plrColors[0],1);
 						placeCounter("type0"+plrColors[0]+"7",plrCols[0],1,"type0"+plrColors[0],1);
-						if (repEdition == 2) {
+						if (repEdition > 1) {
 							placeCounter("CO4"+plrColors[1],plrCols[1],10,"CO"+plrColors[1],1);
 							placeCounter("type0"+plrColors[0]+"8",plrCols[0],1,"type0"+plrColors[0],1);
 						}
@@ -2598,7 +2598,7 @@ function readJson() {
 						placeCounter("type0"+plrColors[0]+"6",plrCols[0],1,"type0"+plrColors[0],1);
 						placeCounter("type0"+plrColors[0]+"7",plrCols[0],1,"type0"+plrColors[0],1);
 						placeCounter("type0"+plrColors[0]+"8",plrCols[0],1,"type0"+plrColors[0],1);
-						if (repEdition == 2) {
+						if (repEdition > 1) {
 							placeCounter("CO4"+plrColors[1],plrCols[1],10,"CO"+plrColors[1],1);
 							placeCounter("type0"+plrColors[0]+"9",plrCols[0],1,"type0"+plrColors[0],1);
 						}
@@ -2684,7 +2684,7 @@ function readJson() {
 						deleteCounter("hull"+plrColors[0]+g);
 					}
 
-					if (plrColors[1].search("O") >= 0 || plrColors[1].search("U") >= 0) {
+					if (plrColors[1].search("O") >= 0 || plrColors[1].search("U") >= 0 || repEdition >= 2) {
 						useRuleset = "AGT";
 					} else {
 						useRuleset = "rep";
@@ -2720,13 +2720,13 @@ function readJson() {
 						// Easy: Player gets 2 extra Colony Ships
 						placeCounter("CO4"+plrColors[1],plrCols[1],11,"CO"+plrColors[1],1);
 						placeCounter("CO5"+plrColors[1],plrCols[1],11,"CO"+plrColors[1],1);
-						if (repEdition == 2) {
+						if (repEdition > 1) {
 							placeCounter("type0"+plrColors[0]+"6",plrCols[0],0,"type0"+plrColors[0],1);
 							placeCounter("CO6"+plrColors[1],plrCols[1],11,"CO"+plrColors[1],1);
 						}
 						break;
 					case 2:
-						// Normal: Player gets 1 extra Colony Ship. Replicator gets 1 extra hull
+						// Normal: Player gets 1 extra Colony Ship. Replicator gets 1 extra hull (first edition only)
 						placeCounter("type0"+plrColors[0]+"6",plrCols[0],0,"type0"+plrColors[0],1);
 						placeCounter("CO4"+plrColors[1],plrCols[1],11,"CO"+plrColors[1],1);
 						break;
@@ -2734,7 +2734,7 @@ function readJson() {
 						// Hard: Replicator gets 2 extra hulls and 1 RP
 						placeCounter("type0"+plrColors[0]+"6",plrCols[0],0,"type0"+plrColors[0],1);
 						placeCounter("type0"+plrColors[0]+"7",plrCols[0],0,"type0"+plrColors[0],1);
-						if (repEdition == 2) {
+						if (repEdition > 1) {
 							placeCounter("CO4"+plrColors[1],plrCols[1],11,"CO"+plrColors[1],1);
 							placeCounter("type0"+plrColors[0]+"8",plrCols[0],0,"type0"+plrColors[0],1);
 						}
@@ -2744,7 +2744,7 @@ function readJson() {
 						placeCounter("type0"+plrColors[0]+"6",plrCols[0],0,"type0"+plrColors[0],1);
 						placeCounter("type0"+plrColors[0]+"7",plrCols[0],0,"type0"+plrColors[0],1);
 						placeCounter("type0"+plrColors[0]+"8",plrCols[0],0,"type0"+plrColors[0],1);
-						if (repEdition == 2) {
+						if (repEdition > 1) {
 							placeCounter("CO4"+plrColors[1],plrCols[1],11,"CO"+plrColors[1],1);
 							placeCounter("type0"+plrColors[0]+"9",plrCols[0],0,"type0"+plrColors[0],1);
 						}

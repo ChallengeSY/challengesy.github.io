@@ -106,6 +106,17 @@
 </tfoot>
 <tbody>
 <tr>
+<td><label for="plrFaction">Faction</label></td>
+<td><a href="javascript:showBox('faction')">(?)</a></td>
+<td colspan="1"><select class="text" id="plrFaction" onchange="changeFaction()" onblur="changeFaction()">
+<option>Base</option>
+<option>Alternate</option>
+</select></td>
+<td><label for="aggressor">Aggressor</label></td>
+<td>&nbsp;</td>
+<td><input type="checkbox" id="aggressor" /></td>
+</tr>
+<tr>
 <td><label for="techAtk">Attack Level</label></td>
 <td><a href="javascript:showBox('Attack')">(?)</a></td>
 <td><input class="text numeric" type="number" id="techAtk" value="0" min="0" max="3" size="5" /></td>
@@ -154,7 +165,7 @@
 <td><input type="checkbox" id="techAux" onclick="showPlrRows()" oninput="showPlrRows()" /></td>
 </tr>
 <tr>
-<td><label for="titanTarget">Titan targeting</label></td>
+<td><label for="titanTarget">Multi Damage targeting</label></td>
 <td><a href="javascript:showBox('titantarget')">(?)</a></td>
 <td colspan="4"><select class="text" id="titanTarget">
 <option>Fire at smallest ships throughout battle</option>
@@ -165,7 +176,7 @@
 <tr>
 <td><label for="plrAdvantage">Player Advantage</label></td>
 <td><a id="plrAdvLink" href="javascript:showBox('empire advantage')">(?)</a></td>
-<td colspan="4"><select class="text" id="plrAdvantage" onchange="showPlrRows(); applyTotals();" onblur="showPlrRows(); applyTotals();">
+<td colspan="4"><select class="text" id="plrAdvantage" onchange="changeFaction(); applyTotals();" onblur="changeFaction(); applyTotals();">
 <option>None applicable</option>
 <option>Fearless Race</option>
 <option>Warrior Race</option>
@@ -181,6 +192,8 @@
 <option>House of Speed</option>
 <option>On the Move</option>
 <option>Longbowmen</option>
+<option>War Sun</option>
+<option>Berserker Genome</option>
 </select></td>
 </tr>
 </tbody>
@@ -245,7 +258,7 @@
 <tr>
 <td><label for="repGunnery">Improved Gunnery</label></td>
 <td><a href="javascript:showBox('improved gunnery')">(?)</a></td>
-<td><input type="checkbox" id="repGunnery" onclick="showPlrRows()" oninput="showPlrRows()" /></td>
+<td><input type="checkbox" id="repGunnery" onclick="changeFaction()" oninput="changeFaction()" /></td>
 <td><label for="numSims">Number of simulations</label></td>
 <td><a href="javascript:showBox('numSims')">(?)</a></td>
 <td><input class="text numeric" type="number" id="numSims" value="400" min="2" size="7" /></td>
@@ -304,8 +317,10 @@
 <td><input type="checkbox" id="atAdaptCl" /></td>
 </tr>
 <tr>
-<td colspan="1"></td>
-<td colspan="3"><label for="atITcomp">Interlinked Targeting Computer</label></td>
+<td><label for="atSkipMsle">Skipper Missiles</label></td>
+<td><a href="javascript:showBox('Skipper Missiles')">(?)</a></td>
+<td><input type="checkbox" id="atSkipMsle" /></td>
+<td><label for="atITcomp">Interlinked Targeting Computer</label></td>
 <td><a href="javascript:showBox('Interlinked Targeting Computer')">(?)</a></td>
 <td><input type="checkbox" id="atITcomp" onclick="showPlrRows()" oninput="showPlrRows()" /></td>
 </tr>
@@ -323,13 +338,20 @@
 <label for="hexAsteroids">Asteroids</label> <a href="javascript:showBox('Asteroids')">(?)</a>
 <input type="radio" name="combatHex" id="hexNebula" value="hexNebula" />
 <label for="hexNebula">Nebula</label> <a href="javascript:showBox('Nebula')">(?)</a>
+<!--
 <input type="radio" name="combatHex" id="hexBlackHole" value="hexBlackHole" />
-<label for="hexBlackHole">Black Hole</label> <a href="javascript:showBox('Black Hole')">(?)</a><br />
-<label for="aggressor"> Aggressor</label>
-<select class="text" id="aggressor">
-<option>Player</option>
-<option selected="selected">Replicator</option>
-</select>
+<label for="hexBlackHole">Black Hole</label> <a href="javascript:showBox('Black Hole')">(?)</a>
+-->
+<br />
+<input type="radio" name="combatHex" id="hexQuantum" value="hexQuantum" />
+<label for="hexQuantum">Quantum Filament</label> <a href="javascript:showBox('Quantum Filament')">(?)</a>
+<input type="radio" name="combatHex" id="hexQuasar" value="hexQuasar" />
+<label for="hexQuasar">Quasar</label> <a href="javascript:showBox('Quasar')">(?)</a>
+<br />
+<input type="checkbox" id="hexIon" value="hexIon" />
+<label for="hexIon">Ion Storm</label> <a href="javascript:showBox('Ion Storm')">(?)</a>
+<input type="checkbox" id="hexPlasma" value="hexPlasma" />
+<label for="hexPlasma">Plasma Storm</label> <a href="javascript:showBox('Plasma Storm')">(?)</a>
 </fieldset>
 </td>
 </tr>
