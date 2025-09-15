@@ -623,6 +623,7 @@ function paintTile(baseObj, paintPic) {
 					applyPic = "foldW";
 				}
 				remCounter = true;
+				break;
 			case "nebula":
 				if (getPic.indexOf("border") >= 0) {
 					applyPic = "nebula"+getPic.charAt(getPic.length-5,1);
