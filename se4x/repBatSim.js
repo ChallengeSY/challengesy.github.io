@@ -274,7 +274,6 @@ function changeFaction() {
 	
 	// Advantage settings
 	plrAdvantage = document.getElementById("plrAdvantage");
-	alienTech = document.getElementById("techAlien").checked;
 	repGunnery = document.getElementById("repGunnery").checked;
 
 	var plrAdvLink = document.getElementById("plrAdvLink");
@@ -347,6 +346,7 @@ function showPlrRows(rowId, rowVis) {
 		mineTech = document.getElementById("techMines").checked;
 		var auxTech = document.getElementById("techAux").checked;
 		var advConTech = parseInt(document.getElementById("techAC").value);
+		alienTech = document.getElementById("techAlien").checked;
 		replicatorRP = parseInt(document.getElementById("repRP").value);
 		
 		showPlrRows("Scout", sizeTech >= 1);
@@ -1444,7 +1444,7 @@ function firePlrWeps(shipObj, tacLvReq) {
 		
 		if (simRound > plrRetreatBan && shipObj.namee != "Titan" && shipObj.namee != "Ship Yard" && shipObj.namee != "Base" &&
 			shipObj.namee != "Defense Satellite Network" && shipObj.namee != "Starbase" && shipObj.namee.search("Destroyed") < 0 &&
-			(simPlrFleet.totalShips() < retreatThresh || (shipObj.namee == "Flagship" && shipObj.damage >= 2 && plrFlagPreserve))) {
+			(simPlrFleet.totalShips() <= retreatThresh || (shipObj.namee == "Flagship" && shipObj.damage >= 2 && plrFlagPreserve))) {
 			pFrag = document.createElement("p");
 			pFrag.innerHTML = shipObj.toString() + " has retreated.";
 			shipObj.quantity = 0;
@@ -1927,6 +1927,14 @@ function runSimRound() {
 				
 				simPlrFleet.fighters.quantity = Math.min(simPlrFleet.fighters.quantity, (simPlrFleet.carriers.quantity + simPlrFleet.titans.quantity + simPlrFleet.battleCarriers*2) * 3);
 			}
+		}
+
+		if (combatHex == "hexQuantum") {
+			/*
+			 * Neither faction type can bring fighters into a Quantum Filament.
+			 * The Base faction must keep them on carriers. The Alternate faction treats them as a supernova.
+			 */
+			excludeGroup(simPlrFleet.fighters, false);
 		}
 		
 		if (simRepFleet.repHulls.quantity > 0) {

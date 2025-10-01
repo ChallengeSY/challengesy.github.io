@@ -20,7 +20,7 @@
 	if (getParam("newSkill") != -1) {
 		seriesGame = 1;
 		seriesDiff = parseInt(getParam("newSkill"));
-		seriesSeason = 3;
+		seriesSeason = 4;
 		if (seriesDiff < 4) {
 			seriesLives = 3;
 		} else {
@@ -38,6 +38,7 @@
 	startingCards = 0;
 	
 	// Tableau Settings
+	downturnDepth = [0];
 	emptyPileRefills = "finalRank";
 	tableauBuilding = "downColorAlt";
 	maxRedeals = 0;
@@ -60,12 +61,17 @@
 				tableauMovement = "builds";
 				maxRedeals = -1;
 				deckCost = 28;
-			} else {
+			} else if (seriesSeason == 3) {
 				seriesName = "FreeCell";
 				tableauStructure = [8,8,8,8,7,7,7,7];
-				downturnDepth = [0];
 				tableauMovement = "oneCard";
 				emptyPileRefills = "anyCard";
+				maxReserve = 4;
+			} else {
+				seriesName = "KingCell";
+				tableauStructure = [8,8,8,8,7,7,7,7];
+				tableauBuilding = "downAnySuit";
+				tableauMovement = "oneCard";
 				maxReserve = 4;
 			}
 			break;
@@ -79,7 +85,6 @@
 			} else if (seriesSeason == 2) {
 				seriesName = "Baker's Dozen";
 				tableauStructure = [4,4,4,4,4,4,4,4,4,4,4,4,4];
-				downturnDepth = [0];
 				tableauMovement = "oneCard";
 				tableauBuilding = "downAnySuit";
 				emptyPileRefills = "none";
@@ -92,6 +97,13 @@
 				tableauBuilding = "downSuit";
 				stockDealTo = 2;
 				deckCost = 28;
+			} else if (seriesSeason == 4) {
+				seriesName = "Queensland";
+				tableauStructure = [5,6,7,7,8,9,10];
+				downturnDepth = [0,1,2,3,4,5,6];
+				tableauMovement = "yukonStyle";
+				tableauBuilding = "downSuit";
+				emptyPileRefills = "anyCard";
 			}
 			break;
 			
@@ -99,7 +111,6 @@
 			if (seriesSeason == 1) {
 				seriesName = "Raglan";
 				tableauStructure = [1,2,3,4,5,6,7,7,7];
-				downturnDepth = [0];
 				tableauMovement = "oneCard";
 				emptyPileRefills = "anyCard";
 				prefilledReserve = 6;
@@ -107,7 +118,6 @@
 			} else if (seriesSeason == 2) {
 				seriesName = "Chelicera";
 				tableauStructure = [4,4,4,4,7,7,7];
-				downturnDepth = [0];
 				scoringModel = "noneScoreSpider";
 				tableauMovement = "yukonStyle";
 				tableauBuilding = "downSuit";
@@ -122,10 +132,18 @@
 				scoringModel = "buildKASpider";
 				tableauBuilding = "downAnySuit";
 				tableauMovement = "taranStyle";
-				emptyPileRefills = "none";
 				emptyPileRefills = "anyCard";
 				stockDealTo = 3;
 				deckCost = 54;
+			} else if (seriesSeason == 4) {
+				seriesName = "Napoleon's Exile";
+				wizardDecks = 2;
+				tableauStructure = [4,4,4,4,4,4,4,4,4,4];
+				tableauBuilding = "downAnySuit";
+				tableauMovement = "oneCard";
+				emptyPileRefills = "anyCard";
+				stockDealTo = 1;
+				deckCost = 40;
 			}
 			break;
 	}
@@ -191,19 +209,19 @@
 	<td class="numeric">1,000</td>
 </tr></tfoot>
 <tbody><tr>
-	<td>FreeCell</td>
+	<td>KingCell</td>
 	<td class="numeric">52</td>
 	<td class="numeric">3</td>
 	<td class="numeric">0</td>
 	<td class="numeric">156</td>
 </tr><tr>
-	<td>Rushdike</td>
+	<td>Queensland</td>
 	<td class="numeric">52</td>
 	<td class="numeric">4</td>
 	<td class="numeric">52</td>
 	<td class="numeric">260</td>
 </tr><tr>
-	<td>Tarantula</td>
+	<td>Napoleon's Exile</td>
 	<td class="numeric">104</td>
 	<td class="numeric">5</td>
 	<td class="numeric">64</td>

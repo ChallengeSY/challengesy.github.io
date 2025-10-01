@@ -236,7 +236,7 @@ function autoNameCounter(localObj) {
 		stackable = true;
 	} else if (localObj.src.indexOf("gfx/base") >= 0) {
 		localObj.title = "Base";
-		stackable = true;
+		stackable = (stackSize > 1);
 	} else if (localObj.src.indexOf("gfx/SC") >= 0) {
 		localObj.title = "Scout";
 		stackable = true;
@@ -298,7 +298,7 @@ function autoNameCounter(localObj) {
 		localObj.title = "Space Marines";
 		stackable = true;
 	} else if (localObj.src.indexOf("gfx/Tran") >= 0) {
-		localObj.title = "Troop Transport";
+		localObj.title = "Transport";
 		stackable = true;
 	} else if (localObj.src.indexOf("gfx/fleet1") >= 0) {
 		localObj.title = "Fleet One";
@@ -348,6 +348,10 @@ function autoNameCounter(localObj) {
 	} else if (localObj.src.indexOf("gfx/typeSW") >= 0) {
 		localObj.title = "Type Sweeper";
 		stackable = true;
+	} else if (localObj.src.indexOf("gfx/DS") >= 0) {
+		localObj.title = "Defense Satellite Network";
+	} else if (localObj.src.indexOf("gfx/SB") >= 0) {
+		localObj.title = "Starbase";
 	} else if (localObj.src.indexOf("gfx/talon/SCE") >= 0) {
 		localObj.title = "Scout-E";
 	} else if (localObj.src.indexOf("gfx/talon/SC") >= 0) {

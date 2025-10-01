@@ -39,6 +39,7 @@ function finishSeriesGame() {
 
 	if (endSeries) {
 		deleteSeriesFile();
+		seriesLives = 0;
 		solGame.gameActive = false;
 		self.location = "../index.htm";
 	} else if (nextGame) {
