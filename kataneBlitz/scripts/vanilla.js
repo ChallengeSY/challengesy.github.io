@@ -4,13 +4,15 @@ var previousButtonClick = null;
 const buttonLabels = ["Abort", "Detonate", "Hold", "Press"];
 const defaultColors = ["rgb(0, 0, 0)", "rgb(0, 0, 255)", "rgb(255, 0, 0)",
 	"rgb(255, 255, 255)", "rgb(255, 255, 0)"];
-	
+
 const keypadTable = [["&#984;", "Ѧ", "&lambda;", "&#990;", "Ѭ", "&#983;", "&#1023;"],
 	["Ӭ", "&#984;", "&#1023;", "Ҩ", "&star;", "&#983;", "¿"],
 	["&copy;", "Ѽ", "Ҩ", "&#1046;", "Ԇ", "&lambda;", "&star;"],
 	["&#1004;", "&para;", "Ҍ", "Ѭ", "&#1046;", "¿", "ټ"],
 	["&psi;", "ټ", "Ҍ", "&#1022;", "&para;", "Ѯ", "&starf;"],
 	["&#1004;", "Ӭ", "҂", "&aelig;", "&psi;", "Ҋ", "&Omega;"]];
+	
+const masterLetterBank = 'abcdefghijklmnopqrstuvwxyz';
 	
 const validMorseFreqs = [505, 515, 522, 532, 535, 542, 545,
 	552, 555, 565, 572, 575, 582, 592, 595, 600];
@@ -111,7 +113,7 @@ function validateButtonPress(event, readObj) {
 
 // Keypad functions
 
-function validateKeypad(readObj, keyObj) {
+function pressKeypad(readObj, keyObj) {
 	if (gameActive && keyObj.style.backgroundColor != solveColor) {
 		keyPress = parseInt(keyObj.id.slice(-1));
 		
@@ -127,10 +129,10 @@ function validateKeypad(readObj, keyObj) {
 		}
 		
 		if (correctPress) {
-			console.log(keyObj.innerHTML + " was pressed correctly.")
+			console.log("Keypad " + keyObj.innerHTML + " was pressed correctly.")
 			keyObj.style.backgroundColor = solveColor;
 		} else {
-			console.warn(keyObj.innerHTML + " was pressed incorrectly!")
+			console.warn("Keypad " + keyObj.innerHTML + " was pressed incorrectly!")
 			keyObj.style.backgroundColor = strikeColor;
 			solveModule(readObj, false, false);
 		}
@@ -843,8 +845,6 @@ function createRandomPassChars(targWord) {
 	var columnBanks = new Array(5);
 	var dupeWords = false;
 	var lettersPerCol = Math.min(6 + Math.floor(score/25),10);
-	
-	const masterLetterBank = 'abcdefghijklmnopqrstuvwxyz';
 	
 	do {
 		dupeWords = 0;
@@ -1585,13 +1585,17 @@ function cutWire(readObj, wireObj) {
 			}
 		}
 		
+		var hintMsg = "Conditions exhausted";
+
 		switch (wireCount) {
 			case 3:
 				if (colorCounts[2] == 0) {
 					// No red wires
+					hintMsg = "No red wires detected";
 					correctWire = 2;
 				} else if (colorCounts[1] >= 2) {
 					// 2 or more blue wires (only effective if 2B 1R)
+					hintMsg = "2 blue wires and 1 red wire detected";
 					for (var b = 3; b >= 1; b--) {
 						compareObj = document.getElementById(readObj.id+"w"+b);
 						
@@ -1609,6 +1613,7 @@ function cutWire(readObj, wireObj) {
 			case 4:
 				if (colorCounts[2] >= 2 && !lastDigitEven()) {
 					// 2 or more reds and odd serial
+					hintMsg = "2+ red wires detected";
 					for (var r = 4; r >= 1; r--) {
 						compareObj = document.getElementById(readObj.id+"w"+r);
 						
@@ -1620,9 +1625,15 @@ function cutWire(readObj, wireObj) {
 				} else if (colorCounts[1] == 1 || (colorCounts[2] == 0 && 
 					document.getElementById(readObj.id+"w4").style.backgroundColor == defaultColors[4])) {
 					// Last wire is yellow, and no red wires; or exactly 1 blue wire
+					if (colorCounts[1] == 1) {
+						hintMsg = "1 blue wire detected";
+					} else {
+						hintMsg = "1+ yellow and 0 red wires detected";
+					}
 					correctWire = 1;
 				} else if (colorCounts[4] > 1) {
 					// 2 or more yellow wires
+					hintMsg = "2+ yellow wires detected";
 					correctWire = 4;
 				} else {
 					// All conditions exhausted
@@ -1634,12 +1645,15 @@ function cutWire(readObj, wireObj) {
 				if (!lastDigitEven() &&
 					document.getElementById(readObj.id+"w5").style.backgroundColor == defaultColors[0]) {
 					// Last wire is black, and odd serial
+					hintMsg = "1+ black wires detected";
 					correctWire = 4;
 				} else if (colorCounts[2] == 1 && colorCounts[4] > 1) {
 					// Exactly 1 red wire and 2+ yellow wires
+					hintMsg = "1 red and 2+ yellow wires detected";
 					correctWire = 1;
 				} else if (colorCounts[0] == 0) {
 					// No black wires
+					hintMsg = "No black wires detected";
 					correctWire = 2;
 				} else {
 					// All conditions exhausted
@@ -1650,12 +1664,15 @@ function cutWire(readObj, wireObj) {
 			case 6:
 				if (colorCounts[4] == 0 && !lastDigitEven()) {
 					// No yellow wires and odd serial
+					hintMsg = "No yellow wires detected";
 					correctWire = 3;
 				} else if (colorCounts[4] == 1 && colorCounts[3] > 1) {
 					// Exactly 1 yellow wire and 2+ white wires
+					hintMsg = "1 yellow and 2+ white wires detected";
 					correctWire = 4;
 				} else if (colorCounts[2] == 0) {
 					// No red wires
+					hintMsg = "No red wires detected";
 					correctWire = 6;
 				} else {
 					// All conditions exhausted
@@ -1668,7 +1685,7 @@ function cutWire(readObj, wireObj) {
 		if (readObj.style.borderColor == solveColor) {
 			console.log("Wire "+wireCut+" was cut correctly.");
 		} else {
-			console.warn("Wire "+wireCut+" was cut incorrectly!");
+			console.warn("Wire "+wireCut+" was cut incorrectly! ("+hintMsg+")");
 		}
 		if (life <= 0) {
 			console.warn("Wire "+correctWire+" was the correct wire.");

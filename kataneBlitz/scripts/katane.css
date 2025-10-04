@@ -1,10 +1,13 @@
 @import "morseCode.css";
 @import "expansion.css";
 
+@import url("https://fonts.googleapis.com/css?family=Tektur");
+
 /* General styles */
 
 body{font-family: sans-serif; color: #ffffff; background-color: #404040;}
-h2,h3,h4,.center {text-align: center;}
+h2,h3,h4{font-family: "Tektur", sans-serif; text-align: center;}
+.center {text-align: center;}
 #banner {text-align: center; margin-top: 30px; margin-bottom: 30px;}
 #banner img {border: 1px outset #fff;}
 
@@ -57,7 +60,7 @@ div.danger {background: rgb(255,0,0); animation: flashDiv 1000ms infinite;}
 div.nightmare {background: rgb(255,0,0); animation: flashDiv 500ms infinite;}
 
 #bomb {display: grid; grid-template-columns: 25% 25% 25% 25%;}
-#numBatts {color: yellow; font-weight: bold;}
+#numBattAA, #numBattD {color: yellow; font-weight: bold;}
 
 #banner img {padding: 5px; background: black;}
 #serialNum {font-family: monospace; font-size: 165%;}
@@ -108,7 +111,7 @@ legend, #scoreboard {font-family: 'Rajdhani', sans-serif; font-size: 110%; text-
 .memDisp {background: #040; font-size: 300%; padding: 5px; text-align: center; border: 10px solid black; grid-row: 1 / span 3; grid-column: 1 / span 4;}
 div.memButton {grid-row: 4 / span 2; text-align: center;}
 .memButton button {background: #C84; color: #000; width: 50px; height: 55px; font-size: 150%; cursor: pointer;}
-.memStage, .whoStage, .wireSeqStage {background: #000; border: 1px solid #CCC;}
+.memStage, .whoStage, .wireSeqStage, .coprimeStage {background: #000; border: 1px solid #CCC;}
 
 button.passDelta {background: #C84; color: #000; width: 31px; height: 31px; border-radius: 16px; cursor: pointer;}
 .passDisp {background: #0C0; color: #000; width: 32px; height: 64px; font-family: monospace; font-size: 300%; text-align: center; width: 100%; max-width: 80%; border: 5px solid #1E1; margin-left: auto; margin-right: auto; padding-top: 13%; cursor: default;}
