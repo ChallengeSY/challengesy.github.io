@@ -1,5 +1,6 @@
 function setupSim() {
 	setupBox();
+	bSimMode = "rep";
 	
 	//Basic ships
 	addShipRow("plrShips", "Scout",3,"E",0,1);
@@ -33,7 +34,7 @@ function setupSim() {
 	//AGT ships
 	addShipRow("plrShips", "Missile Boat",6,"A",0,1);
 	addShipRow("plrShips", "Missile",6,"A",0,1);
-	addShipRow("plrShips", "Defense Satellite Network",4,"B",1,2);
+	addShipRow("plrShips", "Satellites",4,"B",1,2);
 	addShipRow("plrShips", "Starbase",7,"A",3,4);
 	
 	//Replicator faction ships
@@ -132,6 +133,8 @@ function addShipRow(useTable, namee, baseAtk, atkClass, baseDef, sizee) {
 		inputFrag.min = baseAtk;
 		inputFrag.value = baseAtk;
 		inputFrag.max = baseAtk + Math.min(sizee,4);
+		inputFrag.onblur = applyTotals;
+		inputFrag.onchange = applyTotals;
 		tdFrag.appendChild(inputFrag);
 		trFrag.appendChild(tdFrag);
 		
@@ -146,6 +149,8 @@ function addShipRow(useTable, namee, baseAtk, atkClass, baseDef, sizee) {
 		inputFrag.min = baseDef;
 		inputFrag.value = baseDef;
 		inputFrag.max = baseDef + Math.min(sizee,3);
+		inputFrag.onblur = applyTotals;
+		inputFrag.onchange = applyTotals;
 		tdFrag.appendChild(inputFrag);
 		trFrag.appendChild(tdFrag);
 		
@@ -160,6 +165,8 @@ function addShipRow(useTable, namee, baseAtk, atkClass, baseDef, sizee) {
 		inputFrag.min = 0;
 		inputFrag.value = 0;
 		inputFrag.max = 3;
+		inputFrag.onblur = applyTotals;
+		inputFrag.onchange = applyTotals;
 		tdFrag.appendChild(inputFrag);
 		trFrag.appendChild(tdFrag);
 		
@@ -236,9 +243,12 @@ function modifyPlrMaxTech(modifier) {
 	document.getElementById("Raider-XSize").innerHTML = 2;
 	document.getElementById("Raider-XAtk").max++;
 	
-	document.getElementById("Missile BoatAtk").max = 0;
-	document.getElementById("Missile BoatAtk").disabled = true;
+	document.getElementById("Missile BoatAtk").max = 9;
 	document.getElementById("Missile BoatDef").max++;
+	document.getElementById("MissileAtk").max = 9;
+	document.getElementById("MissileDef").max++;
+	document.getElementById("MissileAtk").disabled = true;
+	document.getElementById("MissileDef").disabled = true;
 	document.getElementById("MissileQty").value = 0;
 	document.getElementById("MissileQty").disabled = true;
 	document.getElementById("MissileAtk").max = parseInt(document.getElementById("MissileAtk").min) + 3;
@@ -376,9 +386,9 @@ function showPlrRows(rowId, rowVis) {
 		showPlrRows("Raider-X", cloakTech > 0 && advConTech >= 3);
 		showPlrRows("Advanced Flagship", advConTech >= 3);
 		
-		showPlrRows("Missile Boat", auxTech && plrFaction == 1);
-		showPlrRows("Missile", auxTech && plrFaction == 1);
-		showPlrRows("Defense Satellite Network", sizeTech >= 2);
+		showPlrRows("Missile Boat", plrFaction == 1);
+		showPlrRows("Missile", plrFaction == 1);
+		showPlrRows("Satellites", sizeTech >= 2);
 		showPlrRows("Starbase", advConTech >= 2);
 		
 		showPlrRows("Hull", replicatorRP >= 0);
@@ -477,6 +487,10 @@ function applyTotals() {
 		plrSizeBonus = -1;
 	}
 	
+	document.getElementById("MissileAtk").value = document.getElementById("Missile BoatAtk").value;
+	document.getElementById("MissileDef").value = document.getElementById("Missile BoatDef").value;
+	document.getElementById("MissileTac").value = document.getElementById("Missile BoatTac").value;
+	
 	techCells = document.getElementsByTagName("input");
 	for (t in techCells) {
 		if (techCells[t].id && techCells[t].id.endsWith("Qty")) {
@@ -505,7 +519,7 @@ function applyTotals() {
 					techCells[t].id == "Battle CarrierQty" || techCells[t].id == "Advanced FlagshipQty") {
 					sizeMulti = 3 + plrSizeBonus;
 				} else if (techCells[t].id == "CruiserQty" || techCells[t].id == "BattlecruiserQty" || techCells[t].id == "RaiderQty" ||
-					techCells[t].id == "Raider-XQty" || techCells[t].id == "Boarding ShipQty" || techCells[t].id == "Defense Satellite NetworkQty") {
+					techCells[t].id == "Raider-XQty" || techCells[t].id == "Boarding ShipQty" || techCells[t].id == "Satellites") {
 					sizeMulti = 2 + plrSizeBonus;
 				} else if (techCells[t].id == "MinesQty") {
 					sizeMulti = 1.5;
@@ -792,7 +806,7 @@ function playerFleet() {
 	this.advancedFlagships = new simShip("Advanced Flagship");
 	this.raiderXes = new simShip("Raider-X");
 	//AGT tech
-	this.defSats = new simShip("Defense Satellite Network");
+	this.defSats = new simShip("Satellites");
 	this.starbases = new simShip("Starbase");
 	this.missileBoats = new simShip("Missile Boat");
 	this.missiles = new simShip("Missile");
@@ -1443,7 +1457,7 @@ function firePlrWeps(shipObj, tacLvReq) {
 		}
 		
 		if (simRound > plrRetreatBan && shipObj.namee != "Titan" && shipObj.namee != "Ship Yard" && shipObj.namee != "Base" &&
-			shipObj.namee != "Defense Satellite Network" && shipObj.namee != "Starbase" && shipObj.namee.search("Destroyed") < 0 &&
+			shipObj.namee != "Satellites" && shipObj.namee != "Starbase" && shipObj.namee.search("Destroyed") < 0 &&
 			(simPlrFleet.totalShips() <= retreatThresh || (shipObj.namee == "Flagship" && shipObj.damage >= 2 && plrFlagPreserve))) {
 			pFrag = document.createElement("p");
 			pFrag.innerHTML = shipObj.toString() + " has retreated.";
@@ -1544,11 +1558,11 @@ function firePlrWeps(shipObj, tacLvReq) {
 							
 							activeTarget.hitShip(dmgAmt);
 						} else {
-							pFrag.innerHTML = pFrag.innerHTML + " " + dieRoll + "</span>";
+							pFrag.innerHTML = pFrag.innerHTML + " " + dieRoll;
 						}
 						
 						if (plrAdvStr == "Celestial Knights" && simRound == 2 && shipObj.namee != "Ship Yard" && shipObj.namee != "Base" &&
-							shipObj.namee != "Defense Satellite Network" && shipObj.namee != "Starbase") {
+							shipObj.namee != "Satellites" && shipObj.namee != "Starbase") {
 							// Knights have charged; compatible ships get twice as many rolls (a.k.a. consume half as much ammo)
 							rollsAvail = rollsAvail - 0.5;
 						} else {
@@ -1650,17 +1664,17 @@ function fireRepWeps(shipObj, tacLvReq) {
 						
 						if (dieRoll <= hitThresh) {
 							pFrag.innerHTML = pFrag.innerHTML + " <span class=\"hit\">" + dieRoll + "</span>";
-							if (immortalShield) {
-								// Immortals can choose to ignore *1* hit each round. For this simulator, they will ignore the first hit
-								immortalShield = false;
-							} else {
-								var dmgAmt = 1;
-								if (ionStorm) {
-									dmgAmt = dmgAmt * 2;
-								}
-								
-								activeTarget.hitShip(dmgAmt);
+							var dmgAmt = 1;
+							if (ionStorm) {
+								dmgAmt = dmgAmt * 2;
 							}
+							if (immortalShield) {
+								// Immortals can choose to ignore *1* damage point each round. For this simulator, they will affect the first hit.
+								immortalShield = false;
+								dmgAmt--;
+							}
+							
+							activeTarget.hitShip(dmgAmt);1
 							
 							if (repGunnery && !extraRoll && activeTarget.quantity > 0 && 
 								(shipObj.namee == "Type Flag" || shipObj.namee == "Type XIII" || shipObj.namee == "Type XV")) {
@@ -1672,7 +1686,7 @@ function fireRepWeps(shipObj, tacLvReq) {
 								extraRoll = false;
 							}
 						} else {
-							pFrag.innerHTML = pFrag.innerHTML + " " + dieRoll + "</span>";
+							pFrag.innerHTML = pFrag.innerHTML + " " + dieRoll;
 							extraRoll = false;
 						}
 						

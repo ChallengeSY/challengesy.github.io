@@ -348,6 +348,8 @@ function autoNameCounter(localObj) {
 	} else if (localObj.src.indexOf("gfx/typeSW") >= 0) {
 		localObj.title = "Type Sweeper";
 		stackable = true;
+	} else if (localObj.src.indexOf("gfx/DSPA") >= 0) {
+		localObj.title = "Deep Space Planet Attribute";
 	} else if (localObj.src.indexOf("gfx/DS") >= 0) {
 		localObj.title = "Defense Satellite Network";
 	} else if (localObj.src.indexOf("gfx/SB") >= 0) {
@@ -839,15 +841,160 @@ function readJson() {
 			commentary.innerHTML = "<h2>" + curStage.heading + "</h2>" + commentary.innerHTML;
 		}
 		
-		if (curStage.prodTable) {
+		if (curStage.prodTableAGT) {
+			var constructTable = "<table><caption>Player Economics + Logistics</caption> \
+				<tr><th>Player</th><th>Initial "+conceptLink("CP")+"</th>\
+				<th>"+conceptLink("Colonies")+"</th>\
+				<th><a href=\"javascript:showBox('mineral')\">Minerals</a></th>\
+				<th><a href=\"javascript:showBox('pipeline')\">Pipelines</a></th>\
+				<th>Conversion</th><th>Units</th>\
+				<th>Leftover CP</th><th>Initial "+conceptLink("RP")+"</th>\
+				<th>Production</th>\
+				<th>Spending</th>\
+				<th>Leftover RP</th></tr>";
+				
+			for (var a = 0; a < curStage.prodTableAGT.length; a++) {
+				var activePlayer = curStage.prodTableAGT[a];
+				
+				if (readValue(activePlayer.isDead,false)) {
+					// Player is dead
+					constructTable = constructTable + "<tr class=\"deadPlr\">";
+				} else {
+					constructTable = constructTable + "<tr>";
+				}
+
+				var LPconversion = [readValue(activePlayer.convertCP,0) + readValue(activePlayer.convertLP,0) * 3,
+					readValue(activePlayer.convertCP,0) + readValue(activePlayer.convertLP,0)];
+				
+				var availPoints = [readValue(activePlayer.initCP,0) + Math.max(readValue(activePlayer.colonyCP,0) + readValue(activePlayer.mineralCP,0) + readValue(activePlayer.pipeCP,0) - LPconversion[0], 0),
+					readValue(activePlayer.initRP,0) + readValue(activePlayer.colonyRP,0),
+					readValue(activePlayer.initLP,0) + readValue(activePlayer.colonyLP,0) + LPconversion[1] - readValue(activePlayer.maint,0) - readValue(activePlayer.bidLP,0),
+					readValue(activePlayer.initTP,0) + readValue(activePlayer.colonyTP,0)];
+				var leftoverPoints = [availPoints[0] - readValue(activePlayer.unitBuy,0),
+					availPoints[1] - readValue(activePlayer.techBuy,0),
+					availPoints[2] - readValue(activePlayer.bidLP,0) - readValue(activePlayer.packedLP,0),
+					availPoints[3] - readValue(activePlayer.spendTP,0)];
+				
+				constructTable = constructTable + "<td>"+activePlayer.name+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.initCP,0)+"</td> \
+					<td class=\"numeric increase\">+"+readValue(activePlayer.colonyCP,0)+"</td> \
+					<td class=\"numeric increase\">+"+readValue(activePlayer.mineralCP,0)+"</td> \
+					<td class=\"numeric increase\">+"+readValue(activePlayer.pipeCP,0)+"</td> \
+					<td class=\"numeric decrease\">-"+LPconversion[0]+"</td> \
+					<td class=\"numeric\">-"+readValue(activePlayer.unitBuy,0)+"</td> \
+					<td class=\"numeric\">"+leftoverPoints[0]+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.initTP,0)+"</td> \
+					<td class=\"numeric increase\">+"+readValue(activePlayer.colonyRP,0)+"</td> \
+					<td class=\"numeric\">-"+readValue(activePlayer.techBuy,0)+"</td> \
+					<td class=\"numeric\">"+leftoverPoints[1]+"</td></tr>"
+			}
+			
+			
+			constructTable = constructTable + "<tr><th>Player</th><th>Initial "+conceptLink("LP")+"</th>\
+				<th>Production</th>\
+				<th>Conversion</th>\
+				<th><a href=\"javascript:showBox('maintenance')\">Maint</a></th>\
+				<th>"+conceptLink("Bid")+"</th>\
+				<th>Packaged</th>\
+				<th>Leftover LP</th><th>Initial "+conceptLink("TP")+"</th>\
+				<th>Production</th>\
+				<th>Spending</th>\
+				<th>Leftover TP</th></tr>";
+				
+			for (var b = 0; b < curStage.prodTableAGT.length; b++) {
+				var activePlayer = curStage.prodTableAGT[b];
+				
+				if (readValue(activePlayer.isDead,false)) {
+					// Player is dead
+					constructTable = constructTable + "<tr class=\"deadPlr\">";
+				} else {
+					constructTable = constructTable + "<tr>";
+				}
+				
+				constructTable = constructTable + "<td>"+activePlayer.name+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.initLP,0)+"</td> \
+					<td class=\"numeric increase\">+"+readValue(activePlayer.colonyLP,0)+"</td> \
+					<td class=\"numeric increase\">+"+LPconversion[1]+"</td> \
+					<td class=\"numeric decrease\">-"+readValue(activePlayer.maint,0)+"</td> \
+					<td class=\"numeric\">-"+readValue(activePlayer.bidLP,0)+"</td> \
+					<td class=\"numeric\">-"+readValue(activePlayer.packedLP,0)+"</td> \
+					<td class=\"numeric\">"+leftoverPoints[2]+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.initTP,0)+"</td> \
+					<td class=\"numeric increase\">+"+readValue(activePlayer.colonyTP,0)+"</td> \
+					<td class=\"numeric\">-"+readValue(activePlayer.spendTP,0)+"</td> \
+					<td class=\"numeric\">"+leftoverPoints[3]+"</td></tr>"
+			}
+				
+			constructTable = constructTable + "</table>";
+			seekTag = "{prodTable}";
+			
+			if (commentary.innerHTML.indexOf(seekTag) >= 0) {
+				commentary.innerHTML = commentary.innerHTML.replace(seekTag,constructTable);
+			} else {
+				commentary.innerHTML = commentary.innerHTML + constructTable;
+			}
+				
+		} else if (curStage.prodTableCE) {
+			var constructTable = "<table><caption>Player Economics</caption> \
+				<tr><th>Player</th><th>Initial "+conceptLink("CP")+"</th>\
+				<th>"+conceptLink("Colonies")+"</th>\
+				<th><a href=\"javascript:showBox('mineral')\">Minerals</a></th>\
+				<th><a href=\"javascript:showBox('pipeline')\">Pipelines</a></th>\
+				<th><a href=\"javascript:showBox('maintenance')\">Maint</a></th>\
+				<th>"+conceptLink("Bid")+"</th>\
+				<th>Units</th><th>Leftover CP</th><th>Initial "+conceptLink("RP")+"</th>\
+				<th>Production</th>\
+				<th>Spending</th>\
+				<th>Leftover RP</th></tr>";
+				
+			for (var a = 0; a < curStage.prodTableCE.length; a++) {
+				var activePlayer = curStage.prodTableCE[a];
+				
+				if (readValue(activePlayer.isDead,false)) {
+					// Player is dead
+					constructTable = constructTable + "<tr class=\"deadPlr\">";
+				} else {
+					constructTable = constructTable + "<tr>";
+				}
+
+				var availPoints = [readValue(activePlayer.initCP,0) + Math.max(readValue(activePlayer.colonyCP,0) + readValue(activePlayer.mineralCP,0) + readValue(activePlayer.pipeCP,0) - readValue(activePlayer.maint,0), 0),
+					readValue(activePlayer.initRP,0) + readValue(activePlayer.colonyRP,0)];
+				var leftoverPoints = [availPoints[0] - readValue(activePlayer.bidCP,0) - readValue(activePlayer.unitBuy,0),
+					availPoints[1] - readValue(activePlayer.techBuy,0)];
+				
+				constructTable = constructTable + "<td>"+activePlayer.name+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.initCP,0)+"</td> \
+					<td class=\"numeric increase\">+"+readValue(activePlayer.colonyCP,0)+"</td> \
+					<td class=\"numeric increase\">+"+readValue(activePlayer.mineralCP,0)+"</td> \
+					<td class=\"numeric increase\">+"+readValue(activePlayer.pipeCP,0)+"</td> \
+					<td class=\"numeric decrease\">-"+readValue(activePlayer.maint,0)+"</td> \
+					<td class=\"numeric\">-"+readValue(activePlayer.bidCP,0)+"</td> \
+					<td class=\"numeric\">-"+readValue(activePlayer.unitBuy,0)+"</td> \
+					<td class=\"numeric\">"+leftoverPoints[0]+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.initTP,0)+"</td> \
+					<td class=\"numeric increase\">+"+readValue(activePlayer.colonyRP,0)+"</td> \
+					<td class=\"numeric\">-"+readValue(activePlayer.techBuy,0)+"</td> \
+					<td class=\"numeric\">"+leftoverPoints[1]+"</td></tr>"
+			}
+				
+			constructTable = constructTable + "</table>";
+			seekTag = "{prodTable}";
+			
+			if (commentary.innerHTML.indexOf(seekTag) >= 0) {
+				commentary.innerHTML = commentary.innerHTML.replace(seekTag,constructTable);
+			} else {
+				commentary.innerHTML = commentary.innerHTML + constructTable;
+			}
+				
+		} else if (curStage.prodTable) {
 			var constructTable = "<table><caption>Player Economics</caption> \
 				<tr><th>Player</th><th>Initial</th>\
-				<th><a href=\"javascript:showBox('colony')\">Colonies</a></th>\
+				<th>"+conceptLink("Colonies")+"</th>\
 				<th><a href=\"javascript:showBox('mineral')\">Minerals</a></th>\
 				<th><a href=\"javascript:showBox('pipeline')\">Pipelines</a></th>\
 				<th><a href=\"javascript:showBox('maintenance')\">Maint</a></th>\
 				<th>Available</th>\
-				<th><a href=\"javascript:showBox('bid')\">Bid</a></th>\
+				<th>"+conceptLink("Bid")+"</th>\
 				<th><a href=\"javascript:showBox('technology')\">Tech</a></th>\
 				<th>Units</th><th>Leftover</th></tr>";
 				
@@ -1290,11 +1437,11 @@ function readJson() {
 							<td class=\"numeric\">"+readValue(activePlayer.boarding,0)+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.security,0)+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.troops,1)+"</td> \
-							<td class=\"numeric\">"+readValue(activePlayer.fastMove,0)+"</td> \
+							<td class=\"numeric\">"+readValue(activePlayer.BCaux,0)+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.BHJ,0)+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.advCon,0)+"</td> \
-							<td class=\"numeric\">"+readValue(activePlayer.tractor,0)+"</td> \
-							<td class=\"numeric\">"+readValue(activePlayer.shieldProj,0)+"</td> \
+							<td class=\"numeric\">"+readValue(activePlayer.BBaux,0)+"</td> \
+							<td class=\"numeric\">"+readValue(activePlayer.DNaux,0)+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.antiRep,0)+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.missile,0)+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.jammer,0)+"</td> \

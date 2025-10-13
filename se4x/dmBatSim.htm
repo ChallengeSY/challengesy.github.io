@@ -23,7 +23,7 @@
 	<script src="pedia.js"></script>
 </head>
 <body onload="setupSim()">
-<p id="banner"><a href="index.htm"><img src="banner.png" alt="Space Empires 4X Resourcepedia" /></a></p>
+<p id="banner"><a href="index.htm"><img src="banner.png" alt="Space Empires Resourcepedia" /></a></p>
 
 <hr />
 
@@ -75,6 +75,19 @@ No matter how low, a DM that rolls a 10 automatically misses">Evasion</th>
 </tfoot>
 <tbody>
 <tr>
+<td><label for="plrFaction">Faction</label></td>
+<td><a href="javascript:showBox('faction')">(?)</a></td>
+<td colspan="1"><select class="text" id="plrFaction" onchange="changeFaction()" onblur="changeFaction()">
+<option>Base</option>
+<option>Alternate</option>
+<option>Replicator</option>
+<option>NPA</option>
+</select></td>
+<td><label for="techAux">Auxiliary Ships</label></td>
+<td>&nbsp;</td>
+<td><input type="checkbox" id="techAux" onclick="showPlrRows()" oninput="showPlrRows()" /></td>
+</tr>
+<tr>
 <td><label for="techAtk">Attack Level</label></td>
 <td><a href="javascript:showBox('Attack')">(?)</a></td>
 <td><input class="text numeric" type="number" id="techAtk" value="0" min="0" max="3" size="5" /></td>
@@ -99,28 +112,25 @@ No matter how low, a DM that rolls a 10 automatically misses">Evasion</th>
 <td><input class="text numeric" type="number" id="techClk" value="0" min="0" max="2" size="5" onchange="showPlrRows()" onblur="showPlrRows()" /></td>
 </tr>
 <tr>
-<td><label for="techCE">Close Encounters</label></td>
-<td><a href="javascript:showBox('Close Encounters')">(?)</a></td>
-<td><input type="checkbox" id="techCE" onclick="showPlrRows()" oninput="showPlrRows()" /></td>
-<td><label for="npaShips">Non-Player Aliens</label></td>
-<td><a href="javascript:showBox('Non-Player Alien')">(?)</a></td>
-<td><input type="checkbox" id="npaShips" onclick="showPlrRows()" oninput="showPlrRows()" /></td>
-</tr>
-<tr>
 <td><label for="techAC">Advanced Construction</label></td>
 <td><a href="javascript:showBox('Advanced Construction')">(?)</a></td>
 <td><input class="text numeric" type="number" id="techAC" value="0" min="0" max="3" size="5" onchange="showPlrRows()" onblur="showPlrRows()" /></td>
 <td><label for="repRP">Replicator RP</label></td>
 <td><a href="javascript:showBox('RP')">(?)</a></td>
-<td><input class="text numeric" type="number" id="repRP" value="-1" min="-1" max="15" size="5" onchange="showPlrRows()" onblur="showPlrRows()" /></td>
+<td><input class="text numeric" type="number" id="repRP" value="0" min="0" max="15" size="5" onchange="showPlrRows()" onblur="showPlrRows()" /></td>
+</tr>
+<tr>
+<td><label for="retreatThresh">Retreat Threshold</label></td>
+<td><a href="javascript:showBox('retreatThresh')">(?)</a></td>
+<td><input class="text numeric" type="number" id="retreatThresh" value="0" min="0" size="5" /></td>
+<td><label for="plrFlagPreserve">Flagship Preservation</label></td>
+<td><a href="javascript:showBox('flagpreserve')">(?)</a></td>
+<td><input type="checkbox" id="plrFlagPreserve" /></td>
 </tr>
 <tr>
 <td><label for="numSims">Number of simulations</label></td>
 <td><a href="javascript:showBox('numSims')">(?)</a></td>
 <td><input class="text numeric" type="number" id="numSims" value="400" min="2" size="7" /></td>
-<td><label for="retreatThresh">Retreat Threshold</label></td>
-<td><a href="javascript:showBox('retreatThresh')">(?)</a></td>
-<td><input class="text numeric" type="number" id="retreatThresh" value="0" min="0" size="5" /></td>
 </tr>
 </tbody>
 </table>
@@ -141,6 +151,16 @@ No matter how low, a DM that rolls a 10 automatically misses">Evasion</th>
 <label for="hexNebula">Nebula</label> <a href="javascript:showBox('Nebula')">(?)</a>
 <input type="radio" name="combatHex" oninput="computeHitChances(true);" id="hexBlackHole" value="hexBlackHole" />
 <label for="hexBlackHole">Black Hole</label> <a href="javascript:showBox('Black Hole')">(?)</a>
+<br />
+<input type="radio" name="combatHex" id="hexQuantum" value="hexQuantum" />
+<label for="hexQuantum">Quantum Filament</label> <a href="javascript:showBox('Quantum Filament')">(?)</a>
+<input type="radio" name="combatHex" id="hexQuasar" value="hexQuasar" />
+<label for="hexQuasar">Quasar</label> <a href="javascript:showBox('Quasar')">(?)</a>
+<br />
+<input type="checkbox" id="hexIon" value="hexIon" />
+<label for="hexIon">Ion Storm</label> <a href="javascript:showBox('Ion Storm')">(?)</a>
+<input type="checkbox" id="hexPlasma" value="hexPlasma" />
+<label for="hexPlasma">Plasma Storm</label> <a href="javascript:showBox('Plasma Storm')">(?)</a>
 </fieldset>
 
 </td>

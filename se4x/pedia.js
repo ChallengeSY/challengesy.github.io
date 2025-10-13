@@ -66,7 +66,7 @@ function stats4X(faction, buildCost, atk, def, hullSize, tac, tech) {
 		fragTxt = fragTxt + "<b>"+conceptLink("Attack")+"</b>: "+atk+"<br /><b>"+conceptLink("Defense")+"</b>: "+def+"<br /><b>"+conceptLink("Hull Size")+"</b>: "+hullSize;
 		
 		if (typeof tac !== "undefined" && tac >= 0) {
-			fragTxt = fragTxt + "<br /><b>"+conceptLink("Tactics")+"</b>: Level "+tac;
+			fragTxt = fragTxt + "<br /><b>"+conceptLink("Tactics")+"</b>: "+tac;
 		}
 	} else {
 		fragTxt = fragTxt + conceptLink("Non-combat ship");
@@ -100,12 +100,29 @@ function discardVal(baseAmt, repAmt) {
 	return fragTxt;
 }
 
+function dspaStats(shipCt, HIcount) {
+	var fragTxt = "<br /><br />";
+	fragTxt = fragTxt + "<b class=\"headOx\">Attribute Stats</b><br />";
+	fragTxt = fragTxt + "<b>"+conceptLink("NPA")+" ships</b>: " + shipCt + "<br />";
+	fragTxt = fragTxt + "<b>"+conceptLink("Heavy Infantry")+" militia</b>: " + HIcount + "<br />";
+	
+	return fragTxt;
+}
+
 function dmBase(strength) {
 	const dmCommonA = "Non-player <q>boss</q> ship that will instantly destroy any undefended "+conceptLink("planet")+" it contests.";
-	const dmCommonB = "<br />Equipped with "+conceptLink("Scanning")+" level 2. \
-		Immune to "+conceptLink("boarding")+", "+conceptLink("fighter")+"s, "+conceptLink("mines")+", \
-		and non-"+conceptLink("amoeba")+" non-"+conceptLink("quasar")+" non-"+conceptLink("ion storm")+" terrain.\
-		<br />Prevents the benefits of "+conceptLink("Fleet Size Bonus")+"es and "+conceptLink("combat ship")+" "+conceptLink("screen")+"ing.";
+		
+	var dmCommonB = "<br />Equipped with "+conceptLink("Scanning")+" 2.";
+	if (useRuleset == "AGT") {
+		dmCommonB = dmCommonB + "Immune to "+conceptLink("boarding")+", "+conceptLink("fighter")+"s, "+conceptLink("mines")+", \
+			and non-"+conceptLink("amoeba")+" non-"+conceptLink("quasar")+" non-"+conceptLink("ion storm")+" terrain. Resistant to "+conceptLink("missile")+"s.";
+	} else if (useRuleset != "SE4X") {
+		dmCommonB = dmCommonB + "Immune to "+conceptLink("boarding")+", "+conceptLink("fighter")+"s, \
+			"+conceptLink("mines")+", and non-"+conceptLink("amoeba")+" terrain.";
+	} else {
+		dmCommonB = dmCommonB + "Immune to "+conceptLink("fighter")+"s, "+conceptLink("mines")+", and terrain.";
+	}
+	dmCommonB = dmCommonB + "<br />Prevents the benefits of "+conceptLink("Fleet Size Bonus")+"es and "+conceptLink("combat ship")+" "+conceptLink("screen")+"ing.";
 	
 	if (strength == "MP") {
 		return "<b class=\"headOx\">Doomsday Machine (Competitive variant)</b><br />"+dmCommonA+dmCommonB+" <span class=\"bindTxt\">Repairs damage in between "+conceptLink("battle")+"s.</span>";
@@ -212,9 +229,9 @@ function showBox(concept) {
 			}
 			break;
 		case "bid":
-			displayTxt = "During each "+conceptLink("economic phase")+", players secretly bid any "+conceptLink("CP")+" they wish to set aside\
+			displayTxt = "During each "+conceptLink("economic phase")+", players secretly bid any currency they wish to set aside\
 				to try to steal the "+conceptLink("initiative")+" for the next 3 "+conceptLink("turn")+"s.<br />\
-				Bids are revealed after "+conceptLink("colonies")+" have grown. CP spent this way is consumed whether or not a given player wins the bid.<br /><br />\
+				Bids are revealed after "+conceptLink("colonies")+" have grown. Currency spent this way is consumed whether or not a given player wins the bid.<br /><br />\
 				The player that wins the bid determines <b>who</b> gains initiative.";
 			break;
 		case "blockade":
@@ -776,8 +793,18 @@ function showBox(concept) {
 			break;
 		case "space wreck":
 			displayTxt = "Can be picked up by a "+conceptLink("miner")+" and towed to a "+conceptLink("colony")+" to develop a free random "+conceptLink("technology")+".";
-			if (useRuleset != "SE4X" && useRuleset != "CE" && useRuleset != "talon") {
-				displayTxt = displayTxt + "<br /><br />"+conceptLink("Replicator")+" "+conceptLink("ship")+"s automatically cash them in, gaining 1 "+conceptLink("RP")+" in the process.";
+			if (useRuleset != "talon") {
+				if (useRuleset != "SE4X" && useRuleset != "CE") {
+					displayTxt = displayTxt + "<br />"+conceptLink("Replicator")+" "+conceptLink("ship")+"s automatically cash them in, gaining 1 "+conceptLink("RP")+" in the process.";
+				}
+
+				displayTxt = displayTxt + "<br /><br />One of these technologies is awarded when cashed in at a colony:\
+					<br />1-2: "+conceptLink("Ship Size")+"\
+					<br />3-4: "+conceptLink("Attack")+"\
+					<br />5-6: "+conceptLink("Defense")+"\
+					<br />7: "+conceptLink("Tactics")+"\
+					<br />8-9: "+conceptLink("Movement")+"\
+					<br />10: "+conceptLink("Ship Yard");
 			}
 			break;
 		case "supernova":
@@ -1018,6 +1045,16 @@ function showBox(concept) {
 			displayTxt = "Heavy "+conceptLink("non-player alien")+" ship";
 			displayTxt = displayTxt + stats4X("Alien", 0, "B6", 2, 1, 1);
 			break;
+		case "alien-e":
+			headingTxt = "Alien Frigate";
+			displayTxt = "Armored Light "+conceptLink("non-player alien")+" ship";
+			displayTxt = displayTxt + stats4X("Alien", 0, "E7", 1, 2, 1);
+			break;
+		case "alien-a":
+			headingTxt = "Alien Battleship";
+			displayTxt = "Armored Heavy "+conceptLink("non-player alien")+" ship";
+			displayTxt = displayTxt + stats4X("Alien", 0, "A5", 1, 2, 1);
+			break;
 		
 		// Doomsday Machines
 		case "doomsday machine":
@@ -1218,7 +1255,7 @@ function showBox(concept) {
 			displayTxt = displayTxt + stats4X("Alternate", "&infin;", "B5", 0, 3);
 			break;
 		case "industrial center":
-			displayTxt = conceptLink("Facility")+" that generates 5 extra "+conceptLink("CP")+".";
+			displayTxt = conceptLink("Facility")+" that generates 5 extra "+conceptLink("CP")+" each "+conceptLink("economic phase")+".";
 			break;
 		case "military academy":
 			displayTxt = conceptLink("Close Encounters")+" technology that improves the "+conceptLink("experience")+" system for "+conceptLink("ship")+"s.<br />\
@@ -1257,7 +1294,7 @@ function showBox(concept) {
 				Resistant to "+conceptLink("Mines")+" and "+conceptLink("Fleet Size Bonus")+". \
 				Weak to "+conceptLink("Fighter")+"s. Unable to "+conceptLink("retreat")+" or be "+conceptLink("screen")+"ed.";
 				displayTxt = displayTxt + stats4X("Base", 32, "A7", 3, 5, -1, conceptLink("Ship Size")+" 7");
-				displayTxt = displayTxt + stats4X("Alternate", "&infin;", "A7", 3, 5)+"<br /><b>Required Advantage</b>: "+conceptLink("War Sun");
+				displayTxt = displayTxt + stats4X("Alternate", "&infin;", "A7", 3, 5)+"<br /><b>Required <a href=\"javascript:showBox('Empire Advantage')\">Advantage</a></b>: "+conceptLink("War Sun");
 			break;
 			
 		// Troops concepts
@@ -1308,9 +1345,8 @@ function showBox(concept) {
 				"+stats4X("Common", 3, "C6 / D5", 1, 2, -1, conceptLink("Troops")+" 2");
 			break;
 		case "heavy infantry":
-			displayTxt = "Defensive oriented "+conceptLink("ground unit")+". \
-				Gains boosted "+conceptLink("Attack")+" rating when used to defend a "+conceptLink("colony")+"\
-				"+stats4X("Common", 3, "D4 / C6", 2, 2, -1, conceptLink("Troops")+" 2");
+			displayTxt = "Defensive oriented "+conceptLink("ground unit")+". Gains boosted "+conceptLink("Attack")+" rating when used to defend a "+conceptLink("colony")+".\
+				<br />Sometimes appears as extra temporary units (akin to "+conceptLink("militia")+"). "+stats4X("Common", 3, "D4 / C6", 2, 2, -1, conceptLink("Troops")+" 2");
 			break;
 		case "grav armor":
 			displayTxt = "Powerful support "+conceptLink("ground unit")+". \
@@ -1557,6 +1593,10 @@ function showBox(concept) {
 				displayTxt = displayTxt + " (except "+conceptLink("missile")+"s)";
 			}
 			displayTxt = displayTxt + ". <span class=\"bindTxt\">May never develop "+conceptLink("Fighter")+" tech</span>";
+			if (useRuleset == "AGT") {
+				displayTxt = displayTxt + ".<br /><br />If playing with "+conceptLink("Logistic Center")+"s, this empire can convert the first 5 "+conceptLink("CP")+" into 5 "+conceptLink("LP")+" \
+					each "+conceptLink("economic phase")+" before the usual conversion applies.";
+			}
 			break;
 		case "industrious race":
 			displayTxt = conceptLink("Terraforming")+" 1 also allows colonizing "+conceptLink("Asteroid")+"s. \
@@ -2195,7 +2235,10 @@ function showBox(concept) {
 				"+conceptLink("mineral")+"s, and "+conceptLink("space wreck")+"s.<br />\
 				("+conceptLink("Fighter")+"s in cargo are only destroyed if in excess of capacity. They may not be launched in "+conceptLink("battle")+".)";
 			break;
+		case "satellites":
+			// Fall thru
 		case "defense satellite network":
+			headingTxt = "Defense Satellite Network";
 			displayTxt = "Satellite group placed defensively. One can be built at a "+conceptLink("colony")+" alongside a "+conceptLink("Base")+"; but not on the very same "+conceptLink("economic phase");
 			displayTxt = displayTxt + stats4X("Common", 6, "B4", 1, 2, -1, conceptLink("Ship Size")+" 2");
 			break;
@@ -2266,7 +2309,7 @@ function showBox(concept) {
 		case "supply range":
 			displayTxt = conceptLink("All Good Things")+" technology that determines how many "+conceptLink("hex")+"es a "+conceptLink("combat ship")+" \
 				can be from a friendly "+conceptLink("colony")+" to avoid being caught "+conceptLink("Out of Supply")+". \
-				Only effective in games with "+conceptLink("Logistic Center")+"s enabled.<br /><br />\
+				Only fully effective in games with "+conceptLink("Logistic Center")+"s enabled.<br /><br />\
 				Tracing is required; can pass into (but not through) "+conceptLink("supernova")+"s, "+conceptLink("space station")+"s, "+conceptLink("quantum filament")+"s, \
 				"+conceptLink("ion storm")+"s, "+conceptLink("plasma storm")+"s, <span class=\"bindTxt\">un-"+conceptLink("pipeline")+"d "+conceptLink("black hole")+"s,</span> "+conceptLink("unexplored")+" terrain, \
 				or "+conceptLink("hex")+"es containing enemy units.";
@@ -2337,6 +2380,18 @@ function showBox(concept) {
 			break;
 		case "shattered fleet":
 			displayTxt = "A non-<a href=\"javascript:showBox('Guard Fleet')\">guard</a> "+conceptLink("AP Bot")+" fleet that is worth &lt;30 "+conceptLink("CP")+" in value. These fleets return home to merge with another fleet.";
+			break;
+			
+		// Deep Space Planet attributes
+		case "deep space planet attribute":
+			displayTxt = "Random attribute (counter) assigend to a "+conceptLink("deep space")+" "+conceptLink("planet")+" when first discovered. \
+				Can have a variable amount of "+conceptLink("NPA")+" defenders, "+conceptLink("Heavy Infantry")+" militia, and unique abilities.";
+			break;
+		case "spice":
+			displayTxt = "Immune to "+conceptLink("colony ship")+"s. A full strength "+conceptLink("colony")+" allows "+conceptLink("ship")+"s \
+				within "+conceptLink("supply range")+" <span class=\"bindTxt\">(applied after concluding each "+conceptLink("economic phase")+")</span> to move as if their "+conceptLink("Movement")+" equipment was 1 level higher.\
+				<br /><br />Removed if a "+conceptLink("replicator")+" colony is also removed, but is otherwise effective again if the planet becomes uncolonized.\
+				"+dspaStats(0, 4);
 			break;
 			
 		// Optional Rules + Scenario Cards
@@ -3021,9 +3076,12 @@ function showBox(concept) {
 			break;
 		case "retreatthresh":
 			headingTxt = "Retreat Threshold";
-			displayTxt = "At how many ships (or less) will the simulator cause surviving player ships to "+conceptLink("retreat")+"?\
-				<br />Ships engaged against a "+conceptLink("DM")+" that are unable to damage it will attempt to retreat regardless of this setting.\
-				<br />"+conceptLink("Replicator")+" ships will attempt to retreat if player hulls outnumber their hulls at 3:1 or more.";
+			displayTxt = "At how many ships (or less) will the simulator cause surviving player ships to "+conceptLink("retreat")+"?";
+			if (bSimMode == "DM") {
+				displayTxt = displayTxt + "<br />Ships engaged against a "+conceptLink("DM")+" that are unable to damage it will attempt to retreat regardless of this setting.";
+			} else if (bSimMode == "rep") {
+				displayTxt = displayTxt + "<br />"+conceptLink("Replicator")+" ships will attempt to retreat if player hulls outnumber their hulls at 3:1 or more.";
+			}
 			break;
 		case "threat":
 			displayTxt = "Numeric value that determines how threatening this ship group is to a "+conceptLink("Doomsday Machine")+". \
@@ -3040,8 +3098,10 @@ function showBox(concept) {
 			break;
 		case "flagpreserve":
 			headingTxt = "Flagship Preservation";
-			displayTxt = "Because it is impossible to build [more] "+conceptLink("Flagship")+"s, this setting causes the player Flagship to "+conceptLink("retreat")+" at 1 HP remaining.\
-				<br /><br />The "+conceptLink("Replicator")+" "+conceptLink("Type Flag")+" will always retreat at 1 HP, if able.";
+			displayTxt = "Because it is impossible to build [more] "+conceptLink("Flagship")+"s, this setting causes the player Flagship to "+conceptLink("retreat")+" at 1 HP remaining.";
+			if (bSimMode == "rep") {
+				displayTxt = displayTxt + "<br />The "+conceptLink("Replicator")+" "+conceptLink("Type Flag")+" will always retreat at 1 HP, if able.";
+			}
 			break;
 		case "raiderprox":
 			headingTxt = "Raider Proximity";
@@ -3336,20 +3396,22 @@ function keywordifyDocument() {
 function keywordifyCollection(collObj) {
 	const keyTerms = ["Space Empires 4X", "Close Encounters", "Replicator", "All Good Things", "AGT", "Space Empires Anthology",
 		"Replay Center", "Unique Designer", "Zen Solitaire",
-		"AI", "Barren", "Campaign", "Colony", "Colonies", "Combat Ship", "CP", "Economic Phase", "Homeworld", "Maintenance", "Planet", "Starship", "Scuttle", "Turn",
+		"AI", "Barren", "Campaign", "Colony", "Colonies", "Combat Ship", "CP", "Economic Phase", "Faction", "Homeworld", "Maintenance", "Planet", "Starship", "Scuttle", "Turn",
 		"Bid", "Competitive", "Cooperative", "Galactic Capitol", "Initiative", "Primary Objective", "Uneasy Alliance", "Versus Map", "Victory Point", "VP", "Blood Brothers",
 		"Battle", "Battling", "Blockade", "Bombard", "Fleet", "FSB", "Immobile", "Non-Player Alien", "NPA", "Subdue", "Subduing", "Priority Class", "Retreat", "Round", "Screen", "Weakness", "Weapon Class",
-		"Alien-D", "Alien-C", "Alien-B", "Doomsday Machine", "DM", "Amoeba", "Alien Empires", "Alien Player", "Economic Roll",
+		"Alien-E", "Alien-D", "Alien-C", "Alien-B", "Alien-A", "Doomsday Machine", "DM", "Amoeba", "Alien Empires", "Alien Player", "Economic Roll",
 		"Decoy", "Scout", "Destroyer", "Cruiser", "Dreadnought", "Titan", "Ship Yard", "Base", "Mining Ship", "Miner",
 		"Minelayer", "Minesweeper", "Carrier", "Raider", "Pipeline", "Unique Ship",
 		"Asteroid", "Black Hole", "Danger", "Deep Space", "Hex", "Home System", "Lost in Space", "Nebula", "Space Wreck", "Supernova", "Unexplored",
 		"Warp Point", "Regional Map", "Fold in Space", "Pirate",
 		"Technology", "Technologies", "Attack", "Defense", "Exploration", "Movement", "Ship Size", "Tactics", "Terraforming", "Upgrade",
 		"Cloaking", "Fighter", "Minelaying", "Minesweeping", "Nanomachine", "Scanning",
+		"Fastmove", "Second Salvo",
 		"Quick Start", "Slingshot", "Gearing Limits", "Unpredictable Research", "Research Grant", "Heavy Terrain",
 		"Safer Space", "Slow Scientists", "Smart Scientists", "Bloody Combat", "Head Start", "Galactic Situation",
 		"Transport", "Troops", "Capture", "Militia", "Light Infantry", "Space Marines", "Heavy Infantry", "Grav Armor", "Drop Ships",
-		"Experience", "Facility", "Facilities", "RP", "Boarding", "Security Forces", "Military Academy", "Flagship", "Swallow",
+		"Experience", "RP", "Boarding", "Security Forces", "Military Academy", "Flagship", "Swallow",
+		"Facility", "Facilities", "Industrial Center", "Research Center", "Logistic Center", "Temporal Center",
 		"Advanced Construction",
 		"Empire Advantage", "And We Still Carry Swords", "Industrious Race", "Horsemen of the Plains", "Space Pilgrims", "Traders",
 		"Warrior Race", "Ancient Race", "Giant Race", "Master Engineers", "House of Speed", "On the Move", "Longbowmen", "Amazing Diplomats", 
@@ -3361,6 +3423,7 @@ function keywordifyCollection(collObj) {
 		"Hull", "Type 0", "Type II", "Type IV", "Type V", "Type IX", "Type XI", "Type XV",
 		"Type Exp", "Type Flag", "Type PD", "Type Scan", "Type SW",
 		"AP Bot", "AP bot", "Cosmic Storm", "EV", "FOB", "Ion Storm", "Jammer", "Missile", "Morale", "Offense Posture", "Paranoia", "Plasma Storm", "Quantum", "Quasar",
+		"Spice", 
 		"Talon", "Terran", "Empire War", "EFV", "SP", "LP", "Deployment Zone", "Reserve",
 		"Impulse", "Collide", "Collision", "Power", "Battery", "Batteries", "Side Slip", "Brake", "Shield",
 		"Last Ship Standing", "Convoy Intercept", "Orbital Conquest", "Priority Target",
@@ -3496,6 +3559,8 @@ function keywordifyCollection(collObj) {
 		{regex: conceptLink("exploration")+" vessel", newTxt: conceptLink("exploration vessel")},
 		{regex: conceptLink("Missile")+" Boat", newTxt: conceptLink("Missile Boat")},
 		{regex: conceptLink("missile")+" boat", newTxt: conceptLink("missile boat")},
+		{regex: conceptLink("Deep Space")+" "+conceptLink("Planet")+" Attribute", newTxt: conceptLink("Deep Space Planet Attribute")},
+		{regex: conceptLink("deep space")+" "+conceptLink("planet")+" attribute", newTxt: conceptLink("deep space planet attribute")},
 		{regex: "Light "+conceptLink("Cruiser"), newTxt: conceptLink("Light Cruiser")},
 		{regex: "light "+conceptLink("cruiser"), newTxt: conceptLink("light cruiser")},
 		{regex: "Heavy "+conceptLink("Cruiser"), newTxt: conceptLink("Heavy Cruiser")},

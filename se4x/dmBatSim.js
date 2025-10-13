@@ -1,5 +1,6 @@
 function setupSim() {
 	setupBox();
+	bSimMode = "DM";
 	
 	//Basic ships
 	addPlayerRow("Scout",3,"E",0,1);
@@ -24,6 +25,8 @@ function setupSim() {
 	addPlayerRow("Alien-C",5,"C",2,1);
 	addPlayerRow("Alien-B",6,"B",2,1);
 	addPlayerRow("Pirate",5,"A",0,1);
+	addPlayerRow("Alien-E",7,"E",1,2);
+	addPlayerRow("Alien-A",5,"A",1,2);
 	
 	//Close Encounters ships
 	addPlayerRow("Flagship",4,"B",1,3);
@@ -32,9 +35,15 @@ function setupSim() {
 	addPlayerRow("Titan",7,"A",3,5);
 	
 	//Replicators ships, for normal players
-	addPlayerRow("DestroyerX",4,"D",0,2);
+	addPlayerRow("Destroyer-X",4,"D",0,2);
 	addPlayerRow("Advanced Flagship",5,"A",3,3);
-	addPlayerRow("RaiderX",4,"D",0,3);
+	addPlayerRow("Raider-X",4,"D",0,3);
+	
+	//AGT ships
+	addPlayerRow("Missile Boat",6,"A",0,1);
+	addPlayerRow("Missile",6,"A",0,1);
+	addPlayerRow("Satellites",4,"B",1,2);
+	addPlayerRow("Starbase",7,"A",3,4);
 	
 	//Replicator-unique ships
 	addPlayerRow("Type 0",2,"E",0,1);
@@ -53,16 +62,27 @@ function setupSim() {
 	document.getElementById("FighterAtk").max = 9;
 	document.getElementById("FighterDef").max = 3;
 	document.getElementById("RaiderAtk").max = 7;
+	disableCustomization("Alien-E");
 	disableCustomization("Alien-D");
 	disableCustomization("Alien-C");
 	disableCustomization("Alien-B");
+	disableCustomization("Alien-A");
 	disableCustomization("Pirate");
 	document.getElementById("Boarding ShipAtk").max = 1;
 	document.getElementById("Boarding ShipAtk").disabled = true;
 	document.getElementById("TransportDef").max = 3;
-	document.getElementById("DestroyerXSize").innerHTML = 1;
-	document.getElementById("RaiderXAtk").max = 8;
-	document.getElementById("RaiderXSize").innerHTML = 2;
+	document.getElementById("Destroyer-XSize").innerHTML = 1;
+	document.getElementById("Raider-XAtk").max = 8;
+	document.getElementById("Raider-XSize").innerHTML = 2;
+	document.getElementById("Missile BoatAtk").max = 9;
+	document.getElementById("Missile BoatDef").max = 2;
+	document.getElementById("MissileAtk").max = 9;
+	document.getElementById("MissileAtk").disabled = true;
+	document.getElementById("MissileDef").max = 2;
+	document.getElementById("MissileDef").disabled = true;
+	document.getElementById("MissileQty").value = 0;
+	document.getElementById("MissileQty").disabled = true;
+	document.getElementById("MissileTac").disabled = true;
 	disableCustomization("Type 0");
 	disableCustomization("Type II");
 	disableCustomization("Type IV");
@@ -75,7 +95,7 @@ function setupSim() {
 	disableCustomization("Type SW");
 	disableCustomization("Type Exp");
 	disableCustomization("Type Flag");
-	showPlrRows();
+	changeFaction();
 	computeHitChances(true);
 }
 
@@ -231,6 +251,47 @@ function addPlayerRow(namee, baseAtk, atkClass, baseDef, sizee) {
 	
 	playerBody.appendChild(trFrag);
 }
+function changeFaction() {
+	plrFaction = document.getElementById("plrFaction").selectedIndex;
+	
+	// Faction settings
+	if (plrFaction == 0) {
+		changeDesign("Scout", 3, 0);
+		changeDesign("Cruiser", 4, 1);
+		changeDesign("Battleship", 5, 2);
+		changeDesign("Dreadnought", 6, 3);
+		changeDesign("Raider", 4, 0);
+		changeDesign("Raider-X", 4, 0);
+		changeDesign("Flagship", 4, 1);
+		changeDesign("Advanced Flagship", 5, 3);
+		
+		document.getElementById("techSize").max = 7;
+	} else if (plrFaction == 1) {
+		changeDesign("Scout", 2, 0);
+		changeDesign("Cruiser", 5, 0);
+		changeDesign("Battleship", 6, 2);
+		changeDesign("Dreadnought", 7, 3);
+		changeDesign("Raider", 5, 0);
+		changeDesign("Raider-X", 5, 0);
+		changeDesign("Flagship", 5, 0);
+		changeDesign("Advanced Flagship", 6, 2);
+		
+		document.getElementById("techSize").max = 6;
+	}
+	
+	showPlrRows();
+}
+
+function changeDesign(designRow, newAtk, newDef) {
+	var workSize = parseInt(document.getElementById(designRow+"Size").innerHTML);
+	
+	document.getElementById(designRow+"Atk").min = newAtk;
+	document.getElementById(designRow+"Atk").max = newAtk + workSize;
+	document.getElementById(designRow+"Atk").value = newAtk;
+	document.getElementById(designRow+"Def").min = newDef;
+	document.getElementById(designRow+"Def").max = newDef + workSize;
+	document.getElementById(designRow+"Def").value = newDef;
+}
 
 function showPlrRows(rowId, rowVis) {
 	if (rowId) {
@@ -250,20 +311,15 @@ function showPlrRows(rowId, rowVis) {
 			}
 		}
 	} else {
-		var sizeTech, ftrTech, cloakTech, CEtech, NPAships, advConTech;
-		
-		sizeTech = parseInt(document.getElementById("techSize").value);
-		ftrTech = parseInt(document.getElementById("techFtr").value);
-		cloakTech = parseInt(document.getElementById("techClk").value);
-		CEtech = document.getElementById("techCE").checked;
-		NPAships = document.getElementById("npaShips").checked;
-		advConTech = parseInt(document.getElementById("techAC").value);
-		replicatorRP = parseInt(document.getElementById("repRP").value);
+		var sizeTech = (plrFaction < 2 ? parseInt(document.getElementById("techSize").value) : 0);
+		var ftrTech = (plrFaction < 2 ? parseInt(document.getElementById("techFtr").value) : 0);
+		var cloakTech = (plrFaction < 2 ? parseInt(document.getElementById("techClk").value) : 0);
+		var auxTech = document.getElementById("techAux").checked;
+		var advConTech = (plrFaction < 2 ? parseInt(document.getElementById("techAC").value) : 0);
+		replicatorRP = (plrFaction == 2 ? parseInt(document.getElementById("repRP").value) : -1);
 		
 		showPlrRows("Scout", sizeTech >= 1);
 		showPlrRows("Ship Yard", sizeTech >= 1);
-		showPlrRows("Mines", sizeTech >= 1);
-		showPlrRows("Minesweeper", sizeTech >= 1);
 		
 		showPlrRows("Destroyer", sizeTech >= 2);
 		showPlrRows("Base", sizeTech >= 2);
@@ -274,23 +330,31 @@ function showPlrRows(rowId, rowVis) {
 		
 		showPlrRows("Carrier", ftrTech > 0);
 		showPlrRows("Fighter", ftrTech > 0);
-		
 		showPlrRows("Raider", cloakTech > 0);
+		showPlrRows("Mines", plrFaction < 2 && auxTech);
+		showPlrRows("Minesweeper", plrFaction < 2 && auxTech);
 
-		showPlrRows("Flagship", CEtech);
-		showPlrRows("Boarding Ship", CEtech);
-		showPlrRows("Transport", CEtech);
-		showPlrRows("Titan", sizeTech >= 7 && CEtech);
+		showPlrRows("Flagship", sizeTech >= 1);
+		showPlrRows("Boarding Ship", plrFaction == 0 && auxTech);
+		showPlrRows("Transport", plrFaction < 2 && auxTech);
+		showPlrRows("Titan", sizeTech >= 7);
 
-		showPlrRows("Alien-D", NPAships);
-		showPlrRows("Alien-C", NPAships);
-		showPlrRows("Alien-B", NPAships);
-		showPlrRows("Pirate", NPAships);
+		showPlrRows("Alien-E", plrFaction == 3);
+		showPlrRows("Alien-D", plrFaction == 3);
+		showPlrRows("Alien-C", plrFaction == 3);
+		showPlrRows("Alien-B", plrFaction == 3);
+		showPlrRows("Alien-A", plrFaction == 3);
+		showPlrRows("Pirate", plrFaction < 3 && auxTech);
 
-		showPlrRows("DestroyerX", sizeTech >= 2 && advConTech >= 1);
+		showPlrRows("Destroyer-X", sizeTech >= 2 && advConTech >= 1);
 		showPlrRows("Battle Carrier", ftrTech > 0 && advConTech >= 2);
-		showPlrRows("RaiderX", cloakTech > 0 && advConTech >= 3);
-		showPlrRows("Advanced Flagship", CEtech && advConTech >= 3);
+		showPlrRows("Raider-X", cloakTech > 0 && advConTech >= 3);
+		showPlrRows("Advanced Flagship", advConTech >= 3);
+		
+		showPlrRows("Missile Boat", plrFaction == 1);
+		showPlrRows("Missile", plrFaction == 1);
+		showPlrRows("Satellites", sizeTech >= 2);
+		showPlrRows("Starbase", advConTech >= 2);
 		
 		showPlrRows("Type 0", replicatorRP >= 0);
 		showPlrRows("Type II", replicatorRP >= 2);
@@ -384,6 +448,11 @@ function getDMspecs() {
 		dmAtk = 14;
 	}
 	
+	// Quasars are one of the few terrain elements that DMs are not immune
+	if (combatHex == "hexQuasar") {
+		dmDef = 0;
+	}
+	
 	document.getElementById("dmAtk").innerHTML = dmClass + dmAtk;
 	document.getElementById("dmDef").innerHTML = dmDef;
 	document.getElementById("dmSize").innerHTML = dmSize;
@@ -404,6 +473,10 @@ function computeHitChances(refreshDM) {
 	}
 	
 	var readId = "", fleetSize = 0, readQty = 0, readAtk = 0, hitChance = 0, readDef = 0, evaChance = 0, hullSize, dmThreat = 0, bonus = false;
+	
+	document.getElementById("MissileAtk").value = document.getElementById("Missile BoatAtk").value;
+	document.getElementById("MissileDef").value = document.getElementById("Missile BoatDef").value;
+	document.getElementById("MissileTac").value = document.getElementById("Missile BoatTac").value;
 	
 	hitCells = document.getElementsByTagName("td");
 	for (h in hitCells) {
@@ -461,9 +534,11 @@ function computeHitChances(refreshDM) {
 					readId = hitCells[h].id.substr(0, hitCells[h].id.length - 4) + "Qty";
 					readQty = document.getElementById(readId).value;
 					readId = readId.substr(0, readId.length - 3) + "Def";
-					if (combatHex == "hexNebula") {
+					if (combatHex == "hexQuasar") {
+						readDef = 0;
+					} else if (combatHex == "hexNebula") {
 						if (readId == "FighterDef") {
-							readAtk = Math.min(parseInt(document.getElementById(readId).value),parseInt(document.getElementById(readId).max)-1);
+							readDef = Math.min(parseInt(document.getElementById(readId).value),parseInt(document.getElementById(readId).max)-1);
 						} else {
 							readDef = document.getElementById(readId).min;
 						}
@@ -603,8 +678,8 @@ function playerShip(baseID) {
 
 	this.updateSpecs();
 	
-	this.hitShip = function() {
-		this.damage++;
+	this.hitShip = function(amt) {
+		this.damage = this.damage + amt;
 		while (this.damage >= this.hullSize) {
 			this.damage = this.damage - this.hullSize;
 			this.quantity--;
@@ -639,7 +714,7 @@ function playerFleet() {
 	this.battleships = new playerShip("Battleship");
 	this.dreadnoughts = new playerShip("Dreadnought");
 	this.shipYards = new playerShip("Ship Yard");
-	this.starbases = new playerShip("Base");
+	this.battleStations = new playerShip("Base");
 	//Advanced
 	this.carriers = new playerShip("Carrier");
 	this.fighters = new playerShip("Fighter");
@@ -647,9 +722,11 @@ function playerFleet() {
 	this.raiders = new playerShip("Raider");
 	this.minesweepers = new playerShip("Minesweeper");
 	//NPA
+	this.alienE = new playerShip("Alien-E");
 	this.alienD = new playerShip("Alien-D");
 	this.alienC = new playerShip("Alien-C");
 	this.alienB = new playerShip("Alien-B");
+	this.alienA = new playerShip("Alien-A");
 	this.pirates = new playerShip("Pirate");
 	//Close Encounters
 	this.flagships = new playerShip("Flagship");
@@ -657,10 +734,15 @@ function playerFleet() {
 	this.transports = new playerShip("Transport");
 	this.titans = new playerShip("Titan");
 	//Replicators, regular faction
-	this.destroyerXes = new playerShip("DestroyerX");
+	this.destroyerXes = new playerShip("Destroyer-X");
 	this.battleCarriers = new playerShip("Battle Carrier");
 	this.advancedFlagships = new playerShip("Advanced Flagship");
-	this.raiderXes = new playerShip("RaiderX");
+	this.raiderXes = new playerShip("Raider-X");
+	//All Good Things
+	this.defSats = new playerShip("Satellites");
+	this.starbases = new playerShip("Starbase");
+	this.missileBoats = new playerShip("Missile Boat");
+	this.missiles = new playerShip("Missile");
 	//Replicator faction
 	this.type0 = new playerShip("Type 0");
 	this.type2 = new playerShip("Type II");
@@ -677,11 +759,12 @@ function playerFleet() {
 	
 	this.totalShips = function() {
 		return this.scouts.quantity + this.destroyers.quantity + this.cruisers.quantity + this.battlecruisers.quantity +
-			this.battleships.quantity + this.dreadnoughts.quantity + this.shipYards.quantity + this.starbases.quantity +
+			this.battleships.quantity + this.dreadnoughts.quantity + this.shipYards.quantity + this.battleStations.quantity +
 			this.carriers.quantity + this.fighters.quantity + this.mines.quantity + this.raiders.quantity + this.minesweepers.quantity +
-			this.alienD.quantity + this.alienC.quantity + this.alienB.quantity + this.pirates.quantity +
+			this.alienE.quantity + this.alienD.quantity + this.alienC.quantity + this.alienB.quantity + this.alienA.quantity + this.pirates.quantity +
 			this.flagships.quantity + this.boardingShips.quantity + this.transports.quantity + this.titans.quantity +
 			this.destroyerXes.quantity + this.battleCarriers.quantity + this.advancedFlagships.quantity + this.raiderXes.quantity +
+			this.defSats.quantity + this.starbases.quantity + this.missileBoats.quantity + this.missiles.quantity +
 			this.type0.quantity + this.type2.quantity + this.type4.quantity + this.type5.quantity +
 			this.type7.quantity + this.type9.quantity + this.type11.quantity + this.type13.quantity +
 			this.type15.quantity + this.typeSWs.quantity + this.typeExps.quantity + this.typeFlags.quantity;
@@ -689,11 +772,12 @@ function playerFleet() {
 	
 	this.totalAtkShips = function() {
 		return this.scouts.getEligibleCount() + this.destroyers.getEligibleCount() + this.cruisers.getEligibleCount() + this.battlecruisers.getEligibleCount() +
-			this.battleships.getEligibleCount() + this.dreadnoughts.getEligibleCount() + this.shipYards.getEligibleCount() + this.starbases.getEligibleCount() +
+			this.battleships.getEligibleCount() + this.dreadnoughts.getEligibleCount() + this.shipYards.getEligibleCount() + this.battleStations.getEligibleCount() +
 			this.carriers.getEligibleCount() + this.fighters.getEligibleCount() + this.raiders.getEligibleCount() + this.minesweepers.getEligibleCount() +
 			this.alienD.getEligibleCount() + this.alienC.getEligibleCount() + this.alienB.getEligibleCount() + this.pirates.getEligibleCount() +
 			this.flagships.getEligibleCount() + this.boardingShips.getEligibleCount() + this.transports.getEligibleCount() + this.titans.getEligibleCount() +
 			this.destroyerXes.getEligibleCount() + this.battleCarriers.getEligibleCount() + this.advancedFlagships.getEligibleCount() + this.raiderXes.getEligibleCount() +
+			this.defSats.getEligibleCount() + this.starbases.getEligibleCount() + this.missileBoats.getEligibleCount() + this.missiles.getEligibleCount() +
 			this.type0.getEligibleCount() + this.type2.getEligibleCount() + this.type4.getEligibleCount() + this.type5.getEligibleCount() + 
 			this.type7.getEligibleCount() + this.type9.getEligibleCount() + this.type11.getEligibleCount() + this.type13.getEligibleCount() +
 			this.type15.getEligibleCount() + this.typeSWs.getEligibleCount() + this.typeExps.getEligibleCount() + this.typeFlags.getEligibleCount();
@@ -701,11 +785,12 @@ function playerFleet() {
 	
 	this.highestAggro = function() {
 		return Math.max(this.scouts.threat, this.destroyers.threat, this.cruisers.threat, this.battlecruisers.threat, 
-			this.battleships.threat, this.dreadnoughts.threat, this.shipYards.threat, this.starbases.threat, 
+			this.battleships.threat, this.dreadnoughts.threat, this.shipYards.threat, this.battleStations.threat, 
 			this.carriers.threat, this.fighters.threat, this.raiders.threat, this.minesweepers.threat,
-			this.pirates.threat, this.alienB.threat, this.alienC.threat, this.alienD.threat,
+			this.pirates.threat, this.alienA.threat, this.alienB.threat, this.alienC.threat, this.alienD.threat, this.alienE.threat,
 			this.flagships.threat, this.boardingShips.threat, this.transports.threat, this.titans.threat,
 			this.destroyerXes.threat, this.battleCarriers.threat, this.advancedFlagships.threat, this.raiderXes.threat,
+			this.defSats.threat, this.starbases.threat, this.missileBoats.threat, this.missiles.threat,
 			this.type0.threat, this.type2.threat, this.type4.threat, this.type5.threat,
 			this.type7.threat, this.type9.threat, this.type11.threat, this.type13.threat,
 			this.type15.threat, this.typeSWs.threat, this.typeExps.threat, this.typeFlags.threat);
@@ -770,6 +855,10 @@ function playerFleet() {
 			return this.pirates;
 		}
 
+		if (this.alienA.threat == highestThreat) {
+			return this.alienA;
+		}
+
 		if (this.alienB.threat == highestThreat) {
 			return this.alienB;
 		}
@@ -780,6 +869,10 @@ function playerFleet() {
 
 		if (this.alienD.threat == highestThreat) {
 			return this.alienD;
+		}
+
+		if (this.alienE.threat == highestThreat) {
+			return this.alienE;
 		}
 
 		if (this.destroyerXes.threat == highestThreat) {
@@ -822,8 +915,20 @@ function playerFleet() {
 			return this.titans;
 		}
 
+		if (this.battleStations.threat == highestThreat) {
+			return this.battleStations;
+		}
+
 		if (this.starbases.threat == highestThreat) {
 			return this.starbases;
+		}
+
+		if (this.defSats.threat == highestThreat) {
+			return this.defSats;
+		}
+
+		if (this.missileBoats.threat == highestThreat) {
+			return this.missileBoats;
 		}
 
 		if (this.fighters.threat == highestThreat) {
@@ -854,7 +959,11 @@ function playerFleet() {
 			return this.boardingShips;
 		}
 
-		return this.minesweepers;
+		if (this.minesweepers.threat == highestThreat) {
+			return this.minesweepers;
+		}
+
+		return this.missiles;
 	}
 }
 
@@ -911,9 +1020,14 @@ function fireDMweps() {
 			
 			if (dieRoll <= hitThresh) {
 				pFrag.innerHTML = pFrag.innerHTML + " <span class=\"hit\">" + dieRoll + "</span>";
-				targetShip.hitShip();
+				var dmgAmt = 1;
+				if (ionStorm) {
+					dmgAmt = dmgAmt * 2;
+				}
+				
+				targetShip.hitShip(dmgAmt);
 			} else {
-				pFrag.innerHTML = pFrag.innerHTML + " " + dieRoll + "</span>";
+				pFrag.innerHTML = pFrag.innerHTML + " " + dieRoll;
 			}
 		
 			if (targetShip.destroyed && simFleet.totalShips() > 0) {
@@ -956,6 +1070,7 @@ function fireWepClass(letter) {
 		switch (letter) {
 			case "A":
 				firePlrWeps(simFleet.starbases, t);
+				firePlrWeps(simFleet.battleStations, t);
 				firePlrWeps(simFleet.titans, t);
 				firePlrWeps(simFleet.dreadnoughts, t);
 				firePlrWeps(simFleet.battleships, t);
@@ -967,38 +1082,42 @@ function fireWepClass(letter) {
 					firePlrWeps(simFleet.raiders, t);
 					firePlrWeps(simFleet.raiderXes, t);
 				}
+				firePlrWeps(simFleet.missileBoats, t);
+				firePlrWeps(simFleet.alienA, t);
 				break;
 
 			case "B":
+				firePlrWeps(simFleet.defSats, t);
 				firePlrWeps(simFleet.flagships, t);
 				firePlrWeps(simFleet.battlecruisers, t);
 				firePlrWeps(simFleet.fighters, t);
-				firePlrWeps(simFleet.alienB, t);
 				firePlrWeps(simFleet.battleCarriers, t);
 				firePlrWeps(simFleet.type11, t);
 				firePlrWeps(simFleet.typeFlags, t);
+				firePlrWeps(simFleet.alienB, t);
 				break;
 
 			case "C":
 				firePlrWeps(simFleet.cruisers, t);
 				firePlrWeps(simFleet.shipYards, t);
-				firePlrWeps(simFleet.alienC, t);
 				firePlrWeps(simFleet.type7, t);
+				firePlrWeps(simFleet.alienC, t);
 				break;
 
 			case "D":
 				firePlrWeps(simFleet.destroyers, t);
 				firePlrWeps(simFleet.destroyerXes, t);
-				firePlrWeps(simFleet.alienD, t);
 				if (simDM.weakness != 3 || combatHex == "hexNebula") {
 					firePlrWeps(simFleet.raiders, t);
 					firePlrWeps(simFleet.raiderXes, t);
 				}
 				firePlrWeps(simFleet.type5, t);
 				firePlrWeps(simFleet.type9, t);
+				firePlrWeps(simFleet.alienD, t);
 				break;
 
 			case "E":
+				firePlrWeps(simFleet.missiles, t);
 				firePlrWeps(simFleet.carriers, t);
 				firePlrWeps(simFleet.minesweepers, t);
 				firePlrWeps(simFleet.scouts, t);
@@ -1008,6 +1127,7 @@ function fireWepClass(letter) {
 				firePlrWeps(simFleet.type4, t);
 				firePlrWeps(simFleet.typeSWs, t);
 				firePlrWeps(simFleet.typeExps, t);
+				firePlrWeps(simFleet.alienE, t);
 				break;
 
 			case "F":
@@ -1028,7 +1148,11 @@ function fireTacticsLv(tacLv) {
 		fireDMweps();
 	}
 	
+	firePlrWeps(simFleet.missileBoats, tacLv);
+	firePlrWeps(simFleet.missiles, tacLv);
+
 	firePlrWeps(simFleet.starbases, tacLv);
+	firePlrWeps(simFleet.battleStations, tacLv);
 	firePlrWeps(simFleet.titans, tacLv);
 	firePlrWeps(simFleet.dreadnoughts, tacLv);
 	firePlrWeps(simFleet.battleships, tacLv);
@@ -1036,27 +1160,29 @@ function fireTacticsLv(tacLv) {
 	firePlrWeps(simFleet.advancedFlagships, tacLv);
 	firePlrWeps(simFleet.type15, tacLv);
 	firePlrWeps(simFleet.type13, tacLv);
+	firePlrWeps(simFleet.alienA, tacLv);
 
+	firePlrWeps(simFleet.defSats, tacLv);
 	firePlrWeps(simFleet.flagships, tacLv);
 	firePlrWeps(simFleet.battlecruisers, tacLv);
 	firePlrWeps(simFleet.fighters, tacLv);
-	firePlrWeps(simFleet.alienB, tacLv);
 	firePlrWeps(simFleet.battleCarriers, tacLv);
 	firePlrWeps(simFleet.type11, tacLv);
 	firePlrWeps(simFleet.typeFlags, tacLv);
+	firePlrWeps(simFleet.alienB, tacLv);
 	
 	firePlrWeps(simFleet.cruisers, tacLv);
 	firePlrWeps(simFleet.shipYards, tacLv);
 	firePlrWeps(simFleet.type7, tacLv);
+	firePlrWeps(simFleet.alienC, tacLv);
 	
 	firePlrWeps(simFleet.destroyers, tacLv);
 	firePlrWeps(simFleet.destroyerXes, tacLv);
 	firePlrWeps(simFleet.raiders, tacLv);
 	firePlrWeps(simFleet.raiderXes, tacLv);
-	firePlrWeps(simFleet.alienC, tacLv);
-	firePlrWeps(simFleet.alienD, tacLv);
 	firePlrWeps(simFleet.type9, tacLv);
 	firePlrWeps(simFleet.type5, tacLv);
+	firePlrWeps(simFleet.alienD, tacLv);
 	
 	firePlrWeps(simFleet.carriers, tacLv);
 	firePlrWeps(simFleet.minesweepers, tacLv);
@@ -1067,6 +1193,7 @@ function fireTacticsLv(tacLv) {
 	firePlrWeps(simFleet.type0, tacLv);
 	firePlrWeps(simFleet.typeSWs, tacLv);
 	firePlrWeps(simFleet.typeExps, tacLv);
+	firePlrWeps(simFleet.alienE, tacLv);
 	
 	if (tacLv == 2) {
 		fireDMweps();
@@ -1080,15 +1207,27 @@ function fireTacticsLv(tacLv) {
 function firePlrWeps(shipObj, tacLvReq) {
 	if (shipObj.quantity > 0 && (shipObj.tactics == tacLvReq || tacLvReq < 0) && simDM.hitPoints > 0) {
 		shipObj.updateSpecs();
-		if (simRound == 1 && shipObj.namee.search("Raider") >= 0 && simDM.weakness == 3 && combatHex != "hexNebula") {
+		if (simRound == 1 && shipObj.namee.search("Raider") >= 0 && simDM.weakness == 3 && combatHex != "hexNebula" && combatHex != "hexQuantum") {
 			shipObj.attackRating++;
 		}
 		
-		if (simRound > 1 && simFleet.totalAtkShips() < retreatThresh && shipObj.namee != "Titan" && shipObj.namee != "Ship Yard" && shipObj.namee != "Base") {
+		if (simRound > 1 && (simFleet.totalAtkShips() <= retreatThresh || (shipObj.namee.search("Flag") >= 0 && shipObj.damage >= 2 && plrFlagPreserve)) &&
+			shipObj.namee != "Titan" && shipObj.namee != "Ship Yard" && shipObj.namee != "Base" && shipObj.namee != "Satellites" && shipObj.namee != "Starbase") {
 			pFrag = document.createElement("p");
 			pFrag.innerHTML = shipObj.toString() + " has retreated.";
 			shipObj.quantity = 0;
 			shipObj.threat = 0;
+
+			if (!simMulti) {
+				divFrag.appendChild(pFrag);
+			}
+		} else if (shipObj.namee == "Missile Boat") {
+			pFrag = document.createElement("p");
+			pFrag.innerHTML = shipObj.toString() + " launches its ammunition.";
+			simFleet.missiles.quantity = shipObj.quantity;
+			simFleet.missiles.tactics = shipObj.tactics;
+			simFleet.missiles.threat = 1; // Missiles are not targeted until ALL ships are gone
+			rollsAvail = 0;
 
 			if (!simMulti) {
 				divFrag.appendChild(pFrag);
@@ -1098,18 +1237,28 @@ function firePlrWeps(shipObj, tacLvReq) {
 			
 			pFrag = document.createElement("p");
 			pFrag.innerHTML = shipObj.toString() + " rolls (at &le;"+hitThresh+") against " + simDM.toString() + ":";
+
+			var rollsAvail = shipObj.quantity;
+			if (shipObj.namee == "Starbase") {
+				rollsAvail = rollsAvail * 2;
+			}
 			
-			for (i = shipObj.quantity; i > 0; i--) {
+			for (i = rollsAvail; i > 0; i--) {
 				dieRoll = rollD10();
 				
 				if (dieRoll <= 1 || dieRoll <= hitThresh) {
 					pFrag.innerHTML = pFrag.innerHTML + " <span class=\"hit\">" + dieRoll + "</span>";
+					var dmgAmt = 1;
 					if (shipObj.namee == "Titan") {
-						simDM.hitPoints--;
+						dmgAmt = dmgAmt * 2;
 					}
-					simDM.hitPoints--;
+					if (ionStorm) {
+						dmgAmt = dmgAmt * 2;
+					}
+
+					simDM.hitPoints = simDM.hitPoints - dmgAmt; 
 				} else {
-					pFrag.innerHTML = pFrag.innerHTML + " " + dieRoll + "</span>";
+					pFrag.innerHTML = pFrag.innerHTML + " " + dieRoll;
 				}
 				
 				if (shipObj.namee == "Mines") {
@@ -1119,6 +1268,12 @@ function firePlrWeps(shipObj, tacLvReq) {
 						break;
 					}
 				}
+			}
+			
+			if (shipObj.namee == "Missile") {
+				// Missiles are consumed after use
+				shipObj.quantity = 0;
+				shipObj.threat = 0;
 			}
 			
 			if (!simMulti) {
@@ -1188,10 +1343,14 @@ function rollBHsurvival(shipObj) {
 	}
 }
 
-function excludeGroup(shipObj) {
+function excludeGroup(shipObj, destroy) {
 	if (shipObj.quantity > 0) {
 		pFrag = document.createElement("p");
-		pFrag.innerHTML = shipObj.toString() + " unable to move, and has been excluded from this battle.";
+		if (destroy) {
+			pFrag.innerHTML = shipObj.toString() + " has been instantly destroyed due to terrain conditions.";
+		} else {
+			pFrag.innerHTML = shipObj.toString() + " unable to move, and has been excluded from this battle.";
+		}
 		shipObj.quantity = 0;
 		shipObj.threat = 0;
 
@@ -1214,16 +1373,18 @@ function runSimRound() {
 		retreatThresh = parseInt(document.getElementById("retreatThresh").value);
 	
 		if (!dmAggressor) {
-			excludeGroup(simFleet.mines); //Mines can never be an aggressor
+			excludeGroup(simFleet.mines, false); // These craft can never be an aggressor
+			excludeGroup(simFleet.starbases, false);
+			excludeGroup(simFleet.defSats, false);
 			
-			if (advConTech <= 0 && replicatorRP < 0) {
+			if (advConTech <= 0) {
 				// Replicators expansion introduces an empire advantage that allows Bases and Ship Yards to move
-				excludeGroup(simFleet.starbases);
+				excludeGroup(simFleet.battleStations);
 				excludeGroup(simFleet.shipYards);
 			}
 			
 			if (combatHex == "hexBlackHole") {
-				rollBHsurvival(simFleet.starbases);
+				rollBHsurvival(simFleet.battleStations);
 				rollBHsurvival(simFleet.titans);
 				rollBHsurvival(simFleet.dreadnoughts);
 				rollBHsurvival(simFleet.battleships);
@@ -1233,24 +1394,26 @@ function runSimRound() {
 				rollBHsurvival(simFleet.advancedFlagships);
 				rollBHsurvival(simFleet.type15);
 				rollBHsurvival(simFleet.type13);
+				rollBHsurvival(simFleet.missileBoats);
+				rollBHsurvival(simFleet.alienA);
 				
 				rollBHsurvival(simFleet.flagships);
 				rollBHsurvival(simFleet.battlecruisers);
-				rollBHsurvival(simFleet.alienB);
 				rollBHsurvival(simFleet.battleCarriers);
 				rollBHsurvival(simFleet.type11);
 				rollBHsurvival(simFleet.typeFlags);
+				rollBHsurvival(simFleet.alienB);
 
 				rollBHsurvival(simFleet.shipYards);
-				rollBHsurvival(simFleet.alienC);
 				rollBHsurvival(simFleet.cruisers);
 				rollBHsurvival(simFleet.type7);
+				rollBHsurvival(simFleet.alienC);
 				
-				rollBHsurvival(simFleet.alienD);
 				rollBHsurvival(simFleet.destroyers);
 				rollBHsurvival(simFleet.destroyerXes);
 				rollBHsurvival(simFleet.type9);
 				rollBHsurvival(simFleet.type5);
+				rollBHsurvival(simFleet.alienD);
 				
 				rollBHsurvival(simFleet.carriers);
 				rollBHsurvival(simFleet.minesweepers);
@@ -1260,6 +1423,7 @@ function runSimRound() {
 				rollBHsurvival(simFleet.type0);
 				rollBHsurvival(simFleet.typeSWs);
 				rollBHsurvival(simFleet.typeExps);
+				rollBHsurvival(simFleet.alienE);
 				
 				rollBHsurvival(simFleet.transports);
 				rollBHsurvival(simFleet.boardingShips);
@@ -1545,6 +1709,12 @@ function performSimCycle() {
 function runSimBattles(simCount) {
 	simMulti = (simCount > 1);
 	grandBody = document.getElementsByTagName("body")[0];
+
+	// Settings
+	plrFlagPreserve = (document.getElementById("plrFlagPreserve").checked);
+	
+	ionStorm = (document.getElementById("hexIon").checked);
+	plasmaStorm = (document.getElementById("hexPlasma").checked);
 	
 	clearResults(true);
 
