@@ -350,6 +350,9 @@ function autoNameCounter(localObj) {
 		stackable = true;
 	} else if (localObj.src.indexOf("gfx/DSPA") >= 0) {
 		localObj.title = "Deep Space Planet Attribute";
+	} else if (localObj.src.indexOf("gfx/MB") >= 0) {
+		localObj.title = "Missile Boat";
+		stackable = true;
 	} else if (localObj.src.indexOf("gfx/DS") >= 0) {
 		localObj.title = "Defense Satellite Network";
 	} else if (localObj.src.indexOf("gfx/SB") >= 0) {
@@ -360,6 +363,8 @@ function autoNameCounter(localObj) {
 		localObj.title = "Scout";
 	} else if (localObj.src.indexOf("gfx/talon/DDE") >= 0) {
 		localObj.title = "Destroyer-E";
+	} else if (localObj.src.indexOf("gfx/talon/DDG") >= 0) {
+		localObj.title = "Destroyer-G";
 	} else if (localObj.src.indexOf("gfx/talon/DDP") >= 0) {
 		localObj.title = "Destroyer-P";
 	} else if (localObj.src.indexOf("gfx/talon/DDX") >= 0) {
@@ -370,6 +375,8 @@ function autoNameCounter(localObj) {
 		localObj.title = "Light Cruiser";
 	} else if (localObj.src.indexOf("gfx/talon/BCX") >= 0) {
 		localObj.title = "Battlecruiser-X";
+	} else if (localObj.src.indexOf("gfx/talon/BC") >= 0) {
+		localObj.title = "Battlecruiser";
 	} else if (localObj.src.indexOf("gfx/talon/BB") >= 0) {
 		localObj.title = "Battleship";
 	} else if (localObj.src.indexOf("gfx/talon/DN") >= 0) {
@@ -1863,7 +1870,7 @@ function readJson() {
 		}
 		
 		if (inferLocation) {
-			for (y = 0; y < 12; y++) {
+			for (y = 0; y < letterRows.length; y++) {
 				if (letterRows.charAt(y) == inferLocation.substring(0,1)) {
 					readY = y;
 					break;
@@ -3744,37 +3751,18 @@ function readJson() {
 				
 			} else if (actionPool[i].createPreset == "talonSkirmish") {
 				useRuleset = "talon";
+				var plrColors = "RB";
 				
-				for (var y = 1; y < 12; y++) {
-					for (var x = 1; x <= 16; x++) {
-						if (y <= 2) {
-							paintTile(letterRows.charAt(y)+x,"unexploredR");
-						} else if (y >= 10) {
-							paintTile(letterRows.charAt(y)+x,"unexploredB");
-						} else {
-							paintTile(letterRows.charAt(y)+x,"unexploredW");
-						}
-					}
+				if (actionPool[i].playerColors) {
+					plrColors = actionPool[i].playerColors;
 				}
 				
-			} else if (actionPool[i].createPreset == "talonSolitaire") {
-				useRuleset = "talon";
-				var AItop = readValue(actionPool[i].AItop, false);
-				
 				for (var y = 1; y < 12; y++) {
 					for (var x = 1; x <= 16; x++) {
 						if (y <= 2) {
-							if (AItop) {
-								paintTile(letterRows.charAt(y)+x,"unexploredV");
-							} else {
-								paintTile(letterRows.charAt(y)+x,"unexploredR");
-							}
+							paintTile(letterRows.charAt(y)+x,"unexplored"+plrColors.charAt(0));
 						} else if (y >= 10) {
-							if (!AItop) {
-								paintTile(letterRows.charAt(y)+x,"unexploredV");
-							} else {
-								paintTile(letterRows.charAt(y)+x,"unexploredB");
-							}
+							paintTile(letterRows.charAt(y)+x,"unexplored"+plrColors.charAt(1));
 						} else {
 							paintTile(letterRows.charAt(y)+x,"unexploredW");
 						}
@@ -3804,7 +3792,7 @@ function readJson() {
 				}
 				
 				for (var b = 12; b < 24; b++) {
-					dispRow(letterRows.charAt(b), extraSize[1]);
+					dispRow(letterRows.charAt(b), extraSize[1] && (b < 20 || extraSize[0]));
 				}
 				dispRow("L", false);
 				

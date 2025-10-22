@@ -41,7 +41,7 @@ function calcCost() {
 	var atkStrCosts = [1,2,3,5,6,8,11,14];
 	var defStrCosts = [0,1,3,5];
 	var hullSizeCosts = [2,4,7];
-	var skillCosts = [1,1,1,2,2,3,3,-1,4,2,5,4,2];
+	var skillCosts = [1,1,1,2,2,3,10,-1,4,2,5,4,2];
 	var exploration = false;
 	var weakness = false;
 	var shipSizeThresh = [6,9,12,15,20,24,32];

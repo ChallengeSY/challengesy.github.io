@@ -3,8 +3,8 @@
 	"commentary":"<p>Welcome to another AI Solitaire battle. This time, we have decided to shake things up a bit by randomizing some of the elements. We have hand picked the Terran faction, and partially randomized the terrain (one of our friends wanted us to bring a planet to battle). One of the nebula hexes has a gold border; we use it to denote an energy nebula. We have then rolled a 1 for 250 SP, followed by a 10 for our Terran fleet and a 7 for the AI fleet.</p><p>We field  1 Destroyer-P, 2 regular Destroyers, 1 Destroyer-E, and 1 Scout. The AI fields 3 Destroyers, and 1 Light Cruiser.</p>",
 	"actions":
 		[{
-			"createPreset":"talonSolitaire",
-			"AItop":true
+			"createPreset":"talonSkirmish",
+			"playerColors":"VB"
 		},{
 			"paintHex":"F7",
 			"name":"nebulaW"
@@ -4210,7 +4210,7 @@
 			}],
 			"rotation":1
 		}]},
-	{"heading":"Stardate 2227.09F (Conclusion)",
+	{"heading":"Stardate 2227.09D (Conclusion)",
 	"commentary":"<p>That miss was needlessly scary, but it did not stop us from coming out on top. We still secured a tactical victory (166 SP or less in losses are required for this threshold).</p><p>There is no telling how much of the battle would still be feasible if our ships were forced to retreat under the anti-cheese clause.</p>",
 	"scoreboard":
 		[{
@@ -4221,29 +4221,5 @@
 	"actions":
 		[{
 			"removeCounter":"CL-A1"
-		},{
-			"placeCounter":"DD-E2",
-			"location":"E2",
-			"pwrCurve":"3-2-0",
-			"shields":[3,0,2,0],
-			"wepCharge":[{
-				"name":"Anti-Matter Torpedo",
-				"chargeY":2,
-				"chargeR":1
-			}],
-			"batt":1,
-			"rotation":4
-		},{
-			"placeCounter":"DD-E3",
-			"location":"E5",
-			"pwrCurve":"3-2-0",
-			"shields":[3,"0+C",1,1],
-			"hullDmg":1,
-			"wepCharge":[{
-				"name":"Anti-Matter Torpedo",
-				"chargeY":2,
-				"chargeR":0
-			}],
-			"rotation":1
 		}]}
 ]}

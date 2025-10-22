@@ -3,8 +3,9 @@ function setupBuilder() {
 	
 	addShipRow("Scout-E",1,33);
 	addShipRow("Scout",1,37);
-	addShipRow("Frigate",1,44);
 	addShipRow("Frigate-E",1,37);
+	addShipRow("Frigate",1,44);
+	addShipRow("Frigate-X",1,47);
 	addShipRow("Destroyer-E",1,45);
 	addShipRow("Destroyer",1,0);
 	addShipRow("Destroyer-D",1,51);
@@ -112,6 +113,7 @@ function showPlrRows(rowId, rowVis, newCost) {
 		showPlrRows("Scout-E", activeFaction == 1 && talonGrand);
 		showPlrRows("Frigate", activeFaction == 2);
 		showPlrRows("Frigate-E", activeFaction == 2 && talonGrand);
+		showPlrRows("Frigate-X", activeFaction == 2 && talonGrand);
 		showPlrRows("Destroyer-E", activeFaction == 1 && talonGrand);
 		showPlrRows("Destroyer", activeFaction > 0, [0,55,48,50]);
 		showPlrRows("Destroyer-D", activeFaction == 2 && talonGrand);

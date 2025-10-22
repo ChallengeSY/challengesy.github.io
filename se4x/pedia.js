@@ -78,13 +78,18 @@ function stats4X(faction, buildCost, atk, def, hullSize, tac, tech) {
 	return fragTxt;
 }
 
-function statsTalon(faction, buildCost, weps, shields, hull) {
+function statsTalon(faction, buildCost, weps, shields, hull, crit, power) {
 	var fragTxt = "<br />";
 	fragTxt = fragTxt + "<b class=\"headOx\">"+faction+" Stats</b><br />";
 	fragTxt = fragTxt + "<b>Cost</b>: "+buildCost+" "+conceptLink("SP")+"<br />";
 	fragTxt = fragTxt + "<b>Armaments</b>: "+weps+"<br />";
-	fragTxt = fragTxt + "<b><a href=\"javascript:showBox('shield')\">Shields</a></b>: "+shields+"<br />";
-	fragTxt = fragTxt + "<b>" + conceptLink("Hull")+" (points)</b>: "+hull+"<br />";
+	fragTxt = fragTxt + "<b>Protection</b>: <a href=\"javascript:showBox('shield')\">Shields</a> "+shields+" + "+conceptLink("Hull")+" "+hull+"<br />";
+	if (crit != null) {
+		fragTxt = fragTxt + "<b>" + conceptLink("Critical")+" breakpoints</b>: "+crit+" hull dmg<br />";
+	}
+	if (power != null) {
+		fragTxt = fragTxt + "<b><a href=\"javascript:showBox('power curve')\">Power Loss</a> breakpoints</b>: "+power+" hull dmg<br />";
+	}
 	
 	return fragTxt;
 }
@@ -149,10 +154,15 @@ function amoebaBase(strength) {
 		return "<b class=\"headOx\">Space Amoeba (Strength "+strength+")</b><br />"+amoebaCommonA+"<br />\
 			Automatically destroys <b>all</b> ships (except "+conceptLink("Minesweeper")+"s and "+conceptLink("Minelayer")+"s), until fully researched.";
 	} else if (parseInt(strength) > 7) {
-		return "<b class=\"headOx\">Space Amoeba (Strength "+strength+")</b><br />"+amoebaCommonA+"<br />\
+		var amoebaOutput = "<b class=\"headOx\">Space Amoeba (Strength "+strength+")</b><br />"+amoebaCommonA+"<br />\
 			Vulnerable only from inside detonations.<br /><br />\
-			Detonating "+conceptLink("Scout")+"s cleanse the "+conceptLink("hex")+" on a &le;4. "+conceptLink("Destroyer")+"s on a &le;8. \
-			"+conceptLink("Cruiser")+"s through "+conceptLink("Titan")+"s cleanse the hex without fail.";
+			Detonating "+conceptLink("Scout")+"s cleanse the "+conceptLink("hex")+" on a &le;4. "+conceptLink("Destroyer")+"s";
+		if (useRuleset == "AGT") {
+			amoebaOutput = amoebaOutput + " + "+conceptLink("Missile Boat")+"s";
+		}
+		amoebaOutput = amoebaOutput + " on a &le;8. "+conceptLink("Cruiser")+"s through "+conceptLink("Titan")+"s cleanse the hex without fail.";
+		
+		return amoebaOutput;
 	} else if (strength) {
 		return "<b class=\"headOx\">Space Amoeba (Strength "+strength+")</b><br />"+amoebaCommonA+"<br />\
 			Immune to "+conceptLink("Cloaking")+" and "+conceptLink("Fighter")+"s unless specified otherwise.\
@@ -163,10 +173,9 @@ function amoebaBase(strength) {
 	var amoebaCommonB = "<b class=\"headOx\">Space Amoeba</b><br />"+amoebaCommonA+"<br /><br />As a solo scenario, researching and eliminating them are the "+conceptLink("primary objective")+" before the "+conceptLink("homeworld")+" is consumed.<br />Also available in dedicated competitive scenarios as an obstacle";
 	
 	if (useRuleset == "AGT") {
-		amoebaCommonB = amoebaCommonB + ", and as a "+conceptLink("scenario card")+".";
-	} else {
-		amoebaCommonB = amoebaCommonB + ".";
+		amoebaCommonB = amoebaCommonB + ", and as a "+conceptLink("scenario card");
 	}
+	amoebaCommonB = amoebaCommonB + ".";
 	
 	return amoebaCommonB;
 }
@@ -844,7 +853,7 @@ function showBox(concept) {
 			headingTxt = "Scout (SC)";
 			if (useRuleset == "talon") {
 				displayTxt = "Faction-exclusive light ship<br />";
-				displayTxt = displayTxt + statsTalon("Terran", 37, "Phaser", "2/1/1/1", 2);
+				displayTxt = displayTxt + statsTalon("Terran", 37, "Phaser", "2/1/1/1", 2, 1, null);
 			} else {
 				displayTxt = "Light "+conceptLink("combat ship")+" suited for early exploration. Also benefits from "+conceptLink("Point-Defense")+" technology";
 				displayTxt = displayTxt + stats4X("Base", 6, "E3", 0, 1);
@@ -866,9 +875,9 @@ function showBox(concept) {
 			headingTxt = "Destroyer (DD)";
 			if (useRuleset == "talon") {
 				displayTxt = "Light ship<br />";
-				displayTxt = displayTxt + statsTalon("Terran", 55, "Anti-Matter Torpedo", "3/3/3/2", 4);
-				displayTxt = displayTxt + statsTalon("Talon", 48, "Missile Launcher x2", "4/2/2/2", 4);
-				displayTxt = displayTxt + statsTalon("AI", 50, "Laser x2", "3/3/3/2", 4);
+				displayTxt = displayTxt + statsTalon("Terran", 55, "Anti-Matter Torpedo", "3/3/3/2", 4, 2, 2);
+				displayTxt = displayTxt + statsTalon("Talon", 48, "Missile Launcher x2", "4/2/2/2", 4, "1/3", 2);
+				displayTxt = displayTxt + statsTalon("AI", 50, "Laser x2", "3/3/3/2", 4, 2, 2);
 			} else {
 				displayTxt = "Medium-Light "+conceptLink("combat ship")+", able to benefit from "+conceptLink("Scanning")+" technology";
 				displayTxt = displayTxt + stats4X("Base", 9, "D4", 0, 1, -1, conceptLink("Ship Size")+" 2");
@@ -879,8 +888,8 @@ function showBox(concept) {
 			displayTxt = conceptLink("Immobile")+" Battle Station";
 			if (useRuleset == "talon") {
 				displayTxt = displayTxt + ". "+conceptLink("Terran")+" bases can hold up to 4 "+conceptLink("Fighter")+" squadrons<br />";
-				displayTxt = displayTxt + statsTalon("Terran", 184, "Dual Phasers x2 + Wave-Motion Gun (R)", "7/7/7/7", 9);
-				displayTxt = displayTxt + statsTalon("Talon", 184, "Dual Disruptors x2 + Dual Missiles", "7/7/7/7", 10);
+				displayTxt = displayTxt + statsTalon("Terran", 184, "Dual Phasers x2 + Wave-Motion Gun (R)", "7/7/7/7", 9, 5, "2/5/8");
+				displayTxt = displayTxt + statsTalon("Talon", 184, "Dual Disruptors x2 + Dual Missiles", "7/7/7/7", 10, "5/7", "2/4/7");
 			} else {
 				displayTxt = displayTxt + " with powerful long range weaponry. \
 					One can be built at any "+conceptLink("colony")+" that has produced CP this "+conceptLink("economic phase");
@@ -898,8 +907,8 @@ function showBox(concept) {
 			if (useRuleset == "talon") {
 				headingTxt = "Heavy Cruiser (CA)";
 				displayTxt = "Medium ship<br />";
-				displayTxt = displayTxt + statsTalon("Terran", 115, "Phasers x2 + Anti-Matter Torpedo", "6/5/5/4", 6);
-				displayTxt = displayTxt + statsTalon("Talon", 115, "Dual Disruptors x2", "7/4/4/3", 7);
+				displayTxt = displayTxt + statsTalon("Terran", 115, "Phasers x2 + Anti-Matter Torpedo", "6/5/5/4", 6, 3, 2);
+				displayTxt = displayTxt + statsTalon("Talon", 115, "Dual Disruptors x2", "7/4/4/3", 7, "3/5", "2/4");
 			} else {
 				headingTxt = "Cruiser (CA)";
 				displayTxt = "Medium "+conceptLink("combat ship")+", able to benefit from "+conceptLink("Exploration");
@@ -915,8 +924,8 @@ function showBox(concept) {
 			headingTxt = "Battlecruiser (BC)";
 			if (useRuleset == "talon") {
 				displayTxt = "Medium-heavy ship<br />";
-				displayTxt = displayTxt + statsTalon("Terran", 134, "Phasers x2 + Dual Anti-Matter Torpedos", "7/5/5/5", 6);
-				displayTxt = displayTxt + statsTalon("Talon", 142, "Dual Disruptors + Disruptor + Triple Missiles", "8/4/4/4", 7);
+				displayTxt = displayTxt + statsTalon("Terran", 134, "Phasers x2 + Dual Anti-Matter Torpedos", "7/5/5/5", 6, 4, "2/5");
+				displayTxt = displayTxt + statsTalon("Talon", 142, "Dual Disruptors + Disruptor + Triple Missiles", "8/4/4/4", 7, "3/5", "2/4");
 			} else {
 				displayTxt = "Medium-Heavy "+conceptLink("combat ship");
 				if (useRuleset == "AGT") {
@@ -931,9 +940,9 @@ function showBox(concept) {
 			headingTxt = "Battleship (BB)";
 			if (useRuleset == "talon") {
 				displayTxt = "Heavy ship<br />";
-				displayTxt = displayTxt + statsTalon("Terran", 194, "Dual Phasers x2 + Wave-Motion Gun", "8/7/7/7", 9);
-				displayTxt = displayTxt + statsTalon("Talon", 179, "Dual Disruptors x2 + Fusion Cannon", "9/7/7/6", 8);
-				displayTxt = displayTxt + statsTalon("AI", 200, "Laser x1 + Cobalt Cannon x2", "9/9/9/9", 9);
+				displayTxt = displayTxt + statsTalon("Terran", 194, "Dual Phasers x2 + Wave-Motion Gun", "8/7/7/7", 9, 5, "2/5/8");
+				displayTxt = displayTxt + statsTalon("Talon", 179, "Dual Disruptors x2 + Fusion Cannon", "9/7/7/6", 8, "4/6", "2/4/7");
+				displayTxt = displayTxt + statsTalon("AI", 200, "Laser x1 + Cobalt Cannon x2", "9/9/9/9", 9, 5, 5);
 			} else {
 				displayTxt = "Heavy "+conceptLink("combat ship");
 				if (useRuleset == "AGT") {
@@ -949,7 +958,7 @@ function showBox(concept) {
 			headingTxt = "Dreadnought (DN)";
 			if (useRuleset == "talon") {
 				displayTxt = "Faction-exclusive huge ship<br />";
-				displayTxt = displayTxt + statsTalon("Talon", 218, "Dual Disruptors x2 + Dual Fusion Cannons", "11/9/9/8", 10);
+				displayTxt = displayTxt + statsTalon("Talon", 218, "Dual Disruptors x2 + Dual Fusion Cannons", "11/9/9/8", 10, "5/7", "2/4/7");
 			} else {
 				displayTxt = "Huge "+conceptLink("combat ship");
 				if (useRuleset == "AGT") {
@@ -967,7 +976,7 @@ function showBox(concept) {
 			headingTxt = "Carrier (CV)";
 			if (useRuleset == "talon") {
 				displayTxt = "Faction-exclusive transport ship, able to carry up to 4 "+conceptLink("Fighter")+" squadrons<br />";
-				displayTxt = displayTxt + statsTalon("Terran", 70, "Phasers x2", "4/4/4/4", 6);
+				displayTxt = displayTxt + statsTalon("Terran", 70, "Phasers x2", "4/4/4/4", 6, "3/5", "2/4");
 			} else {
 				displayTxt = "Combat transport craft, able to carry up to 3 "+conceptLink("Fighter")+"s into space";
 				displayTxt = displayTxt + stats4X("Base", 12, "E3", 0, 1, -1, conceptLink("Fighter")+" tech 1");
@@ -977,7 +986,7 @@ function showBox(concept) {
 			if (useRuleset == "talon") {
 				headingTxt = "Fighter squadron";
 				displayTxt = "Faction-exclusive small craft, requires a "+conceptLink("Carrier")+" or "+conceptLink("Base")+" to be deployed. Each squadron has 3 fighters<br />";
-				displayTxt = displayTxt + statsTalon("Terran", 44, "1 Phaser per fighter", "None", "2 per fighter");
+				displayTxt = displayTxt + statsTalon("Terran", 44, "1 Phaser per fighter", "None", "2 per fighter", null, null);
 			} else {
 				displayTxt = "Small craft. The base craft requires a "+conceptLink("Carrier")+" or "+conceptLink("Titan")+" to move into space. Gains Attack +1 versus Titans.<br />\
 					As a technology, each level unlocks a progressively stronger fighter craft. The first level also unlocks Carriers for the Base faction.";
@@ -1301,8 +1310,8 @@ function showBox(concept) {
 		case "transport":
 			if (useRuleset == "talon") {
 				displayTxt = "Utility ship, able to land on "+conceptLink("planet")+"s whenever a scenario calls for it.<br />";
-				displayTxt = displayTxt + statsTalon("Terran", 32, "No weapons", "4/4/4/4", 4);
-				displayTxt = displayTxt + statsTalon("Talon", 36, "No weapons", "5/4/4/3", 4);
+				displayTxt = displayTxt + statsTalon("Terran", 32, "No weapons", "4/4/4/4", 4, 2, 2);
+				displayTxt = displayTxt + statsTalon("Talon", 36, "No weapons", "5/4/4/3", 4, 2, 2);
 			} else {
 				if (useRuleset == "AGT") {
 					displayTxt = "Utility "+conceptLink("combat ship")+", able to pick up 6 "+conceptLink("ground unit")+"s and/or "+conceptLink("fighter")+"s; or up to 30 "+conceptLink("LP")+" worth of crates";
@@ -1806,6 +1815,7 @@ function showBox(concept) {
 				displayTxt = displayTxt + "n equipped ship hits its victim in a "+conceptLink("round")+", it gets to shoot again towards the same hull type.\
 					<br /><br />"+conceptLink("Unique Ship")+"s can choose to equip this as one of their abilities.<br />\
 					"+conceptLink("Type Flag")+" + "+conceptLink("Type XIII")+" + "+conceptLink("Type XV")+" have this equipped, with "+conceptLink("Improved Gunnery")+".\
+					<br />Available as a random "+conceptLink("auxiliary")+" tech to the alternate "+conceptLink("faction")+"s.\
 					<br /><br />The corrosponding "+conceptLink("scenario card")+" equips "+conceptLink("Cruiser")+"s + "+conceptLink("Flagship")+"s,\
 					<br />with the latter unable to use it beyond their "+conceptLink("home system")+"s before "+conceptLink("economic phase")+" 8.";
 			} else {
@@ -1866,8 +1876,8 @@ function showBox(concept) {
 			headingTxt = "Destroyer-X (DDX)";
 			if (useRuleset == "talon") {
 				displayTxt = "Improved "+conceptLink("Destroyer")+" variant that adds more weapons<br />";
-				displayTxt = displayTxt + statsTalon("Terran", 68, "Anti-Matter Torpedo x2", "4/3/3/3", 4);
-				displayTxt = displayTxt + statsTalon("Talon", 55, "Disruptor + Missile Launcher x2", "5/2/2/2", 4);
+				displayTxt = displayTxt + statsTalon("Terran", 68, "Anti-Matter Torpedo x2", "4/3/3/3", 4, 2, 2);
+				displayTxt = displayTxt + statsTalon("Talon", 55, "Disruptor + Missile Launcher x2", "5/2/2/2", 4, "1/3", 2);
 			} else {
 				displayTxt = conceptLink("Destroyer")+" variant, equipped with "+conceptLink("Heavy Warheads")+", \
 					and able to benefit from "+conceptLink("Fastmove")+" 2 technology, and also equip +2/+2\
@@ -2297,8 +2307,8 @@ function showBox(concept) {
 			displayTxt = conceptLink("Immobile")+" Starbase";
 			if (useRuleset == "talon") {
 				displayTxt = displayTxt + "<br />";
-				displayTxt = displayTxt + statsTalon("Terran", 281, "Dual Phasers x2 + Side Wave-Motion Gun x2", "10/10/10/10", 12);
-				displayTxt = displayTxt + statsTalon("Talon", 278, "Dual Disruptors x2 + Dual Missile Launchers x2", "10/10/10/10", 12);
+				displayTxt = displayTxt + statsTalon("Terran", 281, "Dual Phasers x2 + Side Wave-Motion Gun x2", "10/10/10/10", 12, 7, "2/5/8/11");
+				displayTxt = displayTxt + statsTalon("Talon", 278, "Dual Disruptors x2 + Dual Missile Launchers x2", "10/10/10/10", 12, "6/8", "2/4/7/10");
 			} else {
 				displayTxt = displayTxt + " with overpowering weaponry, can shoot twice per "+conceptLink("round")+"! Can not move. \
 					Requires upgrading an "+conceptLink("Advanced Base")+" at a "+conceptLink("colony")+" that has naturally produced 5 "+conceptLink("CP")+". \
@@ -2386,6 +2396,10 @@ function showBox(concept) {
 		case "deep space planet attribute":
 			displayTxt = "Random attribute (counter) assigend to a "+conceptLink("deep space")+" "+conceptLink("planet")+" when first discovered. \
 				Can have a variable amount of "+conceptLink("NPA")+" defenders, "+conceptLink("Heavy Infantry")+" militia, and unique abilities.";
+			break;
+		case "aggressive":
+			displayTxt = "These "+conceptLink("NPA")+" ships seek out and "+conceptLink("battle")+" <i>all</i> adjacent "+conceptLink("hex")+"es that have enemy units, \
+				avoiding "+conceptLink("home system")+"s, "+conceptLink("thick asteroids")+", and non-"+conceptLink("capture")+"d "+conceptLink("NPA")+" ships. "+dspaStats(4, 0);
 			break;
 		case "spice":
 			displayTxt = "Immune to "+conceptLink("colony ship")+"s. A full strength "+conceptLink("colony")+" allows "+conceptLink("ship")+"s \
@@ -2856,7 +2870,7 @@ function showBox(concept) {
 			displayTxt = "Specifications that denotes the amount of "+conceptLink("power")+" and movement "+conceptLink("hex")+"es a ship gets \
 				each "+conceptLink("round")+", followed by the "+conceptLink("turn radius")+".<br /><br />\
 				Some vehicles are "+conceptLink("immobile")+". Their curve instead denotes power and number of clockwise rotations per round.<br /><br />\
-				Hull and Critical damage can decrease the power available. If power drops below zero at the end of a "+conceptLink("power phase")+", the ship's FTL core suffers a meltdown, and "+conceptLink("explode")+"s.";
+				"+conceptLink("Hull")+" and "+conceptLink("critical")+" damage can decrease the power available. If power drops below zero at the end of a "+conceptLink("power phase")+", the ship's FTL core suffers a meltdown, and "+conceptLink("explode")+"s.";
 			break;
 		case "turn radius":
 			displayTxt = "Denotes how sharply a "+conceptLink("ship")+" can "+conceptLink("turn")+". The number is measured in the number of "+conceptLink("hex")+"es a ship must move forward in between "+conceptLink("turn")+"s, \
@@ -2916,6 +2930,15 @@ function showBox(concept) {
 			break;
 			
 		// Talon Critical Rolls
+		case "critical":
+			headingTxt = "Critical Damage";
+			displayTxt = "Damage that one or more of a "+conceptLink("ship")+"'s subsystems has taken, reducing its effectiveness and/or knocking it offline.<br /><br />";
+			if (useRuleset == "talon") {
+				displayTxt = displayTxt + "Ships that sustain "+conceptLink("hull")+" damage beyond one or more designated <q>breakpoints</q> must roll 2d6 to determine the subsystem that gets damaged... if any.";
+			} else {
+				displayTxt = displayTxt + conceptLink("Space Empires Anthology")+" does not have a mechanism to track subsystem damage mid-"+conceptLink("battle")+".";
+			}
+			break;
 		case "secondary explosion": // 2
 			displayTxt = conceptLink("Ship")+"s that suffer this condition instantly take an additional 3 "+conceptLink("hull")+" damage.";
 			break;
@@ -2961,86 +2984,91 @@ function showBox(concept) {
 			displayTxt = "A "+conceptLink("ship")+" that loses all of its "+conceptLink("hull")+" points <i>or</i> suffers a meltdown with their FTL core explodes, \
 				causing damage to other ships in the same "+conceptLink("hex")+" <i>and</i> in adjacent hexes. The ship is then removed from play.\
 				<br /><br />"+conceptLink("Fighter")+"s and "+conceptLink("missile")+"s do not explode when their hull strength is reduced to 0. \
-				Once the last unit in the group is destroyed the counter is simply removed from play.";
+				Once the last unit in the group is destroyed, the counter is simply removed from play.";
 			break;
 			
 		// Ships only in Talon
 		case "scout-e":
 			headingTxt = "Scout-E (SCE)";
 			displayTxt = "Slightly cheaper variant that has reduced "+conceptLink("shield")+"ing and only a front weapon arc<br />";
-			displayTxt = displayTxt + statsTalon("Terran", 33, "Phaser", "1/1/1/1", 2);
+			displayTxt = displayTxt + statsTalon("Terran", 33, "Phaser", "1/1/1/1", 2, null, 1);
 			break;
 		case "frigate":
 			headingTxt = "Frigate (FF)";
 			displayTxt = "Faction-exclusive light ship<br />";
-			displayTxt = displayTxt + statsTalon("Talon", 44, "Disruptor x2", "3/2/2/2", 3);
+			displayTxt = displayTxt + statsTalon("Talon", 44, "Disruptor x2", "3/2/2/2", 3, 2, 2);
 			break;
 		case "frigate-e":
 			headingTxt = "Frigate-E (FFE)";
 			displayTxt = "Cheaper variant that carries half the firepower<br />";
-			displayTxt = displayTxt + statsTalon("Talon", 37, "Disruptor", "3/2/2/2", 3);
+			displayTxt = displayTxt + statsTalon("Talon", 37, "Disruptor", "3/2/2/2", 3, 2, 2);
+			break;
+		case "frigate-x":
+			headingTxt = "Frigate-X (FFX)";
+			displayTxt = "Variant that carries "+conceptLink("afterburner")+"s<br />";
+			displayTxt = displayTxt + statsTalon("Talon", 47, "Disruptor x2", "3/2/2/2", 3, 2, 2);
 			break;
 		case "destroyer-d":
 			headingTxt = "Destroyer-D (DDD)";
 			displayTxt = "Faction-exclusive variant that uses only "+conceptLink("Disruptor")+"s. Rivals with the "+conceptLink("Destroyer-P")+"<br />";
-			displayTxt = displayTxt + statsTalon("Talon", 51, "Disruptor x3", "4/2/2/2", 4);
+			displayTxt = displayTxt + statsTalon("Talon", 51, "Disruptor x3", "4/2/2/2", 4, "1/3", 2);
 			break;
 		case "destroyer-e":
 			headingTxt = "Destroyer-E (DDE)";
 			displayTxt = "Faction-exclusive variant that forgoes "+conceptLink("batteries")+" and side weapons, but less expensive to bring to battle<br />";
-			displayTxt = displayTxt + statsTalon("Terran", 45, "Anti-Matter Torpedo", "3/3/3/2", 4);
+			displayTxt = displayTxt + statsTalon("Terran", 45, "Anti-Matter Torpedo", "3/3/3/2", 4, 2, 2);
 			break;
 		case "destroyer-g":
 			headingTxt = "Destroyer-G (DDG)";
 			displayTxt = "<b class=\"headOx\">Destroyer-G</b> (DDG)<br />Faction-exclusive variant that carries extra firepower<br />";
-			displayTxt = displayTxt + statsTalon("Talon", 69, "Missile Launcher x3", "5/4/4/3", 4);
+			displayTxt = displayTxt + statsTalon("Talon", 69, "Missile Launcher x3", "5/4/4/3", 4, 2, 2);
 			break;
 		case "destroyer-p":
 			headingTxt = "Destroyer-P (DDP)";
 			displayTxt = "<b class=\"headOx\">Destroyer-P</b> (DDP)<br />Faction-exclusive variant that uses only "+conceptLink("Phaser")+"s. Rivals with the "+conceptLink("Destroyer-D")+"<br />";
-			displayTxt = displayTxt + statsTalon("Terran", 59, "Phaser x2", "3/3/3/2", 4);
+			displayTxt = displayTxt + statsTalon("Terran", 59, "Phaser x2", "3/3/3/2", 4, 2, 2);
 			break;
 		case "light cruiser-e":
 			headingTxt = "Light Cruiser-E (CLE)";
 			displayTxt = "Cheaper variant that omits side weapon arcs<br />";
-			displayTxt = displayTxt + statsTalon("Terran", 79, "Phaser + Anti-Matter Torpedo", "5/4/4/3", 5);
-			displayTxt = displayTxt + statsTalon("Talon", 77, "Disruptor x2", "5/3/3/3", 5);
+			displayTxt = displayTxt + statsTalon("Terran", 79, "Phaser + Anti-Matter Torpedo", "5/4/4/3", 5, 3, 2);
+			displayTxt = displayTxt + statsTalon("Talon", 77, "Disruptor x2", "5/3/3/3", 5, "2/4", "2/4");
 			break;
 		case "light cruiser":
 			headingTxt = "Light Cruiser (CL)";
 			displayTxt = "Medium-Light ship<br />";
-			displayTxt = displayTxt + statsTalon("Terran", 88, "Phaser + Anti-Matter Torpedo", "5/4/4/3", 5);
-			displayTxt = displayTxt + statsTalon("Talon", 88, "Dual Disruptors + Disruptor", "6/3/3/3", 5);
-			displayTxt = displayTxt + statsTalon("AI", 100, "Laser x2 + Cobalt Cannon", "5/5/5/3", 5);
+			displayTxt = displayTxt + statsTalon("Terran", 88, "Phaser + Anti-Matter Torpedo", "5/4/4/3", 5, 3, 2);
+			displayTxt = displayTxt + statsTalon("Talon", 88, "Dual Disruptors + Disruptor", "6/3/3/3", 5, "2/4", "2/4");
+			displayTxt = displayTxt + statsTalon("AI", 100, "Laser x2 + Cobalt Cannon", "5/5/5/3", 5, 3, 3);
 			break;
 		case "light cruiser-p":
 			headingTxt = "Light Cruiser-P (CLP)";
 			displayTxt = "Faction-exclusive variant that uses only "+conceptLink("Phaser")+"s<br />";
-			displayTxt = displayTxt + statsTalon("Terran", 90, "Phaser x2 + Dual Phasers", "5/4/4/3", 5);
+			displayTxt = displayTxt + statsTalon("Terran", 90, "Phaser x2 + Dual Phasers", "5/4/4/3", 5, 3, 2);
 			break;
 		case "light cruiser-x":
 			headingTxt = "Light Cruiser-X (CLX)";
 			displayTxt = "Improved variant that features 270 degree coverage<br />";
-			displayTxt = displayTxt + statsTalon("Terran", 97, "Anti-Matter Torpedo x2", "5/5/5/4", 5);
-			displayTxt = displayTxt + statsTalon("Talon", 102, "Dual Disruptors + Disruptor", "6/5/5/4", 5);
+			displayTxt = displayTxt + statsTalon("Terran", 97, "Anti-Matter Torpedo x2", "5/5/5/4", 5, 3, 2);
+			displayTxt = displayTxt + statsTalon("Talon", 102, "Dual Disruptors + Disruptor", "6/5/5/4", 5, "2/4", "2/4");
 			break;
 		case "heavy cruiser-x":
 			headingTxt = "Heav Cruiser-X (CAX)";
 			displayTxt = "Improved variant that increases firepower<br />";
-			displayTxt = displayTxt + statsTalon("Terran", 124, "Phasers x2 + Dual Anti-Matter Torpedos", "6/5/5/4", 6);
-			displayTxt = displayTxt + statsTalon("Talon", 125, "Dual Disruptors x2 + Missile Launcher", "7/4/4/3", 7);
+			displayTxt = displayTxt + statsTalon("Terran", 124, "Phasers x2 + Dual Anti-Matter Torpedos", "6/5/5/4", 6, 4, "2/5");
+			displayTxt = displayTxt + statsTalon("Talon", 125, "Dual Disruptors x2 + Missile Launcher", "7/4/4/3", 7, "3/5", "2/4");
 			break;
 		case "battlecruiser-h":
 			headingTxt = "Battlecruiser-H (BCH)";
 			displayTxt = "Alternate variant that uses the respective faction's heavy (expert) weapons<br />";
-			displayTxt = displayTxt + statsTalon("Terran", 147, "Phaser x2 + Wave-Motion Gun", "7/6/6/5", 6);
-			displayTxt = displayTxt + statsTalon("Talon", 133, "Dual Disruptors + Missile Launcher + Fusion Cannon", "8/5/5/4", 7);
+			displayTxt = displayTxt + statsTalon("Terran", 147, "Phaser x2 + Wave-Motion Gun", "7/6/6/5", 6, 4, "2/5");
+			displayTxt = displayTxt + statsTalon("Talon", 133, "Dual Disruptors + Missile Launcher + Fusion Cannon", "8/5/5/4", 7, "3/5", "2/4");
 			break;
 		case "battlecruiser-x":
 			headingTxt = "Battlecruiser-X (BCX)";
 			displayTxt = "Improved variant of the "+conceptLink('Battlecruiser')+"<br />";
-			displayTxt = displayTxt + statsTalon("Terran", 156, "Phaser + Dual Anti-Matter Torpedos x2", "7/6/6/6", 6);
-			displayTxt = displayTxt + statsTalon("Talon", 161, "Dual Disruptors + Disruptor + Dual Missile Launchers x2", "8/5/5/4", 7);
+			displayTxt = displayTxt + statsTalon("Terran", 156, "Phaser + Dual Anti-Matter Torpedos x2", "7/6/6/6", 6, 4, "2/5");
+			displayTxt = displayTxt + statsTalon("Talon", 161, "Dual Disruptors + Disruptor + Dual Missile Launchers x2", "8/5/5/4", 7, "3/5", "2/4");
 			break;
 		
 
@@ -3195,7 +3223,7 @@ function showSpecsTalon(namee, pwrCurve, shields, wepDetails, hullDmg, critDmg, 
 
 	displayTxt = displayTxt + "<b><a href=\"javascript:showBox('hull')\">Hull Damage</a></b>: "+hullDmg+"<br />";
 	if (critDmg.length > 0) {
-		displayTxt = displayTxt + "<b>Critical Dmg</b>: ";
+		displayTxt = displayTxt + "<b><a href=\"javascript:showBox('critical')\">Critical Dmg</a></b>: ";
 		
 		for (var c = 0; c < critDmg.length; c++) {
 			displayTxt = displayTxt + critDmg[c];
@@ -3402,9 +3430,9 @@ function keywordifyCollection(collObj) {
 		"Alien-E", "Alien-D", "Alien-C", "Alien-B", "Alien-A", "Doomsday Machine", "DM", "Amoeba", "Alien Empires", "Alien Player", "Economic Roll",
 		"Decoy", "Scout", "Destroyer", "Cruiser", "Dreadnought", "Titan", "Ship Yard", "Base", "Mining Ship", "Miner",
 		"Minelayer", "Minesweeper", "Carrier", "Raider", "Pipeline", "Unique Ship",
-		"Asteroid", "Black Hole", "Danger", "Deep Space", "Hex", "Home System", "Lost in Space", "Nebula", "Space Wreck", "Supernova", "Unexplored",
+		"Asteroid", "Black Hole", "Danger", "Deep Space", "Hex", "Home System", "Lost in Space", "Nebula", "Space Wreck", "Supernova",
 		"Warp Point", "Regional Map", "Fold in Space", "Pirate",
-		"Technology", "Technologies", "Attack", "Defense", "Exploration", "Movement", "Ship Size", "Tactics", "Terraforming", "Upgrade",
+		"Technology", "Technologies", "Attack", "Defense", "Explore", "Exploration", "Movement", "Ship Size", "Tactics", "Terraforming", "Upgrade",
 		"Cloaking", "Fighter", "Minelaying", "Minesweeping", "Nanomachine", "Scanning",
 		"Fastmove", "Second Salvo",
 		"Quick Start", "Slingshot", "Gearing Limits", "Unpredictable Research", "Research Grant", "Heavy Terrain",
@@ -3423,9 +3451,9 @@ function keywordifyCollection(collObj) {
 		"Hull", "Type 0", "Type II", "Type IV", "Type V", "Type IX", "Type XI", "Type XV",
 		"Type Exp", "Type Flag", "Type PD", "Type Scan", "Type SW",
 		"AP Bot", "AP bot", "Cosmic Storm", "EV", "FOB", "Ion Storm", "Jammer", "Missile", "Morale", "Offense Posture", "Paranoia", "Plasma Storm", "Quantum", "Quasar",
-		"Spice", 
+		"Aggressive", "Spice", 
 		"Talon", "Terran", "Empire War", "EFV", "SP", "LP", "Deployment Zone", "Reserve",
-		"Impulse", "Collide", "Collision", "Power", "Battery", "Batteries", "Side Slip", "Brake", "Shield",
+		"Impulse", "Collide", "Collision", "Power", "Battery", "Batteries", "Side Slip", "Brake", "Shield", "Critical",
 		"Last Ship Standing", "Convoy Intercept", "Orbital Conquest", "Priority Target",
 		"Phaser", "Anti-Matter Torpedo", "Wave-Motion Gun", "Disruptor", "Fusion Cannon", "Laser", "Cobalt Cannon",
 		"Helm Down", "Random Weapon Group Destroyed", "Manuevering Thruster Damage", "FTL Offline", "FTL Core Breach", "Explode", "Exploding", "Explosion"];
@@ -3447,6 +3475,10 @@ function keywordifyCollection(collObj) {
 		{regex: conceptLink("Colony")+" Ship", newTxt: conceptLink("Colony Ship")},
 		{regex: conceptLink("miner")+"al", newTxt: conceptLink("mineral")},
 		{regex: conceptLink("Miner")+"al", newTxt: conceptLink("Mineral")},
+		{regex: "un"+conceptLink("explore")+"d", newTxt: conceptLink("unexplored")},
+		{regex: "Un"+conceptLink("explore")+"d", newTxt: conceptLink("Unexplored")},
+		{regex: conceptLink("round")+"ed", newTxt: "rounded"},
+		{regex: conceptLink("Round")+"ed", newTxt: "Rounded"},
 		{regex: conceptLink("fleet")+" size bonus", newTxt: conceptLink("fleet size bonus")},
 		{regex: conceptLink("Fleet")+" Size Bonus", newTxt: conceptLink("Fleet Size Bonus")},
 		{regex: conceptLink("hull")+" size", newTxt: conceptLink("hull size")},
@@ -3463,6 +3495,8 @@ function keywordifyCollection(collObj) {
 		{regex: conceptLink("Raider")+" "+conceptLink("Fleet"), newTxt: conceptLink("Raider Fleet")},
 		{regex: "non-"+conceptLink("raider fleet"), newTxt: conceptLink("non-raider fleet")},
 		{regex: "Non-"+conceptLink("raider")+" "+conceptLink("Fleet"), newTxt: conceptLink("Non-raider Fleet")},
+		{regex: conceptLink("experience")+"d", newTxt: "experienced"},
+		{regex: conceptLink("Experience")+"d", newTxt: "Experienced"},
 		{regex: "expansion "+conceptLink("fleet"), newTxt: conceptLink("expansion fleet")},
 		{regex: "Expansion "+conceptLink("Fleet"), newTxt: conceptLink("Expansion Fleet")},
 		{regex: "extermination "+conceptLink("fleet"), newTxt: conceptLink("extermination fleet")},
@@ -3543,6 +3577,7 @@ function keywordifyCollection(collObj) {
 		{regex: "star"+conceptLink("base"), newTxt: conceptLink("Starbase")},
 		{regex: conceptLink("Quantum")+" Filament", newTxt: conceptLink("Quantum Filament")},
 		{regex: conceptLink("quantum")+" filament", newTxt: conceptLink("quantum filament")},
+		{regex: conceptLink("aggressive"), newTxt: "aggressive"},
 		{regex: "Buffed "+conceptLink("Cruiser")+"s", newTxt: conceptLink("Buffed Cruisers")},
 		{regex: "buffed "+conceptLink("cruiser")+"s", newTxt: conceptLink("buffed cruisers")},
 		{regex: conceptLink("Scout")+" Rush", newTxt: conceptLink("Scout Rush")},
@@ -3561,10 +3596,13 @@ function keywordifyCollection(collObj) {
 		{regex: conceptLink("missile")+" boat", newTxt: conceptLink("missile boat")},
 		{regex: conceptLink("Deep Space")+" "+conceptLink("Planet")+" Attribute", newTxt: conceptLink("Deep Space Planet Attribute")},
 		{regex: conceptLink("deep space")+" "+conceptLink("planet")+" attribute", newTxt: conceptLink("deep space planet attribute")},
+		{regex: conceptLink("Battle")+"field", newTxt: "Battlefield"},
+		{regex: conceptLink("battle")+"field", newTxt: "battlefield"},
 		{regex: "Light "+conceptLink("Cruiser"), newTxt: conceptLink("Light Cruiser")},
 		{regex: "light "+conceptLink("cruiser"), newTxt: conceptLink("light cruiser")},
 		{regex: "Heavy "+conceptLink("Cruiser"), newTxt: conceptLink("Heavy Cruiser")},
 		{regex: "heavy "+conceptLink("cruiser"), newTxt: conceptLink("heavy cruiser")},
+		{regex: "non-"+conceptLink("critical"), newTxt: "non-critical"},
 		{regex: conceptLink("Turn")+" Radius", newTxt: conceptLink("Turn Radius")},
 		{regex: conceptLink("turn")+" radius", newTxt: conceptLink("turn radius")},
 		{regex: conceptLink("Power")+" Curve", newTxt: conceptLink("Power Curve")},
@@ -3604,6 +3642,8 @@ function keywordifyCollection(collObj) {
 		{regex: "energy "+conceptLink("nebula"), newTxt: conceptLink("energy nebula")},
 		{regex: conceptLink("Destroyer")+"-E", newTxt: conceptLink("Destroyer-E")},
 		{regex: conceptLink("destroyer")+"-e", newTxt: conceptLink("destroyer-e")},
+		{regex: conceptLink("Destroyer")+"-G", newTxt: conceptLink("Destroyer-G")},
+		{regex: conceptLink("destroyer")+"-g", newTxt: conceptLink("destroyer-g")},
 		{regex: conceptLink("Destroyer")+"-P", newTxt: conceptLink("Destroyer-P")},
 		{regex: conceptLink("destroyer")+"-p", newTxt: conceptLink("destroyer-p")},
 		{regex: conceptLink("Destroyer")+"-X", newTxt: conceptLink("Destroyer-X")},
