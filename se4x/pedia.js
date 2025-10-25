@@ -109,7 +109,7 @@ function dspaStats(shipCt, HIcount) {
 	var fragTxt = "<br /><br />";
 	fragTxt = fragTxt + "<b class=\"headOx\">Attribute Stats</b><br />";
 	fragTxt = fragTxt + "<b>"+conceptLink("NPA")+" ships</b>: " + shipCt + "<br />";
-	fragTxt = fragTxt + "<b>"+conceptLink("Heavy Infantry")+" militia</b>: " + HIcount + "<br />";
+	fragTxt = fragTxt + "<b>"+conceptLink("Heavy Infantry")+" militia</b>: " + HIcount;
 	
 	return fragTxt;
 }
@@ -286,7 +286,7 @@ function showBox(concept) {
 			if (useRuleset == "talon") {
 				displayTxt = "A scenario that pits a team of two or more human players against the "+conceptLink("AI")+" environment.";
 			} else {
-				displayTxt = "A scenario that pits a "+conceptLink("Blood Brothers")+" team of two or more human players against the environment.\
+				displayTxt = "A scenario that pits a team (usually "+conceptLink("Blood Brothers")+") of two or more human players against the environment.\
 					<br />"+conceptLink("Doomsday Machine")+"s / "+conceptLink("Alien Empires");
 				if (useRuleset == "AGT") {
 					displayTxt = displayTxt + " / "+conceptLink("AP Bot")+"s";
@@ -375,7 +375,8 @@ function showBox(concept) {
 			headingTxt = "Immobile craft";
 			displayTxt = "Not every space craft has the engines necessary to move from "+conceptLink("hex")+" to hex. They are also unable to "+conceptLink("retreat")+".<br />";
 			if (useRuleset == "talon") {
-				displayTxt = displayTxt + conceptLink("Base")+"s and "+conceptLink("Starbase")+"s are entirely immobile in "+conceptLink("Talon")+".";
+				displayTxt = displayTxt + conceptLink("Base")+"s and "+conceptLink("Starbase")+"s are immobile on their own accord in "+conceptLink("Talon")+", \
+					but can be dragged to a "+conceptLink("black hole")+", and are immune to "+conceptLink("collision")+"s.";
 			} else {
 				if (useRuleset == "SE4X" || useRuleset == "CE") {
 					displayTxt = displayTxt + conceptLink("Ship Yard")+"s and "+conceptLink("Base")+"s are entirely immobile.";
@@ -2795,6 +2796,9 @@ function showBox(concept) {
 			Such ships count double the normal "+conceptLink("SP")+" for scoreboard purposes.<br />\
 			If one team retreats their own <i>and</i> destroys the other, they instantly end the scenario.";
 			break;
+		case "astrometrics lab":
+			displayTxt = "System used by "+conceptLink("Talon")+" to determine how to randomly generate the terrain.";
+			break;
 		case "ai solitaire":
 			headingTxt = "AI Solitaire";
 			displayTxt = "Scenario (usually "+conceptLink("Last Ship Standing")+") against the [literal] "+conceptLink("AI")+" faction. \
@@ -2819,13 +2823,13 @@ function showBox(concept) {
 			headingTxt = "Estimated Fleet Value (EFV)";
 			displayTxt = "Used by the "+conceptLink("AI")+" to compare the strength of the two fleets.\
 				<br />"+conceptLink("Destroyer")+"s and smaller are worth 1 EFV point.\
-				"+conceptLink("Light Crtuiser")+"s are worth 2 EFV points.<br />\
+				"+conceptLink("Light Cruiser")+"s are worth 2 EFV points.<br />\
 				"+conceptLink("Cruiser")+"s and "+conceptLink("Battlecruiser")+"s are worth 3 EFV points.\
 				"+conceptLink("Battleship")+"s and beyond are worth 4 EFV points.";
 			break;
 		case "center hex row":
-			displayTxt = "The "+conceptLink("hex")+"es directly in front of, and directly behind, the "+conceptLink("ship")+" constitute that ship's <q>center hex row</q>.\
-				<br />This row changes whenever a ship "+conceptLink("turn")+"s or "+conceptLink("side slip")+"s.";
+			displayTxt = "The "+conceptLink("hex")+"es directly in front of, and directly behind, a given "+conceptLink("ship")+" constitute that ship's <q>center hex row</q>.\
+				<br />This row changes whenever the ship "+conceptLink("turn")+"s or "+conceptLink("side slip")+"s.";
 			break;
 		case "impulse":
 			displayTxt = "A small segment of time. The actions a given "+conceptLink("ship")+" can do is based on how much time has passed in a given "+conceptLink("round")+".<br />\
@@ -2838,7 +2842,8 @@ function showBox(concept) {
 		case "collision":
 			headingTxt = "Collisions";
 			displayTxt = "Whenever two mobile "+conceptLink("ship")+"s from the same faction enter the very same "+conceptLink("hex")+", \
-				distortions caused by their NFTL drives cause them to collide, dealing 3 damage to each ship.<br /><br />\
+				distortions caused by their NFTL drives cause them to collide, dealing 3 damage to <i>each</i> ship... \
+				including each "+conceptLink("fighter")+" in any squadrons that may get caught in the distortions.<br /><br />\
 				Due to differing signatures, two ships from opposing factions will not damage each other. \
 				"+conceptLink("AI")+" ships are immune, though they will try to avoid it.";
 			break;
@@ -3020,7 +3025,7 @@ function showBox(concept) {
 			break;
 		case "destroyer-g":
 			headingTxt = "Destroyer-G (DDG)";
-			displayTxt = "<b class=\"headOx\">Destroyer-G</b> (DDG)<br />Faction-exclusive variant that carries extra firepower<br />";
+			displayTxt = "<b class=\"headOx\">Destroyer-G</b> (DDG)<br />Faction-exclusive variant that carries extra guided missiles<br />";
 			displayTxt = displayTxt + statsTalon("Talon", 69, "Missile Launcher x3", "5/4/4/3", 4, 2, 2);
 			break;
 		case "destroyer-p":
@@ -3452,7 +3457,7 @@ function keywordifyCollection(collObj) {
 		"Type Exp", "Type Flag", "Type PD", "Type Scan", "Type SW",
 		"AP Bot", "AP bot", "Cosmic Storm", "EV", "FOB", "Ion Storm", "Jammer", "Missile", "Morale", "Offense Posture", "Paranoia", "Plasma Storm", "Quantum", "Quasar",
 		"Aggressive", "Spice", 
-		"Talon", "Terran", "Empire War", "EFV", "SP", "LP", "Deployment Zone", "Reserve",
+		"Talon", "Terran", "Empire War", "EFV", "SP", "LP", "Astrometrics Lab", "Deployment Zone", "Reserve",
 		"Impulse", "Collide", "Collision", "Power", "Battery", "Batteries", "Side Slip", "Brake", "Shield", "Critical",
 		"Last Ship Standing", "Convoy Intercept", "Orbital Conquest", "Priority Target",
 		"Phaser", "Anti-Matter Torpedo", "Wave-Motion Gun", "Disruptor", "Fusion Cannon", "Laser", "Cobalt Cannon",
@@ -3477,8 +3482,6 @@ function keywordifyCollection(collObj) {
 		{regex: conceptLink("Miner")+"al", newTxt: conceptLink("Mineral")},
 		{regex: "un"+conceptLink("explore")+"d", newTxt: conceptLink("unexplored")},
 		{regex: "Un"+conceptLink("explore")+"d", newTxt: conceptLink("Unexplored")},
-		{regex: conceptLink("round")+"ed", newTxt: "rounded"},
-		{regex: conceptLink("Round")+"ed", newTxt: "Rounded"},
 		{regex: conceptLink("fleet")+" size bonus", newTxt: conceptLink("fleet size bonus")},
 		{regex: conceptLink("Fleet")+" Size Bonus", newTxt: conceptLink("Fleet Size Bonus")},
 		{regex: conceptLink("hull")+" size", newTxt: conceptLink("hull size")},
@@ -3537,6 +3540,10 @@ function keywordifyCollection(collObj) {
 		{regex: "point-"+conceptLink("pefense"), newTxt: conceptLink("point-defense")},
 		{regex: "Space "+conceptLink("Amoeba"), newTxt: conceptLink("Space Amoeba")},
 		{regex: "space "+conceptLink("amoeba"), newTxt: conceptLink("space amoeba")},
+		{regex: conceptLink("round")+"ing", newTxt: "rounding"},
+		{regex: conceptLink("Round")+"ing", newTxt: "Rounding"},
+		{regex: conceptLink("round")+"ed", newTxt: "rounded"},
+		{regex: conceptLink("Round")+"ed", newTxt: "Rounded"},
 		{regex: "A"+conceptLink("round"), newTxt: "Around"},
 		{regex: "a"+conceptLink("round"), newTxt: "around"},
 		{regex: "G"+conceptLink("round"), newTxt: "Ground"},
@@ -3642,6 +3649,8 @@ function keywordifyCollection(collObj) {
 		{regex: "energy "+conceptLink("nebula"), newTxt: conceptLink("energy nebula")},
 		{regex: conceptLink("Destroyer")+"-E", newTxt: conceptLink("Destroyer-E")},
 		{regex: conceptLink("destroyer")+"-e", newTxt: conceptLink("destroyer-e")},
+		{regex: conceptLink("Destroyer")+"-D", newTxt: conceptLink("Destroyer-D")},
+		{regex: conceptLink("destroyer")+"-d", newTxt: conceptLink("destroyer-d")},
 		{regex: conceptLink("Destroyer")+"-G", newTxt: conceptLink("Destroyer-G")},
 		{regex: conceptLink("destroyer")+"-g", newTxt: conceptLink("destroyer-g")},
 		{regex: conceptLink("Destroyer")+"-P", newTxt: conceptLink("Destroyer-P")},

@@ -852,6 +852,8 @@
 			"location":"E6",
 			"size":3,
 			"rotation":5
+		},{
+			"removeCounter":"turn-A1"
 		}]},
 	{"heading":"Stardate 2227.02F",
 	"commentary":"<p>Their farther destroyers move as usual, while the closer destroyers use their brakes to stand still.</p><p>Our ships gain their last power for this round. Our light cruiser uses it to accelerate recharging of one of the weapons. Our battlecruiser-x uses its power to redirect its remaining 3 missiles towards the next destroyer in sequence. (Misunderstandings are fun when it comes to missiles.)</p><hr /><p>The missiles do their damage now. The first missile deals another 2 damage, and cause a critical roll to be made. 6+6 (12) causes a FTL Core Breach! What devastation!</p><p>Even though AI Destroyers have an explosion rating of <b>0</b>; they are still larger than fighters. As a consequence, we infer that the +1 damage bonus to ships in the same hex is still applied; damaging <i>all</i> of our remaining missiles.</p>",
@@ -963,6 +965,11 @@
 			"name":"missile",
 			"size":2,
 			"rotation":0
+		},{
+			"placeCounter":"turn-A1",
+			"location":"E8",
+			"name":"turn1",
+			"rotation":3
 		}]},
 	{"heading":"Stardate 2227.02X",
 	"commentary":"<p>Several weapons from both sides were spent this previous round, so <q>Red</q> charge levels were filled in. Since we are deep in the conflict, we will further slow our ships down this power phase. They both get a power curve of <u>5-1-0</u>, making it easier to recharge weapon banks and redirect missiles.</p><p>2 of their 3 remaining destroyers have no targets left in their front, but targets are in their side flank; so they opt to slow down <u>0-3-0</u>. Meanwhile, since both of our ships are in the third destroyer's front arc, there are no eligible potential priority targets.</p>",
@@ -1066,6 +1073,11 @@
 			"name":"missileDmg",
 			"size":2,
 			"rotation":0
+		},{
+			"placeCounter":"turn-A1",
+			"location":"E8",
+			"name":"turn1",
+			"rotation":3
 		}]},
 	{"heading":"Stardate 2227.03A",
 	"commentary":"<p>Since the AI still has the initiative, it will conduct its movement and weapons first. The AI will use the farthest destroyer at F9 first, which rolled 6,6 against our light cruiser (2 minimum + 2 bonus damage &ge;5), dealing non-critical damage to our hull.</p><p>Since the side shield has already been breached, the destroyer at F8 will shoot next. The first laser beam rolled a 5 (2 more damage), and dealing critical damage. We rolled a 4, and suffer Helm Down. The second laser beam rolled a 2, dealing 1 more critical damage. A 3 was rolled on the critical table, causing us to endure Shields Down also. The final destroyer at E8 then uses one of its lasers to finish off our light cruiser. Our Light Cruiser then explodes, dealing 2 damage to adjacent ships caught in the blast.</p><hr /><p>All we have left in our possession still is our Battlecruiser-X. We use its power to redirect our remaining 2 missiles to the only valid destroyer; at E8. Since the distance just happens to be 1 hex, the missiles reach their new destination... dealing 4 damage to the destroyer, including 1 non-critical damage to their hull.</p>",
@@ -1164,6 +1176,8 @@
 			"name":"missileDmg",
 			"size":2,
 			"rotation":0
+		},{
+			"removeCounter":"turn-A1"
 		}]},
 	{"heading":"Stardate 2227.03B",
 	"commentary":"<p>Things are pretty light-weight, now that there is not as much action going on. Speed 3 gets a chance to move this impulse, which affects their 2 slower destroyers. They turn towards our battlecruiser-x.</p><p>Our Battlecruiser-X then gets more power to spend. We use it to recharge our single Disruptor.</p>",
@@ -1547,6 +1561,8 @@
 			}],
 			"aft":1,
 			"rotation":5
+		},{
+			"removeCounter":"turn-T1"
 		}]},
 	{"heading":"Stardate 2227.04C",
 	"commentary":"<p>Given how the ships are currently oriented, it appears to be most effective we turn our Battlecruiser-X. We also use the power available to finish charging our single Disruptor. We can technically fire our Dual Disruptors, but low accuracy (5+) against a full shield gives us a good reason to hold onto our weapons.</p>",
@@ -1597,6 +1613,11 @@
 				"chargeR":1
 			}],
 			"aft":1,
+			"rotation":4
+		},{
+			"placeCounter":"turn-T1",
+			"location":"C5",
+			"name":"turn1",
 			"rotation":4
 		}]},
 	{"heading":"Stardate 2227.04D",
@@ -1649,6 +1670,11 @@
 				"chargeR":1
 			}],
 			"aft":1,
+			"rotation":4
+		},{
+			"placeCounter":"turn-T1",
+			"location":"C5",
+			"name":"turn1",
 			"rotation":4
 		}]},
 	{"heading":"Stardate 2227.04F",
@@ -1708,6 +1734,8 @@
 			}],
 			"aft":1,
 			"rotation":4
+		},{
+			"removeCounter":"turn-T1"
 		}]},
 	{"heading":"Stardate 2227.04X",
 	"commentary":"<p>We reached another power phase. Weapons which were fired in the previous round have started their charging. Since we need to further amplify the turn aggression, we will speed up to <u>3-3-1</u>. As usual, our ship remains out of their front arcs, so they will keep <u>0-3-0</u>.</p><p>Since one of the AI ships is closing in on the southern edge, we will shift the board slightly to ensure everything stays on the board for the next round.</p>",
@@ -1772,6 +1800,8 @@
 			}],
 			"aft":1,
 			"rotation":4
+		},{
+			"removeCounter":"turn-T1"
 		}]},
 	{"heading":"Stardate 2227.05B",
 	"commentary":"<p>With only Power 3 and Speed 3 craft currently in play, that effectively cuts our impulses in half.</p><p>We use our power to reinforce our rear shielding. We then take advantage of the unfortunate Destroyer, which recently made it to our front arc; and fire our missile launchers at it, dealing 4 damage in the process; including 1 non-critical hull damage. We also take a small risk, and fire our single Disruptor (which <i>only</i> fires forwards), and roll a 5. We scored a hit (&ge;5), and deal an extra 2 damage on top of that. Their bottom Destroyer then rolled 4+6 on the critical table; an extra hull damage, and if it were not for an imminent explosion, they would also suffer FTL Offline.</p>",
@@ -1831,6 +1861,11 @@
 			}],
 			"aft":1,
 			"rotation":5
+		},{
+			"placeCounter":"turn-T1",
+			"location":"C5",
+			"name":"turn1",
+			"rotation":5
 		}]},
 	{"heading":"Stardate 2227.05D",
 	"commentary":"<p>Since their <i>other</i> Destroyer previously spent their afterburners, it took them longer than usual to approach us. Still, they can fire their lasers, having rolled 3,3 (0 extra dmg &ge;5). Our port shields absorb 2 damage.</p><p>Now it is our impulse. We use our power to improve our turning effiency, allowing us to do a turn when we otherwise would need to go forward one hex to <q>recharge</q> our turn. We will hold onto our Dual Disruptors for just a little longer.</p>",
@@ -1874,6 +1909,11 @@
 			}],
 			"aft":1,
 			"rotation":0
+		},{
+			"placeCounter":"turn-T1",
+			"location":"D7",
+			"name":"turn1",
+			"rotation":0
 		}]},
 	{"heading":"Stardate 2227.05E",
 	"commentary":"<p>Normally, this would be an empty impulse. (We already skipped impulses <b>A</b> and <b>C</b> so far.) But, we can maximize our damage output if we use our last afterburner this impulse. This allows our Dual Disruptors to be far more effective against their weakened port shields, as opposed to their full front shields. At least... if we did not roll 1,1. We got snake eyes, instead of connecting 1-2 hits!</p>",
@@ -1904,6 +1944,8 @@
 			}],
 			"aft":0,
 			"rotation":0
+		},{
+			"removeCounter":"turn-T1"
 		}]},
 	{"heading":"Stardate 2227.05F",
 	"commentary":"<p>We had the potential to close out this battle! But, since our dice rolls decided to be dice trolls, we must press on. Anyway, we use the last of this round's power to conduct one last side slip.</p>",
@@ -2101,6 +2143,8 @@
 			"critDmg":[],
 			"aft":0,
 			"rotation":0
+		},{
+			"removeCounter":"turn-A1"
 		}]},
 	{"heading":"Stardate 2227.06F",
 	"commentary":"<p>Almost the same procedure as impulse <b>C</b>, only their destroyer turns.</p>",
@@ -2143,6 +2187,11 @@
 			"hullDmg":1,
 			"critDmg":[],
 			"aft":0,
+			"rotation":0
+		},{
+			"placeCounter":"turn-A1",
+			"location":"B10",
+			"name":"turn1",
 			"rotation":0
 		}]},
 	{"heading":"Stardate 2227.06X",
@@ -2195,6 +2244,13 @@
 			"critDmg":[],
 			"aft":0,
 			"rotation":0
+		},{
+			"placeCounter":"turn-A1",
+			"location":"B10",
+			"name":"turn1",
+			"rotation":0
+		},{
+			"removeCounter":"turn-T1"
 		}]},
 	{"heading":"Stardate 2227.07B",
 	"commentary":"<p>Even though their turning is still on cooldown, they could still side slip. They do so, away from us.</p><p>We use our power to finish charging our single Disruptor. Since our target is in our front arc, we prepare our entire <q>alpha strike</q> of weapons. Our 3 Disruptors together rolled 4,5,6 (3 hits &ge;3), dealing 6 damage to their port flank, and causing their hull to explode in style!</p>",
@@ -2240,6 +2296,13 @@
 			"hullDmg":1,
 			"critDmg":[],
 			"aft":0,
+			"rotation":5
+		},{
+			"removeCounter":"turn-A1"
+		},{
+			"placeCounter":"turn-T1",
+			"location":"C9",
+			"name":"turn1",
 			"rotation":5
 		}]},
 	{"heading":"Stardate 2227.07C (Conclusion)",

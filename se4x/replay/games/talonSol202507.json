@@ -1,6 +1,6 @@
 {"stages": [
 	{"heading":"Stardate 2227.00X",
-	"commentary":"<p>Welcome to another AI Solitaire battle. This time, we have decided to shake things up a bit by randomizing some of the elements. We have hand picked the Terran faction, and partially randomized the terrain (one of our friends wanted us to bring a planet to battle). One of the nebula hexes has a gold border; we use it to denote an energy nebula. We have then rolled a 1 for 250 SP, followed by a 10 for our Terran fleet and a 7 for the AI fleet.</p><p>We field  1 Destroyer-P, 2 regular Destroyers, 1 Destroyer-E, and 1 Scout. The AI fields 3 Destroyers, and 1 Light Cruiser.</p>",
+	"commentary":"<p>Welcome to another AI Solitaire battle. This time, we have decided to shake things up a bit by randomizing some of the elements. We have hand picked the Terran faction, and partially randomized the terrain (one of our friends wanted us to bring a planet to battle). We have then rolled a 1 for 250 SP, followed by a 10 for our Terran fleet and a 7 for the AI fleet.</p><p>We field  1 Destroyer-P, 2 regular Destroyers, 1 Destroyer-E, and 1 Scout. The AI fields 3 Destroyers, and 1 Light Cruiser.</p>",
 	"actions":
 		[{
 			"createPreset":"talonSkirmish",
@@ -19,7 +19,7 @@
 			"name":"nebulaW"
 		},{
 			"paintHex":"G8",
-			"name":"nebulaU"
+			"name":"nebulaW"
 		},{
 			"paintHex":"E7",
 			"name":"nebulaW"
@@ -472,6 +472,10 @@
 				"chargeR":1
 			}],
 			"rotation":2
+		},{
+			"removeCounter":"turn-H1"
+		},{
+			"removeCounter":"turn-H2"
 		}]},
 	{"heading":"Stardate 2227.01F",
 	"commentary":"<p>Impulse <b>E</b>s are typically empty, because only Power 6/Speed 6 ships can use the respective resources (without applying batteries or afterburners).</p><p>Since the AI moves their ships before we move ours, our left-hand ships are able to shoot their weapons. We will focus on their Destroyer at G5, using all compatible weapons. Our Anti-Matter Torpedos rolled 5,4 (2 hits &ge;3), dealing 8 damage and already eliminating their first Destroyer! Our Scout no longer has any viable targets, since nebulae interference causes even a 6 to deal 0 damage against their right-most Destroyer.</p>",
@@ -602,6 +606,16 @@
 				"chargeY":1,
 				"chargeR":1
 			}],
+			"rotation":2
+		},{
+			"placeCounter":"turn-H1",
+			"location":"E9",
+			"name":"turn1",
+			"rotation":2
+		},{
+			"placeCounter":"turn-H2",
+			"location":"E10",
+			"name":"turn1",
 			"rotation":2
 		}]},
 	{"heading":"Stardate 2227.01X",
@@ -842,6 +856,16 @@
 				"chargeR":0
 			}],
 			"rotation":2
+		},{
+			"placeCounter":"turn-H1",
+			"location":"E9",
+			"name":"turn1",
+			"rotation":2
+		},{
+			"placeCounter":"turn-H2",
+			"location":"E10",
+			"name":"turn1",
+			"rotation":2
 		}]},
 	{"heading":"Stardate 2227.02B",
 	"commentary":"<p>This impulse simply involves spending power. Our left-most Destroyer accelerated its anti-matter torpedo charging, while the other two destroyers accelerated their turning, allowing them to turn again the next time they move.</p>",
@@ -946,6 +970,10 @@
 				"chargeR":0
 			}],
 			"rotation":2
+		},{
+			"removeCounter":"turn-H1"
+		},{
+			"removeCounter":"turn-H2"
 		}]},
 	{"heading":"Stardate 2227.02C",
 	"commentary":"<p>This impulse sees the movement of <i>all</i> ships. We turn our right hand ships to get them into range. We could attempt to use our last anti-matter torpedos, but nebula interference increases the risk of missing. We will wait a bit.</p>",
@@ -1049,6 +1077,10 @@
 				"chargeR":0
 			}],
 			"rotation":2
+		},{
+			"removeCounter":"turn-A1"
+		},{
+			"removeCounter":"turn-A2"
 		}]},
 	{"heading":"Stardate 2227.02D",
 	"commentary":"<p>The AI move their ships again. One of them intentionally delayed a turn in order to avoid ending its move inside the nebula. Meanwhile; after charging our left-hand weapons, we have found the most optimal opportunity to use our right-hand anti-matter torpedo; so we shoot it, having rolled a 3 against the destroyer that just entered our center hex row (hit &ge;2).</p>",
@@ -1152,6 +1184,16 @@
 				"chargeR":0
 			}],
 			"rotation":2
+		},{
+			"placeCounter":"turn-A1",
+			"location":"E6",
+			"name":"turn1",
+			"rotation":0
+		},{
+			"placeCounter":"turn-A2",
+			"location":"E7",
+			"name":"turn1",
+			"rotation":0
 		}]},
 	{"heading":"Stardate 2227.02F",
 	"commentary":"<p>The obligatory [nearly] <q>every action</q> <b>F</b> is performed here. Our Destroyer-P unleashes its phasers against their nearest destroyer, having rolled 2,4 (2 extra dmg &ge;2), and dealing a total of 4 damage.</p><p>Their ship then rolls 1+1 on the critical table; a secondary explosion! The extra damage caused by this critical roll causes them to have a <q>primary</q> explosion! The bad news; one of our ships got caught in the blast also, being right on top of their destroyer at the time of its demise. Our Destroyer-E took 1 damage to a random quadrant, which was randomized to be our rear quadrant.</p>",
@@ -1256,6 +1298,10 @@
 				"chargeR":0
 			}],
 			"rotation":3
+		},{
+			"removeCounter":"turn-A1"
+		},{
+			"removeCounter":"turn-A2"
 		}]},
 	{"heading":"Stardate 2227.02X",
 	"commentary":"<p>So far, we have managed to stay ahead of the curve, having done an even trade this past round. We will go on ahead and shift our scout back up to <u>2-3-0</u>. The rest of our fleet is getting no change to their power curve.</p><p>Here is where the AI's power phase gets much more complicated. We have ships entirely behind the surviving AI ships, marking them as potential priority targets. Our scout is the closest target, so their Light Cruiser gets to roll first. It rolled a 2, which is a miss. Normally, it would take a 4+ to assign a priority target. We have an estimated fleet value advantage (4:3), which increases the threshold to 6. One miss ends this step.</p><p>Moving onto the power curve step, both of their ships have a frontal target far enough away to justify keeping <u>0-4-1</u>.</p>",
@@ -1612,6 +1658,10 @@
 				"chargeR":0
 			}],
 			"rotation":4
+		},{
+			"removeCounter":"turn-A1"
+		},{
+			"removeCounter":"turn-A2"
 		}]},
 	{"heading":"Stardate 2227.03D",
 	"commentary":"<p>At long last, the stacking is gone.</p>",
@@ -1699,6 +1749,16 @@
 				"chargeR":0
 			}],
 			"rotation":5
+		},{
+			"placeCounter":"turn-A1",
+			"location":"B9",
+			"name":"turn1",
+			"rotation":5
+		},{
+			"placeCounter":"turn-A2",
+			"location":"B10",
+			"name":"turn1",
+			"rotation":5
 		}]},
 	{"heading":"Stardate 2227.03F",
 	"commentary":"<p>However... we need to make every effort to avoid collisions. 3 damage per offending ship is not pretty when we only have a slight advantage.</p>",
@@ -1723,7 +1783,7 @@
 			"name":"borderW"
 		},{
 			"paintHex":"G8",
-			"name":"nebulaU"
+			"name":"nebulaW"
 		},{
 			"paintHex":"I7",
 			"name":"borderW"
@@ -1822,6 +1882,10 @@
 				"chargeR":0
 			}],
 			"rotation":5
+		},{
+			"removeCounter":"turn-A1"
+		},{
+			"removeCounter":"turn-A2"
 		}]},
 	{"heading":"Stardate 2227.03X",
 	"commentary":"<p>Another power phase was reached. Weapons were charged as usual. We will do no change in our power curves.</p><p>There is an <q>anti-cheese</q> clause that requires each of our ships to ensure there is at least one frontal target each round within 6 hexes. Rather than follow this clause to a tee, we will treat it similar to how the AI treats our ships; an AI ship on our side gets a +2 modifier on distance, while a ship on our rear gets a +5 modifier on distance.</p><p>Anyway, our Destroyer-P is their closest rival this time. Their Light Cruiser rolls a 1, another miss. No priority targets are assigned. Without any frontal targets, the AI ships slow down to <u>0-3-0</u>. Lastly, to accomodate the current ship speeds, we have shifted the board 2 hexes.</p>",
@@ -1855,7 +1919,7 @@
 			"name":"borderW"
 		},{
 			"paintHex":"I7",
-			"name":"nebulaU"
+			"name":"nebulaW"
 		},{
 			"paintHex":"E7",
 			"name":"borderW"
@@ -2324,7 +2388,7 @@
 			"name":"borderW"
 		},{
 			"paintHex":"I7",
-			"name":"nebulaU"
+			"name":"nebulaW"
 		},{
 			"paintHex":"K6",
 			"name":"borderW"
@@ -2458,7 +2522,7 @@
 			"name":"borderW"
 		},{
 			"paintHex":"K6",
-			"name":"nebulaU"
+			"name":"nebulaW"
 		},{
 			"paintHex":"G6",
 			"name":"borderW"
@@ -2744,9 +2808,11 @@
 			}],
 			"batt":1,
 			"rotation":5
+		},{
+			"removeCounter":"turn-A1"
 		}]},
 	{"heading":"Stardate 2227.05D",
-	"commentary":"<p>Their Light Cruiser turns around, using its stronger port shields to break a tie.</p>",
+	"commentary":"<p>Their Light Cruiser turns around, using its stronger port shields to break a center hex row-related tie.</p>",
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -2806,6 +2872,11 @@
 			}],
 			"batt":1,
 			"rotation":5
+		},{
+			"placeCounter":"turn-A1",
+			"location":"D3",
+			"name":"turn1",
+			"rotation":4
 		}]},
 	{"heading":"Stardate 2227.05F",
 	"commentary":"<p>Another round is almost over... if we use our Destroyer-P's starboard phaser now, the odds will not be good... but the possibility of 1 damage may make a difference, so we will take this risk. We rolled a 2, which deals 0 damage (&ge;5 required to deal 1).</p>",
@@ -2868,6 +2939,8 @@
 			}],
 			"batt":1,
 			"rotation":4
+		},{
+			"removeCounter":"turn-A1"
 		}]},
 	{"heading":"Stardate 2227.05X",
 	"commentary":"<p>Ficcipa has managed to regain a little lost ground, having denied us a potential decisive victory; but is still at a considerable disadvantage. We will go on ahead and shift our last regular Destroyer up to <u>2-3-1</u>. The rest of our fleet will keep their power curves.</p><p>All of our ships are potential priority targets. Their Light Cruiser uses our slightly damaged destroyer-e as a tie breaker, and rolls a 1 for assignment (miss). Since none of our ships are in front of theirs, their light cruiser will shift down again.</p>",
@@ -2936,6 +3009,8 @@
 			}],
 			"batt":1,
 			"rotation":4
+		},{
+			"removeCounter":"turn-H1"
 		}]},
 	{"heading":"Stardate 2227.06B",
 	"commentary":"<p>Their Light Cruiser gets back into position, firing its lasers against our destroyer-e. It rolled 2,6 (1 extra dmg &ge;5).</p>",
@@ -2998,6 +3073,11 @@
 			}],
 			"batt":1,
 			"rotation":4
+		},{
+			"placeCounter":"turn-H1",
+			"location":"D7",
+			"name":"turn1",
+			"rotation":5
 		}]},
 	{"heading":"Stardate 2227.06C",
 	"commentary":"<p>While our regular Destroyer powers through its turn, our Destroyer-E side slips, and our Destroyer-P gets into position. Their last ship is in the latter's front arc, making <i>both</i> phasers fair game to fire. We rolled 1,1 (0 extra dmg &ge;4), which still allows us to deal 2 damage.</p>",
@@ -3061,6 +3141,8 @@
 			}],
 			"batt":1,
 			"rotation":3
+		},{
+			"removeCounter":"turn-H1"
 		}]},
 	{"heading":"Stardate 2227.06D",
 	"commentary":"<p>This is as good as it is getting with our regular Destroyer; we will go on ahead and fire our anti-matter torpedo. We rolled a 4... a hit (&ge;3 at range 3)!</p>",
@@ -3124,6 +3206,11 @@
 			}],
 			"batt":1,
 			"rotation":3
+		},{
+			"placeCounter":"turn-H1",
+			"location":"C5",
+			"name":"turn1",
+			"rotation":4
 		}]},
 	{"heading":"Stardate 2227.06F",
 	"commentary":"<p>Soon, it will be time for another power phase...</p>",
@@ -3187,6 +3274,8 @@
 			}],
 			"batt":1,
 			"rotation":4
+		},{
+			"removeCounter":"turn-H1"
 		}]},
 	{"heading":"Stardate 2227.06X",
 	"commentary":"<p>Still slowly damaging their final ship. Meanwhile, it appears our two anti-matter torpedo ships should swap power curves; the Destroyer that spent their energy will shift down, while the Destroyer-E that has been ready for a while will shift up.</p><p>The closest potential priority target this time is the destroyer-e that is occupying the very same hex as their Light Cruiser. They rolled a 4, another miss. While there is a single frontal target, moving during impulse <b>A</b> would deny them use of their weapons when remaining still would allow their use. Thus, their light cruiser stays at <u>0-3-0</u>.</p>",
@@ -3453,6 +3542,8 @@
 			}],
 			"batt":1,
 			"rotation":4
+		},{
+			"removeCounter":"turn-H1"
 		}]},
 	{"heading":"Stardate 2227.07D",
 	"commentary":"<p>Closing in on the edge once again. The next shift we do will move the terrain out of bounds. Their next repair check is a 3 (miss).</p>",
@@ -3517,6 +3608,11 @@
 				"chargeR":1
 			}],
 			"batt":1,
+			"rotation":4
+		},{
+			"placeCounter":"turn-H1",
+			"location":"A2",
+			"name":"turn1",
 			"rotation":4
 		}]},
 	{"heading":"Stardate 2227.07E",
@@ -3583,6 +3679,11 @@
 			}],
 			"batt":1,
 			"rotation":4
+		},{
+			"placeCounter":"turn-H1",
+			"location":"A2",
+			"name":"turn1",
+			"rotation":4
 		}]},
 	{"heading":"Stardate 2227.07F",
 	"commentary":"<p>One last impulse before yet another power phase... Our Destroyer-E side slips away from our final target, making it easier to connect those torpedoes.</p>",
@@ -3601,7 +3702,7 @@
 			"name":"nebulaW"
 		},{
 			"paintHex":"K6",
-			"name":"nebulaU"
+			"name":"nebulaW"
 		},{
 			"paintHex":"I5",
 			"name":"nebulaW"
@@ -3668,6 +3769,8 @@
 			}],
 			"batt":1,
 			"rotation":4
+		},{
+			"removeCounter":"turn-H1"
 		}]},
 	{"heading":"Stardate 2227.07X",
 	"commentary":"<p>Getting a little closer towards finishing off their last ship. Both our anti-matter torpedo ships are ready to shoot, so they will shift up/stay at <u>2-3-1</u>.</p><p>The closest priority target this time is our regular Destroyer. A 4 was rolled (miss). Meanwhile, since their Light Cruiser has taken enough hull damage to justify a power reduction, their power curve from here on out is limited to <u>0-3-0</u> to avoid a meltdown.</p><p>The board shifts yet again. Additionally, the battle itself has shifted far enough away that the terrain is no longer relevant.</p>",
@@ -3824,6 +3927,8 @@
 			}],
 			"batt":1,
 			"rotation":4
+		},{
+			"removeCounter":"turn-H1"
 		}]},
 	{"heading":"Stardate 2227.08B",
 	"commentary":"<p>Seems best we can do is use the Destroyer that just missed to lure their light cruiser into range/arc of our Destroyer-E.</p>",
@@ -3873,6 +3978,11 @@
 			"rotation":4
 		},{
 			"removeCounter":"DD-E4"
+		},{
+			"placeCounter":"turn-H1",
+			"location":"E3",
+			"name":"turn1",
+			"rotation":3
 		}]},
 	{"heading":"Stardate 2227.08C",
 	"commentary":"<p>We will prepare a side slip on the runner, so as to trick it.</p>",
@@ -3920,6 +4030,11 @@
 				"chargeR":2
 			}],
 			"rotation":4
+		},{
+			"placeCounter":"turn-H1",
+			"location":"E3",
+			"name":"turn1",
+			"rotation":3
 		}]},
 	{"heading":"Stardate 2227.08D",
 	"commentary":"<p>This is still problematic. By the time we can get the anti-matter torpedo lined up, the AI ship will be too close... making it illegal to shoot.</p>",
@@ -3967,6 +4082,10 @@
 				"chargeR":2
 			}],
 			"rotation":5
+		},{
+			"placeCounter":"turn-H1",
+			"location":"B4",
+			"rotation":5
 		}]},
 	{"heading":"Stardate 2227.08F",
 	"commentary":"<p>And now we have to put up with a turn radius, and with insuffucient power to accelerate it.</p>",
@@ -4013,6 +4132,10 @@
 				"chargeY":2,
 				"chargeR":2
 			}],
+			"rotation":0
+		},{
+			"placeCounter":"turn-H1",
+			"location":"C5",
 			"rotation":0
 		}]},
 	{"heading":"Stardate 2227.08X",
@@ -4114,6 +4237,11 @@
 				"chargeR":2
 			}],
 			"rotation":0
+		},{
+			"placeCounter":"turn-H1",
+			"location":"C5",
+			"name":"turn1",
+			"rotation":0
 		}]},
 	{"heading":"Stardate 2227.09B",
 	"commentary":"<p>By adjusting the power curve, we can use the newly freed up power on the Destroyer-E to accelerate a turn that would otherwise be impossible to do.</p>",
@@ -4161,6 +4289,8 @@
 				"chargeR":2
 			}],
 			"rotation":0
+		},{
+			"removeCounter":"turn-H1"
 		}]},
 	{"heading":"Stardate 2227.09C",
 	"commentary":"<p>Torpedo away! We rolled a 5, scoring an excellent hit and finishing off their light cruiser!!</p>",

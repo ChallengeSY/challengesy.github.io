@@ -363,6 +363,8 @@ function autoNameCounter(localObj) {
 		localObj.title = "Scout";
 	} else if (localObj.src.indexOf("gfx/talon/DDE") >= 0) {
 		localObj.title = "Destroyer-E";
+	} else if (localObj.src.indexOf("gfx/talon/DDD") >= 0) {
+		localObj.title = "Destroyer-D";
 	} else if (localObj.src.indexOf("gfx/talon/DDG") >= 0) {
 		localObj.title = "Destroyer-G";
 	} else if (localObj.src.indexOf("gfx/talon/DDP") >= 0) {
@@ -373,6 +375,8 @@ function autoNameCounter(localObj) {
 		localObj.title = "Destroyer";
 	} else if (localObj.src.indexOf("gfx/talon/CL") >= 0) {
 		localObj.title = "Light Cruiser";
+	} else if (localObj.src.indexOf("gfx/talon/CA") >= 0) {
+		localObj.title = "Heavy Cruiser";
 	} else if (localObj.src.indexOf("gfx/talon/BCX") >= 0) {
 		localObj.title = "Battlecruiser-X";
 	} else if (localObj.src.indexOf("gfx/talon/BC") >= 0) {
@@ -389,6 +393,8 @@ function autoNameCounter(localObj) {
 	} else if (localObj.src.indexOf("gfx/talon/missile") >= 0) {
 		localObj.title = "Talon Missile";
 		stackable = true;
+	} else if (localObj.src.indexOf("gfx/talon/turn") >= 0) {
+		localObj.title = "Turn Radius Marker";
 	}
 
 	if (stackable) {
@@ -409,7 +415,7 @@ function placeCounter(curId, newX, newY, newPic, newSize, talonCounter) {
 	var calcX = 50;
 	var calcY = 50;
 	var workObj, applySize = 0;
-	var missileCounter = false;
+	var smallCounter = false;
 
 	var workSlot = document.getElementById("hex"+letterRows.charAt(newY)+newX);
 	if (typeof newSize !== "undefined") {
@@ -425,10 +431,10 @@ function placeCounter(curId, newX, newY, newPic, newSize, talonCounter) {
 		workObj = document.createElement("img");
 		if (talonCounter) {
 			workObj.src = "gfx/talon/" + curId + ".png";
-			missileCounter = (curId.search("missile") >= 0);
+			smallCounter = (curId.search("missile") >= 0 || newPic.search("turn") >= 0);
 			
 			workObj.id = curId;
-			if (missileCounter) {
+			if (smallCounter) {
 				workObj.className = "counter";
 			} else {
 				workObj.className = "counterBig";
@@ -492,7 +498,7 @@ function placeCounter(curId, newX, newY, newPic, newSize, talonCounter) {
 		workObj.style.borderLeftWidth = applySize+"px";
 		workObj.style.borderTopWidth = applySize+"px";
 		
-		if (missileCounter) {
+		if (smallCounter) {
 			workObj.style.borderStyle = "none";
 		}
 
@@ -502,7 +508,7 @@ function placeCounter(curId, newX, newY, newPic, newSize, talonCounter) {
 		workObj.style.borderTopWidth = "0px";
 	}
 
-	if (missileCounter || !talonCounter) {
+	if (smallCounter || !talonCounter) {
 		workObj.style.left = calcX + "%";
 		workObj.style.top = calcY + "%";
 	}
@@ -510,6 +516,63 @@ function placeCounter(curId, newX, newY, newPic, newSize, talonCounter) {
 
 function rotateCounter(baseObj, newOrient) {
 	baseObj.style.transform = "translate(-50%, -50%) rotate(-"+newOrient+"deg)";
+	
+	var localFile = baseObj.src;
+	if (localFile.search("/missile") >= 0) {
+		switch (newOrient) {
+			case 0:
+				baseObj.style.left = "76%";
+				baseObj.style.top = "50%";
+				break;
+			case 60:
+				baseObj.style.left = "64%";
+				baseObj.style.top = "31%";
+				break;
+			case 120:
+				baseObj.style.left = "36%";
+				baseObj.style.top = "31%";
+				break;
+			case 180:
+				baseObj.style.left = "24%";
+				baseObj.style.top = "50%";
+				break;
+			case 240:
+				baseObj.style.left = "36%";
+				baseObj.style.top = "69%";
+				break;
+			case 300:
+				baseObj.style.left = "64%";
+				baseObj.style.top = "67%";
+				break;
+		}
+	} else if (localFile.search("/turn") >= 0) {
+		switch (newOrient) {
+			case 0:
+				baseObj.style.left = "24%";
+				baseObj.style.top = "50%";
+				break;
+			case 60:
+				baseObj.style.left = "36%";
+				baseObj.style.top = "69%";
+				break;
+			case 120:
+				baseObj.style.left = "64%";
+				baseObj.style.top = "67%";
+				break;
+			case 180:
+				baseObj.style.left = "76%";
+				baseObj.style.top = "50%";
+				break;
+			case 240:
+				baseObj.style.left = "64%";
+				baseObj.style.top = "31%";
+				break;
+			case 300:
+				baseObj.style.left = "36%";
+				baseObj.style.top = "31%";
+				break;
+		}
+	}
 }
 
 function embedCounter(baseObj, talonDets, details) {
@@ -1983,6 +2046,7 @@ function readJson() {
 		
 		if (actionPool[i].removeCounter) {
 			workId = actionPool[i].removeCounter;
+			deleteCounter(actionPool[i].removeCounter)
 			
 			workObj = document.getElementById(workId);
 			if (workObj) {
@@ -2442,11 +2506,6 @@ function readJson() {
 				var plrColor = actionPool[i].playerColor;
 				
 				place3plrHomeMarkers(plrColor, "topTalon");
-				if (plrColor == "V") {
-					useRuleset = "rep";
-				} else if (plrColor != "O" && plrColor != "U") {
-					useRuleset = "SE4X";
-				}
 
 				for (var l = 1; l <= 16; l++) {
 					if ((l <= 4 || l >= 11) && l < 16) {
@@ -3747,6 +3806,21 @@ function readJson() {
 
 				for (var z = numRows; z < 12; z++) {
 					dispRow(letterRows.charAt(z), false);
+				}
+				
+			} else if (actionPool[i].createPreset == "makeAPbots") {
+				var botColors = actionPool[i].botColors;
+				var workColor;
+				for (var b = 0; b < botColors.length; b++) {
+					workColor = botColors.charAt(b);
+					
+					for (var c = 1; c <= 4; c++) {
+						deleteCounter("SC"+c+workColor);
+						deleteCounter("CO"+c+workColor);
+					}
+					deleteCounter("SY1"+workColor);
+					deleteCounter("Miner1"+workColor);
+					deleteCounter("Flag"+workColor);
 				}
 				
 			} else if (actionPool[i].createPreset == "talonSkirmish") {
