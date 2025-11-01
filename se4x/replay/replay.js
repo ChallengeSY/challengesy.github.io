@@ -2,6 +2,7 @@ var rawJson;
 var stageTotal;
 var stageNum = 0;
 var multiStages = true;
+var doubleDS = false;
 var expansionHWs = false;
 var boardCreated = false;
 var alienHWs = 0;
@@ -450,7 +451,7 @@ function placeCounter(curId, newX, newY, newPic, newSize, talonCounter) {
 		}
 		
 		workObj.style.position = "absolute";
-		if (workObj.id.startsWith("system")) {
+		if (workObj.id.startsWith("system") || workObj.id.startsWith("binLsys") || workObj.id.startsWith("binRsys")) {
 			workObj.style.zIndex = 2;
 		} else {
 			workObj.style.zIndex = 3;
@@ -462,7 +463,15 @@ function placeCounter(curId, newX, newY, newPic, newSize, talonCounter) {
 		workSlot.appendChild(workObj);
 	}
 	
-	if (!curId.startsWith("system")) {
+	if (curId.startsWith("binLsys")) {
+		calcX = 30;
+
+		applySize = 0;
+	} else if (curId.startsWith("binRsys")) {
+		calcX = 70;
+
+		applySize = 0;
+	} else if (!curId.startsWith("system")) {
 		var checkSystem = document.getElementById("system"+letterRows.charAt(newY)+newX);
 		var randX, randY;
 		
@@ -487,7 +496,7 @@ function placeCounter(curId, newX, newY, newPic, newSize, talonCounter) {
 		}
 		if (newPic.startsWith("minerals")) {
 			workObj.style.zIndex = 1;
-		} else if (workObj.id.startsWith("system")) {
+		} else if (workObj.id.startsWith("system") || workObj.id.startsWith("binRsys")) {
 			paintTile(workObj, newPic);
 		}
 
@@ -592,15 +601,16 @@ function deleteCounter(baseId) {
 }
 
 function paintTile(baseObj, paintPic) {
-	/*
-	 * WIP... we intend for this to be eventually configurable
-	 */
 	var applyPic = null;
 	var remCounter = false;
 	var hexId = "back";
 	
 	if (typeof baseObj === "object") {
-		hexId = hexId+baseObj.id.substr(6);
+		if (baseObj.id.search("system") >= 0) {
+			hexId = hexId+baseObj.id.substr(6);
+		} else {
+			hexId = hexId+baseObj.id.substr(7);
+		}
 	} else {
 		hexId = hexId+baseObj;
 	}
@@ -736,8 +746,18 @@ function paintTile(baseObj, paintPic) {
 	}
 }
 
-function placeSystemMarker(newX, newY, newPic) {
-	placeCounter("system"+letterRows.charAt(newY)+newX, newX, newY, newPic, 1);
+function placeSystemMarker(newX, newY, newPic, binaryStars) {
+	var useBinarySystems = binaryStars;
+	if (binaryStars == null) {
+		useBinarySystems = (doubleDS && newPic.search(deepSpace) >= 0);
+	}
+		
+	if (useBinarySystems) {
+		placeCounter("binLsys"+letterRows.charAt(newY)+newX, newX, newY, newPic, 1);
+		placeCounter("binRsys"+letterRows.charAt(newY)+newX, newX, newY, newPic, 1);
+	} else {
+		placeCounter("system"+letterRows.charAt(newY)+newX, newX, newY, newPic, 1);
+	}
 }
 
 function placeHomeworld(newX, newY, color) {
@@ -2046,7 +2066,6 @@ function readJson() {
 		
 		if (actionPool[i].removeCounter) {
 			workId = actionPool[i].removeCounter;
-			deleteCounter(actionPool[i].removeCounter)
 			
 			workObj = document.getElementById(workId);
 			if (workObj) {
@@ -2116,6 +2135,7 @@ function readJson() {
 			
 			if (actionPool[i].createPreset == "alienEmpiresSolo") {
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColor = actionPool[i].playerColor;
 				
 				place3plrHomeMarkers(plrColor, "top");
@@ -2177,6 +2197,7 @@ function readJson() {
 				}
 			} else if (actionPool[i].createPreset == "alienEmpiresSoloLg") {
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColor = actionPool[i].playerColor;
 				
 				for (var y = 0; y < 9; y++) {
@@ -2218,6 +2239,7 @@ function readJson() {
 				
 			} else if (actionPool[i].createPreset == "alienEmpiresSoloTalon") {
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColor = actionPool[i].playerColor;
 				
 				place3plrHomeMarkers(plrColor, "topTalon");
@@ -2285,6 +2307,7 @@ function readJson() {
 				
 			} else if (actionPool[i].createPreset == "alienEmpiresSoloVP" || actionPool[i].createPreset == "doomsdaySoloVP") {
 				expansionHWs = true;
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColor = actionPool[i].playerColor;
 				
 				for (var y = 0; y <= 11; y++) {
@@ -2329,6 +2352,7 @@ function readJson() {
 				ctrlPanel.className = "dmBoard";
 				var plrColor = actionPool[i].playerColor;
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				
 				place3plrHomeMarkers(plrColor, "top");
 				if (plrColor == "V") {
@@ -2391,6 +2415,7 @@ function readJson() {
 			} else if (actionPool[i].createPreset == "doomsdaySoloLg") {
 				var plrColor = actionPool[i].playerColor;
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				
 				place3plrHomeMarkers(plrColor, "top");
 				if (plrColor == "V") {
@@ -2449,6 +2474,7 @@ function readJson() {
 			} else if (actionPool[i].createPreset == "doomsdaySoloGC") {
 				var plrColor = actionPool[i].playerColor;
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				
 				place3plrHomeMarkers(plrColor, "top");
 				if (plrColor == "V") {
@@ -2504,6 +2530,7 @@ function readJson() {
 			} else if (actionPool[i].createPreset == "doomsdaySoloTalon") {
 				expansionHWs = true;
 				var plrColor = actionPool[i].playerColor;
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				
 				place3plrHomeMarkers(plrColor, "topTalon");
 
@@ -2522,17 +2549,29 @@ function readJson() {
 
 					if (l <= 6 || l >= 10) {
 						if (l != 10) {
-							placeSystemMarker(l,4,deepSpace);
+							if (l >= 5 && l <= 12) {
+								placeSystemMarker(l,4,deepSpace,false);
+							} else {
+								placeSystemMarker(l,4,deepSpace);
+							}
 						}
 						
 						if (l < 16) {
-							placeSystemMarker(l,5,deepSpace);
+							if (l == 6 || l == 10) {
+								placeSystemMarker(l,5,deepSpace,false);
+							} else {
+								placeSystemMarker(l,5,deepSpace);
+							}
 						}
 					}
 				}
 
 				for (var f = 2; f <= 15; f++) {
-					placeSystemMarker(f,6,deepSpace);
+					if (f >= 7 && f <= 10) {
+						placeSystemMarker(f,6,deepSpace,false);
+					} else {
+						placeSystemMarker(f,6,deepSpace);
+					}
 					
 					if (f < 15) {
 						placeSystemMarker(f,7,deepSpace);
@@ -2553,13 +2592,17 @@ function readJson() {
 
 				placeSystemMarker(1,6,markerCounter+plrColor);
 				placeSystemMarker(16,6,markerCounter+plrColor);
-				placeSystemMarker(3,9,markerCounter+plrColor);
-				placeSystemMarker(13,9,markerCounter+plrColor);
-				placeSystemMarker(8,11,markerCounter+plrColor);
+				placeSystemMarker(3,9,markerCounter+"W",true);
+				renderCounter("binLsysC3",markerCounter+plrColor);
+				placeSystemMarker(13,9,markerCounter+"W",true);
+				renderCounter("binRsysC13",markerCounter+plrColor);
+				placeSystemMarker(8,11,markerCounter+"W",false);
+				
 				
 			} else if (actionPool[i].createPreset == "doomsdayCoop2P" || actionPool[i].createPreset == "alienEmpiresCoop2P") {
 				expansionHWs = true;
 				var plrColors = actionPool[i].playerColors;
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				
 				for (var y = 0; y < 12; y++) {
 					for (var x = 1; x <= 13; x++) {
@@ -2609,6 +2652,7 @@ function readJson() {
 			} else if (actionPool[i].createPreset == "amoebaSolo") {
 				ctrlPanel.className = "dmBoard";
 				expansionHWs = true;
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColor = actionPool[i].playerColor;
 				var aomeba = ["amoeba1", "amoeba2", "amoeba3"]
 				
@@ -2669,6 +2713,7 @@ function readJson() {
 			} else if (actionPool[i].createPreset == "versus2Pknife") {
 				ctrlPanel.className = "dmBoard";
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColors = actionPool[i].playerColors;
 				
 				for (var y = 0; y < 5; y++) {
@@ -2741,6 +2786,7 @@ function readJson() {
 			} else if (actionPool[i].createPreset == "versus2Pmed" || actionPool[i].createPreset == "replicatorSolo") {
 				ctrlPanel.className = "versusBoard";
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrSlots = [actionPool[i].playerTop, actionPool[i].playerBottom];
 				var plrColors = [plrSlots[0].charAt(0), plrSlots[1].charAt(0)];
 				var difficulty = 0;
@@ -2838,6 +2884,7 @@ function readJson() {
 			} else if (actionPool[i].createPreset == "versus2Pgc") {
 				ctrlPanel.className = "versusBoard";
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrSlots = [actionPool[i].playerTop, actionPool[i].playerBottom];
 				var plrColors = [plrSlots[0].charAt(0), plrSlots[1].charAt(0)];
 				var plrExtraHexes = [plrSlots[0].charAt(1), plrSlots[1].charAt(1)];
@@ -2887,6 +2934,7 @@ function readJson() {
 			} else if (actionPool[i].createPreset == "versus2Plg" || actionPool[i].createPreset == "replicatorSoloLg") {
 				ctrlPanel.className = "versusBoard";
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrSlots = [actionPool[i].playerTop, actionPool[i].playerBottom];
 				var plrColors = [plrSlots[0].charAt(0), plrSlots[1].charAt(0)];
 				var difficulty = 0;
@@ -2980,6 +3028,7 @@ function readJson() {
 				}
 			} else if (actionPool[i].createPreset == "versus2Pxl" || actionPool[i].createPreset == "versus2P3D") {
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrSlots = [actionPool[i].playerTop, actionPool[i].playerBottom];
 				var plrColors = [plrSlots[0].charAt(0), plrSlots[1].charAt(0)];
 				var plrCols = [plrSlots[0].substr(1), plrSlots[1].substr(1)];
@@ -3010,6 +3059,7 @@ function readJson() {
 				placeHomeworld(plrCols[1],11,plrColors[1]);
 			} else if (actionPool[i].createPreset == "versus2Pmassive") {
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrSlots = [actionPool[i].playerTop, actionPool[i].playerBottom];
 				var plrColors = [plrSlots[0].charAt(0), plrSlots[1].charAt(0)];
 				var plrCols = [plrSlots[0].substr(1), plrSlots[1].substr(1)];
@@ -3074,6 +3124,7 @@ function readJson() {
 				placeHomeworld(plrCols[1],11,plrColors[1]);
 			} else if (actionPool[i].createPreset == "versus2Ptalon") {
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColors = actionPool[i].playerColors;
 				
 				for (var y = 1; y < 12; y++) {
@@ -3096,6 +3147,7 @@ function readJson() {
 				placeHomeworld(15,11,plrColors.charAt(1));
 			} else if (actionPool[i].createPreset == "versus2PtalonW") {
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColors = actionPool[i].playerColors;
 				var ctrlPanel = document.getElementById("controls");
 				
@@ -3129,6 +3181,7 @@ function readJson() {
 				placeHomeworld(23,11,plrColors.charAt(1));
 			} else if (actionPool[i].createPreset == "versus3P" || actionPool[i].createPreset == "doomsdayCoop3P" ||
 				actionPool[i].createPreset == "alienEmpiresCoop3P") {
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColors = actionPool[i].playerColors;
 				
 				for (var y = 0; y < 12; y++) {
@@ -3181,6 +3234,7 @@ function readJson() {
 				place3plrHomeMarkers(plrColors.charAt(2), "right");
 			} else if (actionPool[i].createPreset == "versus4P" || actionPool[i].createPreset == "doomsdayCoop4P") {
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColors = "GYRB";
 				
 				if (actionPool[i].playerColors) {
@@ -3238,6 +3292,7 @@ function readJson() {
 				placeHomeworld(12,11,plrColors.charAt(3));
 			} else if (actionPool[i].createPreset == "versus4Pds") {
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColors = "GYRB";
 				
 				if (actionPool[i].playerColors) {
@@ -3268,6 +3323,7 @@ function readJson() {
 				placeHomeworld(12,11,plrColors.charAt(3));
 			} else if (actionPool[i].createPreset == "versus4P3row") {
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColors = "GYRB";
 				
 				if (actionPool[i].playerColors) {
@@ -3304,6 +3360,7 @@ function readJson() {
 				dispRow("A", false);
 			} else if (actionPool[i].createPreset == "versus4P4row") {
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColors = "GYRB";
 				
 				if (actionPool[i].playerColors) {
@@ -3338,6 +3395,7 @@ function readJson() {
 				placeHomeworld(9,11,plrColors.charAt(3));
 			} else if (actionPool[i].createPreset == "versus4Pdouble") {
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColors = "GYRB";
 				
 				if (actionPool[i].playerColors) {
@@ -3377,6 +3435,7 @@ function readJson() {
 				
 			} else if (actionPool[i].createPreset == "versus4PdoubleCorner") {
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColors = "GYRB";
 				
 				if (actionPool[i].playerColors) {
@@ -3412,6 +3471,7 @@ function readJson() {
 				
 			} else if (actionPool[i].createPreset == "versus4Ptalon") {
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColors = "GYRB";
 				
 				if (actionPool[i].playerColors) {
@@ -3443,6 +3503,7 @@ function readJson() {
 				
 			} else if (actionPool[i].createPreset == "versus4PtalonWL") {
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColors = "GYRB";
 				
 				if (actionPool[i].playerColors) {
@@ -3487,6 +3548,7 @@ function readJson() {
 				
 			} else if (actionPool[i].createPreset == "versus4PtalonWS") {
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColors = "GYRB";
 				
 				if (actionPool[i].playerColors) {
@@ -3531,6 +3593,7 @@ function readJson() {
 				
 			} else if (actionPool[i].createPreset == "versus4PtalonWC") {
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColors = "GYRB";
 				
 				if (actionPool[i].playerColors) {
@@ -3575,6 +3638,7 @@ function readJson() {
 				
 			} else if (actionPool[i].createPreset == "versus5P") {
 				expansionHWs = true;
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				plrColors = actionPool[i].playerColors;
 				
 				for (var y = 0; y < 12; y++) {
@@ -3614,6 +3678,7 @@ function readJson() {
 				}
 			} else if (actionPool[i].createPreset == "versus5Ptight") {
 				expansionHWs = true;
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				plrColors = actionPool[i].playerColors;
 				
 				for (var y = 0; y < 12; y++) {
@@ -3658,6 +3723,7 @@ function readJson() {
 				
 			} else if (actionPool[i].createPreset == "versus6P") {
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				plrColors = actionPool[i].playerColors;
 				
 				for (var y = 0; y < 12; y++) {
@@ -3695,6 +3761,7 @@ function readJson() {
 
 			} else if (actionPool[i].createPreset == "versus6Pdouble") {
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				plrColors = actionPool[i].playerColors;
 				
 				for (var b = 0; b < 26; b++) {
@@ -3732,6 +3799,7 @@ function readJson() {
 
 			} else if (actionPool[i].createPreset == "versus6PtalonW") {
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				plrColors = actionPool[i].playerColors;
 				var ctrlPanel = document.getElementById("controls");
 				
@@ -3778,6 +3846,7 @@ function readJson() {
 
 			} else if (actionPool[i].createPreset == "zenSolo") {
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColor = actionPool[i].playerColor;
 				var numRows = readValue(actionPool[i].numRows, 9);
 				

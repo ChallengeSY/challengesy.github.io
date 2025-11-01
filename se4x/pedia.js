@@ -389,12 +389,12 @@ function showBox(concept) {
 			}
 			break;
 		case "initiative":
+			displayTxt = "The concept used to determine <i>who</i> goes first each ";
 			if (useRuleset == "talon") {
-				displayTxt = ">The concept used to determine <i>who</i> goes first each "+conceptLink("impulse")+" and "+conceptLink("power phase")+". \
+				displayTxt = displayTxt + conceptLink("impulse")+" and "+conceptLink("power phase")+". \
 					Can be wrestled by <q>bidding</q> "+conceptLink("power")+" each "+conceptLink("impulse")+".";
 			} else {
-				displayTxt = "The concept used to determine <i>who</i> goes first each "+conceptLink("turn")+". \
-					Can be wrestled by "+conceptLink("bid")+"ding each "+conceptLink("economic phase")+".<br /><br />\
+				displayTxt = displayTxt + conceptLink("turn")+". Can be wrestled by "+conceptLink("bid")+"ding each "+conceptLink("economic phase")+".<br /><br />\
 					In solo / "+conceptLink("co-op")+" scenarios, the environment can impose a quota (sometimes fixed) that applies each economic phase.";
 			}
 			break;
@@ -2512,7 +2512,7 @@ function showBox(concept) {
 			break;
 		case "heavy terrain":
 			if (useRuleset == "AGT") {
-				displayTxt = "<b>2</b> "+conceptLink("deep space")+" markers are placed per "+conceptLink("hex")+". Both markers are revealed and applied simultaneously.\
+				displayTxt = "<strong>2</strong> "+conceptLink("deep space")+" markers are placed per "+conceptLink("hex")+". Both markers are revealed and applied simultaneously.\
 					<br /><br />"+conceptLink("Supernova")+" and "+conceptLink("Fold in Space")+" markers override other terrain, in the order shown if necessary. \
 					"+conceptLink("Cosmic Storm")+"s are removed if it is complimented with something that it can not enter.";
 			} else {
@@ -2542,7 +2542,7 @@ function showBox(concept) {
 				instead of giving them Attack +2 and reducing the build cost. This does not take up an ability slot.";
 			break;
 		case "no temporal prime directive":
-			displayTxt = "<b>All</b> applicable abilities cost half as much "+conceptLink("TP")+" (round up).";
+			displayTxt = "<strong>All</strong> applicable abilities cost half as much "+conceptLink("TP")+" (round up).";
 			break;
 		case "bloody combat":
 			displayTxt = "Adds an extra "+conceptLink("Attack")+" +1 to all "+conceptLink("combat ship")+"s.";
@@ -2856,8 +2856,7 @@ function showBox(concept) {
 				<li class=\"noKeywords\">Actively charging a weapon (1 <q>yellow</q> box)</li>\
 				<li class=\"noKeywords\">Charging a "+conceptLink("battery")+" (if any)</li>\
 				<li class=\"noKeywords\">Reinforcing 1 "+conceptLink("shield")+" arc (lasts 6 "+conceptLink("impulse")+"s / limit 2 extra shields)</li>\
-				<li class=\"noKeywords\">Changing the "+conceptLink("initiative")+" (can only flip once in "+conceptLink("AI Solitaire")+")</li>\
-				<li class=\"noKeywords\">Defending the "+conceptLink("initiative")+" (unavailable in "+conceptLink("AI Solitaire")+")</li>\
+				<li class=\"noKeywords\">Changing or Defending the "+conceptLink("initiative")+" (can only flip once in "+conceptLink("AI Solitaire")+")</li>\
 				<li class=\"noKeywords\">Transfer power to a "+conceptLink("Fighter")+" squad (only available to "+conceptLink("Base")+"s and "+conceptLink("Carrier")+"s)</li>\
 				<li class=\"noKeywords\">Selecting a new target for <i>1</i> "+conceptLink("missile")+" (only available to ships with "+conceptLink("Missile Launcher")+"s)</li></ul>";
 			break;
@@ -3455,7 +3454,7 @@ function keywordifyCollection(collObj) {
 		"Depletion", "Deplete", "Advanced Research", "Self-Preservation",
 		"Hull", "Type 0", "Type II", "Type IV", "Type V", "Type IX", "Type XI", "Type XV",
 		"Type Exp", "Type Flag", "Type PD", "Type Scan", "Type SW",
-		"AP Bot", "AP bot", "Cosmic Storm", "EV", "FOB", "Ion Storm", "Jammer", "Missile", "Morale", "Offense Posture", "Paranoia", "Plasma Storm", "Quantum", "Quasar",
+		"AP Bot", "AP bot", "Cosmic Storm", "EV", "FOB", "Ion Storm", "Jammer", "Missile", "Morale", "Offense Posture", "Paranoia", "Plasma Storm", "Quantum", "Quasar", "Scenario Card",
 		"Aggressive", "Spice", 
 		"Talon", "Terran", "Empire War", "EFV", "SP", "LP", "Astrometrics Lab", "Deployment Zone", "Reserve",
 		"Impulse", "Collide", "Collision", "Power", "Battery", "Batteries", "Side Slip", "Brake", "Shield", "Critical",
