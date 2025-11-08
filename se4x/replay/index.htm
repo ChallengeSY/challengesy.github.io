@@ -10,23 +10,59 @@
 	<script type="text/javascript">
 		function applyFilter() {
 			divColl = document.getElementsByTagName("div");
-			filterColl = ["doomsday", "alienEmpires", "amoeba", "replicatorSol", "botSol", "lastShip"];
-			checkBoxes = [true];
-			for (var c = 0; c < filterColl.length; c++) {
-				checkBoxes[c] = document.getElementById(filterColl[c]).checked;
-			}
+			availFilters = [
+				{id:"all", name:null},
+				{id:"doomsday", name:"Doomsday Machine"},
+				{id:"alienEmpires", name:"Alien Empires"},
+				{id:"amoeba", name:"Space Amoeba"},
+				{id:"replicatorSol", name:"Replicator Solitaire"},
+				{id:"botSol", name:"AP Bot"},
+				{id:"lastShip", name:"Last Ship Standing"}
+				];
+
+
+			filterId = document.getElementById("playFilter").selectedIndex;
+			activeFilter = availFilters[filterId].id;
+			keyConcept = availFilters[filterId].name;
+			playCount = 0;
 			
 			for (var d = 0; d < divColl.length; d++) {
-				for (var f = 0; f < filterColl.length; f++) {
-					if (divColl[d].className && divColl[d].className.search(filterColl[f]) >= 0) {
-						if (checkBoxes[f]) {
+				if (divColl[d].className && divColl[d].id != "infoBox" && divColl[d].className.search("heading") < 0) {
+					if (activeFilter == "all") {
+						if (divColl[d].className && divColl[d].className.search("gameSetup") >= 0) {
+							divColl[d].style.display = "none";
+						} else {
 							divColl[d].style.display = "";
+							
+							if (divColl[d].className.search("center") < 0) {
+								playCount++;
+							}
+						}
+					} else {
+						if (divColl[d].className && divColl[d].className.search(activeFilter) >= 0 &&
+							(divColl[d].className.search("gameSetup") < 0 || activeFilter == "gameSetup")) {
+							divColl[d].style.display = "";
+							
+							if (divColl[d].className.search("center") < 0) {
+								playCount++;
+							}
 						} else {
 							divColl[d].style.display = "none";
 						}
 					}
 				}
 			}
+			
+			var helpObj = document.getElementById("scenHelp");
+			
+			if (keyConcept == null) {
+				helpObj.style.display = "none";
+			} else {
+				helpObj.href = "javascript:showBox('"+keyConcept+"')";
+				helpObj.style.display = "";
+			}
+
+			document.getElementById("playCount").innerHTML = playCount;
 		}
 	</script>
 </head>
@@ -39,33 +75,26 @@
 <p>The <a href="javascript:showBox('Replay Center')">Replay Center</a> serves as a means of viewing finished playthroughs in a semi-interactive style.</p>
 
 <h3>Filter</h3>
-<p>Due to the large quantity and variety of playthroughs, there is a feature that allows filtering playthroughs.</p>
+<p>Due to the large quantity and variety of playthroughs, there is a feature that allows filtering playthroughs. Game setups can also be viewed this way.
+<select class="text" id="playFilter" onchange="applyFilter()" onblur="applyFilter()">
+	<optgroup label="Common">
+		<option>All playthroughs</option>
+	</optgroup>
+	<optgroup label="Space Empires 4X">
+		<option>Doomday Machines</option>
+		<option>Alien Empires</option>
+		<option>Space Amoeba</option>
+		<option>Replicator Solitaire</option>
+		<option>AP Bot Solitaire</option>
+	</optgroup>
+	<optgroup label="Talon">
+		<option>Last Ship Standing</option>
+	</optgroup>
+</select>
+<a id="scenHelp" href="#">(?)</a>
+</p>
 
-<fieldset>
-<legend>Space Empires 4X</legend>
-<input type="checkbox" checked="checked" id="doomsday" oninput="applyFilter()" onclick="applyFilter()" />
-<label for="doomsday">Doomday Machines</label> <a href="javascript:showBox('DM')">(?)</a>
-
-<input type="checkbox" checked="checked" id="alienEmpires" oninput="applyFilter()" onclick="applyFilter()" />
-<label for="alienEmpires">Alien Empires</label> <a href="javascript:showBox('Alien Empires')">(?)</a>
-
-<input type="checkbox" checked="checked" id="amoeba" oninput="applyFilter()" onclick="applyFilter()" />
-<label for="amoeba">Space Amoeba</label> <a href="javascript:showBox('Space Amoeba')">(?)</a>
-
-<input type="checkbox" checked="checked" id="replicatorSol" oninput="applyFilter()" onclick="applyFilter()" />
-<label for="replicatorSol">Replicator Solitaire</label> <a href="javascript:showBox('Replicator Solitaire')">(?)</a>
-
-<input type="checkbox" checked="checked" id="botSol" oninput="applyFilter()" onclick="applyFilter()" />
-<label for="botSol">AP Bot Solitaire</label> <a href="javascript:showBox('AP Bot')">(?)</a>
-</fieldset>
-
-<fieldset>
-<legend>Talon</legend>
-<input type="checkbox" checked="checked" id="lastShip" oninput="applyFilter()" onclick="applyFilter()" />
-<label for="lastShip">Last Ship Standing</label> <a href="javascript:showBox('Last Ship Standing')">(?)</a>
-</fieldset>
-
-<h3>Available Playthroughs</h3>
+<h3>Available Playthroughs (<span id="playCount">0</span>)</h3>
 <div id="plays">
 <div class="center bold headOx">Title</div>
 <div class="center bold headOx">Scenario</div>
