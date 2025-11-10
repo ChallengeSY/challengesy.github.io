@@ -23,7 +23,9 @@
 <h2>Why do weapons jam?</h2>
 
 <h3>Summary</h3>
-<p>The basic summary is that weapons jam as a result of the 119-seed system that VGA Planets (and Nu) uses. On paper, it <i>seems</i> fancy enough to be a prime number... except it is <b>not</b>. 119 has the factors 7 and 17, which can cause battles to cycle through very few different seeds in nominal conditions.</p>
+<p>The basic summary is that weapons jam as a result of the 119-seed system that VGA Planets (and Nu) uses. Whenever a semi-fixed number of seeds per tick is involved, it is imperative the capacity be a prime number of seeds.</p>
+
+<p>119 is exactly <i>not</i> that, having the factors 7 and 17. These factors can cause battles to cycle through very few different seeds in nominal conditions.</p>
 
 <div id="ch1">
 	<h3>Breakdown by weapon type</h3>
@@ -31,20 +33,22 @@
 	<p>Fighter Bays do not charge at all. Instead, <i>each</i> carrier consistently rolls 1d20 per tick. If the result is less than or equal to the number of fighter bays, then it launches a fighter.</p>
 
 	<h4>Beam banks</h4>
-	<p>Beam banks consistently roll two dice (1d20 + 1d100) per tick. A third roll (another d20) becomes available when the ships get close enough to use them against each other.</p>
+	<p>Beam banks consistently roll to shoot down fighters (1d20 at &le;5) and recharge their energy banks (1d100 at &gt;50) per tick</p>
+	
+	<p>A third roll (another d20) becomes available when the ships get close enough to use them against each other (&lt;7).</p>
 
 	<h4>Torpedo tubes</h4>
 	<p>Torpedo tubes do not roll dice until the ships become close enough to allow their use, and only if their ammo storage is not empty.</p>
 	
-	<p>While the conditions are met, the tube constantly charges, and rolls 1d17 to determine whether to shoot (requires 31 ticks worth of charge). Additionally, if these weapons max their charge levels entirely (41 ticks worth), then it automatically shoots regardless of the previous roll.</p>
+	<p>While the conditions are met, the tube constantly charges, and rolls 1d17 (at a variable threshold) to determine whether to shoot (requires 31 ticks worth of charge). Additionally, if these weapons max their charge levels entirely (41 ticks worth), then it automatically shoots regardless of the previous roll.</p>
 	
-	<p>Either way, when it shoots, it then rolls 1d100 to determine whether a hit was scored against the opposing ship.</p>
+	<p>Either way, when it shoots, it then rolls 1d100 to determine whether a hit was scored against the opposing ship (default &ge;35 to hit).</p>
 
 	<h4>Dogfights</h4>
-	<p>Finally, when two fighters are aligned vertically, one fighter automatically shoots down another. 1d100 is rolled to determine the victor.</p>
+	<p>Finally, when two fighters are aligned vertically, one fighter automatically shoots down another. 1d100 is rolled to determine the victor (&ge;50 causes left-side to win).</p>
 
 	<h4>Fighter-resistant Horwasp combatants</h4>
-	<p>If a Jacker or a Horwasp planet is involved in a battle, then each fighter rolls 1d100 for each tick they are striking a fighter-resistant target.</p>
+	<p>If a Jacker or a Horwasp planet is involved in a battle, then each fighter rolls 1d100 for each tick they are striking a fighter-resistant target (roll must exceed the resistance value to connect).</p>
 </div>
 
 <div id="ch2">
