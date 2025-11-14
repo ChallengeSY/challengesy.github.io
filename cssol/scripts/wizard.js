@@ -164,7 +164,6 @@ function setupGame() {
 				reserveStacked.push(stackPos);
 			}
 			
-			console.log(reserveStacked);
 			reserveReusable = 0;
 		}
 	} else {
@@ -434,6 +433,7 @@ function dealStock() {
 				}
 			}
 			renderPlayarea();
+			endingCheck();
 		}
 	}
 }
@@ -474,7 +474,9 @@ function playWaste(event) {
 	}
 
 	if (solGame.gameActive == false) {
-		updateStatus("The game has already ended!");
+		if (baseStatFile != "seriesPlay") {
+			updateStatus("The game has already ended!");
+		}
 	} else if (selectX == -1) {
 		if (solGame.stockPile[solGame.wasteSize].rank == "King" && scoringModel == "pairAdd13") {
 			recordMove();
@@ -556,7 +558,6 @@ function playWaste(event) {
 // Do these two cards build, according to the configuration?
 
 function buildCheck(objA, objB, auxConn) {
-	var rankValue = new Array(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1);
 	var outcome = false;
 	if (!pairingGame && !golfGame) {
 		buildTxt = "No building on the tableau";
@@ -679,7 +680,6 @@ function buildCheck(objA, objB, auxConn) {
 // Do these two cards pair up, according to the configuration?
 
 function pairCheck(objA, objB, auxConn) {
-	var rankValue = new Array(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1);
 	var outcome = false;
 	buildTxt = "";
 	
@@ -735,15 +735,198 @@ function pairCheck(objA, objB, auxConn) {
 	return outcome;
 }
 
-// Play a card
+// Check for victory conditions and available moves
 
+function endingCheck() {
+	if (solGame.casualScore >= maxScore) {
+		gameWon();
+	} else {
+		var movesPossible = [0, 0];
+		var moveCap = 1;
+		var checkAux = null;
+		if ((solGame.stockRemain > 0 || (solGame.redeals > 0 && solGame.wasteSize > 0)) && stockDealTo >= 0) {
+			movesPossible[0]++;
+			movesPossible[1]++;
+		}
+		
+		for (var b = 0; b < tableauWidth; b++) {
+			if (solGame.height[b] < 0) {
+				if (emptyPileRefills == "anyCard") {
+					movesPossible[0]++;
+					movesPossible[1]++;
+					moveCap = moveCap * 2;
+				}
+			}
+		}
+		
+		if (tableauMovement != "oneCard") {
+			moveCap = Infinity;
+			
+			if (tableauMovement == "taranStyle") {
+				checkAux = "color";
+			} else if (tableauMovement == "spiderStyle") {
+				checkAux = "suit";
+			}
+		}
+		
+		if (golfGame) {
+			for (var a = 0; a < tableauWidth; a++) {
+				if (solGame.height[a] >= 0) {
+					if (buildCheck(solGame.tableau[a][solGame.height[a]],solGame.stockPile[solGame.wasteSize])) {
+						movesPossible[0]++;
+						movesPossible[1]++;
+					}
+				}
+			}
+		} else if (pairingGame) {
+			for (var x = 0; x < tableauWidth; x++) {
+				for (var dx = 0; dx < tableauWidth; dx++) {
+					if (x != dx && solGame.height[x] >= 0 && solGame.height[dx] >= 0) {
+						if (pairCheck(solGame.tableau[x][solGame.height[x]],solGame.tableau[dx][solGame.height[dx]])) {
+							movesPossible[0]++;
+							movesPossible[1]++;
+						}
+					}
+				}
+			}
+		} else {
+			for (var r = 0; r < 49; r++) {
+				if (solGame.reserveSlot[r] == null) {
+					if (r < reserveReusable) {
+						movesPossible[0]++;
+						movesPossible[1]++;
+						moveCap++;
+					}
+				} else if (reserveStacked == null || solGame.reserveSlot[r+1] == null || newSubRestack(r+1)) {
+					for (var dx = 0; dx < tableauWidth; dx++) {
+						if (solGame.height[dx] >= 0) {
+							if (buildCheck(solGame.tableau[dx][solGame.height[dx]],solGame.reserveSlot[r])) {
+								movesPossible[0]++;
+								movesPossible[1]++;
+							}
+						} else if (emptyPileRefills == "finalRank" && solGame.reserveSlot[r].rank == finalRank) {
+							movesPossible[0]++;
+							movesPossible[1]++;
+						}
+					}
+					
+					if (scoringModel.startsWith("buildUp") || scoringModel == "buildKASpider") {
+						for (var f = 0; f < wizardDecks*4; f++) {
+							if (foundationCheck(solGame.foundationPile[f], solGame.reserveSlot[r])) {
+								movesPossible[0]++;
+								movesPossible[1]++;
+							}
+						}
+					}
+				}
+			}
+
+			if (solGame.wasteSize >= 0) {
+				for (var w = 0; w < tableauWidth; w++) {
+					if (solGame.height[w] >= 0) {
+						if (buildCheck(solGame.tableau[w][solGame.height[w]],solGame.stockPile[solGame.wasteSize])) {
+							movesPossible[0]++;
+							movesPossible[1]++;
+						}
+					} else if (emptyPileRefills == "finalRank" && solGame.stockPile[solGame.wasteSize].rank == finalRank) {
+						movesPossible[0]++;
+						movesPossible[1]++;
+					}
+				}
+				
+				if (scoringModel.startsWith("buildUp") || scoringModel == "buildKASpider") {
+					for (var f = 0; f < wizardDecks*4; f++) {
+						if (foundationCheck(solGame.foundationPile[f], solGame.stockPile[solGame.wasteSize])) {
+							movesPossible[0]++;
+							movesPossible[1]++;
+						}
+					}
+				}
+			}
+
+			try {
+				for (var x = 0; x < tableauWidth; x++) {
+					if (solGame.height[x] >= 0) {
+						for (var y = solGame.height[x]; y >= solGame.downturn[x]; y--) {
+							if (y == solGame.height[x] || tableauMovement == "yukonStyle" || (buildCheck(solGame.tableau[x][y],solGame.tableau[x][y+1],checkAux) && Math.abs(solGame.height[x] - y) < moveCap)) {
+								for (var dx = 0; dx < tableauWidth; dx++) {
+									if (x != dx) {
+										if (solGame.height[dx] >= 0) {
+											if (buildCheck(solGame.tableau[dx][solGame.height[dx]],solGame.tableau[x][y])) {
+												movesPossible[0]++;
+												
+												if ((solGame.height[x] == 0 && emptyPileRefills != "anyCard") || (y > 0 && (!buildCheck(solGame.tableau[x][y-1],solGame.tableau[x][y])) || y == solGame.downturn[x])) {
+													movesPossible[1]++;
+												}
+											}
+										} else if (emptyPileRefills == "finalRank" && solGame.tableau[x][y].rank == finalRank) {
+											if (y > 0) {
+												movesPossible[0]++;
+												movesPossible[1]++;
+											}
+										}
+									}
+								}
+								
+								if (validateKAcombo(x,y)) {
+									movesPossible[0]++;
+									movesPossible[1]++;
+								}
+							} else {
+								break;
+							}
+						}
+						
+						if (scoringModel.startsWith("buildUp") || scoringModel == "buildKASpider") {
+							for (var f = 0; f < wizardDecks*4; f++) {
+								if (foundationCheck(solGame.foundationPile[f], solGame.tableau[x][solGame.height[x]])) {
+									movesPossible[0]++;
+									movesPossible[1]++;
+								}
+							}
+						}
+					}
+				}
+			} catch(err) {
+				console.error("Error found at ("+x+","+y+"): "+err);
+			}
+		}
+		
+		if (movesPossible[0] <= 0) {
+			noMovesLeft();
+		} else if (movesPossible[1] <= 0) {
+			updateStatus("Warning! There appears to be no unique moves...");
+		}
+	}
+}
+
+// Validates the selected (or theoretical) stack for a potential King-Ace combo
+function validateKAcombo(a, b) {
+	var kaBuildCombo = 0;
+	
+	if (scoringModel != "buildKASpider") {
+		return false;
+	}
+	
+	for (var c = solGame.height[a]; c >= b; c--) {
+		if (kaBuildCombo >= 0) {
+			if ((kaBuildCombo == 0 || cardsConnected(solGame.tableau[a][c+1],solGame.tableau[a][c])) && rankValue[getRank(solGame.tableau[a][c])] == kaBuildCombo + 1) {
+				kaBuildCombo++;
+			} else {
+				kaBuildCombo = -1;
+			}
+		}
+	}
+	
+	return (kaBuildCombo == 13);
+}
+
+// Play a card
 function playCard(event) {
 	// event.preventDefault();
 	
 	var divRef, selectionRef, yRef;
 	var baseID, x, y;
-	var kaBuildCombo = 0, aceSelected = false, kingSelected = false;
-	var rankValue = new Array(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1);
 
 	baseID = this.id;
 	if (baseID.substring(0,4) == "open") {
@@ -768,7 +951,9 @@ function playCard(event) {
 	}
 	
 	if (solGame.gameActive == false) {
-		updateStatus("The game has already ended!");
+		if (baseStatFile != "seriesPlay") {
+			updateStatus("The game has already ended!");
+		}
 	} else if (y >= 0 && solGame.height[x] == -1) {
 		if (selectX == -1) {
 			updateStatus("There are no cards in the empty tableau pile to interact.");
@@ -852,7 +1037,9 @@ function playCard(event) {
 	} else if (selectX == -1) {
 		if (golfGame) {
 			if (solGame.gameActive == false) {
-				updateStatus("The game has already ended!");
+				if (baseStatFile != "seriesPlay") {
+					updateStatus("The game has already ended!");
+				}
 			} else if (y >= 0) {
 				if (y < solGame.height[x]) {
 					updateStatus("Only fully exposed cards are playable.");
@@ -955,7 +1142,7 @@ function playCard(event) {
 				case "spiderStyle":
 					for (var j = solGame.height[x]; j > y; j--) {
 						if (j <= solGame.downturn[x] || !buildCheck(solGame.tableau[x][j-1],solGame.tableau[x][j],"suit")) {
-							updateStatus("You can select multiple cards, but only if they form a single-suit build, and that no face-down cards are involved.");
+							updateStatus("You can select multiple cards, but only if they form a single-suit build.");
 							
 							selectDepth = 0;
 							selectX = -1;
@@ -968,7 +1155,7 @@ function playCard(event) {
 				case "taranStyle":
 					for (var j = solGame.height[x]; j > y; j--) {
 						if (j <= solGame.downturn[x] || !buildCheck(solGame.tableau[x][j-1],solGame.tableau[x][j],"color")) {
-							updateStatus("You can select multiple cards, but only if they form a single-color build, and that no face-down cards are involved.");
+							updateStatus("You can select multiple cards, but only if they form a single-color build.");
 							
 							selectDepth = 0;
 							selectX = -1;
@@ -984,7 +1171,7 @@ function playCard(event) {
 							if ((tableauMovement == "oneCard" && emptyPileRefills != "anyCard" && reserveReusable == 0) || tableauBuilding == "none") {
 								updateStatus("Multiple cards may not be moved at once.");
 							} else {
-								updateStatus("You can select multiple cards, but only if they form a build, and that no face-down cards are involved.");
+								updateStatus("You can select multiple cards, but only if they form a build.");
 							}
 							
 							selectDepth = 0;
@@ -999,19 +1186,11 @@ function playCard(event) {
 			
 			if (selectX >= 0) {
 				for (var j = solGame.height[x]; j >= y; j--) {
-					if (kaBuildCombo >= 0) {
-						if ((kaBuildCombo == 0 || cardsConnected(solGame.tableau[x][j+1],solGame.tableau[x][j])) && rankValue[getRank(solGame.tableau[x][j])] == kaBuildCombo + 1) {
-							kaBuildCombo++;
-						} else {
-							kaBuildCombo = -1;
-						}
-					}
-
-					divRef = document.getElementById("x" + x + "y" + j)
+					divRef = document.getElementById("x" + x + "y" + j);
 					selectCard(divRef);
 				}
 				
-				KAbuild = (kaBuildCombo == 13);
+				KAbuild = validateKAcombo(x,y);
 			}
 		}
 	} else if (x == selectX) {
@@ -1407,7 +1586,10 @@ function newGame(greetings, newSeed) {
 			
 			switch (baseStatFile) {
 				case "seriesPlay":
-					title = seriesName + " Solitaire";
+					title = seriesName;
+					if (seriesName.search(" ") < 0) { 
+						title = title + " Solitaire";
+					}
 					break;
 				case "8off":
 					title = "Eight Off Solitaire";
@@ -1432,6 +1614,9 @@ function newGame(greetings, newSeed) {
 					break;
 				case "bakersGame":
 					title = "Baker's Game Solitaire";
+					break;
+				case "beleaguered":
+					title = "Beleaguered Castle";
 					break;
 				case "challengeFC":
 					title = "Challenge FreeCell";
@@ -1466,6 +1651,12 @@ function newGame(greetings, newSeed) {
 				case "napoleonExile":
 					title = "Napoleon's Exile";
 					break;
+				case "napoleonSquare":
+					title = "Napoleon's Square";
+					break;
+				case "nwTerritory":
+					title = "Northwest Territory";
+					break;
 				case "number12":
 					title = "Number Twelve Solitaire";
 					break;
@@ -1483,6 +1674,15 @@ function newGame(greetings, newSeed) {
 					break;
 				case "spider2":
 					title = "Tarantula Solitaire";
+					break;
+				case "simonJester":
+					title = "Simon Jester";
+					break;
+				case "skyscraper":
+					title = "Skyscraper Tower";
+					break;
+				case "streetsAlleys":
+					title = "Streets and Alleys";
 					break;
 				case "superFC":
 					title = "Super Challenge FreeCell";
@@ -1511,6 +1711,7 @@ function newGame(greetings, newSeed) {
 			updateStatus("Game started");
 		}
 		
+		endingCheck();
 		if (baseStatFile == "seriesPlay") {
 			saveSeriesFile(false);
 		}

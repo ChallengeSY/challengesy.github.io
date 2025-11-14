@@ -56,23 +56,3 @@ function changeDiff(firstTime) {
 			break;
 	}
 }
-
-function endingCheck() {
-	if (solGame.casualScore >= maxScore) {
-		gameWon();
-	} else if (solGame.stockRemain <= 0) {
-		var movesPossible = false;
-		
-		for (var a = 0; a < 7; a++) {
-			if (solGame.height[a] >= 0) {
-				if (buildCheck(solGame.tableau[a][solGame.height[a]],solGame.stockPile[solGame.wasteSize])) {
-					movesPossible = true;
-				}
-			}
-		}
-	
-		if (!movesPossible) {
-			noMovesLeft();
-		}
-	}
-}

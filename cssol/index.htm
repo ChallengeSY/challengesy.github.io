@@ -40,7 +40,15 @@
 					if (seriesGame < 1 || seriesGame > 3 || seriesLives <= 0) {
 						saveInfo.innerHTML = "<button class=\"interact\" disabled=\"disabled\" title=\"There is no saved series to resume\">Resume series</button>";
 					} else {
-						var saveData = "Skill Level: "+skillLevels[seriesDiff-1]+"\nGame: "+gamePool[seriesSeason-1][seriesGame-1]+"\nLives: "+seriesLives+"\nScore: "+seriesScore;
+						var gameName;
+						try {
+							gameName = gamePool[seriesSeason-1][seriesGame-1];
+						} catch(err) {
+							console.warn("Game not found. Falling back to default value");
+							gameName = "(Season "+seriesSeason+" Game "+seriesGame+")";
+						}
+					
+						var saveData = "Skill Level: "+skillLevels[seriesDiff-1]+"\nGame: "+gameName+"\nLives: "+seriesLives+"\nScore: "+seriesScore;
 						saveInfo.innerHTML = "<a href=\"series/\" class=\"interact\" title=\""+saveData+"\">Resume series</button>";
 					}
 				}
@@ -79,12 +87,14 @@ These additional games are available to play.<br />
 <a class="interact" href="games/tripeaks.htm">TriPeaks</a>
 <a class="interact" href="games/ausPat.htm">Australian Patience</a>
 <a class="interact" href="games/raglan.htm">Raglan</a>
+<a class="interact" href="games/agnesBernauer.htm">Agnes Bernauer</a>
 <a class="interact" href="games/beleaguered.htm">Beleaguered Castle</a>
 <a class="interact" href="games/bakers13.htm">Baker's Dozen</a>
 <a class="interact" href="games/fourteen.htm">Fourteen Out</a><br /><br />
 
 These multi-deckers are also available.<br />
 <a class="interact" href="games/thievesEgypt.htm">Thieves of Egypt</a>
+<a class="interact" href="games/repair.htm">Repair</a>
 <a class="interact" href="games/40thieves.htm">Forty Thieves</a>
 <a class="interact" href="games/gypsy.htm">Gypsy</a>
 <a class="interact" href="games/blackjack.htm">Blackjack</a><br /><br />

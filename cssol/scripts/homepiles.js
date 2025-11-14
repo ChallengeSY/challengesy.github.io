@@ -6,7 +6,6 @@ var buildFoundString = "";
 setBaseRank("Ace");
 
 function foundationCheck(objA, objB) {
-	var rankValue = new Array(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1);
 	var buildLegal = false;
 	
 	if (objA == null && baseRank == "") {
@@ -42,6 +41,8 @@ function foundationCheck(objA, objB) {
 		}
 		
 		buildFoundString = "by alternating colors";
+	} else {
+		return false;
 	}
 	
 	if (objA != null && objB.rank == baseRank) {
@@ -52,7 +53,6 @@ function foundationCheck(objA, objB) {
 }
 
 function playFoundation(event) {
-	var rankValue = new Array(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1);
 	var selectionRef, foundationRef;
 	var baseID, whichPile;
 	var someMovesInvalid = false;
@@ -185,80 +185,74 @@ function playFoundation(event) {
 }
 
 function autoFoundation(internalSelect, whichPile) {
-	var rankValue = new Array(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1);
 	var selectionRef, foundationRef;
 	var moveLegal = false;
 
 	selectDepth = 0;
 
-	try {
-		selectX = internalSelect;
+	selectX = internalSelect;
 
-		foundationRef = document.getElementById("home" + whichPile);
+	foundationRef = document.getElementById("home" + whichPile);
 
-		if (selectX == 99) {
-			selectionRef = document.getElementById("waste" + solGame.wasteSize);
-			
-			if (solGame.wasteSize < 0) {
-				//Failsafe in case waste pile is empty
-			} else if (foundationCheck(solGame.foundationPile[whichPile],solGame.stockPile[solGame.wasteSize])) {
-				recordMove();
-				updateStatus("&emsp;");
-				solGame.foundationPile[whichPile] = solGame.stockPile[solGame.wasteSize];
-				deleteEntry();
-					
-				solGame.casualScore++;
-				renderPlayarea();
-				moveLegal = true;
-			}
-			
-			selectX = -1;
-
-		} else if (selectX >= reserveStart) {
-			var reserveID = selectX - reserveStart;
+	if (selectX == 99) {
+		selectionRef = document.getElementById("waste" + solGame.wasteSize);
 		
-			selectionRef = document.getElementById("open" + reserveID);
-			
-			if (!solGame.reserveSlot[reserveID]) {
-				//Failsafe in case slot is empty
-			} else if (foundationCheck(solGame.foundationPile[whichPile],solGame.reserveSlot[reserveID])) {
-				recordMove();
-				updateStatus("&emsp;");
-				solGame.foundationPile[whichPile] = solGame.reserveSlot[reserveID];
-				solGame.reserveSlot[reserveID] = null;
+		if (solGame.wasteSize < 0) {
+			//Failsafe in case waste pile is empty
+		} else if (foundationCheck(solGame.foundationPile[whichPile],solGame.stockPile[solGame.wasteSize])) {
+			recordMove();
+			updateStatus("&emsp;");
+			solGame.foundationPile[whichPile] = solGame.stockPile[solGame.wasteSize];
+			deleteEntry();
 				
-				solGame.casualScore++;
-				renderPlayarea();
-				moveLegal = true;
-			}
-			
-			selectX = -1;
-
-		} else {
-			selectionRef = document.getElementById("x" + selectX + "y" + solGame.height[selectX]);
-			deselectCard(selectionRef);
-			
-			if (foundationCheck(solGame.foundationPile[whichPile],solGame.tableau[selectX][solGame.height[selectX]])) {
-				updateStatus("&emsp;");
-				recordMove();
-				solGame.foundationPile[whichPile] = solGame.tableau[selectX][solGame.height[selectX]];
-				solGame.tableau[selectX][solGame.height[selectX]] = null;
-				solGame.height[selectX]--;
-				
-				solGame.casualScore++;
-				renderPlayarea();
-				moveLegal = true;
-			}
-			
-			selectX = -1;
+			solGame.casualScore++;
+			renderPlayarea();
+			moveLegal = true;
 		}
 		
-		endingCheck();
-		return moveLegal;
-	} catch(err) {
-		throwError(err);
-		return false;
+		selectX = -1;
+
+	} else if (selectX >= reserveStart) {
+		var reserveID = selectX - reserveStart;
+	
+		selectionRef = document.getElementById("open" + reserveID);
+		
+		if (!solGame.reserveSlot[reserveID]) {
+			//Failsafe in case slot is empty
+		} else if (foundationCheck(solGame.foundationPile[whichPile],solGame.reserveSlot[reserveID])) {
+			recordMove();
+			updateStatus("&emsp;");
+			solGame.foundationPile[whichPile] = solGame.reserveSlot[reserveID];
+			solGame.reserveSlot[reserveID] = null;
+			
+			solGame.casualScore++;
+			renderPlayarea();
+			moveLegal = true;
+		}
+		
+		selectX = -1;
+
+	} else {
+		selectionRef = document.getElementById("x" + selectX + "y" + solGame.height[selectX]);
+		deselectCard(selectionRef);
+		
+		if (foundationCheck(solGame.foundationPile[whichPile],solGame.tableau[selectX][solGame.height[selectX]])) {
+			updateStatus("&emsp;");
+			recordMove();
+			solGame.foundationPile[whichPile] = solGame.tableau[selectX][solGame.height[selectX]];
+			solGame.tableau[selectX][solGame.height[selectX]] = null;
+			solGame.height[selectX]--;
+			
+			solGame.casualScore++;
+			renderPlayarea();
+			moveLegal = true;
+		}
+		
+		selectX = -1;
 	}
+	
+	endingCheck();
+	return moveLegal;
 }
 
 function roboBuild(pileCount, reserveCount, wastePresent) {
@@ -339,7 +333,7 @@ function roboBuild(pileCount, reserveCount, wastePresent) {
 		selectX = -1;
 		clearInterval(finishPtr);
 		finishPtr = null;
-		throwError(err);
+		console.error(err);
 	}
 }
 
@@ -389,13 +383,5 @@ function autoFinish() {
 		}
 	} else {
 		updateStatus("A game must be in progress before cards can be automatically moved");
-	}
-}
-
-// Victory conditions
-
-function endingCheck() {
-	if (solGame.casualScore >= maxScore) {
-		gameWon();
 	}
 }

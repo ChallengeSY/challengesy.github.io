@@ -86,9 +86,3 @@ function applyDiffSpecs() {
 			break;
 	}
 }
-
-function endingCheck() {
-	if (solGame.casualScore >= maxScore) {
-		gameWon();
-	}
-}

@@ -25,6 +25,7 @@ var dynamicDealCt = false;
 var skipSounds = 0;
 var shuffleID = Math.floor(Math.random()*4);
 var scoringModel = "buildUpSuit";
+var rankValue = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1];
 
 var filepath = window.location.pathname;
 var playDeck, searchElement, baseRank, finalRank, tableauWidth;
@@ -241,20 +242,16 @@ function restartGame(penalize) {
 
 //Register events
 function addEvent(object, evName, fnName, cap) {
-	try {
-		if (object.addEventListener) {
-			 object.addEventListener(evName, fnName, cap);
-			 /*
-		} else if (object.attachEvent) {
-			 object.attachEvent("on" + evName, fnName);
-			 */
-		} else {
-			if (evName = "click") {
-				object.onclick = fnName;
-			}
+	if (object.addEventListener) {
+		 object.addEventListener(evName, fnName, cap);
+		 /*
+	} else if (object.attachEvent) {
+		 object.attachEvent("on" + evName, fnName);
+		 */
+	} else {
+		if (evName = "click") {
+			object.onclick = fnName;
 		}
-	} catch(err) {
-		throwError(err);
 	}
 }
 
@@ -312,8 +309,6 @@ function setOpacity(object, value) {
 }
 
 function cardsConnected(cardBottom, cardTop) {
-	var rankValue = new Array(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1);
-	
 	if (solGame.spiderCon == "downSuit") {
 		return (getSuit(cardBottom) == getSuit(cardTop) && rankValue[getRank(cardTop)] == rankValue[getRank(cardBottom)] + 1);
 	} else if (solGame.spiderCon == "downDiffSuit") {
@@ -862,7 +857,7 @@ function gameWon() {
 
 function noMovesLeft() {
 	if (solGame.totalMoves == 0) {
-		updateStatus("Interesting! No moves can be made at all.");
+		updateStatus("Well... No moves can be made at all!");
 	} else {
 		updateStatus("Defeat! No legal moves remain!");
 		playSound(gameLostSnd);
@@ -872,6 +867,12 @@ function noMovesLeft() {
 }
 
 //Updates the app status bar
+function updateStatus(newMessage) {
+	var statusBar = document.getElementById("statusBar");
+	
+	statusBar.innerHTML = newMessage;
+}
+
 function appendStatus(newMessage) {
 	var statusBar = document.getElementById("statusBar");
 	var oldMessage = statusBar.innerHTML;
@@ -879,29 +880,7 @@ function appendStatus(newMessage) {
 	statusBar.innerHTML = oldMessage + newMessage;
 }
 
-//Updates the app status bar
-function updateStatus(newMessage) {
-	var statusBar = document.getElementById("statusBar");
-	
-	statusBar.innerHTML = newMessage;
-}
-
-function throwError(errorObj) {
-	console.error(errorObj);
-	
-	/*
-	var statusBar = document.getElementById("statusBar");
-	var errMessage = errorObj.message;
-	var errPinpoint = "";
-	
-	if (errorObj.lineNumber && errorObj.fileName) {
-		errPinpoint = "<br />(" + errorObj.fileName + " at line " + errorObj.lineNumber + ")";
-	}
-	
-	statusBar.innerHTML = "<span style=\"color: rgb(255,128,0); font-weight: bold;\">Error</span>: " + errMessage + errPinpoint;
-	*/
-}
-
+//Sound management
 function playSound(playObj) {
 	playObj.play();
 }
@@ -968,7 +947,7 @@ function emptyDoubleArray(sizeA,sizeB) {
 }
 
 function emptySingleArray(sizeA, initA) {
-	var createArrays = new Array(49);
+	var createArrays = new Array(sizeA);
 	if (typeof initA !== undefined) {
 		for (var o = 0; o < createArrays.length; o++) {
 			createArrays[o] = initA;
@@ -1012,7 +991,7 @@ function gameObj(source) {
 		this.obstructed     = emptyDoubleArray(49,104);
 		this.foundationPile = emptySingleArray(24,null);
 		this.reserveSlot    = emptySingleArray(48,null);
-		this.stockPile      = emptySingleArray(213,null);
+		this.stockPile      = emptySingleArray(311,null);
 		this.casualScore    = 0;
 		this.moneyScore     = null;
 		this.stockRemain    = 0;
@@ -1058,9 +1037,9 @@ var gameHistory = new Array();
 function solDeck(numDecks) {
 
 	this.cards = new Array(numDecks * 52);
-	var suits = new Array("Club", "Diamond", "Heart", "Spade");
-	var ranks = new Array("2", "3", "4", "5", "6", "7",
-		"8", "9", "10", "Jack", "Queen", "King", "Ace")
+	var suits = ["Club", "Diamond", "Heart", "Spade"];
+	var ranks = ["2", "3", "4", "5", "6", "7", "8", "9",
+		"10", "Jack", "Queen", "King", "Ace"];
 	
 	if (preferDeckId >= 0) {
 		shuffleID = preferDeckId - 1;
@@ -1244,11 +1223,7 @@ solCard.prototype.innerCode = function() {
 		}
 	}
 	
-	if (useJokeStyle) {
-		outerShell = "<div class=\"front " + jokeSuit + "s\">\n" 
-	} else {
-		outerShell = "<div class=\"front " + this.suit.toLowerCase() + "s\">\n" 
-	}
+	outerShell = "<div class=\"front " + this.suit.toLowerCase() + "s\">\n" 
 	outerShell = outerShell + innerShell + "</div>\n"; 
 	
 	return outerShell;
@@ -1271,7 +1246,7 @@ solCard.prototype.nameParse = function () {
 
 //Data extraction
 function getSuit(object) {
-	var suits = new Array("Club", "Diamond", "Heart", "Spade");
+	var suits = ["Club", "Diamond", "Heart", "Spade"];
 	
 	for (var i = 0; i < 4; i++) {
 		if (object.suit == suits[i]) {
@@ -1289,8 +1264,8 @@ function getColor(object) {
 }
 
 function getRank(object) {
-	var ranks = new Array("2", "3", "4", "5", "6", "7",
-		"8", "9", "10", "Jack", "Queen", "King", "Ace")
+	var ranks = ["2", "3", "4", "5", "6", "7", "8",
+		"9", "10", "Jack", "Queen", "King", "Ace"];
 	
 	for (var i = 0; i < 13; i++) {
 		if (object.rank == ranks[i]) {
@@ -1567,9 +1542,8 @@ function getStorage(sName) {
 //Cookie management - Fallback for older browsers
 function writeDateString(dateObj) {
 
-	var monthName = new Array("Jan", "Feb", "Mar",
-  "Apr", "May", "Jun", "Jul", "Aug", "Sep",
-  "Oct", "Nov", "Dec");
+	var monthName = ["Jan", "Feb", "Mar", "Apr", "May",
+		"Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 	
 	var thisMonth = dateObj.getMonth();
 	var thisYear = dateObj.getFullYear();
