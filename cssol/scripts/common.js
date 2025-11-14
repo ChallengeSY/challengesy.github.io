@@ -863,7 +863,9 @@ function noMovesLeft() {
 		playSound(gameLostSnd);
 		stopMusic();
 	}
-	solGame.gameActive = false;
+	if (baseStatFile != "seriesPlay") {
+		solGame.gameActive = false;
+	}
 }
 
 //Updates the app status bar
