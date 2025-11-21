@@ -814,39 +814,43 @@ function setBaseRank(newBaseRank) {
 	}
 }
 
+function getDealTime() {
+	var gameSeconds, gameMinutes, gameHours, clearTime, remainingTime;
+	
+	remainingTime = solGame.dealTime;
+	gameHours = Math.floor(remainingTime/3600);
+	remainingTime = remainingTime - gameHours * 3600;
+	gameMinutes = Math.floor(remainingTime/60);
+	remainingTime = remainingTime - gameMinutes * 60;
+	gameSeconds = remainingTime;
+
+	clearTime = "";
+	if (gameHours > 0) {
+		clearTime = gameHours + ":";
+		if (gameMinutes < 10) {
+			clearTime = clearTime + "0";
+		}
+		clearTime = clearTime + gameMinutes + ":";
+		if (gameSeconds < 10) {
+			clearTime = clearTime + "0";
+		}
+		clearTime = clearTime + gameSeconds;
+	} else {
+		clearTime = gameMinutes + ":";
+		if (gameSeconds < 10) {
+			clearTime = clearTime + "0";
+		}
+		clearTime = clearTime + gameSeconds;
+	}
+	
+	return clearTime;
+}
+
 //Common end-game messages
 function gameWon() {
 	if (solGame.recordWin || baseStatFile == "wizard") {
-		var gameSeconds, gameMinutes, gameHours, clearTime, remainingTime;
-		
-		remainingTime = solGame.dealTime;
-		gameHours = Math.floor(remainingTime/3600);
-		remainingTime = remainingTime - gameHours * 3600;
-		gameMinutes = Math.floor(remainingTime/60);
-		remainingTime = remainingTime - gameMinutes * 60;
-		gameSeconds = remainingTime;
-
-		clearTime = "";
-		if (gameHours > 0) {
-			clearTime = gameHours + ":";
-			if (gameMinutes < 10) {
-				clearTime = clearTime + "0";
-			}
-			clearTime = clearTime + gameMinutes + ":";
-			if (gameSeconds < 10) {
-				clearTime = clearTime + "0";
-			}
-			clearTime = clearTime + gameSeconds;
-		} else {
-			clearTime = gameMinutes + ":";
-			if (gameSeconds < 10) {
-				clearTime = clearTime + "0";
-			}
-			clearTime = clearTime + gameSeconds;
-		}
-		
 		solGame.recordWin = false;
-		updateStatus("Congratulations!! You won the game in " + clearTime + "!");
+		updateStatus("Congratulations!! You won the game in " + getDealTime() + "!");
 		exportLog(1);
 	} else {
 		updateStatus("Congratulations! You won the game!<br />To qualify, please start a <b>new game</b> without using the password feature");

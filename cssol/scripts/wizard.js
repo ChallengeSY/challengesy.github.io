@@ -770,6 +770,24 @@ function endingCheck() {
 		}
 		
 		if (golfGame) {
+			for (var r = 0; r < 49; r++) {
+				if (solGame.reserveSlot[r] == null) {
+					if (r < reserveReusable) {
+						movesPossible[0]++;
+						movesPossible[1]++;
+					}
+				} else if (reserveStacked == null || solGame.reserveSlot[r+1] == null || newSubRestack(r+1)) {
+					for (var dx = 0; dx < tableauWidth; dx++) {
+						if (solGame.height[dx] >= 0) {
+							if (buildCheck(solGame.reserveSlot[r],solGame.stockPile[solGame.wasteSize])) {
+								movesPossible[0]++;
+								movesPossible[1]++;
+							}
+						}
+					}
+				}
+			}
+
 			for (var a = 0; a < tableauWidth; a++) {
 				if (solGame.height[a] >= 0) {
 					if (buildCheck(solGame.tableau[a][solGame.height[a]],solGame.stockPile[solGame.wasteSize])) {
@@ -779,6 +797,24 @@ function endingCheck() {
 				}
 			}
 		} else if (pairingGame) {
+			for (var r = 0; r < 49; r++) {
+				if (solGame.reserveSlot[r] == null) {
+					if (r < reserveReusable) {
+						movesPossible[0]++;
+						movesPossible[1]++;
+					}
+				} else if (reserveStacked == null || solGame.reserveSlot[r+1] == null || newSubRestack(r+1)) {
+					for (var dx = 0; dx < tableauWidth; dx++) {
+						if (solGame.height[dx] >= 0) {
+							if (pairCheck(solGame.tableau[dx][solGame.height[dx]],solGame.reserveSlot[r])) {
+								movesPossible[0]++;
+								movesPossible[1]++;
+							}
+						}
+					}
+				}
+			}
+
 			for (var x = 0; x < tableauWidth; x++) {
 				for (var dx = 0; dx < tableauWidth; dx++) {
 					if (x != dx && solGame.height[x] >= 0 && solGame.height[dx] >= 0) {
