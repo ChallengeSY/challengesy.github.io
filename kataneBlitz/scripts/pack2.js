@@ -348,7 +348,7 @@ function makeCoprimeStage(readObj) {
 
 function pressCoprimeButton(readObj, flagId) {
 	if (gameActive && readObj.style.borderColor != solveColor) {
-		var readNums = [parseInt(document.getElementById(readObj.id+"cT").innerHTML), parseInt(document.getElementById(readObj.id+"cB").innerHTML)];
+		var readNums = [parseInt(document.getElementById(readObj.id+"ccT").innerHTML), parseInt(document.getElementById(readObj.id+"ccB").innerHTML)];
 		var numsCoprime = true;
 		var getFlag = (flagId.id.slice(-1) == 1);
 		
