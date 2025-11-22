@@ -95,16 +95,20 @@ function validateButtonPress(event, readObj) {
 			success = (timeLeft.search(reqTime.toString()) >= 0);
 		}
 
-		if (success) {
-			console.log("Big Button was released correctly.");
-		} else if (!holdReq) {
-			console.warn("Big Button was released incorrectly! It needed to be released immediately.");
-		} else if (isNaN(reqTime)) {
-			console.warn("Big Button was released incorrectly! A hold was required.");
-		} else {
-			console.warn("Big Button was released incorrectly! A "+reqTime+" was required somewhere in the timer. Your time remaining was "+timeLeft+".");
+		if (life > 0) {
+			if (success) {
+				console.log("Big Button was released correctly.");
+			} else if (!holdReq) {
+				console.warn("Big Button was released incorrectly! It needed to be released immediately.");
+			} else if (isNaN(reqTime)) {
+				console.warn("Big Button was released incorrectly! A hold was required.");
+			} else {
+				console.warn("Big Button was released incorrectly! A "+reqTime+" was required somewhere in the timer. Your time remaining was "+timeLeft+".");
+			}
+			if (readObj.style.borderColor != solveColor || !success) {
+				solveModule(readObj, success, true, 0);
+			}
 		}
-		solveModule(readObj, success, false, 0);
 		
 		playSound(buttonSnds[1]);
 		previousButtonClick = event.type;
