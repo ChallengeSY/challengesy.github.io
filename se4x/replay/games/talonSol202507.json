@@ -1,6 +1,6 @@
 {"stages": [
 	{"heading":"Stardate 2227.00X",
-	"commentary":"<p>Welcome to another AI Solitaire battle. This time, we have decided to shake things up a bit by randomizing some of the elements. We have hand picked the Terran faction, and partially randomized the terrain (one of our friends wanted us to bring a planet to battle). We have then rolled a 1 for 250 SP, followed by a 10 for our Terran fleet and a 7 for the AI fleet.</p><p>We field  1 Destroyer-P, 2 regular Destroyers, 1 Destroyer-E, and 1 Scout. The AI fields 3 Destroyers, and 1 Light Cruiser.</p>",
+	"commentary":"<p>Welcome to another AI Solitaire battle. This time, we have decided to shake things up a bit by randomizing some of the elements. We have hand picked the Terran faction, and partially randomized the terrain (one of our friends wanted us to bring a planet to battle). We have then rolled a 1 for 250 SP, followed by a 10 for our Terran fleet and a 7 for the AI fleet.</p><p>We field 1 Destroyer-P, 2 regular Destroyers, 1 Destroyer-E, and 1 Scout. The AI fields 3 Destroyers, and 1 Light Cruiser.</p>",
 	"actions":
 		[{
 			"createPreset":"talonSkirmish",
@@ -4341,7 +4341,7 @@
 			"rotation":1
 		}]},
 	{"heading":"Stardate 2227.09D (Conclusion)",
-	"commentary":"<p>That miss was needlessly scary, but it did not stop us from coming out on top. We still secured a tactical victory (166 SP or less in losses are required for this threshold).</p><p>There is no telling how much of the battle would still be feasible if our ships were forced to retreat under the anti-cheese clause.</p>",
+	"commentary":"<p>That miss was needlessly scary, but it did not stop us from coming out on top. We still secured a tactical victory.</p><p>There is no telling how much of the battle would still be feasible if our ships were forced to retreat under the anti-cheese clause. This victory was not as comfortable as the previous victory as the Talon faction, but still an important stepping stone in learning the intricacies of Talon.</p>",
 	"scoreboard":
 		[{
 			"name":"CSY (Blue)","initPts":251,"killPts":250,"lostPts":147

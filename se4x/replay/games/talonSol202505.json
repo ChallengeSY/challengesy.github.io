@@ -2306,7 +2306,7 @@
 			"rotation":5
 		}]},
 	{"heading":"Stardate 2227.07C (Conclusion)",
-	"commentary":"<p>And thus concludes this playthrough! We have achieved a tactical victory with this setup. (3:1 score ratio required for a decisive victory.)</p><p>There were certainly a few hiccups that required reminders of <i>where</i> a ship could side slip, and whether they had a turning cooldown. Additionally, we misunderstood on how power can be used to redirect missiles. These are one of the reasons we handpicked a 250 SP battle. Talon 1000 has hundreds of Last Ship Standing setups up to an amazing 1100 SP, and that is <i>before</i> applying terrain and difficulty modifiers; and even more hundreds/thousands of other skirmish scenarios (plus 12/13 storyline scenarios) when <i>not</i> doing AI Solitaire.</p>",
+	"commentary":"<p>And thus concludes this playthrough! We have achieved a tactical victory with this setup.</p><p>There were certainly a few hiccups that required reminders of <i>where</i> a ship could side slip, and whether they had a turning cooldown (this was recorded prior to refitting the Replay Center with turn radius markers). Additionally, we misunderstood on how power can be used to redirect missiles. These are some of the reasons we handpicked a 250 SP battle. Talon 1000 has hundreds of Last Ship Standing setups up to an amazing 1100 SP, and that is <i>before</i> applying terrain and difficulty modifiers; and even more hundreds/thousands of other skirmish scenarios (plus 12/13 storyline scenarios) when <i>not</i> doing AI Solitaire.</p>",
 	"scoreboard":
 		[{
 			"name":"CSY (Red)","initPts":249,"killPts":250,"lostPts":88

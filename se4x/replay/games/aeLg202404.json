@@ -5421,7 +5421,7 @@
 			"name":"home20Y"
 		}]},
 	{"heading":"Stardate 2417.7 (Game Over)",
-	"commentary":"<p>We have no combat forces left. Since a blockaded homeworld can not produce income, this leaves us with no income to build anything else. Thus, since it was only a matter of time before our homeworld was destroyed; this playthrough is finished, in defeat.</p><p>We are sure there was plenty of room for improvement. Whether it be we never bought Movement technology, was way late on our Point-Defense tech, did not buy enough tech in general... Random Factor was not exactly in our favor, even for a <q>Large</q>-sized Alien Empires map. We did not find any planets on row I (fourth row from top), and only a single planet on row J (third row from top).</p>",
+	"commentary":"<p>We have no combat forces left. Since a blockaded homeworld can not produce income, this leaves us with no income to build anything else. Thus, since it was only a matter of time before our homeworld was destroyed; this playthrough is finished, in defeat.</p><p>We believe there is plenty of room for improvement. Whether it be we never bought Movement technology, was way late on our Point-Defense tech, did not buy enough tech in general... Random Factor was not exactly in our favor, even for a <q>Large</q>-sized Alien Empires map. We did not find any planets on row I (fourth row from top), and only a single planet on row J (third row from top).</p>",
 	"techTable":
 		[{
 			"name":"CSY (Yellow)","size":3,"explore":1,"terraform":1,"SY":2,"tac":1,"atk":1,"PD":1,"isDead":true
