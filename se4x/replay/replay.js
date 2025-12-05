@@ -277,6 +277,9 @@ function autoNameCounter(localObj) {
 	} else if (localObj.src.indexOf("gfx/SW") >= 0) {
 		localObj.title = "Minesweeper";
 		stackable = true;
+	} else if (localObj.src.indexOf("gfx/alienE") >= 0) {
+		localObj.title = "NPA Frigate";
+		stackable = true;
 	} else if (localObj.src.indexOf("gfx/alienD") >= 0) {
 		localObj.title = "NPA Destroyer";
 		stackable = true;
@@ -285,6 +288,9 @@ function autoNameCounter(localObj) {
 		stackable = true;
 	} else if (localObj.src.indexOf("gfx/alienB") >= 0) {
 		localObj.title = "NPA Battlecruiser";
+		stackable = true;
+	} else if (localObj.src.indexOf("gfx/alienA") >= 0) {
+		localObj.title = "NPA Battleship";
 		stackable = true;
 	} else if (localObj.src.indexOf("gfx/militia") >= 0) {
 		localObj.title = "Militia";
@@ -378,6 +384,8 @@ function autoNameCounter(localObj) {
 		localObj.title = "Light Cruiser";
 	} else if (localObj.src.indexOf("gfx/talon/CA") >= 0) {
 		localObj.title = "Heavy Cruiser";
+	} else if (localObj.src.indexOf("gfx/talon/BCH") >= 0) {
+		localObj.title = "Battlecruiser-H";
 	} else if (localObj.src.indexOf("gfx/talon/BCX") >= 0) {
 		localObj.title = "Battlecruiser-X";
 	} else if (localObj.src.indexOf("gfx/talon/BC") >= 0) {
@@ -386,6 +394,10 @@ function autoNameCounter(localObj) {
 		localObj.title = "Battleship";
 	} else if (localObj.src.indexOf("gfx/talon/DN") >= 0) {
 		localObj.title = "Dreadnought";
+	} else if (localObj.src.indexOf("gfx/talon/CV") >= 0) {
+		localObj.title = "Carrier";
+	} else if (localObj.src.indexOf("gfx/talon/Ftr") >= 0) {
+		localObj.title = "Fighter Squadron";
 	} else if (localObj.src.indexOf("gfx/talon/SB") >= 0) {
 		localObj.title = "Starbase";
 	} else if (localObj.src.indexOf("gfx/talon/missileDmg") >= 0) {
@@ -694,8 +706,12 @@ function paintTile(baseObj, paintPic) {
 				remCounter = true;
 				break;
 			case "asteroids":
-				if (getPic.indexOf("border") >= 0 || getPic.indexOf("planet") >= 0 || getPic.indexOf("home") >= 0) {
+				if (getPic.indexOf("capitol") >= 0) {
+					applyPic = "asteroidsW";
+				} else if (getPic.indexOf("border") >= 0 || getPic.indexOf("home") >= 0) {
 					applyPic = "asteroids"+getPic.charAt(getPic.length-5,1);
+				} else if (getPic.indexOf("planet") >= 0) {
+					applyPic = "asteroids"+getPic.charAt(getPic.length-6,1);
 				} else if (getPic.indexOf("colony5") >= 0) {
 					applyPic = "asteroids"+getPic.charAt(getPic.length-7,1);
 				}
@@ -903,6 +919,46 @@ function resizeStack(curId, newSize) {
 		findObj.style.borderTopWidth = newSize+"px";
 		
 		autoNameCounter(findObj);
+	}
+}
+
+function compareTalonShips() {
+	shipColl = document.getElementsByTagName("img");
+	var factions = ["Ter", "Tal", "AI"];
+	var shipCount = [0, 0, 0];
+	var smallestFleet = -1;
+	
+	for (var s = 0; s < shipColl.length; s++) {
+		if (shipColl[s].className && shipColl[s].className.search("counterBig") >= 0) {
+			for (var f = 0; f < factions.length; f++) {
+				if (shipColl[s].src.search(factions[f]) >= 0) {
+					shipCount[f]++;
+					break;
+				}
+			}
+		}
+	}
+	
+	for (var i = 0; i < shipCount.length; i++) {
+		if (shipCount[i] <= 0) {
+			shipCount[i] = Infinity;
+		}
+	}
+	
+	for (var p = 0; p < shipColl.length; p++) {
+		if (shipColl[p] && shipColl[p].className.search("counterBig") >= 0) {
+			shipColl[p].style.zIndex = 2;
+			if (shipColl[p].className.search("counterBig") >= 0) {
+				for (var f = factions.length-1; f >= 0; f--) {
+					if (Math.min(...shipCount) == shipCount[f]) {
+						if (shipColl[p].src.search(factions[f]) >= 0) {
+							shipColl[p].style.zIndex = 3;
+							break;
+						}
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -1894,14 +1950,17 @@ function readJson() {
 		
 		if (curStage.scoreboard) {
 			var constructTable = "<table><caption>Scoreboard</caption> \
-				<tr><th>Player</th><th>Composition</th><th>Kills</th><th>Objectives</th><th>Score</th>\
-				<th>Losses</th><th>Retreats</th><th>Strength</th></tr>";
+				<tr><th>Player</th><th>Kills</th><th>Objectives</th><th>Score</th>\
+				<th>Losses</th><th>Retreats</th><th colspan=\"2\">Strength</th><th>Reserve</th></tr>";
 				
 			for (var a = 0; a < curStage.scoreboard.length; a++) {
 				var activePlayer = curStage.scoreboard[a];
 				
-				var totalScore = [readValue(activePlayer.killPts,0) + 	readValue(activePlayer.objPts,0),
-					readValue(activePlayer.initPts,0) - readValue(activePlayer.lostPts,0) - readValue(activePlayer.retreatPts,0)];
+				var totalScore = [readValue(activePlayer.killPts,0) + readValue(activePlayer.objPts,0),
+					readValue(activePlayer.initPts,0) - readValue(activePlayer.lostPts,0) - readValue(activePlayer.retreatPts,0),
+					0];
+					
+				totalScore[2] = Math.ceil(totalScore[1] / readValue(activePlayer.initPts,0) * 100);
 
 				if (totalScore[1] <= 0) {
 					// Player is dead
@@ -1911,13 +1970,14 @@ function readJson() {
 				}
 				
 				constructTable = constructTable + "<td>"+activePlayer.name+"</td> \
-					<td class=\"numeric\">"+readValue(activePlayer.initPts,0)+"</td> \
 					<td class=\"numeric increase\">+"+readValue(activePlayer.killPts,0)+"</td> \
 					<td class=\"numeric increase\">+"+readValue(activePlayer.objPts,0)+"</td> \
 					<td class=\"numeric\">"+totalScore[0]+"</td> \
 					<td class=\"numeric decrease\">-"+readValue(activePlayer.lostPts,0)+"</td> \
 					<td class=\"numeric decrease\">-"+readValue(activePlayer.retreatPts,0)+"</td> \
-					<td class=\"numeric\">"+totalScore[1]+"</td></tr>"
+					<td class=\"numeric\">"+totalScore[1]+" / "+readValue(activePlayer.initPts,0)+"</td> \
+					<td class=\"numeric\">"+totalScore[2]+"%</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.reservePts,0)+"</td></tr>"
 			}
 				
 			constructTable = constructTable + "</table>";
@@ -1950,6 +2010,8 @@ function readJson() {
 			inferLocation = actionPool[i].location;
 		} else if (actionPool[i].placeCounter && actionPool[i].placeCounter.startsWith("system")) {
 			inferLocation = actionPool[i].placeCounter.substring(6);
+		} else if (actionPool[i].placeCounter && actionPool[i].placeCounter.startsWith("bin")) {
+			inferLocation = actionPool[i].placeCounter.substring(7);
 		}
 		
 		if (inferLocation) {
@@ -1980,8 +2042,18 @@ function readJson() {
 				placeCounter(workId, readX, readY, actionPool[i].name, readValue(actionPool[i].size,0), largeSize);
 			} else {
 				var convertName = null;
+				var lastChar = workId.substr(workId.length-1, 1);
+				
 				if (workId.startsWith("CO")) {
-					convertName = "CO"+workId.substr(workId.length-1, 1);
+					convertName = "CO"+lastChar;
+				} else if (workId.startsWith("NPA")) {
+					if (lastChar == "H") {
+						convertName = "hiddenA";
+					} else {
+						convertName = "alien"+lastChar;
+					}
+				} else if (workId.startsWith("DM")) {
+					convertName = "doomsday";
 				}
 				
 				placeCounter(workId, readX, readY, convertName, readValue(actionPool[i].size,0), largeSize);
@@ -2008,7 +2080,7 @@ function readJson() {
 					
 					var numId = workId.split("-")[1];
 					
-					var shipDetails = [workObj.title + " " + numId, actionPool[i].pwrCurve, readValue(actionPool[i].shields, [0,0,0,0]),
+					var shipDetails = [workObj.title + " " + numId, actionPool[i].pwrCurve, readValue(actionPool[i].shields, []),
 						readValue(actionPool[i].wepCharge, []), readValue(actionPool[i].hullDmg, 0), readValue(actionPool[i].critDmg, []), extraFeats];
 					
 					if (actionPool[i].pwrCurve) {
@@ -2134,7 +2206,7 @@ function readJson() {
 			makeHexes(actionPool[i].createPreset.toLowerCase().indexOf("talon") >= 0);
 			
 			if (actionPool[i].createPreset == "alienEmpiresSolo") {
-				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				expansionHWs = false;
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColor = actionPool[i].playerColor;
 				
@@ -2196,7 +2268,7 @@ function readJson() {
 					dispRow(letterRows.charAt(z), false);
 				}
 			} else if (actionPool[i].createPreset == "alienEmpiresSoloLg") {
-				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				expansionHWs = false;
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColor = actionPool[i].playerColor;
 				
@@ -2238,7 +2310,7 @@ function readJson() {
 				}
 				
 			} else if (actionPool[i].createPreset == "alienEmpiresSoloTalon") {
-				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				expansionHWs = false;
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColor = actionPool[i].playerColor;
 				
@@ -3293,6 +3365,7 @@ function readJson() {
 			} else if (actionPool[i].createPreset == "versus4Pds") {
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
+				var useOlderLayout = readValue(actionPool[i].olderLayout, false);
 				var plrColors = "GYRB";
 				
 				if (actionPool[i].playerColors) {
@@ -3302,9 +3375,9 @@ function readJson() {
 				for (var y = 0; y < 12; y++) {
 					for (var x = 1; x <= 13; x++) {
 						if (x < 13 || y % 2 == 0) {
-							if (y < 4 && x <= Math.floor(y/2)+3) {
+							if (y < 4 && (x < 5 - y % 2 || (useOlderLayout && x <= Math.floor(y/2)+3))) {
 								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(0));
-							} else if (y < 4 && x >= 11 - Math.floor((y+1)/2)) {
+							} else if (y < 4 && (x >= 10 || (useOlderLayout && x >= 11 - Math.floor((y+1)/2)))) {
 								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(1));
 							} else if (y > 7 && x <= Math.floor(y/2)-1) {
 								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(2));
@@ -3848,12 +3921,18 @@ function readJson() {
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColor = actionPool[i].playerColor;
-				var numRows = readValue(actionPool[i].numRows, 9);
+				var numRows = Math.min(readValue(actionPool[i].numRows, 9), 25);
 				
-				for (var y = 0; y < numRows; y++) {
+				var initRow = 0;
+				if (numRows > 11) {
+					initRow = 1;
+					dispRow("L", false);
+				}
+
+				for (var y = initRow; y <= numRows; y++) {
 					for (var x = 1; x <= 13; x++) {
 						if (x < 13 || y % 2 == 0) {
-							if (y < 2) {
+							if (y < 2+initRow) {
 								placeSystemMarker(x,y,"unexplored"+plrColor);
 							} else {
 								placeSystemMarker(x,y,deepSpace);
@@ -3862,7 +3941,7 @@ function readJson() {
 					}
 				}
 
-				placeHomeworld(7,0,plrColor);
+				placeHomeworld(7,initRow*2,plrColor);
 				if (plrColor == "O" || plrColor == "U") {
 					useRuleset = "AGT";
 				} else if (plrColor == "V") {
@@ -3873,8 +3952,8 @@ function readJson() {
 					useRuleset = "SE4X";
 				}
 
-				for (var z = numRows; z < 12; z++) {
-					dispRow(letterRows.charAt(z), false);
+				for (var z = 2; z < 26; z++) {
+					dispRow(letterRows.charAt(z), z <= numRows);
 				}
 				
 			} else if (actionPool[i].createPreset == "makeAPbots") {
@@ -3890,6 +3969,13 @@ function readJson() {
 					deleteCounter("SY1"+workColor);
 					deleteCounter("Miner1"+workColor);
 					deleteCounter("Flag"+workColor);
+				}
+				
+			} else if (actionPool[i].createPreset == "emptyBoard") {
+				for (var y = 0; y < 12; y++) {
+					for (var x = 1; x <= 13; x++) {
+						paintTile(letterRows.charAt(y)+x,"unexploredW");
+					}
 				}
 				
 			} else if (actionPool[i].createPreset == "talonSkirmish") {
@@ -3952,6 +4038,8 @@ function readJson() {
 			}
 		}
 	}
+	
+	compareTalonShips();
 
 	document.getElementById("stageL").disabled = (stageNum <= 0);
 	document.getElementById("stageR").disabled = (stageNum >= stageTotal);
