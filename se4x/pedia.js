@@ -140,7 +140,7 @@ function dmBase(strength) {
 		<span class=\"bindTxt\">(more in a "+conceptLink("co-op")+" scenario)</span>, each usually stronger than the previous.";
 	
 	if (useRuleset == "AGT") {
-		dmCommonC = dmCommonC + "<br /><br />As a "+conceptLink("scenario card")+", any DMs revealed "+conceptLink("battle")+" the ship that just revealed it. \
+		dmCommonC = dmCommonC + "<br /><br />As a "+conceptLink("scenario card")+", any DMs revealed "+conceptLink("battle")+" the ship that just revealed it, even via "+conceptLink("Exploration")+". \
 			They then move directly towards the revealing player's "+conceptLink("homeworld")+", avoiding subsequent "+conceptLink("battle")+"s as long as doing so would not prolong their journey.";
 	}
 	
@@ -721,7 +721,7 @@ function showBox(concept) {
 			} else {
 				displayTxt = "A set of "+conceptLink("hex")+"es that spread beyond the players' "+conceptLink("home system")+"s.<br />\
 					These systems have a much higher risk <span class=\"bindTxt\">(several "+conceptLink("Danger")+"! counters, and less predictability)</span>, \
-					but higher reward <span class=\"bindTxt\">("+conceptLink("minerals")+" pay better, and there can be "+conceptLink("space wreck")+"s)</span>.";
+					but higher reward <span class=\"bindTxt\">("+conceptLink("mineral")+"s pay better, and there can be "+conceptLink("space wreck")+"s)</span>.";
 			}
 			break;
 		case "fold":
@@ -2909,7 +2909,8 @@ function showBox(concept) {
 				Also used as a currency, and as a scoreboard value.";
 			break;
 		case "deployment zone":
-			displayTxt = "Zone in which a given player must set up their "+conceptLink("ship")+"s.";
+			displayTxt = "Zone in which a given player must set up their "+conceptLink("ship")+"s. \
+				(Exception: "+conceptLink("Fighter")+"s must instead be placed adjacent to the "+conceptLink("carrier")+" or "+conceptLink("base")+" that launched them.)";
 			break;
 		case "reserve":
 			displayTxt = "Off-map zone used to contain additional ships that are available to deploy later in a "+conceptLink("battle")+". \
