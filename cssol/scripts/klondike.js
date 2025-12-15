@@ -11,7 +11,7 @@ tableauDepth = 0;
 
 tableauBuilding = "downColorAlt";
 tableauMovement = "builds";
-emptyPileRefills = "none";
+emptyPileRefills = "finalRank";
 emptyAutoRefills = 0;
 downturnDepth = [6];
 
