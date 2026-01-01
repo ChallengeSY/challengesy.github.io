@@ -1,6 +1,8 @@
 {"stages": [
 	{"heading":"Stardate 2400.0 (Introduction)",
-	"commentary":"<p>Welcome to a Space Empires 4X Doomsday Machine playthrough. This playthrough showcases repelling the machines, hopefully without losing one's own homeworld.</p><p>We are doing this playthrough on Harder difficulty, and on a small map. As shown on our DM tracker, which we refitted into this playthrough, the first machine spawns fairly early, on economic phase 6.</p>",
+	"commentary":[
+		"Welcome to a Space Empires 4X Doomsday Machine playthrough. This playthrough showcases repelling the machines, hopefully without losing one's own homeworld.",
+		"We are doing this playthrough on Harder difficulty, and on a small map. As shown on our DM tracker, which we refitted into this playthrough, the first machine spawns fairly early, on economic phase 6."],
 	"dmTable":
 		[{
 			"soloSm":4,"ecoPhase":0
@@ -10,8 +12,8 @@
 			"createPreset":"doomsdaySoloSm",
 			"playerColor":"Y"
 		}]},
-	{"heading":"Stardate 2400.3 (Turn 1)",
-	"commentary":"<p>As usual, it is safest to move <i>only</i> Scouts during the first turn. Risking a Colony Ship and/or Mining Ship early in the game is <q>extremely expensive</q>.</p>",
+	{"heading":"Stardate 2400.3",
+	"commentary":["As usual, it is safest to move <i>only</i> Scouts during the first turn. Risking a Colony Ship and/or Mining Ship early in the game is <q>extremely expensive</q>."],
 	"actions":
 		[{
 			"placeCounter":"SC1Y",
@@ -50,8 +52,8 @@
 			"revealCounter":"systemL9",
 			"name":"unexploredY"
 		}]},
-	{"heading":"Stardate 2400.6 (Turn 2)",
-	"commentary":"<p>Now that the risk has diminished (although the obligatory black hole is still somewhere), we can start moving other ships.</p>",
+	{"heading":"Stardate 2400.6",
+	"commentary":["Now that the risk has diminished (although the obligatory black hole is still somewhere), we can start moving other ships."],
 	"actions":
 		[{
 			"placeCounter":"SC1Y",
@@ -95,8 +97,8 @@
 			"revealCounter":"systemK9",
 			"name":"unexploredY"
 		}]},
-	{"heading":"Stardate 2400.9 (Turn 3)",
-	"commentary":"<p>We finish the series by getting two Colony Ships in position to colonize their respective planets, while our Mining Ship tows one of the minerals home.</p>",
+	{"heading":"Stardate 2400.9",
+	"commentary":["We finish the series by getting two Colony Ships in position to colonize their respective planets, while our Mining Ship tows one of the minerals home."],
 	"actions":
 		[{
 			"placeCounter":"SC1Y",
@@ -147,8 +149,8 @@
 		},{
 			"removeCounter":"SC4Y"
 		}]},
-	{"heading":"Stardate 2401.0 (Economic Phase 1)",
-	"commentary":"<p>Not much to say here, since we are early in a playthrough. We buy 1 Scout (-6 CP) and 2 Colony Ships (-16 CP).</p>",
+	{"heading":"Stardate 2401.0",
+	"commentary":["Not much to say here, since we are early in a playthrough. We buy 1 Scout (-6 CP) and 2 Colony Ships (-16 CP)."],
 	"prodTable":
 		[{
 			"name":"CSY (Yellow)","initCP":0,"colonyCP":20,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":0,"unitBuy":22
@@ -211,8 +213,10 @@
 			"revealCounter":"systemK7",
 			"name":"unexploredY"
 		}]},
-	{"heading":"Stardate 2401.2 (Turn 4)",
-	"commentary":"<p>Who would have known the obligatory black hole was in the one adjacent hex we deferred until now? Regardless, our newly built Scout must roll for survival. It rolled an 8 (destroyed).</p><p>In other news, our first expedition into deep space exposed some dense minerals.</p>",
+	{"heading":"Stardate 2401.2",
+	"commentary":[
+		"Who would have known the obligatory black hole was in the one adjacent hex we deferred until now? Regardless, our newly built Scout must roll for survival. It rolled an 8 (destroyed).",
+		"In other news, our first expedition into deep space exposed some dense minerals."],
 	"actions":
 		[{
 			"placeCounter":"SC1Y",
@@ -265,8 +269,8 @@
 			"revealCounter":"systemJ9",
 			"name":"unexploredY"
 		}]},
-	{"heading":"Stardate 2401.5 (Turn 5)",
-	"commentary":"<p>Although the loss was unfortunate, it guarantees we will not expose more black holes until we venture further into deep space.</p>",
+	{"heading":"Stardate 2401.5",
+	"commentary":["Although the loss was unfortunate, it guarantees we will not expose more black holes until we venture further into deep space."],
 	"actions":
 		[{
 			"removeCounter":"SC4Y"
@@ -316,8 +320,8 @@
 			"revealCounter":"systemK8",
 			"name":"unexploredY"
 		}]},
-	{"heading":"Stardate 2401.8 (Turn 6)",
-	"commentary":"<p>Taking another risk into deep space, we uncover more dense minerals.</p>",
+	{"heading":"Stardate 2401.8",
+	"commentary":["Taking another risk into deep space, we uncover more dense minerals."],
 	"actions":
 		[{
 			"placeCounter":"SC1Y",
@@ -370,8 +374,8 @@
 			"revealCounter":"systemL9",
 			"name":"colony1"
 		}]},
-	{"heading":"Stardate 2402.0 (Economic Phase 2)",
-	"commentary":"<p>The fourth Scout did not last long at all. We will buy Ship Size Level 2 (-10), followed by 1 Colony Ship (-8) and 1 Mining Ship (-5).</p>",
+	{"heading":"Stardate 2402.0",
+	"commentary":["The fourth Scout did not last long at all. We will buy Ship Size Level 2 (-10), followed by 1 Colony Ship (-8) and 1 Mining Ship (-5)."],
 	"prodTable":
 		[{
 			"name":"CSY (Yellow)","initCP":0,"colonyCP":22,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":10,"unitBuy":13
@@ -432,8 +436,8 @@
 			"revealCounter":"systemJ8",
 			"name":"unexploredY"
 		}]},
-	{"heading":"Stardate 2402.1 (Turn 7)",
-	"commentary":"<p>Breaking News! We had an accident at sector I3! A Danger marker had been exposed, instantly destroying one of our Scouts.</p>",
+	{"heading":"Stardate 2402.1",
+	"commentary":["Breaking News! We had an accident at sector I3! A Danger marker had been exposed, instantly destroying one of our Scouts."],
 	"actions":
 		[{
 			"placeCounter":"Miner1Y",
@@ -483,8 +487,8 @@
 			"revealCounter":"systemJ7",
 			"name":"unexploredY"
 		}]},
-	{"heading":"Stardate 2402.4 (Turn 8)",
-	"commentary":"<p>Although the loss was unfortunate,  we are slowly exhausting the available home systems...</p>",
+	{"heading":"Stardate 2402.4",
+	"commentary":["Although the loss was unfortunate,  we are slowly exhausting the available home systems..."],
 	"actions":
 		[{
 			"removeCounter":"SC1Y"
@@ -532,8 +536,8 @@
 			"revealCounter":"systemI7",
 			"name":"unexploredY"
 		}]},
-	{"heading":"Stardate 2402.7 (Turn 9)",
-	"commentary":"<p>... and spending 3 of our Colony Ships on new planets.</p>",
+	{"heading":"Stardate 2402.7",
+	"commentary":["... and spending 3 of our Colony Ships on new planets."],
 	"actions":
 		[{
 			"placeCounter":"Miner1Y",
@@ -592,8 +596,10 @@
 			"revealCounter":"systemH6",
 			"name":"planetY4"
 		}]},
-	{"heading":"Stardate 2403.0 (Economic Phase 3)",
-	"commentary":"<p>This marks the half way point on our grace time. Once the first Doomsday Machine spawns, that will be the beginning of the action.</p><p>We will buy Ship Size Level 3 (-15), followed by two Colony Ships (-16).</p>",
+	{"heading":"Stardate 2403.0",
+	"commentary":[
+		"This marks the half way point on our grace time. Once the first Doomsday Machine spawns, that will be the beginning of the action.",
+		"We will buy Ship Size Level 3 (-15), followed by two Colony Ships (-16)."],
 	"prodTable":
 		[{
 			"name":"CSY (Yellow)","initCP":1,"colonyCP":27,"mineralCP":10,"pipeCP":0,"maint":2,"bidCP":0,"techBuy":15,"unitBuy":16
@@ -663,8 +669,8 @@
 			"revealCounter":"systemH8",
 			"name":"unexploredY"
 		}]},
-	{"heading":"Stardate 2403.3 (Turn 10)",
-	"commentary":"<p>As of this turn, our <q>safety net</q> of home systems has been exhausted.</p>",
+	{"heading":"Stardate 2403.3",
+	"commentary":["As of this turn, our <q>safety net</q> of home systems has been exhausted."],
 	"actions":
 		[{
 			"placeCounter":"SC2Y",
@@ -708,8 +714,8 @@
 			"revealCounter":"systemH9",
 			"name":"unexploredW"
 		}]},
-	{"heading":"Stardate 2403.6 (Turn 11)",
-	"commentary":"<p>Our next ventures into deep space proved quite useful, as we have uncovered a space wreck!</p>",
+	{"heading":"Stardate 2403.6",
+	"commentary":["Our next ventures into deep space proved quite useful, as we have uncovered a space wreck!"],
 	"actions":
 		[{
 			"placeCounter":"SC2Y",
@@ -748,8 +754,8 @@
 			"revealCounter":"systemI9",
 			"name":"unexploredW"
 		}]},
-	{"heading":"Stardate 2403.9 (Turn 12)",
-	"commentary":"<p>Those barren planets are tempting, but Terraforming technology is expensive.</p>",
+	{"heading":"Stardate 2403.9",
+	"commentary":["Those barren planets are tempting, but Terraforming technology is expensive."],
 	"actions":
 		[{
 			"placeCounter":"SC2Y",
@@ -798,8 +804,8 @@
 			"revealCounter":"systemH6",
 			"name":"colony1"
 		}]},
-	{"heading":"Stardate 2404.0 (Economic Phase 4)",
-	"commentary":"<p>We are coming along quite nicely. We will buy Attack Level 1 (-20) and Ship Yards Level 2 (-20). We will also buy one Cruiser (-12).</p>",
+	{"heading":"Stardate 2404.0",
+	"commentary":["We are coming along quite nicely. We will buy Attack Level 1 (-20) and Ship Yards Level 2 (-20). We will also buy one Cruiser (-12)."],
 	"prodTable":
 		[{
 			"name":"CSY (Yellow)","initCP":5,"colonyCP":36,"mineralCP":15,"pipeCP":0,"maint":2,"bidCP":0,"techBuy":40,"unitBuy":12
@@ -861,7 +867,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2404.2",
-	"commentary":"<p>The suspense continues as another black hole is exposed. The vulnerable scout rolled a 5 (survived), and gets to resume its journey.</p>",
+	"commentary":["The suspense continues as another black hole is exposed. The vulnerable scout rolled a 5 (survived), and gets to resume its journey."],
 	"actions":
 		[{
 			"placeCounter":"SC2Y",
@@ -906,7 +912,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2404.5",
-	"commentary":"<p>Lightning rarely strikes twice. A Danger marker has eliminated our black hole survivor.</p>",
+	"commentary":["Lightning rarely strikes twice. A Danger marker has eliminated our black hole survivor."],
 	"actions":
 		[{
 			"placeCounter":"SC2Y",
@@ -940,7 +946,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2404.8",
-	"commentary":"<p>Destiny can also be cruel. One last Danger marker has eliminated our final scout.</p>",
+	"commentary":["Destiny can also be cruel. One last Danger marker has eliminated our final scout."],
 	"actions":
 		[{
 			"removeCounter":"SC2Y"
@@ -992,7 +998,7 @@
 			"name":"planetY5"
 		}]},
 	{"heading":"Stardate 2405.0",
-	"commentary":"<p>The grace period is nearing its end. Before we can spend our CP, we need to cash in our space wreck. We rolled a 2 (Ship Size 4 granted this way). We will build 3 more Cruisers (-36) to fortify our Cruiser group, while spending our Ship Yard capacity.</p>",
+	"commentary":["The grace period is nearing its end. Before we can spend our CP, we need to cash in our space wreck. We rolled a 2 (Ship Size 4 granted this way). We will build 3 more Cruisers (-36) to fortify our Cruiser group, while spending our Ship Yard capacity."],
 	"prodTable":
 		[{
 			"name":"CSY (Yellow)","initCP":2,"colonyCP":44,"mineralCP":5,"pipeCP":0,"maint":2,"bidCP":0,"techBuy":0,"unitBuy":36
@@ -1044,7 +1050,7 @@
 			"location":"I8"
 		}]},
 	{"heading":"Stardate 2405.1",
-	"commentary":"<p>With our scouts all gone...</p>",
+	"commentary":["With our scouts all gone..."],
 	"actions":
 		[{
 			"placeCounter":"Miner1Y",
@@ -1059,7 +1065,7 @@
 			"name":"minerals10"
 		}]},
 	{"heading":"Stardate 2405.4",
-	"commentary":"<p>... there is barely anything to do...</p>",
+	"commentary":["... there is barely anything to do..."],
 	"actions":
 		[{
 			"placeCounter":"Miner1Y",
@@ -1081,7 +1087,7 @@
 			"name":"minerals10"
 		}]},
 	{"heading":"Stardate 2405.7",
-	"commentary":"<p>... except wait for the inevitable.</p>",
+	"commentary":["... except wait for the inevitable."],
 	"actions":
 		[{
 			"placeCounter":"Miner1Y",
@@ -1111,7 +1117,10 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2406.0",
-	"commentary":"<p>The first Doomsday Machine is here, as shown on the tracker!</p>{dmTable}<p>We will buy Attack Level 2 (-30), followed by three more Cruisers (-36).</p>",
+	"commentary":[
+		"The first Doomsday Machine is here, as shown on the tracker!",
+		"{dmTable}",
+		"We will buy Attack Level 2 (-30), followed by three more Cruisers (-36)."],
 	"prodTable":
 		[{
 			"name":"CSY (Yellow)","initCP":13,"colonyCP":52,"mineralCP":10,"pipeCP":0,"maint":8,"bidCP":0,"techBuy":30,"unitBuy":36
@@ -1153,7 +1162,7 @@
 			"location":"H8"
 		}]},
 	{"heading":"Stardate 2406.3",
-	"commentary":"<p>Now that our first objective has spawned, we will pursue it and attempt to limit its damage.</p>",
+	"commentary":["Now that our first objective has spawned, we will pursue it and attempt to limit its damage."],
 	"actions":
 		[{
 			"placeCounter":"CA1Y",
@@ -1182,7 +1191,7 @@
 			"location":"L3"
 		}]},
 	{"heading":"Stardate 2406.6",
-	"commentary":"<p>Regrettably, there is nothing we can do about one of the colonies it reaches. This planet has been instantly destroyed!</p>",
+	"commentary":["Regrettably, there is nothing we can do about one of the colonies it reaches. Benden has been instantly destroyed!"],
 	"actions":
 		[{
 			"placeCounter":"CA1Y",
@@ -1219,7 +1228,16 @@
 			"location":"L4"
 		}]},
 	{"heading":"Stardate 2406.9 (The Battle for Sector L5)",
-	"commentary":"<p>But we <i>can</i> attempt to prevent it from threatening our homeworld! Thus, we have our first battle of the playthrough. We have 7 Cruisers (4 with Attack Level 1, 3 with Attack Level 2), versus the <a href=\"javascript:showBox('dm2')\">first</a> Doomsday Machine.</p><ol><li><b>Round 1</b>: Since this is its first battle, our first step is to roll for weakness. This DM rolls a 2 (weak to Fighters)</li><li>The DM has the Tactics advantage, so it gets to shoot first. Since our Cruisers' Attack ratings are uneven, the DM will prioritize the group with the highest Attack rating</li><li>The DM rolls 2,5,5,10 (3 hits) against our Cruiser Atk+2 group (7 - 1 = 6 to hit. We lost one Cruiser, and another got damaged</li><li>Our two surviving Cruisers (with Atk+2) will return fire (4 + 2 - 1 = 5 to hit). We roll 4,8 (1 hit). This reduced the DM HP to 6</li><li>Our four older Cruisers (with Atk+1) will fire also (4 + 1 - 1 = 4 to hit). We roll 1,2,3,10 (3 hits). This further reduced the DM HP to 3<br /><br /></li><li><b>Round 2</b>: The DM continues its pursuit against our Cruiser Atk+2 group, only there is not enough effective HP to necessarily use all the rolls. It rolled 1,5,8 (2 hits), followed by a 9 (miss). We lost a Cruiser, but the group is not quite dead</li><li>Our one surviving Cruiser Atk+2 returns fire. It rolled a 3 (hit). This reduced the DM HP to 2</li><li>Our Cruiser Atk+1 group rolled 4,4,6,9 (2 hits). This finished the Doomsday Machine off!</li></ol>",
+	"commentary":[
+		"But we <i>can</i> attempt to prevent it from threatening our homeworld! Thus, we have our first battle of the playthrough. We have 7 Cruisers (4 with Attack Level 1, 3 with Attack Level 2), versus the <a href=\"javascript:showBox('dm2')\">first</a> Doomsday Machine.",
+		"<ol><li><b>Round 1</b>: Since this is its first battle, our first step is to roll for weakness. This DM rolls a 2 (weak to Fighters)</li>",
+		"<li>The DM has the Tactics advantage, so it gets to shoot first. Since our Cruisers' Attack ratings are uneven, the DM will prioritize the group with the highest Attack rating</li>",
+		"<li>The DM rolls 2,5,5,10 (3 hits) against our Cruiser Atk+2 group (7 - 1 = 6 to hit. We lost one Cruiser, and another got damaged</li>",
+		"<li>Our two surviving Cruisers (with Atk+2) will return fire (4 + 2 - 1 = 5 to hit). We roll 4,8 (1 hit). This reduced the DM HP to 6</li>",
+		"<li>Our four older Cruisers (with Atk+1) will fire also (4 + 1 - 1 = 4 to hit). We roll 1,2,3,10 (3 hits). This further reduced the DM HP to 3<br /><br /></li>",
+		"<li><b>Round 2</b>: The DM continues its pursuit against our Cruiser Atk+2 group, only there is not enough effective HP to necessarily use all the rolls. It rolled 1,5,8 (2 hits), followed by a 9 (miss). We lost a Cruiser, but the group is not quite dead</li>",
+		"<li>Our one surviving Cruiser Atk+2 returns fire. It rolled a 3 (hit). This reduced the DM HP to 2</li>",
+		"<li>Our Cruiser Atk+1 group rolled 4,4,6,9 (2 hits). This finished the Doomsday Machine off!</li></ol>"],
 	"actions":
 		[{
 			"removeCounter":"systemL4"
@@ -1260,7 +1278,7 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2407.0",
-	"commentary":"<p>With the first machine destroyed, though at the cost of a planet, we can rest for a short bit. We will buy three Cruisers (-36).</p>",
+	"commentary":["With the first machine destroyed, though at the cost of a planet, we can rest for a short bit. We will buy three Cruisers (-36)."],
 	"prodTable":
 		[{
 			"name":"CSY (Yellow)","initCP":1,"colonyCP":51,"mineralCP":20,"pipeCP":0,"maint":10,"bidCP":0,"techBuy":0,"unitBuy":36
@@ -1307,7 +1325,7 @@
 			"location":"J9"
 		}]},
 	{"heading":"Stardate 2407.2",
-	"commentary":"<p>We will return our existing Cruisers home to get them upgraded.</p>",
+	"commentary":["We will return our existing Cruisers home to get them upgraded."],
 	"actions":
 		[{
 			"placeCounter":"CA1Y",
@@ -1329,7 +1347,7 @@
 			"name":"minerals5"
 		}]},
 	{"heading":"Stardate 2407.5",
-	"commentary":"<p>This will take some time... and some money.</p>",
+	"commentary":["This will take some time... and some money."],
 	"actions":
 		[{
 			"placeCounter":"CA1Y",
@@ -1362,7 +1380,7 @@
 			"name":"minerals10"
 		}]},
 	{"heading":"Stardate 2407.8",
-	"commentary":"<p>8 CP were spent upgrading our outdated Cruisers. We then merged them all into a single group of eight Cruisers.</p>",
+	"commentary":["8 CP were spent upgrading our outdated Cruisers. We then merged them all into a single group of eight Cruisers."],
 	"actions":
 		[{
 			"removeCounter":"CA1Y"
@@ -1391,7 +1409,10 @@
 			"removeCounter":"dm2"
 		}]},
 	{"heading":"Stardate 2408.0",
-	"commentary":"<p>The second Doomsday Machine has appeared on the board!</p>{dmTable}<p>We will buy three more Cruisers (-36). This gives us eleven (11) Cruisers under our banner.</p>",
+	"commentary":[
+		"The second Doomsday Machine has appeared on the board!",
+		"{dmTable}",
+		"We will buy three more Cruisers (-36). This gives us eleven (11) Cruisers under our banner."],
 	"prodTable":
 		[{
 			"name":"CSY (Yellow)","initCP":18,"colonyCP":55,"mineralCP":5,"pipeCP":0,"maint":16,"bidCP":0,"techBuy":0,"unitBuy":36
@@ -1426,7 +1447,7 @@
 			"location":"L7"
 		}]},
 	{"heading":"Stardate 2408.1",
-	"commentary":"<p>The black hole is quite an obstacle. Best we can do is move around it.</p>",
+	"commentary":["The black hole is quite an obstacle. Best we can do is move around it."],
 	"actions":
 		[{
 			"removeCounter":"Miner1Yload"
@@ -1453,7 +1474,7 @@
 			"name":"minerals5"
 		}]},
 	{"heading":"Stardate 2408.4",
-	"commentary":"<p>Nothing we can do about our planet at sector H8.</p>",
+	"commentary":["Nothing we can do about our planet of Tempe (H8)."],
 	"actions":
 		[{
 			"placeCounter":"Miner1Y",
@@ -1483,8 +1504,16 @@
 			"revealCounter":"systemH8",
 			"name":"colony5Y"
 		}]},
-	{"heading":"Stardate 2408.7 (The Battle for Sector I7)",
-	"commentary":"<p>We <i>can</i> take advantage of Doomsday Machine tie breaker rules. Colonies at sectors I7 / H7 are both the same distance and the same size. The colony at sector I7 would put the DM closer to our homeworld, so that is its choice. Since our eleven (11) Cruisers also happen to be at I7... a battle will take place <i>before</i> the <a href=\"javascript:showBox('dm4')\">second</a> DM gets a chance of destroying the planet.</p><ol><li><b>Round 1</b>: Since this is its first battle, it rolled a 4 for weakness (weak to Minelaying)</li><li>It will use its Tactics advantage to shoot first. Since our Cruisers are all the same, it simply rolls away (8 - 1 = 7 to hit): 3,4,5,9 (3 hits). We lost one cruiser, and another got damaged</li><li>Our ten (10) surviving Cruisers return fire (4 + 2 - 2 = 4 to hit). They rolled 1,1,3,4,5,5,6,7,8,9 (4 hits). The DM has been reduced to 4 HP<br /><br /></li><li><b>Round 2</b>: The DM gets to shoot again: 3,7,8,9 (2 hits). Another cruiser cleanly bites the dust</li><li>Our nine (9) surviving Cruisers shoot once more: 3,3,5,8,8,10,10,10,10 (2 hits). The DM has been reduced to 2 HP<br /><br /></li><li><b>Round 3</b>: The DM gets to shoot again: 4,5,5,10 (3 hits). Factoring in one previous damage, we lost two more cruisers</li><li>Our seven (7) surviving Cruisers shoot once more: 1,4,4,5,6,8,8 (3 hits). The DM has been finished off!</li></ol>",
+	{"heading":"Stardate 2408.7 (The Battle for Xi)",
+	"commentary":[
+		"We <i>can</i> take advantage of Doomsday Machine tie breaker rules. Colonies at Xi (I7) and Aslak (H7) are both the same distance and the same size. Xi would put the DM closer to our homeworld of Vesyr, so that is its choice. Since our eleven (11) Cruisers also happen to be at I7... a battle will take place <i>before</i> the <a href=\"javascript:showBox('dm4')\">second</a> DM gets a chance of destroying the planet.",
+		"<ol><li><b>Round 1</b>: Since this is its first battle, it rolled a 4 for weakness (weak to Minelaying)</li>",
+		"<li>It will use its Tactics advantage to shoot first. Since our Cruisers are all the same, it simply rolls away (8 - 1 = 7 to hit): 3,4,5,9 (3 hits). We lost one cruiser, and another got damaged</li>",
+		"<li>Our ten (10) surviving Cruisers return fire (4 + 2 - 2 = 4 to hit). They rolled 1,1,3,4,5,5,6,7,8,9 (4 hits). The DM has been reduced to 4 HP<br /><br /></li>",
+		"<li><b>Round 2</b>: The DM gets to shoot again: 3,7,8,9 (2 hits). Another cruiser cleanly bites the dust</li>",
+		"<li>Our nine (9) surviving Cruisers shoot once more: 3,3,5,8,8,10,10,10,10 (2 hits). The DM has been reduced to 2 HP<br /><br /></li>",
+		"<li><b>Round 3</b>: The DM gets to shoot again: 4,5,5,10 (3 hits). Factoring in one previous damage, we lost two more cruisers</li>",
+		"<li>Our seven (7) surviving Cruisers shoot once more: 1,4,4,5,6,8,8 (3 hits). The DM has been finished off!</li></ol>"],
 	"actions":
 		[{
 			"removeCounter":"systemH8"
@@ -1531,7 +1560,9 @@
 			"name":"markerY"
 		}]},
 	{"heading":"Stardate 2409.0",
-	"commentary":"<p>Thanks to it being on Harder difficulty, the final Doomsday Machine was not far behind!</p>{dmTable}<p>Anyway, we will buy Ship Yards Level 3 (-30), and three more Cruisers (-36). This gives us ten (10) Cruisers under our banner once we can consolidate them.</p>",
+	"commentary":["Thanks to it being on Harder difficulty, the final Doomsday Machine was not far behind!",
+		"{dmTable}",
+		"Anyway, we will buy Ship Yards Level 3 (-30), and three more Cruisers (-36). This gives us ten (10) Cruisers under our banner once we can consolidate them."],
 	"prodTable":
 		[{
 			"name":"CSY (Yellow)","initCP":26,"colonyCP":50,"mineralCP":15,"pipeCP":0,"maint":14,"bidCP":0,"techBuy":30,"unitBuy":36
@@ -1576,7 +1607,7 @@
 			"name":"minerals5"
 		}]},
 	{"heading":"Stardate 2409.3",
-	"commentary":"<p>The final machine starts its advance, taking advantage of its immunity to black holes... yet, it has two <q>equally valid</q> choices on where to go.</p>",
+	"commentary":["The final machine starts its advance, taking advantage of its immunity to black holes... yet, it has two <q>equally valid</q> choices on where to go."],
 	"actions":
 		[{
 			"placeCounter":"Miner2Y",
@@ -1595,7 +1626,7 @@
 			"location":"G6"
 		}]},
 	{"heading":"Stardate 2409.6",
-	"commentary":"<p>Since this is the final machine, we will infer it is a little smarter than its predecessors, and go from there. While we <i>could</i> attempt to stop them from destroying a third planet with just seven Cruisers, we opt not to do so.</p>",
+	"commentary":["Since this is the final machine, we will infer it is a little smarter than its predecessors, and go from there. While we <i>could</i> attempt to stop them from destroying Aslak (H7) with just seven Cruisers, we opt not to do so."],
 	"actions":
 		[{
 			"placeCounter":"CA1Y",
@@ -1610,8 +1641,18 @@
 			"revealCounter":"systemH7",
 			"name":"colony5Y"
 		}]},
-	{"heading":"Stardate 2409.9 (Battle for Sector I7)",
-	"commentary":"<p>We have a better chance of destroying the machine with ten Cruisers. Plus; by not damaging it in the first place, it destroys a planet and wastes its <q>healing</q>. Otherwise, it would have repaired 2 damage. We have managed to consolidate our ten (10) Cruisers at I7. Thus, a battle will take place versus the <a href=\"javascript:showBox('dm6')\">final</a> DM.</p><ol><li><b>Round 1</b>: Since this is its first battle, it rolled a 4 for weakness (weak to Minelaying)</li><li>It has the best Weapon Class, so it shoots first. Again, our Cruisers are all the same. It simply rolls away (9 - 1 = 8 to hit): 3,6,8,9,10 (3 hits). We lost one cruiser, plus another got damaged</li><li>Our nine (9) surviving cruisers return fire (4 + 2 - 3 = 3 to hit) with 1,1,1,3,4,6,8,8,9 (4 hits). This reduced the DM HP to 5<br /><br /></li><li><b>Round 2</b>: The DM shoots again: 3,4,4,6,6 (5 hits). We lost three cruisers (although this also finished off a damaged ship)</li><li>Our six (6) surviving cruisers return fire with 3,5,6,7,9,10 (1 hit). This reduced the DM HP to 4<br /><br /></li><li><b>Round 3</b>: The DM shoots again: 1,3,4,6,8 (5 hits). We lost two cruisers, and another got damaged. This is looking grim</li><li>Our four (4) surviving cruisers return fire with 1,2,3,7 (3 hits). This reduced the DM HP to 1. So close!<br /><br /></li><li><b>Round 4</b>: The DM shoots again: 2,4,5,5,6 (5 hits). We lost three cruisers again!</li><li>This is effectively our last chance to destroy this machine! Our lone (1) surviving cruiser returns fire with a <b>2</b> (hit). We barely finished off the final machine!!!</li></ol>",
+	{"heading":"Stardate 2409.9 (The Battle for Xi)",
+	"commentary":[
+		"We have a better chance of destroying the machine with ten Cruisers. Plus; by not damaging it in the first place, it destroys a planet and wastes its <q>healing</q>. Otherwise, it would have repaired 2 damage. We have managed to consolidate our ten (10) Cruisers at I7. Thus, a battle will take place versus the <a href=\"javascript:showBox('dm6')\">final</a> DM.",
+		"<ol><li><b>Round 1</b>: Since this is its first battle, it rolled a 4 for weakness (weak to Minelaying)</li>",
+		"<li>It has the best Weapon Class, so it shoots first. Again, our Cruisers are all the same. It simply rolls away (9 - 1 = 8 to hit): 3,6,8,9,10 (3 hits). We lost one cruiser, plus another got damaged</li>",
+		"<li>Our nine (9) surviving cruisers return fire (4 + 2 - 3 = 3 to hit) with 1,1,1,3,4,6,8,8,9 (4 hits). This reduced the DM HP to 5<br /><br /></li>",
+		"<li><b>Round 2</b>: The DM shoots again: 3,4,4,6,6 (5 hits). We lost three cruisers (although this also finished off a damaged ship)</li>",
+		"<li>Our six (6) surviving cruisers return fire with 3,5,6,7,9,10 (1 hit). This reduced the DM HP to 4<br /><br /></li>",
+		"<li><b>Round 3</b>: The DM shoots again: 1,3,4,6,8 (5 hits). We lost two cruisers, and another got damaged. This is looking grim</li>",
+		"<li>Our four (4) surviving cruisers return fire with 1,2,3,7 (3 hits). This reduced the DM HP to 1. So close!<br /><br /></li>",
+		"<li><b>Round 4</b>: The DM shoots again: 2,4,5,5,6 (5 hits). We lost three cruisers again!</li>",
+		"<li>This is effectively our last chance to destroy this machine! Our lone (1) surviving cruiser returns fire with a <b>2</b> (hit). We barely finished off the final machine!!!</li></ol>"],
 	"actions":
 		[{
 			"removeCounter":"systemH7"
@@ -1628,7 +1669,10 @@
 			"name":"doomsday"
 		}]},
 	{"heading":"Stardate 2410.0 (Conclusion)",
-	"commentary":"<p>And... that is the end of the Doomsday Machine scenario! This was cutting it too close for comfort. It is easy to forget that Harder difficulty makes the second and third machines a single economic phase apart. This effectively denies a recovery period.</p><p>Normal difficulty is also guilty of this, only the three machines each take place one economic phase later, compared to this difficulty.</p><p>Nonetheless, we can say this is definitely improveable, especially since there is a single difficulty above even Harder... dubbed <q>Good Luck</q>. The first and second machines appear even earlier (on the <b>fifth</b> and seventh economic phase, respectively); at the expense of the machines being a little weaker.</p>",
+	"commentary":[
+		"And... that is the end of the Doomsday Machine scenario! This was cutting it too close for comfort. It is easy to forget that Harder difficulty makes the second and third machines a single economic phase apart. This effectively denies a recovery period.",
+		"Normal difficulty is also guilty of this, only the three machines each take place one economic phase later, compared to this difficulty.",
+		"Nonetheless, we can say this is definitely improveable, especially since there is a single difficulty above even Harder... dubbed <q>Good Luck</q>. The first and second machines appear even earlier (on the <b>fifth</b> and seventh economic phase, respectively); at the expense of the machines being a little weaker."],
 	"actions":
 		[{
 			"removeCounter":"dm3"

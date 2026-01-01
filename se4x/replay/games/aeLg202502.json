@@ -1,14 +1,14 @@
 {"stages": [
 	{"heading":"Stardate 2400.0 (Introduction)",
-	"commentary":"<p>Welcome to a rematch of Large Alien Empires. This will be a Normal difficulty playthrough, which gives us three Alien Players to contend with, but with otherwise the same CP outputs per economic roll as Easy difficulty.</p>",
+	"commentary":["Welcome to a rematch of Large Alien Empires. This will be a Normal difficulty playthrough, which gives us three Alien Players to contend with, but with otherwise the same CP outputs per economic roll as Easy difficulty."],
 	"actions":
 		[{
 			"createPreset":"alienEmpiresSoloLg",
 			"playerColor":"G",
 			"alienColors":"YBR"
 		}]},
-	{"heading":"Stardate 2400.3 (Turn 1)",
-	"commentary":"<p>Since this scenario has no home system black hole, we can be aggressive right away with our colony ships and miner. A surge of minerals have greeted us this turn.</p>",
+	{"heading":"Stardate 2400.3",
+	"commentary":["Since this scenario has no home system black hole, we can be aggressive right away with our colony ships and miner. A surge of minerals have greeted us this turn."],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -51,8 +51,8 @@
 			"revealCounter":"systemK8",
 			"name":"unexploredG"
 		}]},
-	{"heading":"Stardate 2400.6 (Turn 2)",
-	"commentary":"<p>Finally a planet worthy of one of our starting colony ships.</p>",
+	{"heading":"Stardate 2400.6",
+	"commentary":["Finally a planet worthy of one of our starting colony ships."],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -97,8 +97,8 @@
 			"revealCounter":"systemK9",
 			"name":"unexploredG"
 		}]},
-	{"heading":"Stardate 2400.9 (Turn 3)",
-	"commentary":"<p>This is a rather embarassing opening; only one planet able to be colonized with these starting forces.</p>",
+	{"heading":"Stardate 2400.9",
+	"commentary":["This is a rather embarassing opening; only one planet able to be colonized with these starting forces."],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -141,8 +141,11 @@
 			"revealCounter":"systemK9",
 			"name":"planetG9"
 		}]},
-	{"heading":"Stardate 2401.0 (Economic Phase 1)",
-	"commentary":"<p>Sub-average openings generally are not a good thing, especially when dealing with a relentless environment. Anyway, we will go on ahead and buy 1 each of Scout (-6), Colony Ship (-8), and Miner (-5).</p>{prodTable}{techTable}<p>This leaves only our 3 alien players, which we have named after Jupiter's moons. They rolled 5 (Eupora) / 10 (Pandia) / 6 (Herse). Since this is the first economic phase, it is impossible for them to stockpile fleet CP; thus, making it impossible to launch fleets.</p>",
+	{"heading":"Stardate 2401.0",
+	"commentary":[
+		"Sub-average openings generally are not a good thing, especially when dealing with a relentless environment. Anyway, we will go on ahead and buy 1 each of Scout (-6), Colony Ship (-8), and Miner (-5).",
+		"{prodTable}{techTable}",
+		"This leaves only our 3 alien players, which we have named after Jupiter's moons. They rolled 5 (Eupora) / 10 (Pandia) / 6 (Herse). Since this is the first economic phase, it is impossible for them to stockpile fleet CP; thus, making it impossible to launch fleets."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":0,"colonyCP":20,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":0,"unitBuy":19
@@ -218,8 +221,8 @@
 			"revealCounter":"systemK10",
 			"name":"unexploredG"
 		}]},
-	{"heading":"Stardate 2401.2 (Turn 4)",
-	"commentary":"<p>While the Alien Players are building their infrastructure, we can continue exploring our home systems.</p>",
+	{"heading":"Stardate 2401.2",
+	"commentary":["While the Alien Players are building their infrastructure, we can continue exploring our home systems."],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -280,8 +283,8 @@
 			"revealCounter":"systemK11",
 			"name":"unexploredG"
 		}]},
-	{"heading":"Stardate 2401.5 (Turn 5)",
-	"commentary":"<p>More planets have been found, allowing the rest of our starting colony ships to not have to take unnecessary detours/risks.</p>",
+	{"heading":"Stardate 2401.5",
+	"commentary":["More planets have been found, allowing the rest of our starting colony ships to not have to take unnecessary detours/risks."],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -336,8 +339,8 @@
 			"revealCounter":"systemJ11",
 			"name":"unexploredW"
 		}]},
-	{"heading":"Stardate 2401.8 (Turn 6)",
-	"commentary":"<p>We take our first steps into deep space. Fortunately, our first hex is a relatively safe nebula.</p>",
+	{"heading":"Stardate 2401.8",
+	"commentary":["We take our first steps into deep space. Fortunately, our first hex is a relatively safe nebula."],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -401,8 +404,11 @@
 			"revealCounter":"systemJ11",
 			"name":"nebula"
 		}]},
-	{"heading":"Stardate 2402.0 (Economic Phase 2)",
-	"commentary":"<p>Having a second Miner truly helps out the early game when our colonies are only just getting started. We will go on ahead and buy Ship Size 2 (-10), followed by 3 Colony Ships (-24).</p>{prodTable}{techTable}<p>Now the alien players get a chance to further develop their infrastructure. They rolled 2 (Europa) / 10 (Pandia) / 3 (Herse). None of these players have enough fleet CP to launch a fleet, but an early aggression could happen next economic phase for any of them; they are due to gain a natural economic roll at that time.</p>",
+	{"heading":"Stardate 2402.0",
+	"commentary":[
+		"Having a second Miner truly helps out the early game when our colonies are only just getting started. We will go on ahead and buy Ship Size 2 (-10), followed by 3 Colony Ships (-24).",
+		"{prodTable}{techTable}",
+		"Now the alien players get a chance to further develop their infrastructure. They rolled 2 (Europa) / 10 (Pandia) / 3 (Herse). None of these players have enough fleet CP to launch a fleet, but an early aggression could happen next economic phase for any of them; they are due to gain a natural economic roll at that time."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":3,"colonyCP":21,"mineralCP":15,"pipeCP":0,"maint":4,"bidCP":0,"techBuy":10,"unitBuy":24
@@ -488,8 +494,8 @@
 			"revealCounter":"systemJ10",
 			"name":"unexploredW"
 		}]},
-	{"heading":"Stardate 2402.1 (Turn 7)",
-	"commentary":"<p>We are almost done with our home systems. Soon, it will be time to start sweeping deep space the hard way while we prep our colonies to transition to Exploration Cruisers.</p>",
+	{"heading":"Stardate 2402.1",
+	"commentary":["We are almost done with our home systems. Soon, it will be time to start sweeping deep space the hard way while we prep our colonies to transition to Exploration Cruisers."],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -551,8 +557,8 @@
 			"revealCounter":"systemJ9",
 			"name":"unexploredW"
 		}]},
-	{"heading":"Stardate 2402.4 (Turn 8)",
-	"commentary":"<p>What an embarassing nosedive! Danger markers have suddenly claimed 3 of our Scouts!</p>",
+	{"heading":"Stardate 2402.4",
+	"commentary":["What an embarassing nosedive! Danger markers have suddenly claimed 3 of our Scouts!"],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -603,8 +609,8 @@
 			"revealCounter":"systemJ2",
 			"name":"unexploredW"
 		}]},
-	{"heading":"Stardate 2402.7 (Turn 9)",
-	"commentary":"<p>And just like that; we are suddenly down to just 1 Scout! At least deep space barren planets do <i>not</i> have non-player aliens in this scenario.</p>",
+	{"heading":"Stardate 2402.7",
+	"commentary":["And just like that; we are suddenly down to just 1 Scout! At least deep space barren planets do <i>not</i> have non-player aliens in this scenario."],
 	"actions":
 		[{
 			"removeCounter":"SC1G"
@@ -660,8 +666,12 @@
 		},{
 			"removeCounter":"fleet1R"
 		}]},
-	{"heading":"Stardate 2403.0 (Economic Phase 3)",
-	"commentary":"<p>Only consolation is that our maintenance is nearly non-existant, since we need not support what got destroyed. We will take advantage of this, and buy Terraforming 1 (-20), followed by 2 Colony Ships (-16).</p>{prodTable}{techTable}<p>Alien Players have gained a natural economic roll. With that, they rolled 1,5 (Europa) / 3,5 (Pandia) / 2,5 (Herse). Europa's extra roll will take effect on economic phase 6.</p><p>Herse has enough CP to launch a fleet, and will automatically do so this economic phase. They are unable to afford Movement 2, so this phase is done.</p>",
+	{"heading":"Stardate 2403.0",
+	"commentary":[
+		"Only consolation is that our maintenance is nearly non-existant, since we need not support what got destroyed. We will take advantage of this, and buy Terraforming 1 (-20), followed by 2 Colony Ships (-16).",
+		"{prodTable}{techTable}",
+		"Alien Players have gained a natural economic roll. With that, they rolled 1,5 (Europa) / 3,5 (Pandia) / 2,5 (Herse). Europa's extra roll will take effect on economic phase 6.",
+		"Herse has enough CP to launch a fleet, and will do so automatically this economic phase. They are unable to afford Movement 2, so this phase is done."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":1,"colonyCP":26,"mineralCP":10,"pipeCP":0,"maint":1,"bidCP":0,"techBuy":20,"unitBuy":16
@@ -732,8 +742,8 @@
 			"placeCounter":"fleet1R",
 			"location":"D7"
 		}]},
-	{"heading":"Stardate 2403.3 (Turn 10)",
-	"commentary":"<p>Now that the Alien Player Herse has launched their first fleet, things have become spicier... especially since a recent Danger marker has eliminated our final Scout!</p>",
+	{"heading":"Stardate 2403.3",
+	"commentary":["Now that the Alien Player Herse has launched their first fleet, things have become spicier... especially since a recent Danger marker has eliminated our final Scout!"],
 	"actions":
 		[{
 			"placeCounter":"SC4G",
@@ -768,8 +778,8 @@
 			"placeCounter":"fleet1R",
 			"location":"E6"
 		}]},
-	{"heading":"Stardate 2403.6 (Turn 11)",
-	"commentary":"<p>At the very least, we can plan on how to protect our colonies from the recently launched fleet of Herse's...</p>",
+	{"heading":"Stardate 2403.6",
+	"commentary":["At the very least, we can plan on how to protect our colonies from the recently launched fleet of Herse's..."],
 	"actions":
 		[{
 			"removeCounter":"SC4G"
@@ -799,8 +809,8 @@
 			"placeCounter":"fleet1R",
 			"location":"F6"
 		}]},
-	{"heading":"Stardate 2403.9 (Turn 12)",
-	"commentary":"<p>With 5 colony ships ready for deconstruction, our income will eventually climb faster.</p>",
+	{"heading":"Stardate 2403.9",
+	"commentary":["With 5 colony ships ready for deconstruction, our income will eventually climb faster."],
 	"actions":
 		[{
 			"placeCounter":"CO5G",
@@ -857,8 +867,12 @@
 			"placeCounter":"fleet1R",
 			"location":"G6"
 		}]},
-	{"heading":"Stardate 2404.0 (Economic Phase 4)",
-	"commentary":"<p>We have no combat ships left to support... which is a mixed bag. At the very least, it guarantees that any ships we build have fresh technology. Still, we will go on ahead and buy Ship Size 3 (-15), followed by 3 Scouts (-18)</p>{prodTable}{techTable}<p>Alien Players have become more methodical in their economics, able to dedicate economic rolls to Defense. They rolled 4,10 (Europa) / 7,7 (Pandia) / 5,10 (Herse).</p><p>Only Europa has enough CP to launch a fleet this phase, and launch rolls are no longer automatic until the lategame (starting on economic phase 14). It rolled a 9 (skip).</p>",
+	{"heading":"Stardate 2404.0",
+	"commentary":[
+		"We have no combat ships left to support... which is a mixed bag. At the very least, it guarantees that any ships we build have fresh technology. Still, we will go on ahead and buy Ship Size 3 (-15), followed by 3 Scouts (-18).",
+		"{prodTable}{techTable}",
+		"Alien Players have become more methodical in their economics, able to dedicate economic rolls to Defense. They rolled 4,10 (Europa) / 7,7 (Pandia) / 5,10 (Herse).",
+		"Only Europa has enough CP to launch a fleet this phase, and fleet launches are no longer automatic until the lategame <span class=\"bindTxt\">(starting on economic phase 14)</span>. It rolled a 9 (skip)."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":0,"colonyCP":34,"mineralCP":0,"pipeCP":0,"maint":0,"bidCP":0,"techBuy":15,"unitBuy":18
@@ -938,7 +952,7 @@
 			"location":"G6"
 		}]},
 	{"heading":"Stardate 2404.2",
-	"commentary":"<p>We may have to take risks with these 3 Scouts, if we are to open a potential battle path.</p>",
+	"commentary":["We may have to take risks with these 3 Scouts, if we are to open a potential battle path."],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -969,7 +983,7 @@
 			"location":"H6"
 		}]},
 	{"heading":"Stardate 2404.5",
-	"commentary":"<p>Our scouts have uncovered an asteroid belt and a nebula system, both of which are relatively safe for travel.</p>",
+	"commentary":["Our scouts have uncovered an asteroid belt and a nebula system, both of which are relatively safe for travel."],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -1005,7 +1019,7 @@
 			"location":"I5"
 		}]},
 	{"heading":"Stardate 2404.8",
-	"commentary":"<p>We then take advantage of the Alien Player mechanics when it comes to most fleets; namely that a single scout does not constitute protection.</p>",
+	"commentary":["We then take advantage of the Alien Player mechanics when it comes to most fleets; namely that a single scout does not constitute protection."],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -1055,7 +1069,11 @@
 			"removeCounter":"fleet2R"
 		}]},
 	{"heading":"Stardate 2405.0",
-	"commentary":"<p>This has been a relatively productive economic phase, and we <i>keep</i> all 3 scouts this time around. We buy Exploration 1 (-15) and Movement 2 (-20), followed by a single Cruiser (-12).</p>{prodTable}{techTable}<p>Alien Players economics' will expand soon, and in both ways. They rolled 1,7 (Europa) / 3,5 (Pandia) / 2,5 (Herse). Europa gets <i>another</i> extra roll, starting on phase 8.</p><p>All 3 Alien Players have enough CP to launch fleets. They rolled 4 (Europa) / 1 (Pandia) / 1 (Herse). The latter two players will launch fresh fleets! Only Pandia has enough tech CP to roll for Movement though; and they rolled an 8 (skip).</p>",
+	"commentary":[
+		"This has been a relatively productive economic phase, and we <i>keep</i> all 3 scouts this time around. We buy Exploration 1 (-15) and Movement 2 (-20), followed by a single Cruiser (-12).",
+		"{prodTable}{techTable}",
+		"Alien Players economics' will expand soon, and in both ways. They rolled 1,7 (Europa) / 3,5 (Pandia) / 2,5 (Herse). Europa gets <i>another</i> extra roll, starting on phase 8.",
+		"All 3 Alien Players have enough CP to launch fleets. They rolled 4 (Europa) / 1 (Pandia) / 1 (Herse). The latter two players will launch fresh fleets! Only Pandia has enough tech CP to roll for Movement though; and they rolled an 8 (skip)."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":1,"colonyCP":45,"mineralCP":15,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":35,"unitBuy":12
@@ -1129,7 +1147,15 @@
 			"location":"D7"
 		}]},
 	{"heading":"Stardate 2405.1 (The Battle for Pleiades)",
-	"commentary":"<p>We catch Herse's first fleet out of position, resulting in a battle. Before we can conduct it, we need to build and outfit their hidden fleet. They have 10 Tech CP, which is enough for Ship Size 2 (-10), and nothing else. Their assigned CP count is 10, which is enough for 1 Destroyer (-9), and nothing else. This credits a leftover 1 CP back to their Fleet bank.</p><ol><li><b>Round 1</b>: We have 3 Scouts, to their 1 Destroyer. We will screen no ships, and gain the Fleet Size Bonus</li><li>Despite asteroid belt interference, their Destroyer still has a Tactics advantage. It shoots first, and rolls a 3 (hit &le;4)</li><li>Our 2 surviving Scouts respond, and roll 8,10 (0 hits &le;4)<br /><br /></li><li><b>Round 2</b>: Their Destroyer rolls a 2 (hit &le;4)</li><li>Our 1 surviving Scout rolls an 8 (miss &gt;4)<br /><br /></li><li><b>Round 3</b>: Their Destroyer rolls a 3 (hit &le;4), eliminating our Scout fleet<br /><br /></li><li><b>Bombardment Round</b>: Their Destroyer makes it to our colony and is able to begin bombardment. It rolls a 9 (miss &gt;4)</li></ol>",
+	"commentary":[
+		"We catch Herse's first fleet out of position, resulting in a battle. Before we can conduct it, we need to build and outfit their hidden fleet. They have 10 Tech CP, which is enough for Ship Size 2 (-10), and nothing else. Their assigned CP count is 10, which is enough for 1 Destroyer (-9), and nothing else. This credits a leftover 1 CP back to their Fleet bank.",
+		"<ol><li><b>Round 1</b>: We have 3 Scouts, to their 1 Destroyer. We will screen no ships, and gain the Fleet Size Bonus</li>",
+		"<li>Despite asteroid belt interference, their Destroyer still has a Tactics advantage. It shoots first, and rolls a 3 (hit &le;4)</li>",
+		"<li>Our 2 surviving Scouts respond, and roll 8,10 (0 hits &le;4)<br /><br /></li>",
+		"<li><b>Round 2</b>: Their Destroyer rolls a 2 (hit &le;4)</li>",
+		"<li>Our 1 surviving Scout rolls an 8 (miss &gt;4)<br /><br /></li>",
+		"<li><b>Round 3</b>: Their Destroyer rolls a 3 (hit &le;4), eliminating our Scout fleet<br /><br /></li>",
+		"<li><b>Bombardment Round</b>: Their Destroyer makes it to our colony and is able to begin bombardment. It rolls a 9 (miss &gt;4)</li></ol>"],
 	"techTable":
 		[{
 			"name":"Herse (Red)","minelay":1,"size":2
@@ -1176,7 +1202,9 @@
 			"location":"E7"
 		}]},
 	{"heading":"Stardate 2405.4 (The Defense for Pleiades)",
-	"commentary":"<p>Since our Scouts were unsuccessful, we bring our Cruiser to aid the colony. Since we are dealing with a previously known fleet, we can go straight into battle.</p><p>Our Cruiser has the weapon class advantage this time, so it shoots first. We rolled a 1, cleanly finishing their Destroyer (&le;4 to hit).</p>",
+	"commentary":[
+		"Since our Scouts were unsuccessful, we bring our Cruiser to aid the colony. Since we are dealing with a previously known fleet, we can go straight into battle.",
+		"Our Cruiser has the weapon class advantage this time, so it shoots first. We rolled a 1, cleanly finishing their Destroyer (&le;4 to hit)."],
 	"actions":
 		[{
 			"removeCounter":"SC1G"
@@ -1207,7 +1235,7 @@
 			"location":"F7"
 		}]},
 	{"heading":"Stardate 2405.7",
-	"commentary":"<p>Freeing our colony from the recent blockade allows us to benefit from its full income once more.</p>",
+	"commentary":["Freeing our colony from the recent blockade allows us to benefit from its full income once more."],
 	"actions":
 		[{
 			"resizeCounter":"SY1G",
@@ -1259,7 +1287,11 @@
 			"removeCounter":"fleet3R"
 		}]},
 	{"heading":"Stardate 2406.0",
-	"commentary":"<p>Our home system colonies are almost done with growth. We will go on ahead and buy Movement 3 (-25), followed by 2 Cruisers (-24) and an extra Ship Yard (-6) at our homeworld, <i>and</i> forward Ship Yards (-12 total) at Dakara (K3) and Hoth (K9).</p>{prodTable}{techTable}<p>Alien Players economics' have expanded recently, including a queued extra economic roll for Europa having taken effect. They rolled 2,7,9,9 (Europa) / 2,5,8 (Pandia) / 2,5,6 (Herse).</p><p>As usual, all Alien Players are eligible for launch. They rolled 4 (Europa) / 8 (Pandia) / 2 (Herse). This time, Pandia takes a break from fleet launch. Europa can buy a Movement level with its Tech bank, and it rolls a 9 (skip) accordingly.</p>",
+	"commentary":[
+		"Our home system colonies are almost done with growth. We will go on ahead and buy Movement 3 (-25), followed by 2 Cruisers (-24) and an extra Ship Yard (-6) at our homeworld, <i>and</i> forward Ship Yards (-12 total) at Dakara (K3) and Hoth (K9).",
+		"{prodTable}{techTable}",
+		"Alien Players economics' have expanded recently, including a queued extra economic roll for Europa having taken effect. They rolled 2,7,9,9 (Europa) / 2,5,8 (Pandia) / 2,5,6 (Herse).",
+		"As usual, all Alien Players are eligible for launch. They rolled 4 (Europa) / 8 (Pandia) / 2 (Herse). This time, Pandia takes a break from fleet launch. Europa can buy a Movement level with its Tech bank, and it rolls a 9 (skip) accordingly."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":11,"colonyCP":55,"mineralCP":5,"pipeCP":0,"maint":2,"bidCP":0,"techBuy":25,"unitBuy":42
@@ -1342,7 +1374,7 @@
 			"location":"D7"
 		}]},
 	{"heading":"Stardate 2406.3",
-	"commentary":"<p>Bombardment will be unavoidable, but we can attempt to stem the damage after one turn's worth.</p>",
+	"commentary":["Bombardment will be unavoidable, but we can attempt to stem the damage after one turn's worth."],
 	"actions":
 		[{
 			"placeCounter":"CA1G",
@@ -1381,7 +1413,9 @@
 			"location":"E6"
 		}]},
 	{"heading":"Stardate 2406.6 (The Bombardment for Pollux)",
-	"commentary":"<p>Before Pandia can bombard though, it needs to build its fleet. There are no priority technologies this time around. On the Ship Size step, it automatically buys level 2 (-10). The extra Fighter and extra Cloaking steps are skipped, because those technologies have not already been developed. Finally, on the random technology step, Pandia rolls a 1. It buys Attack 1 (-20), spending all of its Tech CP.</p><p>On the fleet consturction step, Pandia just unlocked Destryoers for construction, so it will build one (-9). The only other ships it can afford is a single Scout (-6), which spends all of the fleet's assigned CP. The newly constructed ships can now bombard; the Destroyer rolls a 1 (hit &le;5), followed by the Scout's 8 (miss &gt;4).</p>",
+	"commentary":[
+		"Before Pandia can bombard though, it needs to build its fleet. There are no counter techs this time around. On the Ship Size step, it automatically buys level 2 (-10). The extra Fighter and extra Cloaking steps are skipped, because those technologies have not already been developed. Finally, on the random technology step, Pandia rolls a 1. It buys Attack 1 (-20), spending all of its Tech CP.",
+		"On the fleet construction step, Pandia just unlocked Destroyers for construction, so it will build one (-9). The only other ships it can afford is a single Scout (-6), which spends all of the fleet's assigned CP. The newly constructed ships can now bombard; the Destroyer rolls a 1 (hit &le;5), followed by the Scout's 8 (miss &gt;4)."],
 	"techTable":
 		[{
 			"name":"Pandia (Blue)","minelay":1,"size":2,"atk":1
@@ -1436,7 +1470,12 @@
 			"location":"F6"
 		}]},
 	{"heading":"Stardate 2406.9 (The Defense for Pollux)",
-	"commentary":"<p>We are not playing with Warp Points this time around, but they are not explicitly prohibited. In other news, we have arrived to counter-assault Pandia's fleet.</p><ol><li><b>Round 1</b>: Both sides have 2 ships</li><li>Our 2 Cruisers have the best weapon class, so we shoot first. Prioritizing their Destroyer (at &le;4 to hit), we rolled 5,6 (0 hits)</li><li>Their ships return fire. The Destroyer rolls a 3 (hit &le;4), while the Scout rolls a 4 (miss &gt;3). One of our Cruisers is damaged<br /><br /></li><li><b>Round 2</b>: Our 2 Cruisers have rolled 4,3 (2 hits), cleaning wiping out both of their ships</li></ol>",
+	"commentary":[
+		"We are not playing with Warp Points this time around, but they are not explicitly prohibited. In other news, we have arrived to counter-assault Pandia's fleet.",
+		"<ol><li><b>Round 1</b>: Both sides have 2 ships</li>",
+		"<li>Our 2 Cruisers have the best weapon class, so we shoot first. Prioritizing their Destroyer (at &le;4 to hit), we rolled 5,6 (0 hits)</li>",
+		"<li>Their ships return fire. The Destroyer rolls a 3 (hit &le;4), while the Scout rolls a 4 (miss &gt;3). One of our Cruisers is damaged<br /><br /></li>",
+		"<li><b>Round 2</b>: Our 2 Cruisers have rolled 4,3 (2 hits), cleaning wiping out both of their ships</li></ol>"],
 	"actions":
 		[{
 			"resizeCounter":"SY1G",
@@ -1501,7 +1540,11 @@
 			"removeCounter":"fleet1R"
 		}]},
 	{"heading":"Stardate 2407.0",
-	"commentary":"<p>We have endured a slight setback in our growth, but we have managed to stem Pandia's damage. We will buy Movement 4 (-25), followed by 2 Cruisers (-24) at the homeworld, a single Scout at our forward site of K3 (-6), and extra Ship Yards at each colony that already has one (-18 total).</p>{prodTable}{techTable}<p>It is no longer possible for the alien players to queue extra rolls for their economics. Still, Europa's extra economic roll will take effect soon. They rolled 1,4,7,9 (Europa) / 1,3,4 (Pandia) / 2,2,4 (Herse).</p><p>Concerning fleet launches, these players have rolled 3 (Europa) / 3 (Pandia) / 3 (Herse). They <i>all</i> will launch new fleets! Only Europa is able to afford Movement 2 though, for which they roll a 3 (buy for 20 CP).</p>",
+	"commentary":[
+		"We have endured a slight setback in our growth, but we have managed to stem Pandia's damage. We will buy Movement 4 (-25), followed by 2 Cruisers (-24) at the homeworld, a single Scout at our forward site of K3 (-6), and extra Ship Yards at each colony that already has one (-18 total).",
+		"{prodTable}{techTable}",
+		"It is no longer possible for the alien players to queue extra rolls for their economics. Still, Europa's extra economic roll will take effect soon. They rolled 1,4,7,9 (Europa) / 1,3,4 (Pandia) / 2,2,4 (Herse).",
+		"Concerning fleet launches, these players have rolled 3 (Europa) / 3 (Pandia) / 3 (Herse). They <i>all</i> will launch new fleets! Only Europa is able to afford Movement 2 though, for which they roll a 3 (buy for 20 CP)."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":2,"colonyCP":63,"mineralCP":15,"pipeCP":0,"maint":6,"bidCP":0,"techBuy":25,"unitBuy":48
@@ -1592,7 +1635,9 @@
 			"location":"D7"
 		}]},
 	{"heading":"Stardate 2407.2 (The Bombardment for Castor)",
-	"commentary":"<p>It is possible to defend against Herse with the 2 nearest Cruisers we just built, but its risky. We will let the Alien Player bombard one of the colonies.</p><p>Herse themselves have no Tech CP in the bank, so the technology step is skipped entirely. For the fleet step, their largest ship is still a Destroyer (-9), and they have exactly enough leftover assigned CP to build a Scout (-6) also. On the bombardment itself, Herse rolls 3 (Destroyer) / 2 (Scout), both of which hit. Our colony is badly damaged, but still standing.</p>",
+	"commentary":[
+		"It is possible to defend against Herse with the 2 nearest Cruisers we just built, but its risky. We will let the Alien Player bombard one of the colonies.",
+		"Herse themselves have no Tech CP in the bank, so the technology step is skipped entirely. For the fleet step, their largest ship is still a Destroyer (-9), and they have exactly enough leftover assigned CP to build a Scout (-6) also. On the bombardment itself, Herse rolls 3 (Destroyer) / 2 (Scout), both of which hit. Our colony is badly damaged, but still standing."],
 	"actions":
 		[{
 			"placeCounter":"CA1G",
@@ -1654,7 +1699,16 @@
 			"location":"E6"
 		}]},
 	{"heading":"Stardate 2407.5",
-	"commentary":"<p>Our eastern Cruisers manage to uncover more terrain towards the Pandia homeworld of Terra. Our newly built central Cruisers manage to meet up with the recently built attackers at K5.</p><h3>The Defense for Castor</h3><ol><li><b>Round 1</b>: Our 2 Cruisers have the best weapon class, so we shoot first. We rolled a 1 against their Destroyer (hit &le;4), followed by a 7 against their Scout (miss &gt;4)</li><li>Their lone Scout now has a chance to shoot. It rolled a 5 (miss &gt;2)<br /><br /></li><li><b>Round 2</b>: Our 2 Cruisers have gained the Fleet Size Bonus. We rolled 6,7 against their Scout (0 hits &le;5)</li><li>Their lone Scout shoots once more. It rolled a 1 (hit &le;2), damaging one of our Cruisers<br /><br /></li><li><b>Round 3</b>: Our 2 Cruisers rolled 2,10 (1 hit &le;5), finishing off their last ship in the fleet</li></ol><h3>The Bombardment for Sirius</h3><p>Now it is Europa's time to build their first fleet. Their 15 Tech CP is good for Ship Size 2 (-10), and nothing else. Their 15 assigned CP is exactly good for the usual Destroyer + Scout fleet. These newly built ships then roll 5 (Destroyer) / 10 (Scout), failing to damage the colony.</p>",
+	"commentary":[
+		"Our eastern Cruisers manage to uncover more terrain towards the Pandia homeworld of Terra. Our newly built central Cruisers manage to meet up with the recently built attackers at K5.",
+		"<h3>The Defense for Castor</h3>",
+		"<ol><li><b>Round 1</b>: Our 2 Cruisers have the best weapon class, so we shoot first. We rolled a 1 against their Destroyer (hit &le;4), followed by a 7 against their Scout (miss &gt;4)</li>",
+		"<li>Their lone Scout now has a chance to shoot. It rolled a 5 (miss &gt;2)<br /><br /></li>",
+		"<li><b>Round 2</b>: Our 2 Cruisers have gained the Fleet Size Bonus. We rolled 6,7 against their Scout (0 hits &le;5)</li>",
+		"<li>Their lone Scout shoots once more. It rolled a 1 (hit &le;2), damaging one of our Cruisers<br /><br /></li>",
+		"<li><b>Round 3</b>: Our 2 Cruisers rolled 2,10 (1 hit &le;5), finishing off their last ship in the fleet</li></ol>",
+		"<h3>The Bombardment for Sirius</h3>",
+		"Now it is Europa's time to build their first fleet. Their 15 Tech CP is good for Ship Size 2 (-10), and nothing else. Their 15 assigned CP is exactly good for the usual Destroyer + Scout fleet. These newly built ships then roll 5 (Destroyer) / 10 (Scout), failing to damage the colony."],
 	"techTable":
 		[{
 			"name":"Europa (Yellow)","minelay":1,"move":2,"size":2
@@ -1736,7 +1790,15 @@
 			"location":"F7"
 		}]},
 	{"heading":"Stardate 2407.8 (The Defense for Sirius)",
-	"commentary":"<p>We send our western fleet to assist in fending Europa's fleet off of our colony of Sirius.</p><ol><li><b>Round 1</b>: Our Cruiser has the best weapon class, so it shoots first. We rolled a 6 against their Destroyer (miss &gt;4)</li><li>Their Destroyer shoots next. Against our Scout, it rolled a 7 (miss &gt;4)</li><li>Their Scout shoots next. Against our Scout, it rolled a 3 (hit &le;3)<br /><br /></li><li><b>Round 2</b>: Europa has gained the Fleet Size Bonus. Still, our lone ruiser shoots once more. We rolled a 10 against their Destroyer (miss &gt;4)</li><li>Their Destroyer rolled a 2 (hit &le;5), damaging our Cruiser</li><li>Their Scout rolled a 4 (hit &le;4), finishing our Cruiser off<br /><br /></li><li><b>Bombardment Round</b>: Their 2 victorious ships bombard once more. They rolled 6 (Destroyer) / 5 (Scout), dealing no damage</li></ol>",
+	"commentary":[
+		"We send our western fleet to assist in fending Europa's fleet off of our colony of Sirius.",
+		"<ol><li><b>Round 1</b>: Our Cruiser has the best weapon class, so it shoots first. We rolled a 6 against their Destroyer (miss &gt;4)</li>",
+		"<li>Their Destroyer shoots next. Against our Scout, it rolled a 7 (miss &gt;4)</li>",
+		"<li>Their Scout shoots next. Against our Scout, it rolled a 3 (hit &le;3)<br /><br /></li>",
+		"<li><b>Round 2</b>: Europa has gained the Fleet Size Bonus. Still, our lone ruiser shoots once more. We rolled a 10 against their Destroyer (miss &gt;4)</li>",
+		"<li>Their Destroyer rolled a 2 (hit &le;5), damaging our Cruiser</li>",
+		"<li>Their Scout rolled a 4 (hit &le;4), finishing our Cruiser off<br /><br /></li>",
+		"<li><b>Bombardment Round</b>: Their 2 victorious ships bombard once more. They rolled 6 (Destroyer) / 5 (Scout), dealing no damage</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"CA1G",
@@ -1799,7 +1861,11 @@
 			"location":"G7"
 		}]},
 	{"heading":"Stardate 2408.0",
-	"commentary":"<p>These continued setbacks are unfortunate. One colony got damaged, and another one is blockaded. We will go on ahead and buy 3 Cruisers at our homeworld (-36), 1 Cruiser at Hoth (-12), and a Colony Ship at Dakara (K3 for -8)</p>{prodTable}{techTable}<p>Europa's final extra economic roll has taken effect now. They rolled 2,3,6,7,10 (Europa) / 1,9,10 (Pandia) / 4,6,10 (Herse).</p><p>Concerning fleet launches, only Europa has enough CP to launch this time. They rolled a 10 (skip).</p>",
+	"commentary":[
+		"These continued setbacks are unfortunate. One colony got damaged, and another one is blockaded. We will go on ahead and buy 3 Cruisers at our homeworld (-36), 1 Cruiser at Hoth (-12), and a Colony Ship at Dakara (K3 for -8)",
+		"{prodTable}{techTable}",
+		"Europa's final extra economic roll has taken effect now. They rolled 2,3,6,7,10 (Europa) / 1,9,10 (Pandia) / 4,6,10 (Herse).",
+		"Concerning fleet launches, only Europa has enough CP to launch this time. They rolled a 10 (skip)."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":1,"colonyCP":56,"mineralCP":10,"pipeCP":0,"maint":8,"bidCP":0,"techBuy":0,"unitBuy":56
@@ -1886,7 +1952,9 @@
 			"location":"G7"
 		}]},
 	{"heading":"Stardate 2408.1",
-	"commentary":"<p>Europa manages to combine two fleets into one. The new fleet (with 10 CP assigned) can afford <i>only</i> a single additional Destroyer (-9); even if they increased Ship Size further. Speaking of, they rolled an 8 on the Ship Size step (skip). Since the only technology that is fair game and affordable is Minesweeping 1, they bought that (-10).</p><p>The combined fleet is now ready to resume bombardment. They rolled 5,5/6 (0 hits &le;4/3)</p>",
+	"commentary":[
+		"Europa manages to combine two fleets into one. The new fleet (with 10 CP assigned) can afford <i>only</i> a single additional Destroyer (-9); even if they increased Ship Size further. Speaking of, they rolled an 8 on the Ship Size step (skip). Since the only technology that is fair game and affordable is Minesweeping 1, they bought that (-10).",
+		"The combined fleet is now ready to resume bombardment. They rolled 5,5/6 (0 hits &le;4/3)"],
 	"actions":
 		[{
 			"placeGhost":"CA1G",
@@ -1965,7 +2033,24 @@
 			"location":"H7"
 		}]},
 	{"heading":"Stardate 2408.4",
-	"commentary":"<p>This turn is exceptionally packed with action! We have two battles back-to-back to conduct! Since we have a bombardment ongoing, we will go right-to-left this time.</p><h3>The Battle for Sector J11</h3><p>The battle with Pandia will be conducted first. Since their remaining 5 Tech CP is insufficient to buy anything, we will go straight to fleet construction. Their largest ship is a Destroyer (-9). With 16 CP leftover, the composition roll is meaningless; they get a second Destroyer and a Scout (-15), crediting a leftover 1 CP back to their fleet bank.</p><ol><li><b>Round 1</b>: Since the battle takes place in a nebula, weapon classes are degraded accordingly.</li><li>Since Tactics are equal, their ships shoot first. They rolled 4,1/4 (2 hits &le;4/3). We lost one of our Cruisers</li><li>Our 2 surviving Cruisers respond with 2,7 (1 hit &le;4), cleaning up one of their Destroyers<br /><br /></li><li><b>Round 2</b>: Their ships shoot again. They rolled 2/8 (1 hit &le;4/3), damaging another Cruiser</li><li>Our 2 Cruisers respond with 8,4 (1 hit &le;4), cleaning up their last Destroyer<br /><br /></li><li><b>Round 3</b>: Their lone Scout rolls a 1 (hit &le;3), finishing off a second Cruiser</li><li>Our last Cruiser rolls a 10 (miss &gt;5)<br /><br /></li><li><b>Round 4</b>: Their Scout rolls a 4 (miss &gt;3)</li><li>Our Cruiser rolls a 1 (hit &le;4), finishing off their fleet!</li></ol><h3>The Battle for Sector K7</h3><p>The battle with Herse will be conducted next. Their 5 Tech CP is also insufficient to buy anything. Their largest ship is a Destroyer (-9). With 7 CP leftover, the composition roll is also meaningless; they get a Scout (-6) also, crediting a leftover 1 CP back to their fleet bank.</p><p>The battle itself was resolved quickly; our 3 have the best weapon class. We rolled 2,4,6 (2 hits &le;4), eliminating their fleet in one salvo.</p><h3>The Bombardment for Sirius</h3><p>That leaves only Europa's continued bombardment. They rolled 1,4/8 (2 hits &le;4/3), badly damaging our colony.</p>",
+	"commentary":[
+		"This turn is exceptionally packed with action! We have two battles back-to-back to conduct! Since we have a bombardment ongoing, we will go right-to-left this time.",
+		"<h3>The Battle for Sector J11</h3>",
+		"The battle with Pandia will be conducted first. Since their remaining 5 Tech CP is insufficient to buy anything, we will go straight to fleet construction. Their largest ship is a Destroyer (-9). With 16 CP leftover, the composition roll is meaningless; they get a second Destroyer and a Scout (-15), crediting a leftover 1 CP back to their fleet bank.",
+		"<ol><li><b>Round 1</b>: Since the battle takes place in a nebula, weapon classes are degraded accordingly.</li>",
+		"<li>Since Tactics are equal, their ships shoot first. They rolled 4,1/4 (2 hits &le;4/3). We lost one of our Cruisers</li>",
+		"<li>Our 2 surviving Cruisers respond with 2,7 (1 hit &le;4), cleaning up one of their Destroyers<br /><br /></li>",
+		"<li><b>Round 2</b>: Their ships shoot again. They rolled 2/8 (1 hit &le;4/3), damaging another Cruiser</li>",
+		"<li>Our 2 Cruisers respond with 8,4 (1 hit &le;4), cleaning up their last Destroyer<br /><br /></li>",
+		"<li><b>Round 3</b>: Their lone Scout rolls a 1 (hit &le;3), finishing off a second Cruiser</li>",
+		"<li>Our last Cruiser rolls a 10 (miss &gt;5)<br /><br /></li>",
+		"<li><b>Round 4</b>: Their Scout rolls a 4 (miss &gt;3)</li>",
+		"<li>Our Cruiser rolls a 1 (hit &le;4), finishing off their fleet!</li></ol>",
+		"<h3>The Battle for Sector K7</h3>",
+		"The battle with Herse will be conducted next. Their 5 Tech CP is also insufficient to buy anything. Their largest ship is a Destroyer (-9). With 7 CP leftover, the composition roll is also meaningless; they get a Scout (-6) also, crediting a leftover 1 CP back to their fleet bank.",
+		"The battle itself was resolved quickly; our 3 have the best weapon class. We rolled 2,4,6 (2 hits &le;4), eliminating their fleet in one salvo.",
+		"<h3>The Bombardment for Sirius</h3>",
+		"That leaves only Europa's continued bombardment. They rolled 1,4/8 (2 hits &le;4/3), badly damaging our colony."],
 	"techTable":
 		[{
 			"name":"Europa (Yellow)","minelay":1,"move":2,"size":2,"minesweep":1
@@ -2057,7 +2142,17 @@
 			"location":"I6"
 		}]},
 	{"heading":"Stardate 2408.7 (The Defense for Sirius)",
-	"commentary":"<p>Our 2 Cruisers have finally arrived to have a rematch with Europa.</p><ol><li><b>Round 1</b>: Our Cruisers have the best weapon class, so we shoot first. We rolled 3,5 (1 hit &le;4), eliminating one of their Destroyers</li><li>Their 2 surviving ships respond with 8/4 (0 hits &le;4/3)<br /><br /></li><li><b>Round 2</b>: Our Cruisers rolled 4,9 (1 hit &le;4), eliminating their last Destroyer</li><li>Their lone Scout rolled a 6 (miss &gt;3)<br /><br /></li><li><b>Round 3</b>: Our Cruisers rolled 6,7 (0 hits &le;4)</li><li>Their Scout rolled a 3 (hit &le;3), damaging a Cruiser<br /><br /></li><li><b>Round 4</b>: Our Cruisers rolled 6,10 (0 hits &le;5)</li><li>Their Scout rolled a 2 (hit &le;3), eliminating a Cruiser<br /><br /></li><li><b>Round 5</b>: Our last Cruiser rolled a 4 (hit &le;4), eliminating their fleet at last!</li></ol>",
+	"commentary":[
+		"Our 2 Cruisers have finally arrived to have a rematch with Europa.",
+		"<ol><li><b>Round 1</b>: Our Cruisers have the best weapon class, so we shoot first. We rolled 3,5 (1 hit &le;4), eliminating one of their Destroyers</li>",
+		"<li>Their 2 surviving ships respond with 8/4 (0 hits &le;4/3)<br /><br /></li>",
+		"<li><b>Round 2</b>: Our Cruisers rolled 4,9 (1 hit &le;4), eliminating their last Destroyer</li>",
+		"<li>Their lone Scout rolled a 6 (miss &gt;3)<br /><br /></li>",
+		"<li><b>Round 3</b>: Our Cruisers rolled 6,7 (0 hits &le;4)</li>",
+		"<li>Their Scout rolled a 3 (hit &le;3), damaging a Cruiser<br /><br /></li>",
+		"<li><b>Round 4</b>: Our Cruisers rolled 6,10 (0 hits &le;5)</li>",
+		"<li>Their Scout rolled a 2 (hit &le;3), eliminating a Cruiser<br /><br /></li>",
+		"<li><b>Round 5</b>: Our last Cruiser rolled a 4 (hit &le;4), eliminating their fleet at last!</li></ol>"],
 	"actions":
 		[{
 			"removeCounter":"CA1G"
@@ -2148,7 +2243,11 @@
 			"removeCounter":"fleet2R"
 		}]},
 	{"heading":"Stardate 2409.0",
-	"commentary":"<p>We have managed to repel the invasions, for now... At our homeworld of Chulak, we buy 6 Pipelines (-18). At Dakara, we buy 2 Scouts (-12). At Hoth, we buy 1 Scout (-6) and 1 Colony Ship (-8).</p>{prodTable}{techTable}<p>Alien Players will be gaining a natural economic roll soon. Meanwhile, they rolled 1,2,8,9,10 (Europa) / 5,7,10 (Pandia) / 1,2,5 (Herse).</p><p>All 3 players are able to launch once more. They rolled 2 (Europa) / 10 (Pandia) / 4 (Herse). Pandia decides to hold onto its resources this time. None of the players are able to afford more Movement technology, so that ends this economic phase.</p>",
+	"commentary":[
+		"We have managed to repel the invasions, for now... At our homeworld of Chulak, we buy 6 Pipelines (-18). At Dakara, we buy 2 Scouts (-12). At Hoth, we buy 1 Scout (-6) and 1 Colony Ship (-8).",
+		"{prodTable}{techTable}",
+		"Alien Players will be gaining a natural economic roll soon. Meanwhile, they rolled 1,2,8,9,10 (Europa) / 5,7,10 (Pandia) / 1,2,5 (Herse).",
+		"All 3 players are able to launch once more. They rolled 2 (Europa) / 10 (Pandia) / 4 (Herse). Pandia decides to hold onto its resources this time. None of the players are able to afford more Movement technology, so that ends this economic phase."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":3,"colonyCP":59,"mineralCP":10,"pipeCP":0,"maint":10,"bidCP":0,"techBuy":0,"unitBuy":44
@@ -2261,7 +2360,10 @@
 			"location":"D7"
 		}]},
 	{"heading":"Stardate 2409.3 (The Battle for Sector J6)",
-	"commentary":"<p>We will go on ahead and upgrade our oldest Cruiser (-2 CP) that has survived the many skirmishes, giving it the same Movement 4 technology as the rest of the combat ships. We will also intercept the last Alien Player fleet that is standing prior to the break that they all took last phase.</p><p>Herse does not have enough Tech CP to buy Ship Size 3. For that matter, only Minesweeping 1 (-10) is currently affordable. They can build 1 Destroyer (-9) and 1 Scout (-6) before their assigned CP is already all spent.</p><ol><li><b>Round 1</b>: Asteroid Belt interference allows the opposing fleet to shoot first. They rolled 3/5 (1 hit &le;3/2), damaging one of our Cruisers</li><li>Our Cruisers then respond with 3,4,4 (3 hits &le;4), wiping them out in one salvo!</li></ol>",
+	"commentary":[
+		"We will go on ahead and upgrade our oldest Cruiser (-2 CP) that has survived the many skirmishes, giving it the same Movement 4 technology as the rest of the combat ships. We will also intercept the last Alien Player fleet that is standing prior to the break that they all took last phase.",
+		"Herse does not have enough Tech CP to buy Ship Size 3. For that matter, only Minesweeping 1 (-10) is currently affordable. They can build 1 Destroyer (-9) and 1 Scout (-6) before their assigned CP is already all spent.",
+		"Asteroid Belt interference allows the opposing fleet to shoot first. They rolled 3/5 (1 hit &le;3/2), damaging one of our Cruisers. Our Cruisers then respond with 3,4,4 (3 hits &le;4), wiping them out in one salvo!"],
 	"techTable":
 		[{
 			"name":"Herse (Red)","minelay":1,"size":2,"minesweep":1
@@ -2347,7 +2449,7 @@
 			"location":"E7"
 		}]},
 	{"heading":"Stardate 2409.6",
-	"commentary":"<p>We have almost managed to expose a path to Europa's homeworld of Vasyr.</p>",
+	"commentary":["We have almost managed to expose a path to Europa's homeworld of Vasyr."],
 	"actions":
 		[{
 			"placeGhost":"CA2G",
@@ -2430,7 +2532,12 @@
 			"location":"F8"
 		}]},
 	{"heading":"Stardate 2409.9",
-	"commentary":"<p>For now, we have a fleet to expose. On the Ship Size step, Europa rolls a 10 (skip). Since the only other technology they can afford is Minesweeping 2 (-15), they will purchase it. Their largest ship is a Destroyer (-9). They then roll an 8 for composition (Largest Ships), which gives them an extra Destroyer, and credits the leftover 3 CP back to their fleet bank.</p><ol><li><b>Round 1</b>: Asteroid Belt interference causes their Destroyers to shoot first. They rolled 5,9 against our Scouts (0 hits &le;4)</li><li>Our fleet now has a chance to shoot. We rolled 8/1,9 (1 hit &le;4/3)<br /><br /></li><li><b>Round 2</b>: Their 1 surviving Destroyer rolls an 8 against our Scouts (miss &gt;4)</li><li>Our fleet rolled 6/2,8 (1 hit &le;4/3), finishing them off</li></ol>",
+	"commentary":[
+		"For now, we have a fleet to expose. On the Ship Size step, Europa rolls a 10 (skip). Since the only other technology they can afford is Minesweeping 2 (-15), they will purchase it. Their largest ship is a Destroyer (-9). They then roll an 8 for composition (Largest Ships), which gives them an extra Destroyer, and credits the leftover 3 CP back to their fleet bank.",
+		"<ol><li><b>Round 1</b>: Asteroid Belt interference causes their Destroyers to shoot first. They rolled 5,9 against our Scouts (0 hits &le;4)</li>",
+		"<li>Our fleet now has a chance to shoot. We rolled 8/1,9 (1 hit &le;4/3)<br /><br /></li>",
+		"<li><b>Round 2</b>: Their 1 surviving Destroyer rolls an 8 against our Scouts (miss &gt;4)</li>",
+		"<li>Our fleet rolled 6/2,8 (1 hit &le;4/3), finishing them off</li></ol>"],
 	"techTable":
 		[{
 			"name":"Europa (Yellow)","minelay":1,"move":2,"size":2,"minesweep":2
@@ -2539,7 +2646,10 @@
 			"location":"G7"
 		}]},
 	{"heading":"Stardate 2410.0",
-	"commentary":"<p>Another planet has been brought into our empire. Our income continues to grow. We will go on ahead and buy 5 Pipelines (-15) + 1 Colony Ship (-8) at our homeworld, and 2 Scouts + an extra Ship Yard at each forward site (-36 total).</p>{prodTable}{techTable}<p>Alien Players have gained a fourth natural economic roll this phase. Thus, they rolled 1,2,4,7,7,8 (Europa) / 2,3,5,7 (Pandia) / 2,3,3,4 (Herse) for economics, followed by 7 (Europa) / 8 (Pandia) / 10 (Herse) for fleet launches. None of these players will launch this time.</p>",
+	"commentary":[
+		"Another planet has been brought into our empire. Our income continues to grow. We will go on ahead and buy 5 Pipelines (-15) + 1 Colony Ship (-8) at our homeworld, and 2 Scouts + an extra Ship Yard at each forward site (-36 total).",
+		"{prodTable}{techTable}",
+		"Alien Players have gained a fourth natural economic roll this phase. Thus, they rolled 1,2,4,7,7,8 (Europa) / 2,3,5,7 (Pandia) / 2,3,3,4 (Herse) for economics, followed by 7 (Europa) / 8 (Pandia) / 10 (Herse) for fleet launches. None of these players will launch this time."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":16,"colonyCP":64,"mineralCP":0,"pipeCP":3,"maint":13,"bidCP":0,"techBuy":0,"unitBuy":59
@@ -2656,7 +2766,7 @@
 			"location":"G7"
 		}]},
 	{"heading":"Stardate 2410.2",
-	"commentary":"<p>We have fully exposed paths to Europa and Pandia. We are also setting up an intercept against Herse's last known fleet.</p>",
+	"commentary":["We have fully exposed paths to Europa and Pandia. We are also setting up an intercept against Herse's last known fleet."],
 	"actions":
 		[{
 			"placeCounter":"CA4G",
@@ -2756,7 +2866,11 @@
 			"removeCounter":"SC1R"
 		}]},
 	{"heading":"Stardate 2410.5",
-	"commentary":"<p>We can now intercept Herse's fleet. They have no Tech CP to spend, so we go straight to their 16 assigned CP... which is good for just a Destroyer and a Scout (-15), crediting a leftover 1 CP back to their fleet bank.</p><ol><li><b>Round 1</b>: Our 3 Cruisers have the best weapon class, so we shoot first. We rolled 1,9,10 (1 hit &le;4), prioritizing their Destroyer</li><li>Their lone Scout rolls a 4 (miss &gt;3)<br /><br /></li><li><b>Round 2</b>: Our 3 Cruisers rolled 3,7,9 (1 hit &le;4), finishing their fleet off</li></ol>",
+	"commentary":[
+		"We can now intercept Herse's fleet. They have no Tech CP to spend, so we go straight to their 16 assigned CP... which is good for just a Destroyer and a Scout (-15), crediting a leftover 1 CP back to their fleet bank.",
+		"<ol><li><b>Round 1</b>: Our 3 Cruisers have the best weapon class, so we shoot first. We rolled 1,9,10 (1 hit &le;4), prioritizing their Destroyer</li>",
+		"<li>Their lone Scout rolls a 4 (miss &gt;3)<br /><br /></li>",
+		"<li><b>Round 2</b>: Our 3 Cruisers rolled 3,7,9 (1 hit &le;4), finishing their fleet off</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"CA2G",
@@ -2860,7 +2974,7 @@
 			"location":"H7"
 		}]},
 	{"heading":"Stardate 2410.8",
-	"commentary":"<p>We will position our side fleets just outside their respective homeworlds. Unless they can improve their Movement technology, their pathing forces them to fight us... and forgo the equal Tactics advantage.</p>",
+	"commentary":["We will position our side fleets just outside their respective homeworlds. Unless they can improve their Movement technology, their pathing forces them to fight us... and forgo the equal Tactics advantage."],
 	"actions":
 		[{
 			"resizeCounter":"SY2G",
@@ -2943,7 +3057,11 @@
 			"removeCounter":"fleet1R"
 		}]},
 	{"heading":"Stardate 2411.0",
-	"commentary":"<p>Our advances have slowed a bit, though partially because deep space has not exactly been the most cooperative with planets. Before we can buy anything though, we need to roll for the 2 space wrecks that we cashed in. We rolled 3,9 this way, granting us Attack 1 and Movement 5.</p><p>Now that the dust has settled, we will go on ahead and buy Ship Yards 2 (-20). We then buy 4 Scouts at each forward site. (-48 total)</p>{prodTable}{techTable}<p>Alien Players have slowed their aggression. Still, they rolled 2,2,4,7,8,8 (Europa) / 4,5,6,9 (Pandia) / 1,3,4,7 (Herse) for economics, followed by 8 (Europa) / 8 (Pandia) / 2 (Herse) for fleet launches. Herse will launch anyway, but does not have enough money to afford Movement.</p>",
+	"commentary":[
+		"Our advances have slowed a bit, though partially because deep space has not exactly been cooperating with planets. Before we can buy anything though, we need to roll for the 2 space wrecks that we cashed in. We rolled 3,9 this way, granting us Attack 1 and Movement 5.",
+		"Now that the dust has settled, we will go on ahead and buy Ship Yards 2 (-20). We then buy 4 Scouts at each forward site. (-48 total)",
+		"{prodTable}{techTable}",
+		"Alien Players have slowed their aggression. Still, they rolled 2,2,4,7,8,8 (Europa) / 4,5,6,9 (Pandia) / 1,3,4,7 (Herse) for economics, followed by 8 (Europa) / 8 (Pandia) / 2 (Herse) for fleet launches. Herse will launch anyway, but does not have enough money to afford Movement."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":11,"colonyCP":69,"mineralCP":0,"pipeCP":5,"maint":17,"bidCP":0,"techBuy":20,"unitBuy":48
@@ -3044,7 +3162,7 @@
 			"location":"D7"
 		}]},
 	{"heading":"Stardate 2411.1",
-	"commentary":"<p>Since neither Europa nor Pandia launched fleets, <q>tickling</q> their homeworlds (by sending in single scouts) is risky, because it causes them to launch fleets anyway. The only consolation is that we would be guaranteed to know their composition.</p>",
+	"commentary":["Since neither Europa nor Pandia launched fleets, <q>tickling</q> their homeworlds (by sending in single scouts) is risky, because it causes them to launch fleets anyway. The only consolation is that we would be guaranteed to know their composition."],
 	"actions":
 		[{
 			"placeCounter":"CA2G",
@@ -3121,7 +3239,7 @@
 			"location":"E6"
 		}]},
 	{"heading":"Stardate 2411.4",
-	"commentary":"<p>Soon, we will be ready to intercept Herse's newest fleet.</p>",
+	"commentary":["Soon, we will be ready to intercept Herse's newest fleet."],
 	"actions":
 		[{
 			"placeCounter":"CA2G",
@@ -3198,7 +3316,14 @@
 			"removeCounter":"SC1R"
 		}]},
 	{"heading":"Stardate 2411.7 (The Battle for Sector F6)",
-	"commentary":"<p>We have intercepted Herse's fleet. Since their 5 Tech CP is insufficient, we will simply build their ships. Destroyer remains their largest ship (-9). They then roll a 4 for composition (Balanced). Since they have neither Attack nor Defense technologies, they will simply go for the largest fleet, giving them an extra Destroyer (-9) and 3 Scouts (-18). This spends all of their assigned money.</p><ol><li><b>Round 1</b>: 3 ships to 5 ships. Neither side gets a Fleet Size Bonus</li><li>Our Cruisers have the best weapon class, so we shoot first. Prioritizing their Destroyers, we rolled 2,2,5 (2 hits &le;4), wiping this group out</li><li>Only their 3 Scouts remain. They rolled 1,2,5 (2 hits &le;2), cleanly demolishing one of our Cruisers<br /><br /></li><li><b>Round 2</b>: Our 2 surviving Cruisers rolled 3,3 (2 hits &le;4)</li><li>Only their final Scout remains. It rolled a 10 (miss &gt;2)<br /><br /></li><li><b>Round 3</b>: Our 2 Cruisers rolled 4,7 (1 hit &le;4), finishing their fleet off</li></ol>",
+	"commentary":[
+		"We have intercepted Herse's fleet. Since their 5 Tech CP is insufficient, we will simply build their ships. Destroyer remains their largest ship (-9). They then roll a 4 for composition (Balanced). Since they have neither Attack nor Defense technologies, they will simply go for the largest fleet, giving them an extra Destroyer (-9) and 3 Scouts (-18). This spends all of their assigned money.",
+		"<ol><li><b>Round 1</b>: 3 ships to 5 ships. Neither side gets a Fleet Size Bonus</li>",
+		"<li>Our Cruisers have the best weapon class, so we shoot first. Prioritizing their Destroyers, we rolled 2,2,5 (2 hits &le;4), wiping this group out</li>",
+		"<li>Only their 3 Scouts remain. They rolled 1,2,5 (2 hits &le;2), cleanly demolishing one of our Cruisers<br /><br /></li>",
+		"<li><b>Round 2</b>: Our 2 surviving Cruisers rolled 3,3 (2 hits &le;4)</li>",
+		"<li>Only their final Scout remains. It rolled a 10 (miss &gt;2)<br /><br /></li>",
+		"<li><b>Round 3</b>: Our 2 Cruisers rolled 4,7 (1 hit &le;4), finishing their fleet off</li></ol>"],
 	"techTable":
 		[{
 			"name":"Herse (Red)","minelay":1,"size":2,"minesweep":1
@@ -3281,7 +3406,10 @@
 			"location":"F6"
 		}]},
 	{"heading":"Stardate 2412.0",
-	"commentary":"<p>Once again, we have kept the board clean of Alien Player ships. With more ships available to assault each of Europa and Pandia, we will go on ahead and buy Minesweeping 1 (-10). We then buy 4 Minesweepers at each forward site (-48 total) and 2 Pipelines (-6) at our homeworld.</p>{prodTable}{techTable}<p>Aggression will go back up soon. Alien Players have rolled 1,1,4,4,10,10 (Europa) / 2,3,4,4 (Pandia) / 2,2,5,6 (Herse) for economics, followed by 4 (Europa) / 6 (Pandia) / 5 (Herse) for fleet launches. No launches take place this economic phase.</p>",
+	"commentary":[
+		"Once again, we have kept the board clean of Alien Player ships. With more ships available to assault each of Europa and Pandia, we will go on ahead and buy Minesweeping 1 (-10). We then buy 4 Minesweepers at each forward site (-48 total) and 2 Pipelines (-6) at our homeworld.",
+		"{prodTable}{techTable}",
+		"Aggression will go back up soon. Alien Players have rolled 1,1,4,4,10,10 (Europa) / 2,3,4,4 (Pandia) / 2,2,5,6 (Herse) for economics, followed by 4 (Europa) / 6 (Pandia) / 5 (Herse) for fleet launches. No launches take place this economic phase."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":0,"colonyCP":73,"mineralCP":10,"pipeCP":5,"maint":23,"bidCP":0,"techBuy":10,"unitBuy":54
@@ -3368,7 +3496,7 @@
 			"removeCounter":"SC1R"
 		}]},
 	{"heading":"Stardate 2412.3",
-	"commentary":"<p>Once again, it has effectively become a staring contest; only it becomes more and more difficult for us to sustain, by virtue of maintenance.</p>",
+	"commentary":["Once again, it has effectively become a staring contest; only it becomes more and more difficult for us to sustain, by virtue of maintenance."],
 	"actions":
 		[{
 			"placeCounter":"CA2G",
@@ -3438,7 +3566,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2412.6",
-	"commentary":"<p>It was only a matter of time before we found the first deep space black hole.</p>",
+	"commentary":["It was only a matter of time before we found the first deep space black hole."],
 	"actions":
 		[{
 			"placeCounter":"CA2G",
@@ -3508,7 +3636,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2412.9",
-	"commentary":"<p>More barren planets have been exposed, while also opening an alternate pathway around a supernova.</p>",
+	"commentary":["More barren planets have been exposed, while also opening an alternate pathway around a supernova."],
 	"actions":
 		[{
 			"removeCounter":"SY4G"
@@ -3579,7 +3707,10 @@
 			"removeCounter":"fleet1Y"
 		}]},
 	{"heading":"Stardate 2413.0",
-	"commentary":"<p>Relatively little action this late in a playthrough is not a good sign with our maintenance approaching <i>half</i> of our colony income. Anyway, we will go on ahead and buy 4 Cruisers (-48) + 1 Pipeline (-3) at our homeworld. We then throw down a Ship Yard (-6) at the forward site of Babbage.</p>{prodTable}{techTable}<p>It is no longer possible for these alien players to dedicate economic rolls into Defense. Still, they have rolled 6,7,7,7,9,10 (Europa) / 1,1,7,8 (Pandia) / 4,4,5,10 (Herse) for economics, followed by 1 (Europa) / 4 (Pandia) / 5 (Herse) for fleet launches. Europa launches a fleet at last, and rolls a 7 (skip) on the Movement technology step!</p>",
+	"commentary":[
+		"Relatively little action this late in a playthrough is not a good sign with our maintenance approaching <i>half</i> of our colony income. Anyway, we will go on ahead and buy 4 Cruisers (-48) + 1 Pipeline (-3) at our homeworld. We then throw down a Ship Yard (-6) at the forward site of Babbage.",
+		"{prodTable}{techTable}",
+		"It is no longer possible for these alien players to dedicate economic rolls into Defense. Still, they have rolled 6,7,7,7,9,10 (Europa) / 1,1,7,8 (Pandia) / 4,4,5,10 (Herse) for economics, followed by 1 (Europa) / 4 (Pandia) / 5 (Herse) for fleet launches. Europa launches a fleet at last, and rolls a 7 (skip) on the Movement technology step!"],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":1,"colonyCP":76,"mineralCP":10,"pipeCP":7,"maint":31,"bidCP":0,"techBuy":0,"unitBuy":57
@@ -3672,7 +3803,22 @@
 			"location":"F1"
 		}]},
 	{"heading":"Stardate 2413.2 (The Battle for Sector G1)",
-	"commentary":"<p>Since Europa did <i>not</i> buy another Movement level, we have only a single colony that can be reached in one economic phase's worth of turns... and the only pathway is guarded. It is battle time!</p><p>One unforunate side effect of Europa taking as long as it did in between fleet launches is that its newest fleet is the largest rival fleet we have seen so far; at least, CP-wise. On the Ship Size step, Europa rolled a 2 (buy for 15 CP). Afterwards, they roll a 7 for Scanning 1 (-20), and a 5 for Tactics (prerequisite not met, buy Attack 1 for 20 instead). This spends all of their Tech CP.</p><p>On the fleet itself, Cruiser is now the newest ship they have unlocked, so their first ship is as such (-12). Since their Scanning 1 is at least as superior as our Cloaking 0, they will also buy a Destroyer (-9) to protect against any Raiders we may field. For fleet composition, they rolled an 8 (Largest Ships). 37 CP unspent means another 3 Cruisers (-36), and a leftover 1 CP back to their fleet bank.</p><ol><li><b>Round 1</b>: We have 15 ships. Europa has 5 ships. We have achieved the Fleet Size Bonus!</li><li>We have the equal Tactics advantage, so our Cruisers shoot first. Their lone Destroyer is squishy, so we should prioritize that (&le;5 to hit). Our Cruisers rolled 9,5,8 (1 hit)</li><li>Their 4 Cruisers are next. Our Attack +1 scouts are the most optimal targets to maximize their chances of winning this battle, so rolls are done against them (&le;4 to hit). The Cruisers rolled 4,9,9,10 (1 hit)</li><li>Our 3 surviving updated Scouts can now shoot. Only their Cruisers remain. We rolled a 2,5,6 (1 hit &le;4), damaging one of them</li><li>Our 4 outdated Scouts are next. We rolled 4,4,5,9 (0 hits &le;3)</li><li>Our 4 Minesweepers finally get their turn. We rolled 1,4,4,9 (1 hit &le;1), cleaning up a Cruiser<br /><br /></li><li><b>Round 2</b>: We have 14 ships. Europa has 4 ships</li><li>Our Cruisers rolled 2,4,4 (3 hits &le;4). Their fleet is almost gone!</li><li>Their 2 surviving Cruisers rolled 1,6 (1 hit &le;4), taking out another Scout</li><li>Our 2 updated Scouts rolled 4,10 (1 hit &le;4), taking out their semi-final Cruiser</li><li>Our 4 outdated Scouts rolled 4,6,8,9 (0 hits &le;3)</li><li>Our 4 Minesweepers rolled 1,1,3,8 (2 hits &le;1), cleaning up the fleet!</li></ol>",
+	"commentary":[
+		"Since Europa did <i>not</i> buy another Movement level, we have only a single colony that can be reached in one economic phase's worth of turns... and the only pathway is guarded. It is battle time!",
+		"One unforunate side effect of Europa taking as long as it did in between fleet launches is that its newest fleet is the largest rival fleet we have seen so far; at least, CP-wise. On the Ship Size step, Europa rolled a 2 (buy for 15 CP). Afterwards, they roll a 7 for Scanning 1 (-20), and a 5 for Tactics (prerequisite not met, buy Attack 1 for 20 instead). This spends all of their Tech CP.",
+		"On the fleet itself, Cruiser is now the newest ship they have unlocked, so their first ship is as such (-12). Since their Scanning 1 is at least as superior as our Cloaking 0, they will also buy a Destroyer (-9) to protect against any Raiders we may field. For fleet composition, they rolled an 8 (Largest Ships). 37 CP unspent means another 3 Cruisers (-36), and a leftover 1 CP back to their fleet bank.",
+		"<ol><li><b>Round 1</b>: We have 15 ships. Europa has 5 ships. We have achieved the Fleet Size Bonus!</li>",
+		"<li>We have the equal Tactics advantage, so our Cruisers shoot first. Their lone Destroyer is squishy, so we should prioritize that (&le;5 to hit). Our Cruisers rolled 9,5,8 (1 hit)</li>",
+		"<li>Their 4 Cruisers are next. Our Attack +1 scouts are the most optimal targets to maximize their chances of winning this battle, so rolls are done against them (&le;4 to hit). The Cruisers rolled 4,9,9,10 (1 hit)</li>",
+		"<li>Our 3 surviving updated Scouts can now shoot. Only their Cruisers remain. We rolled a 2,5,6 (1 hit &le;4), damaging one of them</li>",
+		"<li>Our 4 outdated Scouts are next. We rolled 4,4,5,9 (0 hits &le;3)</li>",
+		"<li>Our 4 Minesweepers finally get their turn. We rolled 1,4,4,9 (1 hit &le;1), cleaning up a Cruiser<br /><br /></li>",
+		"<li><b>Round 2</b>: We have 14 ships. Europa has 4 ships</li>",
+		"<li>Our Cruisers rolled 2,4,4 (3 hits &le;4). Their fleet is almost gone!</li>",
+		"<li>Their 2 surviving Cruisers rolled 1,6 (1 hit &le;4), taking out another Scout</li>",
+		"<li>Our 2 updated Scouts rolled 4,10 (1 hit &le;4), taking out their semi-final Cruiser</li>",
+		"<li>Our 4 outdated Scouts rolled 4,6,8,9 (0 hits &le;3)</li>",
+		"<li>Our 4 Minesweepers rolled 1,1,3,8 (2 hits &le;1), cleaning up the fleet!</li></ol>"],
 	"actions":
 		[{
 			"placeGhost":"CA1G",
@@ -3745,7 +3891,26 @@
 			"size":1
 		}]},
 	{"heading":"Stardate 2413.5 (The Battle for Vasyr)",
-	"commentary":"<p>We can take advantage of our recent victory against Europa. We will go on ahead and assault their homeworld, now that they have no fleet + technology money to assist in the battle.</p><p>This leaves only the 60 CP worth of Defense money they have. Europa rolled a 10 (most Bases), which gives them 5 additional Bases to compliment the one they already started with!</p><ol><li><b>Round 1</b>: We have 13 ships. Europa has 6 bases. We will screen no ships. We have barely achieved the Fleet Size Bonus!</li><li>Their 6 Bases has the best weapon class, so they shoot first! Our updated Scouts have the highest priority, so they get targeted down (&le;7 to hit). They rolled 5,9,6 to clean this group up</li><li>Our outdated scouts are next in their line, and they still have 3 rolls left. 1,8,4 were rolled against them (2 hits)</li><li>Our 3 Cruisers can now shoot. Only their Bases are available (&le;3 to hit). We rolled 2,8,9 (1 hit), damaging one of them</li><li>Our 2 outdated Scouts are next. We rolled 1,8 (1 hit &le;2), further damaging them</li><li>Our 4 Minesweepers finally get their chance. We rolled 1,3,8,10 (1 hit &le;1), cleaning up one of their Bases<br /><br /></li><li><b>Round 2</b>: We have 9 ships. Europa has 5 bases. We no longer have the Fleet Size Bonus</li><li>Their 5 Bases continue against our remaining 2 Scouts (&le;7 to hit still). They rolled 8,7,10,5 to clean this group up. The leftover roll of 8 is then spent against our Minesweepers (missed)</li><li>Our 3 Cruisers rolled 2,9,9 (1 hit &le;2), damaging their second base</li><li>Our 4 Minesweepers rolled 1,2,3,7 (1 hit &le;1), further damaging the second base<br /><br /></li><li><b>Round 3</b>: We have 7 ships. Europa has 5 bases</li><li>Their 5 Bases continue against our 4 Minesweepers (&le;7 to hit still). They rolled 6,5,7,3 to clean this group up. The leftover roll of 4 is then spent against our Cruisers (hit &le;6)</li><li>Our 3 Cruisers rolled 3,5,8 (0 hits &le;2)<br /><br /></li><li><b>Round 4</b>: We have 3 ships. Europa has 5 bases</li><li>Their 5 Bases continue against our 3 Cruisers (&le;6 to hit). They rolled 2,4,8,9,9 (2 hits), wiping out one of them.</li><li>Our 2 surviving Cruisers rolled 5,10 (0 hits &le;2)<br /><br /></li><li><b>Round 5</b>: We have 2 ships. Europa has 5 bases. Europa has gained the Fleet Size Bonus!</li><li>Their 5 Bases continue against our 2 Cruisers (&le;7 to hit). They rolled 3,3,7,7,8 (5 hits), finishing off our fleet!</li></ol>",
+	"commentary":[
+		"We can take advantage of our recent victory against Europa. We will go on ahead and assault their homeworld, now that they have no fleet + technology money to assist in the battle.</p><p>This leaves only the 60 CP worth of Defense money they have. Europa rolled a 10 (most Bases), which gives them 5 additional Bases to compliment the one they already started with!",
+		"<ol><li><b>Round 1</b>: We have 13 ships. Europa has 6 bases. We will screen no ships. We have barely achieved the Fleet Size Bonus!</li>",
+		"<li>Their 6 Bases has the best weapon class, so they shoot first! Our updated Scouts have the highest priority, so they get targeted down (&le;7 to hit). They rolled 5,9,6 to clean this group up</li>",
+		"<li>Our outdated scouts are next in their line, and they still have 3 rolls left. 1,8,4 were rolled against them (2 hits)</li>",
+		"<li>Our 3 Cruisers can now shoot. Only their Bases are available (&le;3 to hit). We rolled 2,8,9 (1 hit), damaging one of them</li>",
+		"<li>Our 2 outdated Scouts are next. We rolled 1,8 (1 hit &le;2), further damaging them</li>",
+		"<li>Our 4 Minesweepers finally get their chance. We rolled 1,3,8,10 (1 hit &le;1), cleaning up one of their Bases<br /><br /></li>",
+		"<li><b>Round 2</b>: We have 9 ships. Europa has 5 bases. We no longer have the Fleet Size Bonus</li>",
+		"<li>Their 5 Bases continue against our remaining 2 Scouts (&le;7 to hit still). They rolled 8,7,10,5 to clean this group up. The leftover roll of 8 is then spent against our Minesweepers (missed)</li>",
+		"<li>Our 3 Cruisers rolled 2,9,9 (1 hit &le;2), damaging their second base</li>",
+		"<li>Our 4 Minesweepers rolled 1,2,3,7 (1 hit &le;1), further damaging the second base<br /><br /></li>",
+		"<li><b>Round 3</b>: We have 7 ships. Europa has 5 bases</li>",
+		"<li>Their 5 Bases continue against our 4 Minesweepers (&le;7 to hit still). They rolled 6,5,7,3 to clean this group up. The leftover roll of 4 is then spent against our Cruisers (hit &le;6)</li>",
+		"<li>Our 3 Cruisers rolled 3,5,8 (0 hits &le;2)<br /><br /></li>",
+		"<li><b>Round 4</b>: We have 3 ships. Europa has 5 bases</li>",
+		"<li>Their 5 Bases continue against our 3 Cruisers (&le;6 to hit). They rolled 2,4,8,9,9 (2 hits), wiping out one of them.</li>",
+		"<li>Our 2 surviving Cruisers rolled 5,10 (0 hits &le;2)<br /><br /></li>",
+		"<li><b>Round 5</b>: We have 2 ships. Europa has 5 bases. Europa has gained the Fleet Size Bonus!</li>",
+		"<li>Their 5 Bases continue against our 2 Cruisers (&le;7 to hit). They rolled 3,3,7,7,8 (5 hits), finishing off our fleet!</li></ol>"],
 	"techTable":
 		[{
 			"name":"Europa (Yellow)","minelay":1,"move":2,"size":3,"minesweep":2,"scan":1,"atk":1
@@ -3801,7 +3966,7 @@
 			"size":6
 		}]},
 	{"heading":"Stardate 2413.8",
-	"commentary":"<p>One of our fleets is gone, but our budget may appreciate this after this turn concludes.</p>",
+	"commentary":["One of our fleets is gone, but our budget may appreciate this after this turn concludes."],
 	"actions":
 		[{
 			"resizeCounter":"SY4G",
@@ -3849,7 +4014,10 @@
 			"removeCounter":"fleet1B"
 		}]},
 	{"heading":"Stardate 2414.0",
-	"commentary":"<p>Recent battle losses has decreased our maintenance to a more manageable level. We will replace as many of them as possible. 6 Scouts have been bought at each of Dakara (K3) and Chulak (-72 total). Babbage gets an extra Ship Yard (-6) to slightly increase its protection.</p>{prodTable}{techTable}<p>Alien Players will gain a natural economic roll soon. They have rolled 5,6,6,6,7,10 (Europa) / 1,3,6,8 (Pandia) / 1,9,10,10 (Herse) for economics. Here is where things get dicey; this economic phase and <i>every</i> even numbered phase afterwards is an automatic launch phase! The players that have not recently spent Tech CP can roll for Movement 2. They rolled 2 (Pandia) / 9 (Herse). Pandia will buy Movement 2 (-20).</p>",
+	"commentary":[
+		"Recent battle losses has decreased our maintenance to a more manageable level. We will replace as many of them as possible. 6 Scouts have been bought at each of Dakara (K3) and Chulak (-72 total). Babbage gets an extra Ship Yard (-6) to slightly increase its protection.",
+		"{prodTable}{techTable}",
+		"Alien Players will gain a natural economic roll soon. They have rolled 5,6,6,6,7,10 (Europa) / 1,3,6,8 (Pandia) / 1,9,10,10 (Herse) for economics. Here is where things get dicey; this economic phase and <i>every</i> even numbered phase afterwards is an automatic launch phase! The players that have not recently spent Tech CP can roll for Movement 2. They rolled 2 (Pandia) / 9 (Herse). Pandia will buy Movement 2 (-20)."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":6,"colonyCP":78,"mineralCP":10,"pipeCP":7,"maint":21,"bidCP":0,"techBuy":0,"unitBuy":78
@@ -3935,7 +4103,9 @@
 			"location":"D7"
 		}]},
 	{"heading":"Stardate 2414.1",
-	"commentary":"<p>If Pandia had stayed at Movement 1, we could have kept their only pathway to our nearest colony guarded. But, because they bought Movement 2, a new pathway opened, making a defensive battle impossible.</p><p>(They avoid hexes guarded by multiple combat ships <i>whenever</i> it would not delay their ability to reach their destination in the same number of economic phases.)</p>",
+	"commentary":[
+		"If Pandia had stayed at Movement 1, we could have kept their only pathway to our nearest colony guarded. But, because they bought Movement 2, a new pathway opened, making a defensive battle impossible.",
+		"(They avoid hexes guarded by multiple combat ships <i>whenever</i> it would not delay their ability to reach their destination in the same number of economic phases.)"],
 	"actions":
 		[{
 			"placeCounter":"CA1G",
@@ -4002,7 +4172,30 @@
 			"location":"E6"
 		}]},
 	{"heading":"Stardate 2414.4 (The Battle for Sector G12)",
-	"commentary":"<p>Instead, we must conduct an offensive battle. Whatever is in that fleet likely would be lethal to our colony if its allowed to go through. On the Ship Size step, Pandia rolls an 8 (skip). The only other technology that is affordable is Minesweeping 1, so they will go on ahead and buy that (-10).</p><p>Since they did <i>not</i> tech up to Cruisers, they are stuck with Destroyers, so they start with one (-9). They then roll a 5 for composition (Balanced). Since their Ship Size is small, they will go after 11 Scouts (-66) and an extra Destroyer (-9).</p><ol><li><b>Round 1</b>: We have 16 ships (5 Cruisers + 7 Scouts + 4 Minesweepers). Pandia has 13 ships. Roughly the same size! We will also go on ahead and screen no ships</li><li>We have the weapon class advantage, so we shoot first. Prioritizing their Destroyers, our 5 Cruisers rolled 1,9,10,10/10 (1 hit &le;5/4)</li><li>That leaves them with 1 Destroyer + 11 Scouts. Prioritizing our own Scouts (first roll at &le;5 to hit, then &le;4 to hit), they rolled 10,10,3,8,9,4,10,2,2,10,7,2 (5 hits)</li><li>We still have 2 Scouts left. Going after their last Destroyer (&le;3 to hit), we rolled a 2 this way, followed by a 4 against their Scouts.</li><li>We also have 4 Mineswepers able to respond. Since only their Scouts remain (&le;2 to hit), we rolled 5,7,7,10 accordingly (0 hits)<br /><br /></li><li><b>Round 2</b>: We have 11 ships. Pandia has 11 scouts</li><li>Our 5 Cruisers rolled 1,4,7,10/1 (3 hits &le;5/4)</li><li>That still leaves them with 8 Scouts. Prioritizing our own Scouts (&le;4 to hit), they rolled 9,9,10,6,9,1,8,4 (2 hits). They had exactly enough firepower to wipe our Scouts out!</li><li>Our 4 Mineswepers rolled 4,5,6,8 (0 hits &le;2)<br /><br /></li><li><b>Round 3</b>: We have 9 ships. Pandia has 8 scouts</li><li>Our 5 Cruisers rolled 1,5,5,6/8 (3 hits &le;5/4)</li><li>Their 5 Scouts rolled 1,5,5,5,7 against our Minesweepers (1 hit &le;4)</li><li>Our 3 Mineswepers rolled 1,4,10 (1 hit &le;2)<br /><br /></li><li><b>Round 4</b>: We have 8 ships. Pandia has 4 scouts. We have gained the Fleet Size Bonus!</li><li>Our 5 Cruisers rolled 3,4,7,10/6 (2 hits &le;6/5)</li><li>Their 2 Scouts rolled 5,7 against our Minesweepers (0 hits &le;4)</li><li>Our 3 Mineswepers rolled 4,7,7 (0 hits &le;3)<br /><br /></li><li><b>Round 5</b>: Our 5 Cruisers rolled 5,9,9,10/7 (1 hit &le;6/5)</li><li>Their last Scout rolled a 1 against our Minesweepers (hit &le;4)</li><li>Our 2 Mineswepers rolled 4,5 (0 hits &le;3)<br /><br /></li><li><b>Round 6</b>: Our 5 Cruisers rolled 2,8,9,9/7 (1 hit &le;6/5), finishing their fleet off!</li></ol>",
+	"commentary":[
+		"Instead, we must conduct an offensive battle. Whatever is in that fleet likely would be lethal to our colony if its allowed to go through. On the Ship Size step, Pandia rolls an 8 (skip). The only other technology that is affordable is Minesweeping 1, so they will go on ahead and buy that (-10).",
+		"Since they did <i>not</i> tech up to Cruisers, they are stuck with Destroyers, so they start with one (-9). They then roll a 5 for composition (Balanced). Since their Ship Size is small, they will go after 11 Scouts (-66) and an extra Destroyer (-9).",
+		"<ol><li><b>Round 1</b>: We have 16 ships (5 Cruisers + 7 Scouts + 4 Minesweepers). Pandia has 13 ships. Roughly the same size! We will also go on ahead and screen no ships</li>",
+		"<li>We have the weapon class advantage, so we shoot first. Prioritizing their Destroyers, our 5 Cruisers rolled 1,9,10,10/10 (1 hit &le;5/4)</li>",
+		"<li>That leaves them with 1 Destroyer + 11 Scouts. Prioritizing our own Scouts (first roll at &le;5 to hit, then &le;4 to hit), they rolled 10,10,3,8,9,4,10,2,2,10,7,2 (5 hits)</li>",
+		"<li>We still have 2 Scouts left. Going after their last Destroyer (&le;3 to hit), we rolled a 2 this way, followed by a 4 against their Scouts.</li>",
+		"<li>We also have 4 Mineswepers able to respond. Since only their Scouts remain (&le;2 to hit), we rolled 5,7,7,10 accordingly (0 hits)<br /><br /></li>",
+		"<li><b>Round 2</b>: We have 11 ships. Pandia has 11 scouts</li>",
+		"<li>Our 5 Cruisers rolled 1,4,7,10/1 (3 hits &le;5/4)</li>",
+		"<li>That still leaves them with 8 Scouts. Prioritizing our own Scouts (&le;4 to hit), they rolled 9,9,10,6,9,1,8,4 (2 hits). They had exactly enough firepower to wipe our Scouts out!</li>",
+		"<li>Our 4 Mineswepers rolled 4,5,6,8 (0 hits &le;2)<br /><br /></li>",
+		"<li><b>Round 3</b>: We have 9 ships. Pandia has 8 scouts</li>",
+		"<li>Our 5 Cruisers rolled 1,5,5,6/8 (3 hits &le;5/4)</li>",
+		"<li>Their 5 Scouts rolled 1,5,5,5,7 against our Minesweepers (1 hit &le;4)</li>",
+		"<li>Our 3 Mineswepers rolled 1,4,10 (1 hit &le;2)<br /><br /></li>",
+		"<li><b>Round 4</b>: We have 8 ships. Pandia has 4 scouts. We have gained the Fleet Size Bonus!</li>",
+		"<li>Our 5 Cruisers rolled 3,4,7,10/6 (2 hits &le;6/5)</li>",
+		"<li>Their 2 Scouts rolled 5,7 against our Minesweepers (0 hits &le;4)</li>",
+		"<li>Our 3 Mineswepers rolled 4,7,7 (0 hits &le;3)<br /><br /></li>",
+		"<li><b>Round 5</b>: Our 5 Cruisers rolled 5,9,9,10/7 (1 hit &le;6/5)</li>",
+		"<li>Their last Scout rolled a 1 against our Minesweepers (hit &le;4)</li>",
+		"<li>Our 2 Mineswepers rolled 4,5 (0 hits &le;3)<br /><br /></li>",
+		"<li><b>Round 6</b>: Our 5 Cruisers rolled 2,8,9,9/7 (1 hit &le;6/5), finishing their fleet off!</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"CA1G",
@@ -4069,7 +4262,26 @@
 			"resizeCounter":"mines1B"
 		}]},
 	{"heading":"Stardate 2414.7",
-	"commentary":"<h3>The Battle for Terra</h3><p>This turn will be another busy turn! While it is our turn, we will go on ahead and assault Terra! With their fleet and technology banks already gone, that leaves only their protection bank of 20 CP. Pandia rolls a 4 for the protection composition (Balanced). This gives them 1 additional Base (-12) and 1 Minelayer (-5).</p><ol><li><b>Round 1</b>: Their 1 minelayer deploys its ammunition... which is nullified by our Minesweepers. That leaves us with 7 ships, versus their 2 bases. We will screen no ships, and gain the Fleet Size Bonus!</li><li>Their bases have the best weapon class, so they go first. Our Cruisers have the easiest time hitting it by a considerable margin, so they will go after them. They rolled 1,9 (1 hit &le;7), damaging one of them</li><li>Our 5 Cruisers then respond with 4,6,8,9/9 (1 hit &le;4/3), damaging one of them</li><li>Our 2 Minesweepers rolled 1,3 (1 hit &le;1), damaging the first base further<br /><br /></li><li><b>Round 2</b>: Their bases rolled 2,5 against our Cruisers (2 hits &le;7), eliminating one of them</li><li>Our 4 Cruisers then respond with 1,2,10/10 (2 hits &le;4/3), finishing one off and damaging a second</li><li>Our 2 Minesweepers rolled 2,9 (0 hits &le;1)<br /><br /></li><li><b>Round 3</b>: Their last base rolled an 8 against our Cruisers (miss &gt;7)</li><li>Our 4 Cruisers rolled 1,4,9/2 (3 hits &le;4/3), finishing off the last base!<br /><br /></li><li><b>Bombardment Round</b>: Our 4 Cruisers rolled 1,3,7/1 (3 hits &le;5/4), severely damaging Pandia's homeworld to 1 HP</li><li>Our 2 Minesweepers still have a chance to finish them off. They rolled 4,9; which is not quite enough.</li></ol><h3>The Battle for Gath</h3><p>While we were busy with Pandia, Europa decided to raid one of our western colonies. Jokes on them, it is guarded with 6 scouts. Still, with their technology CP insufficient, they go straight to building a Cruiser (-12), followed by a Destroyer (-9). This spends all of their assigned money.</p><ol><li><b>Round 1</b>: They have the best weapon class, so they go first. Since only our Scouts are in battle, they rolled 4,7 accordingly (1 hit &le;5)</li><li>Our 5 Scouts benefit from Fleet Size Bonus, so we strike next. Going after their Destroyer first, we rolled 9,7,2 (hit &le;5), followed by 2,10 against their Cruiser (1 hit &le;4)<br /><br /></li><li><b>Round 2</b>: Their Cruiser is all alone. It rolled a 5 (hit &le;5)</li><li>Our 4 Scouts rolled 4,5,5,9 (1 hit &le;4), finishing this fleet off!</li></ol>",
+	"commentary":[
+		"<h3>The Battle for Terra</h3>",
+		"This turn will be another busy turn! While it is our turn, we will go on ahead and assault Terra! With their fleet and technology banks already gone, that leaves only their protection bank of 20 CP. Pandia rolls a 4 for the protection composition (Balanced). This gives them 1 additional Base (-12) and 1 Minelayer (-5).",
+		"<ol><li><b>Round 1</b>: Their 1 minelayer deploys its ammunition... which is nullified by our Minesweepers. That leaves us with 7 ships, versus their 2 bases. We will screen no ships, and gain the Fleet Size Bonus!</li>",
+		"<li>Their bases have the best weapon class, so they go first. Our Cruisers have the easiest time hitting it by a considerable margin, so they will go after them. They rolled 1,9 (1 hit &le;7), damaging one of them</li>",
+		"<li>Our 5 Cruisers then respond with 4,6,8,9/9 (1 hit &le;4/3), damaging one of them</li>",
+		"<li>Our 2 Minesweepers rolled 1,3 (1 hit &le;1), damaging the first base further<br /><br /></li>",
+		"<li><b>Round 2</b>: Their bases rolled 2,5 against our Cruisers (2 hits &le;7), eliminating one of them</li>",
+		"<li>Our 4 Cruisers then respond with 1,2,10/10 (2 hits &le;4/3), finishing one off and damaging a second</li>",
+		"<li>Our 2 Minesweepers rolled 2,9 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 3</b>: Their last base rolled an 8 against our Cruisers (miss &gt;7)</li>",
+		"<li>Our 4 Cruisers rolled 1,4,9/2 (3 hits &le;4/3), finishing off the last base!<br /><br /></li>",
+		"<li><b>Bombardment Round</b>: Our 4 Cruisers rolled 1,3,7/1 (3 hits &le;5/4), severely damaging Pandia's homeworld to 1 HP</li>",
+		"<li>Our 2 Minesweepers still have a chance to finish them off. They rolled 4,9; which is not quite enough.</li></ol>",
+		"<h3>The Battle for Gath</h3>",
+		"While we were busy with Pandia, Europa decided to raid one of our western colonies. Jokes on them, it is guarded with 6 scouts. Still, with their technology CP insufficient, they go straight to building a Cruiser (-12), followed by a Destroyer (-9). This spends all of their assigned money.",
+		"<ol><li><b>Round 1</b>: They have the best weapon class, so they go first. Since only our Scouts are in battle, they rolled 4,7 accordingly (1 hit &le;5)</li>",
+		"<li>Our 5 Scouts benefit from Fleet Size Bonus, so we strike next. Going after their Destroyer first, we rolled 9,7,2 (hit &le;5), followed by 2,10 against their Cruiser (1 hit &le;4)<br /><br /></li>",
+		"<li><b>Round 2</b>: Their Cruiser is all alone. It rolled a 5 (hit &le;5)</li>",
+		"<li>Our 4 Scouts rolled 4,5,5,9 (1 hit &le;4), finishing this fleet off!</li></ol>"],
 	"techTable":
 		[{
 			"name":"Europa (Yellow)","minelay":1,"move":2,"size":3,"minesweep":2,"scan":1,"atk":1
@@ -4159,7 +4371,11 @@
 			"name":"home20B"
 		}]},
 	{"heading":"Stardate 2415.0",
-	"commentary":"<p>We have used our forces quite well this phase! We did not quite manage to eliminate Pandia, but damaging them still works great! We will buy 6 Scouts at Dakara (K3 for -36), and 1 Minesweeper (-6) + 1 Cruiser (-12) + an extra Ship Yard (-6) at Babbage.</p>{prodTable}{techTable}<p>Alien Players have gained their fifth natural economic roll this phase. They have rolled 2,2,5,7,8,10,10 (Europa) / 2,3,4,4,7 (Pandia) / 1,2,2,3,10 (Herse) for economics. Since this is a soft downtime phase, the <q>safe</q> players have rolled 8 (Europa) / 5 (Herse) for fleet launch. Neither of these safe players will launch this economic phase.</p><p>Pandia will automatically launch and build its fleet, because its homeworld is being besieged! With the resources available at its disposal, its Destroyer remains its largest ship (-9). After rolling a 7 for composition (Largest Ships), it will throw down another Destroyer and a Scout (-15). This leaves its fleet bank with 3 CP leftover.</p>",
+	"commentary":[
+		"We have used our forces quite well this phase! We did not quite manage to eliminate Pandia, but damaging them still works great! We will buy 6 Scouts at Dakara (K3 for -36), and 1 Minesweeper (-6) + 1 Cruiser (-12) + an extra Ship Yard (-6) at Babbage.",
+		"{prodTable}{techTable}",
+		"Alien Players have gained their fifth natural economic roll this phase. They have rolled 2,2,5,7,8,10,10 (Europa) / 2,3,4,4,7 (Pandia) / 1,2,2,3,10 (Herse) for economics. Since this is a soft downtime phase, the <q>safe</q> players have rolled 8 (Europa) / 5 (Herse) for fleet launch. Neither of these safe players will launch this economic phase.",
+		"Pandia will automatically launch and build its fleet, because its homeworld is being besieged! With the resources available at its disposal, its Destroyer remains its largest ship (-9). After rolling a 7 for composition (Largest Ships), it will throw down another Destroyer and a Scout (-15). This leaves its fleet bank with 3 CP leftover."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":2,"colonyCP":80,"mineralCP":10,"pipeCP":7,"maint":20,"bidCP":0,"techBuy":0,"unitBuy":60
@@ -4258,7 +4474,20 @@
 			"name":"home10B"
 		}]},
 	{"heading":"Stardate 2415.1",
-	"commentary":"<h3>The Battle for Terra</h3><p>Once again, we are continuing our assault against Terra. Since their fleet was previously built, we will go straight into battle!</p><p>Our 4 Cruisers have the best weapon class. With the assistance of the Fleet Size Bonus, we rolled 1,5,7/5 (3 hits &le;6/5), cleanly eliminating this newly built fleet. Our Cruisers then bombard the planet. We rolled 2,5,8/8 (2 hits &le;5/4), finishing their homeworld off also!</p><h3>The Battle for Babbage</h3><p>Herse is ready to go to battle. Since their fleet is slow, only Babbage is reachable within the next economic phase's worth of turns. On the Ship Size step, they roll a 1 (buy for -15). The only other technology that is affordable is Minesweeping 2 (-15), which they also buy. For the fleet step, their largest ship is now a Cruiser (-12). They then roll a 9 for composition (Largest Ships), which gives them another 2 Cruisers (-24), and credits a leftover 4 CP back to the fleet bank.</p><ol><li><b>Round 1</b>: We have 8 ships. They have 3 cruisers. We will screen our Minesweeper each round (if able), and gain the Fleet Size Bonus!</li><li>Our 1 Cruiser has the tactics advantage, so we shoot first. We rolled a 1 (hit &le;5), damaging one of their cruisers</li><li>Their 3 Cruisers are next. Focusing on our Scouts, they rolled 2,3,5 (2 hits &le;4)</li><li>Our 4 Scouts rolled 1,4,7,9 (2 hits &le;4), cleanly eliminating a cruiser<br /><br /></li><li><b>Round 2</b>: Our 1 Cruiser has rolled a 5 (hit &le;5), finishing their second cruiser</li><li>Their last Cruiser is next. It rolled a 1 against our scouts (2 hit &le;4)</li><li>Our 3 Scouts rolled 4,6,8 (1 hit &le;4), damaging the last ship<br /><br /></li><li><b>Round 3</b>: Our 1 Cruiser has rolled a 2 (hit &le;5), finishing their fleet off!</li></ol>",
+	"commentary":[
+		"<h3>The Battle for Terra</h3>",
+		"Once again, we are continuing our assault against Terra. Since their fleet was previously built, we will go straight into battle!",
+		"Our 4 Cruisers have the best weapon class. With the assistance of the Fleet Size Bonus, we rolled 1,5,7/5 (3 hits &le;6/5), cleanly eliminating this newly built fleet. Our Cruisers then bombard the planet. We rolled 2,5,8/8 (2 hits &le;5/4), finishing their homeworld off also!",
+		"<h3>The Battle for Babbage</h3>",
+		"Herse is ready to go to battle. Since their fleet is slow, only Babbage is reachable within the next economic phase's worth of turns. On the Ship Size step, they roll a 1 (buy for -15). The only other technology that is affordable is Minesweeping 2 (-15), which they also buy. For the fleet step, their largest ship is now a Cruiser (-12). They then roll a 9 for composition (Largest Ships), which gives them another 2 Cruisers (-24), and credits a leftover 4 CP back to the fleet bank.",
+		"<ol><li><b>Round 1</b>: We have 8 ships. They have 3 cruisers. We will screen our Minesweeper each round (if able), and gain the Fleet Size Bonus!</li>",
+		"<li>Our 1 Cruiser has the tactics advantage, so we shoot first. We rolled a 1 (hit &le;5), damaging one of their cruisers</li>",
+		"<li>Their 3 Cruisers are next. Focusing on our Scouts, they rolled 2,3,5 (2 hits &le;4)</li>",
+		"<li>Our 4 Scouts rolled 1,4,7,9 (2 hits &le;4), cleanly eliminating a cruiser<br /><br /></li>",
+		"<li><b>Round 2</b>: Our 1 Cruiser has rolled a 5 (hit &le;5), finishing their second cruiser</li>",
+		"<li>Their last Cruiser is next. It rolled a 1 against our scouts (2 hit &le;4)</li>",
+		"<li>Our 3 Scouts rolled 4,6,8 (1 hit &le;4), damaging the last ship<br /><br /></li>",
+		"<li><b>Round 3</b>: Our 1 Cruiser has rolled a 2 (hit &le;5), finishing their fleet off!</li></ol>"],
 	"techTable":
 		[{
 			"name":"Pandia (Blue)","minelay":1,"size":2,"atk":1,"move":2,"minesweep":1,"isDead":true
@@ -4342,7 +4571,7 @@
 			"name":"home10B"
 		}]},
 	{"heading":"Stardate 2415.4",
-	"commentary":"<p>With Pandia eliminated, that effectively renders our eastern flank safe.</p>",
+	"commentary":["With Pandia eliminated, that effectively renders our eastern flank safe."],
 	"actions":
 		[{
 			"placeCounter":"CA1G",
@@ -4413,7 +4642,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2415.7",
-	"commentary":"<p>Herse is pretty much coming up next, considering where our forces are consolidating.</p>",
+	"commentary":["Herse is pretty much coming up next, considering where our forces are consolidating."],
 	"actions":
 		[{
 			"placeCounter":"CA1G",
@@ -4479,7 +4708,10 @@
 			"removeCounter":"systemG6"
 		}]},
 	{"heading":"Stardate 2416.0",
-	"commentary":"<p>Having emerged victorious makes planning subsequent economic phases easier, too! Before we can buy anything though, we have a <i>third</i> space wreck to cash in! We rolled a 10, giving us Ship Yard 3 this way! We will take advantage of this, and buy Ship Size 4 also (-20). We will then buy 5 Battlecruisers (-75) at our homeworld!</p>{prodTable}{techTable}<p>Destruction aside, not much has changed. The alien players that are still alive rolled 1,2,3,4,5,7,10 (Europa) / 3,8,10,10,10 (Herse) for economics. Launching is automatic this phase, so these players instead roll 3 (Europa) / 6 (Herse) for movement technology. Europa will buy Movement 3 (-25).</p>",
+	"commentary":[
+		"Having emerged victorious makes planning subsequent economic phases easier, too! Before we can buy anything though, we have a <i>third</i> space wreck to cash in! We rolled a 10, giving us Ship Yard 3 this way! We will take advantage of this, and buy Ship Size 4 also (-20). We will then buy 5 Battlecruisers (-75) at our homeworld!",
+		"{prodTable}{techTable}",
+		"Destruction aside, not much has changed. The alien players that are still alive rolled 1,2,3,4,5,7,10 (Europa) / 3,8,10,10,10 (Herse) for economics. Launching is automatic this phase, so these players instead roll 3 (Europa) / 6 (Herse) for movement technology. Europa will buy Movement 3 (-25)."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":19,"colonyCP":80,"mineralCP":20,"pipeCP":7,"maint":26,"bidCP":0,"techBuy":20,"unitBuy":75
@@ -4575,7 +4807,17 @@
 			"removeCounter":"mines1R"
 		}]},
 	{"heading":"Stardate 2416.2 (The Battle for Altair)",
-	"commentary":"<p>Europa gaining Movement 3 makes it impossible to defend all of our planets; it is perfectly possible we may have to sacrifice a colony to them. Meanwhile, since doomsday machines are <i>not</i> used in Alien Empires, we can safely remove the counter that was remotely revealed. This allows us to combine our two largest fleets, and assault Altair this way!</p><p>Since their fleet was assaulted <i>before</i> it could even leave their homeworld, they will assist in the homeworld battle. On the Ship Size step, they roll a 7 (skip). On the extra techs step, they roll a 5 (Tactics). Since their Attack technology is at 0, they will purchase Attack 1 instead (-20). On the fleet step, Cruisers are their largest ship (-12). They then build a 9 for composition (Largest Ships), which gives them an extra Cruiser (-24) total. Finally, since the homeworld itself is being assaulted, they roll a 1 for protection composition (Minelayers only), which gives them 4 minelayers.</p><ol><li><b>Detonation Round</b>: Their 4 minelayers were able to deploy their ammunition. We were only able to sweep one of them, causing the rest to demolish our Cruiser and 2 of our Scouts before battle</li><li><b>Round 1</b>: We have 12 ships. They have 3 ships. We will screen no ships, and gain the fleet size bonus</li><li>Their 3 ships have the best weapon class together, so they shoot first. They rolled 1/5,9 against our Scouts (2 hits &le;8/5)</li><li>Our Scouts prioritize their Cruisers, and rolled 7,1,10,2,6,3,10,3 (4 hits &le;4), cleaning eliminating this group</li><li>Our Minesweeper can still shoot, and only their lone base remains. We rolled a 5 (miss &gt;1)<br /><br /></li><li><b>Round 2</b>: Their base is all alone. It rolled a 4 against our Scouts (hit &le;8)</li><li>Our remaining ships rolled 1,1,1,2,3,5,7,8/7 (5 hits &le;3/1), overkilling their base<br /><br /></li><li><b>Bombardment Round</b>: With Altair exposed, our victorious ships rolled 1,2,2,2,3,3,4,9/2 (8 hits &le;4/2), utterly pulverizing their homeworld!</li></ol>",
+	"commentary":[
+		"Europa gaining Movement 3 makes it impossible to defend all of our planets; it is perfectly possible we may have to sacrifice a colony to them. Meanwhile, since doomsday machines are <i>not</i> used in Alien Empires, we can safely remove the counter that was remotely revealed. This allows us to combine our two largest fleets, and assault Altair this way!",
+		"Since their fleet was assaulted <i>before</i> it could even leave their homeworld, they will assist in the homeworld battle. On the Ship Size step, they roll a 7 (skip). On the extra techs step, they roll a 5 (Tactics). Since their Attack technology is at 0, they will purchase Attack 1 instead (-20). On the fleet step, Cruisers are their largest ship (-12). They then build a 9 for composition (Largest Ships), which gives them an extra Cruiser (-24) total. Finally, since the homeworld itself is being assaulted, they roll a 1 for protection composition (Minelayers only), which gives them 4 minelayers.",
+		"<ol><li><b>Detonation Round</b>: Their 4 minelayers were able to deploy their ammunition. We were only able to sweep one of them, causing the rest to demolish our Cruiser and 2 of our Scouts before battle</li>",
+		"<li><b>Round 1</b>: We have 12 ships. They have 3 ships. We will screen no ships, and gain the fleet size bonus</li>",
+		"<li>Their 3 ships have the best weapon class together, so they shoot first. They rolled 1/5,9 against our Scouts (2 hits &le;8/5)</li>",
+		"<li>Our Scouts prioritize their Cruisers, and rolled 7,1,10,2,6,3,10,3 (4 hits &le;4), cleaning eliminating this group</li>",
+		"<li>Our Minesweeper can still shoot, and only their lone base remains. We rolled a 5 (miss &gt;1)<br /><br /></li>",
+		"<li><b>Round 2</b>: Their base is all alone. It rolled a 4 against our Scouts (hit &le;8)</li>",
+		"<li>Our remaining ships rolled 1,1,1,2,3,5,7,8/7 (5 hits &le;3/1), overkilling their base<br /><br /></li>",
+		"<li><b>Bombardment Round</b>: With Altair exposed, our victorious ships rolled 1,2,2,2,3,3,4,9/2 (8 hits &le;4/2), utterly pulverizing their homeworld!</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"CA1G",
@@ -4669,7 +4911,7 @@
 			"name":"home20R"
 		}]},
 	{"heading":"Stardate 2416.5",
-	"commentary":"<p>That leaves <i>only</i> our western flank to worry about, though the cluster of barren planets in between Vasyr and Altair are not entirely safe to colonize even after elimiating Altair.</p>",
+	"commentary":["That leaves <i>only</i> our western flank to worry about, though the cluster of barren planets in between Vasyr and Altair are not entirely safe to colonize even after elimiating Altair."],
 	"actions":
 		[{
 			"placeCounter":"CA1G",
@@ -4765,7 +5007,7 @@
 			"name":"home0R"
 		}]},
 	{"heading":"Stardate 2416.8 (The Bombardment of Sirius)",
-	"commentary":"<p>Europa once again visits Sirius' space. Since tech CP is insufficient, we go straight into fleet construction. They build a Cruiser (-12) + Scanning Destroyer (-9), followed by rolling a 8 for Largest Ships (2 more Cruisers for -24). Their 4 ships can then simply bombard away, and rolled 2,2,3,5 in the process (4 hits &le;5), utterly glassing the colony.</p>",
+	"commentary":["Europa once again visits Sirius' space. Since tech CP is insufficient, we go straight into fleet construction. They build a Cruiser (-12) + Scanning Destroyer (-9), followed by rolling a 8 for Largest Ships (2 more Cruisers for -24). Their 4 ships can then simply bombard away, and rolled 2,2,3,5 in the process (4 hits &le;5), utterly glassing the colony."],
 	"techTable":
 		[{
 			"name":"Europa (Yellow)","minelay":1,"move":3,"size":3,"minesweep":2,"scan":1,"atk":1
@@ -4857,7 +5099,10 @@
 			"location":"K1"
 		}]},
 	{"heading":"Stardate 2417.0",
-	"commentary":"<p>Overall, we believe the annihilation of Herse was worth losing one of our colonies. We can always rebuild our economy away from Europa, if we believe we need this economy for an extended <q>end game</q>. For now, we will throw down 4 Battlecruisers at Dakara (K3 for -60)</p>{prodTable}{techTable}<p>Europa is the only alien player still alive at this point. This makes their economics simpler. They rolled 2,2,3,3,7,8,9 (economics) / 5 (fleet launch). No launch takes place this economic phase.</p>",
+	"commentary":[
+		"Overall, we believe the annihilation of Herse was worth losing one of our colonies. We can always rebuild our economy away from Europa, if we believe we need this economy for an extended <q>end game</q>. For now, we will throw down 4 Battlecruisers at Dakara (K3 for -60)",
+		"{prodTable}{techTable}",
+		"Europa is the only alien player still alive at this point. This makes their economics simpler. They rolled 2,2,3,3,7,8,9 (economics) / 5 (fleet launch). No launch takes place this economic phase."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":5,"colonyCP":75,"mineralCP":10,"pipeCP":7,"maint":30,"bidCP":0,"techBuy":0,"unitBuy":60
@@ -4934,7 +5179,11 @@
 			"name":"planetG8"
 		}]},
 	{"heading":"Stardate 2417.1 (The Cleanup for Sirius)",
-	"commentary":"<p>We believe we can probably close out this game, once we consolidate as many guns as possible. But first, we need to clean up the mess that was left behind.</p><ol><li><b>Round 1</b>: Our 5 Battlecruisers can shoot first. We rolled 1,1,2,3,4 (5 hits &le;5), destroying two of their Cruisers already and damaging a third</li><li>Their 2 ships rolled 6,8 (0 hits &le;4)<br /><br /></li><li><b>Round 2</b>: With the assistance of the fleet size bonus, our 5 Battlecruisers rolled 3,6,7,7,9 (2 hits &le;6), finishing off their fleet and avenging the loss of Sirius!</li></ol>",
+	"commentary":[
+		"We believe we can probably close out this game, once we consolidate as many guns as possible. But first, we need to clean up the mess that was left behind.",
+		"<ol><li><b>Round 1</b>: Our 5 Battlecruisers can shoot first. We rolled 1,1,2,3,4 (5 hits &le;5), destroying two of their Cruisers already and damaging a third</li>",
+		"<li>Their 2 ships rolled 6,8 (0 hits &le;4)<br /><br /></li>",
+		"<li><b>Round 2</b>: With the assistance of the fleet size bonus, our 5 Battlecruisers rolled 3,6,7,7,9 (2 hits &le;6), finishing off their fleet and avenging the loss of Sirius!</li></ol>"],
 	"actions":
 		[{
 			"placeGhost":"CA1G",
@@ -5004,7 +5253,7 @@
 			"location":"K1"
 		}]},
 	{"heading":"Stardate 2417.4",
-	"commentary":"<p>It is not every day one of our ships get lost in space. We usually use Exploration technology to nullify it, but none of our Cruisers were in position this time.</p>",
+	"commentary":["It is not every day one of our ships get lost in space. We usually use Exploration technology to nullify it, but none of our Cruisers were in position this time."],
 	"actions":
 		[{
 			"placeGhost":"CA1G",
@@ -5075,7 +5324,33 @@
 			"removeCounter":"SC4Y"
 		}]},
 	{"heading":"Stardate 2417.7 (The Battle for Vasyr)",
-	"commentary":"<p>We meet again Vasyr! Last time we battled, their bases were too strong for us. Now, the best they can do is build a fleet to help out in the battle. Their obligatory ships, as usual, are 1 Cruiser + 1 Destroyer (-21). They then roll a 2 for composition (Largest Fleet), which gives them 2 Scouts also (-12).</p><ol><li><b>Round 1</b>: We have 17 ships. They have 9 ships. Not quite enough for a fleet size bonus. Still, we will screen no ships</li><li>Their 5 Bases have the best weapon class. Going after our scouts, they rolled 5,6,6,8,10 (4 hits &le;8)</li><li>Our 4 Battlecruisers can shoot now. Focusing on their smallest hard hitters, we rolled 2,1,2 to knock out their Hull Size 1 crafts (&le;6 to hit), and 3 to damage their Cruiser (&le;5 to hit)</li><li>Our 1 Cruiser rolled a 3 against their cruiser (hit &le;3), knocking it out</li><li>Our 5 Scouts rolled 1,1,2,3,7 (3 hits &le;2), cleanly knocking out a base</li><li>Our 3 Minesweepers rolled 3,5,10 (0 hits &le;1)<br /><br /></li><li><b>Round 2</b>: We have 13 ships. They have 4 bases. We gained the fleet size bonus!</li><li>Their 4 Bases rolled 5,5,7,10 against our scouts (3 hits &le;8)</li><li>Our 4 Battlecruisers rolled 2,2,4,6 (3 hits &le;5), knocking out a second base</li><li>Our 1 Cruiser rolled a 3 (hit &le;3), damaging the third base</li><li>Our 2 Scouts rolled 9,10 (0 hits &le;3)</li><li>Our 3 Minesweepers rolled 4,6,7 (0 hits &le;1)<br /><br /></li><li><b>Round 3</b>: Their 3 Bases rolled 1,1,8 against our scouts (3 hits &le;8)</li><li>Our 4 Battlecruisers rolled 1,6,7,9 (2 hits &le;4), further damaging the third base</li><li>Our 1 Cruiser rolled a 1 (hit &le;3), finishing off the third base</li><li>Our 3 Minesweepers rolled 5,8,8 (0 hits &le;1)<br /><br /></li><li><b>Round 4</b>: Their 2 Bases rolled 6,10 against our minesweepers (1 hit &le;8)</li><li>Our 4 Battlecruisers rolled 5,7,8,8 (1 hits &le;5), damaging a fourth base</li><li>Our 1 Cruiser rolled a 7 (miss &gt;3)</li><li>Our 2 Minesweepers rolled 7,8 (0 hits &le;1)<br /><br /></li><li><b>Round 5</b>: Their 2 Bases rolled 7,8 against our minesweepers (2 hits &le;8), finishing them off</li><li>Our 4 Battlecruisers rolled 1,3,8,10 (2 hits &le;5), cleanly knocking out their fourth base</li><li>Our 1 Cruisers rolled an 8 (miss &gt;3)<br /><br /></li><li><b>Round 6</b>: Their last Bases rolled a 2 against our cruiser (hit &le;7), damaging it</li><li>Our 4 Battlecruisers rolled 1,2,3,7 (3 hits &le;5), cleanly knocking out their last base!<br /><br /></li><li><b>Bombardment Round</b>: With Vasyr exposed, our 4 Battlecruisers rolled 2,6,9,9 (2 hits &le;6), damaging their homeworld. Our cruiser then rolled a 1, further damaging it</li></ol>",
+	"commentary":[
+		"We meet again Vasyr! Last time we battled, their bases were too strong for us. Now, the best they can do is build a fleet to help out in the battle. Their obligatory ships, as usual, are 1 Cruiser + 1 Destroyer (-21). They then roll a 2 for composition (Largest Fleet), which gives them 2 Scouts also (-12).",
+		"<ol><li><b>Round 1</b>: We have 17 ships. They have 9 ships. Not quite enough for a fleet size bonus. Still, we will screen no ships</li>",
+		"<li>Their 5 Bases have the best weapon class. Going after our scouts, they rolled 5,6,6,8,10 (4 hits &le;8)</li>",
+		"<li>Our 4 Battlecruisers can shoot now. Focusing on their smallest hard hitters, we rolled 2,1,2 to knock out their Hull Size 1 crafts (&le;6 to hit), and 3 to damage their Cruiser (&le;5 to hit)</li>",
+		"<li>Our 1 Cruiser rolled a 3 against their cruiser (hit &le;3), knocking it out</li>",
+		"<li>Our 5 Scouts rolled 1,1,2,3,7 (3 hits &le;2), cleanly knocking out a base</li>",
+		"<li>Our 3 Minesweepers rolled 3,5,10 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 2</b>: We have 13 ships. They have 4 bases. We gained the fleet size bonus!</li>",
+		"<li>Their 4 Bases rolled 5,5,7,10 against our scouts (3 hits &le;8)</li>",
+		"<li>Our 4 Battlecruisers rolled 2,2,4,6 (3 hits &le;5), knocking out a second base</li>",
+		"<li>Our 1 Cruiser rolled a 3 (hit &le;3), damaging the third base</li>",
+		"<li>Our 2 Scouts rolled 9,10 (0 hits &le;3)</li>",
+		"<li>Our 3 Minesweepers rolled 4,6,7 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 3</b>: Their 3 Bases rolled 1,1,8 against our scouts (3 hits &le;8)</li>",
+		"<li>Our 4 Battlecruisers rolled 1,6,7,9 (2 hits &le;4), further damaging the third base</li>",
+		"<li>Our 1 Cruiser rolled a 1 (hit &le;3), finishing off the third base</li>",
+		"<li>Our 3 Minesweepers rolled 5,8,8 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 4</b>: Their 2 Bases rolled 6,10 against our minesweepers (1 hit &le;8)</li>",
+		"<li>Our 4 Battlecruisers rolled 5,7,8,8 (1 hits &le;5), damaging a fourth base</li>",
+		"<li>Our 1 Cruiser rolled a 7 (miss &gt;3)</li><li>Our 2 Minesweepers rolled 7,8 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 5</b>: Their 2 Bases rolled 7,8 against our minesweepers (2 hits &le;8), finishing them off</li>",
+		"<li>Our 4 Battlecruisers rolled 1,3,8,10 (2 hits &le;5), cleanly knocking out their fourth base</li>",
+		"<li>Our 1 Cruisers rolled an 8 (miss &gt;3)<br /><br /></li>",
+		"<li><b>Round 6</b>: Their last Bases rolled a 2 against our cruiser (hit &le;7), damaging it</li>",
+		"<li>Our 4 Battlecruisers rolled 1,2,3,7 (3 hits &le;5), cleanly knocking out their last base!<br /><br /></li>",
+		"<li><b>Bombardment Round</b>: With Vasyr exposed, our 4 Battlecruisers rolled 2,6,9,9 (2 hits &le;6), damaging their homeworld. Our cruiser then rolled a 1, further damaging it</li></ol>"],
 	"alienTable":
 		[{
 			"name":"Europa (Yellow)","eco":7,"fleet":2,"tech":10,"def":0,"delta":"f"
@@ -5165,7 +5440,11 @@
 			"removeCounter":"DD1Y"
 		}]},
 	{"heading":"Stardate 2418.0",
-	"commentary":"<p>We almost had it! But, since alien player homeworlds are immune to blockade effects, we are not done just yet.</p>{prodTable}{techTable}<p>Since Europa survived our bombardments, they roll 1,2,4,4,6,8,10 for economics. Fleet Launch roll is skipped, because their homeworld is being besieged.</p><p>Instead, they start on the Ship Size step, and roll a 1 (buy for -20). This spends all of their tech CP. Their obligatory ships are now a Battlecruiser (-15) and a Destroyer (-9), which already puts them below 6 CP for a scout.</p>",
+	"commentary":[
+		"We almost had it! But, since alien player homeworlds are immune to blockade effects, we are not done just yet.",
+		"{prodTable}{techTable}",
+		"Since Europa survived our bombardments, they roll 1,2,4,4,6,8,10 for economics. Fleet Launch roll is skipped, because their homeworld is being besieged.",
+		"Instead, they start on the Ship Size step, and roll a 1 (buy for -20). This spends all of their tech CP. Their obligatory ships are now a Battlecruiser (-15) and a Destroyer (-9), which already puts them below 6 CP for a scout."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":5,"colonyCP":75,"mineralCP":0,"pipeCP":7,"maint":26,"bidCP":0,"techBuy":0,"unitBuy":0
@@ -5245,7 +5524,12 @@
 			"location":"F1"
 		}]},
 	{"heading":"Stardate 2418.3 (The Battle for Vasyr)",
-	"commentary":"<p>We have managed to bring in some reinforcements. <ol><li><b>Round 1</b>: Their Battlecruiser has the equal tactics advantage, so it rolls a 6 against our cruisers (miss &gt;5)</li><li>With fleet size bonus at our side, our 4 Battlecruisers then rolled a 5 against their Destroyer (hit &le;7), followed by 7,10,10 (0 hits &le;6)</li><li>Our 4 Cruisers then rolled 9/4,5,8 (2 hits &le;4/5), finishing them off!<br /><br /></li><li><b>Bombardment Round 1</b>: Vasyr is exposed once more. Our 4 Battlecruisers rolled 4,5,6,7 (3 hits &le;6), finishing off their homeworld once and for all!</li></ol>",
+	"commentary":[
+		"We have managed to bring in some reinforcements.",
+		"<ol><li><b>Round 1</b>: Their Battlecruiser has the equal tactics advantage, so it rolls a 6 against our cruisers (miss &gt;5)</li>",
+		"<li>With fleet size bonus at our side, our 4 Battlecruisers then rolled a 5 against their Destroyer (hit &le;7), followed by 7,10,10 (0 hits &le;6)</li>",
+		"<li>Our 4 Cruisers then rolled 9/4,5,8 (2 hits &le;4/5), finishing them off!<br /><br /></li>",
+		"<li><b>Bombardment Round 1</b>: Vasyr is exposed once more. Our 4 Battlecruisers rolled 4,5,6,7 (3 hits &le;6), finishing off their homeworld once and for all!</li></ol>"],
 	"actions":
 		[{
 			"placeGhost":"CA1G",
@@ -5288,7 +5572,10 @@
 			"location":"F1"
 		}]},
 	{"heading":"Stardate 2418.6 (Conclusion)",
-	"commentary":"<p>At long last, the scenario is over! We have successfully overcome the opposition, and its thanks partially to how useful Movement investments are! Still, there is diminishing returns when asteroids or nebulae are involved; an obstacle that affects only the human player. We had a clear path to Pandia, and an almost clear path to Herse; but the path to Europa was littered!</p><p>The arrangement of barren planets close to our space was a little better, but it still was far from flawless. The aforementioned interference made it impossible to intercept Europa's fleet simply because the asteroid belt protected them from non-adjacent movement.</p><p><i>If</i> we have a rematch with Hard difficulty, it probably will be on the Regular map, so that our home systems are not so far spread out. Sure, the obligatory black hole is hazardous when first revealed, but it usually just slows us down once afterwards.</p>",
+	"commentary":[
+		"At long last, the scenario is over! We have successfully overcome the opposition, and its thanks partially to how useful Movement investments are! Still, there is diminishing returns when asteroids or nebulae are involved; an obstacle that affects only the human player. We had a clear path to Pandia, and an almost clear path to Herse; but the path to Europa was littered!",
+		"The arrangement of barren planets close to our space was a little better, but it still was far from flawless. The aforementioned interference made it impossible to intercept Europa's fleet simply because the asteroid belt protected them from non-adjacent movement.",
+		"When we have a rematch with Hard difficulty, it probably will be on the Regular map, so that our home systems are not so far spread out. Sure, the obligatory black hole is hazardous when first revealed, but it usually just slows us down once afterwards."],
 	"actions":
 		[{
 			"removeCounter":"systemD2"

@@ -1,6 +1,9 @@
 {"stages": [
 	{"heading":"Stardate 2400.0 (Introduction)",
-	"commentary":"<p>Welcome to Doomsday Machine Solitaire. Last time we did this, we opted to see how viable Raiders were against them. Trading out 1 Defense for 1 Attack works pretty good, relative to Cruisers; and they can benefit from 2 of the 4 potential weaknesses without being rendered useless (unlike Fighters and Minelayers) if a non-matching roll is made. This comes at the expense of Cloaking being more expensive to tech up (60 CP total), relative to Ship Size (25 CP total).</p><p>Incidentally, the alternate faction that we will be playing has Cruisers with a similar (but less expensive) style as the original Raiders. Still, we will be stepping it up 1-3 notches (to a map with a hidden Galactic Capitol, and maybe some additional gimmicks). As far as we understand, this map still uses Large's DM strengths, shown in the DM track.</p><p>In addition to playing as one of the alternate factions introduced in All Good Things, having a hidden Galactic Capitol (adjacent to our home systems beyond row J) complicates things a bit. If we uncover it, we can trade with it as if it was a competitive game, but lose the scenario if a Doomsday Machine enters the hex and we do not fend it off.</p>",
+	"commentary":[
+		"Welcome to Doomsday Machine Solitaire. Last time we did this, we opted to see how viable Raiders were against them. Trading out 1 Defense for 1 Attack works pretty good, relative to Cruisers; and they can benefit from 2 of the 4 potential weaknesses without being rendered useless (unlike Fighters and Minelayers) if a non-matching roll is made. This comes at the expense of Cloaking being more expensive to tech up (60 CP total), relative to Ship Size (25 CP total).",
+		"Incidentally, the alternate faction that we will be playing has Cruisers with a similar (but less expensive) style as the original Raiders. Still, we will be stepping it up 1-3 notches (to a map with a hidden Galactic Capitol, and maybe some additional gimmicks). As far as we understand, this map still uses Large's DM strengths, shown in the DM track.",
+		"In addition to playing as one of the alternate factions introduced in All Good Things, having a hidden Galactic Capitol (adjacent to our home systems beyond row J) complicates things a bit. If we uncover it, we can trade with it as if it was a competitive game, but lose the scenario if a Doomsday Machine enters the hex and we do not fend it off."],
 	"dmTable":
 		[{
 			"soloLg":3,"ecoPhase":0
@@ -12,7 +15,7 @@
 			"useExpansion":true
 		}]},
 	{"heading":"Stardate 2400.3",
-	"commentary":"<p>As usual, we use <i>only</i> our Scouts to uncover dangerous unexplored hexes. Everything else is too expensive to risk (or, in the case of the Flagship, can not be replaced if destroyed).</p>",
+	"commentary":["As usual, we use <i>only</i> our Scouts to uncover dangerous unexplored hexes. Everything else is too expensive to risk (or, in the case of the Flagship, can not be replaced if destroyed)."],
 	"actions":
 		[{
 			"placeCounter":"SC1U",
@@ -58,7 +61,7 @@
 			"name":"unexploredU"
 		}]},
 	{"heading":"Stardate 2400.6",
-	"commentary":"<p>Now that we have a few home systems explored, it is safer to move the rest of our starting forces.</p>",
+	"commentary":["Now that we have a few home systems explored, it is safer to move the rest of our starting forces."],
 	"actions":
 		[{
 			"placeCounter":"SC1U",
@@ -104,7 +107,7 @@
 			"name":"unexploredU"
 		}]},
 	{"heading":"Stardate 2400.9",
-	"commentary":"<p>The black hole got uncovered fairly early. Our Scout rolled a 2, easily escaping its grasp.</p>",
+	"commentary":["The black hole got uncovered fairly early. Our Scout rolled a 2, easily escaping its grasp."],
 	"actions":
 		[{
 			"placeCounter":"SC1U",
@@ -162,7 +165,9 @@
 			"name":"planetU5"
 		}]},
 	{"heading":"Stardate 2401.0",
-	"commentary":"<p>We love an <i>excellent</i> opening, and this playthrough delivers almost exactly that; we simply were unable to tow any minerals home right away. All 3 starting colony ships have already been spent, <i>and</i> our home system black hole is already known!</p><p>After much deliberation, we have decided to buy 3 Colony Ships (-24) and 1 Pipeline (-3).</p>",
+	"commentary":[
+		"We love an <i>excellent</i> opening, and this playthrough delivers almost exactly that; we simply were unable to tow any minerals home right away. All 3 starting colony ships have already been spent, <i>and</i> our home system black hole is already known!",
+		"After much deliberation, we have decided to buy 3 Colony Ships (-24) and 1 Pipeline (-3)."],
 	"dmTable":
 		[{
 			"soloLg":3,"ecoPhase":1
@@ -236,7 +241,7 @@
 			"name":"unexploredU"
 		}]},
 	{"heading":"Stardate 2401.2",
-	"commentary":"<p>Of course, finding 3 planets early means the odds of discovering the remaining 5 non-barren planets is reduced...</p>",
+	"commentary":["Of course, finding 3 planets early means the odds of discovering the remaining 5 non-barren planets is reduced..."],
 	"actions":
 		[{
 			"placeCounter":"SC1U",
@@ -289,7 +294,7 @@
 			"name":"unexploredU"
 		}]},
 	{"heading":"Stardate 2401.5",
-	"commentary":"<p>... though counterbalanced by uncovering more of the rest of the unexplored home systems.</p>",
+	"commentary":["... though counterbalanced by uncovering more of the rest of the unexplored home systems."],
 	"actions":
 		[{
 			"placeCounter":"SC1U",
@@ -342,7 +347,7 @@
 			"name":"unexploredU"
 		}]},
 	{"heading":"Stardate 2401.8",
-	"commentary":"<p>Our home systems are nearly explored...</p>",
+	"commentary":["Our home systems are nearly explored..."],
 	"actions":
 		[{
 			"placeCounter":"SC1U",
@@ -406,7 +411,7 @@
 			"name":"planetU2"
 		}]},
 	{"heading":"Stardate 2402.0",
-	"commentary":"<p>Being able to safely use our Flagship has sped up the rest of this process. We buy Ship Size 2 (-10) to start off on our tech up step. We have utility for just 2 more Colony Ships, so we will buy them (-16). Leftover capacity is spent on Pipelines (-6).</p>",
+	"commentary":["Being able to safely use our Flagship has sped up the rest of this process. We buy Ship Size 2 (-10) to start off on our tech up step. We have utility for just 2 more Colony Ships, so we will buy them (-16). Leftover capacity is spent on Pipelines (-6)."],
 	"dmTable":
 		[{
 			"soloLg":3,"ecoPhase":2
@@ -489,7 +494,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2402.1",
-	"commentary":"<p>Since the remaining home systems are almost exhausted, we take our first footstep into deep space. We got lost in space, but uncovered a space wreck in the process! We have not seen one of these babies in a while!</p>",
+	"commentary":["Since the remaining home systems are almost exhausted, we take our first footstep into deep space. We got lost in space, but uncovered a space wreck in the process! We have not seen one of these babies in a while!"],
 	"actions":
 		[{
 			"placeCounter":"SC1U",
@@ -559,7 +564,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2402.4",
-	"commentary":"<p>With only deep space left, we should test our luck with it. Maybe we can get more minerals! Or even another space wreck!!</p>",
+	"commentary":["With only deep space left, we should test our luck with it. Maybe we can get more minerals! Or even another space wreck!!"],
 	"actions":
 		[{
 			"placeCounter":"SC1U",
@@ -621,7 +626,9 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2402.7",
-	"commentary":"<p>We will send our Flagship back home for planned upgrades. Meanwhile, we run into our first Danger marker and our first deep space planet.</p><p>Considering that Doomsday Machine scenarios are the simplest way to introduce new concepts, we would have tried to introduce Deep Space Planet Attributes. Instead, non-player aliens are disabled entirely in these solo scenarios.</p>",
+	"commentary":[
+		"We will send our Flagship back home for planned upgrades. Meanwhile, we run into our first Danger marker and our first deep space planet.",
+		"Considering that Doomsday Machine scenarios are the simplest way to introduce new concepts, we would have tried to introduce Deep Space Planet Attributes. Instead, non-player aliens are disabled entirely in these solo scenarios."],
 	"actions":
 		[{
 			"placeCounter":"SC1U",
@@ -697,7 +704,7 @@
 			"name":"planetU7"
 		}]},
 	{"heading":"Stardate 2403.0",
-	"commentary":"<p>So far, so good. We buy Attack 1 (-20), followed by 4 Pipelines (-12) and an extra Ship Yard (-6).</p>",
+	"commentary":["So far, so good. We buy Attack 1 (-20), followed by 4 Pipelines (-12) and an extra Ship Yard (-6)."],
 	"dmTable":
 		[{
 			"soloLg":3,"ecoPhase":3
@@ -785,7 +792,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2403.3",
-	"commentary":"<p>The Galactic Capitol has been discovered! We can now trade with it (once we get a pipeline network), but must also protect it.</p>",
+	"commentary":["The Galactic Capitol has been discovered! We can now trade with it (once we get a pipeline network), but must also protect it."],
 	"actions":
 		[{
 			"placeCounter":"SC1U",
@@ -842,7 +849,7 @@
 			"name":"borderX"
 		}]},
 	{"heading":"Stardate 2403.6",
-	"commentary":"<p>Its proximity to the bottom center spawn point is unnerving though. Three (3) hexes is not a lot of space at all for any DMs that may spawn there, especially since their movement is unaffected by terrain; even supernovas and quantum filaments.</p>",
+	"commentary":["Its proximity to the bottom center spawn point is unnerving though. Three (3) hexes is not a lot of space at all for any DMs that may spawn there, especially since their movement is unaffected by terrain; even supernovas and quantum filaments."],
 	"actions":
 		[{
 			"placeCounter":"SC1U",
@@ -898,7 +905,7 @@
 			"name":"borderO"
 		}]},
 	{"heading":"Stardate 2403.9",
-	"commentary":"<p>Random Factor is rarely <i>this</i> generous when it comes to deep space. A second space wreck was uncovered, but we emphasized the need to protect the galactic capitol.</p>",
+	"commentary":["Random Factor is rarely <i>this</i> generous when it comes to deep space. A second space wreck was uncovered, but we emphasized the need to protect the galactic capitol."],
 	"actions":
 		[{
 			"placeCounter":"SC1U",
@@ -970,7 +977,9 @@
 			"name":"planetU8"
 		}]},
 	{"heading":"Stardate 2404.0",
-	"commentary":"<p>We are more than halfway through our allotted grace period. Once the first Doomsday Machine spawns, the action will start to get a lot more dense.</p><p>Anyway, we buy Defense 1 (-20), followed by 1 Miner (-5), 4 Pipelines (-12), and another extra Ship Yard (-6).</p>",
+	"commentary":[
+		"We are more than halfway through our allotted grace period. Once the first Doomsday Machine spawns, the action will start to get a lot more dense.",
+		"Anyway, we buy Defense 1 (-20), followed by 1 Miner (-5), 4 Pipelines (-12), and another extra Ship Yard (-6)."],
 	"dmTable":
 		[{
 			"soloLg":3,"ecoPhase":4
@@ -1053,7 +1062,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2404.2",
-	"commentary":"<p>More of the deep space continues to be uncovered.</p>",
+	"commentary":["More of the deep space continues to be uncovered."],
 	"actions":
 		[{
 			"placeCounter":"SC1U",
@@ -1102,7 +1111,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2404.5",
-	"commentary":"<p>Another Scout bites the dust...</p>",
+	"commentary":["Another Scout bites the dust..."],
 	"actions":
 		[{
 			"placeCounter":"SC1U",
@@ -1148,7 +1157,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2404.8",
-	"commentary":"<p>Another black hole! We rolled a 1, easily escaping its grasp.</p>",
+	"commentary":["Another black hole! We rolled a 1, easily escaping its grasp."],
 	"actions":
 		[{
 			"placeCounter":"SC1U",
@@ -1206,7 +1215,9 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2405.0",
-	"commentary":"<p>Connecting the galactic capitol to our pipeline network significantly increases our income from said network.</p><p>We recently unloaded a space wreck. We rolled a 2, giving us Ship Size 3. We then buy Attack 2 (-30) and Defense 2 (-30). We then buy 2 Cruisers (-24) and 1 Pipeline (-3).</p>",
+	"commentary":[
+		"Connecting the galactic capitol to our pipeline network significantly increases our income from said network.",
+		"We recently unloaded a space wreck. We rolled a 2, giving us Ship Size 3. We then buy Attack 2 (-30) and Defense 2 (-30). We then buy 2 Cruisers (-24) and 1 Pipeline (-3)."],
 	"dmTable":
 		[{
 			"soloLg":3,"ecoPhase":5
@@ -1266,7 +1277,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2405.1",
-	"commentary":"<p>Our final Scout has finally been taken down...</p>",
+	"commentary":["Our final Scout has finally been taken down..."],
 	"actions":
 		[{
 			"placeCounter":"SC1U",
@@ -1291,7 +1302,7 @@
 			"name":"danger"
 		}]},
 	{"heading":"Stardate 2405.4",
-	"commentary":"<p>Now that deep space exploration is no longer feasible, we have reached the least active segments of the playthrough.</p>",
+	"commentary":["Now that deep space exploration is no longer feasible, we have reached the least active segments of the playthrough."],
 	"actions":
 		[{
 			"removeCounter":"SC1U"
@@ -1314,7 +1325,7 @@
 			"name":"minerals5"
 		}]},
 	{"heading":"Stardate 2405.7",
-	"commentary":"<p>The deep space we uncovered is still above average, for a Doomsday Machine playthrough... though partially because we now use at least the markers from Replicators.</p>",
+	"commentary":["The deep space we uncovered is still above average, for a Doomsday Machine playthrough... though partially because we now use at least the markers from Replicators."],
 	"actions":
 		[{
 			"resizeCounter":"CA1U",
@@ -1344,7 +1355,7 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2406.0",
-	"commentary":"<p>Our grace period is almost gone. We do have one last space wreck though, so we cash it in. We rolled a 4, and gained Attack 3. We then buy Ship Yards 2 (-20), followed by 4 more Cruisers (-48).</p>",
+	"commentary":["Our grace period is almost gone. We do have one last space wreck though, so we cash it in. We rolled a 4, and gained Attack 3. We then buy Ship Yards 2 (-20), followed by 4 more Cruisers (-48)."],
 	"dmTable":
 		[{
 			"soloLg":3,"ecoPhase":6
@@ -1387,7 +1398,9 @@
 			"removeCounter":"DM1"
 		}]},
 	{"heading":"Stardate 2407.0",
-	"commentary":"<p>One quick economic phase later and our Flagship has been upgraded (-3). Our grace period was also quickly consumed, the first Doomsday Machine has arrived on the board!</p><p>We buy Ship Yards 3 (-25), followed by 6 more Cruisers (-72). And finally, here is where the last extra gimmick comes into play; Doomsday Machines go first by default, imposing a variable bid quota, usually the lowest of 2d10. 2,3 were rolled, causing the DM <q>team</q> to bid 2 CP.</p>",
+	"commentary":[
+		"One quick economic phase later and our Flagship has been upgraded (-3). Our grace period was also quickly consumed, the first Doomsday Machine has arrived on the board!",
+		"We buy Ship Yards 3 (-25), followed by 6 more Cruisers (-72). And finally, here is where the last extra gimmick comes into play; Doomsday Machines go first by default, imposing a variable bid quota, usually the lowest of 2d10. 2,3 were rolled, causing the DM <q>team</q> to bid 2 CP."],
 	"dmTable":
 		[{
 			"soloLg":3,"ecoPhase":7
@@ -1436,7 +1449,7 @@
 			"name":"doomsday"
 		}]},
 	{"heading":"Stardate 2407.2",
-	"commentary":"<p>Here is one of the few times where we had to improvise. The AGT Solo Scenario Book was not entirely clear on how a galactic capitol should be treated.</p>",
+	"commentary":["Here is one of the few times where we had to improvise. The AGT Solo Scenario Book was not entirely clear on how a galactic capitol should be treated."],
 	"actions":
 		[{
 			"placeGhost":"FlagU",
@@ -1465,7 +1478,7 @@
 			"location":"H2"
 		}]},
 	{"heading":"Stardate 2407.5",
-	"commentary":"<p>The best solution we were able to find (so far) is to treat it as a homeworld-value colony. Since it must also be kept alive to be able win this scenario, this is at least relatively reasonable.</p>",
+	"commentary":["The best solution we were able to find (so far) is to treat it as a homeworld-value colony. Since it must also be kept alive to be able win this scenario, this is at least relatively reasonable."],
 	"actions":
 		[{
 			"placeGhost":"FlagU",
@@ -1496,7 +1509,7 @@
 			"location":"H3"
 		}]},
 	{"heading":"Stardate 2407.8",
-	"commentary":"<p>Knowing where it goes is important, because of how our home system planets were laid out.</p>",
+	"commentary":["Knowing where it goes is important, because of how our home system planets were laid out."],
 	"actions":
 		[{
 			"placeCounter":"FlagU",
@@ -1525,7 +1538,9 @@
 			"location":"H4"
 		}]},
 	{"heading":"Stardate 2408.0",
-	"commentary":"<p>Short little breather in between DMs. Being able to build quickly also causes our maintenance to increase similarly. Still, we have money to build another 5 Cruisers (-60).</p><p>As a reference, the DM team rolls 4,9, causing them to bid 4 CP.",
+	"commentary":[
+		"Short little breather in between DMs. Being able to build quickly also causes our maintenance to increase similarly. Still, we have money to build another 5 Cruisers (-60).",
+		"As a reference, the DM team rolls 4,9, causing them to bid 4 CP."],
 	"dmTable":
 		[{
 			"soloLg":3,"ecoPhase":8
@@ -1558,7 +1573,7 @@
 			"location":"H4"
 		}]},
 	{"heading":"Stardate 2408.1",
-	"commentary":"<p>A battle will erupt soon with the first Doomsday Machine... We best get ready with the fleet we have already assembled.</p>",
+	"commentary":["A battle will erupt soon with the first Doomsday Machine... We best get ready with the fleet we have already assembled."],
 	"actions":
 		[{
 			"placeGhost":"CA3U",
@@ -1580,7 +1595,17 @@
 			"location":"H5"
 		}]},
 	{"heading":"Stardate 2408.4D (The Battle for the Galactic Capitol)",
-	"commentary":"<p>Using our recently updated Battle Simulator to conduct more field tests, we proceed as follows:</p><ol><li><b>Round 1</b>: The DM rolls a 3 for weakness, making them weak to minelayers</li><li>The DM has the best Weapon Class and has a Tactics advantage, so it goes first. It rolled 2,2,3,5,10 against our Cruisers (4 hits &le;7)</li><li>Our Flagship rolled a 3 (hit &le;6)</li><li>Our Cruisers rolled 1,1,1,4,6,6,8,9,10,10 (4 hits &le;5). These hits knock the DM down to 3 HP<br /><br /></li><li><b>Round 2</b>: The DM rolls 6,6,7,10,10 against our Cruisers (3 hits &le;7)</li><li>Our Flagship rolled a 10 (&le;6 to hit)</li><li>Our Cruisers rolled 1,4,6,8,9,9,10,10,10 (2 hits &le;5). The DM has 1 HP left!<br /><br /></li><li><b>Round 3</b>: The DM rolls 2,3,4,7,9 against our Cruisers (4 hits &le;7)</li><li>Our Flagship rolled a 6 (hit &le;6), cleaning up the <a href=\"javascript:showBox('dm5')\">first machine</a></li></ol>",
+	"commentary":[
+		"Using our recently updated Battle Simulator to conduct more field tests, we proceed as follows:",
+		"<ol><li><b>Round 1</b>: The DM rolls a 3 for weakness, making them weak to minelayers</li>",
+		"<li>The DM has the best Weapon Class and has a Tactics advantage, so it goes first. It rolled 2,2,3,5,10 against our Cruisers (4 hits &le;7)</li>",
+		"<li>Our Flagship rolled a 3 (hit &le;6)</li>",
+		"<li>Our Cruisers rolled 1,1,1,4,6,6,8,9,10,10 (4 hits &le;5). These hits knock the DM down to 3 HP<br /><br /></li>",
+		"<li><b>Round 2</b>: The DM rolls 6,6,7,10,10 against our Cruisers (3 hits &le;7)</li>",
+		"<li>Our Flagship rolled a 10 (&le;6 to hit)</li>",
+		"<li>Our Cruisers rolled 1,4,6,8,9,9,10,10,10 (2 hits &le;5). The DM has 1 HP left!<br /><br /></li>",
+		"<li><b>Round 3</b>: The DM rolls 2,3,4,7,9 against our Cruisers (4 hits &le;7)</li>",
+		"<li>Our Flagship rolled a 6 (hit &le;6), cleaning up the <a href=\"javascript:showBox('dm5')\">first machine</a></li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"FlagU",
@@ -1607,7 +1632,7 @@
 			"name":"doomsday"
 		}]},
 	{"heading":"Stardate 2408.4P",
-	"commentary":"<p>Now that we have cleaned up the first machine, we are able to consolidate the rest of the ships.</p>",
+	"commentary":["Now that we have cleaned up the first machine, we are able to consolidate the rest of the ships."],
 	"actions":
 		[{
 			"placeCounter":"FlagU",
@@ -1638,7 +1663,7 @@
 			"removeCounter":"DM1"
 		}]},
 	{"heading":"Stardate 2408.7",
-	"commentary":"<p>Just in time to prepare for the second machine...</p>",
+	"commentary":["Just in time to prepare for the second machine..."],
 	"actions":
 		[{
 			"placeCounter":"FlagU",
@@ -1666,7 +1691,7 @@
 			"removeCounter":"DM2"
 		}]},
 	{"heading":"Stardate 2409.0",
-	"commentary":"<p>The second machine has spawned on the board! Anyway, we buy another 6 Cruisers (-72). The DM rolls 1,2, causing it to bid 1 CP.</p>",
+	"commentary":["The second machine has spawned on the board! Anyway, we buy another 6 Cruisers (-72). The DM rolls 1,2, causing it to bid 1 CP."],
 	"dmTable":
 		[{
 			"soloLg":3,"ecoPhase":9
@@ -1705,7 +1730,7 @@
 			"name":"doomsday"
 		}]},
 	{"heading":"Stardate 2409.3",
-	"commentary":"<p>There is no ambiguity on where this machine can go. There is only a single closest colony... Halo (I8), at 5 hexes away.</p>",
+	"commentary":["There is no ambiguity on where this machine can go. There is only a single closest colony... Halo (I8), at 5 hexes away."],
 	"actions":
 		[{
 			"placeGhost":"FlagU",
@@ -1740,7 +1765,7 @@
 			"location":"E10"
 		}]},
 	{"heading":"Stardate 2409.6",
-	"commentary":"<p>(Incidentally, we analyzed this board earlier in the playthrough when it came to pathfinding. Only the center left spawn had any risk of ambiguity.)</p>",
+	"commentary":["(Incidentally, we analyzed this board earlier in the playthrough when it came to pathfinding. Only the center left spawn had any risk of ambiguity.)"],
 	"actions":
 		[{
 			"placeCounter":"FlagU",
@@ -1774,7 +1799,7 @@
 			"location":"F10"
 		}]},
 	{"heading":"Stardate 2409.9",
-	"commentary":"<p>That now brings 18 Cruisers in position against the <a href=\"javascript:showBox('dm7')\">second machine</a>.</p>",
+	"commentary":["That now brings 18 Cruisers in position against the <a href=\"javascript:showBox('dm7')\">second machine</a>."],
 	"actions":
 		[{
 			"placeCounter":"FlagU",
@@ -1802,7 +1827,7 @@
 			"location":"G9"
 		}]},
 	{"heading":"Stardate 2410.0",
-	"commentary":"<p>Another reprieve, but the maintenance is quickly climbing, and that we are almost out of minerals! Thus, we only have money to build another 4 Cruisers (-48). The DM team rolls 2,6, causing them to bid another 2 CP.</p>",
+	"commentary":["Another reprieve, but the maintenance is quickly climbing, and that we are almost out of minerals! Thus, we only have money to build another 4 Cruisers (-48). The DM team rolls 2,6, causing them to bid another 2 CP."],
 	"dmTable":
 		[{
 			"soloLg":3,"ecoPhase":10
@@ -1831,7 +1856,7 @@
 			"location":"G9"
 		}]},
 	{"heading":"Stardate 2410.2",
-	"commentary":"<p>Another battle is imminent...</p>",
+	"commentary":["Another battle is imminent..."],
 	"actions":
 		[{
 			"placeGhost":"CA4U",
@@ -1849,7 +1874,15 @@
 			"location":"H9"
 		}]},
 	{"heading":"Stardate 2410.5D (The Battle for Halo)",
-	"commentary":"<p>The <a href=\"javascript:showBox('dm7')\">second machine</a> has arrived! But how much damage will it deal this time?</p><ol><li><b>Round 1</b>: The DM rolls a 9 for weakness; none was found</li><li>The DM goes first once more. It rolled 1,6,7,7,9,9 against our Cruisers (4 hits &le;8)</li><li>Our Flagship rolled a 5 (hit &le;5)</li><li>Our Cruisers rolled 1,2,3,4,4,4,5,6,8,9,9,9,10,10,10,10 (6 hits &le;4). These hits knock the DM down to 2 HP<br /><br /></li><li><b>Round 2</b>: The DM rolled 1,5,7,8,9,10 against our Cruisers (4 hits &le;8)</li><li>Our Flagship rolled a 10 (&le;5 to hit)</li><li>Our Cruisers rolled 2,2,3,3,4,5,5,6,6,7,8,8,8,10 (5 hits &le;4), finishing this DM off also!</li></ol>",
+	"commentary":[
+		"The <a href=\"javascript:showBox('dm7')\">second machine</a> has arrived! But how much damage will it deal this time?",
+		"<ol><li><b>Round 1</b>: The DM rolls a 9 for weakness; none was found</li>",
+		"<li>The DM goes first once more. It rolled 1,6,7,7,9,9 against our Cruisers (4 hits &le;8)</li>",
+		"<li>Our Flagship rolled a 5 (hit &le;5)</li>",
+		"<li>Our Cruisers rolled 1,2,3,4,4,4,5,6,8,9,9,9,10,10,10,10 (6 hits &le;4). These hits knock the DM down to 2 HP<br /><br /></li>",
+		"<li><b>Round 2</b>: The DM rolled 1,5,7,8,9,10 against our Cruisers (4 hits &le;8)</li>",
+		"<li>Our Flagship rolled a 10 (&le;5 to hit)</li>",
+		"<li>Our Cruisers rolled 2,2,3,3,4,5,5,6,6,7,8,8,8,10 (5 hits &le;4), finishing this DM off also!</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"FlagU",
@@ -1872,7 +1905,7 @@
 			"name":"doomsday"
 		}]},
 	{"heading":"Stardate 2410.5P",
-	"commentary":"<p>That is now 2 Doomsday Machines we have eliminated, and our fleet took slightly fewer losses this time! Only one remains! (Meanwhile, since there are no minerals left, we have scuttled our Miners.)</p>",
+	"commentary":["That is now 2 Doomsday Machines we have eliminated, and our fleet took slightly fewer losses this time! Only one remains! (Meanwhile, since there are no minerals left, we have scuttled our Miners.)"],
 	"actions":
 		[{
 			"placeGhost":"FlagU",
@@ -1911,7 +1944,7 @@
 			"name":"markerU"
 		}]},
 	{"heading":"Stardate 2411.0",
-	"commentary":"<p>Since there is nothing left to do until the next economic phase, we opted to skip ahead once more. After seeing where the final machine spawned, we bought another 5 Cruisers (-60). The DM then rolled 8,9; bidding another 8 CP.</p>",
+	"commentary":["Since there is nothing left to do until the next economic phase, we opted to skip ahead once more. After seeing where the final machine spawned, we bought another 5 Cruisers (-60). The DM then rolled 8,9; bidding another 8 CP."],
 	"dmTable":
 		[{
 			"soloLg":3,"ecoPhase":11
@@ -1944,7 +1977,7 @@
 			"removeAllCounters":"markerU"
 		}]},
 	{"heading":"Stardate 2411.1",
-	"commentary":"<p>Basically just the <a href=\"javascript:showBox('dm5')\">first machine</a> on <a href=\"javascript:showBox('dm9')\">steroids</a>.</p>",
+	"commentary":["Basically just the <a href=\"javascript:showBox('dm5')\">first machine</a> on <a href=\"javascript:showBox('dm9')\">steroids</a>."],
 	"actions":
 		[{
 			"placeGhost":"FlagU",
@@ -1968,7 +2001,7 @@
 			"location":"H2"
 		}]},
 	{"heading":"Stardate 2411.4",
-	"commentary":"<p>Near maximum strength! Then again, the intermediate difficulties do not exactly give us a comfortable middle ground: They further increase the strength <i>and</i> make the final machine appear earlier, denying the player a reprieve!</p>",
+	"commentary":["Near maximum strength! Then again, the intermediate difficulties do not exactly give us a comfortable middle ground: They further increase the strength <i>and</i> make the final machine appear earlier, denying the player a reprieve!"],
 	"dmTable":
 		[{
 			"soloLg":4,"ecoPhase":0
@@ -1986,7 +2019,7 @@
 			"location":"H3"
 		}]},
 	{"heading":"Stardate 2411.7",
-	"commentary":"<p>Not much else to say, considering that the most nerve-wracking spawn (D7) was not used this playthrough...</p>",
+	"commentary":["Not much else to say, considering that the most nerve-wracking spawn (D7) was not used this playthrough..."],
 	"actions":
 		[{
 			"placeCounter":"CA1U",
@@ -2001,7 +2034,9 @@
 			"location":"H4"
 		}]},
 	{"heading":"Stardate 2412.0",
-	"commentary":"<p>The final battle is almost here, but our Ship Yard site is very far from the galactic capitol. Since we never increased Movement technology, no amount of purchases will allow us to reinforce the 23 Cruisers already in position. Furthermore, because we are playing an alternate faction, we might not necessarily unlock Fastmove for purchase even if we buy Ship Size 4.</p><p>Still, we will gamble anyway and buy Ship Size 4 (-20). We drew Second Salvo for our battlecruisers. In hindsight though, we would not have had enough CP anyway even if we drew Fastmove (10 CP for the extra tech + 15 more for each battlecruiser). Regardless, the DM rolls 2,3; placing a bid of 2 CP.</p>",
+	"commentary":[
+		"The final battle is almost here, but our Ship Yard site is very far from the galactic capitol. Since we never increased Movement technology, no amount of purchases will allow us to reinforce the 23 Cruisers already in position. Furthermore, because we are playing an alternate faction, we might not necessarily unlock Fastmove for purchase even if we buy Ship Size 4.",
+		"Still, we will gamble anyway and buy Ship Size 4 (-20). We drew Second Salvo for our battlecruisers. In hindsight though, we would not have had enough CP anyway even if we drew Fastmove (10 CP for the extra tech + 15 more for each battlecruiser). Regardless, the DM rolls 2,3; placing a bid of 2 CP."],
 	"dmTable":
 		[{
 			"soloLg":3,"ecoPhase":12
@@ -2029,14 +2064,25 @@
 			"location":"H4"
 		}]},
 	{"heading":"Stardate 2412.3",
-	"commentary":"<p>Regardless, we will just have to see how this final battle fares...</p>",
+	"commentary":["Regardless, we will just have to see how this final battle fares..."],
 	"actions":
 		[{
 			"placeCounter":"DM3",
 			"location":"G4"
 		}]},
 	{"heading":"Stardate 2412.6",
-	"commentary":"<p>The final battle is here! Whoever wins this battle wins the playthrough!</p><ol><li><b>Round 1</b>: The DM rolls a 4 for weakness; minelayers</li><li>The DM goes first once more. It rolled 2,2,3,5,7,7 against our Cruisers (6 hits &le;9)</li><li>Our Flagship rolled a 3 (hit &le;4)</li><li>Our Cruisers rolled 1,1,2,4,4,5,5,5,5,6,6,6,7,7,8,8,9,10,10,10 (3 hits &le;3). These hits knock the DM down to 6 HP<br /><br /></li><li><b>Round 2</b>: The DM rolled 1,4,4,6,8,9 against our Cruisers (6 hits &le;9)</li><li>Our Flagship rolled a 7 (&le;4 to hit)</li><li>Our Cruisers rolled 1,1,3,3,4,5,5,5,6,7,7,7,8,9,9,9,10 (4 hits &le;3). These hits knock the DM down to 2 HP<br /><br /></li><li><b>Round 3</b>: The DM rolled 2,3,3,6,7,9 against our Cruisers (6 hits &le;9)</li><li>Our Flagship rolled an 8 (&le;4 to hit)</li><li>Our Cruisers rolled 2,3,4,4,4,4,6,7,7,9,9,9,9,10 (2 hits &le;3), finishing the <a href=\"javascript:showBox('dm9')\">final machine</a> off exactly!!</li></ol>",
+	"commentary":[
+		"The final battle is here! Whoever wins this battle wins the playthrough!",
+		"<ol><li><b>Round 1</b>: The DM rolls a 4 for weakness; minelayers</li>",
+		"<li>The DM goes first once more. It rolled 2,2,3,5,7,7 against our Cruisers (6 hits &le;9)</li>",
+		"<li>Our Flagship rolled a 3 (hit &le;4)</li>",
+		"<li>Our Cruisers rolled 1,1,2,4,4,5,5,5,5,6,6,6,7,7,8,8,9,10,10,10 (3 hits &le;3). These hits knock the DM down to 6 HP<br /><br /></li>",
+		"<li><b>Round 2</b>: The DM rolled 1,4,4,6,8,9 against our Cruisers (6 hits &le;9)</li>",
+		"<li>Our Flagship rolled a 7 (&le;4 to hit)</li>",
+		"<li>Our Cruisers rolled 1,1,3,3,4,5,5,5,6,7,7,7,8,9,9,9,10 (4 hits &le;3). These hits knock the DM down to 2 HP<br /><br /></li>",
+		"<li><b>Round 3</b>: The DM rolled 2,3,3,6,7,9 against our Cruisers (6 hits &le;9)</li>",
+		"<li>Our Flagship rolled an 8 (&le;4 to hit)</li>",
+		"<li>Our Cruisers rolled 2,3,4,4,4,4,6,7,7,9,9,9,9,10 (2 hits &le;3), finishing the <a href=\"javascript:showBox('dm9')\">final machine</a> off exactly!!</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"FlagU",
@@ -2051,7 +2097,9 @@
 			"name":"doomsday"
 		}]},
 	{"heading":"Stardate 2412.9 (Conclusion)",
-	"commentary":"<p>Alternate Cruisers are truly insane! Because of how potent our setup is, even against Hard difficulty, there was virtually no risk of failing this playthrough! Considering what a Bottom 7% first battle and even a Bottom 4% final battle did for us, this was easily a decisive success.</p><p>We are a little low on adventures with the pre-packaged Doomsday Machine scenarios. Granted; neither Large map has yet been conquered beyond Hard difficulty, nor has Small been conquered on Good Luck difficulty, nor have we cleared a run as the Replicators. Still, we may take advantage of Space Empires Anthology's modular system... and maybe experiment with this scenario on a Talon board.</p>",
+	"commentary":[
+		"Alternate Cruisers are truly insane! Because of how potent our setup is, even against Hard difficulty, there was virtually no risk of failing this playthrough! Considering what a Bottom 7% first battle and even a Bottom 4% final battle did for us, this was easily a decisive success.",
+		"We are a little low on adventures with the pre-packaged Doomsday Machine scenarios. Granted; neither Large map has yet been conquered beyond Hard difficulty, nor has Small been conquered on Good Luck difficulty, nor have we cleared a run as the Replicators. Still, we may take advantage of Space Empires Anthology's modular system... and maybe experiment with this scenario on a Talon board."],
 	"actions":
 		[{
 			"resizeCounter":"CA1U",

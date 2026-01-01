@@ -1,6 +1,10 @@
 {"stages": [
 	{"heading":"Stardate 2400.0 (Introduction)",
-	"commentary":"<p>Welcome to Alien Empires meets Victory Points. This Close Encounters scenario uses the entire map layout, as the objectives have become much more complicated than previous playthroughs. The human player must destroy (or capture) 2 Alien Player homeworlds, while protecting their own home planet and the Galactic Capitol from the same outcomes; <i>and</i> preventing the Alien Team from securing a VP quota (which varies by difficulty setting). On Easy difficulty, the Alien Team needs 13 VP to win. Higher difficulties reduce this quota.</p>{vpTable}<p>Nearly every rule is used (or otherwise useable), including non-player aliens, experience, and ground units. Even with only empire advantages and facilities explicitly prohibited, this makes Alien Empires VP the most complex solo scenario so far throughout Space Empires 4X + expansions, when going by rules used. Still, despite the complexity in decision making regarding CP spending; Alien Player fleet mechanics are otherwise exceptionally simple compared to Replicator fleet mechanics in its <a href=\"watch.htm?replay=rep202407\">solitaire scenario</a>.</p><p>On the subject of technology, all players begin the scenario with Terraforming 1 and Exploration 1, on top of any technologies a respective player would normally start. Additionally, because the Galactic Capitol is present as an objective, a Trade and Research agreement was formed before the scenario even began. As a result, we can develop Black Hole Jumping (denoted in the tech table as simply BHJ) this playthrough; and can tow their respawnable dense minerals to our colonies. Finally, technologies introduced in the Replicators expansion are available exclusively to the human player, though we may err on the side of simplicity and omit them.</p>",
+	"commentary":[
+		"Welcome to Alien Empires meets Victory Points. This Close Encounters scenario uses the entire map layout, as the objectives have become much more complicated than previous playthroughs. The human player must destroy (or capture) 2 Alien Player homeworlds, while protecting their own home planet and the Galactic Capitol from the same outcomes; <i>and</i> preventing the Alien Team from securing a VP quota (which varied by difficulty setting at one point). On Easy difficulty and prior to the release of All Good Things, the Alien Team needs 13 VP to win. Higher difficulties reduce this quota.",
+		"{vpTable}",
+		"Nearly every rule is used (or otherwise usable), including non-player aliens, experience, and ground units. Even with only empire advantages and facilities explicitly prohibited, this makes Alien Empires VP the most complex solo scenario so far throughout Space Empires 4X + expansions, when going by rules used. Still, despite the complexity in rules and decision making; Alien Player fleet mechanics are otherwise exceptionally simple compared to Replicator fleet mechanics in its <a href=\"watch.htm?replay=rep202407\">solitaire scenario</a>.",
+		"On the subject of technology, all players begin the scenario with Terraforming 1 and Exploration 1, on top of any technologies a respective player would normally start. Additionally, because the Galactic Capitol is present as an objective, a Trade and Research agreement was formed before the scenario even began. As a result, we can develop Black Hole Jumping (denoted in the tech table as simply BHJ) this playthrough; and can tow their respawnable dense minerals to our colonies. Finally, technologies introduced in the Replicators expansion are available exclusively to the human player, though we may err on the side of simplicity and omit them."],
 	"techTableX":
 		[{
 			"name":"CSY (Red)","terraform":1,"explore":1
@@ -23,8 +27,8 @@
 			"playerColor":"R",
 			"alienColors":"GB"
 		}]},
-	{"heading":"Stardate 2400.3 (Turn 1)",
-	"commentary":"<p>As usual, we will move only our Scouts during this first turn. Exposing a barren planet is normally something that would slow us down, but because we start with Terraforming 1 <span class=\"bindTxt\">(applied immediately to our colony ships)</span>, we can colonize it right away. Then again, we <i>did</i> forget that our Flagship comes equipped with Exploration 1...</p>",
+	{"heading":"Stardate 2400.3",
+	"commentary":["As usual, we will move only our Scouts during this first turn. Exposing a barren planet is normally something that would slow us down, but because we start with Terraforming 1 <span class=\"bindTxt\">(applied immediately to our colony ships)</span>, we can colonize it right away. Then again, we <i>did</i> forget that our Flagship comes equipped with Exploration 1..."],
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -66,8 +70,8 @@
 			"revealCounter":"systemK8",
 			"name":"unexploredR"
 		}]},
-	{"heading":"Stardate 2400.6 (Turn 2)",
-	"commentary":"<p>So far, this has been an extremely productive opening. Being able to use the <i>3</i> starting colony ships before the first economic phase is rare!</p>",
+	{"heading":"Stardate 2400.6",
+	"commentary":["So far, this has been an extremely productive opening. Being able to use the <i>3</i> starting colony ships before the first economic phase is rare!"],
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -117,8 +121,8 @@
 			"revealCounter":"systemJ8",
 			"name":"unexploredR"
 		}]},
-	{"heading":"Stardate 2400.9 (Turn 3)",
-	"commentary":"<p>Generous openings are rare, but there is always an occasion where we could instead be screwed with 1 planet (or even none) before the first economic phase.</p>",
+	{"heading":"Stardate 2400.9",
+	"commentary":["Generous openings are rare, but there is always an occasion where we could instead be screwed with 1 planet (or even none) before the first economic phase."],
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -175,8 +179,12 @@
 			"revealCounter":"systemJ8",
 			"name":"asteroids"
 		}]},
-	{"heading":"Stardate 2401.0 (Economic Phase 1)",
-	"commentary":"<p>We have reached the first economic phase of a fresh Close Encounters playthrough. We will buy Ship Size 2 (-10), followed by 2 Scouts (-12) and 1 Colony Ship (-8). Until we build Ship Yards elsewhere, our homeworld is the only valid construction site.</p>{prodTable}{techTable}<p>Alien Players economics are done somewhat differently compared to a non-VP Alien Empires playthrough. They expand their economy by colonizing with expansion fleets (1 economic roll per colony already at +1 or more income), instead of directly using rolls.</p><p>For this phase, they rolled 3,5 (Epimetheus) / 4,10 (Prometheus), giving them a few Tech points to start with. Since this is the first phase, they will not launch fleets even though they start with 100 CP in the Expansion bank.</p>",
+	{"heading":"Stardate 2401.0",
+	"commentary":[
+		"We have reached the first economic phase of a fresh Close Encounters playthrough. We will buy Ship Size 2 (-10), followed by 2 Scouts (-12) and 1 Colony Ship (-8). Until we build Ship Yards elsewhere, our homeworld is the only valid construction site.",
+		"{prodTable}{techTable}",
+		"Alien Players economics are done somewhat differently compared to a non-VP Alien Empires playthrough. They expand their economy by colonizing with expansion fleets (1 economic roll per colony already at +1 or more income), instead of directly using rolls.",
+		"For this phase, they rolled 3,5 (Epimetheus) / 4,10 (Prometheus), giving them a few Tech points to start with. Since this is the first phase, they will not launch fleets even though they start with 100 CP in the Expansion bank."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":0,"colonyCP":30,"mineralCP":5,"pipeCP":0,"maint":3,"techBuy":10,"unitBuy":20
@@ -252,8 +260,8 @@
 			"revealCounter":"systemI7",
 			"name":"unexploredR"
 		}]},
-	{"heading":"Stardate 2401.2 (Turn 4)",
-	"commentary":"<p>We can uncover our remaining home systems faster with these extra Scouts. Yet, we opted to limit our risk into the one unexplored hex adjacent to our homeworld.</p>",
+	{"heading":"Stardate 2401.2",
+	"commentary":["We can uncover our remaining home systems faster with these extra Scouts. Yet, we opted to limit our risk into the one unexplored hex adjacent to our homeworld."],
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -315,8 +323,8 @@
 			"revealCounter":"systemL11",
 			"name":"unexploredW"
 		}]},
-	{"heading":"Stardate 2401.5 (Turn 5)",
-	"commentary":"<p>Remembering our Flagship has Exploration 1, we opt to use it to uncover a supernova. We then move our Flagship to provide the galactic capitol a little bit of protection, taking advantage of its dedicated warp point.</p>",
+	{"heading":"Stardate 2401.5",
+	"commentary":["Remembering our Flagship has Exploration 1, we opt to use it to uncover a supernova. We then move our Flagship to provide the galactic capitol a little bit of protection, taking advantage of its dedicated warp point."],
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -385,8 +393,8 @@
 			"revealCounter":"systemI8",
 			"name":"unexploredR"
 		}]},
-	{"heading":"Stardate 2401.8 (Turn 6)",
-	"commentary":"<p>It was only a matter of time before our obligatory black hole showed itself. With no counter technology to help us out, our unlucky Scout must roll. We rolled a 3 (survived &le;6).</p>",
+	{"heading":"Stardate 2401.8",
+	"commentary":["It was only a matter of time before our obligatory black hole showed itself. With no counter technology to help us out, our unlucky Scout must roll. We rolled a 3 (survived &le;6)."],
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -450,8 +458,11 @@
 		},{
 			"removeCounter":"fleet1B"
 		}]},
-	{"heading":"Stardate 2402.0 (Economic Phase 2)",
-	"commentary":"<p>We will take advantage of our recent successes in our home systems, and build 4 Colony Ships (-32).</p>{prodTable}{techTable}<p>The Alien Players will conduct their economics now. They rolled 2,6 (Epimetheus) / 1,9 (Prometheus). Both of these players automatically launch expansion fleets because they have Expansion money, but not enough Fleet money. 15 Tech CP is not enough to buy Movement 2, so this concludes the respecive launch processes.</p>",
+	{"heading":"Stardate 2402.0",
+	"commentary":[
+		"We will take advantage of our recent successes in our home systems, and build 4 Colony Ships (-32).",
+		"{prodTable}{techTable}",
+		"The Alien Players will conduct their economics now. They rolled 2,6 (Epimetheus) / 1,9 (Prometheus). Both of these players automatically launch expansion fleets because they have Expansion money, but not enough Fleet money. 15 Tech CP is not enough to buy Movement 2, so this concludes the respecive launch processes."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":2,"colonyCP":33,"mineralCP":5,"pipeCP":0,"maint":5,"techBuy":0,"unitBuy":32
@@ -546,8 +557,10 @@
 		},{
 			"removeCounter":"alienC1"
 		}]},
-	{"heading":"Stardate 2402.1 (Turn 7)",
-	"commentary":"<p>We have taken our first step into deep space, and ran into another supernova of the playthrough. This will slow us down, but at least we still have our 5 scouts. We also ran into a warp point marker. Other than what was provided at the start of the scenario, these markers are ineffective; and will simply be removed after this turn.</p><p>Lastly, we ran into our first deep space barren planet. Non-player aliens have ambushed us, having launched 2 Alien-Bs and 2 Alien-Cs. Since the Alien-Bs have the best weapon class, they shoot first and roll 2,8 (1 hit &le;6), eliminating our scout.</p>",
+	{"heading":"Stardate 2402.1",
+	"commentary":[
+		"We have taken our first step into deep space, and ran into another supernova of the playthrough. This will slow us down, but at least we still have our 5 scouts. We also ran into a warp point marker. Other than what was provided at the start of the scenario, these markers are ineffective; and will simply be removed after this turn.",
+		"Lastly, we ran into our first deep space barren planet. Non-player aliens have ambushed us, having launched 2 Alien-Bs and 2 Alien-Cs. Since the Alien-Bs have the best weapon class, they shoot first and roll 2,8 (1 hit &le;6), eliminating our scout."],
 	"actions":
 		[{
 			"placeGhost":"SC1R",
@@ -658,8 +671,33 @@
 		},{
 			"removeCounter":"alienD3"
 		}]},
-	{"heading":"Stardate 2402.4 (Turn 8)",
-	"commentary":"<p>Going deeper, we uncover our first lost in space marker. These force an involuntary move. We also run into another NPA planet. They launch 2 more Alien-Bs, 1 Alien-C, and 1 Alien-D. The Alien-Bs rolled 3,6 (2 hits), eliminating another scout of ours.</p><p>During the Alien Turn, Epimetheus uses Exploration to nullify a danger marker. Prometheus exposes a NPA planet in C10, and move their fleet accordingly. Deneb launches 1 Alien-B, 2 Alien-C, and 1 Alien-D to defend itself. We already have our first proper battle of the playthrough, and it is not even a battle that directly involves us.</p><h3>The Battle for Deneb</h3><p>Close Encounters Alien Empires battles are more complicated than other battles. Since this battle takes place over a planet, Prometheus will buy Troops 2 (-10) right away. They are unable to afford anything else with 5 Tech CP left, so that ends that step. On the ship construction step <span class=\"bindTxt\">(with 55 assigned CP)</span>, Prometheus builds 1 Transport, loaded with 5 Space Marines and 1 Heavy Infantry (-0). Since they only have Ship Size 1, the assigned CP is spent building 9 Scouts (-54). This credits a remainder of 1 back to the Fleet bank.</p><ol><li><b>Space Round 1</b>: Prometheus has 10 ships. Deneb has 4 ships</li><li>Additionally, unlike a non-VP Alien Empires scenario, an Alien Player <i>can</i> screen ships as appropriate. In this case, Prometheus screens their 1 Transport, and gain the Fleet Size Bonus</li><li>Because the Transport is screened, Deneb has only one valid target. Still, Deneb has the experience advantage, causing them to have Attack +1. Their Alien-B rolls a 3 (hit &le;7). Their Alien-Cs roll 3,5 (2 hits &le;6). Their Alien-D rolls a 9 (miss &gt;5)</li><li>Prometheus has 6 surviving scouts. They roll 6,1 against Deneb's Alien-D (&le;2 to hit). The scouts then roll 9,1 against their Alien-B (&le;1). Leftover scouts roll 8,10 against Alien-C (0 hits &le;1)</li><li>Prometheus' 6 scouts have scored 2 kills this round. They roll 5,9 on the experience roll (failure &gt;2)<br /><br /></li><li><b>Space Round 2</b>: Prometheus has 7 ships. Deneb has 2 ships. Prometheus keeps their 1 Transport screened</li><li>Deneb's Alien-Cs rolled 5,9 (1 hit &le;6)</li><li>Prometheus' 5 surviving scouts rolled 1,1,2,10,10 (2 hits &le;1). This eliminates the last of the NPA ships</li><li>Prometheus' 5 scouts have scored 2 more kills. They roll 1,8 on the experience roll (success &le;2). This group is now a Skilled group<br /><br /></li><li><b>Ground Round 1</b>: Fleet Size Bonus, Experience, and also Attack/Defense/Tactics technologies are ineffective for ground battles. Retreats are also impossible</li><li>Prometheus has 6 ground units to Deneb's 5 militia. They screen 1 of their Space Marines</li><li>Prometheus' ground units are unable to shoot this round; they need time to get settled from a Transport</li><li>Deneb's 5 Militia have an advantage this round. They rolled 2,3,6,6,9 against their Space Marines (2 hits &le;4), cleanly eliminating one of them<br /><br /></li><li><b>Ground Round 2</b>: Prometheus has 5 ground units to Deneb's 5 militia. They are no longer able to screen their craft</li><li>Prometheus' 4 surviving Space Marines have settled. They rolled 4,5,7,8 (2 hits &le;6). Their 1 Heavy Infantry follows suit with a 6 (miss &gt;4)</li><li>Deneb's 3 surviving Militia shoot once more. They rolled 3,7,8 against their Space Marines (1 hit &le;4), damaging one of them<br /><br /></li><li><b>Ground Round 3</b>: Prometheus has 5 ground units to Deneb's 3 militia. They will screen no units</li><li>Prometheus' 4 Space Marines shoot once more, rolling 1,3,7,9 (2 hits &le;6). Their 1 Heavy Infantry follows suit with a 9 (miss &gt;4)</li><li>Deneb's 1 surviving Militia shoot once more. They rolled a 10 against their Space Marines (miss &gt;4)<br /><br /></li><li><b>Ground Round 4</b>: Prometheus' 4 Space Marines rolls a 3,4,9,9 (2 hits &le;6). This finishes off the last militia. Deneb has been captured!</li></ol><p>One of Prometheus' Space Marines is used to take over management of the newly captured colony (VP +2). They have also acquired an Alien Technology card (VP +1). The rest of the survivors will simply stay in the newly conquered hex for the rest of the playthrough</p>",
+	{"heading":"Stardate 2402.4 (The Battle for Deneb)",
+	"commentary":[
+		"Going deeper, we uncover our first lost in space marker. These force an involuntary move. We also run into another NPA planet. They launch 2 more Alien-Bs, 1 Alien-C, and 1 Alien-D. The Alien-Bs rolled 3,6 (2 hits), eliminating another scout of ours.",
+		"During the Alien Turn, Epimetheus uses Exploration to nullify a danger marker. Prometheus exposes a NPA planet in C10, and move their fleet accordingly. Deneb launches 1 Alien-B, 2 Alien-C, and 1 Alien-D to defend itself. We already have our first proper battle of the playthrough, and it is not even a battle that directly involves us.",
+		"<hr />",
+		"Close Encounters Alien Empires battles are more complicated than other battles. Since this battle takes place over a planet, Prometheus will buy Troops 2 (-10) right away. They are unable to afford anything else with 5 Tech CP left, so that ends that step. On the ship construction step <span class=\"bindTxt\">(with 55 assigned CP)</span>, Prometheus builds 1 Transport, loaded with 5 Space Marines and 1 Heavy Infantry (-0). Since they only have Ship Size 1, the assigned CP is spent building 9 Scouts (-54). This credits a remainder of 1 back to the Fleet bank.",
+		"<ol><li><b>Space Round 1</b>: Prometheus has 10 ships. Deneb has 4 ships</li>",
+		"<li>Additionally, unlike a non-VP Alien Empires scenario, an Alien Player <i>can</i> screen ships as appropriate. In this case, Prometheus screens their 1 Transport, and gain the Fleet Size Bonus</li>",
+		"<li>Because the Transport is screened, Deneb has only one valid target. Still, Deneb has the experience advantage, causing them to have Attack +1. Their Alien-B rolls a 3 (hit &le;7). Their Alien-Cs roll 3,5 (2 hits &le;6). Their Alien-D rolls a 9 (miss &gt;5)</li>",
+		"<li>Prometheus has 6 surviving scouts. They roll 6,1 against Deneb's Alien-D (&le;2 to hit). The scouts then roll 9,1 against their Alien-B (&le;1). Leftover scouts roll 8,10 against Alien-C (0 hits &le;1)</li>",
+		"<li>Prometheus' 6 scouts have scored 2 kills this round. They roll 5,9 on the experience roll (failure &gt;2)<br /><br /></li>",
+		"<li><b>Space Round 2</b>: Prometheus has 7 ships. Deneb has 2 ships. Prometheus keeps their 1 Transport screened</li>",
+		"<li>Deneb's Alien-Cs rolled 5,9 (1 hit &le;6)</li>",
+		"<li>Prometheus' 5 surviving scouts rolled 1,1,2,10,10 (2 hits &le;1). This eliminates the last of the NPA ships</li>",
+		"<li>Prometheus' 5 scouts have scored 2 more kills. They roll 1,8 on the experience roll (success &le;2). This group is now a Skilled group<br /><br /></li>",
+		"<li><b>Ground Round 1</b>: Fleet Size Bonus, Experience, and also Attack/Defense/Tactics technologies are ineffective for ground battles. Retreats are also impossible</li>",
+		"<li>Prometheus has 6 ground units to Deneb's 5 militia. They screen 1 of their Space Marines</li>",
+		"<li>Prometheus' ground units are unable to shoot this round; they need time to get settled from a Transport</li>",
+		"<li>Deneb's 5 Militia have an advantage this round. They rolled 2,3,6,6,9 against their Space Marines (2 hits &le;4), cleanly eliminating one of them<br /><br /></li>",
+		"<li><b>Ground Round 2</b>: Prometheus has 5 ground units to Deneb's 5 militia. They are no longer able to screen their craft</li>",
+		"<li>Prometheus' 4 surviving Space Marines have settled. They rolled 4,5,7,8 (2 hits &le;6). Their 1 Heavy Infantry follows suit with a 6 (miss &gt;4)</li>",
+		"<li>Deneb's 3 surviving Militia shoot once more. They rolled 3,7,8 against their Space Marines (1 hit &le;4), damaging one of them<br /><br /></li>",
+		"<li><b>Ground Round 3</b>: Prometheus has 5 ground units to Deneb's 3 militia. They will screen no units</li>",
+		"<li>Prometheus' 4 Space Marines shoot once more, rolling 1,3,7,9 (2 hits &le;6). Their 1 Heavy Infantry follows suit with a 9 (miss &gt;4)</li>",
+		"<li>Deneb's 1 surviving Militia shoot once more. They rolled a 10 against their Space Marines (miss &gt;4)<br /><br /></li>",
+		"<li><b>Ground Round 4</b>: Prometheus' 4 Space Marines rolls a 3,4,9,9 (2 hits &le;6). This finishes off the last militia. Deneb has been captured!</li></ol>",
+		"One of Prometheus' Space Marines is used to take over management of the newly captured colony (VP +2). They have also acquired an Alien Technology card (VP +1). The rest of the survivors will simply stay in the newly conquered hex for the rest of the playthrough"],
 	"alienTableX":
 		[{
 			"name":"Prometheus (Blue)","eco":3,"fleet":1,"tech":5,"def":0,"expo":50,"delta":"EFth"
@@ -784,8 +822,8 @@
 			"location":"C10",
 			"name":"alienD"
 		}]},
-	{"heading":"Stardate 2402.7 (Turn 9)",
-	"commentary":"<p>Since Prometheus has managed to capture a barren planet, that gives them an extra economic roll <i>while</i> they control that colony. In other news, we ran into our own first danger markers, instantly eliminating 2 more scouts. The one Alien Player fleet that has not already found a planet to expand has uncovered an asteroid belt.</p>",
+	{"heading":"Stardate 2402.7",
+	"commentary":["Since Prometheus has managed to capture a barren planet, that gives them an extra economic roll <i>while</i> they control that colony. In other news, we ran into our own first danger markers, instantly eliminating 2 more scouts. The one Alien Player fleet that has not already found a planet to expand has uncovered an asteroid belt."],
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -892,8 +930,12 @@
 		},{
 			"removeCounter":"alienD3"
 		}]},
-	{"heading":"Stardate 2403.0 (Economic Phase 3)",
-	"commentary":"<p>For this economic phase, we will buy Ship Size 3 (-15), followed by 1 Cruiser (-12), 1 Colony Ship (-8) and 1 Pipeline (-3). We also throw down an extra Ship Yard (-6) at our homeworld.</p>{prodTable}<p>Now the Alien Players will conduct their economics. Things have gotten a little spicier now that Prometheus is in control of a colony. They rolled 6,9 (Epimetheus) / 1,2,7 (Prometheus).</p><p>As usual, both Alien Players automatically launch a fleet. Epimetheus has no Fleet CP, so it automatically becomes an expansion fleet. Prometheus will roll to determine its fleet type. They roll a 2 (expansion &lt;8). As for Movement technology, only Epimetheus is able to afford a level. They rolled a 4 (buy &le;4)</p>",
+	{"heading":"Stardate 2403.0",
+	"commentary":[
+		"For this economic phase, we will buy Ship Size 3 (-15), followed by 1 Cruiser (-12), 1 Colony Ship (-8) and 1 Pipeline (-3). We also throw down an extra Ship Yard (-6) at our homeworld.",
+		"{prodTable}",
+		"Now the Alien Players will conduct their economics. Things have gotten a little spicier now that Prometheus is in control of a colony. They rolled 6,9 (Epimetheus) / 1,2,7 (Prometheus).",
+		"As usual, both Alien Players automatically launch a fleet. Epimetheus has no Fleet CP, so it automatically becomes an expansion fleet. Prometheus will roll to determine its fleet type. They roll a 2 (expansion &lt;8). As for Movement technology, only Epimetheus is able to afford a level. They rolled a 4 (buy &le;4)"],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":3,"colonyCP":39,"mineralCP":5,"pipeCP":0,"maint":1,"techBuy":15,"unitBuy":29
@@ -1001,8 +1043,8 @@
 			"revealCounter":"systemE4",
 			"name":"unexploredW"
 		}]},
-	{"heading":"Stardate 2403.3 (Turn 10)",
-	"commentary":"<p>A danger marker claims our last Scout. Any more we build likely will not be dedicated to unexplored deep space.</p>",
+	{"heading":"Stardate 2403.3",
+	"commentary":["A danger marker claims our last Scout. Any more we build likely will not be dedicated to unexplored deep space."],
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -1047,8 +1089,8 @@
 			"revealCounter":"systemC4",
 			"name":"unexploredW"
 		}]},
-	{"heading":"Stardate 2403.6 (Turn 11)",
-	"commentary":"<p>Fortunately, the Alien Players will also uncover deep space for us; though at the expense of interacting with planets, minerals, and even space wrecks. In this case, they collected some dense minerals, giving them another VP to their team.</p>",
+	{"heading":"Stardate 2403.6",
+	"commentary":["Fortunately, the Alien Players will also uncover deep space for us; though at the expense of interacting with planets, minerals, and even space wrecks. In this case, they collected some dense minerals, giving them another VP to their team."],
 	"victoryTable":
 		[{
 			"name":"CSY (Red)"
@@ -1095,8 +1137,8 @@
 			"revealCounter":"systemD11",
 			"name":"unexploredW"
 		}]},
-	{"heading":"Stardate 2403.9 (Turn 12)",
-	"commentary":"<p>Taking advantage of the recently obtained Movement 2, Epimetheus comes to claim a second minerals counter for the team. This is the final VP they can gain this way, and will need to rely on taking planets and collecting alien technology to gain more VP.</p>",
+	{"heading":"Stardate 2403.9",
+	"commentary":["Taking advantage of the recently obtained Movement 2, Epimetheus comes to claim a second minerals counter for the team. This is the final VP they can gain this way, and will need to rely on taking planets and collecting alien technology to gain more VP."],
 	"victoryTable":
 		[{
 			"name":"CSY (Red)"
@@ -1188,8 +1230,13 @@
 			"revealCounter":"systemD11",
 			"name":"nebula"
 		}]},
-	{"heading":"Stardate 2404.0 (Economic Phase 4)",
-	"commentary":"<p>We will buy 5 Pipelines (-15) at our homeworld to try to boost our income, while also reinforcing our 2 most vulnerable planets with a Ship Yard and a Base (-18 each).</p><p>We have also reached a point where our colonies will grant us free ground units. Homeworld aside, each 3 colonies already at full strength allows us to place 1 ground unit at any colony/homeworld already producing 5 or more CP. Free units awarded this way can be any non-Grav Armor ground unit that is currently unlcked for purchase.</p>{prodTable}{techTable}<p>This is the point where Alien Player aggression slows a bit. These players have rolled 2,5 (Epimetheus) / 2,3,5 (Prometheus).</p><p>Fleet launches are no longer necessarily automatic, so they now must roll to determine whether they launch anyway. Only Prometheus has enough money to launch another fleet, and they rolled a 5 (launch). They do not have enough Tech money to buy Movement 2, but they could still roll to determine its fleet mission. They rolled an 8, making it an extermination fleet. This fleet has randomly decided to target our homeworld.</p>",
+	{"heading":"Stardate 2404.0",
+	"commentary":[
+		"We will buy 5 Pipelines (-15) at our homeworld to try to boost our income, while also reinforcing our 2 most vulnerable planets with a Ship Yard and a Base (-18 each).",
+		"We have also reached a point where our colonies will grant us free ground units. Homeworld aside, each 3 colonies already at full strength allows us to place 1 ground unit at any colony/homeworld already producing 5 or more CP. Free units awarded this way can be any non-Grav Armor ground unit that is currently unlcked for purchase.",
+		"{prodTable}{techTable}",
+		"This is the point where Alien Player aggression slows a bit. These players have rolled 2,5 (Epimetheus) / 2,3,5 (Prometheus).",
+		"Fleet launches are no longer necessarily automatic, so they now must roll to determine whether they launch anyway. Only Prometheus has enough money to launch another fleet, and they rolled a 5 (launch). They do not have enough Tech money to buy Movement 2, but they could still roll to determine its fleet mission. They rolled an 8, making it an extermination fleet. This fleet has randomly decided to target our homeworld."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":2,"colonyCP":50,"mineralCP":5,"pipeCP":0,"maint":3,"techBuy":0,"unitBuy":51
@@ -1309,7 +1356,53 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2404.2 (The Space Battle for Cerberus)",
-	"commentary":"<p>The first of Epimetheus' fleets have made landfall. Since Sector H7 (Cerberus) is the closest planet to their homeworld of Chulak, they will assault that hex first. On the preparation set of steps; they have only 5 Tech CP <span class=\"bindTxt\">(not enough to even buy Troops 2 / Ship Size 2)</span>, so we will skip the Tech step. On the construction step, since this is an expansion fleet, they get a free Transport with 6 Light Infantry. The 55 assigned CP is then spent building 9 Scouts. Due to the <i>huge</i> size of the space battle, we are seperating the space and ground battles into seperate stages.</p><ol><li><b>Round 1</b>: They have 10 ships to our 4 ships. They can screen their Transport, and gain the Fleet Size Bonus</li><li>Nonetheless, our Base has the best weapon class, so it shoots first. Since only their Scouts are available, this makes our rolls easy. We rolled a 10 (miss &gt;7)</li><li>Our Flagship and Cruiser have the same Attack strength and experience level (Skilled), so they can shoot next. We rolled 6,8 (0 hits &le;5)</li><li>Our Ship Yard can shoot next. We rolled a 2 (hit &le;3). This <q>ship</q> does not participate in the experience system</li><li>Their 8 surviving Scouts now have a turn to shoot. Prioritizing our Ship Yards, they rolled 5,5,7,10,5,1 until they landed a hit (&le;4). The 2 leftover Scouts then roll 5,9 against our Flagship (0 hits &le;3)</li><li>Their Scouts destroyed 1 ship, but it was a Ship Yard. Since Ship Yards do not award experience, this group remains a Green group<br /><br /></li><li><b>Round 2</b>: They have 9 ships to our 3 ships. They keep their Transport screened</li><li>Our Base shoots once more, rolling a 1 (hit &le;7). It, too, does not participate in the experience system</li><li>Our Flagship and Cruiser shoot next. We rolled 10,1 (1 hit &le;5). Since the Cruiser landed a kill, it gets to roll for experience. We rolled a 6 (failure)</li><li>Their 6 surviving Scouts shoot once more. They rolled 7,1,10,10,3,8 against our Flagship (2 hits &le;3). Damaged, but not destroyed, so they gain no experience</li><li>Their 1 Transport can still drop their Light Infantry on our colony, despite being screened<br /><br /></li><li><b>Round 3</b>: They have 7 ships to our 3 ships. They will screen no ships (no longer necessary now that ground units have been dropped)</li><li>Our Base shoots once more, rolling a 9 against their Scouts (miss &gt;7)</li><li>We have chosen for our Flagship to retreat to Sector I6 due to its damage level and inability to build more</li><li>Our Cruiser shoots next. We rolled a 1 (hit &le;4). It then rolled a 2 (success &le;2), promoting it to the Veteran level</li><li>Their 5 surviving Scouts shoot once more. There is a 2 level difference now, so they suffer Attack -1. They rolled 7,1,6,8,5 against our Cruiser (1 hit &le;2)</li><li>Their 1 Transport can shoot, now that it is no longer screened. It rolled an 8 (miss &gt;1)<br /><br /></li><li><b>Round 4</b>: They have 6 ships to our 2 ships</li><li>Our Base shoots once more, rolling a 8 against their Scouts (miss &gt;7)</li><li>Our Cruiser shoots next. We rolled a 1 (hit &le;5)</li><li>Their 4 surviving Scouts shoot once more. They rolled 8,7,9,5 against our Cruiser (0 hits &le;2)</li><li>Their 1 Transport shoots once more. It rolled a 9 (miss &gt;1)<br /><br /></li><li><b>Round 5</b>: They have 5 ships to our 2 ships</li><li>Our Base shoots once more, rolling a 8 against their Scouts (miss &gt;7)</li><li>Our Cruiser shoots next. We rolled a 2 (hit &le;5)</li><li>Their 3 surviving Scouts shoot once more. They rolled 10,8,10 against our Cruiser (0 hits &le;2)</li><li>Their 1 Transport shoots once more. It rolled a 6 (miss &gt;1)<br /><br /></li><li><b>Round 6</b>: They have 4 ships to our 2 ships. They barely keep the Fleet Size Bonus</li><li>Our Base shoots once more, rolling a 10 against their Scouts (miss &gt;7)</li><li>Our Cruiser shoots next. We rolled a 7 (miss &gt;5)</li><li>Their 3 Scouts shoot once more. They rolled 8,2 against our Cruiser (1 hit &le;2), finishing it off. They then roll a 1 against our Base (hit &le;2)</li><li>Their 3 Scouts scored an eligible kill, and roll a 2 to become a Skilled experience group</li><li>Their 1 Transport shoots once more. It rolled a 5 (miss &gt;1)<br /><br /></li><li><b>Round 7</b>: They have 4 ships to our 1 Base</li><li>Our Base shoots once more, rolling a 1 against their Scouts (hit &le;7)</li><li>Their 2 surviving Scouts shoot once more. They rolled 3,3 (0 hits &le;2)</li><li>Their 1 Transport then shoots, rolling a 6 (miss &gt;1)<br /><br /></li><li><b>Round 8</b>: They have 3 ships to our 1 Base</li><li>Our Base shoots once more, rolling a 4 against their Scouts (hit &le;7)</li><li>Their 1 surviving Scout shoots once more, rolling a 8 (miss &gt;2)</li><li>Their 1 Transport then shoots, rolling a 9 (miss &gt;1)<br /><br /></li><li><b>Round 9</b>: They have 2 ships to our 1 Base</li><li>Our Base shoots once more, rolling a 7 against their last Scout (hit &le;7)</li><li>Their 1 Transport then shoots, rolling a 4 (miss &gt;1)<br /><br /></li><li><b>Round 10</b>: Our Base shoots once more, rolling a 6 against their Transport (hit &le;6). Epimetheus' fleet has been finished off!</li></ol>",
+	"commentary":[
+		"The first of Epimetheus' fleets have made landfall. Since Sector H7 (Cerberus) is the closest planet to their homeworld of Chulak, they will assault that hex first. On the preparation set of steps; they have only 5 Tech CP <span class=\"bindTxt\">(not enough to even buy Troops 2 / Ship Size 2)</span>, so we will skip the Tech step. On the construction step, since this is an expansion fleet, they get a free Transport with 6 Light Infantry. The 55 assigned CP is then spent building 9 Scouts. Due to the <i>huge</i> size of the space battle, we are seperating the space and ground battles into seperate stages.",
+		"<ol><li><b>Round 1</b>: They have 10 ships to our 4 ships. They can screen their Transport, and gain the Fleet Size Bonus</li>",
+		"<li>Nonetheless, our Base has the best weapon class, so it shoots first. Since only their Scouts are available, this makes our rolls easy. We rolled a 10 (miss &gt;7)</li>",
+		"<li>Our Flagship and Cruiser have the same Attack strength and experience level (Skilled), so they can shoot next. We rolled 6,8 (0 hits &le;5)</li>",
+		"<li>Our Ship Yard can shoot next. We rolled a 2 (hit &le;3). This <q>ship</q> does not participate in the experience system</li>",
+		"<li>Their 8 surviving Scouts now have a turn to shoot. Prioritizing our Ship Yards, they rolled 5,5,7,10,5,1 until they landed a hit (&le;4). The 2 leftover Scouts then roll 5,9 against our Flagship (0 hits &le;3)</li>",
+		"<li>Their Scouts destroyed 1 ship, but it was a Ship Yard. Since Ship Yards do not award experience, this group remains a Green group<br /><br /></li>",
+		"<li><b>Round 2</b>: They have 9 ships to our 3 ships. They keep their Transport screened</li>",
+		"<li>Our Base shoots once more, rolling a 1 (hit &le;7). It, too, does not participate in the experience system</li>",
+		"<li>Our Flagship and Cruiser shoot next. We rolled 10,1 (1 hit &le;5). Since the Cruiser landed a kill, it gets to roll for experience. We rolled a 6 (failure)</li>",
+		"<li>Their 6 surviving Scouts shoot once more. They rolled 7,1,10,10,3,8 against our Flagship (2 hits &le;3). Damaged, but not destroyed, so they gain no experience</li>",
+		"<li>Their 1 Transport can still drop their Light Infantry on our colony, despite being screened<br /><br /></li>",
+		"<li><b>Round 3</b>: They have 7 ships to our 3 ships. They will screen no ships (no longer necessary now that ground units have been dropped)</li>",
+		"<li>Our Base shoots once more, rolling a 9 against their Scouts (miss &gt;7)</li>",
+		"<li>We have chosen for our Flagship to retreat to Sector I6 due to its damage level and inability to build more</li>",
+		"<li>Our Cruiser shoots next. We rolled a 1 (hit &le;4). It then rolled a 2 (success &le;2), promoting it to the Veteran level</li>",
+		"<li>Their 5 surviving Scouts shoot once more. There is a 2 level difference now, so they suffer Attack -1. They rolled 7,1,6,8,5 against our Cruiser (1 hit &le;2)</li>",
+		"<li>Their 1 Transport can shoot, now that it is no longer screened. It rolled an 8 (miss &gt;1)<br /><br /></li>",
+		"<li><b>Round 4</b>: They have 6 ships to our 2 ships</li>",
+		"<li>Our Base shoots once more, rolling a 8 against their Scouts (miss &gt;7)</li>",
+		"<li>Our Cruiser shoots next. We rolled a 1 (hit &le;5)</li>",
+		"<li>Their 4 surviving Scouts shoot once more. They rolled 8,7,9,5 against our Cruiser (0 hits &le;2)</li>",
+		"<li>Their 1 Transport shoots once more. It rolled a 9 (miss &gt;1)<br /><br /></li>",
+		"<li><b>Round 5</b>: They have 5 ships to our 2 ships</li>",
+		"<li>Our Base shoots once more, rolling a 8 against their Scouts (miss &gt;7)</li>",
+		"<li>Our Cruiser shoots next. We rolled a 2 (hit &le;5)</li>",
+		"<li>Their 3 surviving Scouts shoot once more. They rolled 10,8,10 against our Cruiser (0 hits &le;2)</li>",
+		"<li>Their 1 Transport shoots once more. It rolled a 6 (miss &gt;1)<br /><br /></li>",
+		"<li><b>Round 6</b>: They have 4 ships to our 2 ships. They barely keep the Fleet Size Bonus</li>",
+		"<li>Our Base shoots once more, rolling a 10 against their Scouts (miss &gt;7)</li>",
+		"<li>Our Cruiser shoots next. We rolled a 7 (miss &gt;5)</li>",
+		"<li>Their 3 Scouts shoot once more. They rolled 8,2 against our Cruiser (1 hit &le;2), finishing it off. They then roll a 1 against our Base (hit &le;2)</li>",
+		"<li>Their 3 Scouts scored an eligible kill, and roll a 2 to become a Skilled experience group</li>",
+		"<li>Their 1 Transport shoots once more. It rolled a 5 (miss &gt;1)<br /><br /></li>",
+		"<li><b>Round 7</b>: They have 4 ships to our 1 Base</li>",
+		"<li>Our Base shoots once more, rolling a 1 against their Scouts (hit &le;7)</li>",
+		"<li>Their 2 surviving Scouts shoot once more. They rolled 3,3 (0 hits &le;2)</li>",
+		"<li>Their 1 Transport then shoots, rolling a 6 (miss &gt;1)<br /><br /></li>",
+		"<li><b>Round 8</b>: They have 3 ships to our 1 Base</li>",
+		"<li>Our Base shoots once more, rolling a 4 against their Scouts (hit &le;7)</li>",
+		"<li>Their 1 surviving Scout shoots once more, rolling a 8 (miss &gt;2)</li>",
+		"<li>Their 1 Transport then shoots, rolling a 9 (miss &gt;1)<br /><br /></li>",
+		"<li><b>Round 9</b>: They have 2 ships to our 1 Base</li>",
+		"<li>Our Base shoots once more, rolling a 7 against their last Scout (hit &le;7)</li>",
+		"<li>Their 1 Transport then shoots, rolling a 4 (miss &gt;1)<br /><br /></li>",
+		"<li><b>Round 10</b>: Our Base shoots once more, rolling a 6 against their Transport (hit &le;6). Epimetheus' fleet has been finished off!</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"CA1R",
@@ -1384,7 +1477,14 @@
 			"name":"danger"
 		}]},
 	{"heading":"Stardate 2404.2 (The Ground Battle for Cerberus)",
-	"commentary":"<p>Epimetheus' first fleet may have been eliminated, but because this was our planet, and not a NPA planet, they were able to drop their Light Infantry. Thus, we must conduct the ground battle also.</p><ol><li><b>Round 1</b>: Their 6 Light Infantry are unable to shoot this round; they need time to get settled from a Transport</li><li>Our 3 militia are able to shoot first this time. Since our compositions are simple (1 ground unit type each), rolls are easy. We rolled 3,5,10 (1 hit &le;4)<br /><br /></li><li><b>Round 2</b>: Their 5 surviving Light Infantry have settled and are ready to shoot. They rolled 1,5,6,10,10 (2 hits &le;5)</li><li>Our 1 surviving militia shoots next. We rolled a 6 (miss &gt;4)<br /><br /></li><li><b>Round 3</b>: Their 5 Light Infantry shoot once more. They rolled 2,3,4,4,10 (4 hits &le;5), finishing off our militia!</li></ol><p>Our planet has been captured! They use one of their Light Infantry to take over governemnt, and they gain 2 VP and Ship Size 2 from our planet.</p>",
+	"commentary":[
+		"Epimetheus' first fleet may have been eliminated, but because this was our planet, and not a NPA planet, they were able to drop their Light Infantry. Thus, we must conduct the ground battle also.",
+		"<ol><li><b>Round 1</b>: Their 6 Light Infantry are unable to shoot this round; they need time to get settled from a Transport</li>",
+		"<li>Our 3 militia are able to shoot first this time. Since our compositions are simple (1 ground unit type each), rolls are easy. We rolled 3,5,10 (1 hit &le;4)<br /><br /></li>",
+		"<li><b>Round 2</b>: Their 5 surviving Light Infantry have settled and are ready to shoot. They rolled 1,5,6,10,10 (2 hits &le;5)</li>",
+		"<li>Our 1 surviving militia shoots next. We rolled a 6 (miss &gt;4)<br /><br /></li>",
+		"<li><b>Round 3</b>: Their 5 Light Infantry shoot once more. They rolled 2,3,4,4,10 (4 hits &le;5), finishing off our militia!</li></ol>",
+		"Our planet has been captured! They use one of their Light Infantry to take over governemnt, and they gain 2 VP and Ship Size 2 from our planet."],
 	"victoryTable":
 		[{
 			"name":"CSY (Red)"
@@ -1458,7 +1558,7 @@
 			"removeCounter":"systemE10"
 		}]},
 	{"heading":"Stardate 2404.5",
-	"commentary":"<p>Normally, we might reposition our Flagship back to blockade the colony they just captured from us. But, because they own the colony now, they can spend their Def budget to defend that colony. Thus, we will not risk our Flagship, because they could build up to 2 Minelayers to assist in protection.</p>",
+	"commentary":["Normally, we might reposition our Flagship back to blockade the colony they just captured from us. But, because they own the colony now, they can spend their Def budget to defend that colony. Thus, we will not risk our Flagship, because they could build up to 2 Minelayers to assist in protection."],
 	"actions":
 		[{
 			"placeCounter":"Miner1R",
@@ -1516,7 +1616,22 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2404.8 (The Battle for Arrakis)",
-	"commentary":"<p>Prometheus' second fleet was able to make landfall without encountering any unconquered barren planets along the way. Since it is also an expansion fleet, they get a free Transport (with 5 Space Marines + 1 Heavy Infantry). Since they already have Troops 2, they will keep it at that. Their teammate has seen Veteran experience ships, so they roll a 10 (skip) on the Military Academy step. Moving along, their Tech CP is spent towards Ship Size 2 (-10), which spends their money. Destroyer is now their largest ship, so they will go on ahead and build one (-9). They then roll a 2 for composition (largest fleet), giving them 7 Scouts (-42) and another Destroyer (-9). This credits a leftover 1 CP to the bank. Since this barren planet was previously exposed, we will head to battle now.</p><ol><li><b>Space Round 1</b>: Prometheus has 10 ships. Arrakis has 4 ships. Prometheus will screen their 1 Transport, and gain the Fleet Size Bonus</li><li>Arrakis' 2 Alien-Bs have the best weapon class, so they shoot first. Prometheus' Destroyers are the greatest threat, so rolls will be made against these first. The Alien-Bs rolled 4,9 (1 hit &le;7)</li><li>Arrakis' 1 Alien-C is next. It rolled a 10 against the last Destroyer (miss &gt;6)</li><li>Arrakis' 1 Alien-D is next, by virtue of the Tactics advantage. It rolled a 9 against the last Destroyer (miss &gt;5)</li><li>Prometheus' 1 surviving Destroyer is next. It rolled a 3 against the Alien-Bs (hit &le;3). It then rolls a 10 for experience (failure &gt;2)</li><li>Prometheus' 7 Scouts can finally shoot. They rolled 7,2 against the last Alien-B (1 hit &le;2)</li><li>Prometheus' 5 Scouts still have ammo. They rolled a 2 against the Alien-C (1 hit &le;3)</li><li>Prometheus' 4 Scouts still have ammo. They rolled 7,1,2,7 against the Alien-D (2 hits &le;3)</li><li>Prometheus' Scouts have destroyed 3 ships, so they rolled 2,4,9 for experience (success &le;2). This group is now a Skilled group<br /><br /></li><li><b>Ground Round 1</b>: Prometheus' ground units are unable to shoot this round, they need time to settle from their Transport</li><li>Arrakis' 5 militia can shoot right away, rolling 1,3,3,7,8 against the Space Marines (3 hits &le;4), eliminating one marine, and damaging another<br /><br /></li><li><b>Ground Round 2</b>: Prometheus' 4 Space Marines have settled, and are ready to shoot. They rolled 1,2,3,7 (3 hits &le;6)</li><li>Prometheus' 1 Heavy Infantry is next. It rolled a 3 (hit &le;4)</li><li>Arrakis' 1 militia is next. It rolled a 4 (hit &le;4) against the Space Marines, cleaning up another<br /><br /></li><li><b>Ground Round 3</b>: Prometheus' 3 Space Marines shoot once more, rolling 4,8,10 (1 hit &le;6), finishing off Arrakis' militia!</li></ol><p>Prometheus has successfully captured Arrakis (+2 VP), consuming one of their Space Marines in order to install a new government; and have also taken an alien technology card (+1 VP) for their trouble.</p>",
+	"commentary":[
+		"Prometheus' second fleet was able to make landfall without encountering any unconquered barren planets along the way. Since it is also an expansion fleet, they get a free Transport (with 5 Space Marines + 1 Heavy Infantry). Since they already have Troops 2, they will keep it at that. Their teammate has seen Veteran experience ships, so they roll a 10 (skip) on the Military Academy step. Moving along, their Tech CP is spent towards Ship Size 2 (-10), which spends their money. Destroyer is now their largest ship, so they will go on ahead and build one (-9). They then roll a 2 for composition (largest fleet), giving them 7 Scouts (-42) and another Destroyer (-9). This credits a leftover 1 CP to the bank. Since this barren planet was previously exposed, we will head to battle now.",
+		"<ol><li><b>Space Round 1</b>: Prometheus has 10 ships. Arrakis has 4 ships. Prometheus will screen their 1 Transport, and gain the Fleet Size Bonus</li>",
+		"<li>Arrakis' 2 Alien-Bs have the best weapon class, so they shoot first. Prometheus' Destroyers are the greatest threat, so rolls will be made against these first. The Alien-Bs rolled 4,9 (1 hit &le;7)</li>",
+		"<li>Arrakis' 1 Alien-C is next. It rolled a 10 against the last Destroyer (miss &gt;6)</li>",
+		"<li>Arrakis' 1 Alien-D is next, by virtue of the Tactics advantage. It rolled a 9 against the last Destroyer (miss &gt;5)</li>",
+		"<li>Prometheus' 1 surviving Destroyer is next. It rolled a 3 against the Alien-Bs (hit &le;3). It then rolls a 10 for experience (failure &gt;2)</li>",
+		"<li>Prometheus' 7 Scouts can finally shoot. They rolled 7,2 against the last Alien-B (1 hit &le;2), followed by a 2 against the Alien-C (1 hit &le;3), and 7,1,2,7 against the Alien-D (2 hits &le;3)</li>",
+		"<li>Prometheus' Scouts have destroyed 3 ships, so they rolled 2,4,9 for experience (success &le;2). This group is now a Skilled group<br /><br /></li>",
+		"<li><b>Ground Round 1</b>: Prometheus' ground units are unable to shoot this round, they need time to settle from their Transport</li>",
+		"<li>Arrakis' 5 militia can shoot right away, rolling 1,3,3,7,8 against the Space Marines (3 hits &le;4), eliminating one marine, and damaging another<br /><br /></li>",
+		"<li><b>Ground Round 2</b>: Prometheus' 4 Space Marines have settled, and are ready to shoot. They rolled 1,2,3,7 (3 hits &le;6)</li>",
+		"<li>Prometheus' 1 Heavy Infantry is next. It rolled a 3 (hit &le;4)</li>",
+		"<li>Arrakis' 1 militia is next. It rolled a 4 (hit &le;4) against the Space Marines, cleaning up another<br /><br /></li>",
+		"<li><b>Ground Round 3</b>: Prometheus' 3 Space Marines shoot once more, rolling 4,8,10 (1 hit &le;6), finishing off Arrakis' militia!</li></ol>",
+		"Prometheus has successfully captured Arrakis (+2 VP), consuming one of their Space Marines in order to install a new government; and have also taken an alien technology card (+1 VP) for their trouble."],
 	"alienTableX":
 		[{
 			"name":"Epimetheus (Green)","eco":3,"fleet":6,"tech":5,"def":10,"expo":0,"delta":"EFh","hidden":"50(P)"
@@ -1632,7 +1747,12 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2405.0",
-	"commentary":"<p>Already this could very well be the beginning of the end. The Alien Player team already has 10 VP in their possession, and an unconquered NPA planet is not very far away from the nearest expansion fleet, awarding the last 3 VP if it gets taken.</p><p>We may already be screwed, but we will still attempt to salvage what we can. We will develop Minesweeping 1 (-10). We then build 1 Minesweeper (-6), 1 Ship Yard (-6), and 3 Light Infantry (-6) at I6, followed by 3 Light Infantry (-6) at I7, and also 1 Transport (-6), 4 Scouts (-24), and 6 Light Infantry <span class=\"bindTxt\">(-10 factoring in a freebie)</span> at L7.</p>{prodTable}{techTable}<p>Moving to the Alien Players' economics, their recent capture of planets has given them more economic rolls. They rolled 2,7,8 (Epimetheus) / 2,2,3,3 (Prometheus). This is also an automatic launch phase, so both players launched fresh fleets. Neither playera are able to afford another Movement technology. For fleet missions, they rolled 8 (Epimetheus) / 4 (Prometheus), which happens to be different for each fleet. Since Epimetheus' next fleet has become an extermination fleet, they randomly determine their destination... the galactic capitol.</p>",
+	"commentary":[
+		"Already this could very well be the beginning of the end. The Alien Player team already has 10 VP in their possession, and an unconquered NPA planet is not very far away from the nearest expansion fleet, awarding the last 3 VP if it gets taken.",
+		"We may already be screwed, but we will still attempt to salvage what we can. We will develop Minesweeping 1 (-10). We then build 1 Minesweeper (-6), 1 Ship Yard (-6), and 3 Light Infantry (-6) at I6, followed by 3 Light Infantry (-6) at I7, and also 1 Transport (-6), 4 Scouts (-24), and 6 Light Infantry <span class=\"bindTxt\">(-10 factoring in a freebie)</span> at L7.",
+		"{prodTable}{techTable}",
+		"Moving to the Alien Players' economics, their recent capture of planets has given them more economic rolls. They rolled 2,7,8 (Epimetheus) / 2,2,3,3 (Prometheus). This is also an automatic launch phase, so both players launched fresh fleets.",
+		"Neither playera are able to afford another Movement technology. For fleet missions, they rolled 8 (Epimetheus) / 4 (Prometheus), which happens to be different for each fleet. Since Epimetheus' next fleet has become an extermination fleet, they randomly determine their destination... the galactic capitol."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":3,"colonyCP":58,"mineralCP":10,"pipeCP":4,"maint":0,"techBuy":10,"unitBuy":64
@@ -1744,7 +1864,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2405.1",
-	"commentary":"<p>We are going to go on ahead and blockade the planet on sector H7. The planet is exposed, but we are prohibited from bombarding a planet that we originally owned.</p>",
+	"commentary":["We are going to go on ahead and blockade the planet on sector H7. The planet is exposed, but we are prohibited from bombarding a planet that we originally owned."],
 	"actions":
 		[{
 			"placeCounter":"Miner1R",
@@ -1808,7 +1928,23 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2405.4 (The Battle for Abydos)",
-	"commentary":"<p>Here we go... this is the pinnacle turn of this playthrough! If Epimetheus captures Abydos; the Alien Team will secure the required 13 VP, and this scenario will be over! Since this battle takes place over a planet, they will buy Troops 2. On the fleet step, since they just unlocked new toys, their free Transport comes with 5 Space Marines + 1 Heavy Infantry. Their largest ship is now a Destroyer (-9), so they will build one. For composition, they rolled a 3 (largest fleet), giving them 5 Scouts (-30) and an extra Destroyer (-9). This credits a leftover 2 CP back to their Fleet bank.</p><ol><li><b>Round 1</b>: Epimetheus has 8 ships. Abydos has 4 ships. Epimetheus will forgo the Fleet Size Bonus, and screen their Transport</li><li>Abydos' 2 Alien-Bs have the best weapon class, so they shoot first. They rolled 2,6 versus Epimetheus' Destroyers (2 hits &le;7)</li><li>Their Alien-Cs will shoot next. Since only Scouts are a valid target at present, they can simply shoot away. They rolled 9,10 (0 hits &le;6)</li><li>Epimetheus' 5 Scouts can shoot next. Prioritizing the Alien-Bs, they rolled 10,6,5,10,3 (0 hits &le;1)<br /><br /></li><li><b>Round 2</b>: Epimetheus has 6 ships. Abydos has 4 ships. Fleet Size Bonus is no longer possible, but Epimetheus can still screen their Transport</li><li>Abydos' 2 Alien-Bs shoot once more, rolling 5,5 (2 hits &le;7)</li><li>Their Alien-Cs will shoot next. They rolled 2,9 (1 hit &le;6)</li><li>Epimetheus' 2 surviving Scouts can shoot next. Prioritizing the Alien-Bs, they rolled 6,9 (0 hits &le;1)<br /><br /></li><li><b>Round 3</b>: Epimetheus has 3 ships. Abydos has 4 ships. Epimetheus can no longer screen ships</li><li>Abydos' 2 Alien-Bs shoot once more. Now that the Transport is vulnerable, they will prioritize that ship. They rolled 8,9 (0 hits &le;6)</li><li>Their Alien-Cs will shoot next. They rolled 1 (hit &le;5)! The Transport goes down, along with all of its ground units!</li><li>Only Scouts remain at this point. Abydos uses their last ammo against it, rolling a 5 (hit &le;6)</li><li>Epimetheus' 1 surviving Scout shoots next. Prioritizing the Alien-Bs, they rolled a 7 (miss &gt;1)<br /><br /></li><li><b>Round 4</b>: Epimetheus has 1 ship. Abydos has 4 ships. Abydos now gains the Fleet Size Bonus</li><li>Abydos' 2 Alien-Bs shoot once more. They rolled 2,5 (2 hits &le;8). Epimetheus has been repelled from Abydos!</li></ol>",
+	"commentary":[
+		"Here we go... this is the pinnacle turn of this playthrough! If Epimetheus captures Abydos; the Alien Team will secure the required 13 VP, and this scenario will be over! Since this battle takes place over a planet, they will buy Troops 2. On the fleet step, since they just unlocked new toys, their free Transport comes with 5 Space Marines + 1 Heavy Infantry. Their largest ship is now a Destroyer (-9), so they will build one. For composition, they rolled a 3 (largest fleet), giving them 5 Scouts (-30) and an extra Destroyer (-9). This credits a leftover 2 CP back to their Fleet bank.",
+		"<ol><li><b>Round 1</b>: Epimetheus has 8 ships. Abydos has 4 ships. Epimetheus will forgo the Fleet Size Bonus, and screen their Transport</li>",
+		"<li>Abydos' 2 Alien-Bs have the best weapon class, so they shoot first. They rolled 2,6 versus Epimetheus' Destroyers (2 hits &le;7)</li>",
+		"<li>Their Alien-Cs will shoot next. Since only Scouts are a valid target at present, they can simply shoot away. They rolled 9,10 (0 hits &le;6)</li>",
+		"<li>Epimetheus' 5 Scouts can shoot next. Prioritizing the Alien-Bs, they rolled 10,6,5,10,3 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 2</b>: Epimetheus has 6 ships. Abydos has 4 ships. Fleet Size Bonus is no longer possible, but Epimetheus can still screen their Transport</li>",
+		"<li>Abydos' 2 Alien-Bs shoot once more, rolling 5,5 (2 hits &le;7)</li>",
+		"<li>Their Alien-Cs will shoot next. They rolled 2,9 (1 hit &le;6)</li>",
+		"<li>Epimetheus' 2 surviving Scouts can shoot next. Prioritizing the Alien-Bs, they rolled 6,9 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 3</b>: Epimetheus has 3 ships. Abydos has 4 ships. Epimetheus can no longer screen ships</li>",
+		"<li>Abydos' 2 Alien-Bs shoot once more. Now that the Transport is vulnerable, they will prioritize that ship. They rolled 8,9 (0 hits &le;6)</li>",
+		"<li>Their Alien-Cs will shoot next. They rolled 1 (hit &le;5)! The Transport goes down, along with all of its ground units!</li>",
+		"<li>Only Scouts remain at this point. Abydos uses their last ammo against it, rolling a 5 (hit &le;6)</li>",
+		"<li>Epimetheus' 1 surviving Scout shoots next. Prioritizing the Alien-Bs, they rolled a 7 (miss &gt;1)<br /><br /></li>",
+		"<li><b>Round 4</b>: Epimetheus has 1 ship. Abydos has 4 ships. Abydos now gains the Fleet Size Bonus</li>",
+		"<li>Abydos' 2 Alien-Bs shoot once more. They rolled 2,5 (2 hits &le;8). Epimetheus has been repelled from Abydos!</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"Miner1R",
@@ -1893,7 +2029,30 @@
 			"removeCounter":"alienD4"
 		}]},
 	{"heading":"Stardate 2405.7",
-	"commentary":"<p>Because Epimetheus did not successfully capture Abydos, we are not dead yet from a VP standpoint. We are about to conduct a ground battle against the conquerors of Cerberus. Before we can do so, we must determine how much of the 10 available Protection CP Epimetheus is willing to spend. They rolled 1,6, limiting the budget to 7 CP. The next roll of 7 determines that the Alien Player will attempt to build 2 Minelayers (of which they can afford 1), instead of a Base (which would be skipped). The leftover 2 assigned CP is good for nothing, now that Troops 2 is unlocked. We happen to have one Minesweeper in our fleet, so we nullify their ammunition.</p><h3>The Rematch for Cerberus</h3><ol><li><b>Round 1</b>: Our Light Infantry are unable to shoot this round; they need time to get settled</li><li>Epimetheus' 4 Light Infantry will shoot, rolling 7,7,8,9 (0 hits &le;4)</li><li>Epimetheus' 3 militia will shoot also, rolling 7,9,9 (0 hits &le;4)<br /><br /></li><li><b>Round 2</b>: Epimetheus' 4 Light Infantry shoot once more, rolling 2,3,5,10 (2 hits &le;4)</li><li>Our 4 surviving Light Infantry have settled. We will prioritize their Light Infantry, because those forces are permanent until destroyed. We rolled 2,7,7,7 (1 hit &le;4)</li><li>Epimetheus' 3 militia also shoot once more, rolling 2,3,9 (2 hits &le;4)<br /><br /></li><li><b>Round 3</b>: Epimetheus' 3 surviving Light Infantry shoot once more, rolling 3,6,8 (1 hit &le;4)</li><li>Our 1 surviving Light Infantry shoots once more, rolling a 6 (miss &gt;4)</li><li>Epimetheus' 3 militia also shoot once more, rolling 3,6,10 (1 hit &le;4). Our forces have been repelled!</li></ol><h3>The Ambush of Romulus</h3><p>Moving right along to the Alien Players' turn, Prometheus' newest expansion fleet has ran into another deep space barren planet. Since their Tech CP is insufficient, we will skip to the fleet step. They previously unlocked Destroyers, so they will go on ahead and build one (-9) alongside their free Transport. They then roll a 10 for composition (Largest Ships), giving them an extra Destroyer (-9). This credits a leftover 3 CP to the Fleet Bank.</p><ol><li><b>Round 1</b>: Prometheus has 3 ships. Romulus has 4 ships. No screening is possible for Prometheus</li><li>Romulus' Alien-B has the best weapon class, so it shoots first. Focusing down on the Transport, it rolled a 9 (miss &gt;5)</li><li>Romulus' Alien-Cs are next. They rolled a 1 (hit &le;4)</li><li>One of the Alien-Cs still has ammo left. Only Prometheus' Destroyers remain. It rolled a 9 (miss &gt;6)</li><li>Romulus Alien-D is next, by virtue of Tactics advantage. It rolled a 8 (miss &gt;5)</li><li>Prometheus' 2 Destroyers finally have a chance to shoot. They will attempt to deny the other side a Fleet Size Bonus and prioritize their Alien-D. They rolled 8,6 (0 hits &le;3)<br /><br /></li><li><b>Round 2</b>: Prometheus has 2 ships. Romulus has 4 ships. Romulus has gained the Fleet Size Bonus</li><li>Romulus' Alien-B shoots once more. It rolled a 6 (hit &le;8)</li><li>Romulus' Alien-Cs are next. They rolled 1,5 (2 hits &le;7). Prometheus has been repelled from this planet!</li></ol>",
+	"commentary":[
+		"Because Epimetheus did <i>not</i> successfully capture Abydos, we are not <b>dead</b> yet from a VP standpoint. We are about to conduct a ground battle against the conquerors of Cerberus. Before we can do so, we must determine how much of the 10 available Protection CP Epimetheus is willing to spend. They rolled 1,6, limiting the budget to 7 CP.",
+		"The next roll of 7 determines that the Alien Player will attempt to build 2 Minelayers (of which they can afford 1), instead of a Base (which would be skipped). The leftover 2 assigned CP is good for nothing, now that Troops 2 is unlocked. We happen to have one Minesweeper in our fleet, so we nullify their ammunition.",
+		"<h3>The Rematch for Cerberus</h3>",
+		"<ol><li><b>Round 1</b>: Our Light Infantry are unable to shoot this round; they need time to get settled</li>",
+		"<li>Epimetheus' 4 Light Infantry will shoot, rolling 7,7,8,9 (0 hits &le;4)</li>",
+		"<li>Epimetheus' 3 militia will shoot also, rolling 7,9,9 (0 hits &le;4)<br /><br /></li>",
+		"<li><b>Round 2</b>: Epimetheus' 4 Light Infantry shoot once more, rolling 2,3,5,10 (2 hits &le;4)</li>",
+		"<li>Our 4 surviving Light Infantry have settled. We will prioritize their Light Infantry, because those forces are permanent until destroyed. We rolled 2,7,7,7 (1 hit &le;4)</li>",
+		"<li>Epimetheus' 3 militia also shoot once more, rolling 2,3,9 (2 hits &le;4)<br /><br /></li>",
+		"<li><b>Round 3</b>: Epimetheus' 3 surviving Light Infantry shoot once more, rolling 3,6,8 (1 hit &le;4)</li>",
+		"<li>Our 1 surviving Light Infantry shoots once more, rolling a 6 (miss &gt;4)</li>",
+		"<li>Epimetheus' 3 militia also shoot once more, rolling 3,6,10 (1 hit &le;4). Our forces have been repelled!</li></ol>",
+		"<h3>The Ambush of Romulus</h3>",
+		"Moving right along to the Alien Players' turn, Prometheus' newest expansion fleet has ran into another deep space barren planet. Since their Tech CP is insufficient, we will skip to the fleet step. They previously unlocked Destroyers, so they will go on ahead and build one (-9) alongside their free Transport. They then roll a 10 for fleet composition (Largest Ships), giving them an extra Destroyer (-9). This credits a leftover 3 CP to the Fleet Bank.",
+		"<ol><li><b>Round 1</b>: Prometheus has 3 ships. Romulus has 4 ships. No screening is possible for Prometheus</li>",
+		"<li>Romulus' Alien-B has the best weapon class, so it shoots first. Focusing down on the Transport, it rolled a 9 (miss &gt;5)</li>",
+		"<li>Romulus' Alien-Cs are next. They rolled a 1 (hit &le;4)</li>",
+		"<li>One of the Alien-Cs still has ammo left. Only Prometheus' Destroyers remain. It rolled a 9 (miss &gt;6)</li>",
+		"<li>Romulus Alien-D is next, by virtue of Tactics advantage. It rolled a 8 (miss &gt;5)</li>",
+		"<li>Prometheus' 2 Destroyers finally have a chance to shoot. They will attempt to deny the other side a Fleet Size Bonus and prioritize their Alien-D. They rolled 8,6 (0 hits &le;3)<br /><br /></li>",
+		"<li><b>Round 2</b>: Prometheus has 2 ships. Romulus has 4 ships. Romulus has gained the Fleet Size Bonus</li>",
+		"<li>Romulus' Alien-B shoots once more. It rolled a 6 (hit &le;8)</li>",
+		"<li>Romulus' Alien-Cs are next. They rolled 1,5 (2 hits &le;7). Prometheus has been repelled from this planet!</li></ol>"],
 	"alienTableX":
 		[{
 			"name":"Epimetheus (Green)","eco":2,"queue":1,"fleet":2,"tech":5,"def":5,"expo":0,"delta":"eFtdh","hidden":"11(X)"
@@ -2014,7 +2173,11 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2406.0",
-	"commentary":"<p>Vulnerable, but not dead. We press on, and buy Terraforming 2 (-25), followed by 6 Light Infantry (including a freebie) at each of I6 and I7 (-10 each). We also build 1 Transport (-6), 1 Minesweeper (-6), and 1 Ship Yard (-6) at I6. We then buy 1 Miner (-5) and 1 Pipeline (-3) at L7.</p>{prodTable}{techTable}<p>Alien Player homeworlds have gained a natural economic roll. Still, we slowed down Epimetheus by blockading the colony they captured from us. For economics, they rolled 1,5,7 (Epimetheus) / 3,5,6,8,10 (Prometheus).</p><p>Since aggression has slowed once more, they must roll to determine whether they will launch a fleet with their respective pools. They rolled 9 (Epimetheus) / 3 (Prometheus). Prometheus will launch a fresh fleet. They can afford to buy Movement 2, and roll a 5 accordingly (skip &gt;4). They then rolled a 7 to determine its fleet mission (expansion fleet &le;7).</p>",
+	"commentary":[
+		"Vulnerable, but not dead. We press on, and buy Terraforming 2 (-25), followed by 6 Light Infantry (including a freebie) at each of I6 and I7 (-10 each). We also build 1 Transport (-6), 1 Minesweeper (-6), and 1 Ship Yard (-6) at I6. We then buy 1 Miner (-5) and 1 Pipeline (-3) at L7.",
+		"{prodTable}{techTable}",
+		"Alien Player homeworlds have gained a natural economic roll. Still, we slowed down Epimetheus by blockading the colony they captured from us. For economics, they rolled 1,5,7 (Epimetheus) / 3,5,6,8,10 (Prometheus).",
+		"Since aggression has slowed once more, they must roll to determine whether they will launch a fleet with their respective pools. They rolled 9 (Epimetheus) / 3 (Prometheus). Prometheus will launch a fresh fleet. They can afford to buy Movement 2, and roll a 5 accordingly (skip &gt;4). They then rolled a 7 to determine its fleet mission (expansion fleet &le;7)."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":1,"colonyCP":68,"mineralCP":5,"pipeCP":4,"maint":6,"techBuy":25,"unitBuy":46
@@ -2112,7 +2275,7 @@
 			"name":"colony5G"
 		}]},
 	{"heading":"Stardate 2406.3",
-	"commentary":"<p>Both teams are making preparations. Several big events will happen next turn.</p>",
+	"commentary":["Both teams are making preparations. Several big events will happen next turn."],
 	"actions":
 		[{
 			"placeCounter":"Miner1R",
@@ -2171,8 +2334,19 @@
 			"placeCounter":"fleet2B",
 			"location":"B9"
 		}]},
-	{"heading":"Stardate 2406.6 (Player Turn)",
-	"commentary":"<p>We are now ready to have a rematch against Epimetheus. This time, we are dropping <i>12</i> Light Infantry on their colony! Since we are conducting another battle this way, we will conduct their protection steps. On the budget step, they rolled 2,6. A total of 8 is more than the 5 CP they have in their Protection bank, so they will go on ahead and allocate all the remaining money. On the orbital protection step, they roll an 3 (try to build a Base), but they don't have enough money to do so. This step gets skipped. On the ground step, they spend their money on 1 Heavy Infantry (-3).</p><h3>The Rematch for Cerberus</h3><ol><li><b>Round 1</b>: Our Light Infantry need this round to get settled from our Transports</li><li>Their 1 Heavy Infantry shoots first. They rolled an 8 (miss &gt;5)</li><li>Their 3 Light Infantry shoot next. They rolled 3,4,7 (2 hits &le;4)</li><li>Their 5 militia also shoot. They rolled 1,2,3,6,10 (3 hits &le;4)<br /><br /></li><li><b>Round 2</b>: Their 1 Heavy Infantry shoots once more, rolling a 10 (miss &gt;5)</li><li>Their 3 Light Infantry shoot next. They rolled 4,9,10 (1 hit &le;4)</li><li>Our 6 surviving Light Infantry have settled, and are ready to shoot. We rolled 2,4,6,8,8,10 against their Light Infantry (2 hits &le;4)</li><li>Their 5 militia also shoot. They rolled 1,1,4,4,4 (5 hits &le;4)<br /><br /></li><li><b>Round 3</b>: Their 1 Heavy Infantry shoots once more, rolling a 4 (hit &le;5), finishing off our ground army!</li></ol>",
+	{"heading":"Stardate 2406.6P (The Rematch for Cerberus)",
+	"commentary":[
+		"We are now ready to have a rematch against Epimetheus. This time, we are dropping <i>12</i> Light Infantry on their colony! Since we are conducting another battle this way, we will conduct their protection steps.",
+		"On the budget step, they rolled 2,6. A total of 8 is more than the 5 CP they have in their Protection bank, so they will go on ahead and allocate all the remaining money. On the orbital protection step, they roll an 3 (try to build a Base), but they don't have enough money to do so. This step gets skipped. On the ground step, they spend their money on 1 Heavy Infantry (-3).",
+		"<ol><li><b>Round 1</b>: Our Light Infantry need this round to get settled from our Transports</li>",
+		"<li>Their 1 Heavy Infantry shoots first. They rolled an 8 (miss &gt;5)</li>",
+		"<li>Their 3 Light Infantry shoot next. They rolled 3,4,7 (2 hits &le;4)</li>",
+		"<li>Their 5 militia also shoot. They rolled 1,2,3,6,10 (3 hits &le;4)<br /><br /></li>",
+		"<li><b>Round 2</b>: Their 1 Heavy Infantry shoots once more, rolling a 10 (miss &gt;5)</li>",
+		"<li>Their 3 Light Infantry shoot next. They rolled 4,9,10 (1 hit &le;4)</li>",
+		"<li>Our 6 surviving Light Infantry have settled, and are ready to shoot. We rolled 2,4,6,8,8,10 against their Light Infantry (2 hits &le;4)</li>",
+		"<li>Their 5 militia also shoot. They rolled 1,1,4,4,4 (5 hits &le;4)<br /><br /></li>",
+		"<li><b>Round 3</b>: Their 1 Heavy Infantry shoots once more, rolling a 4 (hit &le;5), finishing off our ground army!</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"Miner1R",
@@ -2243,8 +2417,19 @@
 			"placeCounter":"fleet2B",
 			"location":"C8"
 		}]},
-	{"heading":"Stardate 2406.6 (Alien Turn)",
-	"commentary":"<h3>The bombardment of Vortigern</h3><p>Next up, Prometheus has ran into our colony at I8. Normally an extermination fleet would avoid these planets, but they will only do so if it would not delay their ability to reach their destination in the fewest economic phases. Our planetary arrangement necessitates that they cut through our colonies. Since Prometheus already has Troops 2, they will skip to the Ship Size step, rolling an 8 (skip &gt;7). And now for the <q>rest of the techs</q> step, which is complicated by the fact that dice are rolled in pairs. The first pair is 4,1 (Attack 1 for 20). This spends all of their Tech money.</p><p>On the fleet step, they can afford only a single Destroyer (-9), crediting the remaining 1 CP back to the Fleet bank. Extermination Fleets do not get free Transports. On the bombardment round itself, they will take a pot shot against our colony, rolling a 7 (miss &gt;5).</p><h3>The Battle for the Galactic Capitol</h3><p>One battle remains to be solved. Epimetheus' extermination fleet has arrived against the Galactic Capitol. On the Ship Size step, they will roll a 2 (buy &le;7 for 15 CP). This spends all of their Tech money. On the fleet step, the 11 assigned CP is good for a single Destroyer (-9), and nothing more.</p><ol><li><b>Round 1</b>: We have 5 ships. Epimetheus has 1 Destroyer. We will screen no ships, and gain the Fleet Size Bonus</li><li>Our Flagship has the best weapon class, so it shoots first. We rolled a 7 (miss &gt;6)</li><li>Their Destroyer shoots next. They rolled a 9 (miss &gt;4) against our Scouts</li><li>Our Scouts now have a chance to shoot. We rolled 3,3,5,10 (3 hits &le;5). Epimetheus has already been eliminated from this hex!</li><li>Since our Scouts landed the finishing hit, they can roll for experience. They rolled a 9 (failure &gt;2)</li></ol>",
+	{"heading":"Stardate 2406.6A",
+	"commentary":[
+		"<h3>The bombardment of Vortigern</h3>",
+		"Next up, Prometheus has ran into our colony at I8. Normally an extermination fleet would avoid these planets, but they will only do so if it would not delay their ability to reach their destination in the fewest economic phases. Our planetary arrangement necessitates that they cut through our colonies.",
+		"Since Prometheus already has Troops 2, they will skip to the Ship Size step, rolling an 8 (skip &gt;7). And now for the <q>rest of the techs</q> step, which is complicated by the fact that dice are rolled in pairs. The first pair is 4,1 (Attack 1 for 20). This spends all of their Tech money.",
+		"On the fleet step, they can afford only a single Destroyer (-9), crediting the remaining 1 CP back to the Fleet bank. Extermination Fleets do not get free Transports. On the bombardment round itself, they will take a pot shot against our colony, rolling a 7 (miss &gt;5).",
+		"<h3>The Battle for the Galactic Capitol</h3>",
+		"One battle remains to be solved. Epimetheus' extermination fleet has arrived against the Galactic Capitol. On the Ship Size step, they will roll a 2 (buy &le;7 for 15 CP). This spends all of their Tech money. On the fleet step, the 11 assigned CP is good for a single Destroyer (-9), and nothing more.",
+		"<ol><li><b>Round 1</b>: We have 5 ships. Epimetheus has 1 Destroyer. We will screen no ships, and gain the Fleet Size Bonus</li>",
+		"<li>Our Flagship has the best weapon class, so it shoots first. We rolled a 7 (miss &gt;6)</li>",
+		"<li>Their Destroyer shoots next. They rolled a 9 (miss &gt;4) against our Scouts</li>",
+		"<li>Our Scouts now have a chance to shoot. We rolled 3,3,5,10 (3 hits &le;5). Epimetheus has already been eliminated from this hex!</li>",
+		"<li>Since our Scouts landed the finishing hit, they can roll for experience. They rolled a 9 (failure &gt;2)</li></ol>"],
 	"techTableX":
 		[{
 			"name":"CSY (Red)","terraform":2,"explore":1,"size":3,"minesweep":1
@@ -2310,8 +2495,14 @@
 		},{
 			"removeCounter":"HI5B"
 		}]},
-	{"heading":"Stardate 2406.9",
-	"commentary":"<p>Taking advantage of our recent success orbiting the galactic capitol, combined with causing Epimetheus to spend their protection budget on a colony they captured from us, we will go on ahead and pressure their homeworld. On the subject of the one extermination fleet that is still alive; we infer that by <q>beelining</q> to a given destination, that it would not make unnecessary stops, so the one marauding Destroyer simply moves on from the planet it tried to bombard.</p><h3>The Second Battle for Romulus</h3><p>As devastating as the Alien Players are, they do have their limiations once their starting expansion CP is <i>gone</i>. They can get more CP in this bank <i>only</i> when their protection bank would otherwise exceed 50 CP. The Tech CP is also already gone, so we will go straight to the fleet step. Free Transport aside, 8 CP assigned is good for one Scout, and nothing more.</p><ol><li><b>Round 1</b>: Prometheus has 2 ships. Romulus has 4 ships, gaining the Fleet Size Bonus</li><li>The Alien-B has the best weapon class, so it shoots first. The Transport is vulnerable, so it will be targeted first. Romulus rolled a 9 (miss &gt;7)</li><li>The Alien-Cs go next. They rolled a 4 against the Transport (hit &le;6), followed by a 2 against the Scout (hit &le;7). Romulus has already won the battle!</li></ol>",
+	{"heading":"Stardate 2406.9 (The Second Battle for Romulus)",
+	"commentary":[
+		"Taking advantage of our recent success orbiting the galactic capitol, combined with causing Epimetheus to spend their protection budget on a colony they captured from us, we will go on ahead and pressure their homeworld.",
+		"On the subject of the one extermination fleet that is still alive; we infer that by <q>beelining</q> to a given destination, that it would not make unnecessary stops, so the one marauding Destroyer simply moves on from the planet it tried to bombard.",
+		"As devastating as the Alien Players are, they do have their limiations once their starting expansion CP is <i>gone</i>. They can get more CP in this bank <i>only</i> when their Defense bank would otherwise exceed 50 CP. The Tech CP is also already gone, so we will go straight to the fleet step. Free Transport aside, 8 CP assigned is good for one Scout, and nothing more.",
+		"<ol><li><b>Round 1</b>: Prometheus has 2 ships. Romulus has 4 ships, gaining the Fleet Size Bonus</li>",
+		"<li>The Alien-B has the best weapon class, so it shoots first. The Transport is vulnerable, so it will be targeted first. Romulus rolled a 9 (miss &gt;7)</li>",
+		"<li>The Alien-Cs go next. They rolled a 4 against the Transport (hit &le;6), followed by a 2 against the Scout (hit &le;7). Romulus has already won the battle!</li></ol>"],
 	"alienTableX":
 		[{
 			"name":"Epimetheus (Green)","eco":3,"queue":1,"fleet":9,"tech":0,"def":2,"expo":0,"delta":"Ftdh"
@@ -2374,7 +2565,13 @@
 			"removeCounter":"fleet1B"
 		}]},
 	{"heading":"Stardate 2407.0",
-	"commentary":"<p>Despite the significant amount of VP the Alien Player Team has in their possession, their steam was exhausted when the last of their early expansion fleets <span class=\"bindTxt\">(with a +50 CP boost from the expansion bank)</span> had failed to take over the barren planet of Abydos.</p>{vpTable}<p>Taking advantage of having connected a nebula to the pipeline network <i>and</i> assigning a Terraforming 2-equipped Miner to harvest from there, we are gaining a permanent minerals bonus while these conditions are satisfied. With the extra CP available, we can go on ahead and buy Troops 2 (-10). We then take advantage of the newly unlocked Space Marines, and throw down six on each of I6 and I7 (-15 each after factoring in freebies). We then build 3 Scouts (-18) and 1 Ship Yard (-6) at I6.</p>{prodTable}{techTable}<p>Epimetheus' colony is <i>still</i> blockaded and, thus, unable to produce an economic roll. They rolled 5,7,10 (Epimetheus) / 2,5,9,10,10 (Prometheus). Fleet launches are automatic, though neither Alien Player has the CP to afford another Movement technology. They can still roll for mission assignments, and roll 8,3 accordingly. Epimetheus' next fleet has become an extermination fleet. Our homeworld has become its target.</p>",
+	"commentary":[
+		"Despite the significant amount of VP the Alien Player Team has in their possession, their steam was exhausted when the last of their early expansion fleets <span class=\"bindTxt\">(with a +50 CP boost from the expansion bank)</span> had failed to take over the barren planet of Abydos.",
+		"{vpTable}",
+		"Taking advantage of having connected a nebula to the pipeline network <i>and</i> assigning a Terraforming 2-equipped Miner to harvest from there, we are gaining a permanent minerals bonus while these conditions are satisfied.",
+		"With the extra CP available, we can go on ahead and buy Troops 2 (-10). We then take advantage of the newly unlocked Space Marines, and throw down six on each of I6 and I7 (-15 each after factoring in freebies). We then build 3 Scouts (-18) and 1 Ship Yard (-6) at I6.",
+		"{prodTable}{techTable}",
+		"Epimetheus' colony is <i>still</i> blockaded and, thus, unable to produce an economic roll. They rolled 5,7,10 (Epimetheus) / 2,5,9,10,10 (Prometheus). Fleet launches are automatic, though neither Alien Player has the CP to afford another Movement technology. They can still roll for mission assignments, and roll 8,3 accordingly. Epimetheus' next fleet has become an extermination fleet. Our homeworld has become its target."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":1,"colonyCP":70,"mineralCP":10,"pipeCP":5,"maint":8,"techBuy":10,"unitBuy":54
@@ -2464,7 +2661,34 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2407.2",
-	"commentary":"<p>Once more, we are about to land some more ground units on Cerberus. Only this time, we are using our newly developed Space Marines to invade the planet.</p><h3>The Battle for Cerberus</h3><p>Like before, Epimetheus rolls 7,8 to determine the maximum CP to spend on colony protection. Since they only have 12 CP in the bank, this assigns all the remaining money. They then roll a 5 to try to build a Base... there happens to be exactly enough money to do so.</p><ol><li><b>Space Round 1</b>: We have 7 ships. They have 1 Base. We will screen our Transports, and gain a Fleet Size Bonus</li><li>Their Base has the best weapon class, so it shoots first. Our Scouts pose the highest threat to its well being, so it focuses them down, rolling a 3 (hit &le;7)</li><li>Our 2 surviving Scouts shoot next. We rolled 2,8 (1 hit &le;2), damaging their Base to 2 HP</li><li>Our 2 Minesweepers can finally shoot. We rolled 7,7 (0 hits &le;1)<br /><br /></li><li><b>Space Round 2</b>: We have 6 ships</li><li>Their Base shoots once more, rolling a 3 (hit &le;7)</li><li>Our 1 surviving Scout shoots next. We rolled a 2 (hit &le;2), damaging their Base to 1 HP</li><li>Our 2 Minesweepers can finally shoot. We rolled 2,9 (0 hits &le;1)</li><li>Our 2 Transports have successfully dropped their cargo of 12 Space Marines onto the planet<br /><br /></li><li><b>Space Round 3</b>: We have 5 ships</li><li>Their Base shoots once more, rolling a 2 (hit &le;7). This finishes off our Scout fleet</li><li>Our 2 Minesweepers shoot once more. We rolled 1,7 (1 hit &le;1). We have finished off their Base!</li><li>Our Minesweepers were victorious, but it was against a Base. No experience can be gained this way<br /><br /></li><li><b>Ground Round 1</b>: Our Space Marines need time to settle this round</li><li>Their 1 Heavy Infantry shoots, rolling a 9 (miss &gt;5)</li><li>Their 1 Light Infantry shoots, rolling a 3 (hit &le;4)</li><li>Their 5 militia shoot, rolling 1,4,7,10,10 (2 hits &le;4)<br /><br /></li><li><b>Ground Round 2</b>: Their 1 Heavy Infantry shoots once more, rolling a 9 (miss &gt;5)</li><li>Our 11 surviving Space Marines have settled, and are ready to shoot. We rolled 8,7,5,1,7,6,1,1 against their militia (5 hits &le;6), eliminating that group.</li><li>One leftover roll of 2 then gets assigned against their light infantry (hit &le;4), eliminating that unit also. 8,10 are then rolled against their heavy infantry (0 hits &le;4)<br /><br /></li><li><b>Ground Round 3</b>: Their 1 Heavy Infantry shoots once more, rolling a 1 (hit &le;5)</li><li>Our 10 surviving Space Marines shoot once more, rolling 1,1,2,5,5,5,5,8,9,9 against their heavy infantry (3 hits &le;4)</li></ol><p>We have successfully eliminated the last of the defneder, and have liberated our colony from their control. One of the Space Marines is used to overthrow the previous government. Because this was a re-capture, the Alien Player Team has lost 2 VP.</p><h3>The Bombardment of Antares</h3><p>Prometheus' lone Destroyer now arrives at our colony of Antares. Since this planet is merely along the way, they perform a single bombardment roll of 10 (miss &gt;5).</p>",
+	"commentary":[
+		"Once more, we are about to land some more ground units on Cerberus. Only this time, we are using our newly developed Space Marines to invade the planet.",
+		"<h3>The Battle for Cerberus</h3>",
+		"Like before, Epimetheus rolls 7,8 to determine the maximum CP to spend on colony protection. Since they only have 12 CP in the bank, this assigns all the remaining money. They then roll a 5 to try to build a Base... there happens to be exactly enough money to do so.",
+		"<ol><li><b>Space Round 1</b>: We have 7 ships. They have 1 Base. We will screen our Transports, and gain a Fleet Size Bonus</li>",
+		"<li>Their Base has the best weapon class, so it shoots first. Our Scouts pose the highest threat to its well being, so it focuses them down, rolling a 3 (hit &le;7)</li>",
+		"<li>Our 2 surviving Scouts shoot next. We rolled 2,8 (1 hit &le;2), damaging their Base to 2 HP</li>",
+		"<li>Our 2 Minesweepers can finally shoot. We rolled 7,7 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Space Round 2</b>: We have 6 ships</li><li>Their Base shoots once more, rolling a 3 (hit &le;7)</li>",
+		"<li>Our 1 surviving Scout shoots next. We rolled a 2 (hit &le;2), damaging their Base to 1 HP</li>",
+		"<li>Our 2 Minesweepers can finally shoot. We rolled 2,9 (0 hits &le;1)</li>",
+		"<li>Our 2 Transports have successfully dropped their cargo of 12 Space Marines onto the planet<br /><br /></li>",
+		"<li><b>Space Round 3</b>: We have 5 ships</li>",
+		"<li>Their Base shoots once more, rolling a 2 (hit &le;7). This finishes off our Scout fleet</li>",
+		"<li>Our 2 Minesweepers shoot once more. We rolled 1,7 (1 hit &le;1). We have finished off their Base!</li>",
+		"<li>Our Minesweepers were victorious, but it was against a Base. No experience can be gained this way<br /><br /></li>",
+		"<li><b>Ground Round 1</b>: Our Space Marines need time to settle this round</li>",
+		"<li>Their 1 Heavy Infantry shoots, rolling a 9 (miss &gt;5)</li>",
+		"<li>Their 1 Light Infantry shoots, rolling a 3 (hit &le;4)</li>",
+		"<li>Their 5 militia shoot, rolling 1,4,7,10,10 (2 hits &le;4)<br /><br /></li>",
+		"<li><b>Ground Round 2</b>: Their 1 Heavy Infantry shoots once more, rolling a 9 (miss &gt;5)</li>",
+		"<li>Our 11 surviving Space Marines have settled, and are ready to shoot. We rolled 8,7,5,1,7,6,1,1 against their militia (5 hits &le;6), eliminating that group.</li>",
+		"<li>One leftover roll of 2 then gets assigned against their light infantry (hit &le;4), eliminating that unit also. 8,10 are then rolled against their heavy infantry (0 hits &le;4)<br /><br /></li>",
+		"<li><b>Ground Round 3</b>: Their 1 Heavy Infantry shoots once more, rolling a 1 (hit &le;5)</li>",
+		"<li>Our 10 surviving Space Marines shoot once more, rolling 1,1,2,5,5,5,5,8,9,9 against their heavy infantry (3 hits &le;4)</li></ol>",
+		"We have successfully eliminated the last of the defneder, and have liberated our colony from their control. One of the Space Marines is used to overthrow the previous government. Because this was a re-capture, the Alien Player Team has lost 2 VP.",
+		"<h3>The Bombardment of Antares</h3>",
+		"Prometheus' lone Destroyer now arrives at our colony of Antares. Since this planet is merely along the way, they perform a single bombardment roll of 10 (miss &gt;5)."],
 	"alienTableX":
 		[{
 			"name":"Epimetheus (Green)","eco":3,"fleet":0,"tech":5,"def":0,"expo":0,"delta":"ed","hidden":"14(X)"
@@ -2545,7 +2769,9 @@
 			"location":"B9"
 		}]},
 	{"heading":"Stardate 2407.5",
-	"commentary":"<p>We are closing in on Chulak. However, one economic phase still seperates us from a proper assault. Epimetheus <i>could</i> rebuild their protection budget, and since they lost their forward colony, it is one less means of spending CP. In other news, Prometheus' lone Destroyer finally arrives at Altair, but a squad of 5 Ship Yards greets them, and shoots first. Our Ship Yards rolled 1,3,8,10,10 (2 hits &le;3). We wiped them up!</p>",
+	"commentary":[
+		"We are closing in on Chulak. However, one economic phase still seperates us from a proper assault. Epimetheus <i>could</i> rebuild their Defense budget, and since they lost their forward colony, it is one less means of spending CP.",
+		"In other news, Prometheus' lone Destroyer finally arrives at Altair, but a squad of 5 Ship Yards greets them, and shoots first. Our Ship Yards rolled 1,3,8,10,10 (2 hits &le;3). We wiped them up!"],
 	"actions":
 		[{
 			"placeCounter":"Miner1R",
@@ -2617,7 +2843,11 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2407.8",
-	"commentary":"<p>Prometheus now goes for another round against the Romulus. Since they are stuck with Ship Size 2, there is no change in how the fleet is built (1 Destroyer).</p><ol><li><b>Round 1</b>: Prometheus 2 versus Romulus 4. Romulus gains the Fleet Size Bonus</li><li>Romulus' Alien-B shoots first as usual. They rolled a 3 against the Transport (hit &le;7), shooting it down right away!</li><li>Romulus' Alien-Cs shoot next. They rolled 6,8 against the Destroyer (1 hit &le;7), shooting it down also! Already this repels Prometheus!</li></ol>",
+	"commentary":[
+		"Prometheus now goes for another round against the Romulus. Since they are stuck with Ship Size 2, there is no change in how the fleet is built (1 Destroyer).",
+		"<ol><li><b>Round 1</b>: Prometheus 2 versus Romulus 4. Romulus gains the Fleet Size Bonus</li>",
+		"<li>Romulus' Alien-B shoots first as usual. They rolled a 3 against the Transport (hit &le;7), shooting it down right away!</li>",
+		"<li>Romulus' Alien-Cs shoot next. They rolled 6,8 against the Destroyer (1 hit &le;7), shooting it down also! Already this repels Prometheus!</li></ol>"],
 	"alienTableX":
 		[{
 			"name":"Prometheus (Blue)","eco":5,"fleet":4,"tech":5,"def":30,"expo":0,"delta":"Fh"
@@ -2687,7 +2917,10 @@
 			"name":"nebula"
 		}]},
 	{"heading":"Stardate 2408.0",
-	"commentary":"<p>With a colony having been liberated, we are on a roll for the first time since the Alien Players launched their first fleets. We celebrate these recent successes by buying Ship Yard 2 (-20). We then buy 3 Space Marines (-9) at the recently liberated H7, followed by a squad of 6 Destroyers (-54) and also 1 Ship Yard (-6) at I6.</p>{prodTable}{techTable}<p>And now for the Alien Player economics. With no change in colonies able to produce economic rolls for them, they simply rolled 3,10,10 (Epimetheus) / 4,6,6,6,7 (Prometheus). Prometheus has enough money to launch yet another fleet, but aggression has slowed once more. They rolled a 5, which results in no launch this phase.</p>",
+	"commentary":[
+		"With a colony having been liberated, we are on a roll for the first time since the Alien Players launched their first fleets. We celebrate these recent successes by buying Ship Yard 2 (-20). We then buy 3 Space Marines (-9) at the recently liberated H7, followed by a squad of 6 Destroyers (-54) and also 1 Ship Yard (-6) at I6.",
+		"{prodTable}{techTable}",
+		"And now for the Alien Player economics. With no change in colonies able to produce economic rolls for them, they simply rolled 3,10,10 (Epimetheus) / 4,6,6,6,7 (Prometheus). Prometheus has enough money to launch yet another fleet, but aggression has slowed once more. They rolled a 5, which results in no launch this phase."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":14,"colonyCP":73,"mineralCP":5,"pipeCP":5,"maint":8,"techBuy":20,"unitBuy":69
@@ -2770,7 +3003,9 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2408.1",
-	"commentary":"<p>Our plan to assault Chulak was spoiled when they suddenly gained 20 CP into Protection. However, a backup idea did become viable. They did not gain enough Fleet CP this past economic phase, so they can not launch a fleet even if their homeworld is under assault. Their Tech CP is also insufficient to buy any more technology. We opt to split off one of our Scouts, and see what gets built with the Protection budget. </p><p>The money available is not enough to buy ground units (25 CP required), so we go to the usual composition roll. Epimetheus rolled a 9 (maximum bases), which gives them 1 Base (-12) and 1 Minelayer (-5). We have committed just 1 Scout, and their 1 Minelayer must use their ammo, if able... so that was instantly resolved.</p>",
+	"commentary":[
+		"Our plan to assault Chulak was spoiled when they suddenly gained 20 CP into Defense. However, a backup idea did become viable. They did not gain enough Fleet CP this past economic phase, so they can not launch a fleet even if their homeworld is under assault. Their Tech CP is also insufficient to buy any more technology. We opt to split off one of our Scouts, and see what gets built with the Defense budget.",
+		"The money available is not enough to buy ground units (25 CP required), so we go to the usual defense composition roll. Epimetheus rolled a 9 (maximum bases), which gives them 1 Base (-12) and 1 Minelayer (-5). We have committed just 1 Scout, and their 1 Minelayer must use their ammo, if able... so that was instantly resolved."],
 	"alienTableX":
 		[{
 			"name":"Epimetheus (Green)","eco":3,"fleet":5,"tech":5,"def":3,"expo":0,"delta":"d","hidden":"14(X)"
@@ -2825,7 +3060,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2408.4",
-	"commentary":"<p>We will soon make a proper attempt at assaulting the NPA planet of Abydos ourselves...</p>",
+	"commentary":["We will soon make a proper attempt at assaulting the NPA planet of Abydos ourselves..."],
 	"actions":
 		[{
 			"placeCounter":"Miner1R",
@@ -2865,7 +3100,31 @@
 			"name":"asteroids"
 		}]},
 	{"heading":"Stardate 2408.7 (The Battle for Abydos)",
-	"commentary":"<p>We are now ready to assault Abydos. Since these ships were previously revealed by a lone scout, we will go straight into battle.</p><ol><li><b>Space Round 1</b>: We have 10 ships, to Abydos' 4 ships. We can screen our Transports, and gain the Fleet Size Bonus</li><li>Their Alien-Bs have the best weapon class, so they shoot first. They rolled 5,10 against our Destroyers (1 hit &le;7)</li><li>Their Alien-Cs shoot next. They rolled 1,4 against our Destroyers (2 hits &le;6)</li><li>Our 3 surviving Destroyers now have a chance to shoot. We rolled 3,4,6 against their Alien-Bs (1 hit &le;3)</li><li>Our 2 Minesweepers can also shoot. We rolled 3,4 against their last Alien-B (0 hits &le;1)<br /><br /></li><li><b>Space Round 2</b>: We have 7 ships, to Abydos' 3 ships. We will screen 1 of our Transports, and keep the Fleet Size Bonus</li><li>Their Alien-B shoots once more. They rolled a 2 against our unscreened Transport (hit &le;5), eliminating its cargo from the battle</li><li>Their Alien-Cs shoot next. They rolled 6,9 against our Destroyers (1 hit &le;6)</li><li>Our 2 surviving Destroyers shoot once more. We rolled a 1 against their last Alien-B (hit &le;3), followed by a 5 against their Alien-Cs (miss &gt;3)</li><li>Our 2 Minesweepers can also shoot. We rolled 3,4 (0 hits &le;1)<br /><br /></li><li><b>Space Round 3</b>: We have 5 ships, to Abydos' 2 ships. We can screen our last Transport, and keep the Fleet Size Bonus</li><li>Their Alien-Cs shoot once more. They rolled 5,10 against our Destroyers (1 hit &le;6)</li><li>Our 1 surviving Destroyer shoots once more. We rolled a 7 (miss &gt;3)</li><li>Our 2 Minesweepers also shoot once more. We rolled 7,10 (0 hits &le;1)<br /><br /></li><li><b>Space Round 4</b>: We have 4 ships, to Abydos' 2 ships. We will forgo the Fleet SIze Bonus, and keep our Transport screened</li><li>Their Alien-Cs shoot once more. They rolled a 5 against our last Destroyer (hit &le;6), followed by a 7 against our Minesweepers (miss &gt;5)</li><li>Our 2 Minesweepers shoot once more. We rolled 2,6 (0 hits &le;1)<br /><br /></li><li><b>Space Round 5</b>: We have 3 ships, to Abydos' 2 ships. We keep our Transport screened</li><li>Their Alien-Cs shoot once more. They rolled 5,8 against our Minesweepers (1 hit &le;5)</li><li>Our 1 surviving Minesweeper shoots once more. We rolled a 9 (miss &gt;1)<br /><br /></li><li><b>Space Round 6</b>: We have 2 ships, to Abydos' 2 ships. Screening is no longer possible</li><li>Their Alien-Cs shoot once more. They rolled a 4 against our last Transport (hit &le;4), followed by a 8 against our last Minesweeper (miss &gt;5)</li><li>We have chosen for our last Minesweeper to retreat out of the battle, returning to G7 in the process</li></ol>",
+	"commentary":[
+		"We are now ready to assault Abydos. Since these ships were previously revealed by a lone scout, we will go straight into battle.",
+		"<ol><li><b>Space Round 1</b>: We have 10 ships, to Abydos' 4 ships. We can screen our Transports, and gain the Fleet Size Bonus</li>",
+		"<li>Their Alien-Bs have the best weapon class, so they shoot first. They rolled 5,10 against our Destroyers (1 hit &le;7)</li>",
+		"<li>Their Alien-Cs shoot next. They rolled 1,4 against our Destroyers (2 hits &le;6)</li>",
+		"<li>Our 3 surviving Destroyers now have a chance to shoot. We rolled 3,4,6 against their Alien-Bs (1 hit &le;3)</li>",
+		"<li>Our 2 Minesweepers can also shoot. We rolled 3,4 against their last Alien-B (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Space Round 2</b>: We have 7 ships, to Abydos' 3 ships. We will screen 1 of our Transports, and keep the Fleet Size Bonus</li>",
+		"<li>Their Alien-B shoots once more. They rolled a 2 against our unscreened Transport (hit &le;5), eliminating its cargo from the battle</li>",
+		"<li>Their Alien-Cs shoot next. They rolled 6,9 against our Destroyers (1 hit &le;6)</li>",
+		"<li>Our 2 surviving Destroyers shoot once more. We rolled a 1 against their last Alien-B (hit &le;3), followed by a 5 against their Alien-Cs (miss &gt;3)</li>",
+		"<li>Our 2 Minesweepers can also shoot. We rolled 3,4 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Space Round 3</b>: We have 5 ships, to Abydos' 2 ships. We can screen our last Transport, and keep the Fleet Size Bonus</li>",
+		"<li>Their Alien-Cs shoot once more. They rolled 5,10 against our Destroyers (1 hit &le;6)</li>",
+		"<li>Our 1 surviving Destroyer shoots once more. We rolled a 7 (miss &gt;3)</li>",
+		"<li>Our 2 Minesweepers also shoot once more. We rolled 7,10 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Space Round 4</b>: We have 4 ships, to Abydos' 2 ships. We will forgo the Fleet SIze Bonus, and keep our Transport screened</li>",
+		"<li>Their Alien-Cs shoot once more. They rolled a 5 against our last Destroyer (hit &le;6), followed by a 7 against our Minesweepers (miss &gt;5)</li>",
+		"<li>Our 2 Minesweepers shoot once more. We rolled 2,6 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Space Round 5</b>: We have 3 ships, to Abydos' 2 ships. We keep our Transport screened</li>",
+		"<li>Their Alien-Cs shoot once more. They rolled 5,8 against our Minesweepers (1 hit &le;5)</li>",
+		"<li>Our 1 surviving Minesweeper shoots once more. We rolled a 9 (miss &gt;1)<br /><br /></li>",
+		"<li><b>Space Round 6</b>: We have 2 ships, to Abydos' 2 ships. Screening is no longer possible</li>",
+		"<li>Their Alien-Cs shoot once more. They rolled a 4 against our last Transport (hit &le;4), followed by a 8 against our last Minesweeper (miss &gt;5)</li>",
+		"<li>We have chosen for our last Minesweeper to retreat out of the battle, returning to G7 in the process</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"Miner1R",
@@ -2922,7 +3181,10 @@
 			"location":"G4"
 		}]},
 	{"heading":"Stardate 2409.0",
-	"commentary":"<p>Unfortunate, but it was worth a try seeing what we could do to Abydos. We were able to cut their defending ships in half. Anyway, we will buy 3 Cruisers (-36) at L7, 3 Cruisers (-36) + 1 Transport (-6) at I6, and 5 Heavy Infantry <span class=\"bindTxt\">(-8 factoring in a freebie)</span> at H7.</p>{prodTable}{techTable}<p>On the subject of economics, the Alien Players rolled 3,6,7 (Epimetheus) / 4,8,9,9,10 (Prometheus). Both players are able to launch fresh fleets this phase, rolling 8 (Epimetheus) / 10 (Prometheus). Neither player will launch this phase.</p>",
+	"commentary":[
+		"Unfortunate, but it was worth a try seeing what we could do to Abydos. We were able to cut their defending ships in half. Anyway, we will buy 3 Cruisers (-36) at L7, 3 Cruisers (-36) + 1 Transport (-6) at I6, and 5 Heavy Infantry <span class=\"bindTxt\">(-8 factoring in a freebie)</span> at H7.",
+		"{prodTable}{techTable}",
+		"On the subject of economics, the Alien Players rolled 3,6,7 (Epimetheus) / 4,8,9,9,10 (Prometheus). Both players are able to launch fresh fleets this phase, rolling 8 (Epimetheus) / 10 (Prometheus). Neither player will launch this phase."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":0,"colonyCP":75,"mineralCP":10,"pipeCP":5,"maint":4,"techBuy":0,"unitBuy":86
@@ -3000,7 +3262,7 @@
 			"location":"G4"
 		}]},
 	{"heading":"Stardate 2409.3",
-	"commentary":"<p>Cleaning up more of the deep space near the Alien Player homeworlds while waiting for some more battles...</p>",
+	"commentary":["Cleaning up more of the deep space near the Alien Player homeworlds while waiting for some more battles..."],
 	"actions":
 		[{
 			"placeCounter":"Miner1R",
@@ -3049,7 +3311,15 @@
 			"removeCounter":"CA1G"
 		}]},
 	{"heading":"Stardate 2409.6 (The Battle for Sector I5)",
-	"commentary":"<p>We have successfully intercepted the pathway of Epimetheus' latest extermination fleet. With a supernova blocking an alternate route, our Cruisers are the only way for them to forward. It is battle time!</p><p>As far as the tech step is concerned, they have previously seen Veteran ships. They roll an 8 on the Military Academy step (skip). They are unable to afford Ship Size 4, so this step is skipped. On the rolling step, they are limited to these possible choices: Minesweeping 1 (10) / Security Forces 1 (15) / Military Academy 1 (15). After throwing out roughly a dozen rolls leading to something unaffordable, we finally found a valid pair of 3,8. Epimetheus bought Military Academy 1.</p><p>On the fleet construction step, 14 CP is good for 1 Cruiser... and nothing else.</p><ol><li><b>Round 1</b>: Since we are fighting in a nebula, weapon classes and Defense tech are reduced accordingly</li><li>We have 3 Cruisers to their 1 Cruiser. We gain the Fleet Size Bonus</li><li>Our 3 Cruisers have the equal Tactics advantage, so we shoot first. We rolled 2,7,9 (1 hit &le;4), damaging their Cruiser</li><li>Their 1 Skilled Cruiser responds with a 7 (miss &gt;4)<br /><br /></li><li><b>Round 2</b>: Our 3 Cruisers shoot once more. We rolled 1,1,4 (3 hits &le;4), overkilling their Cruiser!</li><li>Our Cruisers were successful, so they rolled to a 7 to try to gain experience (failure &gt;4)</li></ol>",
+	"commentary":[
+		"We have successfully intercepted the pathway of Epimetheus' latest extermination fleet. With a supernova blocking an alternate route, our Cruisers are the only way for them to forward. It is battle time!</p><p>As far as the tech step is concerned, they have previously seen Veteran ships. They roll an 8 on the Military Academy step (skip). They are unable to afford Ship Size 4, so this step is skipped. On the rolling step, they are limited to these possible choices: Minesweeping 1 (10) / Security Forces 1 (15) / Military Academy 1 (15). After throwing out roughly a dozen rolls leading to something unaffordable, we finally found a valid pair of 3,8. Epimetheus bought Military Academy 1.",
+		"On the fleet construction step, 14 CP is good for 1 Cruiser... and nothing else.",
+		"<ol><li><b>Round 1</b>: Since we are fighting in a nebula, weapon classes and Defense tech are reduced accordingly</li>",
+		"<li>We have 3 Cruisers to their 1 Cruiser. We gain the Fleet Size Bonus</li>",
+		"<li>Our 3 Cruisers have the equal Tactics advantage, so we shoot first. We rolled 2,7,9 (1 hit &le;4), damaging their Cruiser</li>",
+		"<li>Their 1 Skilled Cruiser responds with a 7 (miss &gt;4)<br /><br /></li>",
+		"<li><b>Round 2</b>: Our 3 Cruisers shoot once more. We rolled 1,1,4 (3 hits &le;4), overkilling their Cruiser!</li>",
+		"<li>Our Cruisers were successful, so they rolled to a 7 to try to gain experience (failure &gt;4)</li></ol>"],
 	"alienTableX":
 		[{
 			"name":"Epimetheus (Green)","eco":3,"fleet":12,"tech":0,"def":3,"expo":0,"delta":"Fth"
@@ -3103,7 +3373,20 @@
 			"location":"I5"
 		}]},
 	{"heading":"Stardate 2409.9 (The Rematch for Abydos)",
-	"commentary":"<p>It is rematch time versus Abydos! Let the battle commence!</p><ol><li><b>Space Round 1</b>: We have 5 ships to their 2 Alien-Cs. We can screen our Transport, and gain the Fleet Size Bonus</li><li>Their 2 Alien-Cs have the Tactics advantage, so they shoot first. Prioritizing our Minesweeper, they rolled 9,5 (1 hit &le;5)</li><li>Our 3 Cruisers respond with 3,6,10 (1 hit &le;3)<br /><br /></li><li><b>Space Round 2</b>: We have 4 ships to their 1 Alien-C. No change in screening and bonuses</li><li>Their 1 Alien-C shoots once more. Only our Cruisers are valid at this time, so they rolled a 10 (miss &gt;5)</li><li>Our 3 Cruisers respond with 2,3,7 (2 hits &le;3). This finishes off the orbital defenders<br /><br /></li><li><b>Ground Round 1</b>: Having defeated the forces in orbit, our Transport has dropped their 6 Space Marines onto the planet. We use this round to get settled</li><li>Abydos' 5 militia have an advantage this round. They rolled 1,4,5,6,6 (2 hits &le;4), scoring one kill<br /><br /></li><li><b>Ground Round 2</b>: Our 5 surviving Space Marines have settled. We rolled 3,3,5,7,7 (3 hits &le;6)</li><li>Abydos' 2 surviving militia shoot once more. They rolled 5,7 (0 hits &le;4)<br /><br /></li><li><b>Ground Round 3</b>: Our 5 Space Marines shoot once more. We rolled 1,5,5,5,8 (4 hits &le;6), finishing off the militia!</li></ol><p>We have successfully captured the NPA planet of Abydos! One of our surviving Space Marines are used to install a new government. This planet contributes to our income this economic phase. We have also drawn the Soylent Purple Alien Technology card.</p>",
+	"commentary":[
+		"It is rematch time versus Abydos! Let the battle commence!",
+		"<ol><li><b>Space Round 1</b>: We have 5 ships to their 2 Alien-Cs. We can screen our Transport, and gain the Fleet Size Bonus</li>",
+		"<li>Their 2 Alien-Cs have the Tactics advantage, so they shoot first. Prioritizing our Minesweeper, they rolled 9,5 (1 hit &le;5)</li>",
+		"<li>Our 3 Cruisers respond with 3,6,10 (1 hit &le;3)<br /><br /></li>",
+		"<li><b>Space Round 2</b>: We have 4 ships to their 1 Alien-C. No change in screening and bonuses</li>",
+		"<li>Their 1 Alien-C shoots once more. Only our Cruisers are valid at this time, so they rolled a 10 (miss &gt;5)</li>",
+		"<li>Our 3 Cruisers respond with 2,3,7 (2 hits &le;3). This finishes off the orbital defenders<br /><br /></li>",
+		"<li><b>Ground Round 1</b>: Having defeated the forces in orbit, our Transport has dropped their 6 Space Marines onto the planet. We use this round to get settled</li>",
+		"<li>Abydos' 5 militia have an advantage this round. They rolled 1,4,5,6,6 (2 hits &le;4), scoring one kill<br /><br /></li>",
+		"<li><b>Ground Round 2</b>: Our 5 surviving Space Marines have settled. We rolled 3,3,5,7,7 (3 hits &le;6)</li>",
+		"<li>Abydos' 2 surviving militia shoot once more. They rolled 5,7 (0 hits &le;4)<br /><br /></li>",
+		"<li><b>Ground Round 3</b>: Our 5 Space Marines shoot once more. We rolled 1,5,5,5,8 (4 hits &le;6), finishing off the militia!</li></ol>",
+		"We have successfully captured the NPA planet of Abydos! One of our surviving Space Marines are used to install a new government. This planet contributes to our income this economic phase. We have also drawn the Soylent Purple Alien Technology card."],
 	"actions":
 		[{
 			"placeCounter":"Miner1R",
@@ -3147,7 +3430,7 @@
 			"placeCounter":"Mar4R",
 			"size":6,
 			"location":"G8"
-},{
+		},{
 			"removeCounter":"Mar5R"
 		},{
 			"removeCounter":"Mar6R"
@@ -3173,7 +3456,11 @@
 			"removeCounter":"fleet2G"
 		}]},
 	{"heading":"Stardate 2410.0",
-	"commentary":"<p>By capturing a planet, as opposed to colonizing it, we get a more developed colony right away (skipped to the 3 CP income stage). We take advantage of this, by building a Ship Yard (-6), a Base (-12), and 2 Space Marines (-6) at the newly captured colony at sector G8. We also buy 3 Cruisers (-36), 1 Transport (-6) at I6, and 2 Pipelines (-6) at L7.</p>{prodTable}{techTable}<p>At this point in the playthrough, Alien Players have gained a natural homeworld economic roll, and rolled 3,5,6,10 (Epimetheus) / 1,2,4,5,6,9 (Prometheus) accordingly.</p><p>Aggression has went back up, and they rolled 5 (Epimetheus) / 7 (Prometheus). Epimetheus has launched a new fleet! They have no Tech CP to invest in Movement, but they can still roll a 6 for mission assignment. Since this is past ecoomic phase 7, the threshold for extermination fleets has been reduced to 6, assigning this fleet as such. The galactic capitol has become its target!</p>",
+	"commentary":[
+		"By capturing a planet, as opposed to colonizing it, we get a more developed colony right away (skipped to the 3 CP income stage). We take advantage of this, by building a Ship Yard (-6), a Base (-12), and 2 Space Marines (-6) at the newly captured colony at sector G8. We also buy 3 Cruisers (-36), 1 Transport (-6) at I6, and 2 Pipelines (-6) at L7.",
+		"{prodTable}{techTable}",
+		"At this point in the playthrough, Alien Players have gained a natural homeworld economic roll, and rolled 3,5,6,10 (Epimetheus) / 1,2,4,5,6,9 (Prometheus) accordingly.",
+		"Aggression has went back up, and they rolled 5 (Epimetheus) / 7 (Prometheus). Epimetheus has launched a new fleet! They have no Tech CP to invest in Movement, but they can still roll a 6 for mission assignment. Since this is past ecoomic phase 7, the threshold for extermination fleets has been reduced to 6, assigning this fleet as such. The galactic capitol has become its target!"],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":0,"colonyCP":78,"mineralCP":5,"pipeCP":5,"maint":14,"techBuy":0,"unitBuy":72
@@ -3265,7 +3552,7 @@
 			"location":"A4"
 		}]},
 	{"heading":"Stardate 2410.2",
-	"commentary":"<p>Our Flagship fleet has been assigned to intercept Epimetheus' newly launched fleet.</p>",
+	"commentary":["Our Flagship fleet has been assigned to intercept Epimetheus' newly launched fleet."],
 	"actions":
 		[{
 			"placeCounter":"Miner1R",
@@ -3319,7 +3606,7 @@
 			"location":"B5"
 		}]},
 	{"heading":"Stardate 2410.5",
-	"commentary":"<p>While consolidating our secondary fleet at the staging hex of G8, we will go on ahead and upgrade our oldest Miner with Terraforming 2 technology. This process consumes one of our leftover CP.</p>",
+	"commentary":["While consolidating our secondary fleet at the staging hex of G8, we will go on ahead and upgrade our oldest Miner with Terraforming 2 technology. This process consumes one of our leftover CP."],
 	"actions":
 		[{
 			"placeCounter":"Miner1R",
@@ -3368,7 +3655,16 @@
 			"removeCounter":"CA2G"
 		}]},
 	{"heading":"Stardate 2410.8 (The Battle for Sector C5)",
-	"commentary":"<p>We have intercepted Epimetheus' newest fleet. We will construct this new fleet, and then go to battle. Since they have no Tech CP left, we will go straight to the fleet step. Their largest ship is the Cruiser (-12). Rolling a 2 for composition (largest fleet), they build a Scout (-6) and a Destroyer (-9). This spends all 27 assigned CP.</p><ol><li><b>Round 1</b>: We have 4 ships. They have 3 ships. We will screen no ships. All ships have the same experience level this time</li><li>Our Flagship has the best weapon class, so it shoots first. We rolled a 2 against their Destroyer (hit &le;4). Having eliminated it, we then roll a 6 to try to gain experience (failure &gt;2)</li><li>Their Cruiser shoots next. Our Scouts are the easiest to eliminate, so they will be targeted. It rolled a 6 (miss &gt;4)</li><li>Their Scout shoots next. It rolled a 5 (miss &gt;3)</li><li>Our 3 Scouts now have a chance to shoot. Prioritizing their Scout, we rolled 5,2 (1 hit &le;3). Our leftover roll then goes against their last ship, a Cruiser. We rolled a 2 (hit &le;2), damaging it</li><li>Our Scouts eliminated a target also, and rolled a 7 to try to gain experience (failure &gt;2)<br /><br /></li><li><b>Round 2</b>: We have 4 ships. They have 1 Cruiser. We gained the Fleet Size Bonus</li><li>Our Flagship shoots once more. We rolled a 4 (hit &le;4), finishing off their Cruiser! Having eliminated it, we then roll a 9 to try to gain experience (failure &gt;4)</li></ol>",
+	"commentary":[
+		"We have intercepted Epimetheus' newest fleet. We will construct this new fleet, and then go to battle. Since they have no Tech CP left, we will go straight to the fleet step. Their largest ship is the Cruiser (-12). Rolling a 2 for fleet composition (largest fleet), they build a Scout (-6) and a Destroyer (-9). This spends all 27 assigned CP.",
+		"<ol><li><b>Round 1</b>: We have 4 ships. They have 3 ships. We will screen no ships. All ships have the same experience level this time</li>",
+		"<li>Our Flagship has the best weapon class, so it shoots first. We rolled a 2 against their Destroyer (hit &le;4). Having eliminated it, we then roll a 6 to try to gain experience (failure &gt;2)</li>",
+		"<li>Their Cruiser shoots next. Our Scouts are the easiest to eliminate, so they will be targeted. It rolled a 6 (miss &gt;4)</li>",
+		"<li>Their Scout shoots next. It rolled a 5 (miss &gt;3)</li>",
+		"<li>Our 3 Scouts now have a chance to shoot. Prioritizing their Scout, we rolled 5,2 (1 hit &le;3). Our leftover roll then goes against their last ship, a Cruiser. We rolled a 2 (hit &le;2), damaging it</li>",
+		"<li>Our Scouts eliminated a target also, and rolled a 7 to try to gain experience (failure &gt;2)<br /><br /></li>",
+		"<li><b>Round 2</b>: We have 4 ships. They have 1 Cruiser. We gained the Fleet Size Bonus</li>",
+		"<li>Our Flagship shoots once more. We rolled a 4 (hit &le;4), finishing off their Cruiser! Having eliminated it, we then roll a 9 to try to gain experience (failure &gt;4)</li></ol>"],
 	"alienTableX":
 		[{
 			"name":"Epimetheus (Green)","eco":4,"fleet":0,"tech":0,"def":13,"expo":0,"delta":"h"
@@ -3445,7 +3741,11 @@
 			"removeCounter":"fleet2B"
 		}]},
 	{"heading":"Stardate 2411.0",
-	"commentary":"<p>Our fleet at G8 is looking extremely dense. Since we desire to save time, we will go on ahead and buy Ship Yard 3 (-25) and Ship Size 4 (-20). We then build 2 Minesweepers (-12) at G8, followed by 3 Pipelines (-9) and 1 Battlecruiser (-15) at I6.</p>{prodTable}<p>The Alien Players have rolled 2,5,5,8 (Epimetheus) / 1,2,3,7,8,10 (Prometheus). Prometheus has reached the maximum of 50 CP in the Protection bank.</p><p>As for fleet launches, they rolled 9 (Epimetheus) / 1 (Prometheus). Prometheus will launch a fleet this time. They roll a 3 to buy Movement 2 (-20), and rolled a 9 for mission assignment. Since this is past the tenth economic phase, the extermination fleet threshold has been further widened to &ge;4. This fleet will go after our homeworld.</p>",
+	"commentary":[
+		"Our fleet at G8 is looking extremely dense. Since we desire to save time, we will go on ahead and buy Ship Yard 3 (-25) and Ship Size 4 (-20). We then build 2 Minesweepers (-12) at G8, followed by 3 Pipelines (-9) and 1 Battlecruiser (-15) at I6.",
+		"{prodTable}",
+		"The Alien Players have rolled 2,5,5,8 (Epimetheus) / 1,2,3,7,8,10 (Prometheus). Prometheus has reached the maximum of 50 CP in the Protection bank.",
+		"As for fleet launches, they rolled 9 (Epimetheus) / 1 (Prometheus). Prometheus will launch a fleet this time. They roll a 3 to buy Movement 2 (-20), and rolled a 9 for mission assignment. Since this is past the tenth economic phase, the extermination fleet threshold has been further widened to &ge;4. This fleet will go after our homeworld."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":1,"colonyCP":80,"mineralCP":15,"pipeCP":6,"maint":21,"techBuy":45,"unitBuy":36
@@ -3550,7 +3850,31 @@
 			"location":"A9"
 		}]},
 	{"heading":"Stardate 2411.1 (The Battle for Arrakis)",
-	"commentary":"<p>We believe the time is now right to assault Prometheus' control over Arrakis. Before we can do so, we need to resolve their protection steps. On the orbital step, they rolled 2,3, limiting the spending to 5 CP max. They then roll a 10 to buy up to 2 Minelayers, of which they can afford one with the assigned CP. This spends their assigned money, so they get no new Heavy Infantry.</p><ol><li>1 minelayer versus 2 minesweepers. We have nullified their ammunition</li><li><b>Space Round 1</b>: We have 13 ships to their 9 ships. We will screen our Transports each round (if able)</li><li>Our 9 Cruisers have the best priority class, so they shoot first. Our priority order this battle is 1 Destroyer &Rarr; 7 Scouts &Rarr; 1 Transport (&le;4 to hit regardless of victim). Our first roll is a 3, knocking out their Destroyer</li><li>Our remaining 8 rolls are spent against their Scouts: 1,5,6,5,5,10,1,1 (3 hits)</li><li>Our Cruisers scored 4 kills this round, so they roll 1,10,5,3 for experience gain. The group of six is now a Veteran group</li><li>Their 3 surviving Scouts can now respond, rolling 1,4,5,6 against our Minesweepers (2 hits &le;4). They then roll a 2,10 on the experience roll (success &le;2), and become a Veteran group</li><li>Their Transport also rolls a 1 (hit &le;1), damaging a Cruiser<br /><br /></li><li><b>Space Round 2</b>: We have 11 ships to their 4 ships. Same screening, and we gain the Fleet Size Bonus</li><li>Our 9 Cruisers shoot once more. We rolled 2,3,2,1 against their Scouts (4 hits &le;6), cleaning those up. We then rolled 1,3,6,8,9 against their last ship, a Transport (2 hits &le;5)</li><li>Our less experienced Cruisers scored 3 kills this round, so they roll 2,2,10 for experience gain (success &le;2). This group is also a Veteran group</li><li>With the orbital forces defeated, our Transports drop their ground units<br /><br /></li><li><b>Ground Round 1</b>: Our 12 ground units need time to settle this round</li><li>Their 1 Heavy Infantry has the best weapon class, so it shoots first. Priotizing our Light Infantry, it rolled a 6 (miss &gt;5)</li><li>Their 2 Space Marines are next. They rolled 4,7 (1 hit &le;4)</li><li>Their 5 militia are next. They rolled 8,8,2,3 (2 hits &le;4), cleaning up our Light Infantry. The last roll is then spent against our Space Marines, rolling a 7 (miss &gt;4)<br /><br /></li><li><b>Ground Round 2</b>: Their 1 Heavy Infantry shoots once more. It rolled a 10 (miss &gt;5)</li><li>Our 9 Space Marines have settled, and are ready to shoot. We will start with their Space Marines (&le;5 to hit), rolling 5,9,2,10,8,9,4,1 (4 hits) in the process and wiping them out. Our leftover roll of 5 is then applied against their militia (hit &le;6)</li><li>Their 4 surviving militia are next. They rolled 5,8,9,10 (0 hits &le;4)<br /><br /></li><li><b>Ground Round 3</b>: Their 1 Heavy Infantry shoots once more. It rolled a 4 (hit &le;5), damaging one of our Space Marines</li><li>Our 9 Space Marines shoot once more. We will start with their Heavy Infantry (&le;4 to hit), rolling 5,7,5,1,3 (2 hits) in the process and wiping them out. With only their militia left, we then roll 1,7,8,10 (1 hit &le;6)</li><li>Their 3 surviving militia are next. They rolled 5,6,7 (0 hits &le;4)<br /><br /></li><li><b>Ground Round 4</b>: Our 9 Space Marines shoot once more. With only milita left to finish off, we rolled 1,3,3,4,4,5,6,8,9 (7 hits &le;6). Capture is successful!</li></ol><p>The successful capture grants us several benefits. At the expense of using 1 Space Marines to install a new government, we have <i>stolen</i> one of the Alien Technology cards that are in their possession, granting us Cold Fusion Drive. We have also stolen Attack 1 from their databanks. We also caused Prometheus to lose an economic roll. These outcomes combined also caused the Alien Team to lose 3 VP from their total.</p>",
+	"commentary":[
+		"We believe the time is now right to assault Prometheus' control over Arrakis. Before we can do so, we need to resolve their protection steps. On the orbital step, they rolled 2,3, limiting the spending to 5 CP max. They then roll a 10 to buy up to 2 Minelayers, of which they can afford one with the assigned CP. This spends their assigned money, so they get no new Heavy Infantry.",
+		"<ol><li>1 minelayer versus 2 minesweepers. We have nullified their ammunition</li>",
+		"<li><b>Space Round 1</b>: We have 13 ships to their 9 ships. We will screen our Transports each round (if able)</li>",
+		"<li>Our 9 Cruisers have the best weapon class, so they shoot first. Our priority order this battle is 1 Destroyer &Rarr; 7 Scouts &Rarr; 1 Transport (&le;4 to hit regardless of victim). Our first roll is a 3, knocking out their Destroyer</li>",
+		"<li>Our remaining 8 rolls are spent against their Scouts: 1,5,6,5,5,10,1,1 (3 hits)</li>",
+		"<li>Our Cruisers scored 4 kills this round, so they roll 1,10,5,3 for experience gain. The group of six is now a Veteran group</li>",
+		"<li>Their 3 surviving Scouts can now respond, rolling 1,4,5,6 against our Minesweepers (2 hits &le;4). They then roll a 2,10 on the experience roll (success &le;2), and become a Veteran group</li>",
+		"<li>Their Transport also rolls a 1 (hit &le;1), damaging a Cruiser<br /><br /></li>",
+		"<li><b>Space Round 2</b>: We have 11 ships to their 4 ships. Same screening, and we gain the Fleet Size Bonus</li>",
+		"<li>Our 9 Cruisers shoot once more. We rolled 2,3,2,1 against their Scouts (4 hits &le;6), cleaning those up. We then rolled 1,3,6,8,9 against their last ship, a Transport (2 hits &le;5)</li>",
+		"<li>Our less experienced Cruisers scored 3 kills this round, so they roll 2,2,10 for experience gain (success &le;2). This group is also a Veteran group</li>",
+		"<li>With the orbital forces defeated, our Transports drop their ground units<br /><br /></li>",
+		"<li><b>Ground Round 1</b>: Our 12 ground units need time to settle this round</li>",
+		"<li>Their 1 Heavy Infantry has the best weapon class, so it shoots first. Priotizing our Light Infantry, it rolled a 6 (miss &gt;5)</li>",
+		"<li>Their 2 Space Marines are next. They rolled 4,7 (1 hit &le;4)</li>",
+		"<li>Their 5 militia are next. They rolled 8,8,2,3 (2 hits &le;4), cleaning up our Light Infantry. The last roll is then spent against our Space Marines, rolling a 7 (miss &gt;4)<br /><br /></li>",
+		"<li><b>Ground Round 2</b>: Their 1 Heavy Infantry shoots once more. It rolled a 10 (miss &gt;5)</li>",
+		"<li>Our 9 Space Marines have settled, and are ready to shoot. We will start with their Space Marines (&le;5 to hit), rolling 5,9,2,10,8,9,4,1 (4 hits) in the process and wiping them out. Our leftover roll of 5 is then applied against their militia (hit &le;6)</li>",
+		"<li>Their 4 surviving militia are next. They rolled 5,8,9,10 (0 hits &le;4)<br /><br /></li>",
+		"<li><b>Ground Round 3</b>: Their 1 Heavy Infantry shoots once more. It rolled a 4 (hit &le;5), damaging one of our Space Marines</li>",
+		"<li>Our 9 Space Marines shoot once more. We will start with their Heavy Infantry (&le;4 to hit), rolling 5,7,5,1,3 (2 hits) in the process and wiping them out. With only their militia left, we then roll 1,7,8,10 (1 hit &le;6)</li>",
+		"<li>Their 3 surviving militia are next. They rolled 5,6,7 (0 hits &le;4)<br /><br /></li>",
+		"<li><b>Ground Round 4</b>: Our 9 Space Marines shoot once more. With only milita left to finish off, we rolled 1,3,3,4,4,5,6,8,9 (7 hits &le;6). Capture is successful!</li></ol>",
+		"The successful capture grants us several benefits. At the expense of using 1 Space Marines to install a new government, we have <i>stolen</i> one of the Alien Technology cards that are in their possession, granting us Cold Fusion Drive. We have also stolen Attack 1 from their databanks. We also caused Prometheus to lose an economic roll. These outcomes combined also caused the Alien Team to lose 3 VP from their total."],
 	"techTableX":
 		[{
 			"name":"CSY (Red)","terraform":2,"explore":1,"size":4,"minesweep":1,"troops":2,"SY":3,"atk":1
@@ -3662,7 +3986,7 @@
 			"location":"B9"
 		}]},
 	{"heading":"Stardate 2411.4",
-	"commentary":"<p>We used Exploration 1 to remotely uncover the deep space surrounding the planet we recently captured.</p>",
+	"commentary":["We used Exploration 1 to remotely uncover the deep space surrounding the planet we recently captured."],
 	"actions":
 		[{
 			"placeCounter":"Miner1R",
@@ -3749,7 +4073,17 @@
 			"location":"C8"
 		}]},
 	{"heading":"Stardate 2411.7 (The Battle for Sector E8)",
-	"commentary":"<p>We have set up an impedement in the path of the newest extermination fleet, setting up a battle. Since Veteran ships are in play, we start at the Military Academy step, rolling a 4 (buy for 15). On the Ship Size step, a 5 is rolled (buy 3 for 15). This spends all of their Tech money, and brings us to the fleet steps. On the Transport step, the assigned CP barely is insufficient (60 CP required for an extermination fleet to buy one). On the largest ship step, Cruisers were just unlocked, so one is built (-12). On the composition step, a 6 is rolled (balanced). Since neither Attack nor Defense are beyond 1, 6 Scouts (-36) and 1 Destroyer (-9) are also built. The leftover 2 CP is credited back to the Fleet bank.</p><ol><li><b>Round 1</b>: We have 9 Cruisers. They have 8 ships. We will screen no ships</li><li>Our Veteran Cruisers have the best weapon class and Tactics advantage, so they shoot first. We rolled a 5 against the Destroyer (hit &le;5), followed by 8,5,1,1,9,9,9,4 against their Scouts (4 hits &le;5). Experience rolls are 10,8,4,6,8 (failure &gt;2)</li><li>Their Skilled Cruiser responds with a 10 (miss &gt;4)</li><li>Their 2 surviving Skilled Scouts respond with a 5,7 (0 hits &le;3)<br /><br /></li><li><b>Round 2</b>: We still have 9 Cruisers. They have 3 ships. We gain the Fleet Size Bonus</li><li>Our Veteran Cruisers shoot once more. We rolled a 10,3,4 against their Scouts (2 hits &le;6), followed by 1,5,6,7,10,10 (2 hits &le;5) against their Cruiser</li><li>The group of six Veteran Cruisers  rolled 5,1,5 on the experience rolls (success &le;2), promoting them to an Elite group</li></ol>",
+	"commentary":[
+		"We have set up an impedement in the path of the newest extermination fleet, setting up a battle. Since Veteran ships are in play, we start at the Military Academy step, rolling a 4 (buy for 15). On the Ship Size step, a 5 is rolled (buy 3 for 15). This spends all of their Tech money, and brings us to the fleet steps. On the Transport step, the assigned CP barely is insufficient (60 CP required for an extermination fleet to buy one).",
+		"On the largest ship step, Cruisers were just unlocked, so one is built (-12). On the fleet composition step, a 6 is rolled (balanced). Since neither Attack nor Defense are beyond 1, 6 Scouts (-36) and 1 Destroyer (-9) are also built. The leftover 2 CP is credited back to the Fleet bank.",
+		"<ol>",
+		"<li><b>Round 1</b>: We have 9 Cruisers. They have 8 ships. We will screen no ships</li>",
+		"<li>Our Veteran Cruisers have the best weapon class and Tactics advantage, so they shoot first. We rolled a 5 against the Destroyer (hit &le;5), followed by 8,5,1,1,9,9,9,4 against their Scouts (4 hits &le;5). Experience rolls are 10,8,4,6,8 (failure &gt;2)</li>",
+		"<li>Their Skilled Cruiser responds with a 10 (miss &gt;4)</li>",
+		"<li>Their 2 surviving Skilled Scouts respond with a 5,7 (0 hits &le;3)<br /><br /></li>",
+		"<li><b>Round 2</b>: We still have 9 Cruisers. They have 3 ships. We gain the Fleet Size Bonus</li>",
+		"<li>Our Veteran Cruisers shoot once more. We rolled a 10,3,4 against their Scouts (2 hits &le;6), followed by 1,5,6,7,10,10 (2 hits &le;5) against their Cruiser</li>",
+		"<li>The group of six Veteran Cruisers  rolled 5,1,5 on the experience rolls (success &le;2), promoting them to an Elite group</li></ol>"],
 	"techTableX":
 		[{
 			"name":"CSY (Red)","terraform":2,"explore":1,"size":4,"minesweep":1,"troops":2,"SY":3
@@ -3840,7 +4174,11 @@
 			"removeCounter":"fleet3B"
 		}]},
 	{"heading":"Stardate 2412.0",
-	"commentary":"<p>Having a group of Cruisers be made Elite has granted them low maintenance, reducing our upkeep by a little. We will go on ahead and buy Minesweeping 2 (-15) and Security Forces 1 (-15), followed by 2 Minesweepers (-12) at G8, and 2 Battlecruisers (-30) + 4 Pipelines (-12) at I6.</p>{prodTable}{techTable}<p>This is the last economic phase in which the Alien Players can build their Protection pools from Random Factor. Nonetheless, they rolled 1,1,3,7 (Epimetheus) / 2,5,7,9,10 (Prometheus). It is worth mentioning that Prometheus has exceeded the allowed 50 CP into Protection, excess points went into Expansion bank.</p><p>For fleet launches, they rolled 8 (Epimetheus) / 4 (Prometheus). Prometheus will launch another fleet. They don't have enough money for another Movement tech, but they can still choose a mission. They rolled a 6 for extermination fleet, and the galactic capitol has become their assignment.</p>",
+	"commentary":[
+		"Having a group of Cruisers be made Elite has granted them low maintenance, reducing our upkeep by a little. We will go on ahead and buy Minesweeping 2 (-15) and Security Forces 1 (-15), followed by 2 Minesweepers (-12) at G8, and 2 Battlecruisers (-30) + 4 Pipelines (-12) at I6.",
+		"{prodTable}{techTable}",
+		"This is the last economic phase in which the Alien Players can build their Defense pools from Random Factor. Nonetheless, they rolled 1,1,3,7 (Epimetheus) / 2,5,7,9,10 (Prometheus). It is worth mentioning that Prometheus has exceeded the allowed 50 CP into Defense, excess points went into Expansion bank.",
+		"For fleet launches, they rolled 8 (Epimetheus) / 4 (Prometheus). Prometheus will launch another fleet. They don't have enough money for another Movement tech, but they can still choose a mission. They rolled a 6 for extermination fleet, and the galactic capitol has become their assignment."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":0,"colonyCP":83,"mineralCP":10,"pipeCP":9,"maint":17,"techBuy":30,"unitBuy":54
@@ -3933,7 +4271,20 @@
 			"location":"A9"
 		}]},
 	{"heading":"Stardate 2412.3 (The Battle for Romulus)",
-	"commentary":"<p>We are now ready to battle the NPA planet of Romulus. Since this is our fleet versus NPA defenders, we will go straight into battle.</p><ol><li><b>Space Round 1</b>: We have 11 ships, to their 4 ships. We will screen our Transports each round (if able). We also gain the Fleet Size Bonus</li><li>Their 1 Alien-B has the best weapon class, so it shoots first. Our Veteran Cruisers make the most sense to target, in order to avoid a modifier resembling Defense +1. It rolled a 1 (hit &le;5), damaging one of them</li><li>Their 2 Alien-Cs have the Tactics advantage, so they shoot next. They rolled 3,10 (1 hit &le;4), cleaning up one of our Veteran Cruisers</li><li>We will give our 6 Elite Cruisers a chance to shoot next. We rolled a 5 against their Alien-D (hit &le;5), followed by 8,9,10,4 against their Alien-B (1 hit &le;4), and a 5 against their Alien-Cs (miss &gt;4). These ships then rolled 9,4 for experience gain (failure &gt;2)</li><li>Our 2 surviving Veteran Cruisers can finally shoot. We rolled 5,1 against their Alien-Cs (1 hit &le;4). These ships then rolled a 1 for experience gain (success &le;2), promoting them to Elite<br /><br /></li><li><b>Space Round 2</b>: We have 10 ships, to their 1 Alien-C</li><li>Their 1 surviving Alien-C is now limited to only Elite Cruisers. It rolled a 1 (hit &le;3), damaging a Cruiser</li><li>Our 8 Elite Cruisers shoot once more. Going from largest to smallest fleet size, we rolled 3,6,6,8,3,3,5,8 (3 hits &le;4). The group of 6 then rolled a 1 for experience gain (success &le;2), promoting them to Legendary!<br /><br /></li><li><b>Ground Round 1</b>: Our 8 Space Marines have been unloaded, and need time to settle this round</li><li>Their 5 militia shoot first, rolling 3,4,5,5,10 (2 hits &le;4) and eliminating one of our units<br /><br /></li><li><b>Ground Round 2</b>: Our 7 surviving Space Marines have settled, and now shoot against the militia. We rolled 2,3,5,5,5,7,10 (5 hits &le;6), eliminating them in one one volley!</li></ol><p>One of our victorious Space Marines are used to install a new government on the newly captured planet of Romulus. We have also acquired the Advanced Comm Array alien technology.</p>",
+	"commentary":[
+		"We are now ready to battle the NPA planet of Romulus. Since this is our fleet versus NPA defenders, we will go straight into battle.",
+		"<ol><li><b>Space Round 1</b>: We have 11 ships, to their 4 ships. We will screen our Transports each round (if able). We also gain the Fleet Size Bonus</li>",
+		"<li>Their 1 Alien-B has the best weapon class, so it shoots first. Our Veteran Cruisers make the most sense to target, in order to avoid a modifier resembling Defense +1. It rolled a 1 (hit &le;5), damaging one of them</li>",
+		"<li>Their 2 Alien-Cs have the Tactics advantage, so they shoot next. They rolled 3,10 (1 hit &le;4), cleaning up one of our Veteran Cruisers</li>",
+		"<li>We will give our 6 Elite Cruisers a chance to shoot next. We rolled a 5 against their Alien-D (hit &le;5), followed by 8,9,10,4 against their Alien-B (1 hit &le;4), and a 5 against their Alien-Cs (miss &gt;4). These ships then rolled 9,4 for experience gain (failure &gt;2)</li>",
+		"<li>Our 2 surviving Veteran Cruisers can finally shoot. We rolled 5,1 against their Alien-Cs (1 hit &le;4). These ships then rolled a 1 for experience gain (success &le;2), promoting them to Elite<br /><br /></li>",
+		"<li><b>Space Round 2</b>: We have 10 ships, to their 1 Alien-C</li>",
+		"<li>Their 1 surviving Alien-C is now limited to only Elite Cruisers. It rolled a 1 (hit &le;3), damaging a Cruiser</li>",
+		"<li>Our 8 Elite Cruisers shoot once more. Going from largest to smallest fleet size, we rolled 3,6,6,8,3,3,5,8 (3 hits &le;4). The group of 6 then rolled a 1 for experience gain (success &le;2), promoting them to Legendary!<br /><br /></li>",
+		"<li><b>Ground Round 1</b>: Our 8 Space Marines have been unloaded, and need time to settle this round</li>",
+		"<li>Their 5 militia shoot first, rolling 3,4,5,5,10 (2 hits &le;4) and eliminating one of our units<br /><br /></li>",
+		"<li><b>Ground Round 2</b>: Our 7 surviving Space Marines have settled, and now shoot against the militia. We rolled 2,3,5,5,5,7,10 (5 hits &le;6), eliminating them in one one volley!</li></ol>",
+		"One of our victorious Space Marines are used to install a new government on the newly captured planet of Romulus. We have also acquired the Advanced Comm Array alien technology."],
 	"actions":
 		[{
 			"placeCounter":"MS13R",
@@ -4015,7 +4366,7 @@
 			"location":"B9"
 		}]},
 	{"heading":"Stardate 2412.6",
-	"commentary":"<p>We consolidate our forces towards the former NPA planet of Romulus.</p>",
+	"commentary":["We consolidate our forces towards the former NPA planet of Romulus."],
 	"actions":
 		[{
 			"placeCounter":"MS13R",
@@ -4085,7 +4436,12 @@
 			"removeCounter":"CA3B"
 		}]},
 	{"heading":"Stardate 2412.9 (The Battle for Sector C8)",
-	"commentary":"<p>... and use most of what is able to intercept Prometheus' newest fleet. Fleet construction is extremely simple with Tech CP insufficient to buy new tech: One Cruiser (-12) already puts them below 6 CP, ending that step also.</p><ol><li><b>Round 1</b>: 12 ships to their 1 Cruiser. We will screen no ships, and gain the Fleet Size Bonus</li><li>Our Skilled Flagship has the best weapon class, so it shoots first. We rolled a 1 (hit &le;4), damaging their single Cruiser</li><li>Their 1 Skilled Cruiser can respond now. Even if it were not for the fact that our 6 Legendary Cruisers are off limits, Scouts are their best bet. Thus, they rolled a 9 (miss &gt;5)</li><li>Our 2 Elite Cruisers will go next, in an effort to try to gain experience. We rolled 5,7 (1 hit &le;5), finishing them off. We then roll a 2 for experience (success &gt;4). This group has also become a Legendary group!</li></ol>",
+	"commentary":[
+		"... and use most of what is able to intercept Prometheus' newest fleet. Fleet construction is extremely simple with Tech CP insufficient to buy new tech: One Cruiser (-12) already puts them below 6 CP, ending that step also.",
+		"<ol><li><b>Round 1</b>: 12 ships to their 1 Cruiser. We will screen no ships, and gain the Fleet Size Bonus</li>",
+		"<li>Our Skilled Flagship has the best weapon class, so it shoots first. We rolled a 1 (hit &le;4), damaging their single Cruiser</li>",
+		"<li>Their 1 Skilled Cruiser can respond now. Even if it were not for the fact that our 6 Legendary Cruisers are off limits, Scouts are their best bet. Thus, they rolled a 9 (miss &gt;5)</li>",
+		"<li>Our 2 Elite Cruisers will go next, in an effort to try to gain experience. We rolled 5,7 (1 hit &le;5), finishing them off. We then roll a 2 for experience (success &le;4). This group has also become a Legendary group!</li></ol>"],
 	"alienTableX":
 		[{
 			"name":"Prometheus (Blue)","eco":5,"fleet":5,"tech":5,"def":50,"expo":5,"delta":"Fh"
@@ -4167,7 +4523,12 @@
 			"removeCounter":"fleet3G"
 		}]},
 	{"heading":"Stardate 2413.0",
-	"commentary":"<p>Our success is spreading as if it was a wildfire! Though it does not help that Alien Empires does not provide a comfortable middle ground in its difficulty system. We <i>could</i> take advantage of its modular system, but we believe we should give the pre-packed Space Empires 4X scenarios a fair shot before proceeding.</p><p>Anyway, we will buy Ship Size 5 (-20), followed by 3 Space Marines (-9) + 1 Ship Yard (-6) at the newly captured colony at D9, and 2 Battleships (-40) + 1 Transport (-6) + 3 Space Marines (-9) at I6.</p>{prodTable}{techTable}<p>At this point in time, it is no longer possible for Alien Players to build their Protection banks from Random Factor; though an active homeworld blockade will still cause all CP that would otherwise be generated from economic rolls to be automatically redirected towards this pool. Since neither homeworld are blockaded, they proceed normally this phase. They rolled 1,6,6,8 (Epimetheus) / 1,2,2,6,7 (Prometheus).</p><p>For fleet launches, they rolled 2 (Epimetheus) / 6 (Prometheus). Epimetheus will launch a fresh fleet. They do not have the required Tech CP to buy Movement 3. They can still roll for fleet mission, rolling a 5, which assigns them an extermination fleet towards our homeworld.</p>",
+	"commentary":[
+		"Our success is spreading as if it was a wildfire! Though it does not help that Alien Empires does not provide a comfortable middle ground in its difficulty system. We <i>could</i> take advantage of its modular system, but we believe we should give the pre-packed Space Empires 4X scenarios a fair shot before proceeding.",
+		"Anyway, we will buy Ship Size 5 (-20), followed by 3 Space Marines (-9) + 1 Ship Yard (-6) at the newly captured colony at D9, and 2 Battleships (-40) + 1 Transport (-6) + 3 Space Marines (-9) at I6.",
+		"{prodTable}{techTable}",
+		"At this point in time, it is no longer possible for Alien Players to build their Protection banks from Random Factor; though an active homeworld blockade will still cause all CP that would otherwise be generated from economic rolls to be automatically redirected towards this pool. Since neither homeworld are blockaded, they proceed normally this phase. They rolled 1,6,6,8 (Epimetheus) / 1,2,2,6,7 (Prometheus).",
+		"For fleet launches, they rolled 2 (Epimetheus) / 6 (Prometheus). Epimetheus will launch a fresh fleet. They do not have the required Tech CP to buy Movement 3. They can still roll for fleet mission, rolling a 5, which assigns them an extermination fleet towards our homeworld."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":1,"colonyCP":88,"mineralCP":10,"pipeCP":10,"maint":18,"techBuy":20,"unitBuy":70
@@ -4272,7 +4633,9 @@
 			"location":"A4"
 		}]},
 	{"heading":"Stardate 2413.2",
-	"commentary":"<p>Since it is no longer possible to reinforce Protection banks by default, we will go on ahead and move the Flagship <q>fleet</q> towards the previously explored NPA planet of Cobol.</p><p>An auxiliary Battleship fleet will be moving towards the NPA planet of Ada... not remembering that we would be unable to screen our Transports if we bring them into battle. Even though it will not be possible to use Transports later in case we defeat the orbital forces, we may opt to subdue the latter barren planet anyway.</p>",
+	"commentary":[
+		"Since it is no longer possible to reinforce Protection banks by default, we will go on ahead and move the Flagship <q>fleet</q> towards the previously explored NPA planet of Cobol.",
+		"An auxiliary Battleship fleet will be moving towards the NPA planet of Ada... not remembering that we would be unable to screen our Transports if we bring them into battle. Even though it will not be possible to use Transports later in case we defeat the orbital forces, we may opt to subdue the latter barren planet anyway."],
 	"actions":
 		[{
 			"placeCounter":"MS16R",
@@ -4345,7 +4708,7 @@
 			"location":"B4"
 		}]},
 	{"heading":"Stardate 2413.5",
-	"commentary":"<p>Will not be long before we conduct two battles... against NPA planets.</p>",
+	"commentary":["Will not be long before we conduct two battles... against NPA planets."],
 	"actions":
 		[{
 			"revealCounter":"MS16R",
@@ -4422,7 +4785,19 @@
 			"location":"C3"
 		}]},
 	{"heading":"Stardate 2413.8 (The Battle for Cobol)",
-	"commentary":"<p>The time has arrived; let the battles commence! First up is the NPA planet Cobol. Their defenders are revealed to be 2 each of Alien-B and Alien-C.</p><ol><li><b>Space Round 1</b>: We have 19 ships to their 4 ships. We will screen our Transports each round (if able), and gain the Fleet Size Bonus</li><li>Their Alien-Bs have the best weapon class and tactics, so they shoot first. They rolled 3,5 against our Scouts (2 hits &le;6)</li><li>Our Skilled Flagship is next. We rolled a 5 against their Alien-Bs (miss &gt;3)</li><li>Our Skilled Battlecruisers are next. We rolled 10,3,9 against their Alien-Bs (1 hit &le;4). We then rolled an 8 for experience (failure &gt;2)</li><li>Their 2 Alien-Cs are next. They rolled 8,10 against our last Scout (0 hits &le;5)</li><li>Our 8 Legendary Cruisers are next. We rolled a 5,4 against their Alien-Bs (1 hit &le;4), followed by 3,7,7,8,9,10 against their Alien-Cs (1 hit &le;5). These ships already have the maximum experience level, so we skip level up rolls</li><li>Our 1 Skilled Scout is next. We rolled a 2 against their Alien-C (hit &le;2). We then rolled a 10 for experience (failure &gt;2)<br /><br /></li><li><b>Ground Round 1</b>: With the orbital defenders defeated, we unload our 9 available Space Marines. These need a round to settle</li><li>Their 5 militia shoot first, rolling 2,3,5,8,10 (2 hits &le;4), eliminating a unit<br /><br /></li><li><b>Ground Round 2</b>: Our 8 surviving Space Marines have settled. We rolled 1,2,2,4,5,6,8,8 (6 hits &le;6), wiping them out in one volley!</li></ol><p>Cobol has been captured, and we have secured the Air Support alien technology!</p>",
+	"commentary":[
+		"The time has arrived; let the battles commence! First up is the NPA planet Cobol. Their defenders are revealed to be 2 each of Alien-B and Alien-C.",
+		"<ol><li><b>Space Round 1</b>: We have 19 ships to their 4 ships. We will screen our Transports each round (if able), and gain the Fleet Size Bonus</li>",
+		"<li>Their Alien-Bs have the best weapon class and tactics, so they shoot first. They rolled 3,5 against our Scouts (2 hits &le;6)</li>",
+		"<li>Our Skilled Flagship is next. We rolled a 5 against their Alien-Bs (miss &gt;3)</li>",
+		"<li>Our Skilled Battlecruisers are next. We rolled 10,3,9 against their Alien-Bs (1 hit &le;4). We then rolled an 8 for experience (failure &gt;2)</li>",
+		"<li>Their 2 Alien-Cs are next. They rolled 8,10 against our last Scout (0 hits &le;5)</li>",
+		"<li>Our 8 Legendary Cruisers are next. We rolled a 5,4 against their Alien-Bs (1 hit &le;4), followed by 3,7,7,8,9,10 against their Alien-Cs (1 hit &le;5). These ships already have the maximum experience level, so we skip level up rolls</li>",
+		"<li>Our 1 Skilled Scout is next. We rolled a 2 against their Alien-C (hit &le;2). We then rolled a 10 for experience (failure &gt;2)<br /><br /></li>",
+		"<li><b>Ground Round 1</b>: With the orbital defenders defeated, we unload our 9 available Space Marines. These need a round to settle</li>",
+		"<li>Their 5 militia shoot first, rolling 2,3,5,8,10 (2 hits &le;4), eliminating a unit<br /><br /></li>",
+		"<li><b>Ground Round 2</b>: Our 8 surviving Space Marines have settled. We rolled 1,2,2,4,5,6,8,8 (6 hits &le;6), wiping them out in one volley!</li></ol>",
+		"Cobol has been captured, and we have secured the Air Support alien technology!"],
 	"actions":
 		[{
 			"placeCounter":"FlagR",
@@ -4507,7 +4882,24 @@
 			"location":"D4"
 		}]},
 	{"heading":"Stardate 2413.8 (The Battle for Ada)",
-	"commentary":"<p>Now we can focus on Ada. Their defenders are revealed to be 3 Alien-Cs and 1 Alien-D.</p><ol><li><b>Round 1</b>: We have 2 Battleships to their 4 ships. They gained the Fleet Size Bonus, though fortunately we have no Transports to risk</li><li>Our 2 Green Battleships have the best weapon class, so we shoot first. We rolled 1,9 against their Alien-Cs (1 hit &le;4). We then roll a 6 for experience (failure &gt;2)</li><li>Their 2 surviving Alien-Cs are next. They rolled 2,5 against our Battleships (2 hits &le;5), damaging one of them to 1 HP</li><li>Their 1 Alien-D finally shoots. It rolled a 1 (hits &le;4), destroying one of them<br /><br /></li><li><b>Round 2</b>: We have 1 Battleships to their 3 ships</li><li>Our 1 Green Battleship shoots once more. We rolled a 3 against their Alien-Cs (hit &le;4). We then roll a 2 for experience (success &le;2), promoting us to Skilled</li><li>Their 1 surviving Alien-C is next. They lost the experience advantage. It rolled an 8 (miss &gt;4)</li><li>Their 1 Alien-D shoots once more. It rolled a 10 (miss &gt;3)<br /><br /></li><li><b>Round 3</b>: We have 1 Battleships to their 2 ships. They still keep the Fleet Size Bonus</li><li>Our 1 Battleship shoots once more. We rolled a 1 against their last Alien-C (hit &le;4). We already gained experience this battle</li><li>Their 1 Alien-D shoots once more. It rolled a 2 (hit &le;3), damaging our last ship to 2 HP<br /><br /></li><li><b>Round 4</b>: 1 to 1. They lost the Fleet Size Bonus</li><li>Our 1 Battleship shoots once more. We rolled a 7 against their Alien-D (miss &gt;5)</li><li>Their 1 Alien-D shoots once more. It rolled a 2 (hit &le;2), damaging our ship to 1 HP<br /><br /></li><li><b>Round 5</b>: Our last Battleship has 1 HP left, so we decided that it would retreat to sector G9</li></ol><p>We did not quite eliminate the last of the orbital defenders, so Ada technically is <i>not</i> subdued. It <i>is</i> possible to capture it 2 turns from now!</p>",
+	"commentary":[
+		"Now we can focus on Ada. Their defenders are revealed to be 3 Alien-Cs and 1 Alien-D.",
+		"<ol><li><b>Round 1</b>: We have 2 Battleships to their 4 ships. They gained the Fleet Size Bonus, though fortunately we have no Transports to risk</li>",
+		"<li>Our 2 Green Battleships have the best weapon class, so we shoot first. We rolled 1,9 against their Alien-Cs (1 hit &le;4). We then roll a 6 for experience (failure &gt;2)</li>",
+		"<li>Their 2 surviving Alien-Cs are next. They rolled 2,5 against our Battleships (2 hits &le;5), damaging one of them to 1 HP</li>",
+		"<li>Their 1 Alien-D finally shoots. It rolled a 1 (hits &le;4), destroying one of them<br /><br /></li>",
+		"<li><b>Round 2</b>: We have 1 Battleships to their 3 ships</li>",
+		"<li>Our 1 Green Battleship shoots once more. We rolled a 3 against their Alien-Cs (hit &le;4). We then roll a 2 for experience (success &le;2), promoting us to Skilled</li>",
+		"<li>Their 1 surviving Alien-C is next. They lost the experience advantage. It rolled an 8 (miss &gt;4)</li>",
+		"<li>Their 1 Alien-D shoots once more. It rolled a 10 (miss &gt;3)<br /><br /></li>",
+		"<li><b>Round 3</b>: We have 1 Battleships to their 2 ships. They still keep the Fleet Size Bonus</li>",
+		"<li>Our 1 Battleship shoots once more. We rolled a 1 against their last Alien-C (hit &le;4). We already gained experience this battle</li>",
+		"<li>Their 1 Alien-D shoots once more. It rolled a 2 (hit &le;3), damaging our last ship to 2 HP<br /><br /></li>",
+		"<li><b>Round 4</b>: 1 to 1. They lost the Fleet Size Bonus</li>",
+		"<li>Our 1 Battleship shoots once more. We rolled a 7 against their Alien-D (miss &gt;5)</li>",
+		"<li>Their 1 Alien-D shoots once more. It rolled a 2 (hit &le;2), damaging our ship to 1 HP<br /><br /></li>",
+		"<li><b>Round 5</b>: Our last Battleship has 1 HP left, so we decided that it would retreat to sector G9</li></ol>",
+		"We did not quite eliminate the last of the orbital defenders, so Ada technically is <i>not</i> subdued. It <i>is</i> possible to capture it 2 turns from now!"],
 	"actions":
 		[{
 			"resizeCounter":"SC1R",
@@ -4564,7 +4956,11 @@
 			"removeCounter":"fleet1B"
 		}]},
 	{"heading":"Stardate 2414.0",
-	"commentary":"<p>We still successfully captured a NPA planet, and weakened the protection orbiting a second! We will go on ahead and buy 2 Battleships (-40) and 4 Scouts (-24) at I6, followed by a Battlecruiser (-15) at each of G8 and D9.</p>{prodTable}{techTable}<p>Alien Player homeworlds will grow in economic strength soon. They rolled 1,8,8,10 (Epimetheus) / 3,4,9,9,10 (Prometheus).</p><p>Prometheus is able to launch a fleet, and will automatically do so. Instead, they roll a 2 to buy Movement 3 (-25), and roll a 4 to become an extermination fleet. The galactic capitol becomes its target.</p>",
+	"commentary":[
+		"We still successfully captured a NPA planet, and weakened the protection orbiting a second! We will go on ahead and buy 2 Battleships (-40) and 4 Scouts (-24) at I6, followed by a Battlecruiser (-15) at each of G8 and D9.",
+		"{prodTable}{techTable}",
+		"Alien Player homeworlds will grow in economic strength soon. They rolled 1,8,8,10 (Epimetheus) / 3,4,9,9,10 (Prometheus).",
+		"Prometheus is able to launch a fleet, and will automatically do so. Instead, they roll a 2 to buy Movement 3 (-25), and roll a 4 to become an extermination fleet. The galactic capitol becomes its target."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":1,"colonyCP":93,"mineralCP":10,"pipeCP":11,"maint":20,"techBuy":0,"unitBuy":94
@@ -4679,7 +5075,7 @@
 			"location":"A9"
 		}]},
 	{"heading":"Stardate 2414.1",
-	"commentary":"<p>There is plenty of aggression going in both directions. We need only to deflect the aggression heading our way.</p>",
+	"commentary":["There is plenty of aggression going in both directions. We need only to deflect the aggression heading our way."],
 	"actions":
 		[{
 			"placeCounter":"FlagR",
@@ -4762,7 +5158,14 @@
 			"location":"B9"
 		}]},
 	{"heading":"Stardate 2414.4 (The Rematch for Ada)",
-	"commentary":"<p>We are now ready for our rematch versus the NPA planet of Ada. For the space battle, we opted to screen our Transport, despite forgo-ing the Fleet Size Bonus. Our Skilled Battleship then rolled a 1 (hit &le;5), cleaning up the Alien-D before it even had a chance to shoot back.</p><ol><li><b>Ground Round 1</b>: Victorious in our space battle, we have unloaded our 6 Space Marines. They use this time to settle</li><li>Their 5 militia will shoot first. They rolled 5,6,7,7,10 (0 hits &le;4)<br /><br /></li><li><b>Ground Round 2</b>: Our 6 Space Marines have settled now. We rolled 3,4,6,9,10,10 (3 hits &le;6)</li><li>Their 2 surviving militia return fire. They rolled 1,5 (1 hit &le;4), damaging one of our space marines<br /><br /></li><li><b>Ground Round 3</b>: Our 6 Space Marines shoot once more. We rolled 1,3,5,8,10,10 (3 hits &le;6), finishing off their militia!</li></ol><p>Yet another NPA planet has been captured! We have obtained the Adaptive Cloaking Device alien technology!</p>",
+	"commentary":[
+		"We are now ready for our rematch versus the NPA planet of Ada. For the space battle, we opted to screen our Transport, despite forgo-ing the Fleet Size Bonus. Our Skilled Battleship then rolled a 1 (hit &le;5), cleaning up the Alien-D before it even had a chance to shoot back.",
+		"<ol><li><b>Ground Round 1</b>: Victorious in our space battle, we have unloaded our 6 Space Marines. They use this time to settle</li>",
+		"<li>Their 5 militia will shoot first. They rolled 5,6,7,7,10 (0 hits &le;4)<br /><br /></li>",
+		"<li><b>Ground Round 2</b>: Our 6 Space Marines have settled now. We rolled 3,4,6,9,10,10 (3 hits &le;6)</li>",
+		"<li>Their 2 surviving militia return fire. They rolled 1,5 (1 hit &le;4), damaging one of our space marines<br /><br /></li>",
+		"<li><b>Ground Round 3</b>: Our 6 Space Marines shoot once more. We rolled 1,3,5,8,10,10 (3 hits &le;6), finishing off their militia!</li></ol>",
+		"Yet another NPA planet has been captured! We have obtained the Adaptive Cloaking Device alien technology!"],
 	"actions":
 		[{
 			"placeCounter":"FlagR",
@@ -4848,8 +5251,38 @@
 			"placeCounter":"fleet1B",
 			"location":"C8"
 		}]},
-	{"heading":"Stardate 2414.7 (The Battle for Sector F5)",
-	"commentary":"<p>This may well be one of our busiest turns so far in any Replay Center playthrough <span class=\"bindTxt\">(<i>3</i> battles initiated by us this turn)</span>! We will start with the battles in deep space, starting from closest to farthest, relative to our home systems. Having a guideline makes it easy to organize our commentary and battle logs.</p><p>Since Epimetheus has some Tech CP to work with, they will go on ahead and spend it before building their fleet. Since we are showing at least Battlecruisers, they start on the Boarding step, rolling a 6 (skip &gt;4). On the Ship Size step, they rolled an 8 (skip &gt;6). This places them on the <q>rest of the techs</q> step. Their first pair is 4,3, which causes them to buy Defense 1 (-20). They can buy no more with 5 CP leftover. On the fleet step, their largest ship is still a Cruiser (-12). They then roll a 5 for composition (Balanced). Since they have neither Attack 2 nor Defense 2, they will go on ahead and buy 6 Scouts (-36). This credits a leftover 2 back to the Fleet bank.</p><ol><li><b>Round 1</b>: We have 6 ships. They have 7 ships. Roughly the same size, and Epimetheus believes it is best they screen no ships</li><li>Our 2 Green Battleships have the best weapon class, so they shoot first. We will prioritize their Scouts, and rolled 3,9 accordingly (1 hit &le;5). We then rolled a 4 for experience (failure &gt;2)</li><li>Their 1 Skilled Cruiser shoots next. They rolled a 10 against our Scouts (miss &gt;5)</li><li>Their 5 surviving Skilled Scouts have the tactics advantage. They rolled 1,2,2,4 against our Scouts (4 hits &le;4), followed by a 10 against our Battleships (miss &gt;2). Afterwards, they rolled 2,7,7,8 for experience (success &le;2), promoting them to Veteran<br /><br /></li><li><b>Round 2</b>: We have 2 Battleships. They have 6 ships. Epimetheus has gained the Fleet Size Bonus</li><li>Our 2 Green Battleships shoot once more. We will stay with their Scouts, and rolled 2,8 accordingly (1 hit &le;4). We then rolled a 9 for experience (failure &gt;2)</li><li>Their 1 Skilled Cruiser shoots next. They rolled a 5 (miss &gt;4)</li><li>Their 4 surviving Veteran Scouts shoot once more. They rolled 5,5,5,6 (0 hits &le;3)<br /><br /></li><li><b>Round 3</b>: We have 2 Battleships. They have 5 ships</li><li>Our 2 Green Battleships shoot once more. We rolled 2,7 against their Scouts (1 hit &le;4). We then rolled a 5 for experience (failure &gt;2)</li><li>Their 1 Skilled Cruiser shoots next. They rolled a 6 (miss &gt;4)</li><li>Their 3 surviving Veteran Scouts shoot once more. They rolled 2,8,10 (1 hit &le;3), damaging one of our Battleships<br /><br /></li><li><b>Round 4</b>: We have 2 Battleships. They have 4 ships. They barely keep the Fleet Size Bonus</li><li>Our 2 Green Battleships shoot once more. We rolled 1,4 against their Scouts (2 hits &le;4). We then rolled a 4,10 for experience (failure &gt;2)</li><li>Their 1 Skilled Cruiser shoots next. They rolled an 8 (miss &gt;4)</li><li>Their 1 surviving Veteran Scouts shoot once more. They rolled a 9 (miss &gt;3)<br /><br /></li><li><b>Round 5</b>: We have 2 Battleships. They have 2 ships. They have lost the Fleet Size Bonus</li><li>Our 2 Green Battleships shoot once more. We rolled 6,10 against their Scouts (0 hits &le;4)</li><li>Their 1 Skilled Cruiser shoots next. They rolled a 2 (hit &le;3), damaging a Battleship</li><li>Their 1 Veteran Scouts shoot once more. They rolled 1 (hit &le;2), finishing off a Battleship. This group previously gained experience this battle<br /><br /></li><li><b>Round 6</b>: We have 1 Battleship. They have 2 ships. They have regained the Fleet Size Bonus</li><li>Our 1 surviving Green Battleship shoots once more. We rolled a 7 against their last Scout (miss &gt;4)</li><li>Their 1 Skilled Cruiser shoots next. They rolled a 10 (miss &gt;4)</li><li>Their 1 Veteran Scout shoots once more. They rolled 3 (1 hit &le;3), damaging our last Battleship<br /><br /></li><li><b>Round 7</b>: Our 1 Green Battleship shoots once more. We rolled a 1 against their Scouts (hit &le;4). We then rolled a 9 for experience (failure &gt;2)</li><li>Their 1 Skilled Cruiser shoots next. They rolled a 2 (hit &le;4)<br /><br /></li><li><b>Round 8</b>: With only 1 HP left, our last Battleship has been ordered to retreat to sector G5</li></ol>",
+	{"heading":"Stardate 2414.7P (The Battle for Sector F5)",
+	"commentary":[
+		"This may well be one of our busiest turns so far in any Replay Center playthrough <span class=\"bindTxt\">(<i>3</i> battles initiated by us this turn)</span>! We will start with the battles in deep space, starting from closest to farthest, relative to our home systems. Having a guideline makes it easy to organize our commentary and battle logs.",
+		"Since Epimetheus has some Tech CP to work with, they will go on ahead and spend it before building their fleet. Since we are showing at least Battlecruisers, they start on the Boarding step, rolling a 6 (skip &gt;4). On the Ship Size step, they rolled an 8 (skip &gt;6). This places them on the <q>rest of the techs</q> step. Their first pair is 4,3, which causes them to buy Defense 1 (-20). They can buy no more with 5 CP leftover. On the fleet step, their largest ship is still a Cruiser (-12). They then roll a 5 for composition (Balanced). Since they have neither Attack 2 nor Defense 2, they will go on ahead and buy 6 Scouts (-36). This credits a leftover 2 back to the Fleet bank.",
+		"<ol>",
+		"<li><b>Round 1</b>: We have 6 ships. They have 7 ships. Roughly the same size, and Epimetheus believes it is best they screen no ships</li>",
+		"<li>Our 2 Green Battleships have the best weapon class, so they shoot first. We will prioritize their Scouts, and rolled 3,9 accordingly (1 hit &le;5). We then rolled a 4 for experience (failure &gt;2)</li>",
+		"<li>Their 1 Skilled Cruiser shoots next. They rolled a 10 against our Scouts (miss &gt;5)</li>",
+		"<li>Their 5 surviving Skilled Scouts have the tactics advantage. They rolled 1,2,2,4 against our Scouts (4 hits &le;4), followed by a 10 against our Battleships (miss &gt;2). Afterwards, they rolled 2,7,7,8 for experience (success &le;2), promoting them to Veteran<br /><br /></li>",
+		"<li><b>Round 2</b>: We have 2 Battleships. They have 6 ships. Epimetheus has gained the Fleet Size Bonus</li>",
+		"<li>Our 2 Green Battleships shoot once more. We will stay with their Scouts, and rolled 2,8 accordingly (1 hit &le;4). We then rolled a 9 for experience (failure &gt;2)</li>",
+		"<li>Their 1 Skilled Cruiser shoots next. They rolled a 5 (miss &gt;4)</li>",
+		"<li>Their 4 surviving Veteran Scouts shoot once more. They rolled 5,5,5,6 (0 hits &le;3)<br /><br /></li>",
+		"<li><b>Round 3</b>: We have 2 Battleships. They have 5 ships</li>",
+		"<li>Our 2 Green Battleships shoot once more. We rolled 2,7 against their Scouts (1 hit &le;4). We then rolled a 5 for experience (failure &gt;2)</li>",
+		"<li>Their 1 Skilled Cruiser shoots next. They rolled a 6 (miss &gt;4)</li>",
+		"<li>Their 3 surviving Veteran Scouts shoot once more. They rolled 2,8,10 (1 hit &le;3), damaging one of our Battleships<br /><br /></li>",
+		"<li><b>Round 4</b>: We have 2 Battleships. They have 4 ships. They barely keep the Fleet Size Bonus</li>",
+		"<li>Our 2 Green Battleships shoot once more. We rolled 1,4 against their Scouts (2 hits &le;4). We then rolled a 4,10 for experience (failure &gt;2)</li>",
+		"<li>Their 1 Skilled Cruiser shoots next. They rolled an 8 (miss &gt;4)</li>",
+		"<li>Their 1 surviving Veteran Scouts shoot once more. They rolled a 9 (miss &gt;3)<br /><br /></li>",
+		"<li><b>Round 5</b>: We have 2 Battleships. They have 2 ships. They have lost the Fleet Size Bonus</li>",
+		"<li>Our 2 Green Battleships shoot once more. We rolled 6,10 against their Scouts (0 hits &le;4)</li>",
+		"<li>Their 1 Skilled Cruiser shoots next. They rolled a 2 (hit &le;3), damaging a Battleship</li>",
+		"<li>Their 1 Veteran Scouts shoot once more. They rolled 1 (hit &le;2), finishing off a Battleship. This group previously gained experience this battle<br /><br /></li>",
+		"<li><b>Round 6</b>: We have 1 Battleship. They have 2 ships. They have regained the Fleet Size Bonus</li>",
+		"<li>Our 1 surviving Green Battleship shoots once more. We rolled a 7 against their last Scout (miss &gt;4)</li>",
+		"<li>Their 1 Skilled Cruiser shoots next. They rolled a 10 (miss &gt;4)</li>",
+		"<li>Their 1 Veteran Scout shoots once more. They rolled 3 (1 hit &le;3), damaging our last Battleship<br /><br /></li>",
+		"<li><b>Round 7</b>: Our 1 Green Battleship shoots once more. We rolled a 1 against their Scouts (hit &le;4). We then rolled a 9 for experience (failure &gt;2)</li>",
+		"<li>Their 1 Skilled Cruiser shoots next. They rolled a 2 (hit &le;4)<br /><br /></li>",
+		"<li><b>Round 8</b>: With only 1 HP left, our last Battleship has been ordered to retreat to sector G5</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"FlagR",
@@ -4944,8 +5377,14 @@
 		},{
 			"removeCounter":"DD4B"
 		}]},
-	{"heading":"Stardate 2414.7 (The Battle for Sector C8)",
-	"commentary":"<p>And now for the second battle we have initiated. Prometheus has no Tech CP to spend, so they will skip to fleet construction. Their largest ship is still a Cruiser. They then roll a 9 for composition (Largest Ships). They buy 2 Cruisers (-24), and then 1 Destroyer (-9). This credits a leftover 2 back to the Fleet bank.</p><ol><li><b>Round 1</b>: We have 2 Battlecruisers. They have 3 ships. Roughly the same size, and Prometheus believes it is best they screen no ships</li><li>Our 2 Green Battlecruisers have the best weapon class, so they shoot first. We will prioritize their Destroyer, and rolled a 1 (hit &le;6), followed by an 8 against their Cruisers (miss &gt;5). We then rolled a 3 for experience (failure &gt;2)</li><li>Their 2 Skilled Cruisers shoot next. They rolled 5,5 (2 hits &le;5), cleaning destroying one of our ships. They then roll a 7 for experience (faillure &gt;4)<br /><br /></li><li><b>Round 2</b>: We have 1 Battlecruiser. They have 2 Cruisers. Prometheus has gained the Fleet Size Bonus</li><li>In response to this, we have decided our 1 surviving Green Battlecruiser will retreat to sector D8</li></ol>",
+	{"heading":"Stardate 2414.7P (The Battle for Sector C8)",
+	"commentary":[
+		"And now for the second battle we have initiated. Prometheus has no Tech CP to spend, so they will skip to fleet construction. Their largest ship is still a Cruiser. They then roll a 9 for flet composition (Largest Ships). They buy 2 Cruisers (-24), and then 1 Destroyer (-9). This credits a leftover 2 back to the Fleet bank.",
+		"<ol><li><b>Round 1</b>: We have 2 Battlecruisers. They have 3 ships. Roughly the same size, and Prometheus believes it is best they screen no ships</li>",
+		"<li>Our 2 Green Battlecruisers have the best weapon class, so they shoot first. We will prioritize their Destroyer, and rolled a 1 (hit &le;6), followed by an 8 against their Cruisers (miss &gt;5). We then rolled a 3 for experience (failure &gt;2)</li>",
+		"<li>Their 2 Skilled Cruisers shoot next. They rolled 5,5 (2 hits &le;5), cleaning destroying one of our ships. They then roll a 7 for experience (faillure &gt;4)<br /><br /></li>",
+		"<li><b>Round 2</b>: We have 1 Battlecruiser. They have 2 Cruisers. Prometheus has gained the Fleet Size Bonus</li",
+		"><li>In response to this, we have decided our 1 surviving Green Battlecruiser will retreat to sector D8</li></ol>"],
 	"actions":
 		[{
 			"removeCounter":"SC2R"
@@ -4978,8 +5417,40 @@
 			"resizeCounter":"base1G",
 			"size":2
 		}]},
-	{"heading":"Stardate 2414.7 (The Battle for Chulak)",
-	"commentary":"<p>And now for one of the most important battles throughout this playthrough; Epimetheus' homeworld of Chulak is under assault! Since it is a homeworld that is being assaulted, they will launch a fleet to defend themselves; though they only have enough moeny for 1 Scout (-6) and no technology. Their Protection money is insufficient (&lt;25 CP), so they skip the ground unit step. Instead, they roll a 10 for most Bases, of which they can afford 1. The leftover 1 CP is insufficient to buy anything else.</p><h3>Space Battle</h3><ol><li><b>Round 1</b>: We have 17 ships. They have 4 ships. We will screen our Transports each round (if able). We also gain the Fleet Size Bonus</li><li>Their 3 Bases have the best weapon class, so they shoot first. They rolled a 1 versus our sole Scout, followed by 2,10 versus our Minesweepers (2 hits &le;7)</li><li>Our 3 Skilled Battlecruisers are next in line. We rolled a 2 against their sole Scout (hit &le;5), followed by 1,6 against their Bases (1 hit &le;3), damaging one of them. This group then rolls a 6 for experience (failure &gt;2)</li><li>Our 8 Legendary Cruisers are next. We rolled 3,4,5,6,7,8,8,10 (0 hits &le;2)</li><li>Our 1 Minesweeper can finally shoot. We rolled 9 (miss &gt;1)<br /><br /></li><li><b>Round 2</b>: We have 15 ships. They have 3 Bases</li><li>Their 3 Bases shoot once more. They rolled a 1 against our last Minesweeper (hit &le;7), followed by 8,8 against our Battlecruisers (0 hits &le;6)</li><li>Our 3 Battlecruisers are next in line. We rolled 3,8,8 (1 hit &le;3), damaging one of them further</li><li>Our 8 Legendary Cruisers are next. We rolled 4,4,7,8,8,9,10,10 (0 hits &le;2)<br /><br /></li><li><b>Round 3</b>: We have 14 ships. They have 3 Bases</li><li>Their 3 Bases shoot once more. They rolled 1,2,8 against our Battlecruisers (2 hits &le;6), cleanly eliminating one of them</li><li>Our 2 surviving Battlecruisers are next. We rolled 5,7 (0 hits &le;3</li><li>Our 8 Legendary Cruisers are next. We rolled 2,3,5,6,7,9,10,10 (1 hit &le;2)), finishing one of them off. Bases do not participate in the experience system, so we skip this step<br /><br /></li><li><b>Round 4</b>: We have 13 ships. They have 2 Bases</li><li>Their 2 Bases shoot once more. They rolled 7,10 against our Battlecruisers (0 hits &le;6)</li><li>Our 2 Battlecruisers are next. We rolled 1,2 (2 hits &le;3), finishing off their second Base</li><li>Our 8 Legendary Cruisers are next. We rolled 1,2,3,3,4,6,7,9 (2 hits &le;2), badly damaging their last Base<br /><br /></li><li><b>Round 5</b>: We have 13 ships. They have 1 Base</li><li>Their 1 Base shoots once more. They rolled a 9 against our Battlecruisers (miss &gt;6)</li><li>Our 2 Battlecruisers are next. We rolled 5,9 (0 hits &le;3)</li><li>Our 8 Legendary Cruisers are next. We rolled 1,2,2,2,4,7,9,10 (4 hits &le;2), finishing off their last Base<br /><br /></li></ol><h3>Bombardment Sequence</h3><p>The homeworld is exposed, but 20 militia is an immense number for our 7 Space Marines. This is a non-NPA colony, so bombarding to weaken is fair game. We will go on ahead and do a partial bombardment to try to reduce its strength to 5 CP in income (1 HP). Our 3 Battlecruisers rolled 3,4,7 (2 hits &le;5), which weakened it to 10 CP (2 HP). Our Cruisers then rolled a 4 to weaken it to 5 CP (1 HP). We will conclude the bombardment process here, and unload our ground units.</p><h3>Ground Battle</h3><ol><li><b>Round 1</b>: Our 7 Space Marines have landed, and will settle this round</li><li>Their 5 militia will shoot first, and rolled 2,3,6,9,9 (2 hits &le;4), cleanly killing a Space Marines<br /><br /></li><li><b>Round 2</b>: Our 6 surviving Space Marines have settled. We rolled 2,3,5,7,8,8 (3 hits &le;6)</li><li>Their 2 militia shoot once more, and rolled 2,5 (1 hit &le;4), damaging another Space Marines<br /><br /></li><li><b>Round 3</b>: Our 6 Space Marines shoot once more. We rolled 1,2,4,5,6,8 (5 hits &le;6). Their militia is finished!</li></ol><p>We have captured Epimetheus' homeworld of Chulak! We have acquired Defense 1 from the databases that survived our partial bombardment. This Alien Player is also no longer able to build more fleets, making it one less source of further battles.</p>",
+	{"heading":"Stardate 2414.7P (The Battle for Chulak)",
+	"commentary":[
+		"And now for one of the most important battles throughout this playthrough; Epimetheus' homeworld of Chulak is under assault! Since it is a homeworld that is being assaulted, they will launch a fleet to defend themselves; though they only have enough moeny for 1 Scout (-6) and no technology. Their Defense money is insufficient (&lt;25 CP), so they skip the ground unit step. Instead, they roll a 10 for most Bases, of which they can afford 1. The leftover 1 CP is insufficient to buy anything else.",
+		"<h3>Space Battle</h3>",
+		"<ol><li><b>Round 1</b>: We have 17 ships. They have 4 ships. We will screen our Transports each round (if able). We also gain the Fleet Size Bonus</li>",
+		"<li>Their 3 Bases have the best weapon class, so they shoot first. They rolled a 1 versus our sole Scout, followed by 2,10 versus our Minesweepers (2 hits &le;7)</li>",
+		"<li>Our 3 Skilled Battlecruisers are next in line. We rolled a 2 against their sole Scout (hit &le;5), followed by 1,6 against their Bases (1 hit &le;3), damaging one of them. This group then rolls a 6 for experience (failure &gt;2)</li>",
+		"<li>Our 8 Legendary Cruisers are next. We rolled 3,4,5,6,7,8,8,10 (0 hits &le;2)</li>",
+		"<li>Our 1 Minesweeper can finally shoot. We rolled 9 (miss &gt;1)<br /><br /></li>",
+		"<li><b>Round 2</b>: We have 15 ships. They have 3 Bases</li>",
+		"<li>Their 3 Bases shoot once more. They rolled a 1 against our last Minesweeper (hit &le;7), followed by 8,8 against our Battlecruisers (0 hits &le;6)</li>",
+		"<li>Our 3 Battlecruisers are next in line. We rolled 3,8,8 (1 hit &le;3), damaging one of them further</li>",
+		"<li>Our 8 Legendary Cruisers are next. We rolled 4,4,7,8,8,9,10,10 (0 hits &le;2)<br /><br /></li>",
+		"<li><b>Round 3</b>: We have 14 ships. They have 3 Bases</li>",
+		"<li>Their 3 Bases shoot once more. They rolled 1,2,8 against our Battlecruisers (2 hits &le;6), cleanly eliminating one of them</li>",
+		"<li>Our 2 surviving Battlecruisers are next. We rolled 5,7 (0 hits &le;3</li>",
+		"<li>Our 8 Legendary Cruisers are next. We rolled 2,3,5,6,7,9,10,10 (1 hit &le;2)), finishing one of them off. Bases do not participate in the experience system, so we skip this step<br /><br /></li>",
+		"<li><b>Round 4</b>: We have 13 ships. They have 2 Bases</li>",
+		"<li>Their 2 Bases shoot once more. They rolled 7,10 against our Battlecruisers (0 hits &le;6)</li>",
+		"<li>Our 2 Battlecruisers are next. We rolled 1,2 (2 hits &le;3), finishing off their second Base</li>",
+		"<li>Our 8 Legendary Cruisers are next. We rolled 1,2,3,3,4,6,7,9 (2 hits &le;2), badly damaging their last Base<br /><br /></li>",
+		"<li><b>Round 5</b>: We have 13 ships. They have 1 Base</li>",
+		"<li>Their 1 Base shoots once more. They rolled a 9 against our Battlecruisers (miss &gt;6)</li>",
+		"<li>Our 2 Battlecruisers are next. We rolled 5,9 (0 hits &le;3)</li>",
+		"<li>Our 8 Legendary Cruisers are next. We rolled 1,2,2,2,4,7,9,10 (4 hits &le;2), finishing off their last Base<br /><br /></li></ol>",
+		"<h3>Bombardment Sequence</h3>",
+		"The homeworld is exposed, but 20 militia is an immense number for our 7 Space Marines. This is a non-NPA colony, so bombarding to weaken is fair game. We will go on ahead and do a partial bombardment to try to reduce its strength to 5 CP in income (1 HP). Our 3 Battlecruisers rolled 3,4,7 (2 hits &le;5), which weakened it to 10 CP (2 HP). Our Cruisers then rolled a 4 to weaken it to 5 CP (1 HP). We will conclude the bombardment process here, and unload our ground units.",
+		"<h3>Ground Battle</h3>",
+		"<ol><li><b>Round 1</b>: Our 7 Space Marines have landed, and will settle this round</li>",
+		"<li>Their 5 militia will shoot first, and rolled 2,3,6,9,9 (2 hits &le;4), cleanly killing a Space Marines<br /><br /></li>",
+		"<li><b>Round 2</b>: Our 6 surviving Space Marines have settled. We rolled 2,3,5,7,8,8 (3 hits &le;6)</li>",
+		"<li>Their 2 militia shoot once more, and rolled 2,5 (1 hit &le;4), damaging another Space Marines<br /><br /></li>",
+		"<li><b>Round 3</b>: Our 6 Space Marines shoot once more. We rolled 1,2,4,5,6,8 (5 hits &le;6). Their militia is finished!</li></ol>",
+		"We have captured Epimetheus' homeworld of Chulak! We have acquired Defense 1 from the databases that survived our partial bombardment. This Alien Player is also no longer able to build more fleets, making it one less source of further battles."],
 	"alienTableX":
 		[{
 			"name":"Epimetheus (Green)","eco":4,"fleet":1,"tech":5,"def":1,"expo":0,"delta":"---"
@@ -5035,8 +5506,8 @@
 			"revealCounter":"systemA4",
 			"name":"home20G"
 		}]},
-	{"heading":"Stardate 2414.7 (Alien Turn)",
-	"commentary":"<p>Despite the loss of their homeworld, Epimetheus can operate the 1 fleet they still have on the board.</p>",
+	{"heading":"Stardate 2414.7A",
+	"commentary":["Despite the loss of their homeworld, Epimetheus can operate the 1 fleet they still have on the board."],
 	"actions":
 		[{
 			"removeCounter":"SC1R"
@@ -5097,7 +5568,12 @@
 			"removeCounter":"fleet2B"
 		}]},
 	{"heading":"Stardate 2415.0",
-	"commentary":"<p>We may be able to close out this playthrough soon, now that only one Alien Player homeworld remains. It does not matter if we glass it by bombardment, or capture it with ground units; both outcomes will finish this playthrough off.</p><p>Anyway, we will buy Attack 2 (-30) and Minesweeping 3 (-20). We then buy 2 Minesweepers (-12) + 1 Ship Yard (-6) at D9, 1 Pipeline (-3) at G8, and 1 Ship Yard (-6) at the former homeworld of Chulak (A4). The rest of the money will be set aside upgrading the primary fleet that conquered Chulak.</p>{prodTable}{techTable}<p>At this point in time, only Prometheus still has their homeworld. Their homeworld gained an extra economic roll, and rolled 1,2,3,6,6,9 as a consequence.</p><p>For fleet launches, they rolled a 1 (launch). Since they don't have enough Tech CP for another Movement level, they instead roll a 5 to determine mission (extermination fleet), and our homeworld has become its new target.</p>",
+	"commentary":[
+		"We may be able to close out this playthrough soon, now that only one Alien Player homeworld remains. It does not matter if we glass it by bombardment, or capture it with ground units; both outcomes will finish this playthrough off.",
+		"Anyway, we will buy Attack 2 (-30) and Minesweeping 3 (-20). We then buy 2 Minesweepers (-12) + 1 Ship Yard (-6) at D9, 1 Pipeline (-3) at G8, and 1 Ship Yard (-6) at the former homeworld of Chulak (A4). The rest of the money will be set aside upgrading the primary fleet that conquered Chulak.",
+		"{prodTable}{techTable}",
+		"At this point in time, only Prometheus still has their homeworld. Their homeworld gained an extra economic roll, and rolled 1,2,3,6,6,9 as a consequence.",
+		"For fleet launches, they rolled a 1 (launch). Since they don't have enough Tech CP for another Movement level, they instead roll a 5 to determine mission (extermination fleet), and our homeworld has become its new target."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":1,"colonyCP":101,"mineralCP":10,"pipeCP":11,"maint":23,"techBuy":50,"unitBuy":27
@@ -5190,7 +5666,12 @@
 			"location":"A9"
 		}]},
 	{"heading":"Stardate 2415.3 (The Battle for Sector G4)",
-	"commentary":"<p>The victors of Chulak (sans ths Transports) will spend this turn to upgrade their weapons and armor (to Attack +2 / Defense +1). This process spends all of the 23 CP that we had set aside. We also opt to clean up the last of Epimetheus' threat.</p><ol><li><b>Round 1</b>: 1 Battleship versus 1 Cruiser. Next frag wins!</li><li>Our Battleship has the best weapon class, so it shoots first (&le;4 to hit). We rolled a <b>3</b>, reducing their HP to 1</li><li>Their Cruiser shoots next (&le;2 to hit). It rolled a 4<br /><br /></li><li><b>Round 2</b>: Our Battleship rolled another <b>3</b>, finishing off their Cruiser. It then rolled a 9 for experience (failure &gt;4)</li></ol>",
+	"commentary":[
+		"The victors of Chulak (sans ths Transports) will spend this turn to upgrade their weapons and armor (to Attack +2 / Defense +1). This process spends all of the 23 CP that we had set aside. We also opt to clean up the last of Epimetheus' threat.",
+		"<ol><li><b>Round 1</b>: 1 Battleship versus 1 Cruiser. Next frag wins!</li>",
+		"<li>Our Battleship has the best weapon class, so it shoots first (&le;4 to hit). We rolled a <b>3</b>, reducing their HP to 1</li>",
+		"<li>Their Cruiser shoots next (&le;2 to hit). It rolled a 4<br /><br /></li>",
+		"<li><b>Round 2</b>: Our Battleship rolled another <b>3</b>, finishing off their Cruiser. It then rolled a 9 for experience (failure &gt;4)</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"FlagR",
@@ -5257,7 +5738,18 @@
 			"location":"B9"
 		}]},
 	{"heading":"Stardate 2415.6 (The Battle for the Galactic Capitol)",
-	"commentary":"<p>While our primary fleet pushes east towards Terra, a previous extermination fleet is ready to assault the galactic capitol... at least, if we had not scrambled a couple of defenders in time. All participants this battle are at Skilled experience, unless there is a level up involved.</p><ol><li><b>Round 1</b>: We have 2 ships. They have 2 Cruisers</li><li>Our Battleship has the best weapon class, so it shoots first. We rolled a 2 against their Cruisers (hit &le;5), damaging one of them</li><li>Our Battlecruiser shoots next. We rolled a 10 against their Cruisers (miss &gt;5)</li><li>Their Cruisers shoot next. They rolled 4,8 against our Battlecruiser (1 hit &le;4), damaging it<br /><br /></li><li><b>Round 2</b>: Our Battleship shoots once more. We rolled a 6 against their Cruisers (miss &gt;5)</li><li>Our Battlecruiser shoots next. We rolled a 5 against their Cruisers (hit &le;5), finishing one of them. We then rolled a 9 for experience (failure &gt;4)</li><li>Their last Cruiser shoots next. They rolled a 4 against our Battlecruiser (hit &le;4), finishing it. They then rolled a 7 for experience (failure &gt;4)<br /><br /></li><li><b>Round 3</b>: Next frag wins! Our Battleship (3 HP) rolled a 2 (hit &le;5). Their Cruiser (1 HP left) then rolled a 1 (hit &le;3)</li><li><b>Round 4</b>: Our Battleship (2 HP) rolled a 6 (miss &gt;5). Their Cruiser (1 HP left) then rolled a 1 (hit &le;3)</li><li><b>Round 5</b>: Our Battleship (1 HP) has opted to retreat, to sector G7</li><li><b>Bombardment Round</b>: Regrettably, this leaves the galactic capitol exposed to the Alien Player Cruiser. It rolled a 7 (miss &gt;5)</li></ol>",
+	"commentary":[
+		"While our primary fleet pushes east towards Terra, a previous extermination fleet is ready to assault the galactic capitol... at least, if we had not scrambled a couple of defenders in time. All participants this battle are at Skilled experience, unless there is a level up involved.",
+		"<ol><li><b>Round 1</b>: We have 2 ships. They have 2 Cruisers</li>",
+		"<li>Our Battleship has the best weapon class, so it shoots first. We rolled a 2 against their Cruisers (hit &le;5), damaging one of them</li><li>Our Battlecruiser shoots next. We rolled a 10 against their Cruisers (miss &gt;5)</li>",
+		"<li>Their Cruisers shoot next. They rolled 4,8 against our Battlecruiser (1 hit &le;4), damaging it<br /><br /></li>",
+		"<li><b>Round 2</b>: Our Battleship shoots once more. We rolled a 6 against their Cruisers (miss &gt;5)</li>",
+		"<li>Our Battlecruiser shoots next. We rolled a 5 against their Cruisers (hit &le;5), finishing one of them. We then rolled a 9 for experience (failure &gt;4)</li>",
+		"<li>Their last Cruiser shoots next. They rolled a 4 against our Battlecruiser (hit &le;4), finishing it. They then rolled a 7 for experience (failure &gt;4)<br /><br /></li>",
+		"<li><b>Round 3</b>: Next frag wins! Our Battleship (3 HP) rolled a 2 (hit &le;5). Their Cruiser (1 HP left) then rolled a 1 (hit &le;3)</li>",
+		"<li><b>Round 4</b>: Our Battleship (2 HP) rolled a 6 (miss &gt;5). Their Cruiser (1 HP left) then rolled a 1 (hit &le;3)</li>",
+		"<li><b>Round 5</b>: Our Battleship (1 HP) has opted to retreat, to sector G7</li>",
+		"<li><b>Bombardment Round</b>: Regrettably, this leaves the galactic capitol exposed to the Alien Player Cruiser. It rolled a 7 (miss &gt;5)</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"FlagR",
@@ -5322,7 +5814,11 @@
 			"location":"C9"
 		}]},
 	{"heading":"Stardate 2415.9 (The Rematch for the Galactic Capitol)",
-	"commentary":"<p>Pulling our Battleship out of the battle allowed it to regain its strength... at the expense of the last Cruiser also regaining its strength. We will have a rematch this turn.</p><ol><li><b>Round 1</b>: 1 Battleship versus 1 Cruiser. Next frag wins!</li><li>Our Battleship (3 HP) has rolled a <b>1</b> (&le;5 to hit). Their Cruiser (1 HP left) rolled a 10 (&le;3 to hit)<br /><br /></li><li><b>Round 2</b>: Our Battleship has rolled a <b>3</b> (&le;5 to hit), scoring the finishing hit! It has then rolled a 5 for experience (failure &gt;4)</li></ol>",
+	"commentary":[
+		"Pulling our Battleship out of the battle allowed it to regain its strength... at the expense of the last Cruiser also regaining its strength. We will have a rematch this turn.",
+		"<ol><li><b>Round 1</b>: 1 Battleship versus 1 Cruiser. Next frag wins!</li>",
+		"<li>Our Battleship (3 HP) has rolled a <b>1</b> (&le;5 to hit). Their Cruiser (1 HP left) rolled a 10 (&le;3 to hit)<br /><br /></li>",
+		"<li><b>Round 2</b>: Our Battleship has rolled a <b>3</b> (&le;5 to hit), scoring the finishing hit! It has then rolled a 5 for experience (failure &gt;4)</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"FlagR",
@@ -5387,7 +5883,10 @@
 			"removeCounter":"fleet3B"
 		}]},
 	{"heading":"Stardate 2416.0",
-	"commentary":"<p>We may be able to close out this playthrough 3 turns from now... depending on where the 55 CP gets spent, protection-wise. We buy Military Academy 1 (-15) + Ship Size 6 (-20), followed 1 Battlecruiser (-15) + 1 Ship Yard (-6) at G8, 2 Minesweepers (-12) + 2 Destroyers (-18) + 1 Ship Yard (-6) at D9.</p>{prodTable}{techTable}<p>For economic rolls, Prometheus rolled 1,3,5,8,8,10. Fleet launches are automatic. Prometheus instead rolled an 8 for extermination fleet, and got the galactic capitol as its random assignment.</p>",
+	"commentary":[
+		"We may be able to close out this playthrough 3 turns from now... depending on where the 55 CP gets spent, Defense-wise. We buy Military Academy 1 (-15) + Ship Size 6 (-20), followed 1 Battlecruiser (-15) + 1 Ship Yard (-6) at G8, 2 Minesweepers (-12) + 2 Destroyers (-18) + 1 Ship Yard (-6) at D9.",
+		"{prodTable}{techTable}",
+		"For economic rolls, Prometheus rolled 1,3,5,8,8,10. Fleet launches are automatic. Prometheus instead rolled an 8 for extermination fleet, and got the galactic capitol as its random assignment."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":0,"colonyCP":105,"mineralCP":10,"pipeCP":12,"maint":23,"techBuy":35,"unitBuy":57
@@ -5476,7 +5975,7 @@
 			"location":"A9"
 		}]},
 	{"heading":"Stardate 2416.2",
-	"commentary":"<p>The push towards Terra now has a small secondary fleet coming in to sandwich the planet.</p>",
+	"commentary":["The push towards Terra now has a small secondary fleet coming in to sandwich the planet."],
 	"actions":
 		[{
 			"placeCounter":"FlagR",
@@ -5541,7 +6040,24 @@
 			"location":"B9"
 		}]},
 	{"heading":"Stardate 2416.5 (The Battle for Sector G9)",
-	"commentary":"<p>Almost ready to pressure Terra... but we have a battle to resolve against one of our colonies first. Starting at the Military Academy step, Prometheus rolls a 9 (skip). On the Boarding step, they roll a 10 (also skip). On the Ship Size step, they roll a 2 (buy). Prometheus buys Ship Size 4 for 20 CP, spending all of their Tech bank. For fleet construction, we go straight to the largest ship step, which gives them a Battlecruiser (-15). For composition, they roll a 5 (Balanced). With only Attack 1, they build 2 Scouts (-12) to accompany their Battlecruiser; which spends all of their assigned money.</p><ol><li><b>Round 1</b>: We have 2 ships. They have 3 ships. This could go either direction</li><li>Our Battleship has the best weapon class, so we shoot first. We rolled a 7 against their Scouts (miss &gt;6)</li><li>Our Battlecruiser has the tactics advantage, so it shoots first. We rolled a 10 against their Scouts (miss &gt;7)</li><li>Their Battlecruiser shoots next. They rolled a 6 against our Battlecruiser (miss &gt;4)</li><li>Their 2 Scouts shoot at last. They rolled 1,7 against our Battlecruiser (1 hit &le;2), damaging it<br /><br /></li><li><b>Round 2</b>: Our Battleship shoots once more. We rolled a 5 against their Scouts (hit &le;6). We then rolled an 8 for experience (failure &gt;2)</li><li>Our Battlecruiser shoots next. We rolled a 9 against their Scouts (miss &gt;7)</li><li>Their Battlecruiser shoots once more. They rolled a 5 against our Battlecruiser (miss &gt;4)</li><li>Their 1 surviving Scout shoots also. They rolled a 9 against our Battlecruiser (1 hit &le;2), damaging it<br /><br /></li><li><b>Round 3</b>: Two to two. Our Battleship shoots once more. We rolled a 4 against their last Scout (hit &le;6). We then rolled a 10 for experience (failure &gt;2)</li><li>Our Battlecruiser shoots next. We rolled a 5 against their last ship (hit &le;6), damaging it</li><li>Their Battlecruiser shoots once more. They rolled a 4 against our Battlecruiser (hit &le;4), finishing it off. They then rolled an 8 for experience (failure &gt;4)<br /><br /></li><li><b>Round 4</b>: One to one. Next frag wins! (Assuming we do not retreat)</li><li>Our Battleship rolled a 6 (miss &gt;5). Their Battlecruiser rolled a 1 (hit &le;4), damaging our last ship to 2 HP<br /><br /></li><li><b>Round 5</b>: Our Battleship rolled a 2 (hit &le;5), finishing off their last ship. We then rolled an 8 for experience (failure &gt;4)</li></ol>",
+	"commentary":[
+		"Almost ready to pressure Terra... but we have a battle to resolve against one of our colonies first. Starting at the Military Academy step, Prometheus rolls a 9 (skip). On the Boarding step, they roll a 10 (also skip). On the Ship Size step, they roll a 2 (buy). Prometheus buys Ship Size 4 for 20 CP, spending all of their Tech bank.",
+		"For fleet construction, we go straight to the largest ship step, which gives them a Battlecruiser (-15). For fleet composition, they roll a 5 (Balanced). With only Attack 1, they build 2 Scouts (-12) to accompany their Battlecruiser; which spends all of their assigned money.",
+		"<ol><li><b>Round 1</b>: We have 2 ships. They have 3 ships. This could go either direction</li>",
+		"<li>Our Battleship has the best weapon class, so we shoot first. We rolled a 7 against their Scouts (miss &gt;6)</li>",
+		"<li>Our Battlecruiser has the tactics advantage, so it shoots first. We rolled a 10 against their Scouts (miss &gt;7)</li>",
+		"<li>Their Battlecruiser shoots next. They rolled a 6 against our Battlecruiser (miss &gt;4)</li>",
+		"<li>Their 2 Scouts shoot at last. They rolled 1,7 against our Battlecruiser (1 hit &le;2), damaging it<br /><br /></li>",
+		"<li><b>Round 2</b>: Our Battleship shoots once more. We rolled a 5 against their Scouts (hit &le;6). We then rolled an 8 for experience (failure &gt;2)</li>",
+		"<li>Our Battlecruiser shoots next. We rolled a 9 against their Scouts (miss &gt;7)</li>",
+		"<li>Their Battlecruiser shoots once more. They rolled a 5 against our Battlecruiser (miss &gt;4)</li>",
+		"<li>Their 1 surviving Scout shoots also. They rolled a 9 against our Battlecruiser (1 hit &le;2), damaging it<br /><br /></li>",
+		"<li><b>Round 3</b>: Two to two. Our Battleship shoots once more. We rolled a 4 against their last Scout (hit &le;6). We then rolled a 10 for experience (failure &gt;2)</li>",
+		"<li>Our Battlecruiser shoots next. We rolled a 5 against their last ship (hit &le;6), damaging it</li>",
+		"<li>Their Battlecruiser shoots once more. They rolled a 4 against our Battlecruiser (hit &le;4), finishing it off. They then rolled an 8 for experience (failure &gt;4)<br /><br /></li>",
+		"<li><b>Round 4</b>: One to one. Next frag wins! (Assuming we do not retreat)</li>",
+		"<li>Our Battleship rolled a 6 (miss &gt;5). Their Battlecruiser rolled a 1 (hit &le;4), damaging our last ship to 2 HP<br /><br /></li>",
+		"<li><b>Round 5</b>: Our Battleship rolled a 2 (hit &le;5), finishing off their last ship. We then rolled an 8 for experience (failure &gt;4)</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"FlagR",
@@ -5618,7 +6134,29 @@
 			"removeCounter":"mines2B"
 		}]},
 	{"heading":"Stardate 2416.8 (The Battle for Terra)",
-	"commentary":"<p>Now is the time to pile on <i>every</i> combat ship that was able to reach Terra! Their Fleet and Tech banks are already spent, so the only thing able to help them is the Protection and Expansion banks (55 CP total). Since this homeworld has plenty of compatible CP, it starts on the Heavy Infantry step. A 3 is rolled, buying that many Heavy Infantry for 9 CP. On the orbital protection step, a 10 was rolled (max Bases). 46 CP is good for 3 Bases (-36) + 2 Minelayers (-10).</p><ol><li><b>Space Round 1</b>: Our 4 Minesweepers have swept whatever little ammunition their 2 Minelayers were able to lay. The final counts are 20 ships to their 4 Bases. We will screen our Transports each round (if able), and gain the Fleet Size Bonus</li><li>Their 4 Bases have the best weapon class, so they shoot first. They rolled 7,9,6 against our 2 Destroyers (2 hits &le;7), eliminating that group. They then roll a 3 against our 2 Battlecruisers (hit &le;6), damaging one of them</li><li>Our 2 Battlecruisers shoot next. Since they have <i>only</i> Bases, this makes rolls easy. We rolled 2,6 (2 hits &le;6), badly damaging one of them</li><li>Our 1 Flagship shoots next, rolling a 2 (hit &le;5), finishing off one of them. Bases do not give experience, so we skip this step</li><li>Our 8 Legendary Cruisers are finally ready to shoot. We rolled 2,2,4,5,6,8,10,10 (4 hits &le;5); destroying a second, and lightly damaging a third<br /><br /></li><li><b>Space Round 2</b>: We have 18 ships to their 2 Bases</li><li>Their 2 surviving Bases shoot once more. They rolled 1,5 against our 2 Battlecruisers (2 hits &le;6), cleanly destroying one of them</li><li>Our 1 surviving Battlecruiser shoots next, rolling a 6 (hit &le;6), badly damaging the third Base</li><li>Our 1 Flagship shoots next, rolling a 10 (miss &gt;5)</li><li>Our 8 Legendary Cruisers are finally ready to shoot. We rolled 1,4,4,4,6,9,9,9 (4 hits &le;5); finishing off their Bases exactlye<br /><br /></li><li><b>Bombardment Round</b>: Our 1 Battlecruiser has the first shot at bombarding, rolling a 7 (hit &le;7), damaging Terra to 15 CP</li><li>Our 1 Flagship and 8 Cruisers have the same Attack rating, so we will conduct their bombardment rolls together. We rolled 1,9,9,2 (2 hits &le;6); stopping the process at 5 CP in income<br /><br /></li><li><b>Ground Round 1</b>: Our Transports have unloaded the 11 Space Marines that were in their cargo holds</li><li>Their 3 Heavy Infantry shoot first, rolling 1,8,9 (1 hit &le;5), damaging one of our units</li><li>Their 5 Militia also shoot, rolling 4,5,7,9,10 (1 hit &le;4), finishing off one of our units<br /><br /></li><li><b>Ground Round 2</b>: Their 3 Heavy Infantry shoot again, rolling 2,3,9 (2 hits &le;5), cleanly fragging another Space Marines</li><li>Our 9 surviving Space Marines have settled, and are ready to shoot. We rolled 6,9,2,7,5,1,5,3 against their militia (5 hits &le;6), eliminating that group. We then rolled 3,1 against their Heavy Infantry (2 hits &le;4), cleanly fragging one of them<br /><br /></li><li><b>Ground Round 3</b>: Their 2 surviving Heavy Infantry shoot once more, rolling 1,9 (1 hits &le;5), damaging another unit</li><li>Our 9 Space Marines shoot once more. We rolled 2,2,6,7,7,7,7,8,9 (2 hits &le;4), cleanly eliminating a second Heavy Infantry<br /><br /></li><li><b>Ground Round 4</b>: Their 1 surviving Heavy Infantry shoots once more, rolling a 4 (hit &le;5), finishing off another Space Marines</li><li>Our 8 surviving Space Marines shoot once more. We rolled 1,2,3,7,7,8,8,9 (3 hits &le;4), finishing off the last of the Heavy Infantry<br /><br /></li></ol>",
+	"commentary":[
+		"Now is the time to pile on <i>every</i> combat ship that was able to reach Terra! Their Fleet and Tech banks are already spent, so the only thing able to help them is the Defense and Expansion banks (55 CP total). Since this homeworld has plenty of compatible CP, it starts on the Heavy Infantry step. A 3 is rolled, buying that many Heavy Infantry for 9 CP. On the orbital protection step, a 10 was rolled (max Bases). 46 CP is good for 3 Bases (-36) + 2 Minelayers (-10).",
+		"<ol><li><b>Space Round 1</b>: Our 4 Minesweepers have swept whatever little ammunition their 2 Minelayers were able to lay. The final counts are 20 ships to their 4 Bases. We will screen our Transports each round (if able), and gain the Fleet Size Bonus</li>",
+		"<li>Their 4 Bases have the best weapon class, so they shoot first. They rolled 7,9,6 against our 2 Destroyers (2 hits &le;7), eliminating that group. They then roll a 3 against our 2 Battlecruisers (hit &le;6), damaging one of them</li>",
+		"<li>Our 2 Battlecruisers shoot next. Since they have <i>only</i> Bases, this makes rolls easy. We rolled 2,6 (2 hits &le;6), badly damaging one of them</li>",
+		"<li>Our 1 Flagship shoots next, rolling a 2 (hit &le;5), finishing off one of them. Bases do not give experience, so we skip this step</li>",
+		"<li>Our 8 Legendary Cruisers are finally ready to shoot. We rolled 2,2,4,5,6,8,10,10 (4 hits &le;5); destroying a second, and lightly damaging a third<br /><br /></li>",
+		"<li><b>Space Round 2</b>: We have 18 ships to their 2 Bases</li>",
+		"<li>Their 2 surviving Bases shoot once more. They rolled 1,5 against our 2 Battlecruisers (2 hits &le;6), cleanly destroying one of them</li>",
+		"<li>Our 1 surviving Battlecruiser shoots next, rolling a 6 (hit &le;6), badly damaging the third Base</li>",
+		"<li>Our 1 Flagship shoots next, rolling a 10 (miss &gt;5)</li>",
+		"<li>Our 8 Legendary Cruisers are finally ready to shoot. We rolled 1,4,4,4,6,9,9,9 (4 hits &le;5); finishing off their Bases exactly<br /><br /></li>",
+		"<li><b>Bombardment Round</b>: Our 1 Battlecruiser has the first shot at bombarding, rolling a 7 (hit &le;7), damaging Terra to 15 CP</li>",
+		"<li>Our 1 Flagship and 8 Cruisers have the same Attack rating, so we will conduct their bombardment rolls together. We rolled 1,9,9,2 (2 hits &le;6); stopping the process at 5 CP in income<br /><br /></li>",
+		"<li><b>Ground Round 1</b>: Our Transports have unloaded the 11 Space Marines that were in their cargo holds</li>",
+		"<li>Their 3 Heavy Infantry shoot first, rolling 1,8,9 (1 hit &le;5), damaging one of our units</li>",
+		"<li>Their 5 Militia also shoot, rolling 4,5,7,9,10 (1 hit &le;4), finishing off one of our units<br /><br /></li>",
+		"<li><b>Ground Round 2</b>: Their 3 Heavy Infantry shoot again, rolling 2,3,9 (2 hits &le;5), cleanly fragging another Space Marines</li>",
+		"<li>Our 9 surviving Space Marines have settled, and are ready to shoot. We rolled 6,9,2,7,5,1,5,3 against their militia (5 hits &le;6), eliminating that group. We then rolled 3,1 against their Heavy Infantry (2 hits &le;4), cleanly fragging one of them<br /><br /></li>",
+		"<li><b>Ground Round 3</b>: Their 2 surviving Heavy Infantry shoot once more, rolling 1,9 (1 hits &le;5), damaging another unit</li>",
+		"<li>Our 9 Space Marines shoot once more. We rolled 2,2,6,7,7,7,7,8,9 (2 hits &le;4), cleanly eliminating a second Heavy Infantry<br /><br /></li>",
+		"<li><b>Ground Round 4</b>: Their 1 surviving Heavy Infantry shoots once more, rolling a 4 (hit &le;5), finishing off another Space Marines</li>",
+		"<li>Our 8 surviving Space Marines shoot once more. We rolled 1,2,3,7,7,8,8,9 (3 hits &le;4), finishing off the last of the Heavy Infantry<br /><br /></li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"FlagR",
@@ -5677,9 +6215,6 @@
 		},{
 			"removeCounter":"SC2B"
 		},{
-			"placeCounter":"fleet3B",
-			"location":"C8"
-		},{
 			"placeCounter":"base1B",
 			"size":4,
 			"location":"A9"
@@ -5696,7 +6231,10 @@
 			"name":"home20B"
 		}]},
 	{"heading":"Stardate 2417.0 (Conclusion)",
-	"commentary":"<p>Terra has been captured! Since this was the last Alien Player homeworld that fell, we believe that concludes this scenario in victory.</p><p>We had a suspenseful <q>mid-game</q>, when Epimetheus' initial momentum threatened to end the scenario by capturing Abydos (G8) and securing the final 3 VP. When their momentum ran out, their VP started declining once we started capturing planets. Perhaps we might need to be more aggressive when running out of unexplored home systems to explore, should we step it up to Normal difficulty.</p>",
+	"commentary":[
+		"Terra has been captured! Since this was the last Alien Player homeworld that fell, we believe that concludes this scenario in victory.",
+		"We had a suspenseful <q>mid-game</q>, when Epimetheus' initial momentum threatened to end the scenario by capturing Abydos (G8) and securing the final 3 VP. When their momentum ran out, their VP started declining once we started capturing planets.",
+		"All Good Things was released roughly 12 months since having initially done this commentary. The Victory Point system was reworked a bit. Alien Player teams and Doomsday Machines now have a fixed quota of 10 VP (regardless of difficulty), but no longer gain VP from cashing in minerals. The former now use them to gain one-time extra economic rolls (of which there is now no limit this way), while the latter simply destroys them."],
 	"techTableX":
 		[{
 			"name":"CSY (Red)","terraform":2,"explore":1,"size":6,"minesweep":3,"troops":2,"SY":3,"atk":2,"security":1,"def":1,"academy":1,"move":2

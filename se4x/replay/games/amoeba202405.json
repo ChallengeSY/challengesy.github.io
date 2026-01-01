@@ -1,6 +1,8 @@
 {"stages": [
 	{"heading":"Stardate 2400.0 (Introduction)",
-	"commentary":"<p>Welcome to the Space Amoeba solitaire scenario. This is our first recorded playthrough of the scenarios introduced in the Close Encounters expansion. The names assigned to the Amoebas this playthrough are based on Jupiter and Saturn's moons.</p><p>Fortunately, we were able to do some practice before recording this playthrough. Thus, we feel comfortable doing this on Normal difficulty. Also, this scenario requires very little of the several mechanics introduced in Close Encounters; ground units, facilities, experience, and boarding ships are not used at all. Empire Advantages, Unique Ships, and Flagships seem optional. Still, we will use the simplest latter of the three concepts. We believe the mechanics used makes this scenario the best building block for anyone wanting to use Close Encounters content for the first time.</p>",
+	"commentary":[
+		"Welcome to the Space Amoeba solitaire scenario. This is our first recorded playthrough of the scenarios introduced in the Close Encounters expansion. The names assigned to the Amoebas this playthrough are based on Jupiter and Saturn's moons.",
+		"Fortunately, we were able to do some practice before recording this playthrough. Thus, we feel comfortable doing this on Normal difficulty. Also, this scenario requires very little of the several mechanics introduced in Close Encounters; ground units, facilities, experience, and boarding ships are not used at all. Empire Advantages, Unique Ships, and Flagships seem optional. Still, we will use the simplest latter of the three concepts. We believe the mechanics used makes this scenario the best building block for anyone wanting to use Close Encounters content for the first time."],
 	"amoebaTable":
 		[{
 			"name":"Ymir (1)"
@@ -15,7 +17,9 @@
 			"playerColor":"R"
 		}]},
 	{"heading":"Stardate 2400.3 (Turn 1)",
-	"commentary":"<p>Risking our Flagship to unexplored systems is not advisable by virtue of being impossible build more of them, so we held it back this turn. Fortunately, keeping it alive is <i>not</i> a scenario objective.</p><p>Also fortunate in that this is the <i>only</i> turn we have to do so; we already found our home system black hole, and that there are no dangerous deep space systems to worry about; our vulnerable scout rolled a 9 (destroyed &gt;6).</p>",
+	"commentary":[
+		"Risking our Flagship to unexplored systems is not advisable by virtue of being impossible build more of them, so we held it back this turn. Fortunately, keeping it alive is <i>not</i> a scenario objective.",
+		"Also fortunate in that this is the <i>only</i> turn we have to do so; we already found our home system black hole, and that there are no dangerous deep space systems to worry about; our vulnerable scout rolled a 9 (destroyed &gt;6)."],
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -61,7 +65,9 @@
 			"name":"unexploredR"
 		}]},
 	{"heading":"Stardate 2400.6 (Turn 2)",
-	"commentary":"<p>Though the loss was unfortunate, at least we no longer have to worry about black holes. This is counterbalanced by the fact that deep space has a fixed 10 dense minerals + 4 barren planets shuffled among them.</p><p>Explored black holes are also off-limits to amoeba spreading, though that will be of little consolation should they threaten our homeworld.</p>",
+	"commentary":[
+		"Though the loss was unfortunate, at least we no longer have to worry about black holes. This is counterbalanced by the fact that deep space has a fixed 10 dense minerals + 4 barren planets shuffled among them.",
+		"Explored black holes are also off-limits to amoeba spreading, though that will be of little consolation should they threaten our homeworld."],
 	"actions":
 		[{
 			"removeCounter":"SC3R"
@@ -106,7 +112,7 @@
 			"name":"unexploredR"
 		}]},
 	{"heading":"Stardate 2400.9 (Turn 3)",
-	"commentary":"<p>Our luck with planets has not been good this playthrough. We usually get 2 planets for a first economic phase, not only 1.</p>",
+	"commentary":["Our luck with planets has not been good this playthrough. We usually get 2 planets for a first economic phase, not only 1."],
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -151,7 +157,9 @@
 			"name":"planetR3"
 		}]},
 	{"heading":"Stardate 2401.0 (Economic Phase 1)",
-	"commentary":"<p>Unique to this scenario is that we do not need to pay combat ship maintenance. As far as the space amoebas are concerned, spreading will begin on economic phase <b>6</b>. This gives us a considerable grace period before they even start to consume our cluster. Additionally, amoebas <i>never</i> move on thier own accord, making bids entirely pointless. In return, we are prohibited from researching Minesweeping until we lose at least 1 ship to their destructive potential. Anyway, we buy 2 Colony Ships (-16), followed by 1 Miner (-5) and 1 Scout (-6).</p>",
+	"commentary":[
+		"Unique to this scenario is that we do not need to pay combat ship maintenance. As far as the space amoebas are concerned, spreading will begin on economic phase <b>6</b>. This gives us a considerable grace period before they even start to consume our cluster. Additionally, amoebas <i>never</i> move on thier own accord, making bids entirely pointless.",
+		"In return, we are prohibited from researching Minesweeping until we lose at least 1 ship to their destructive potential. Anyway, we buy 2 Colony Ships (-16), followed by 1 Miner (-5) and 1 Scout (-6)."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":0,"colonyCP":30,"mineralCP":0,"pipeCP":0,"techBuy":0,"unitBuy":27
@@ -211,8 +219,8 @@
 			"revealCounter":"systemK10",
 			"name":"unexploredW"
 		}]},
-	{"heading":"Stardate 2401.2 (Turn 4)",
-	"commentary":"<p>The easiest way to lift the restriction is to get one of our scouts devoured this phase. The Scout nearest to Tethys is the best candidate for this objective.</p>",
+	{"heading":"Stardate 2401.2",
+	"commentary":["The easiest way to lift the restriction is to get one of our scouts devoured this phase. The Scout nearest to Tethys is the best candidate for this objective."],
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -271,8 +279,8 @@
 			"revealCounter":"systemJ11",
 			"name":"unexploredW"
 		}]},
-	{"heading":"Stardate 2401.5 (Turn 5)",
-	"commentary":"<p>Finally a use for 2 of our Colony Ships. If we are lucky enough, we might be able to use the rest that are still in service.</p>",
+	{"heading":"Stardate 2401.5",
+	"commentary":["Finally a use for 2 of our Colony Ships. If we are lucky enough, we might be able to use the rest that are still in service."],
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -332,8 +340,8 @@
 			"revealCounter":"systemK9",
 			"name":"unexploredR"
 		}]},
-	{"heading":"Stardate 2401.8 (Turn 6)",
-	"commentary":"<p>In exchange for being able to colonize 4 planets this economic phase... <b>Lunch!</b></p>",
+	{"heading":"Stardate 2401.8",
+	"commentary":["In exchange for being able to colonize 4 planets this economic phase... <b>Lunch!</b>"],
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -390,8 +398,8 @@
 			"revealCounter":"systemI6",
 			"name":"planetR4"
 		}]},
-	{"heading":"Stardate 2402.0 (Economic Phase 2)",
-	"commentary":"<p>May the sacrifice to Tethys not be in vain, as a result of an unknown Amoeba instantly destroying nearly any ship... Now that Minesweeping level 1 is fair game, we will go on ahead and buy this tech (-10). We will also buy 4 Minesweepers (-24).</p>",
+	{"heading":"Stardate 2402.0",
+	"commentary":["May the sacrifice to Tethys not be in vain, as a result of an unknown Amoeba instantly destroying nearly any ship... Now that Minesweeping level 1 is fair game, we will go on ahead and buy this tech (-10). We will also buy 4 Minesweepers (-24)."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":3,"colonyCP":31,"mineralCP":5,"pipeCP":0,"techBuy":10,"unitBuy":24
@@ -471,7 +479,7 @@
 			"name":"unexploredR"
 		}]},
 	{"heading":"Stardate 2402.1",
-	"commentary":"<p>Now that our first Minesweepers are on the board, we can use them to research any amoeba (since there are no mines to sweep proper). We will start with Ymir.</p>",
+	"commentary":["Now that our first Minesweepers are on the board, we can use them to research any amoeba (since there are no mines to sweep proper). We will start with Ymir."],
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -517,7 +525,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2402.4",
-	"commentary":"<p>Just getting the rest of the unexplored systems uncovered so that we are better able to determine how we should path our ships.</p>",
+	"commentary":["Just getting the rest of the unexplored systems uncovered so that we are better able to determine how we should path our ships."],
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -565,7 +573,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2402.7",
-	"commentary":"<p>Looking good so far.</p>",
+	"commentary":["Looking good so far."],
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -629,7 +637,7 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2403.0",
-	"commentary":"<p>We have reached the halfway mark before amoeba can spread for the first time. We will buy another 4 Minesweepers (-24). In addition, we will build forward Ship Yards at each of sectors J4, K9, and I6 (-18 in total).</p>",
+	"commentary":["We have reached the halfway mark before amoeba can spread for the first time. We will buy another 4 Minesweepers (-24). In addition, we will build forward Ship Yards at each of sectors J4, K9, and I6 (-18 in total)."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":5,"colonyCP":37,"mineralCP":10,"pipeCP":0,"techBuy":0,"unitBuy":42
@@ -711,7 +719,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2403.3",
-	"commentary":"<p>We are on our way to get the amoeba identified. We build them in groups of 4 (up to Ship Yard limit) so that we are able to research <i>each</i> amoeba faster, and with a good chance to keep it going even if we lose some Minesweepers.</p>",
+	"commentary":["We are on our way to get the amoeba identified. We build them in groups of 4 (up to Ship Yard limit) so that we are able to research <i>each</i> amoeba faster, and with a good chance to keep it going even if we lose some Minesweepers."],
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -765,7 +773,7 @@
 			"name":"unexploredR"
 		}]},
 	{"heading":"Stardate 2403.6",
-	"commentary":"<p>Soon, we will be ready to roll the dice again Ymir.</p>",
+	"commentary":["Soon, we will be ready to roll the dice again Ymir."],
 	"actions":
 		[{
 			"placeCounter":"SC1R",
@@ -819,7 +827,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2403.9",
-	"commentary":"<p>We are now ready to research Ymir. Minesweepers roll dice to determine how much research they contribute to our Research Point (or simply RP) knowledge <span class=\"bindTxt\">(1-2 for 2 RP, 3-5 for 1 RP)</span>... or if they even survive <span class=\"bindTxt\">(9-10 destroys them)</span>. In this case, we rolled 1,1,6,9 <span class=\"bindTxt\">(4 RP / 1 loss)</span>.</p>",
+	"commentary":["We are now ready to research Ymir. Minesweepers roll dice to determine how much research they contribute to our Research Point (or simply RP) knowledge <span class=\"bindTxt\">(1-2 for 2 RP, 3-5 for 1 RP)</span>... or if they even survive <span class=\"bindTxt\">(9-10 destroys them)</span>. In this case, we rolled 1,1,6,9 <span class=\"bindTxt\">(4 RP / 1 loss)</span>."],
 	"amoebaTable":
 		[{
 			"name":"Ymir (1)","RP":4
@@ -888,7 +896,7 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2404.0",
-	"commentary":"<p>We have gotten a foothold on Ymir, and are on our way to researching the others. We will buy Ship Size level 2 (-10), followed 7 Minesweepers (-42) using <i>all</i> available Ship Yard capacity.</p>",
+	"commentary":["We have gotten a foothold on Ymir, and are on our way to researching the others. We will buy Ship Size level 2 (-10), followed 7 Minesweepers (-42) using <i>all</i> available Ship Yard capacity."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":10,"colonyCP":47,"mineralCP":5,"pipeCP":0,"techBuy":10,"unitBuy":42
@@ -946,7 +954,7 @@
 			"name":"colony5R"
 		}]},
 	{"heading":"Stardate 2404.2",
-	"commentary":"<p>While we move Minesweepers to the rest of the amoebas, we will resume research on Ymir. The 3 surviving Minesweepers rolled 1,1,9 (4 RP / 1 loss).</p>",
+	"commentary":["While we move Minesweepers to the rest of the amoebas, we will resume research on Ymir. The 3 surviving Minesweepers rolled 1,1,9 (4 RP / 1 loss)."],
 	"amoebaTable":
 		[{
 			"name":"Ymir (1)","RP":8
@@ -999,7 +1007,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2404.5",
-	"commentary":"<p>We were able to replace the 1 Minesweeper that was lost to Ymir. We rolled 6,8,10 (0 RP / 1 loss).</p>",
+	"commentary":["We were able to replace the 1 Minesweeper that was lost to Ymir. We rolled 6,8,10 (0 RP / 1 loss)."],
 	"amoebaTable":
 		[{
 			"name":"Ymir (1)","RP":8
@@ -1050,7 +1058,9 @@
 			"name":"minerals10"
 		}]},
 	{"heading":"Stardate 2404.8",
-	"commentary":"<p>Ymir looks like it could resist our efforts after all. We rolled 6,6 to try to close it out (0 RP / 0 losses).</p><p>Meanwhile, we were able to bring a band of 5 Minesweepers to Tethys. We rolled 1,1,6,7,8 this way (4 RP / 0 losses). A single Minesweeper also made it to Isonoe. It rolled a 4 (1 RP).</p>",
+	"commentary":[
+		"Ymir looks like it could resist our efforts after all. We rolled 6,6 to try to close it out (0 RP / 0 losses).",
+		"Meanwhile, we were able to bring a band of 5 Minesweepers to Tethys. We rolled 1,1,6,7,8 this way (4 RP / 0 losses). A single Minesweeper also made it to Isonoe. It rolled a 4 (1 RP)."],
 	"amoebaTable":
 		[{
 			"name":"Ymir (1)","RP":8
@@ -1113,7 +1123,7 @@
 			"removeCounter":"CA1R"
 		}]},
 	{"heading":"Stardate 2405.0",
-	"commentary":"<p>At this point, we are almost out of time before the spreading begins. We will buy Ship Size level 3 (-15), followed by a Colony Ship at each forward Ship Yard (-24 in total) and 2 Cruisers at our homeworld (-24). We then increase our forward Ship Yard counts (-18 in total)</p>",
+	"commentary":["At this point, we are almost out of time before the spreading begins. We will buy Ship Size level 3 (-15), followed by a Colony Ship at each forward Ship Yard (-24 in total) and 2 Cruisers at our homeworld (-24). We then increase our forward Ship Yard counts (-18 in total)"],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":10,"colonyCP":55,"mineralCP":20,"pipeCP":0,"techBuy":15,"unitBuy":66
@@ -1175,7 +1185,12 @@
 			"name":"amoeba1"
 		}]},
 	{"heading":"Stardate 2405.1",
-	"commentary":"<p>Pressed for time, we attempt to wrap up our science efforts as quickly as we can.</p><ul><li>Ymir's minesweepers rolled 1,5 (3 RP / 0 losses)</li><li>Tethys' minesweepers have rolled 1,3,3,3,10 (5 RP / 1 loss)</li><li>Isonoe's first minesweeper rolls a <b>1</b> (2 RP)</li></ul><p>It is because we now have enough RP on Ymir that we roll to determine its strength. We rolled a 9. This amoeba is unable to be battled, and is vulnerable only to internal detonations.</p>",
+	"commentary":[
+		"Pressed for time, we attempt to wrap up our science efforts as quickly as we can.",
+		"<ul><li>Ymir's minesweepers rolled 1,5 (3 RP / 0 losses)</li>",
+		"<li>Tethys' minesweepers have rolled 1,3,3,3,10 (5 RP / 1 loss)</li>",
+		"<li>Isonoe's first minesweeper rolls a <b>1</b> (2 RP)</li></ul>",
+		"It is because we now have enough RP on Ymir that we roll to determine its strength. We rolled a 9. This amoeba is unable to be battled, and is vulnerable only to internal detonations."],
 	"amoebaTable":
 		[{
 			"name":"Ymir (1)","RP":11,"str":9
@@ -1240,7 +1255,12 @@
 			"name":"amoeba2"
 		}]},
 	{"heading":"Stardate 2405.4",
-	"commentary":"<p>Now that Ymir is all done, we will attempt to detonate a Scout that is already adjacent to Ymir. If successful (&le;4), it will eliminate Ymir, and spare us the need to detonate our Cruisers.</p><ul><li>Ymir's scout rolled a 7 (failure)</li><li>Tethys' minesweepers have rolled 2,3,5,10 (4 RP / 1 loss)</li><li>Isonoe's first minesweeper rolls a 9 (destroyed)</li></ul><p>Tethys now has enough RP to have its strength known. We rolled a 7. This amoeba is an A7-2-2, and also being weak to <q>ship variety</q>.</p>",
+	"commentary":[
+		"Now that Ymir is all done, we will attempt to detonate a Scout that is already adjacent to Ymir. If successful (&le;4), it will eliminate Ymir, and spare us the need to detonate our Cruisers.",
+		"<ul><li>Ymir's scout rolled a 7 (failure)</li>",
+		"<li>Tethys' minesweepers have rolled 2,3,5,10 (4 RP / 1 loss)</li>",
+		"<li>Isonoe's first minesweeper rolls a 9 (destroyed)</li></ul>",
+		"Tethys now has enough RP to have its strength known. We rolled a 7. This amoeba is an A7-2-2, and also being weak to <q>ship variety</q>."],
 	"amoebaTable":
 		[{
 			"name":"Ymir (1)","RP":11,"str":9
@@ -1298,7 +1318,7 @@
 			"location":"L5"
 		}]},
 	{"heading":"Stardate 2405.7",
-	"commentary":"<p>That failure was regrettable; we could have stopped Ymir dead before it can even spread. At least Isonoe now has a fresh set of 4 minesweepers, so we will roll once more: 4,5,6,10 (2 RP / 1 loss)</p>",
+	"commentary":["That failure was regrettable; we could have stopped Ymir dead before it can even spread. At least Isonoe now has a fresh set of 4 minesweepers, so we will roll once more: 4,5,6,10 (2 RP / 1 loss)"],
 	"amoebaTable":
 		[{
 			"name":"Ymir (1)","RP":11,"str":9
@@ -1383,7 +1403,9 @@
 			"removeCounter":"CA2R"
 		}]},
 	{"heading":"Stardate 2406.0",
-	"commentary":"<p>Let the spreading begin! Isonoe has already consumed some of the available dense minerals!</p><p>In response, we will buy Minelaying (-30); and, thus, Minelayers (-20 in total) at the Ship Yards closest to Tethys and Ymir. We will also buy 2 Cruisers (-24) at the homeworld.</p>",
+	"commentary":[
+		"Let the spreading begin! Isonoe has already consumed some of the available dense minerals!",
+		"In response, we will buy Minelaying (-30); and, thus, Minelayers (-20 in total) at the Ship Yards closest to Tethys and Ymir. We will also buy 2 Cruisers (-24) at the homeworld."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":4,"colonyCP":55,"mineralCP":20,"pipeCP":0,"techBuy":30,"unitBuy":44
@@ -1469,7 +1491,7 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2406.3",
-	"commentary":"<p>It is a shame Random Factor was not in our favor last economic phase concerning Ymir. Our 3 surviving minesweepers continue to conduct their science, rolling 2,3,6 in the process (3 RP / 0 losses).</p>",
+	"commentary":["It is a shame Random Factor was not in our favor last economic phase concerning Ymir. Our 3 surviving minesweepers continue to conduct their science, rolling 2,3,6 in the process (3 RP / 0 losses)."],
 	"amoebaTable":
 		[{
 			"name":"Ymir (1)","RP":11,"str":9
@@ -1537,7 +1559,9 @@
 			"location":"H7"
 		}]},
 	{"heading":"Stardate 2406.6",
-	"commentary":"<p>Our 3 minesweepers continue to research Isonoe still, rolling 2,5,10 (3 RP / 1 loss). We can now identify Isonoe, having rolled a 2 to learn its strength (D6-2-2).</p><p>Meanwhile, our Cruisers are now ready to detonate themselves inside Ymir. One will do so now. Cruisers are able to destroy a sensitive amoeba this way without fail. (We skipped Destroyers, because even they still have a fairly small chance of failure.)</p>",
+	"commentary":[
+		"Our 3 minesweepers continue to research Isonoe still, rolling 2,5,10 (3 RP / 1 loss). We can now identify Isonoe, having rolled a 2 to learn its strength (D6-2-2).",
+		"Meanwhile, our Cruisers are now ready to detonate themselves inside Ymir. One will do so now. Cruisers are able to destroy a sensitive amoeba this way without fail. (We skipped Destroyers, because even they still have a fairly small chance of failure.)"],
 	"amoebaTable":
 		[{
 			"name":"Ymir (1)","RP":11,"str":9
@@ -1610,7 +1634,7 @@
 			"location":"G6"
 		}]},
 	{"heading":"Stardate 2406.9",
-	"commentary":"<p>And with that in mind, that should clean up Ymir for good.</p>",
+	"commentary":["And with that in mind, that should clean up Ymir for good."],
 	"actions":
 		[{
 			"placeCounter":"SC4R",
@@ -1699,7 +1723,9 @@
 			"name":"amoeba3R"
 		}]},
 	{"heading":"Stardate 2407.0",
-	"commentary":"<p>We have successfully cleansed the map of Ymir. That leaves only Tethys and Isonoe. Their spreading was inhibited this economic phase as a result of minelayer detonations. As a result, they get to roll adaptation dice. They rolled 10 (Tethys) / 9 (Isonoe). They <b>both</b> gain mine immunity (&ge;9), denying us the effective use of further minelayers.</p><p>Moving along to economics, we buy 4 Cruisers, using all Ship Yards except the ones that were previously closest to Ymir. We also buy an extra Ship Yard at the sites closest to Tethys and Isonoe.</p>",
+	"commentary":[
+		"We have successfully cleansed the map of Ymir. That leaves only Tethys and Isonoe. Their spreading was inhibited this economic phase as a result of minelayer detonations. As a result, they get to roll adaptation dice. They rolled 10 (Tethys) / 9 (Isonoe). They <b>both</b> gain mine immunity (&ge;9), denying us the effective use of further minelayers.",
+		"Moving along to economics, we buy 4 Cruisers, using all Ship Yards except the ones that were previously closest to Ymir. We also buy an extra Ship Yard at the sites closest to Tethys and Isonoe."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":5,"colonyCP":58,"mineralCP":20,"pipeCP":0,"techBuy":0,"unitBuy":60
@@ -1792,7 +1818,7 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2407.2",
-	"commentary":"<p>It is because we can no longer inhibit them that we need to do everything we can to try to cleanse them.</p>",
+	"commentary":["It is because we can no longer inhibit them that we need to do everything we can to try to cleanse them."],
 	"actions":
 		[{
 			"placeCounter":"SC4R",
@@ -1834,7 +1860,26 @@
 			"location":"H6"
 		}]},
 	{"heading":"Stardate 2407.5 (The Battle for Sector G6)",
-	"commentary":"<p>Fortunately, <a href=\"javascript:showBox('sa2')\">Isonoe</a> does not have a good Weapon Class. We will use this to our advantage, and conduct a battle against them this way. Also, since we can benefit from no more RP, we can safely allow our Minesweepers to be swallowed (though they are unable to damage an amoeba).</p><ol><li><b>Round 1</b>: Amoebas are effectively bosses, so we have to conduct this the hard way</li><li>Our Flagship has the best Weapon Class, so it shoots first. It rolls a 9 (miss &gt;2)</li><li>Our 1 Cruiser is next. It rolled a <b>1</b> (hit &le;2). This amoeba has 1 HP left</li><li>And now for the fun part: Amoebas do not shoot. Rather, they attempt to swallow. Furthermore, they are mindless in swallow priorities. In this case, Isonoe rolled a 6 to target most expensive ships</li><li>It is impossible to build Flagships, so ours will be its first victim. Their Attack Rating is good, but we have a lot of Hull Size (6 - 1 - 2 = 3 to swallow). Isonoe rolled an 8 (failure)</li><li>Our 1 Scout is next. It rolled a 4 (miss &gt;1)<br /><br /></li><li><b>Round 2</b>: Our Flagship shoots once more, rolling a 4 (miss &gt;2)</li><li>Our 1 Cruiser is next, rolling an 6 (miss &gt;2)</li><li>Isonoe rolled a 6 to target expensive ships (Flagship), followed by a 2 (swallow &le;3)</li><li>Our 1 Scout is next. It rolled a 9 (miss &gt;1)<br /><br /></li><li><b>Round 3</b>: Our Flagship is gone, never to be seen again. Our 1 Cruiser shoots first this time, rolling a 5 (miss &gt;2)</li><li>Isonoe rolled a 1 to target cheapest ships (1 Scout), followed by a 5 (swallow &le;6)<br /><br /></li><li><b>Round 4</b>: Our 1 Cruiser shoots once more, rolling a 9 (miss &gt;2)</li><li>Isonoe rolled a 1 to target cheapest ships (4 Minesweepers), followed by a 2 (chained swallow &le;6)</li><li>Rolling 2 or more under the swallow quota triggers a <q>chained swallow</q> roll, repeatable as many times as applicable. Isonoe rolled a 2 to target Minesweepers, followed by a 2 (chained swallow &le;6)</li><li>The chain lasts until it is broken by a missed condition. It rolled a 1 to target Minesweepers, followed by a 3 (chained swallow &le;6)</li><li>Isonoe's chain continues. It rolled a 9 to target expensive ships (1 Cruiser), followed by a 7 (failure &gt;4). This stops its chain<br /><br /></li><li><b>Round 5</b>: Our 1 Cruiser shoots once more, rolling a 2 (hit &le;2). This hex has been cleansed</li></ol>",
+	"commentary":[
+		"Fortunately, <a href=\"javascript:showBox('sa2')\">Isonoe</a> does not have a good Weapon Class. We will use this to our advantage, and conduct a battle against them this way. Also, since we can benefit from no more RP, we can safely allow our Minesweepers to be swallowed (though they are unable to damage an amoeba).",
+		"<ol><li><b>Round 1</b>: Amoebas are effectively bosses, so we have to conduct this the hard way</li>",
+		"<li>Our Flagship has the best Weapon Class, so it shoots first. It rolls a 9 (miss &gt;2)</li>",
+		"<li>Our 1 Cruiser is next. It rolled a <b>1</b> (hit &le;2). This amoeba has 1 HP left</li>",
+		"<li>And now for the fun part: Amoebas do not shoot. Rather, they attempt to swallow. Furthermore, they are mindless in swallow priorities. In this case, Isonoe rolled a 6 to target most expensive ships</li>",
+		"<li>It is impossible to build Flagships, so ours will be its first victim. Their Attack Rating is good, but we have a lot of Hull Size (6 - 1 - 2 = 3 to swallow). Isonoe rolled an 8 (failure)</li>",
+		"<li>Our 1 Scout is next. It rolled a 4 (miss &gt;1)<br /><br /></li>",
+		"<li><b>Round 2</b>: Our Flagship shoots once more, rolling a 4 (miss &gt;2)</li>",
+		"<li>Our 1 Cruiser is next, rolling an 6 (miss &gt;2)</li>",
+		"<li>Isonoe rolled a 6 to target expensive ships (Flagship), followed by a 2 (swallow &le;3)</li>",
+		"<li>Our 1 Scout is next. It rolled a 9 (miss &gt;1)<br /><br /></li>",
+		"<li><b>Round 3</b>: Our Flagship is gone, never to be seen again. Our 1 Cruiser shoots first this time, rolling a 5 (miss &gt;2)</li>",
+		"<li>Isonoe rolled a 1 to target cheapest ships (1 Scout), followed by a 5 (swallow &le;6)<br /><br /></li>",
+		"<li><b>Round 4</b>: Our 1 Cruiser shoots once more, rolling a 9 (miss &gt;2)</li>",
+		"<li>Isonoe rolled a 1 to target cheapest ships (4 Minesweepers), followed by a 2 (chained swallow &le;6)</li>",
+		"<li>Rolling 2 or more under the swallow quota triggers a <q>chained swallow</q> roll, repeatable as many times as applicable. Isonoe rolled a 2 to target Minesweepers, followed by a 2 (chained swallow &le;6)</li>",
+		"<li>The chain lasts until it is broken by a missed condition. It rolled a 1 to target Minesweepers, followed by a 3 (chained swallow &le;6)</li>",
+		"<li>Isonoe's chain continues. It rolled a 9 to target expensive ships (1 Cruiser), followed by a 7 (failure &gt;4). This stops its chain<br /><br /></li>",
+		"<li><b>Round 5</b>: Our 1 Cruiser shoots once more, rolling a 2 (hit &le;2). This hex has been cleansed</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"SC4R",
@@ -1880,7 +1925,14 @@
 			"name":"amoeba3R"
 		}]},
 	{"heading":"Stardate 2407.8 (The Battle for Sector K11)",
-	"commentary":"<p>Pulling back the survivors from Isonoe, we are now ready to conduct a battle against <a href=\"javascript:showBox('sa7')\">Tethys</a>, and try to slow its spread.</p><ol><li><b>Round 1</b>: Tethys has the best Weapon Class, so it rolls first. It rolled a 2 (cheapest ships; versus 3 Minesweepers), followed by an 7 (swallow &le;7)</li><li>Our 3 Cruisers shoot next. We rolled 6,9,9 (0 hits &le;2)<br /><br /></li><li><b>Round 2</b>: Tethys rolls once more. It rolled a 5 (cheapest ships; versus Minesweepers), followed by an 9 (failure &gt;7)</li><li>Our 3 Cruisers shoot next. We rolled 2,7,9 (1 hit &le;2). Tethys is down to 1 HP in this hex<br /><br /></li><li><b>Round 3</b>: Tethys rolls once more. It rolled a 10 (expensive ships; versus Cruisers), followed by an 5 (swallow &le;5)</li><li>Our 2 surviving Cruisers shoot next. We rolled 1,3 (1 hit &le;2). We cleansed this hex!</li></ol>",
+	"commentary":[
+		"Pulling back the survivors from Isonoe, we are now ready to conduct a battle against <a href=\"javascript:showBox('sa7')\">Tethys</a>, and try to slow its spread.",
+		"<ol><li><b>Round 1</b>: Tethys has the best Weapon Class, so it rolls first. It rolled a 2 (cheapest ships; versus 3 Minesweepers), followed by an 7 (swallow &le;7)</li>",
+		"<li>Our 3 Cruisers shoot next. We rolled 6,9,9 (0 hits &le;2)<br /><br /></li>",
+		"<li><b>Round 2</b>: Tethys rolls once more. It rolled a 5 (cheapest ships; versus Minesweepers), followed by an 9 (failure &gt;7)</li>",
+		"<li>Our 3 Cruisers shoot next. We rolled 2,7,9 (1 hit &le;2). Tethys is down to 1 HP in this hex<br /><br /></li>",
+		"<li><b>Round 3</b>: Tethys rolls once more. It rolled a 10 (expensive ships; versus Cruisers), followed by an 5 (swallow &le;5)</li>",
+		"<li>Our 2 surviving Cruisers shoot next. We rolled 1,3 (1 hit &le;2). We cleansed this hex!</li></ol>"],
 	"actions":
 		[{
 			"removeCounter":"SC4R"
@@ -1949,7 +2001,13 @@
 			"name":"minerals10"
 		}]},
 	{"heading":"Stardate 2408.0 (The Battle for Sector K11)",
-	"commentary":"<p>Before we can conduct economics, we need to spread amoeba. It is possible Tethys could cause another battle if it spreads... and it does.</p><ol><li><b>Round 1</b>: Tethys rolls first. It rolled a 2 (cheapest ships; versus 2 Minesweepers), followed by a 10 (failure &gt;7)</li><li>Our 2 Cruisers shoot next. We rolled 5,6 (0 hits &le;2)<br /><br /></li><li><b>Round 2</b>: Tethys rolls once more. It rolled a 10 (expensive ships; versus 2 Cruisers), followed by an 4 (swallow &le;5)</li><li>Our 1 surviving Cruiser and 2 Minesweepers have chosen to retreat from the battle. We fall back to sector K10</li></ol>{amoebaTable}<p>Now that the battle is over, we can continue. We will start with Ship Yard level 2 (-20) and Ship Size level 4 (-20). At Sector K9, we will buy 2 Destroyers (-18), 1 Battlecruiser (-15), and 1 Ship Yard (-6). At Sector I6, we will buy 2 Cruisers (-24) and 1 Ship Yard (-6).</p>",
+	"commentary":[
+		"Before we can conduct economics, we need to spread amoeba. It is possible Tethys could cause another battle if it spreads... and it does.",
+		"<ol><li><b>Round 1</b>: Tethys rolls first. It rolled a 2 (cheapest ships; versus 2 Minesweepers), followed by a 10 (failure &gt;7)</li>",
+		"<li>Our 2 Cruisers shoot next. We rolled 5,6 (0 hits &le;2)<br /><br /></li>",
+		"<li><b>Round 2</b>: Tethys rolls once more. It rolled a 10 (expensive ships; versus 2 Cruisers), followed by an 4 (swallow &le;5)</li>",
+		"<li>Our 1 surviving Cruiser and 2 Minesweepers have chosen to retreat from the battle. We fall back to sector K10</li></ol>{amoebaTable}",
+		"Now that the battle is over, we can continue. We will start with Ship Yard level 2 (-20) and Ship Size level 4 (-20). At Sector K9, we will buy 2 Destroyers (-18), 1 Battlecruiser (-15), and 1 Ship Yard (-6). At Sector I6, we will buy 2 Cruisers (-24) and 1 Ship Yard (-6)."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":23,"colonyCP":64,"mineralCP":25,"pipeCP":0,"techBuy":40,"unitBuy":69
@@ -2027,7 +2085,7 @@
 			"name":"colony5R"
 		}]},
 	{"heading":"Stardate 2408.1",
-	"commentary":"<p>We will simply consolidate our forces this turn.</p>",
+	"commentary":["We will simply consolidate our forces this turn."],
 	"actions":
 		[{
 			"placeCounter":"Miner1R",
@@ -2075,7 +2133,20 @@
 			"location":"K10"
 		}]},
 	{"heading":"Stardate 2408.4",
-	"commentary":"<p>Multiple battles have erupted this turn! We will start with Tethys. Afterwards, we will do Isonoe.</p><h3>Sector K11</h3><ol><li><b>Round 1</b>: We are taking advantage of Tethys' <a href=\"javascript:showBox('sa7')\">strength</a>, and using it against them. We gain Attack +1</li><li>Now for Tethys itself. It rolled a 7 to target expensive ships (1 Battlecruiser), followed by a 7 (failure &gt;5)</li><li>Our 1 Battlecruiser gets to shoot. It rolled a 10 (miss &gt;4)</li><li>Our 3 Cruisers and 2 Destroyers have the same Attack rating. We rolled 1,1,6,7,7 together (2 hits &le;3). We have cleansed this hex!</li></ol><hr /><h3>Sector G7</h3><ol><li><b>Round 1</b>: Our 3 Cruisers have the best Weapn Class versus <a href=\"javascript:showBox('sa2')\">Isonoe</a>, so we go first. We rolled 7,10,10 (0 hits &le;2)</li><li>Isonoe now has a chance. It rolled a 3 (targets our last Minesweeper), followed by a <b>1</b> (chained swallow &le;6)</li><li>Isonoe rolls again. Since only our 3 Cruisers, we will skip targetting rolls for the remainder of this battle. It simply rolls a 6 (failure &gt;4)<br /><br /></li><li><b>Round 2</b>: Our 3 Cruisers shoot once more, rolling 1,3,9 (1 hit &le;2). Isonoe is down to 1 HP in this hex</li><li>Isonoe responds with a 4 (swallow &le;4)<br /><br /></li><li><b>Round 3</b>: Our 2 surviving Cruisers shoot once more, rolling 1,10 (1 hit &le;2). We have also cleansed this hex!</li></ol>",
+	"commentary":[
+		"Multiple battles have erupted this turn! We will start with Tethys. Afterwards, we will do Isonoe.",
+		"<h3>Sector K11</h3>",
+		"<ol><li><b>Round 1</b>: We are taking advantage of Tethys' <a href=\"javascript:showBox('sa7')\">strength</a>, and using it against them. We gain Attack +1</li>",
+		"<li>Now for Tethys itself. It rolled a 7 to target expensive ships (1 Battlecruiser), followed by a 7 (failure &gt;5)</li>",
+		"<li>Our 1 Battlecruiser gets to shoot. It rolled a 10 (miss &gt;4)</li>",
+		"<li>Our 3 Cruisers and 2 Destroyers have the same Attack rating. We rolled 1,1,6,7,7 together (2 hits &le;3). We have cleansed this hex!</li></ol><hr />",
+		"<h3>Sector G7</h3>",
+		"<ol><li><b>Round 1</b>: Our 3 Cruisers have the best Weapn Class versus <a href=\"javascript:showBox('sa2')\">Isonoe</a>, so we go first. We rolled 7,10,10 (0 hits &le;2)</li>",
+		"<li>Isonoe now has a chance. It rolled a 3 (targets our last Minesweeper), followed by a <b>1</b> (chained swallow &le;6)</li>",
+		"<li>Isonoe rolls again. Since only our 3 Cruisers, we will skip targetting rolls for the remainder of this battle. It simply rolls a 6 (failure &gt;4)<br /><br /></li>",
+		"<li><b>Round 2</b>: Our 3 Cruisers shoot once more, rolling 1,3,9 (1 hit &le;2). Isonoe is down to 1 HP in this hex</li>",
+		"<li>Isonoe responds with a 4 (swallow &le;4)<br /><br /></li>",
+		"<li><b>Round 3</b>: Our 2 surviving Cruisers shoot once more, rolling 1,10 (1 hit &le;2). We have also cleansed this hex!</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"Miner1R",
@@ -2126,7 +2197,13 @@
 			"name":"amoeba3R"
 		}]},
 	{"heading":"Stardate 2408.7 (The Battle for Sector J12)",
-	"commentary":"<p>We will go on ahead and pull back from Isonoe's reach. We were moderately successful, but it does not hurt to be safe for one more economic phase. On the other hand; we were extremely successful versus Tethys, and will be pushing for their final hex.</p><ol><li><b>Round 1</b>: Very same forces as was in K11. We gain Attack +1</li><li>Tethys goes first. They rolled a 5 (cheapest ships; 2 Minesweepers), followed by a 1 (chained swallow &le;7)</li><li>Tethys goes again, rolling a 9 (expensive ships; 1 Battlecruiser), followed by a 7 (failure &gt;5)</li><li>Our 1 Battlecruiser gets to shoot, rolling a 4 (hit &le;4). Tethys is down to 1 HP in the final hex</li><li>Our 3 Cruisers and 2 Destroyers shoot together once more, rolling 3,3,4,8,9 (2 hits &le;3). Tethys has been cleansed entirely from the map!</li></ol>",
+	"commentary":[
+		"We will go on ahead and pull back from Isonoe's reach. We were moderately successful, but it does not hurt to be safe for one more economic phase. On the other hand; we were extremely successful versus Tethys, and will be pushing for their final hex.",
+		"<ol><li><b>Round 1</b>: Very same forces as was in K11. We gain Attack +1</li>",
+		"<li>Tethys goes first. They rolled a 5 (cheapest ships; 2 Minesweepers), followed by a 1 (chained swallow &le;7)</li>",
+		"<li>Tethys goes again, rolling a 9 (expensive ships; 1 Battlecruiser), followed by a 7 (failure &gt;5)</li>",
+		"<li>Our 1 Battlecruiser gets to shoot, rolling a 4 (hit &le;4). Tethys is down to 1 HP in the final hex</li>",
+		"<li>Our 3 Cruisers and 2 Destroyers shoot together once more, rolling 3,3,4,8,9 (2 hits &le;3). Tethys has been cleansed entirely from the map!</li></ol>"],
 	"actions":
 		[{
 			"removeCounter":"systemK11"
@@ -2173,7 +2250,7 @@
 			"name":"amoeba2M"
 		}]},
 	{"heading":"Stardate 2409.0",
-	"commentary":"<p>Tethys is no more! Isonoe can still spread, but has been contained well. We will go on ahead and buy Defense level 1 (-20). We will then buy 6 Scouts (-36) at Sector I6, and add an extra Ship Yard (-6) while at it.</p>",
+	"commentary":["Tethys is no more! Isonoe can still spread, but has been contained well. We will go on ahead and buy Defense level 1 (-20). We will then buy 6 Scouts (-36) at Sector I6, and add an extra Ship Yard (-6) while at it."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":3,"colonyCP":70,"mineralCP":10,"pipeCP":0,"techBuy":20,"unitBuy":42
@@ -2228,7 +2305,7 @@
 			"name":"amoeba3R"
 		}]},
 	{"heading":"Stardate 2409.3",
-	"commentary":"<p>Having 2 flanks safe from infestation is a huge advantage; makes it much easier to direct forces towards Isonoe.</p>",
+	"commentary":["Having 2 flanks safe from infestation is a huge advantage; makes it much easier to direct forces towards Isonoe."],
 	"actions":
 		[{
 			"placeCounter":"Miner1R",
@@ -2266,7 +2343,13 @@
 			"location":"H7"
 		}]},
 	{"heading":"Stardate 2409.6 (The Battle for Sector G7)",
-	"commentary":"<p>While our Tethys victors are on their way, we will see what we can do to Isonoe with the 2 Cruisers + 6 Scouts that are already near by.</p><ol><li><b>Round 1</b>: Our Cruisers go first versus Isonoe. We rolled 2,10 (1 hit &le;2). This hex is down to 1 HP</li><li>Isonoe rolls 5 to target Scouts, followed by a <b>1</b> (chained swallow &le;5)</li><li>Isonoe rolls again; 7 to target Cruisers, followed by a 5 (failure &gt;4)</li><li>Our 5 surviving Scouts rolled 4,5,7,8,10 (0 hits &le;1)<br /><br /></li><li><b>Round 2</b>: Our 2 Cruisers shoot once more, rolling 2,5 (1 hit &le;2). This hex has been cleansed</li></ol>",
+	"commentary":[
+		"While our Tethys victors are on their way, we will see what we can do to Isonoe with the 2 Cruisers + 6 Scouts that are already near by.",
+		"<ol><li><b>Round 1</b>: Our Cruisers go first versus Isonoe. We rolled 2,10 (1 hit &le;2). This hex is down to 1 HP</li>",
+		"<li>Isonoe rolls 5 to target Scouts, followed by a <b>1</b> (chained swallow &le;5)</li>",
+		"<li>Isonoe rolls again; 7 to target Cruisers, followed by a 5 (failure &gt;4)</li>",
+		"<li>Our 5 surviving Scouts rolled 4,5,7,8,10 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 2</b>: Our 2 Cruisers shoot once more, rolling 2,5 (1 hit &le;2). This hex has been cleansed</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"Miner1R",
@@ -2310,7 +2393,14 @@
 			"name":"amoeba3R"
 		}]},
 	{"heading":"Stardate 2409.9 (The Battle for Sector F7)",
-	"commentary":"<p>Having been exceptionally successful, our 2 Cruisers + 5 surviving Scouts now attempt to clean up Isonoe for good.</p><ol><li><b>Round 1</b>: Our Cruisers go first once more. We rolled 7,9 (0 hits &le;2)</li><li>Isonoe rolls 6 to target Cruisers, followed by a 3 (swallow &le;4)</li><li>Our 5 Scouts rolled 1,3,8,8,10 (1 hit &le;1). Isonoe is down to 1 HP<br /><br /></li><li><b>Round 2</b>: Our 1 surviving Cruiser shoots once more, rolling a 4 (miss &gt;2)</li><li>Isonoe rolls 8 to target Cruisers, followed by a 7 (failure &gt;4)</li><li>Our 5 Scouts rolled 1,2,3,5,6 (1 hit &le;1). Isonoe has been cleansed off the map!</li></ol>",
+	"commentary":[
+		"Having been exceptionally successful, our 2 Cruisers + 5 surviving Scouts now attempt to clean up Isonoe for good.",
+		"<ol><li><b>Round 1</b>: Our Cruisers go first once more. We rolled 7,9 (0 hits &le;2)</li>",
+		"<li>Isonoe rolls 6 to target Cruisers, followed by a 3 (swallow &le;4)</li>",
+		"<li>Our 5 Scouts rolled 1,3,8,8,10 (1 hit &le;1). Isonoe is down to 1 HP<br /><br /></li>",
+		"<li><b>Round 2</b>: Our 1 surviving Cruiser shoots once more, rolling a 4 (miss &gt;2)</li>",
+		"<li>Isonoe rolls 8 to target Cruisers, followed by a 7 (failure &gt;4)</li>",
+		"<li>Our 5 Scouts rolled 1,2,3,5,6 (1 hit &le;1). Isonoe has been cleansed off the map!</li></ol>"],
 	"actions":
 		[{
 			"removeCounter":"systemG7"
@@ -2350,7 +2440,9 @@
 			"name":"amoeba3M"
 		}]},
 	{"heading":"Stardate 2410.0 (Conclusion)",
-	"commentary":"<p>With Isonoe completely cleansed, being the last of the amoebas; this concludes the scenario in victory.</p><p>It is hard to say where we can improve, given that Random Factor was <i>hardly</i> in our favor at all. Nearly every success that did occur either required that we improved the odds in one way, or <span class=\"bindTxt\">(in Ymir's case)</span> bypass them altogether. Nonetheless, this was still successfully done on Normal difficulty.</p>",
+	"commentary":[
+		"With Isonoe completely cleansed, being the last of the amoebas; this concludes the scenario in victory.",
+		"It is hard to say where we can improve, given that Random Factor was <i>hardly</i> in our favor at all. Nearly every success that did occur either required that we improved the odds in one way, or <span class=\"bindTxt\">(in Ymir's case)</span> bypass them altogether. Nonetheless, this was still successfully done on Normal difficulty."],
 	"techTable":
 		[{
 			"name":"CSY (Red)","minesweep":1,"size":4,"minelay":1,"SY":2,"def":1

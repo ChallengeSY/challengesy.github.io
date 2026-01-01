@@ -1,6 +1,8 @@
 {"stages": [
 	{"heading":"Stardate 2400.0 (Introduction)",
-	"commentary":"<p>Welcome to Replicator Solitaire. Last time we attempted this, we were able to draw the extremely potent Space Pilgrims empire advantage, and steamrolled them easily. Titans truly are the more practical path to pursue.</p><p>For this playthrough, we opted to increase the difficulty to Normal. This gives the environment an extra Type 0 hull, while we get 1 less Colony Ship. Our choices this time are Industrious Race + And We Still Carry Swords. We choose the former. The Replicators, named Leykeber, are dealt Green Replicators.</p>",
+	"commentary":[
+		"Welcome to Replicator Solitaire. Last time we attempted this, we were able to draw the extremely potent Space Pilgrims empire advantage, and steamrolled them easily. Titans truly are the more practical path to pursue.",
+		"For this playthrough, we opted to increase the difficulty to Normal. This gives the environment an extra Type 0 hull, while we get 1 less Colony Ship. Our choices this time are Industrious Race + And We Still Carry Swords. We choose the former. The Replicators, named Leykeber, are dealt Green Replicators."],
 	"techTableX":
 		[{
 			"name":"CSY (Red)"
@@ -18,8 +20,8 @@
 			"playerBottom":"R3",
 			"extraHexAway":false
 		}]},
-	{"heading":"Stardate 2400.3 (Turn 1)",
-	"commentary":"<p>Space Pilgrims left us so spoiled last time. We should hold back our more expensive starships and our Miner this time.</p>",
+	{"heading":"Stardate 2400.3",
+	"commentary":["Space Pilgrims left us so spoiled last time. We should hold back our more expensive starships and our Miner this time."],
 	"actions":
 		[{
 			"placeHullsV":"L8,K8,L8,K8,L8,K8",
@@ -88,8 +90,8 @@
 			"revealCounter":"systemB5",
 			"name":"unexploredR"
 		}]},
-	{"heading":"Stardate 2400.6 (Turn 2)",
-	"commentary":"<p>Not every day that every home system uncovered on the first turn is a planet, and on both sides of the map.</p>",
+	{"heading":"Stardate 2400.6",
+	"commentary":["Not every day that every home system uncovered on the first turn is a planet, and on both sides of the map."],
 	"actions":
 		[{
 			"removeHullsV":"1,2"
@@ -166,8 +168,8 @@
 			"revealCounter":"systemB6",
 			"name":"unexploredR"
 		}]},
-	{"heading":"Stardate 2400.9 (Turn 3)",
-	"commentary":"<p>Overall, both sides can enjoy a very good start to this scenario.</p>",
+	{"heading":"Stardate 2400.9",
+	"commentary":["Overall, both sides can enjoy a very good start to this scenario."],
 	"actions":
 		[{
 			"removeHullsV":"3,7,8"
@@ -243,8 +245,10 @@
 			"revealCounter":"systemB6",
 			"name":"minerals5"
 		}]},
-	{"heading":"Stardate 2401.0 (Economic Phase 1)",
-	"commentary":"<p>Leykeber was able to colonize more planets this time around, at the expense of cashing in fewer minerals and being effectively funneled on where they can go by virtue of being in a corner. Still, they got enough minerals to buy an extra hull (-8), so they will do so.</p><p>We ran into only planets on the first turn, so we were unable to cash in any minerals this time. This slows us down a bit. Still, we willl get to work towards Titans, so we will buy Ship Size 2 (-10). We will also buy Exploration 1 (-15) and 1 Colony Ship (-8).</p>",
+	{"heading":"Stardate 2401.0",
+	"commentary":[
+		"Leykeber was able to colonize more planets this time around, at the expense of cashing in fewer minerals and being effectively funneled on where they can go by virtue of being in a corner. Still, they got enough minerals to buy an extra hull (-8), so they will do so.",
+		"We ran into only planets on the first turn, so we were unable to cash in any minerals this time. This slows us down a bit. Still, we willl get to work towards Titans, so we will buy Ship Size 2 (-10). We will also buy Exploration 1 (-15) and 1 Colony Ship (-8)."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":10,"colonyCP":30,"mineralCP":0,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":25,"unitBuy":8
@@ -336,8 +340,8 @@
 			"revealCounter":"systemA7",
 			"name":"unexploredR"
 		}]},
-	{"heading":"Stardate 2401.2 (Turn 4)",
-	"commentary":"<p>The environment will never use their Type Flag to colonize a planet. Meanwhile, we will go on ahead and upgrade our Flagship with Exploration 1 (-3).</p>",
+	{"heading":"Stardate 2401.2",
+	"commentary":["The environment will never use their Type Flag to colonize a planet. Meanwhile, we will go on ahead and upgrade our Flagship with Exploration 1 (-3)."],
 	"actions":
 		[{
 			"placeHullsV":"J6",
@@ -406,8 +410,8 @@
 			"revealCounter":"systemA8",
 			"name":"unexploredR"
 		}]},
-	{"heading":"Stardate 2401.5 (Turn 5)",
-	"commentary":"<p>We have each ran into our respective home system obstacles. The Replicator supernova simply slows down further reconissance. We have uncovered our first black hole, threatening one of our Scouts with its destructive pull. We rolled a 4, avoiding its grasp.</p>",
+	{"heading":"Stardate 2401.5",
+	"commentary":["We have each ran into our respective home system obstacles. The Replicator supernova simply slows down further reconissance. We have uncovered our first black hole, threatening one of our Scouts with its destructive pull. We rolled a 4, avoiding its grasp."],
 	"actions":
 		[{
 			"placeHullsV":"K5",
@@ -477,8 +481,8 @@
 			"revealCounter":"systemA9",
 			"name":"unexploredR"
 		}]},
-	{"heading":"Stardate 2401.8 (Turn 6)",
-	"commentary":"<p>We finally unload our first minerals...</p>",
+	{"heading":"Stardate 2401.8",
+	"commentary":["We finally unload our first minerals..."],
 	"actions":
 		[{
 			"placeHullsV":"K4",
@@ -568,8 +572,8 @@
 			"revealCounter":"systemA9",
 			"name":"minerals5"
 		}]},
-	{"heading":"Stardate 2402.0 (Economic Phase 2)",
-	"commentary":"<p>Leykeber's development slows, but is still progressing, and they can still afford another extra hull (-8). Meanwhile, we will buy Ship Size 3 (-15). Afterwards, we buy 2 Colony Ships (-16) and 1 Miner (-5), spending all of our money.</p>",
+	{"heading":"Stardate 2402.0",
+	"commentary":["Leykeber's development slows, but is still progressing, and they can still afford another extra hull (-8). Meanwhile, we will buy Ship Size 3 (-15). Afterwards, we buy 2 Colony Ships (-16) and 1 Miner (-5), spending all of our money."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":1,"colonyCP":33,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":15,"unitBuy":21
@@ -682,8 +686,10 @@
 			"revealCounter":"systemD3",
 			"name":"unexploredW"
 		}]},
-	{"heading":"Stardate 2402.1 (Turn 7)",
-	"commentary":"<p>Leykeber has been both funneled and inhibited at the same time. Even with the extra Type 0 it started the playthrough with (relative to Easy difficulty), it may still take a considerable while before they can finish uncovering their home systems.</p><p>Since we are playing a <q>living</q> faction, we are not confined to our home systems at all. Thus, we can step foot into deep space as appropriate.</p>",
+	{"heading":"Stardate 2402.1",
+	"commentary":[
+		"Leykeber has been both funneled and inhibited at the same time. Even with the extra Type 0 it started the playthrough with (relative to Easy difficulty), it may still take a considerable while before they can finish uncovering their home systems.",
+		"Since we are playing a <q>living</q> faction, we are not confined to our home systems at all. Thus, we can step foot into deep space as appropriate."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -761,8 +767,8 @@
 			"revealCounter":"systemC8",
 			"name":"unexploredR"
 		}]},
-	{"heading":"Stardate 2402.4 (Turn 8)",
-	"commentary":"<p>And thus concludes the last of our home systems. Only deep space remains for us. Pirates are not used at all in this scenario, so this marker does nothing to us.</p>",
+	{"heading":"Stardate 2402.4",
+	"commentary":["And thus concludes the last of our home systems. Only deep space remains for us. Pirates are not used at all in this scenario, so this marker does nothing to us."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -852,8 +858,13 @@
 		},{
 			"removeCounter":"NPA7B"
 		}]},
-	{"heading":"Stardate 2402.7 (Turn 9)",
-	"commentary":"<p>We run into two barren planets on the very same turn. Because non-player aliens are active, we are ambushed by their defenders.</p><h3>The Trespass of Abydos</h3><p>Abydos' defenders rolled 8,1,4,1 (3 hits &le;4), easily eliminating this trespasser.</p><h3>The Trespass of Cobol</h3><p>Cobol's defenders rolled 10,3,5,9 (3 hits &le;5), also eliminating this straggler.</p>",
+	{"heading":"Stardate 2402.7",
+	"commentary":[
+		"We run into two barren planets on the very same turn. Because non-player aliens are active, we are ambushed by their defenders.",
+		"<h3>The Trespass of Abydos</h3>",
+		"Abydos' defenders rolled 8,1,4,1 (3 hits &le;4), easily eliminating this trespasser.",
+		"<h3>The Trespass of Cobol</h3>",
+		"Cobol's defenders rolled 10,3,5,9 (3 hits &le;5), also eliminating this straggler."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -979,8 +990,10 @@
 			"revealCounter":"systemB3",
 			"name":"planetR4"
 		}]},
-	{"heading":"Stardate 2403.0 (Economic Phase 3)",
-	"commentary":"<p>Multiple colonies have reached full strength, on both sides of the board. This is also the last economic phase Leykeber automatically buys an extra hull at their homeworld.</p><p>Still, recent battle losses slow our reconissance of deep space, but has reduced the maintenance. We will go on ahead and buy Ship Size 4 (-20) and Terraforming 1 (-20). We then buy 1 Colony Ship (-8).</p>",
+	{"heading":"Stardate 2403.0",
+	"commentary":[
+		"Multiple colonies have reached full strength, on both sides of the board. This is also the last economic phase Leykeber automatically buys an extra hull at their homeworld.",
+		"Still, recent battle losses slow our reconissance of deep space, but has reduced the maintenance. We will go on ahead and buy Ship Size 4 (-20) and Terraforming 1 (-20). We then buy 1 Colony Ship (-8)."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":0,"colonyCP":41,"mineralCP":10,"pipeCP":0,"maint":1,"bidCP":0,"techBuy":40,"unitBuy":8
@@ -1090,8 +1103,8 @@
 		},{
 			"removeCounter":"NPA9C"
 		}]},
-	{"heading":"Stardate 2403.3 (Turn 10)",
-	"commentary":"<p>Exploration makes deep space much safer for our Flagship. Since our last Scout is unable to benefit from that accomodation, it instead runs into another NPA planet. Their starships rolled 9,3,5,3 (2 hits &le;4), easily blowing our Scout out of the sky.</p>",
+	{"heading":"Stardate 2403.3",
+	"commentary":["Exploration makes deep space much safer for our Flagship. Since our last Scout is unable to benefit from that accomodation, it instead runs into another NPA planet. Their starships rolled 9,3,5,3 (2 hits &le;4), easily blowing our Scout out of the sky."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -1153,8 +1166,8 @@
 			"revealCounter":"systemE4",
 			"name":"unexploredW"
 		}]},
-	{"heading":"Stardate 2403.6 (Turn 11)",
-	"commentary":"<p>As long as our Flagship takes its time, we need not have to worry about the hazards of deep space.</p>",
+	{"heading":"Stardate 2403.6",
+	"commentary":["As long as our Flagship takes its time, we need not have to worry about the hazards of deep space."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -1203,8 +1216,8 @@
 			"revealCounter":"systemE5",
 			"name":"unexploredW"
 		}]},
-	{"heading":"Stardate 2403.9 (Turn 12)",
-	"commentary":"<p>Taking advantage of our Industrious Race, we can colonize one of the deep space asteroid belts, and add its production to our income.</p>",
+	{"heading":"Stardate 2403.9",
+	"commentary":["Taking advantage of our Industrious Race, we can colonize one of the deep space asteroid belts, and add its production to our income."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -1283,8 +1296,10 @@
 			"revealCounter":"systemD4",
 			"name":"asteroids"
 		}]},
-	{"heading":"Stardate 2404.0 (Economic Phase 4)",
-	"commentary":"<p>At this point, Leykeber no longer automatically spends its CP on more hulls. Instead, a die is rolled to determine where it spends. A 2 is rolled, causing it to buy an extra homeworld hull anyway (-8).</p><p>Since we have three colonies at full strength, we can place a free Light Infantry among such colonies. We will then buy Ship Size 5 (-20), followed by 4 Colony Ships (-32) and an extra Ship Yard (-6).</p>",
+	{"heading":"Stardate 2404.0",
+	"commentary":[
+		"At this point, Leykeber no longer automatically spends its CP on more hulls. Instead, a die is rolled to determine where it spends. A 2 is rolled, causing it to buy an extra homeworld hull anyway (-8).",
+		"Since we have three colonies at full strength, we can place a free Light Infantry among such colonies. We will then buy Ship Size 5 (-20), followed by 4 Colony Ships (-32) and an extra Ship Yard (-6)."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":2,"colonyCP":52,"mineralCP":10,"pipeCP":0,"maint":0,"bidCP":0,"techBuy":20,"unitBuy":38
@@ -1382,7 +1397,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2404.2",
-	"commentary":"<p>Leykeber is almost done with their home systems.</p>",
+	"commentary":["Leykeber is almost done with their home systems."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -1433,7 +1448,7 @@
 			"removeCounter":"NPA5X"
 		}]},
 	{"heading":"Stardate 2404.5",
-	"commentary":"<p>This accomplishes their home systems mission. In the next economic phase, they will receive the Exploration technology, 3 Type Exps, and the Deep Space reconissance mission.</p>",
+	"commentary":["This accomplishes their home systems mission. In the next economic phase, they will receive the Exploration technology, 3 Type Exps, and the Deep Space reconissance mission."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -1482,7 +1497,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2404.8",
-	"commentary":"<p>While Leykeber is waiting for the mission rewards to be delivered, they will begin assembling a fleet.</p>",
+	"commentary":["While Leykeber is waiting for the mission rewards to be delivered, they will begin assembling a fleet."],
 	"actions":
 		[{
 			"placeGhost":"FlagV",
@@ -1563,7 +1578,9 @@
 			"name":"planetR5"
 		}]},
 	{"heading":"Stardate 2405.0",
-	"commentary":"<p>Leykeber's rewards have arrived! They will be able to venture into deep space, as soon as they get their Type Exps in position. Only other decision that needs to take place is determined by their die roll; another 2, another homeworld hull.</p><p>Since the Replicator threat is looming; we opted to buy Fighters 1 (-25), in addition to Ship Size 6 (-20). We then build a full Carrier (-27) and 1 Pipeline (-3).</p>",
+	"commentary":[
+		"Leykeber's rewards have arrived! They will be able to venture into deep space, as soon as they get their Type Exps in position. Only other decision that needs to take place is determined by their die roll; another 2, another homeworld hull.",
+		"Since the Replicator threat is looming; we opted to buy Fighters 1 (-25), in addition to Ship Size 6 (-20). We then build a full Carrier (-27) and 1 Pipeline (-3)."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":6,"colonyCP":60,"mineralCP":10,"pipeCP":0,"maint":0,"bidCP":0,"techBuy":45,"unitBuy":30
@@ -1681,7 +1698,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2405.1",
-	"commentary":"<p>Now that Leykeber has more toys, Replicator Solitaire has become considerably dicier.</p>",
+	"commentary":["Now that Leykeber has more toys, Replicator Solitaire has become considerably dicier."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -1753,7 +1770,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2405.4",
-	"commentary":"<p>Their first adventures into deep space begins... <b>now</b>! (Regional Maps are not used at all in this scenario, so the marker simply gets removed.)</p>",
+	"commentary":["Their first adventures into deep space begins... <b>now</b>! (Regional Maps are not used at all in this scenario, so the marker simply gets removed.)"],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -1835,7 +1852,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2405.7",
-	"commentary":"<p>Their ability to exert pressure on us was [further] inhibited when the Type Exp that supports their primary fleet uncovered yet another NPA planet. While they are not eligible for the <q>conquer</q> mission (we have our Flagship in neutral space), they <i>are</i> eligible for the NPA RP mission.</p>",
+	"commentary":["Their ability to exert pressure on us was [further] inhibited when the Type Exp that supports their primary fleet uncovered yet another NPA planet. While they are not eligible for the <q>conquer</q> mission (we have our Flagship in neutral space), they <i>are</i> eligible for the NPA RP mission."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -1945,7 +1962,9 @@
 			"name":"asteroids"
 		}]},
 	{"heading":"Stardate 2406.0",
-	"commentary":"<p>Leykeber's home system colonies are almost at full strength. They rolled a 3, making their random purchase <i>yet</i> another homeworld hull.</p><p>Ship Size 7 is finally within our reach, so we will go on ahead and buy that (-30). We will then buy our first Titan (-32), already consuming our entire homeworld Ship Yard capacity. Instead, we will throw down forward Ship Yards at C5 and D4 (-12 total).</p>",
+	"commentary":[
+		"Leykeber's home system colonies are almost at full strength. They rolled a 3, making their random purchase <i>yet</i> another homeworld hull.",
+		"Ship Size 7 is finally within our reach, so we will go on ahead and buy that (-30). We will then buy our first Titan (-32), already consuming our entire homeworld Ship Yard capacity. Instead, we will throw down forward Ship Yards at C5 and D4 (-12 total)."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":1,"colonyCP":68,"mineralCP":15,"pipeCP":0,"maint":4,"bidCP":0,"techBuy":30,"unitBuy":44
@@ -2075,7 +2094,22 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2406.3 (The Battle for Rukbat)",
-	"commentary":"<p>This is going to hurt... at least, if Leykeber was not already eligible for <q>Priority 4</q>; assault a NPA planet with 12 or more hulls worth of starships. Their fleet technically has 13 hulls worth now. The only combat ships we have nearby is the Flagship, so self-preservation is not a concern.</p><ol><li><b>Preparation</b>: Before a battle can be conducted, Leykeber's hulls need to be converted to ships</li><li>Since we have thrown a wrench their way (Fighters are on the board, but neither in battle nor previously encountered), they have to roll for a potential Type PD. A 10 was rolled this way, causing them to build one anyway</li><li>Their Type Flag is... well... their Flagship. It neither consumes hulls, nor does it break down into hulls</li><li>There are neither Minelayers nor Raiders on the board, so the 9 leftover hulls become Type 0 ships<br /><br /></li><li><b>Round 1</b>: Since Leykeber has the Fleet Size Bonus (11:4), Rukbat wants to try to negate this bonus as soon as possible</li><li>Rukbat's Alien-B has the equal Tactics advantage, so it shoots against their Type 0s (&le;6 to hit). It rolled a 10 (missed)</li><li>Leykeber's Type Flag is extremely weak (Attack 2), so it starts with the Alien-B (&le;1 to hit regardless of target). It rolled an 8 (also missed)</li><li>Rukbat's remaining ships rolled 4,5/8 (2 hits &le;5/4)</li><li>Leykeber's 7 remaining Type 0 ships have a decent chance if they start with the Alien-D (3 - 1 &le; 2), so they rolled 10,1 this way</li><li>Leykeber's 5 leftover Type 0 and 1 Type PD ships then focus on the Alien-B, rolling 3,1,8,10,4,1 this way (2 hits &le;1)<br /><br /></li><li><b>Round 2</b>: Leykeber's Type Flag shoots once more. Only Rukbat's last Alien-C remains. It rolled another 8 (missed)</li><li>Rukbat's Alien-C rolled a 9 (missed &gt;5)</li><li>Leykeber's 8 remaining ships rolled 1,2,6,7,8,8,9,10 (1 hit &le;1), finishing off Rukbat</li><li>Having successfully subdued Rukbat, Leykeber then spends one of its hulls and colonizes the planet; granting them 10 CP from the alien technology card that was automatically converted, and allowing the rest of the hulls to become <q>unidentified</q> once more</li></ol>",
+	"commentary":[
+		"This is going to hurt... at least, if Leykeber was not already eligible for <q>Priority 4</q>; assault a NPA planet with 12 or more hulls worth of starships. Their fleet technically has 13 hulls worth now. The only combat ships we have nearby is the Flagship, so self-preservation is not a concern.",
+		"<ol><li><b>Preparation</b>: Before a battle can be conducted, Leykeber's hulls need to be converted to ships</li>",
+		"<li>Since we have thrown a wrench their way (Fighters are on the board, but neither in battle nor previously encountered), they have to roll for a potential Type PD. A 10 was rolled this way, causing them to build one anyway</li>",
+		"<li>Their Type Flag is... well... their Flagship. It neither consumes hulls, nor does it break down into hulls</li>",
+		"<li>There are neither Minelayers nor Raiders on the board, so the 9 leftover hulls become Type 0 ships<br /><br /></li>",
+		"<li><b>Round 1</b>: Since Leykeber has the Fleet Size Bonus (11:4), Rukbat wants to try to negate this bonus as soon as possible</li>",
+		"<li>Rukbat's Alien-B has the equal Tactics advantage, so it shoots against their Type 0s (&le;6 to hit). It rolled a 10 (missed)</li>",
+		"<li>Leykeber's Type Flag is extremely weak (Attack 2), so it starts with the Alien-B (&le;1 to hit regardless of target). It rolled an 8 (also missed)</li>",
+		"<li>Rukbat's remaining ships rolled 4,5/8 (2 hits &le;5/4)</li>",
+		"<li>Leykeber's 7 remaining Type 0 ships have a decent chance if they start with the Alien-D (3 - 1 &le; 2), so they rolled 10,1 this way</li>",
+		"<li>Leykeber's 5 leftover Type 0 and 1 Type PD ships then focus on the Alien-B, rolling 3,1,8,10,4,1 this way (2 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 2</b>: Leykeber's Type Flag shoots once more. Only Rukbat's last Alien-C remains. It rolled another 8 (missed)</li>",
+		"<li>Rukbat's Alien-C rolled a 9 (missed &gt;5)</li>",
+		"<li>Leykeber's 8 remaining ships rolled 1,2,6,7,8,8,9,10 (1 hit &le;1), finishing off Rukbat</li>",
+		"<li>Having successfully subdued Rukbat, Leykeber then spends one of its hulls and colonizes the planet; granting them 10 CP from the alien technology card that was automatically converted, and allowing the rest of the hulls to become <q>unidentified</q> once more</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -2171,7 +2205,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2406.6",
-	"commentary":"<p>Having emerged victorious with a new colony <i>and</i> their first RP, Leykeber consolidates their hulls accordingly. Yet, they will soon be eligible to execute <q>Priority 4</q> again.</p>",
+	"commentary":["Having emerged victorious with a new colony <i>and</i> their first RP, Leykeber consolidates their hulls accordingly. Yet, they will soon be eligible to execute <q>Priority 4</q> again."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -2263,7 +2297,31 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2406.9",
-	"commentary":"<p>Quite convenient having our farthest colonies protected by asteroids, making it impossible for them to assault, unless they started the turn adjacent to it... (Also, Doomsday Machines are not used at all.)</p><h3>The Battle for Babbage</h3><p>The time has come for them to assault Babbage. This time, they bring 16 hulls into battle!</p><ol><li><b>Preparation</b>: As per the previous wrench, they have to roll for a potential Type PD. A 1 was rolled this way, so they skip this step</li><li>The 13 unidentified hulls become Type 0 ships<br /><br /></li><li><b>Round 1</b>: Since Fleet Size Bonus is ineffective, Babbage wants to maximize its damage output, so they will focus on the Type 0s first</li><li>Rukbat's Alien-B has the equal Tactics advantage, so it shoots first. It rolled a 1 (<b>hit</b> &le;6)</li><li>Leykeber's Type Flag is still extremely weak (Attack 2), so it starts with the Alien-B (&le;1 to hit regardless of target). It rolled a 6 (missed)</li><li>Babbage's Alien-Cs rolled 1,4,7 (2 hits &le;5)</li><li>Leykeber's 10 remaining Type 0 ships have the lowest accuracy (10%) regardless of target. Prioritizing the Alien-B, they rolled 1,9,10,8,7,10,9,3,10,3 (1 hit)<br /><br /></li><li><b>Round 2</b>: Leykeber's Type Flag shoots once more. Only Babbage's 3 Alien-Cs remain. It rolled a 3 (missed)</li><li>Babbage's Alien-Cs rolled 1,5,5 (3 hits &le;5)</li><li>Leykeber's 7 remaining Type 0s rolled 1,2,3,4,4,5,9 (1 hit &le;1)<br /><br /></li><li><b>Round 3</b>: Leykeber's Type Flag rolls a 6 (missed)</li><li>Babbage's remaining 2 Alien-Cs rolled 2,8 (1 hit &le;5)</li><li>Leykeber's 6 remaining Type 0s rolled 3,4,4,5,7,7 (0 hits &le;1)<br /><br /></li><li><b>Round 4</b>: Leykeber's Type Flag rolls a 3 (missed)</li><li>Babbage's 2 Alien-Cs rolled 2,3 (2 hits &le;5)</li><li>Leykeber's 4 remaining Type 0s rolled 1,2,3,8 (1 hit &le;1)<br /><br /></li><li><b>Round 5</b>: Leykeber's Type Flag rolls a 5 (missed)</li><li>Babbage's last Alien-C rolls a 3 (hit &le;5)</li><li>Leykeber's 3 remaining Type 0s rolled 3,3,8 (0 hits &le;1)<br /><br /></li><li><b>Round 6</b>: Leykeber's Type Flag rolls a 1 (<b>hit</b>), finishing off Babbage</li><li>With Babbage subdued, one of the Type 0s colonizes the planet, leaving them with 2 hulls leftover</li></ol><p>(Despite the Replicator fleet having been weakened to the point of being Inferior, we opt to not assault them, because they have reinforcements 1 turn away.)</p>",
+	"commentary":[
+		"Quite convenient having our farthest colonies protected by asteroids, making it impossible for them to assault, unless they started the turn adjacent to it... (Also, Doomsday Machines are not used at all.)",
+		"<h3>The Battle for Babbage</h3>",
+		"The time has come for them to assault Babbage. This time, they bring 16 hulls into battle!",
+		"<ol><li><b>Preparation</b>: As per the previous wrench, they have to roll for a potential Type PD. A 1 was rolled this way, so they skip this step</li>",
+		"<li>The 13 unidentified hulls become Type 0 ships<br /><br /></li>",
+		"<li><b>Round 1</b>: Since Fleet Size Bonus is ineffective, Babbage wants to maximize its damage output, so they will focus on the Type 0s first</li>",
+		"<li>Rukbat's Alien-B has the equal Tactics advantage, so it shoots first. It rolled a 1 (<b>hit</b> &le;6)</li>",
+		"<li>Leykeber's Type Flag is still extremely weak (Attack 2), so it starts with the Alien-B (&le;1 to hit regardless of target). It rolled a 6 (missed)</li>",
+		"<li>Babbage's Alien-Cs rolled 1,4,7 (2 hits &le;5)</li>",
+		"<li>Leykeber's 10 remaining Type 0 ships have the lowest accuracy (10%) regardless of target. Prioritizing the Alien-B, they rolled 1,9,10,8,7,10,9,3,10,3 (1 hit)<br /><br /></li>",
+		"<li><b>Round 2</b>: Leykeber's Type Flag shoots once more. Only Babbage's 3 Alien-Cs remain. It rolled a 3 (missed)</li>",
+		"<li>Babbage's Alien-Cs rolled 1,5,5 (3 hits &le;5)</li>",
+		"<li>Leykeber's 7 remaining Type 0s rolled 1,2,3,4,4,5,9 (1 hit &le;1)<br /><br /></li>",
+		"<li><b>Round 3</b>: Leykeber's Type Flag rolls a 6 (missed)</li>",
+		"<li>Babbage's remaining 2 Alien-Cs rolled 2,8 (1 hit &le;5)</li>",
+		"<li>Leykeber's 6 remaining Type 0s rolled 3,4,4,5,7,7 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 4</b>: Leykeber's Type Flag rolls a 3 (missed)</li>",
+		"<li>Babbage's 2 Alien-Cs rolled 2,3 (2 hits &le;5)</li>",
+		"<li>Leykeber's 4 remaining Type 0s rolled 1,2,3,8 (1 hit &le;1)<br /><br /></li>",
+		"<li><b>Round 5</b>: Leykeber's Type Flag rolls a 5 (missed)</li>",
+		"<li>Babbage's last Alien-C rolls a 3 (hit &le;5)</li>",
+		"<li>Leykeber's 3 remaining Type 0s rolled 3,3,8 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 6</b>: Leykeber's Type Flag rolls a 1 (<b>hit</b>), finishing off Babbage</li>",
+		"<li>With Babbage subdued, one of the Type 0s colonizes the planet, leaving them with 2 hulls leftover</li></ol><p>(Despite the Replicator fleet having been weakened to the point of being Inferior, we opt to not assault them, because they have reinforcements 1 turn away.)"],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -2386,7 +2444,9 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2407.0",
-	"commentary":"<p>Leykeber easily replaces their lost machinery, though the past 2 battles have taken a toll on their numbers (12 hulls lost in battle + 2 hulls scrapped to colonize). Their random decision roll this time is a 7, causing them to buy 1 RP (-30).</p><p>Meanwhile, things have gotten a bit tricky now that we have no home system minerals left to cash in. Still, we will buy 1 Titan + 1 Ship Yard (-38) at our homeworld, 1 Fighter + 1 Ship Yard (-11) at Planet C5, 1 Pipeline + 1 Ship Yard (-9) at Asteroid Belt D4, 1 Ship Yard + 1 Base (-18) at Asteroid Belt F7.</p>",
+	"commentary":[
+		"Leykeber easily replaces their lost machinery, though the past 2 battles have taken a toll on their numbers (12 hulls lost in battle + 2 hulls scrapped to colonize). Their random decision roll this time is a 7, causing them to buy 1 RP (-30).",
+		"Meanwhile, things have gotten a bit tricky now that we have no home system minerals left to cash in. Still, we will buy 1 Titan + 1 Ship Yard (-38) at our homeworld, 1 Fighter + 1 Ship Yard (-11) at Planet C5, 1 Pipeline + 1 Ship Yard (-9) at Asteroid Belt D4, 1 Ship Yard + 1 Base (-18) at Asteroid Belt F7."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":6,"colonyCP":78,"mineralCP":5,"pipeCP":0,"maint":9,"bidCP":0,"techBuy":0,"unitBuy":76
@@ -2510,7 +2570,15 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2407.2",
-	"commentary":"<p>While waiting on our Titan to arrive, Leykeber will send in a single hull to study the starships we already have in position. This mission gives them 2 RP and increased knowledge of our Fighters, which is easily worth trading one hull.</p><h3>The Reconissance of Sector F7</h3><ol><li><b>Round 1</b>: Since fighters are present, they rolled a 10, so their hull becomes a Type PD</li><li>Our base has the Tactics advantage, so it shoots first. It rolled a 10 (&le;8 to hit)</li><li>Their Type PD responds with a 6 (&le;6 to hit), shooting down one of our fighters</li><li>Our 2 remaining fighters rolled 7,10 (0 hits &le;6)</li><li>Our remaining ships (all with natural Attack 3) rolled 8,9,10 (0 hits &le;4)<br /><br /></li><li><b>Round 2</b>: Our base then rolls an 8 (&le;8 to hit), cleaning up their straggler</li></ol>",
+	"commentary":[
+		"While waiting on our Titan to arrive, Leykeber will send in a single hull to study the starships we already have in position. This mission gives them 2 RP and increased knowledge of our Fighters, which is easily worth trading one hull.",
+		"<h3>The Reconissance of Sector F7</h3>",
+		"<ol><li><b>Round 1</b>: Since fighters are present, they rolled a 10, so their hull becomes a Type PD</li>",
+		"<li>Our base has the Tactics advantage, so it shoots first. It rolled a 10 (&le;8 to hit)</li>",
+		"<li>Their Type PD responds with a 6 (&le;6 to hit), shooting down one of our fighters</li>",
+		"<li>Our 2 remaining fighters rolled 7,10 (0 hits &le;6)</li>",
+		"<li>Our remaining ships (all with natural Attack 3) rolled 8,9,10 (0 hits &le;4)<br /><br /></li>",
+		"<li><b>Round 2</b>: Our base then rolls an 8 (&le;8 to hit), cleaning up their straggler</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -2595,7 +2663,7 @@
 			"name":"minerals10"
 		}]},
 	{"heading":"Stardate 2407.5",
-	"commentary":"<p>10 hulls versus 13 hulls still favors us, but as soon as Leykeber throws in the 11th hull... the fleets would be equal, and making it fair game for them to assault our colony. If we want to prevent them from doing so, we <i>must</i> move our Titan to the colony... even if it means allowing them to gain a surge of RP.</p>",
+	"commentary":["10 hulls versus 13 hulls still favors us, but as soon as Leykeber throws in the 11th hull... the fleets would be equal, and making it fair game for them to assault our colony. If we want to prevent them from doing so, we <i>must</i> move our Titan to the colony... even if it means allowing them to gain a surge of RP."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -2677,7 +2745,7 @@
 			"name":"MSmR"
 		}]},
 	{"heading":"Stardate 2407.8",
-	"commentary":"<p>The only consolation is that we force them to spend another hull against us. Since they have previously encountered fighters, and there are fighters in this battle, they will automatically build a Type PD. Our Base and Titan then rolled 6,6 (2 hits &le;8), easily knocking their ship out.</p>",
+	"commentary":["The only consolation is that we force them to spend another hull against us. Since they have previously encountered fighters, and there are fighters in this battle, they will automatically build a Type PD. Our Base and Titan then rolled 6,6 (2 hits &le;8), easily knocking their ship out."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -2786,7 +2854,9 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2408.0",
-	"commentary":"<p>Thanks to its amazing successes, Leykeber has now reached an insane <b>11</b> RP, allowing them to build Type XIs and Type IXs. Additionally, this is the eighth economic phase, so it gains Movement 3 free. Its decision roll this time is a 1, causing them to buy an extra homeworld hull.</p><p>To help tip the next potential battles in our favor, we will steal the initiative (-15). We then buy 1 Titan + 1 Fighter (-37) at the homeworld, 2 Fighters at C5 (-10), 1 Fighter at F7 (-5), and 2 Pipelines at D4.</p>",
+	"commentary":[
+		"Thanks to its amazing successes, Leykeber has now reached an insane <b>11</b> RP, allowing them to build Type XIs and Type IXs. Additionally, this is the eighth economic phase, so it gains Movement 3 free. Its decision roll this time is a 1, causing them to buy an extra homeworld hull.",
+		"To help tip the next potential battles in our favor, we will steal the initiative (-15). We then buy 1 Titan + 1 Fighter (-37) at the homeworld, 2 Fighters at C5 (-10), 1 Fighter at F7 (-5), and 2 Pipelines at D4."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":4,"colonyCP":86,"mineralCP":0,"pipeCP":1,"maint":14,"bidCP":15,"techBuy":0,"unitBuy":58
@@ -2898,7 +2968,7 @@
 			"name":"colony5R"
 		}]},
 	{"heading":"Stardate 2408.1",
-	"commentary":"<p>The time has come to assault Babbage... at least, if it were not for the wonders of our recently expanded battle simulator. Since a Bottom 1% disaster was averted... or, rather, reverted; we will continue to fortify Asteroid Belt D7.</p>",
+	"commentary":["The time has come to assault Babbage... at least, if it were not for the wonders of our recently expanded battle simulator. Since a Bottom 1% disaster was averted... or, rather, reverted; we will continue to fortify Asteroid Belt D7."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -2975,7 +3045,10 @@
 			"name":"minerals10"
 		}]},
 	{"heading":"Stardate 2408.4",
-	"commentary":"<p>Having stolen the initiative for this set of turns is still useful, while our Pipeline infrastructure is not sufficient to meet D7's needs. Without it, the two rivaling fleets would be Equal (20 vs 18), and Leykeber would assault our colony; and that they would be able to take the 10 minerals, and not us.</p><p>Still, because our fleet has grown, Leykeber can gain an twelfth RP this turn by sending in a single hull to attack our fleet. Since fighters are present, it automatically becomes a Type PD. Our Base rolls a 2 to clean up this straggler.</p><p>Their priorities call for the rest of the fleet to take out our <q>bait</q> Miner.</p>",
+	"commentary":[
+		"Having stolen the initiative for this set of turns is still useful, while our Pipeline infrastructure is not sufficient to meet D7's needs. Without it, the two rivaling fleets would be Equal (20 vs 18), and Leykeber would assault our colony; and that they would be able to take the 10 minerals, and not us.",
+		"Still, because our fleet has grown, Leykeber can gain an twelfth RP this turn by sending in a single hull to attack our fleet. Since fighters are present, it automatically becomes a Type PD. Our Base rolls a 2 to clean up this straggler.",
+		"Their priorities call for the rest of the fleet to take out our <q>bait</q> Miner."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -3087,7 +3160,9 @@
 			"removeCounter":"systemG7"
 		}]},
 	{"heading":"Stardate 2408.7 (The Battle for Asteroid Belt D7)",
-	"commentary":"<p>Not only did we deny them 10 of those minerals, we were able to catch one of their colonies completely undefended. Since we have taken Titans with us, we are able to instantly destroy their planet... transforming it into an asteroid belt.</p><p>In return, Leykeber's primary fleet has gotten angry at our recent destruction, and has counter-assaulted Asteroid Belt D7, which has become lightly defended. After transforming 15 hulls into 1 Type PD (rolled a 6) and 7 Type XIs, Leykeber's Type Flag automatically destroys our Ship Yard, while the Type XIs rolled 4,5,5,8,9,10,10 against our Base (3 hits &le;7). Finally, the Type XIs rolled 2,3,7,7,7,8,10 (6 hits &le;8), vaporizing our colony. Since this colony was over an asteroid belt, they are unable to re-colonize it.</p>",
+	"commentary":[
+		"Not only did we deny them 10 of those minerals, we were able to catch one of their colonies completely undefended. Since we have taken Titans with us, we are able to instantly destroy their planet... transforming it into an asteroid belt.",
+		"In return, Leykeber's primary fleet has gotten angry at our recent destruction, and has counter-assaulted Asteroid Belt D7, which has become lightly defended. After transforming 15 hulls into 1 Type PD (rolled a 6) and 7 Type XIs, Leykeber's Type Flag automatically destroys our Ship Yard, while the Type XIs rolled 4,5,5,8,9,10,10 against our Base (3 hits &le;7). Finally, the Type XIs rolled 2,3,7,7,7,8,10 (6 hits &le;8), vaporizing our colony. Since this colony was over an asteroid belt, they are unable to re-colonize it."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -3218,7 +3293,10 @@
 			"name":"colony5R"
 		}]},
 	{"heading":"Stardate 2409.0",
-	"commentary":"<p>Normally, this would be Leykeber's last economic phase prior to depletion. Their Green Replicators advantage causes this mechanic to become effective 3 phases later. They also reached 12 RP, causing their homeworld to produce 2 hulls per economic phase (instead of just 1). Their decision roll is a 2, yet another homeworld hull.</p><p>Before we spend our CP, we need to cash in a space wreck. We rolled a 4, granting us Attack 1. This is a huge spanner in our works; allowing Leykeber to gain a thirteenth RP from any upgraded craft, while also making battles in asteroids less effective.</p><p>Since we need to get our secondary fleet upgraded and relocated <i>before</i> Leykeber's primary fleet is expected to arrive at our next colony, we will keep the initiative (-15) for this economic phase. We also buy 2 Fighters (-10) at C5, and 1 Titan (-32) + 1 Fighter (-5) at Homeworld A3.</p>",
+	"commentary":[
+		"Normally, this would be Leykeber's last economic phase prior to depletion. Their Green Replicators advantage causes this mechanic to become effective 3 phases later. They also reached 12 RP, causing their homeworld to produce 2 hulls per economic phase (instead of just 1). Their decision roll is a 2, yet another homeworld hull.",
+		"Before we spend our CP, we need to cash in a space wreck. We rolled a 4, granting us Attack 1. This is a huge spanner in our works; allowing Leykeber to gain a thirteenth RP from any upgraded craft, while also making battles in asteroids less effective.",
+		"Since we need to get our secondary fleet upgraded and relocated <i>before</i> Leykeber's primary fleet is expected to arrive at our next colony, we will keep the initiative (-15) for this economic phase. We also buy 2 Fighters (-10) at C5, and 1 Titan (-32) + 1 Fighter (-5) at Homeworld A3."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":4,"colonyCP":85,"mineralCP":0,"pipeCP":2,"maint":23,"bidCP":15,"techBuy":0,"unitBuy":47
@@ -3336,7 +3414,7 @@
 			"name":"asteroids"
 		}]},
 	{"heading":"Stardate 2409.3",
-	"commentary":"<p>Poof! Another Replicator colony bites the dust! In return, Leykeber completes their unexplored deep space mission, so they will start moving their Type Exps home to convert back to hulls.</p>",
+	"commentary":["Poof! Another Replicator colony bites the dust! In return, Leykeber completes their unexplored deep space mission, so they will start moving their Type Exps home to convert back to hulls."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -3425,7 +3503,9 @@
 			"name":"MSmR"
 		}]},
 	{"heading":"Stardate 2409.6",
-	"commentary":"<p>Leykeber's primary fleet is now ready to assault the colony at C5. At this point, we have left it very lightly defended, making it easy for them to conquer it. Their Type XIs rolled 1,3,3,4,6,7,7 (7 hits &le;9), easily dispatching our 2 Ship Yards.</p><p>On the bombardment step, they rolled 2,3,3,4,6,6,10 (6 hits &le;7), easily glassing the colony too. They then use their Type PD to form a new colony, allowing the Type XIs to convert back to 14 hulls.</p>",
+	"commentary":[
+		"Leykeber's primary fleet is now ready to assault the colony at C5. At this point, we have left it very lightly defended, making it easy for them to conquer it. Their Type XIs rolled 1,3,3,4,6,7,7 (7 hits &le;9), easily dispatching our 2 Ship Yards.",
+		"On the bombardment step, they rolled 2,3,3,4,6,6,10 (6 hits &le;7), easily glassing the colony too. They then use their Type PD to form a new colony, allowing the Type XIs to convert back to 14 hulls."],
 	"actions":
 		[{
 			"placeGhost":"FlagV",
@@ -3539,7 +3619,7 @@
 			"name":"colony5R"
 		}]},
 	{"heading":"Stardate 2409.9",
-	"commentary":"<p>Next up, Leykeber's primary fleet assaults our colony at A4. All we have available is a single Light Infantry, which still slightly reduces their accuracy. Their Type XI rolls are 1,3,5,5,10,10 (4 hits &le;7), which easily dispatches this colony also.</p>",
+	"commentary":["Next up, Leykeber's primary fleet assaults our colony at A4. All we have available is a single Light Infantry, which still slightly reduces their accuracy. Their Type XI rolls are 1,3,5,5,10,10 (4 hits &le;7), which easily dispatches this colony also."],
 	"actions":
 		[{
 			"placeGhost":"FlagV",
@@ -3678,7 +3758,10 @@
 			"removeCounter":"SC4R"
 		}]},
 	{"heading":"Stardate 2410.0",
-	"commentary":"<p>Leykeber's Replicator empire grows once more, having taken over 2 planets in our home systems. As we feared, they also gained a thirteenth RP from learning our Attack 1. This achievement allows them to build Type XIIIs.</p><p>There are no minerals left on the map. They can make one last attempt to buy Movement technology (assuming no more victories against NPA planets). They rolled a 2, causing them to buy an extra homeworld hull instead.</p><p>Since we were able to secure the homeworld, we will relinquish initiative for this phase. We will fortify our homeworld with 5 Scouts (-30) and 1 Base (-12).</p>",
+	"commentary":[
+		"Leykeber's Replicator empire grows once more, having taken over 2 planets in our home systems. As we feared, they also gained a thirteenth RP from learning our Attack 1. This achievement allows them to build Type XIIIs.",
+		"There are no minerals left on the map. They can make one last attempt to buy Movement technology (assuming no more victories against NPA planets). They rolled a 2, causing them to buy an extra homeworld hull instead.",
+		"Since we were able to secure the homeworld, we will relinquish initiative for this phase. We will fortify our homeworld with 5 Scouts (-30) and 1 Base (-12)."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":0,"colonyCP":75,"mineralCP":0,"pipeCP":1,"maint":31,"bidCP":0,"techBuy":0,"unitBuy":42
@@ -3789,7 +3872,10 @@
 			"size":5
 		}]},
 	{"heading":"Stardate 2410.2",
-	"commentary":"<p>Since our homeworld fleet has grown to 15+ starships, Leykeber is able to acquire a fourteenth RP, so they will send a hull our way. Since fighters are in battle, it automatically becomes a Type PD. Our Base then rolls a 2 (hit &le;9). Their ship has been destroyed, but it was still worth it for them.</p><p>Moving onto our undefended colony at B4, their 14 hulls convert into 6+ Type XI ships. These ships roll 2,3,3,4,7,9 (4 hits &le;6), easily overcoming our 4 Light Infantry (which simply provides Defense 2) and destroying our colony.</p><p>How-ev-er... we can use their primary fleet's priority system against them, by instantly destroying any planets they colonize. Even with splitting off one Titan, our homeworld fleet is still Superior to their primary fleet.</p>",
+	"commentary":[
+		"Since our homeworld fleet has grown to 15+ starships, Leykeber is able to acquire a fourteenth RP, so they will send a hull our way. Since fighters are in battle, it automatically becomes a Type PD. Our Base then rolls a 2 (hit &le;9). Their ship has been destroyed, but it was still worth it for them.",
+		"Moving onto our undefended colony at B4, their 14 hulls convert into 6+ Type XI ships. These ships roll 2,3,3,4,7,9 (4 hits &le;6), easily overcoming our 4 Light Infantry (which simply provides Defense 2) and destroying our colony.",
+		"How-ev-er... we can use their primary fleet's priority system against them, by instantly destroying any planets they colonize. Even with splitting off one Titan, our homeworld fleet is still Superior to their primary fleet."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -3880,7 +3966,12 @@
 			"size":1
 		}]},
 	{"heading":"Stardate 2410.5",
-	"commentary":"<p>Since Leykeber is <i>still</i> unable to assault our homeworld, they are continuing to take on our neighboring colonies. Next up is B3. Their remaining 13 hulls convert into 4 Type XIIIs, which then rolled 1,2,2,8 (4 hits &le;9), destroying yet another colony and giving them the planet.</p><h3>The Battle for Deneb</h3><p>Here, we have a more proper battle to conduct. We previously exposed the 2 Alien-Ds and 2 Alien-Cs on this planet. Their 15 assigned hulls convert into one Type PD (rolled a 6), 4 Type XIIIs, and 1 Type XI. The Type XIIIs rolled 8,3,1,9 (3 hits &le;8). Their Type XI then rolled a 3 (hit &le;6), finishing them off and subduing the planet, allowing it to be colonized.</p><hr /><p>In addition to denying the Replicators the former colony of B4, we also manage to reach their home colony at K8. Both colonies have been utterly destroyed!</p>",
+	"commentary":[
+		"Since Leykeber is <i>still</i> unable to assault our homeworld, they are continuing to take on our neighboring colonies. Next up is B3. Their remaining 13 hulls convert into 4 Type XIIIs, which then rolled 1,2,2,8 (4 hits &le;9), destroying yet another colony and giving them the planet.",
+		"<h3>The Battle for Deneb</h3>",
+		"Here, we have a more proper battle to conduct. We previously exposed the 2 Alien-Ds and 2 Alien-Cs on this planet. Their 15 assigned hulls convert into one Type PD (rolled a 6), 4 Type XIIIs, and 1 Type XI. The Type XIIIs rolled 8,3,1,9 (3 hits &le;8). Their Type XI then rolled a 3 (hit &le;6), finishing them off and subduing the planet, allowing it to be colonized.",
+		"<hr />",
+		"In addition to denying the Replicators the former colony of B4, we also manage to reach their home colony at K8. Both colonies have been utterly destroyed!"],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -4001,7 +4092,35 @@
 			"size":1
 		}]},
 	{"heading":"Stardate 2410.8",
-	"commentary":"<p>The primary fleet rampage continues, only there are now 12 hulls remaining. They can produce 3 Type XIIIs this way, and they rolled 2,6,7 this way (3 hits &le;9). We lost yet another colony.</p><h3>The Battle for Cobol</h3><p>Their secondary fleet of 14 hulls is now able to assault Cobol, which previously had their 1 Alien-B and 3 Alien-Cs exposed. They can produce 4 Type XIIIs still, which then rolled 3,4,4,9 (3 hits &le;8). The Type XI then rolled a 4 (hit &le;7), subduing this planet, too.</p><h3>The Battle for Alpha</h3><p>In other news, Leykeber was able to assemble 15 hulls on their teritary fleet, which has fallen all the way back to their homeworld due to self-preservation against our primary fleet. They will not abandon their homeworld despite being pressured by our Superior fleet, worth 20 Hull Sizes. With their available hulls, they build 3 Type PDs (rolled a 5), followed by 4 Type XIIIs.</p><ol><li><b>Round 1</b>: Their 4 Type XIIIs have the Tactics advantage, and score automatic hits on our Fighters</li><li>Their 3 Type PDs rolled 10,2,5 (2 hits &le;6) against our Fighters</li><li>Our 2 Titans are next. We rolled 4,5 against their Type XIIIs (0 hits &le;3)</li><li>Our Flagship rolled a 10 against their Type PDs (&le;4 to hit)</li><li>Our Carrier rolled a 7 against their Type PDs (&le;3 to hit)<br /><br /></li><li><b>Round 2</b>: Their 4 Type XIIIs scored automatic hits against our Carrier, and rolled 10,5,7 against our Flagship (2 hits &le;9)</li><li>Our 2 Titans rolled 7,7 against their Type XIIIs (0 hits &le;3)</li><li>Our Flagship rolled a 3 against their Type PDs (hit &le;4)</li><li>Their 2 Type PDs rolled 5,5 against our Flagship (0 hits &le;1)<br /><br /></li><li><b>Round 3</b>: With the assistance of Fleet Size Bonus, their 4 Type XIIIs automatically finish off our Flagship, followed by rolling 3,6,10 against our Titans (2 hits &le;7)</li><li>Our 2 Titans, being all alone now, rolled 2,6 against their Type XIIIs (1 hit &le;3)</li><li>Their 2 Type PDs rolled 2,6 (0 hits &le;1)<br /><br /></li><li><b>Round 4</b>: Their 4 Type XIIIs rolled 2,3,8,10 (2 hits &le;7)</li><li>Our 2 Titans rolled 1,4 (1 hit &le;3), demolishing one of them</li><li>Their 2 Type PDs rolled 3,5 (0 hits &le;1)<br /><br /></li><li><b>Round 5</b>: Their 3 Type XIIIs rolled 3,5,8 (2 hits &le;7), finishing off one of our ships</li><li>Our last Titan rolled a 6 (&le;3 to hit)</li><li>Their 2 Type PDs rolled 2,7 (0 hits &le;1)<br /><br /></li><li><b>Round 6</b>: Their 3 Type XIIIs rolled 1,2,10 (2 hits &le;7)</li><li>Our Titan rolled a 2 (hit &le;3)</li><li>Their 2 Type PDs rolled 2,4 (0 hits &le;1)<br /><br /></li><li><b>Round 7</b>: Their 3 Type XIIIs rolled 2,7,10 (2 hit &le;7), demolishing our last starship</li><li>Leykeber repelled our primary fleet with 11 hulls leftover</li></ol>",
+	"commentary":[
+		"The primary fleet rampage continues, only there are now 12 hulls remaining. They can produce 3 Type XIIIs this way, and they rolled 2,6,7 this way (3 hits &le;9). We lost yet another colony.",
+		"<h3>The Battle for Cobol</h3>",
+		"Their secondary fleet of 14 hulls is now able to assault Cobol, which previously had their 1 Alien-B and 3 Alien-Cs exposed. They can produce 4 Type XIIIs still, which then rolled 3,4,4,9 (3 hits &le;8). The Type XI then rolled a 4 (hit &le;7), subduing this planet, too.",
+		"<h3>The Battle for Alpha</h3>",
+		"In other news, Leykeber was able to assemble 15 hulls on their teritary fleet, which has fallen all the way back to their homeworld due to self-preservation against our primary fleet. They will not abandon their homeworld despite being pressured by our Superior fleet, worth 20 Hull Sizes. With their available hulls, they build 3 Type PDs (rolled a 5), followed by 4 Type XIIIs.",
+		"<ol><li><b>Round 1</b>: Their 4 Type XIIIs have the Tactics advantage, and score automatic hits on our Fighters</li>",
+		"<li>Their 3 Type PDs rolled 10,2,5 (2 hits &le;6) against our Fighters</li>",
+		"<li>Our 2 Titans are next. We rolled 4,5 against their Type XIIIs (0 hits &le;3)</li>",
+		"<li>Our Flagship rolled a 10 against their Type PDs (&le;4 to hit)</li>",
+		"<li>Our Carrier rolled a 7 against their Type PDs (&le;3 to hit)<br /><br /></li>",
+		"<li><b>Round 2</b>: Their 4 Type XIIIs scored automatic hits against our Carrier, and rolled 10,5,7 against our Flagship (2 hits &le;9)</li>",
+		"<li>Our 2 Titans rolled 7,7 against their Type XIIIs (0 hits &le;3)</li>",
+		"<li>Our Flagship rolled a 3 against their Type PDs (hit &le;4)</li>",
+		"<li>Their 2 Type PDs rolled 5,5 against our Flagship (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 3</b>: With the assistance of Fleet Size Bonus, their 4 Type XIIIs automatically finish off our Flagship, followed by rolling 3,6,10 against our Titans (2 hits &le;7)</li>",
+		"<li>Our 2 Titans, being all alone now, rolled 2,6 against their Type XIIIs (1 hit &le;3)</li>",
+		"<li>Their 2 Type PDs rolled 2,6 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 4</b>: Their 4 Type XIIIs rolled 2,3,8,10 (2 hits &le;7)</li>",
+		"<li>Our 2 Titans rolled 1,4 (1 hit &le;3), demolishing one of them</li>",
+		"<li>Their 2 Type PDs rolled 3,5 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 5</b>: Their 3 Type XIIIs rolled 3,5,8 (2 hits &le;7), finishing off one of our ships</li>",
+		"<li>Our last Titan rolled a 6 (&le;3 to hit)</li>",
+		"<li>Their 2 Type PDs rolled 2,7 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 6</b>: Their 3 Type XIIIs rolled 1,2,10 (2 hits &le;7)</li>",
+		"<li>Our Titan rolled a 2 (hit &le;3)</li>",
+		"<li>Their 2 Type PDs rolled 2,4 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 7</b>: Their 3 Type XIIIs rolled 2,7,10 (2 hit &le;7), demolishing our last starship</li>",
+		"<li>Leykeber repelled our primary fleet with 11 hulls leftover</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -4125,7 +4244,10 @@
 			"removeCounter":"CO13R"
 		}]},
 	{"heading":"Stardate 2411.0",
-	"commentary":"<p>Unfortunate we were unable to close out the game with the battle over their homeworld; but to be expected with an exceptionally low success rate of about 8% thanks to our battle simulator. It also does not help that being stuck with Attack 0 gutted us down from roughly a potential 24.5% success rate. We did match the median of roughly 11 Replicator hulls, at least.</p><p>Still, one of Leykeber's home system planets was destroyed, permanently reducing their hull production. They did receive a surge of CP from having conquered 2 NPA planets. A roll of a 1 causes them to buy an extra homeworld hull.</p><p>We will buy 5 Scouts (-30) at the homeworld to give us more numbers. We will also buy one Colony Ship (-8) at our remote colony of D4.</p>",
+	"commentary":[
+		"Unfortunate we were unable to close out the game with the battle over their homeworld; but to be expected with an exceptionally low success rate of about 8% thanks to our battle simulator. It also does not help that being stuck with Attack 0 gutted us down from roughly a potential 24.5% success rate. We did match the median of roughly 11 Replicator hulls, at least.",
+		"Still, one of Leykeber's home system planets was destroyed, permanently reducing their hull production. They did receive a surge of CP from having conquered 2 NPA planets. A roll of a 1 causes them to buy an extra homeworld hull.",
+		"We will buy 5 Scouts (-30) at the homeworld to give us more numbers. We will also buy one Colony Ship (-8) at our remote colony of D4."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":3,"colonyCP":60,"mineralCP":0,"pipeCP":0,"maint":20,"bidCP":0,"techBuy":0,"unitBuy":38
@@ -4228,7 +4350,7 @@
 			"location":"D4"
 		}]},
 	{"heading":"Stardate 2411.1",
-	"commentary":"<p>The primary fleet engulfs one last colony in its streak. The 3 Type XIIIs their remaining 11 hulls are able to build rolled 2,5,9 (3 hits &le;9), easily destroying Colony A1.</p>",
+	"commentary":["The primary fleet engulfs one last colony in its streak. The 3 Type XIIIs their remaining 11 hulls are able to build rolled 2,5,9 (3 hits &le;9), easily destroying Colony A1."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -4291,7 +4413,9 @@
 			"location":"A3"
 		}]},
 	{"heading":"Stardate 2411.4",
-	"commentary":"<p>Our homeworld fleet has enough mobile starships that Leykeber's primary fleet can no longer park directly next to us, for self-preservation reasons. Further aggrevating this is the fact that we destroyed several planets adjacent to our homeworld, inhibiting their movement big time. We take advantage of these limitations, and destroy the last planet still adjacent to us.</p><p>Their secondary fleet is now able to assault our colonies. Their 13 hulls allows them to build 4 Type XIIIs. They rolled 3,4,5,7 (4 hits &le;9), destroying yet another colony.</p>",
+	"commentary":[
+		"Our homeworld fleet has enough mobile starships that Leykeber's primary fleet can no longer park directly next to us, for self-preservation reasons. Further aggrevating this is the fact that we destroyed several planets adjacent to our homeworld, inhibiting their movement big time. We take advantage of these limitations, and destroy the last planet still adjacent to us.",
+		"Their secondary fleet is now able to assault our colonies. Their 13 hulls allows them to build 4 Type XIIIs. They rolled 3,4,5,7 (4 hits &le;9), destroying yet another colony."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -4372,7 +4496,7 @@
 			"location":"A2"
 		}]},
 	{"heading":"Stardate 2411.7",
-	"commentary":"<p>Their secondary fleet continues its rampage, as their 12 hulls rebuild 4 Type XIIIs. They rolled 1,1,2,9 (4 hits &le;9), dispatching this colony, too.</p>",
+	"commentary":["Their secondary fleet continues its rampage, as their 12 hulls rebuild 4 Type XIIIs. They rolled 1,1,2,9 (4 hits &le;9), dispatching this colony, too."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -4453,7 +4577,9 @@
 			"name":"asteroids"
 		}]},
 	{"heading":"Stardate 2412.0",
-	"commentary":"<p>Leykeber is nearing depletion. They still have a fair amount of CP. They rolled a 6, attempting to buy the final RP, but did not have the 30 CP required. Since there are neither minerals nor unexplored deep space left, they instead buy an extra homeworld hull.</p><p>With the continued destruction of our colonies and their production, our maintenance now consumes more than half of our remaining income. We have money to buy just 4 more Scouts (-24), for our homeworld.</p>",
+	"commentary":[
+		"Leykeber is nearing depletion. They still have a fair amount of CP. They rolled a 6, attempting to buy the final RP, but did not have the 30 CP required. Since there are neither minerals nor unexplored deep space left, they instead buy an extra homeworld hull.",
+		"With the continued destruction of our colonies and their production, our maintenance now consumes more than half of our remaining income. We have money to buy just 4 more Scouts (-24), for our homeworld."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":5,"colonyCP":45,"mineralCP":0,"pipeCP":0,"maint":25,"bidCP":0,"techBuy":0,"unitBuy":24
@@ -4530,7 +4656,7 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2412.3",
-	"commentary":"<p>While their secondary fleet rampage continues, their teritary fleet has become scary (23 hulls worth).</p>",
+	"commentary":["While their secondary fleet rampage continues, their teritary fleet has become scary (23 hulls worth)."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -4563,7 +4689,9 @@
 			"location":"C4"
 		}]},
 	{"heading":"Stardate 2412.6",
-	"commentary":"<p>Leykeber's rampage reaches another colony. Able to build 3 Type XIIIs, they rolled 5,7,8 (3 hits &le;8), glassing this colony!</p><p>In return, we were able to destroy the planet they previously stole from us 3 economic phases ago.</p>",
+	"commentary":[
+		"Leykeber's rampage reaches another colony. Able to build 3 Type XIIIs, they rolled 5,7,8 (3 hits &le;8), glassing this colony!",
+		"In return, we were able to destroy the planet they previously stole from us 3 economic phases ago."],
 	"actions":
 		[{
 			"placeGhost":"hiddenV",
@@ -4621,7 +4749,10 @@
 			"name":"colony5R"
 		}]},
 	{"heading":"Stardate 2412.9",
-	"commentary":"<p>Two of our colonies are under assault this turn. We will start with A5, since its simply a bombardment. 10 hulls is still able to build three Type XIIIs, and they rolled 4,6,9 (3 hits &le;9), easily destroying this colony.</p><p>Asteroid Belt D4 is <q>lightly defended</q> with 2 Ship Yards, but their 9 Type XIIIs (built from 28 hulls) are able to destroy them without fail. They then rolled 2,3,3,3,5,5,7,9,10 on the bombardment roll (7 hits &le;9), taking this colony out also.</p><p>Finally, a trio of Replicator hulls are able to rally to Asteroid Belt F3. They can combine into one Type XIII, which is able to eliminate this colony without fail.</p>",
+	"commentary":[
+		"Two of our colonies are under assault this turn. We will start with A5, since its simply a bombardment. 10 hulls is still able to build three Type XIIIs, and they rolled 4,6,9 (3 hits &le;9), easily destroying this colony.",
+		"Asteroid Belt D4 is <q>lightly defended</q> with 2 Ship Yards, but their 9 Type XIIIs (built from 28 hulls) are able to destroy them without fail. They then rolled 2,3,3,3,5,5,7,9,10 on the bombardment roll (7 hits &le;9), taking this colony out also.",
+		"Finally, a trio of Replicator hulls are able to rally to Asteroid Belt F3. They can combine into one Type XIII, which is able to eliminate this colony without fail."],
 	"actions":
 		[{
 			"placeGhost":"hiddenV",
@@ -4729,7 +4860,9 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2413.0",
-	"commentary":"<p>Leykeber's empire has endured the beginning of depletion. One of their planets' available resources was utterly exhausted, rendering it no longer usable by <i>any</i> player for the remainder of this playthrough. They can still afford an extra homeworld hull, and nothing else with their remaining CP.</p><p>Meanwhile, our production has been reduced to the 30 CP our homeworld provides, which barely exceeds our maintenance. We are unable to afford any purchases.</p>",
+	"commentary":[
+		"Leykeber's empire has endured the beginning of depletion. One of their planets' available resources was utterly exhausted, rendering it no longer usable by <i>any</i> player for the remainder of this playthrough. They can still afford an extra homeworld hull, and nothing else with their remaining CP.",
+		"Meanwhile, our production has been reduced to the 30 CP our homeworld provides, which barely exceeds our maintenance. We are unable to afford any purchases."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":1,"colonyCP":30,"mineralCP":0,"pipeCP":0,"maint":29,"bidCP":0,"techBuy":0,"unitBuy":0
@@ -4819,8 +4952,10 @@
 		},{
 			"removeCounter":"NPA11B"
 		}]},
-	{"heading":"Stardate 2413.2",
-	"commentary":"<p>Perhaps one of the reasons we are even still alive is because every hex that was adjacent to our homeworld had a planet. We destroyed them <i>all</i>, transforming them into asteroids, and putting even the Doomsday Machines to shame.</p><h3>The Battle for Romulus</h3><p>Meanwhile, Leykeber's teritary fleet now assaults the NPA planet of Romulus. Since they previously built 10 Type XIIIs, they simply rolled 1,3,4,5,6,8,9,9,10,10 (6 hits &le;8), easily subduing this planet. This allows them to colonize it and then convert their starships back into 32 leftover hulls.</p>",
+	{"heading":"Stardate 2413.2 (The Battle for Romulu)",
+	"commentary":[
+		"Perhaps one of the reasons we are even still alive is because every hex that was adjacent to our homeworld had a planet. We destroyed them <i>all</i>, transforming them into asteroids, and putting even the Doomsday Machines to shame.",
+		"Meanwhile, Leykeber's teritary fleet now assaults the NPA planet of Romulus. Since they previously built 10 Type XIIIs, they simply rolled 1,3,4,5,6,8,9,9,10,10 (6 hits &le;8), easily subduing this planet. This allows them to colonize it and then convert their starships back into 32 leftover hulls."],
 	"actions":
 		[{
 			"placeHullsV":"H5,F4,F4,F3,G7,G7,F7,F7,F7,F7,I1,J4,J5,J6,K1,K6,K6,K8,K8,K8,K8",
@@ -4863,7 +4998,7 @@
 			"size":2
 		}]},
 	{"heading":"Stardate 2413.5",
-	"commentary":"<p>Since no fleet is able to assault the remaining 2 NPA planets, Leykeber's teritary fleet now moves towards our homeworld.</p>",
+	"commentary":["Since no fleet is able to assault the remaining 2 NPA planets, Leykeber's teritary fleet now moves towards our homeworld."],
 	"actions":
 		[{
 			"placeGhost":"hiddenV",
@@ -4928,7 +5063,7 @@
 			"removeCounter":"NPA11B"
 		}]},
 	{"heading":"Stardate 2413.8",
-	"commentary":"<p>Their secondary and teritary fleets are able to combine arms, now effectively giving them 42 hulls worth. Their combined fleet can now safely move adjacent to us, now that they are no longer Inferior; thus no longer subject to self-preservation.</p>",
+	"commentary":["Their secondary and teritary fleets are able to combine arms, now effectively giving them 42 hulls worth. Their combined fleet can now safely move adjacent to us, now that they are no longer Inferior; thus no longer subject to self-preservation."],
 	"actions":
 		[{
 			"placeGhost":"hiddenV",
@@ -4995,7 +5130,7 @@
 			"name":"asteroids"
 		}]},
 	{"heading":"Stardate 2414.0",
-	"commentary":"<p>Another one of Leykeber's planets has been depleted. They did conquer another NPA planet, allowing them to buy another homeworld hull. Meanwhile, we still are unable to afford even a single purchase.</p>",
+	"commentary":["Another one of Leykeber's planets has been depleted. They did conquer another NPA planet, allowing them to buy another homeworld hull. Meanwhile, we still are unable to afford even a single purchase."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":2,"colonyCP":30,"mineralCP":0,"pipeCP":0,"maint":29,"bidCP":0,"techBuy":0,"unitBuy":0
@@ -5046,7 +5181,20 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2414.2 (The Battle for Altair)",
-	"commentary":"<p>A massive battle erupts over our homeworld! Leykeber has 32 hulls available, and their quota is 4 Type PDs (rolled a 9 to match our Fighter count). They then build 9 more Type XIIIs (12 total), and 1 Type XI.</p><ol><li><b>Round 1</b>: Their 12 Type XIIIs have the Tactics advantage, and are able to automatically destroy our Fighters, Ship Yards, and also 2 of our Scouts (&le;10 to hit each)</li><li>Our Base rolls a 3 against their Type PDs (hit &le;8)</li><li>Our Titan rolls a 6 against their Type XI (&le;5 to hit)</li><li>Their Type XI rolls a 2 against our Scouts (hit &le;8)</li><li>Their Type PDs roll 2,8,10 against our Scouts (0 hits &le;1)</li><li>Our Scouts rolled 4,7,2,9,9,6,6,2 against their Type PDs (3 hits &le;4), followed by 4,7,9 against their Type XI (0 hits &le;1)<br /><br /></li><li><b>Round 2</b>: Their Type XIIIs automatically finish off our Scouts (&le;10 to hit), followed by rolling a 4 against our Base (hit &le;8)</li><li>Our Titan rolls a 1 against their Type XI (hit &le;5), destroying it</li><li>Our Base rolled a 3 against their Type XIII (hit &le;4)<br /><br /></li><li><b>Round 3</b>: Leykeber now benefit from Fleet Size Bonus</li><li>Their Type XIIIs rolled 8,8 against our Base (2 hits &le;9), followed by 1,2,5,6,7,7,8,9,9,10 against our Titan (6 hits &le;7), overkilling our last starship<br /><br /></li><li><b>Bombardment Round</b>: Since we have no ground units providing our homeworld with Defense, their 12 victorious Type XIIIs glass our homeworld without fail</li></ol>",
+	"commentary":[
+		"A massive battle erupts over our homeworld! Leykeber has 32 hulls available, and their quota is 4 Type PDs (rolled a 9 to match our Fighter count). They then build 9 more Type XIIIs (12 total), and 1 Type XI.",
+		"<ol><li><b>Round 1</b>: Their 12 Type XIIIs have the Tactics advantage, and are able to automatically destroy our Fighters, Ship Yards, and also 2 of our Scouts (&le;10 to hit each)</li>",
+		"<li>Our Base rolls a 3 against their Type PDs (hit &le;8)</li>",
+		"<li>Our Titan rolls a 6 against their Type XI (&le;5 to hit)</li>",
+		"<li>Their Type XI rolls a 2 against our Scouts (hit &le;8)</li>",
+		"<li>Their Type PDs roll 2,8,10 against our Scouts (0 hits &le;1)</li>",
+		"<li>Our Scouts rolled 4,7,2,9,9,6,6,2 against their Type PDs (3 hits &le;4), followed by 4,7,9 against their Type XI (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 2</b>: Their Type XIIIs automatically finish off our Scouts (&le;10 to hit), followed by rolling a 4 against our Base (hit &le;8)</li>",
+		"<li>Our Titan rolls a 1 against their Type XI (hit &le;5), destroying it</li>",
+		"<li>Our Base rolled a 3 against their Type XIII (hit &le;4)<br /><br /></li>",
+		"<li><b>Round 3</b>: Leykeber now benefit from Fleet Size Bonus</li>",
+		"<li>Their Type XIIIs rolled 8,8 against our Base (2 hits &le;9), followed by 1,2,5,6,7,7,8,9,9,10 against our Titan (6 hits &le;7), overkilling our last starship<br /><br /></li>",
+		"<li><b>Bombardment Round</b>: Since we have no ground units providing our homeworld with Defense, their 12 victorious Type XIIIs glass our homeworld without fail</li></ol>"],
 	"actions":
 		[{
 			"placeHullsV":"C3,B4,B4,B4,C4,C4,B4,B4,B4,B4,E3,H5,F4,G5,F3,H6,H6,H6,G5,G5,G5,G5,D8,I1,J4,J5,J6,K1,K6,K8,K8,K8",
@@ -5092,7 +5240,9 @@
 			"name":"home30R"
 		}]},
 	{"heading":"Stardate 2414.5 (Game Over)",
-	"commentary":"<p>And that is the end of the playthrough... Titans are a high risk high reward situation. Unfortunately, our map layout made it difficult to rush their homeworld down with our first Titans back when they were weaker. Even if their fleet was Inferior at the time, perhaps going for the throat (homeworld) back in 2410.8 was not the right answer; at least not without exploiting Replicator priorities. We <i>might</i> have been able to win, if we had split off 1 Titan + maybe 1-3 Fighters from the rest of our primary fleet.</p><p>Additionally, Scouts' strength in numbers strategy does not work well against Defense 3+ targets (starting at Type XI), because the armor is thick enough to knock Attack down to 0. Since Attack does not drop below 1 against most targets after applying modifiers; even Fleet Size Bonus does not help when it ends up being a wasted bonus.</p>",
+	"commentary":[
+		"And that is the end of the playthrough... Titans are a high risk high reward situation. Unfortunately, our map layout made it difficult to rush their homeworld down with our first Titans back when they were weaker. Even if their fleet was Inferior at the time, perhaps going for the throat (homeworld) back in 2410.8 was not the right answer; at least not without exploiting Replicator priorities. We <i>might</i> have been able to win, if we had split off 1 Titan + maybe 1-3 Fighters from the rest of our primary fleet.",
+		"Additionally, Scouts' strength in numbers strategy does not work well against Defense 3+ targets (starting at Type XI), because the armor is thick enough to knock Attack down to 0. Since Attack does not drop below 1 against most targets after applying modifiers; even Fleet Size Bonus does not help when it ends up being a wasted bonus."],
 	"prodTable":
 		[{
 			"name":"CSY (Red)","initCP":3,"colonyCP":0,"mineralCP":0,"pipeCP":0,"maint":5,"bidCP":0,"techBuy":0,"unitBuy":0,"isDead":true
@@ -5136,7 +5286,32 @@
 			"removeCounter":"systemA3"
 		}]},
 	{"heading":"Stardate 24??.? (Bonus Material)",
-	"commentary":"<p>This stage shows the reverted battle that would have taken place over Babbage. Leykeber has 9 available hulls.</p><p>On the Type PD step, they rolled a 5, causing them to build 2 Type PDs with their hulls (half of our 4 Fighters). The remaining 7 hulls become Type IXs.</p><ol><li><b>Round 1</b>: We were able to bring 7 ships to this battle. Leykeber has 10 ships defending. Neither side gets the Fleet Size Bonus</li><li>Their 2 Type PDs have the Tactics advantage, so they shoot first. Against our fighters, they rolled 9,10 (0 hits &le;6)</li><li>Our 1 Titan is next. Their Type Flag has become a huge threat (Attack 10 / Defense 3), and the Titan deals double damage if it hits, so we will temporarily prioritize this target. We rolled a 9 (&le;4 to hit)</li><li>Their Type Flag has such a high accuracy (Attack 10 - Defense 0 = 100% accuracy), it automatically hits one of our Fighters</li><li>Since our Titan missed, we will focus on the Type IXs for the remainder of this round. Our Flagship rolled a 6 (&le;3 to hit)</li><li>Our 3 remaining Fighters rolled 7,9,9 (0 hits &le;4)</li><li>Their 7 Type IXs also target our Fighters. They rolled 3,3,6,8,8,9 (3 hits &le;6)</li><li>Our Carrier rolled a 4 (&le;2 to hit)<br /><br /></li><li><b>Round 2</b>: We were reduced to 4 ships. Leykeber has gained the Fleet Size Bonus</li><li>Our 1 Titan shoots against their Type Flag again. We rolled a 9 (&le;4 to hit)</li><li>Their Type Flag automatically eliminates our Carrier</li><li>Our Flagship rolled a 4 (&le;3 to hit) against their Type IXs</li><li>Their 7 Type IXs rolled 1,1,4,7,8,9,10 against our Flagship (3 hits &le;6), eliminating it</li><li>Since our Titan is weak to Hull Size 1 craft, their 2 Type PDs rolled 7,9 against our Titan (0 hits &le;1)<br /><br /></li><li><b>Round 3</b>: Our Titan is all alone now</li><li>Since our Titan is unable to retreat, we will make one last chance against their Type Flag. We rolled a 9 (&le;4 to hit)</li><li>Their Type Flag is next. Hits are no longer automatic (no Defense 0 targets remain), so it has to roll from here on out. It rolls a 7 (hit &le;7), damaging our Titan to 4 HP</li><li>Their 7 Type IXs rolled 2,4,6,7,8,8,10 (2 hits &le;5), further damaging the Titan to 2 HP</li><li>Their 2 Type PDs rolled 5,6 (0 hits &le;1)<br /><br /></li><li><b>Round 4</b>: Our Titan has not yet been destroyed. We shoot again against their Type Flag. We rolled an 8 (&le;4 to hit)</li><li>Their Type Flag rolled a 9 (&le;7 to hit)</li><li>Their 7 Type IXs rolled 2,3,4,7,9,9,10 (3 hits &le;5), finishing off our Titan</li></ol><p>This is such a horrible defeat... to lose our entire <q>Equal</q> fleet simply because Random Factor decided we would score 0 hits. This was the very battle that prompted us to expand our battle simulator.</p><p>Hindsight suggested this was virtually unwinnable; only a 0.5 - 1% success chance, and the Replicators slated to have a median of 7 hulls surviving. Still, this was a bottom 4% with our chosen Titan strategies, and could have just as easily been a bottom 1% even if we had revised them.</p>",
+	"commentary":[
+		"This stage shows the reverted battle that would have taken place over Babbage. Leykeber has 9 available hulls.",
+		"On the Type PD step, they rolled a 5, causing them to build 2 Type PDs with their hulls (half of our 4 Fighters). The remaining 7 hulls become Type IXs.",
+		"<ol><li><b>Round 1</b>: We were able to bring 7 ships to this battle. Leykeber has 10 ships defending. Neither side gets the Fleet Size Bonus</li>",
+		"<li>Their 2 Type PDs have the Tactics advantage, so they shoot first. Against our fighters, they rolled 9,10 (0 hits &le;6)</li>",
+		"<li>Our 1 Titan is next. Their Type Flag has become a huge threat (Attack 10 / Defense 3), and the Titan deals double damage if it hits, so we will temporarily prioritize this target. We rolled a 9 (&le;4 to hit)</li>",
+		"<li>Their Type Flag has such a high accuracy (Attack 10 - Defense 0 = 100% accuracy), it automatically hits one of our Fighters</li>",
+		"<li>Since our Titan missed, we will focus on the Type IXs for the remainder of this round. Our Flagship rolled a 6 (&le;3 to hit)</li>",
+		"<li>Our 3 remaining Fighters rolled 7,9,9 (0 hits &le;4)</li>",
+		"<li>Their 7 Type IXs also target our Fighters. They rolled 3,3,6,8,8,9 (3 hits &le;6)</li>",
+		"<li>Our Carrier rolled a 4 (&le;2 to hit)<br /><br /></li>",
+		"<li><b>Round 2</b>: We were reduced to 4 ships. Leykeber has gained the Fleet Size Bonus</li>",
+		"<li>Our 1 Titan shoots against their Type Flag again. We rolled a 9 (&le;4 to hit)</li>",
+		"<li>Their Type Flag automatically eliminates our Carrier</li>",
+		"<li>Our Flagship rolled a 4 (&le;3 to hit) against their Type IXs</li>",
+		"<li>Their 7 Type IXs rolled 1,1,4,7,8,9,10 against our Flagship (3 hits &le;6), eliminating it</li>",
+		"<li>Since our Titan is weak to Hull Size 1 craft, their 2 Type PDs rolled 7,9 against our Titan (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 3</b>: Our Titan is all alone now</li>",
+		"<li>Since our Titan is unable to retreat, we will make one last chance against their Type Flag. We rolled a 9 (&le;4 to hit)</li>",
+		"<li>Their Type Flag is next. Hits are no longer automatic (no Defense 0 targets remain), so it has to roll from here on out. It rolls a 7 (hit &le;7), damaging our Titan to 4 HP</li>",
+		"<li>Their 7 Type IXs rolled 2,4,6,7,8,8,10 (2 hits &le;5), further damaging the Titan to 2 HP</li>",
+		"<li>Their 2 Type PDs rolled 5,6 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 4</b>: Our Titan has not yet been destroyed. We shoot again against their Type Flag. We rolled an 8 (&le;4 to hit)</li>",
+		"<li>Their Type Flag rolled a 9 (&le;7 to hit)</li>",
+		"<li>Their 7 Type IXs rolled 2,3,4,7,9,9,10 (3 hits &le;5), finishing off our Titan</li></ol><p>This is such a horrible defeat... to lose our entire <q>Equal</q> fleet simply because Random Factor decided we would score 0 hits. This was the very battle that prompted us to expand our battle simulator.",
+		"Hindsight suggested this was virtually unwinnable; only a 0.5 - 1% success chance, and the Replicators slated to have a median of 7 hulls surviving. Still, this was a bottom 4% with our chosen Titan strategies, and could have just as easily been a bottom 1% even if we had revised them."],
 	"actions":
 		[]}
 ]}

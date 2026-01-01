@@ -1,6 +1,8 @@
 {"stages": [
 	{"heading":"Stardate 2227.00X",
-	"commentary":"<p>Welcome to another AI Solitaire battle. This time, we have decided to shake things up a bit by randomizing some of the elements. We have hand picked the Terran faction, and partially randomized the terrain (one of our friends wanted us to bring a planet to battle). We have then rolled a 1 for 250 SP, followed by a 10 for our Terran fleet and a 7 for the AI fleet.</p><p>We field 1 Destroyer-P, 2 regular Destroyers, 1 Destroyer-E, and 1 Scout. The AI fields 3 Destroyers, and 1 Light Cruiser.</p>",
+	"commentary":[
+		"Welcome to another AI Solitaire battle. This time, we have decided to shake things up a bit by randomizing some of the elements. We have hand picked the Terran faction, and partially randomized the terrain (one of our friends wanted us to bring a planet to battle). We have then rolled a 1 for 250 SP, followed by a 10 for our Terran fleet and a 7 for the AI fleet.",
+		"We field 1 Destroyer-P, 2 regular Destroyers, 1 Destroyer-E, and 1 Scout. The AI fields 3 Destroyers, and 1 Light Cruiser."],
 	"actions":
 		[{
 			"createPreset":"talonSkirmish",
@@ -162,7 +164,7 @@
 			"rotation":2
 		}]},
 	{"heading":"Stardate 2227.01A",
-	"commentary":"<p>Unlike the Talon, the Terran faction was generally less efficient with their power generation when they designed starships capable of conducting battles with the initial invaders. This likely explains why most of our Destroyers have batteries. Still, all of our ships have a starting power curve of 2-3-1 (2-3-0 for the Scout) as a consequence.</p>",
+	"commentary":["Unlike the Talon, the Terran faction was generally less efficient with their power generation when they designed starships capable of conducting battles with the initial invaders. This likely explains why most of our Destroyers have batteries. Still, all of our ships have a starting power curve of 2-3-1 (2-3-0 for the Scout) as a consequence."],
 	"actions":
 		[{
 			"createPreset":"paintEmptyTiles",
@@ -205,7 +207,7 @@
 			"rotation":2
 		}]},
 	{"heading":"Stardate 2227.01B",
-	"commentary":"<p>We now get a chance to move our ships.</p>",
+	"commentary":["We now get a chance to move our ships."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -288,7 +290,7 @@
 			"rotation":2
 		}]},
 	{"heading":"Stardate 2227.01C",
-	"commentary":"<p>Now our ships generate power. Batteries were charged (if able). Otherwise, front shields were reinforced.</p>",
+	"commentary":["Now our ships generate power. Batteries were charged (if able). Otherwise, front shields were reinforced."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -370,7 +372,7 @@
 			"rotation":2
 		}]},
 	{"heading":"Stardate 2227.01D",
-	"commentary":"<p>Both teams move their ships this impulse.</p>",
+	"commentary":["Both teams move their ships this impulse."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -478,7 +480,9 @@
 			"removeCounter":"turn-H2"
 		}]},
 	{"heading":"Stardate 2227.01F",
-	"commentary":"<p>Impulse <b>E</b>s are typically empty, because only Power 6/Speed 6 ships can use the respective resources (without applying batteries or afterburners).</p><p>Since the AI moves their ships before we move ours, our left-hand ships are able to shoot their weapons. We will focus on their Destroyer at G5, using all compatible weapons. Our Anti-Matter Torpedos rolled 5,4 (2 hits &ge;3), dealing 8 damage and already eliminating their first Destroyer! Our Scout no longer has any viable targets, since nebulae interference causes even a 6 to deal 0 damage against their right-most Destroyer.</p>",
+	"commentary":[
+		"Impulse <b>E</b>s are typically empty, because only Power 6/Speed 6 ships can use the respective resources (without applying batteries or afterburners).",
+		"Since the AI moves their ships before we move ours, our left-hand ships are able to shoot their weapons. We will focus on their Destroyer at G5, using all compatible weapons. Our Anti-Matter Torpedos rolled 5,4 (2 hits &ge;3), dealing 8 damage and already eliminating their first Destroyer! Our Scout no longer has any viable targets, since nebulae interference causes even a 6 to deal 0 damage against their right-most Destroyer."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -619,7 +623,9 @@
 			"rotation":2
 		}]},
 	{"heading":"Stardate 2227.01X",
-	"commentary":"<p>Already, we are off to a great start! The AI already lost their first ship, giving us a score advantage. In return, Anti-Matter Torpedos that were spent are quite slow to recharge, requiring 2-4 power phases (depending on power usage). We also slow down all of our ships.</p><p>Each of our ships is in front of an AI ship, so no potential priority targets are assigned.</p>",
+	"commentary":[
+		"Already, we are off to a great start! The AI already lost their first ship, giving us a score advantage. In return, Anti-Matter Torpedos that were spent are quite slow to recharge, requiring 2-4 power phases (depending on power usage). We also slow down all of our ships.",
+		"Each of our ships is in front of an AI ship, so no potential priority targets are assigned."],
 	"scoreboard":
 		[{
 			"name":"CSY (Blue)","initPts":251,"killPts":50,"lostPts":0
@@ -742,7 +748,14 @@
 			"rotation":2
 		}]},
 	{"heading":"Stardate 2227.02A",
-	"commentary":"<p>The AI consolidate their surviving ships, making them <q>sticky</q> once more. They then perform an <q>alpha strike</q> against our left-most ship, since they can destroy it in one salvo, even if it is all low rolls.</p><ol><li>Since lasers are unable to destroy by themselves, the Light Cruiser's cobalt cannon is used first. A 3 is rolled (glancing hit &lt;4), causing it to deal just 3 damage.</li><li>They are now ready to spend lasers. Their Light Cruiser then rolled 2,2 on its laser banks (0 extra dmg &ge;5), dealing 1 non-critical hull damage to our ship</li><li>Going in reading order, their first Destroyer rolled a 4 (glancing hit). This causes our destroyer to take a critical damage. We rolled 4+1, knocking our anti-matter torpedo bank out. The next laser then rolled another 4, bringing us down to 1 HP left</li><li>Their last Destroyer uses one of its laser banks to finish our left-most destroyer off. The resulting explosion deals 1 damage to the next Destroyer</li><li>Despite being unable to deal hull damage to other ships; there are no combinations in which the AI can optimize further before the next power phase. Thus, it uses its last laser bank against our Scout, having rolled a 5 (hit &ge;5)</li></ol><hr /><p>Our Scout could use its phaser now; and considering how risky it could be if we enter the nebula, we will shoot it anyway. Against their nearest destroyer, we rolled a 2 (1 dmg &lt;4).</p>",
+	"commentary":[
+		"The AI consolidate their surviving ships, making them <q>sticky</q> once more. They then perform an <q>alpha strike</q> against our left-most ship, since they can destroy it in one salvo, even if it is all low rolls.",
+		"<ol><li>Since lasers are unable to destroy by themselves, the Light Cruiser's cobalt cannon is used first. A 3 is rolled (glancing hit &lt;4), causing it to deal just 3 damage.</li>",
+		"<li>They are now ready to spend lasers. Their Light Cruiser then rolled 2,2 on its laser banks (0 extra dmg &ge;5), dealing 1 non-critical hull damage to our ship</li>",
+		"<li>Going in reading order, their first Destroyer rolled a 4 (glancing hit). This causes our destroyer to take a critical damage. We rolled 4+1, knocking our anti-matter torpedo bank out. The next laser then rolled another 4, bringing us down to 1 HP left</li>",
+		"<li>Their last Destroyer uses one of its laser banks to finish our left-most destroyer off. The resulting explosion deals 1 damage to the next Destroyer</li>",
+		"<li>Despite being unable to deal hull damage to other ships; there are no combinations in which the AI can optimize further before the next power phase. Thus, it uses its last laser bank against our Scout, having rolled a 5 (hit &ge;5)</li></ol><hr />",
+		"Our Scout could use its phaser now; and considering how risky it could be if we enter the nebula, we will shoot it anyway. Against their nearest destroyer, we rolled a 2 (1 dmg &lt;4)."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -868,7 +881,7 @@
 			"rotation":2
 		}]},
 	{"heading":"Stardate 2227.02B",
-	"commentary":"<p>This impulse simply involves spending power. Our left-most Destroyer accelerated its anti-matter torpedo charging, while the other two destroyers accelerated their turning, allowing them to turn again the next time they move.</p>",
+	"commentary":["This impulse simply involves spending power. Our left-most Destroyer accelerated its anti-matter torpedo charging, while the other two destroyers accelerated their turning, allowing them to turn again the next time they move."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -976,7 +989,7 @@
 			"removeCounter":"turn-H2"
 		}]},
 	{"heading":"Stardate 2227.02C",
-	"commentary":"<p>This impulse sees the movement of <i>all</i> ships. We turn our right hand ships to get them into range. We could attempt to use our last anti-matter torpedos, but nebula interference increases the risk of missing. We will wait a bit.</p>",
+	"commentary":["This impulse sees the movement of <i>all</i> ships. We turn our right hand ships to get them into range. We could attempt to use our last anti-matter torpedos, but nebula interference increases the risk of missing. We will wait a bit."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -1083,7 +1096,7 @@
 			"removeCounter":"turn-A2"
 		}]},
 	{"heading":"Stardate 2227.02D",
-	"commentary":"<p>The AI move their ships again. One of them intentionally delayed a turn in order to avoid ending its move inside the nebula. Meanwhile; after charging our left-hand weapons, we have found the most optimal opportunity to use our right-hand anti-matter torpedo; so we shoot it, having rolled a 3 against the destroyer that just entered our center hex row (hit &ge;2).</p>",
+	"commentary":["The AI move their ships again. One of them intentionally delayed a turn in order to avoid ending its move inside the nebula. Meanwhile; after charging our left-hand weapons, we have found the most optimal opportunity to use our right-hand anti-matter torpedo; so we shoot it, having rolled a 3 against the destroyer that just entered our center hex row (hit &ge;2)."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -1196,7 +1209,9 @@
 			"rotation":0
 		}]},
 	{"heading":"Stardate 2227.02F",
-	"commentary":"<p>The obligatory [nearly] <q>every action</q> <b>F</b> is performed here. Our Destroyer-P unleashes its phasers against their nearest destroyer, having rolled 2,4 (2 extra dmg &ge;2), and dealing a total of 4 damage.</p><p>Their ship then rolls 1+1 on the critical table; a secondary explosion! The extra damage caused by this critical roll causes them to have a <q>primary</q> explosion! The bad news; one of our ships got caught in the blast also, being right on top of their destroyer at the time of its demise. Our Destroyer-E took 1 damage to a random quadrant, which was randomized to be our rear quadrant.</p>",
+	"commentary":[
+		"The obligatory [nearly] <q>every action</q> <b>F</b> is performed here. Our Destroyer-P unleashes its phasers against their nearest destroyer, having rolled 2,4 (2 extra dmg &ge;2), and dealing a total of 4 damage.",
+		"Their ship then rolls 1+1 on the critical table; a secondary explosion! The extra damage caused by this critical roll causes them to have a <q>primary</q> explosion! The bad news; one of our ships got caught in the blast also, being right on top of their destroyer at the time of its demise. Our Destroyer-E took 1 damage to a random quadrant, which was randomized to be our rear quadrant."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -1304,7 +1319,10 @@
 			"removeCounter":"turn-A2"
 		}]},
 	{"heading":"Stardate 2227.02X",
-	"commentary":"<p>So far, we have managed to stay ahead of the curve, having done an even trade this past round. We will go on ahead and shift our scout back up to <u>2-3-0</u>. The rest of our fleet is getting no change to their power curve.</p><p>Here is where the AI's power phase gets much more complicated. We have ships entirely behind the surviving AI ships, marking them as potential priority targets. Our scout is the closest target, so their Light Cruiser gets to roll first. It rolled a 2, which is a miss. Normally, it would take a 4+ to assign a priority target. We have an estimated fleet value advantage (4:3), which increases the threshold to 6. One miss ends this step.</p><p>Moving onto the power curve step, both of their ships have a frontal target far enough away to justify keeping <u>0-4-1</u>.</p>",
+	"commentary":[
+		"So far, we have managed to stay ahead of the curve, having done an even trade this past round. We will go on ahead and shift our scout back up to <u>2-3-0</u>. The rest of our fleet is getting no change to their power curve.",
+		"Here is where the AI's power phase gets much more complicated. We have ships entirely behind the surviving AI ships, marking them as potential priority targets. Our scout is the closest target, so their Light Cruiser gets to roll first. It rolled a 2, which is a miss. Normally, it would take a 4+ to assign a priority target. We have an estimated fleet value advantage (4:3), which increases the threshold to 6. One miss ends this step.",
+		"Moving onto the power curve step, both of their ships have a frontal target far enough away to justify keeping <u>0-4-1</u>."],
 	"scoreboard":
 		[{
 			"name":"CSY (Blue)","initPts":251,"killPts":100,"lostPts":55
@@ -1399,7 +1417,7 @@
 			"rotation":3
 		}]},
 	{"heading":"Stardate 2227.03A",
-	"commentary":"<p>The AI gets to move and shoot again. Their last Destroyer shoots their lasers first, against our destroyer-p. They rolled 3,4 (0 extra dmg &ge;5). Their Light Cruiser follows suit with 1,3 (also 0 extra dmg), depleting our front shield exactly. Said Destroyer-P then uses its battery to charge one of its phaser banks.</p>",
+	"commentary":["The AI gets to move and shoot again. Their last Destroyer shoots their lasers first, against our destroyer-p. They rolled 3,4 (0 extra dmg &ge;5). Their Light Cruiser follows suit with 1,3 (also 0 extra dmg), depleting our front shield exactly. Said Destroyer-P then uses its battery to charge one of its phaser banks."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -1486,7 +1504,7 @@
 			"rotation":3
 		}]},
 	{"heading":"Stardate 2227.03B",
-	"commentary":"<p>More natural power is spent, prioritizing weapon charges where possible. Our Destroyer-P then shoots both its phasers against their last destroyer, having rolled 1,4 (1 extra dmg &ge;2). This depletes their front shield exactly. Our Scout then fires its sole phaser against the rear of their light cruiser, having rolled a 2 (1 dmg &lt;4).</p>",
+	"commentary":["More natural power is spent, prioritizing weapon charges where possible. Our Destroyer-P then shoots both its phasers against their last destroyer, having rolled 1,4 (1 extra dmg &ge;2). This depletes their front shield exactly. Our Scout then fires its sole phaser against the rear of their light cruiser, having rolled a 2 (1 dmg &lt;4)."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -1573,7 +1591,7 @@
 			"rotation":4
 		}]},
 	{"heading":"Stardate 2227.03C",
-	"commentary":"<p>Not a lot going on. All weapons have been spent, sans our left-most anti-matter torpedo. We can technically use it now, but it is a very high risk at range 4 (&ge;5 to hit) for dealing 2 non-critical hull damage. Thus, we will hold onto this weapon, for now.</p>",
+	"commentary":["Not a lot going on. All weapons have been spent, sans our left-most anti-matter torpedo. We can technically use it now, but it is a very high risk at range 4 (&ge;5 to hit) for dealing 2 non-critical hull damage. Thus, we will hold onto this weapon, for now."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -1664,7 +1682,7 @@
 			"removeCounter":"turn-A2"
 		}]},
 	{"heading":"Stardate 2227.03D",
-	"commentary":"<p>At long last, the stacking is gone.</p>",
+	"commentary":["At long last, the stacking is gone."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -1761,7 +1779,7 @@
 			"rotation":5
 		}]},
 	{"heading":"Stardate 2227.03F",
-	"commentary":"<p>However... we need to make every effort to avoid collisions. 3 damage per offending ship is not pretty when we only have a slight advantage.</p>",
+	"commentary":["However... we need to make every effort to avoid collisions. 3 damage per offending ship is not pretty when we only have a slight advantage."],
 	"actions":
 		[{
 			"paintHex":"F7",
@@ -1888,7 +1906,10 @@
 			"removeCounter":"turn-A2"
 		}]},
 	{"heading":"Stardate 2227.03X",
-	"commentary":"<p>Another power phase was reached. Weapons were charged as usual. We will do no change in our power curves.</p><p>There is an <q>anti-cheese</q> clause that requires each of our ships to ensure there is at least one frontal target each round within 6 hexes. Rather than follow this clause to a tee, we will treat it similar to how the AI treats our ships; an AI ship on our side gets a +2 modifier on distance, while a ship on our rear gets a +5 modifier on distance.</p><p>Anyway, our Destroyer-P is their closest rival this time. Their Light Cruiser rolls a 1, another miss. No priority targets are assigned. Without any frontal targets, the AI ships slow down to <u>0-3-0</u>. Lastly, to accomodate the current ship speeds, we have shifted the board 2 hexes.</p>",
+	"commentary":[
+		"Another power phase was reached. Weapons were charged as usual. We will do no change in our power curves.",
+		"There is an <q>anti-cheese</q> clause that requires each of our ships to ensure there is at least one frontal target each round within 6 hexes. Rather than follow this clause to a tee, we will treat it similar to how the AI treats our ships; an AI ship on our side gets a +2 modifier on distance, while a ship on our rear gets a +5 modifier on distance.",
+		"Anyway, our Destroyer-P is their closest rival this time. Their Light Cruiser rolls a 1, another miss. No priority targets are assigned. Without any frontal targets, the AI ships slow down to <u>0-3-0</u>. Lastly, to accomodate the current ship speeds, we have shifted the board 2 hexes."],
 	"scoreboard":
 		[{
 			"name":"CSY (Blue)","initPts":251,"killPts":100,"lostPts":55
@@ -2017,7 +2038,9 @@
 			"rotation":5
 		}]},
 	{"heading":"Stardate 2227.04A",
-	"commentary":"<p>This <i>normally</i> would be an empty impulse, but weapons can still fire even with no movement/power. The Light Cruiser fires its lasers against our destroyer-p, having rolled 2,6 (1 extra dmg &ge;5), emptying our port shields exactly.</p><p>In return, our ships return fire as able. Our Destroyer-P fires its port phaser, and rolled 6 (1 extra dmg &ge;4). Its too bad the Destroyer-E's anti-matter torpedo does not have as wide of a firing arc as the regular sibling.</p>",
+	"commentary":[
+		"This <i>normally</i> would be an empty impulse, but weapons can still fire even with no movement/power. The Light Cruiser fires its lasers against our destroyer-p, having rolled 2,6 (1 extra dmg &ge;5), emptying our port shields exactly.",
+		"In return, our ships return fire as able. Our Destroyer-P fires its port phaser, and rolled 6 (1 extra dmg &ge;4). Its too bad the Destroyer-E's anti-matter torpedo does not have as wide of a firing arc as the regular sibling."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -2104,7 +2127,7 @@
 			"rotation":5
 		}]},
 	{"heading":"Stardate 2227.04B",
-	"commentary":"<p>Where power would normally be spent charging weapons or reinforcing shields, our Destroyer-P instead uses it to prepare a side slip. Our Scout also rolls a 6 on its phaser, dealing another 2 shield damage.</p>",
+	"commentary":["Where power would normally be spent charging weapons or reinforcing shields, our Destroyer-P instead uses it to prepare a side slip. Our Scout also rolls a 6 on its phaser, dealing another 2 shield damage."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -2191,7 +2214,7 @@
 			"rotation":0
 		}]},
 	{"heading":"Stardate 2227.04C",
-	"commentary":"<p>Side Slipping allows us to avoid collisions while we get our rear-ward ships back into position.</p>",
+	"commentary":["Side Slipping allows us to avoid collisions while we get our rear-ward ships back into position."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -2278,7 +2301,7 @@
 			"rotation":0
 		}]},
 	{"heading":"Stardate 2227.04D",
-	"commentary":"<p>The AI turn their ships again. Their last Destroyer can now fire the other lasers at our scout, having rolled 3,4 (0 extra dmg &ge;5). More shields have been emptied exactly.</p>",
+	"commentary":["The AI turn their ships again. Their last Destroyer can now fire the other lasers at our scout, having rolled 3,4 (0 extra dmg &ge;5). More shields have been emptied exactly."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -2366,7 +2389,7 @@
 			"rotation":5
 		}]},
 	{"heading":"Stardate 2227.04F",
-	"commentary":"<p>We have reached the final impulse of the round once more. Their Light Cruiser uses its brakes to hold position. On the other hand, we can finally use our left-most anti-matter torpedos, and against their last destroyer. We rolled a 3, barely dealing 4 damage directly to their hull! Since this one hit alone already causes the ship to explode, we skip the critical step.</p>",
+	"commentary":["We have reached the final impulse of the round once more. Their Light Cruiser uses its brakes to hold position. On the other hand, we can finally use our left-most anti-matter torpedos, and against their last destroyer. We rolled a 3, barely dealing 4 damage directly to their hull! Since this one hit alone already causes the ship to explode, we skip the critical step."],
 	"actions":
 		[{
 			"paintHex":"H6",
@@ -2491,7 +2514,9 @@
 			"rotation":5
 		}]},
 	{"heading":"Stardate 2227.04X",
-	"commentary":"<p>Ficcipa of the AI faction is in serious trouble now. Their Light Cruiser is reasonably durable, and their cobalt cannon is even ready for use; but is all alone now versus our 4 surviving ships. If we can eliminate it without losing any more ships, we will achieve a decisive victory. In the meantime, we will do no change to our power curves.</p><p>The AI has a single potential priority target; our lone scout. Their Light Cruiser rolls a 4, unsuccessful thanks to the EFV modifier. Since we have a single frontal target 2 or more hexes away, their last ship shifts back up to <u>0-4-1</u>. We also end up shifting the board again to ensure our Scout stays on the board.</p>",
+	"commentary":[
+		"Ficcipa of the AI faction is in serious trouble now. Their Light Cruiser is reasonably durable, and their cobalt cannon is even ready for use; but is all alone now versus our 4 surviving ships. If we can eliminate it without losing any more ships, we will achieve a decisive victory. In the meantime, we will do no change to our power curves.",
+		"The AI has a single potential priority target; our lone scout. Their Light Cruiser rolls a 4, unsuccessful thanks to the EFV modifier. Since we have a single frontal target 2 or more hexes away, their last ship shifts back up to <u>0-4-1</u>. We also end up shifting the board again to ensure our Scout stays on the board."],
 	"scoreboard":
 		[{
 			"name":"CSY (Blue)","initPts":251,"killPts":150,"lostPts":55
@@ -2609,7 +2634,7 @@
 			"rotation":5
 		}]},
 	{"heading":"Stardate 2227.05A",
-	"commentary":"<p>Their Light Cruiser moves again, and is ready to fire its entire weapon banks. Since our scout is the largest ship it can destroy (even when rolling 1s), that will be its primary focus. Since lasers might not necessarily be sufficient, it will start with its Cobalt Cannon. The minimum output of 3 damage is enough to cause scout to explode. The leftover Lasers are then spent against our destroyer-e (smallest ship with no corrosponding shield reinforcement), having rolled 6,6 (2 extra dmg &ge;5), and causing 1 non-critical hull damage.</p>",
+	"commentary":["Their Light Cruiser moves again, and is ready to fire its entire weapon banks. Since our scout is the largest ship it can destroy (even when rolling 1s), that will be its primary focus. Since lasers might not necessarily be sufficient, it will start with its Cobalt Cannon. The minimum output of 3 damage is enough to cause scout to explode. The leftover Lasers are then spent against our destroyer-e (smallest ship with no corrosponding shield reinforcement), having rolled 6,6 (2 extra dmg &ge;5), and causing 1 non-critical hull damage."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -2684,7 +2709,7 @@
 			"rotation":5
 		}]},
 	{"heading":"Stardate 2227.05B",
-	"commentary":"<p>Our surviving ships (with yellow energy already full) will prepare side slips.</p>",
+	"commentary":["Our surviving ships (with yellow energy already full) will prepare side slips."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -2748,7 +2773,7 @@
 			"removeCounter":"SC-E1"
 		}]},
 	{"heading":"Stardate 2227.05C",
-	"commentary":"<p>With our Scout no more, that slightly simplifies susequent impulses.</p>",
+	"commentary":["With our Scout no more, that slightly simplifies susequent impulses."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -2812,7 +2837,7 @@
 			"removeCounter":"turn-A1"
 		}]},
 	{"heading":"Stardate 2227.05D",
-	"commentary":"<p>Their Light Cruiser turns around, using its stronger port shields to break a center hex row-related tie.</p>",
+	"commentary":["Their Light Cruiser turns around, using its stronger port shields to break a center hex row-related tie."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -2879,7 +2904,7 @@
 			"rotation":4
 		}]},
 	{"heading":"Stardate 2227.05F",
-	"commentary":"<p>Another round is almost over... if we use our Destroyer-P's starboard phaser now, the odds will not be good... but the possibility of 1 damage may make a difference, so we will take this risk. We rolled a 2, which deals 0 damage (&ge;5 required to deal 1).</p>",
+	"commentary":["Another round is almost over... if we use our Destroyer-P's starboard phaser now, the odds will not be good... but the possibility of 1 damage may make a difference, so we will take this risk. We rolled a 2, which deals 0 damage (&ge;5 required to deal 1)."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -2943,7 +2968,9 @@
 			"removeCounter":"turn-A1"
 		}]},
 	{"heading":"Stardate 2227.05X",
-	"commentary":"<p>Ficcipa has managed to regain a little lost ground, having denied us a potential decisive victory; but is still at a considerable disadvantage. We will go on ahead and shift our last regular Destroyer up to <u>2-3-1</u>. The rest of our fleet will keep their power curves.</p><p>All of our ships are potential priority targets. Their Light Cruiser uses our slightly damaged destroyer-e as a tie breaker, and rolls a 1 for assignment (miss). Since none of our ships are in front of theirs, their light cruiser will shift down again.</p>",
+	"commentary":[
+		"Ficcipa has managed to regain a little lost ground, having denied us a potential decisive victory; but is still at a considerable disadvantage. We will go on ahead and shift our last regular Destroyer up to <u>2-3-1</u>. The rest of our fleet will keep their power curves.",
+		"All of our ships are potential priority targets. Their Light Cruiser uses our slightly damaged destroyer-e as a tie breaker, and rolls a 1 for assignment (miss). Since none of our ships are in front of theirs, their light cruiser will shift down again."],
 	"scoreboard":
 		[{
 			"name":"CSY (Blue)","initPts":251,"killPts":150,"lostPts":88
@@ -3013,7 +3040,7 @@
 			"removeCounter":"turn-H1"
 		}]},
 	{"heading":"Stardate 2227.06B",
-	"commentary":"<p>Their Light Cruiser gets back into position, firing its lasers against our destroyer-e. It rolled 2,6 (1 extra dmg &ge;5).</p>",
+	"commentary":["Their Light Cruiser gets back into position, firing its lasers against our destroyer-e. It rolled 2,6 (1 extra dmg &ge;5)."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -3080,7 +3107,7 @@
 			"rotation":5
 		}]},
 	{"heading":"Stardate 2227.06C",
-	"commentary":"<p>While our regular Destroyer powers through its turn, our Destroyer-E side slips, and our Destroyer-P gets into position. Their last ship is in the latter's front arc, making <i>both</i> phasers fair game to fire. We rolled 1,1 (0 extra dmg &ge;4), which still allows us to deal 2 damage.</p>",
+	"commentary":["While our regular Destroyer powers through its turn, our Destroyer-E side slips, and our Destroyer-P gets into position. Their last ship is in the latter's front arc, making <i>both</i> phasers fair game to fire. We rolled 1,1 (0 extra dmg &ge;4), which still allows us to deal 2 damage."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -3145,7 +3172,7 @@
 			"removeCounter":"turn-H1"
 		}]},
 	{"heading":"Stardate 2227.06D",
-	"commentary":"<p>This is as good as it is getting with our regular Destroyer; we will go on ahead and fire our anti-matter torpedo. We rolled a 4... a hit (&ge;3 at range 3)!</p>",
+	"commentary":["This is as good as it is getting with our regular Destroyer; we will go on ahead and fire our anti-matter torpedo. We rolled a 4... a hit (&ge;3 at range 3)!"],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -3213,7 +3240,7 @@
 			"rotation":4
 		}]},
 	{"heading":"Stardate 2227.06F",
-	"commentary":"<p>Soon, it will be time for another power phase...</p>",
+	"commentary":["Soon, it will be time for another power phase..."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -3278,7 +3305,9 @@
 			"removeCounter":"turn-H1"
 		}]},
 	{"heading":"Stardate 2227.06X",
-	"commentary":"<p>Still slowly damaging their final ship. Meanwhile, it appears our two anti-matter torpedo ships should swap power curves; the Destroyer that spent their energy will shift down, while the Destroyer-E that has been ready for a while will shift up.</p><p>The closest potential priority target this time is the destroyer-e that is occupying the very same hex as their Light Cruiser. They rolled a 4, another miss. While there is a single frontal target, moving during impulse <b>A</b> would deny them use of their weapons when remaining still would allow their use. Thus, their light cruiser stays at <u>0-3-0</u>.</p>",
+	"commentary":[
+		"Still slowly damaging their final ship. Meanwhile, it appears our two anti-matter torpedo ships should swap power curves; the Destroyer that spent their energy will shift down, while the Destroyer-E that has been ready for a while will shift up.",
+		"The closest potential priority target this time is the destroyer-e that is occupying the very same hex as their Light Cruiser. They rolled a 4, another miss. While there is a single frontal target, moving during impulse <b>A</b> would deny them use of their weapons when remaining still would allow their use. Thus, their light cruiser stays at <u>0-3-0</u>."],
 	"scoreboard":
 		[{
 			"name":"CSY (Blue)","initPts":251,"killPts":150,"lostPts":88
@@ -3349,7 +3378,7 @@
 			"rotation":4
 		}]},
 	{"heading":"Stardate 2227.07A",
-	"commentary":"<p>By taking advantage of its slower speed, the Light Cruiser can use its lasers. In this case, our destroyer-p is weakened, so it makes sense to shoot against it. 2,3 were rolled this way (0 extra dmg &ge;5), dealing 1 non-critical hull damage. Our Destroyer-P can return fire with its port phaser, having rolled a 4 and dealing 2 damage. Critical damage was taken, so their light cruiser then rolls a 2+1, causing them to suffer Shields Down.</p>",
+	"commentary":["By taking advantage of its slower speed, the Light Cruiser can use its lasers. In this case, our destroyer-p is weakened, so it makes sense to shoot against it. 2,3 were rolled this way (0 extra dmg &ge;5), dealing 1 non-critical hull damage. Our Destroyer-P can return fire with its port phaser, having rolled a 4 and dealing 2 damage. Critical damage was taken, so their light cruiser then rolls a 2+1, causing them to suffer Shields Down."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -3414,7 +3443,7 @@
 			"rotation":4
 		}]},
 	{"heading":"Stardate 2227.07B",
-	"commentary":"<p>To avoid collision, our Destroyer-P prepares a side slip. Their Light Cruiser does a repair check, having rolled a 2 (failure &lt;6).</p>",
+	"commentary":["To avoid collision, our Destroyer-P prepares a side slip. Their Light Cruiser does a repair check, having rolled a 2 (failure &lt;6)."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -3479,7 +3508,7 @@
 			"rotation":4
 		}]},
 	{"heading":"Stardate 2227.07C",
-	"commentary":"<p>The side slip has been performed. They roll a 3 on the repair check (miss).</p>",
+	"commentary":["The side slip has been performed. They roll a 3 on the repair check (miss)."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -3546,7 +3575,7 @@
 			"removeCounter":"turn-H1"
 		}]},
 	{"heading":"Stardate 2227.07D",
-	"commentary":"<p>Closing in on the edge once again. The next shift we do will move the terrain out of bounds. Their next repair check is a 3 (miss).</p>",
+	"commentary":["Closing in on the edge once again. The next shift we do will move the terrain out of bounds. Their next repair check is a 3 (miss)."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -3616,7 +3645,7 @@
 			"rotation":4
 		}]},
 	{"heading":"Stardate 2227.07E",
-	"commentary":"<p>This impulse would normally be empty, if the AI still did not have to do repair checks. Their next roll is a 6, having repaired their Shields Down condition.</p>",
+	"commentary":["This impulse would normally be empty, if the AI still did not have to do repair checks. Their next roll is a 6, having repaired their Shields Down condition."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -3686,7 +3715,7 @@
 			"rotation":4
 		}]},
 	{"heading":"Stardate 2227.07F",
-	"commentary":"<p>One last impulse before yet another power phase... Our Destroyer-E side slips away from our final target, making it easier to connect those torpedoes.</p>",
+	"commentary":["One last impulse before yet another power phase... Our Destroyer-E side slips away from our final target, making it easier to connect those torpedoes."],
 	"actions":
 		[{
 			"paintHex":"J5",
@@ -3773,7 +3802,10 @@
 			"removeCounter":"turn-H1"
 		}]},
 	{"heading":"Stardate 2227.07X",
-	"commentary":"<p>Getting a little closer towards finishing off their last ship. Both our anti-matter torpedo ships are ready to shoot, so they will shift up/stay at <u>2-3-1</u>.</p><p>The closest priority target this time is our regular Destroyer. A 4 was rolled (miss). Meanwhile, since their Light Cruiser has taken enough hull damage to justify a power reduction, their power curve from here on out is limited to <u>0-3-0</u> to avoid a meltdown.</p><p>The board shifts yet again. Additionally, the battle itself has shifted far enough away that the terrain is no longer relevant.</p>",
+	"commentary":[
+		"Getting a little closer towards finishing off their last ship. Both our anti-matter torpedo ships are ready to shoot, so they will shift up/stay at <u>2-3-1</u>.",
+		"The closest priority target this time is our regular Destroyer. A 4 was rolled (miss). Meanwhile, since their Light Cruiser has taken enough hull damage to justify a power reduction, their power curve from here on out is limited to <u>0-3-0</u> to avoid a meltdown.",
+		"The board shifts yet again. Additionally, the battle itself has shifted far enough away that the terrain is no longer relevant."],
 	"scoreboard":
 		[{
 			"name":"CSY (Blue)","initPts":251,"killPts":150,"lostPts":88
@@ -3864,7 +3896,9 @@
 			"rotation":4
 		}]},
 	{"heading":"Stardate 2227.08A",
-	"commentary":"<p>Things have become much dicier now that <i>all</i> weapons have fully charged! Their Light Cruiser starts off by firing its cobalt cannon against our destroyer-p. Since even a 1 is enough to cause an explosion, we skip rolling. Lasers are then spent against our regular destroyer, rolling 3,6 in the process (1 extra dmg &ge;5).</p><p>Our Destroyer can return fire with its anti-matter torpedo. We rolled a 1, a <i>horrible</i> miss (&ge;2 to hit at range 2)! This torpedo had a high potential to end the battle, and it disappointed!!</p>",
+	"commentary":[
+		"Things have become much dicier now that <i>all</i> weapons have fully charged! Their Light Cruiser starts off by firing its cobalt cannon against our destroyer-p. Since even a 1 is enough to cause an explosion, we skip rolling. Lasers are then spent against our regular destroyer, rolling 3,6 in the process (1 extra dmg &ge;5).",
+		"Our Destroyer can return fire with its anti-matter torpedo. We rolled a 1, a <i>horrible</i> miss (&ge;2 to hit at range 2)! This torpedo had a high potential to end the battle, and it disappointed!!"],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -3931,7 +3965,7 @@
 			"removeCounter":"turn-H1"
 		}]},
 	{"heading":"Stardate 2227.08B",
-	"commentary":"<p>Seems best we can do is use the Destroyer that just missed to lure their light cruiser into range/arc of our Destroyer-E.</p>",
+	"commentary":["Seems best we can do is use the Destroyer that just missed to lure their light cruiser into range/arc of our Destroyer-E."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -3985,7 +4019,7 @@
 			"rotation":3
 		}]},
 	{"heading":"Stardate 2227.08C",
-	"commentary":"<p>We will prepare a side slip on the runner, so as to trick it.</p>",
+	"commentary":["We will prepare a side slip on the runner, so as to trick it."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -4037,7 +4071,7 @@
 			"rotation":3
 		}]},
 	{"heading":"Stardate 2227.08D",
-	"commentary":"<p>This is still problematic. By the time we can get the anti-matter torpedo lined up, the AI ship will be too close... making it illegal to shoot.</p>",
+	"commentary":["This is still problematic. By the time we can get the anti-matter torpedo lined up, the AI ship will be too close... making it illegal to shoot."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -4088,7 +4122,7 @@
 			"rotation":5
 		}]},
 	{"heading":"Stardate 2227.08F",
-	"commentary":"<p>And now we have to put up with a turn radius, and with insuffucient power to accelerate it.</p>",
+	"commentary":["And now we have to put up with a turn radius, and with insuffucient power to accelerate it."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -4139,7 +4173,9 @@
 			"rotation":0
 		}]},
 	{"heading":"Stardate 2227.08X",
-	"commentary":"<p>Where is a battery when we need one most?? Regardless; since we need the extra manueverability this round, we will shift our ships down to <u>3-2-0</u> again.</p><p>Since EFVs are equal now, their Light Cruiser no longer gets a penalty on priority targets. A 2 is rolled, scoring yet another miss.</p>",
+	"commentary":[
+		"Where is a battery when we need one most?? Regardless; since we need the extra manueverability this round, we will shift our ships down to <u>3-2-0</u> again.",
+		"Since EFVs are equal now, their Light Cruiser no longer gets a penalty on priority targets. A 2 is rolled, scoring yet another miss."],
 	"scoreboard":
 		[{
 			"name":"CSY (Blue)","initPts":251,"killPts":150,"lostPts":147
@@ -4192,7 +4228,7 @@
 			"rotation":0
 		}]},
 	{"heading":"Stardate 2227.09A",
-	"commentary":"<p>Their Light Cruiser shoots its lasers once more. 2,4 were rolled (0 extra dmg &ge;5)</p>",
+	"commentary":["Their Light Cruiser shoots its lasers once more. 2,4 were rolled (0 extra dmg &ge;5)"],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -4244,7 +4280,7 @@
 			"rotation":0
 		}]},
 	{"heading":"Stardate 2227.09B",
-	"commentary":"<p>By adjusting the power curve, we can use the newly freed up power on the Destroyer-E to accelerate a turn that would otherwise be impossible to do.</p>",
+	"commentary":["By adjusting the power curve, we can use the newly freed up power on the Destroyer-E to accelerate a turn that would otherwise be impossible to do."],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -4293,7 +4329,7 @@
 			"removeCounter":"turn-H1"
 		}]},
 	{"heading":"Stardate 2227.09C",
-	"commentary":"<p>Torpedo away! We rolled a 5, scoring an excellent hit and finishing off their light cruiser!!</p>",
+	"commentary":["Torpedo away! We rolled a 5, scoring an excellent hit and finishing off their light cruiser!!"],
 	"actions":
 		[{
 			"placeCounter":"CL-A1",
@@ -4341,7 +4377,9 @@
 			"rotation":1
 		}]},
 	{"heading":"Stardate 2227.09D (Conclusion)",
-	"commentary":"<p>That miss was needlessly scary, but it did not stop us from coming out on top. We still secured a tactical victory.</p><p>There is no telling how much of the battle would still be feasible if our ships were forced to retreat under the anti-cheese clause. This victory was not as comfortable as the previous victory as the Talon faction, but still an important stepping stone in learning the intricacies of Talon.</p>",
+	"commentary":[
+		"That miss was needlessly scary, but it did not stop us from coming out on top. We still secured a tactical victory.",
+		"There is no telling how much of the battle would still be feasible if our ships were forced to retreat under the anti-cheese clause. This victory was not as comfortable as the previous victory as the Talon faction, but still an important stepping stone in learning the intricacies of Talon."],
 	"scoreboard":
 		[{
 			"name":"CSY (Blue)","initPts":251,"killPts":250,"lostPts":147

@@ -1,6 +1,8 @@
 {"stages": [
 	{"heading":"Stardate 2400.0 (Introduction)",
-	"commentary":"<p>Welcome to Replicator Solitaire. This is one of the most complex solo scenarioes that has been released so far for Space Empires 4X. Like Alien Empires, the objective is to have the last homeworld standing. In a competitive game, regular players start with 3 Colony Ships, while a Replicator player would start with 5 Type 0 ships.</p><p>Additionally, to help keep the <q>ceiling</q> reasonable, several elements throughout Space Empires 4X are never used when replicators are used in <i>any</i> game. Unused elements are Facilities, Terraforming 2, Unique Ships, Experience, Exploration 2, Space Amoebas, Blood Brothers teams, and the Galactic Capitol.</p>",
+	"commentary":[
+		"Welcome to Replicator Solitaire. This is one of the most complex solo scenarioes that has been released so far for Space Empires 4X. Like Alien Empires, the objective is to have the last homeworld standing. In a competitive game, regular players start with 3 Colony Ships, while a Replicator player would start with 5 Type 0 ships.",
+		"Additionally, to help keep the <q>ceiling</q> reasonable, several elements throughout Space Empires 4X are never used when replicators are used in <i>any</i> game. Unused elements are Facilities, Terraforming 2, Unique Ships, Experience, Exploration 2, Space Amoebas, Blood Brothers teams, and the Galactic Capitol."],
 	"actions":
 		[{
 			"removeAllCounters":"hiddenV"
@@ -15,7 +17,10 @@
 			"removeCounter":"CO5Y"
 		}]},
 	{"heading":"Stardate 2400.0 (Setup)",
-	"commentary":"<p>Since this is a solo scenario, the difficulty system has a profound effect on starting forces. Easier settings give the human player more Colony Ships. Harder settings give the Replicator <q>environment</q> more hulls and even extra RP pre-purchased. (Thus, the extra hulls will not necessarily be Type 0 ships.)</p><p>For this playthrough, we will play on Easy difficulty. This gives us 2 additional Colony Ships, while the Replicator environment neither gets extra hulls nor starting RP. They get a fixed Movement 2 technology by default, regardless of difficulty setting. Empire Advantage cards are also optional, and we will omit them from this playthrough.</p><p>Even more elements are unused when playing Replicator Solitaire. Decoys, Warp Points, Resource Cards, Space Pirates, Regional Maps, and Doomsday Machines are also never used. Non-Player Aliens, on the other hand, <i>will</i> appear whenever a deep space barren planet is uncovered. As such, we will shuffle the Alien Technology deck, sans the Minesweep Jammer card.</p>",
+	"commentary":[
+		"Since this is a solo scenario, the difficulty system has a profound effect on starting forces. Easier settings give the human player more Colony Ships. Harder settings give the Replicator <q>environment</q> more hulls and even extra RP pre-purchased. (Thus, the extra hulls will not necessarily be Type 0 ships.)",
+		"For this playthrough, we will play on Easy difficulty. This gives us 2 additional Colony Ships, while the Replicator environment neither gets extra hulls nor starting RP. They get a fixed Movement 2 technology by default, regardless of difficulty setting. Empire Advantage cards are also optional, and we will omit them from this playthrough.",
+		"Even more elements are unused when playing Replicator Solitaire. Decoys, Warp Points, Resource Cards, Space Pirates, Regional Maps, and Doomsday Machines are also never used. Non-Player Aliens, on the other hand, <i>will</i> appear whenever a deep space barren planet is uncovered. As such, we will shuffle the Alien Technology deck, sans the Minesweep Jammer card."],
 	"actions":
 		[{
 			"createPreset":"replicatorSolo",
@@ -26,7 +31,7 @@
 			"extraHexAway":true
 		}]},
 	{"heading":"Stardate 2400.3 (Turn 1)",
-	"commentary":"<p>Though it will not be obvious at first, the Replicator environment has initiative by default in Replicator Solitaire; unless we bid 15 CP in an economic phase.</p>",
+	"commentary":["Though it will not be obvious at first, the Replicator environment has initiative by default in Replicator Solitaire; unless we bid 15 CP in an economic phase."],
 	"actions":
 		[{
 			"placeHullsV":"K3,J4,J4,J5,K5",
@@ -93,7 +98,7 @@
 			"name":"unexploredY"
 		}]},
 	{"heading":"Stardate 2400.6 (Turn 2)",
-	"commentary":"<p>In some fashions, the Replicators are simpler to play than a regular empire; they use their hulls in place of Colony Ships to colonize planets. (Minerals and Space Wrecks are instead cashed in instantly.)</p>",
+	"commentary":["In some fashions, the Replicators are simpler to play than a regular empire; they use their hulls in place of Colony Ships to colonize planets. (Minerals and Space Wrecks are instead cashed in instantly.)"],
 	"actions":
 		[{
 			"removeHullsV":"1,2"
@@ -190,7 +195,9 @@
 			"name":"unexploredY"
 		}]},
 	{"heading":"Stardate 2400.9 (Turn 3)",
-	"commentary":"<p>The Replicators have a higher end-game potential, being able to assemble all the way up to a Type XV. However, it requires accumumulating a total of 15 RP, only some of which can be bought with CP.</p><p>Additionally, starting on economic phase 10 (2410.0), their colonies are subject to a unique depletion mechanic. Depleted colonies become useless for the rest of a playthrough. They neither produce Replicator hulls, nor can they be recolonized by <i>any</i> player.</p>",
+	"commentary":[
+		"The Replicators have a higher end-game potential, being able to assemble all the way up to a Type XV. However, it requires accumumulating a total of 15 RP, only some of which can be bought with CP.",
+		"Additionally, starting on economic phase 10 (2410.0), their colonies are subject to a unique depletion mechanic. Depleted colonies become useless for the rest of a playthrough. They neither produce Replicator hulls, nor can they be recolonized by <i>any</i> player."],
 	"actions":
 		[{
 			"removeHullsV":"3,6,7"
@@ -292,7 +299,10 @@
 			"removeCounter":"MS3Y"
 		}]},
 	{"heading":"Stardate 2401.0 (Economic Phase 1)",
-	"commentary":"<p>Replicator economics work differently than regular empire economics. Instead of generating CP, each colony they have fully developed (homeworld included) automatically produces <i>1</i> hull. For this economic phase, they will also buy an extra hull at their homeworld, using 8 of the CP they got when they cashed in 35 CP worth of minerals.</p><p>If this scenario was against another regular empire, we might let Scouts do deep space reconnaissance. However, there are plenty of hazards and opportunities to keep an eye peeled, plus the Replicators expansion has introduced some new terrain as well. And since the Replicators themselves automatically collect space wrecks as well (gaining RP in the process), we need to shoot for Exploration Cruisers as soon as we can. Fortunately, merely having a Repllicator faction in our playthrough causes us to begin with 10 CP, instead of the usual 0. Their presence also allows us to colonize our home system barren planet without Terraforming 1. Since Troops are also enabled, we also begin the playthrough with Troops 1.</p><p>Thus, for this first economic phase, we will buy Ship Size 2 (-10) and Exploration 1 (-15) right away. And since we have a barrage of minerals, we will go on ahead and buy 1 Miner (-5). Leftover Ship Yard capacity is used to buy Pipelines (-9).</p>",
+	"commentary":[
+		"Replicator economics work differently than regular empire economics. Instead of generating CP, each colony they have fully developed (homeworld included) automatically produces <i>1</i> hull. For this economic phase, they will also buy an extra hull at their homeworld, using 8 of the CP they got when they cashed in 35 CP worth of minerals.",
+		"If this scenario was against another regular empire, we might let Scouts do deep space reconnaissance. However, there are plenty of hazards and opportunities to keep an eye peeled, plus the Replicators expansion has introduced some new terrain as well. And since the Replicators themselves automatically collect space wrecks as well (gaining RP in the process), we need to shoot for Exploration Cruisers as soon as we can. Fortunately, merely having a Repllicator faction in our playthrough causes us to begin with 10 CP, instead of the usual 0. Their presence also allows us to colonize our home system barren planet without Terraforming 1. Since Troops are also enabled, we also begin the playthrough with Troops 1.",
+		"Thus, for this first economic phase, we will buy Ship Size 2 (-10) and Exploration 1 (-15) right away. And since we have a barrage of minerals, we will go on ahead and buy 1 Miner (-5). Leftover Ship Yard capacity is used to buy Pipelines (-9)."],
 	"prodTable":
 		[{
 			"name":"CSY (Yellow)","initCP":10,"colonyCP":30,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":25,"unitBuy":14
@@ -394,7 +404,7 @@
 			"name":"unexploredY"
 		}]},
 	{"heading":"Stardate 2401.2 (Turn 4)",
-	"commentary":"<p>The Replicators continue to work on their first <q>mission</q>, to fully explore their home system. Somehow, they ran into a supernova! This will slow their progression down.</p>",
+	"commentary":["The Replicators continue to work on their first <q>mission</q>, to fully explore their home system. Somehow, they ran into a supernova! This will slow their progression down."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -485,7 +495,7 @@
 			"name":"unexploredY"
 		}]},
 	{"heading":"Stardate 2401.5 (Turn 5)",
-	"commentary":"<p>Both empires continue to uncover the remaining home systems. The Replicators are able to do it faster, thanks to 2 extra starting hulls. We, on the other hand, are hesitant to risk our Flagship while our obligatory black hole is still unexplored.</p>",
+	"commentary":["Both empires continue to uncover the remaining home systems. The Replicators are able to do it faster, thanks to 2 extra starting hulls. We, on the other hand, are hesitant to risk our Flagship while our obligatory black hole is still unexplored."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -571,7 +581,7 @@
 			"name":"unexploredY"
 		}]},
 	{"heading":"Stardate 2401.8 (Turn 6)",
-	"commentary":"<p>More planets have been found on both sides of the map.</p>",
+	"commentary":["More planets have been found on both sides of the map."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -665,7 +675,9 @@
 			"removeCounter":"CA1Y"
 		}]},
 	{"heading":"Stardate 2402.0 (Economic Phase 2)",
-	"commentary":"<p>So far, the Replicator empire is experiencing an explosive growth (7 colonies in their possession). While this is before economic phase 4, the Replicator environment will buy an extra hull at their homeworld.</p><p>As a regular empire, we are doing okay. We <i>still</i> have not seen our obligatory home system black hole yet though. Nonetheless, we will buy Ship Size 3 (-15). Now that Cruisers are available, we will go on ahead and buy 2 of them (-24) at our homeworld.</p>",
+	"commentary":[
+		"So far, the Replicator empire is experiencing an explosive growth (7 colonies in their possession). While this is before economic phase 4, the Replicator environment will buy an extra hull at their homeworld.",
+		"As a regular empire, we are doing okay. We <i>still</i> have not seen our obligatory home system black hole yet though. Nonetheless, we will buy Ship Size 3 (-15). Now that Cruisers are available, we will go on ahead and buy 2 of them (-24) at our homeworld."],
 	"prodTable":
 		[{
 			"name":"CSY (Yellow)","initCP":3,"colonyCP":32,"mineralCP":10,"pipeCP":2,"maint":3,"bidCP":0,"techBuy":15,"unitBuy":24
@@ -763,7 +775,7 @@
 			"name":"unexploredY"
 		}]},
 	{"heading":"Stardate 2402.1 (Turn 7)",
-	"commentary":"<p>Empty planets had recently consumed the last of the previous hulls, which slows down their home system mission. In other news, our obligatory black hole finally reared its ugly head. The Scout responsible for uncovering it rolled a 6 on its survival check (survived &le;6).</p>",
+	"commentary":["Empty planets had recently consumed the last of the previous hulls, which slows down their home system mission. In other news, our obligatory black hole finally reared its ugly head. The Scout responsible for uncovering it rolled a 6 on its survival check (survived &le;6)."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -829,7 +841,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2402.4 (Turn 8)",
-	"commentary":"<p>Celebrations of our recent success were shortlived, as the black hole survivor has now fallen victim to a Danger marker.</p>",
+	"commentary":["Celebrations of our recent success were shortlived, as the black hole survivor has now fallen victim to a Danger marker."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -906,7 +918,7 @@
 			"removeCounter":"NPA2"
 		}]},
 	{"heading":"Stardate 2402.7 (Turn 9)",
-	"commentary":"<p>We were able to use Exploration to negate the Danger and Black Hole risks. We have also ran into our first non-player aliens. The Alien-Cs have the best Weapon Class, so they shoot first; rolling 1,6,8 in the process (1 hit &le;5). The Scout responsible for uncovering the barren planet has been eliminated.</p>",
+	"commentary":["We were able to use Exploration to negate the Danger and Black Hole risks. We have also ran into our first non-player aliens. The Alien-Cs have the best Weapon Class, so they shoot first; rolling 1,6,8 in the process (1 hit &le;5). The Scout responsible for uncovering the barren planet has been eliminated."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -1021,7 +1033,10 @@
 			"removeCounter":"CO8Y"
 		}]},
 	{"heading":"Stardate 2403.0 (Economic Phase 3)",
-	"commentary":"<p>The Replicator empire did not colonize any new planets this time, which was fortunate for us. The unusually bad news is that 4 of their existing colonies have grown to full strength. Starting with the <i>next</i> economic phase, they will also begin producing hulls. In the mean time, this is the last phase in which they will automatically buy an extra hull at their homeworld.</p><p>Speaking of, in order to take out their homeworld, we need to pursue one of two paths. Anti-Replicator technology is cheaper, but still requires damaging their colonies until Transports are able to clean them up. Titans are far more expensive, but  <i>instantly destroy</i> any colony they shoot at <span class=\"bindTxt\">(even a Replicator colony)</span>, as if they were a Doomsday Machine.</p><p>Teching up to Titans could expose a wide variety of technology to the Replicator empire, granting them RP for each type of ship encountered (limit one per Ship Size tier, except Titans grant 2 RP) that is effective after the battle. Thus, we will buy Ship Yard tech level 2 (-20), instead of further increasing Ship Size. We will then buy 3 Colony Ships (-24)</p>",
+	"commentary":[
+		"The Replicator empire did not colonize any new planets this time, which was fortunate for us. The unusually bad news is that 4 of their existing colonies have grown to full strength. Starting with the <i>next</i> economic phase, they will also begin producing hulls. In the mean time, this is the last phase in which they will automatically buy an extra hull at their homeworld.",
+		"Speaking of, in order to take out their homeworld, we need to pursue one of two paths. Anti-Replicator technology is cheaper, but still requires damaging their colonies until Transports are able to clean them up. Titans are far more expensive, but <i>instantly destroy</i> any colony they shoot at <span class=\"bindTxt\">(even a Replicator colony)</span>, as if they were a Doomsday Machine.",
+		"Teching up to Titans could expose a wide variety of technology to the Replicator empire, granting them RP for each type of ship encountered (limit one per Ship Size tier, except Titans grant 2 RP) that is effective after the battle. Thus, we will buy Ship Yard tech level 2 (-20), instead of further increasing Ship Size. We will then buy 3 Colony Ships (-24)"],
 	"prodTable":
 		[{
 			"name":"CSY (Yellow)","initCP":5,"colonyCP":38,"mineralCP":5,"pipeCP":2,"maint":5,"bidCP":0,"techBuy":20,"unitBuy":24
@@ -1135,7 +1150,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2403.3",
-	"commentary":"<p>The Replicators are almost done with their home system mission, but the remaining unexplored systems are far from their ships.</p>",
+	"commentary":["The Replicators are almost done with their home system mission, but the remaining unexplored systems are far from their ships."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -1202,7 +1217,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2403.6",
-	"commentary":"<p>At the rate we are uncovering deep space terrain, we may be able to slow their ability to clean up the last of their home systems.</p>",
+	"commentary":["At the rate we are uncovering deep space terrain, we may be able to slow their ability to clean up the last of their home systems."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -1264,7 +1279,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2403.9",
-	"commentary":"<p>Some questions have arisen as a result of how close our nearest forces are... 2 hexes away is not very far when we may choose to steal initiative for one economic phase.</p>",
+	"commentary":["Some questions have arisen as a result of how close our nearest forces are... 2 hexes away is not very far when we may choose to steal initiative for one economic phase."],
 	"actions":
 		[{
 			"placeGhost":"FlagV",
@@ -1355,7 +1370,10 @@
 			"removeCounter":"CA2Y"
 		}]},
 	{"heading":"Stardate 2404.0",
-	"commentary":"<p>And now for the first economic phase in which the complexity has risen for the Replicator empire. First, <i>each</i> colony that was already at full strength has produced one hull. That is five (5) hulls that have entered the board this way! Another three (3) colonies have reached full strength, so they will begin producing hulls also.</p><p>Finally, since the opening is over, and that no Empire Advantages are present this playthrough; they roll to determine where to spend their CP. They rolled an 8, exchanging 30 CP for one (1) RP. This is one of the RP they will need to unlock Type II ships for construction.</p><p>As for our own empire, we have deliberated on whether or not to take initiative, and we decided against it thanks to the surge of new hulls. Instead, we will buy Movement 2 (-20), followed by 3 more Cruisers (-36) at our homeworld.</p>",
+	"commentary":[
+		"And now for the first economic phase in which the complexity has risen for the Replicator empire. First, <i>each</i> colony that was already at full strength has produced one hull. That is five (5) hulls that have entered the board this way! Another three (3) colonies have reached full strength, so they will begin producing hulls also.",
+		"Finally, since the opening is over, and that no Empire Advantages are present this playthrough; they roll to determine where to spend their CP. They rolled an 8, exchanging 30 CP for one (1) RP. This is one of the RP they will need to unlock Type II ships for construction.",
+		"As for our own empire, we have deliberated on whether or not to take initiative, and we decided against it thanks to the surge of new hulls. Instead, we will buy Movement 2 (-20), followed by 3 more Cruisers (-36) at our homeworld."],
 	"prodTable":
 		[{
 			"name":"CSY (Yellow)","initCP":1,"colonyCP":47,"mineralCP":20,"pipeCP":2,"maint":4,"bidCP":0,"techBuy":20,"unitBuy":36
@@ -1438,7 +1456,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2404.2",
-	"commentary":"<p>What was originally 4 hulls has now become <i>9</i> hulls. They still have their Flagship, too. In other news, we have exposed a space wreck. If we are to ensure the Replicators do not snag it, we must guard it with our combat ships.</p>",
+	"commentary":["What was originally 4 hulls has now become <i>9</i> hulls. They still have their Flagship, too. In other news, we have exposed a space wreck. If we are to ensure the Replicators do not snag it, we must guard it with our combat ships."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -1484,7 +1502,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2404.5",
-	"commentary":"<p>We will do one last turn to uncover deep space before we keep our combat ships stationed at the space wreck.</p>",
+	"commentary":["We will do one last turn to uncover deep space before we keep our combat ships stationed at the space wreck."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -1533,7 +1551,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2404.8",
-	"commentary":"<p>The Replicator environment has finally finished the home system mission. Since this scenario does not use Doomsday Machines at all, the one we uncovered will simply vanish after this turn.</p>",
+	"commentary":["The Replicator environment has finally finished the home system mission. Since this scenario does not use Doomsday Machines at all, the one we uncovered will simply vanish after this turn."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -1618,7 +1636,10 @@
 			"removeCounter":"SY2Y"
 		}]},
 	{"heading":"Stardate 2405.0",
-	"commentary":"<p>Since they have successfully finished their home system mission, their rewards are free Exploration technology, and 3 Type Exp ships. Any full strength colonies that did not already produce a Type Exp have produced another hull. Their economy is exceptionally productive, but they are halfway to their first depletion.</p><p>On the CP step, they can afford an extra homeworld hull (-8), but not an extra RP or an extra Movement level. They roll a 3 (buy hull &le;4). Afterwards, they prepare two fleets, one of which will follow one of their Type Exp ships, the other will attempt to pressure the flank that has already been opened.</p><p>Our own economics have gotten a little interesting; thanks to our mature colonies, we can place one free Light Infantry on any mature colony. We will then buy another 3 Cruisers (-36) at our homeworld, followed by a forward Ship Yard at sector D4.</p>",
+	"commentary":[
+		"Since they have successfully finished their home system mission, their rewards are free Exploration technology, and 3 Type Exp ships. Any full strength colonies that did not already produce a Type Exp have produced another hull. Their economy is exceptionally productive, but they are halfway to their first depletion.",
+		"On the CP step, they can afford an extra homeworld hull (-8), but not an extra RP or an extra Movement level. They roll a 3 (buy hull &le;4). Afterwards, they prepare two fleets, one of which will follow one of their Type Exp ships, the other will attempt to pressure the flank that has already been opened.",
+		"Our own economics have gotten a little interesting; thanks to our mature colonies, we can place one free Light Infantry on any mature colony. We will then buy another 3 Cruisers (-36) at our homeworld, followed by a forward Ship Yard at sector D4."],
 	"prodTable":
 		[{
 			"name":"CSY (Yellow)","initCP":10,"colonyCP":54,"mineralCP":0,"pipeCP":2,"maint":10,"bidCP":0,"techBuy":0,"unitBuy":42
@@ -1738,7 +1759,7 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2405.1",
-	"commentary":"<p>Now that they have Type Exp ships, they will use them exclusively to explore the remainder of the deep space. A battle will also happen very soon, between two fleets that are about the same Hull Size totals.</p>",
+	"commentary":["Now that they have Type Exp ships, they will use them exclusively to explore the remainder of the deep space. A battle will also happen very soon, between two fleets that are about the same Hull Size totals."],
 	"actions":
 		[{
 			"placeCounter":"expV1",
@@ -1807,8 +1828,32 @@
 			"location":"D1",
 			"name":"minerals5"
 		}]},
-	{"heading":"Stardate 2405.4 (Replicator Turn)",
-	"commentary":"<p>This is one of the few times where dividing a single turn into two stages is necessary. Since we did not take initiative during the previous economic phase, the Replicator Empire is about to assault our fleet guarding the space wreck.</p><h3>The Battle for Sector H6</h3><p>Since this is the Replicator environment, not a human player, there is an additional step that needs to be taken whenever there are unrevealed hulls involved.</p><ol><li>Since we have neither minelayers, nor fighters, nor raiders on the board; the respective countermeasure steps (Type SW / Type PD / Type Scan) are skipped</li><li>At the start of the turn, they had 1 RP in their possession. They are able to convert their 5 hulls into Type 0 ships</li><li><b>Round 1</b>: The Replicators have 6 ships. We have 3 ships. The Replicator environment never screens ships. They gain the Fleet Size Bonus</li><li>Their Type Flag has the best Weapon Class and Tactics, so they shoot first. Our smallest ships (Cruisers) are prioritized. Type Flag rolled a 1 (hit &le;1), damaging a Cruiser</li><li>Our Flagship and Cruisers get to shoot together (same Attack rating). We will prioritize their Type 0s, rolling a 2,3,4 (3 hits &le;4)</li><li>Their 2 surviving Type 0s are next. They rolled 1,7 (1 hit &le;2), finishing a Cruiser off<br /><br /></li><li><b>Round 2</b>: Replicators 3 ships / 5 Hull Size. Player empire 2 ships / 5 Hull Size. They have lost the Fleet Size Bonus</li><li>Type Flag shoots once more, rolling a 1 (hit &le;1) and damaging another Cruiser</li><li>We will now prioritize their Type Flag, in an effort to eliminate it for good. We rolled 2,4 (1 hit &le;3) and knocking their Type Flag down to 2 HP</li><li>Their Type 0s are next. They rolled 7,7 (0 hits &le;1)<br /><br /></li><li><b>Round 3</b>: No change in ship counts</li><li>Type Flag has 2 HP left. They will shoot once more, rolling a 1 and cleaning up our last Cruiser</li><li>Our Flagship is all that remains. We rolled an 8 (miss &gt;3)</li><li>Their Type 0s are next. They rolled 1,5 (1 hit &le;1), and damaging our Flagship to 2 HP<br /><br /></li><li><b>Round 4</b>: Replicators 3 ships / 4 Hull Size. Player empire 1 ship / 2 Hull Size. They have regained the Fleet Size Bonus</li><li>Type Flag shoots once more, rolling a 3 (miss &gt;1)</li><li>Our Flagship shoots next, rolling a 10 (miss &gt;3)</li><li>Their Type 0s are next. They rolled 2,8 (1 hit &le;2), further damaging our Flagship to 1 HP<br /><br /></li><li><b>Round 5</b>: Type Flag shoots once more, rolling a 3 (miss &gt;1)</li><li>Our Flagship has 1 HP left. We have decided to retreat from a losing battle, to sector G6</li><li>The Replicator scavenged the space wreck!</li></ol>",
+	{"heading":"Stardate 2405.4R (Replicator Turn)",
+	"commentary":[
+		"This is one of the few times where dividing a single turn into two stages is necessary. Since we did not take initiative during the previous economic phase, the Replicator Empire is about to assault our fleet guarding the space wreck.",
+		"<h3>The Battle for Sector H6</h3>",
+		"Since this is the Replicator environment, not a human player, there is an additional step that needs to be taken whenever there are unrevealed hulls involved.",
+		"<ol><li>Since we have neither minelayers, nor fighters, nor raiders on the board; the respective countermeasure steps (Type SW / Type PD / Type Scan) are skipped</li>",
+		"<li>At the start of the turn, they had 1 RP in their possession. They are able to convert their 5 hulls into Type 0 ships</li>",
+		"<li><b>Round 1</b>: The Replicators have 6 ships. We have 3 ships. The Replicator environment never screens ships. They gain the Fleet Size Bonus</li>",
+		"<li>Their Type Flag has the best Weapon Class and Tactics, so they shoot first. Our smallest ships (Cruisers) are prioritized. Type Flag rolled a 1 (hit &le;1), damaging a Cruiser</li>",
+		"<li>Our Flagship and Cruisers get to shoot together (same Attack rating). We will prioritize their Type 0s, rolling a 2,3,4 (3 hits &le;4)</li>",
+		"<li>Their 2 surviving Type 0s are next. They rolled 1,7 (1 hit &le;2), finishing a Cruiser off<br /><br /></li>",
+		"<li><b>Round 2</b>: Replicators 3 ships / 5 Hull Size. Player empire 2 ships / 5 Hull Size. They have lost the Fleet Size Bonus</li>",
+		"<li>Type Flag shoots once more, rolling a 1 (hit &le;1) and damaging another Cruiser</li>",
+		"<li>We will now prioritize their Type Flag, in an effort to eliminate it for good. We rolled 2,4 (1 hit &le;3) and knocking their Type Flag down to 2 HP</li>",
+		"<li>Their Type 0s are next. They rolled 7,7 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 3</b>: No change in ship counts</li>",
+		"<li>Type Flag has 2 HP left. They will shoot once more, rolling a 1 and cleaning up our last Cruiser</li>",
+		"<li>Our Flagship is all that remains. We rolled an 8 (miss &gt;3)</li>",
+		"<li>Their Type 0s are next. They rolled 1,5 (1 hit &le;1), and damaging our Flagship to 2 HP<br /><br /></li>",
+		"<li><b>Round 4</b>: Replicators 3 ships / 4 Hull Size. Player empire 1 ship / 2 Hull Size. They have regained the Fleet Size Bonus</li>",
+		"<li>Type Flag shoots once more, rolling a 3 (miss &gt;1)</li>",
+		"<li>Our Flagship shoots next, rolling a 10 (miss &gt;3)</li>",
+		"<li>Their Type 0s are next. They rolled 2,8 (1 hit &le;2), further damaging our Flagship to 1 HP<br /><br /></li>",
+		"<li><b>Round 5</b>: Type Flag shoots once more, rolling a 3 (miss &gt;1)</li>",
+		"<li>Our Flagship has 1 HP left. We have decided to retreat from a losing battle, to sector G6</li>",
+		"<li>The Replicator scavenged the space wreck!</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"expV1",
@@ -1877,8 +1922,20 @@
 			"placeCounter":"Miner2Y",
 			"location":"D1"
 		}]},
-	{"heading":"Stardate 2405.4 (Player Turn)",
-	"commentary":"<p>Our retreating Flagship did manage to regroup with 3 Cruisers. We can probably clean them up, but it will be much harder now that they have gained 4 RP at the end of their turn (1 from Space Wreck + 3 from Cruisers and lower).</p><h3>The Battle for Sector H6</h3><p>There are no unrevealed hulls left, so the construction step is skipped.</p><ol><li><b>Round 1</b>: The Replicators have 3 ships (5 Hull Size worth). We have 4 ships (9 Hull Size worth). Neither player has the Fleet Size Bonus</li><li>Their Type Flag has the best Weapon Class and Tactics, so they shoot first. Our smallest ships (Cruisers) are prioritized. Type Flag has also gained considerable Attack strength now that the RP has increased. They rolled a 2 (hit &le;4), damaging a Cruiser</li><li>Our Flagship and 3 Cruisers get to shoot together (same Attack rating). We will prioritize their Type Flag, rolling until we score 3 hits (&le;2 to hit). We rolled 1,4,8,4 (1 hit), damaging Type Flag to 2 HP left</li><li>Their 2 Type 0s are next. They rolled 8,9 (0 hits &le;1)<br /><br /></li><li><b>Round 2</b>: Their Type Flag shoots once more. They rolled a 3 (hit &le;4), finishing off a Cruiser</li><li>Our Flagship and 2 surviving Cruisers shoot together, rolling until we score 2 hits (&le;2 to hit). We rolled 6,9,3 (1 hit), damaging Type Flag to 1 HP left</li><li>Their Type 0s are next. They rolled 9,9 (0 hits &le;1)<br /><br /></li><li><b>Round 3</b>: Their Type Flag has 1 HP left. They will retreat to sector I6</li><li>Our Flagship and 2 surviving Cruisers shoot once more. Only their Type 0s remain (&le;4 to hit). We rolled 3,4,9 (2 hit), cleaning up the Type 0s</li></ol>",
+	{"heading":"Stardate 2405.4P (Player Turn)",
+	"commentary":[
+		"Our retreating Flagship did manage to regroup with 3 Cruisers. We can probably clean them up, but it will be much harder now that they have gained 4 RP at the end of their turn (1 from Space Wreck + 3 from Cruisers and lower).",
+		"<h3>The Battle for Sector H6</h3>",
+		"There are no unrevealed hulls left, so the construction step is skipped.",
+		"<ol><li><b>Round 1</b>: The Replicators have 3 ships (5 Hull Size worth). We have 4 ships (9 Hull Size worth). Neither player has the Fleet Size Bonus</li>",
+		"<li>Their Type Flag has the best Weapon Class and Tactics, so they shoot first. Our smallest ships (Cruisers) are prioritized. Type Flag has also gained considerable Attack strength now that the RP has increased. They rolled a 2 (hit &le;4), damaging a Cruiser</li>",
+		"<li>Our Flagship and 3 Cruisers get to shoot together (same Attack rating). We will prioritize their Type Flag, rolling until we score 3 hits (&le;2 to hit). We rolled 1,4,8,4 (1 hit), damaging Type Flag to 2 HP left</li>",
+		"<li>Their 2 Type 0s are next. They rolled 8,9 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 2</b>: Their Type Flag shoots once more. They rolled a 3 (hit &le;4), finishing off a Cruiser</li>",
+		"<li>Our Flagship and 2 surviving Cruisers shoot together, rolling until we score 2 hits (&le;2 to hit). We rolled 6,9,3 (1 hit), damaging Type Flag to 1 HP left</li>",
+		"<li>Their Type 0s are next. They rolled 9,9 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 3</b>: Their Type Flag has 1 HP left. They will retreat to sector I6</li>",
+		"<li>Our Flagship and 2 surviving Cruisers shoot once more. Only their Type 0s remain (&le;4 to hit). We rolled 3,4,9 (2 hit), cleaning up the Type 0s</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"expV1",
@@ -1956,7 +2013,7 @@
 			"location":"D2"
 		}]},
 	{"heading":"Stardate 2405.7",
-	"commentary":"<p>Type Exp aside, Replicator ships are typically subject to self-preservation. Since 4 Hull Size worth is inferior to 7 Hull Size worth <span class=\"bindTxt\">(25% difference or more constitutes as such)</span>, the surviving Flagship and 1 hull will regroup with the 3 hulls that are also nearby. A mission did pop up whenever they exposed a barren planet, which they will use to try to gather an extra RP, at the expense of one of their hulls.</p>",
+	"commentary":["Type Exp aside, Replicator ships are typically subject to self-preservation. Since 4 Hull Size worth is inferior to 7 Hull Size worth <span class=\"bindTxt\">(25% difference or more constitutes as such)</span>, the surviving Flagship and 1 hull will regroup with the 3 hulls that are also nearby. A mission did pop up whenever they exposed a barren planet, which they will use to try to gather an extra RP, at the expense of one of their hulls."],
 	"actions":
 		[{
 			"placeCounter":"expV1",
@@ -2082,7 +2139,9 @@
 			"removeCounter":"Inf2Y"
 		}]},
 	{"heading":"Stardate 2406.0",
-	"commentary":"<p>Overall, this was an unfavorable set of turns. We were unable to defend the space wreck from their grasp, giving them the RP, instead of us a technology. Their new RP total now unlocks them access to Type IV and Type V ships. For the CP step, they have enough money to buy an extra homeworld hull (-8) <i>or</i> another Movement level (-20). They roll a 5, which <i>attempts</i> to buy another RP, but 30 CP is required for this operation. Only <i>1</i> roll is made on this step.</p><p>For our own empire, after placing another free Light Infantry, we will buy Ship Yard 3 (-25). We will then buy 1 Colony Ship (-8) and 1 Pipeline (-3) at D4, 7 Pipelines (-21) at B6, and a Base (-12) at D1</p>",
+	"commentary":[
+		"Overall, this was an unfavorable set of turns. We were unable to defend the space wreck from their grasp, giving them the RP, instead of us a technology. Their new RP total now unlocks them access to Type IV and Type V ships. For the CP step, they have enough money to buy an extra homeworld hull (-8) <i>or</i> another Movement level (-20). They roll a 5, which <i>attempts</i> to buy another RP, but 30 CP is required for this operation. Only <i>1</i> roll is made on this step.",
+		"For our own empire, after placing another free Light Infantry, we will buy Ship Yard 3 (-25). We will then buy 1 Colony Ship (-8) and 1 Pipeline (-3) at D4, 7 Pipelines (-21) at B6, and a Base (-12) at D1"],
 	"prodTable":
 		[{
 			"name":"CSY (Yellow)","initCP":14,"colonyCP":60,"mineralCP":5,"pipeCP":2,"maint":10,"bidCP":0,"techBuy":25,"unitBuy":44
@@ -2230,7 +2289,9 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2406.3",
-	"commentary":"<p>Normally, the Pirate ship that the Replicator environment just uncovered could be fought or hired. Because they are an unused gimmick, they will simply vanish after this turn. Instead, the Replicator empire has completed the mission to learn from a non-player alien, by sending one of their loose hulls to battle. Since it is just one hull, Type IV is the largest they can build. Their Alien-Bs have the best Weapon Class, so they shoot first. They rolled 5,6 (1 hit &le;5), destroying the trespasser.</p><p>On our turn, we uncovered a warp point, also unused; along with the first lost in space marker. Since this marker was found via Exploration technology, its effect has been nullified. We have also managed to intercept one of their Type Exps. Taking advantage of our Fleet Size Bonus (3:1) and same Attack rating (4 +1); we rolled 2,5,7 (2 hits), destroying their ship.</p>",
+	"commentary":[
+		"Normally, the Pirate ship that the Replicator environment just uncovered could be fought or hired. Because they are an unused gimmick, they will simply vanish after this turn. Instead, the Replicator empire has completed the mission to learn from a non-player alien, by sending one of their loose hulls to battle. Since it is just one hull, Type IV is the largest they can build. Their Alien-Bs have the best Weapon Class, so they shoot first. They rolled 5,6 (1 hit &le;5), destroying the trespasser.",
+		"On our turn, we uncovered a warp point, also unused; along with the first lost in space marker. Since this marker was found via Exploration technology, its effect has been nullified. We have also managed to intercept one of their Type Exps. Taking advantage of our Fleet Size Bonus (3:1) and same Attack rating (4 +1); we rolled 2,5,7 (2 hits), destroying their ship."],
 	"actions":
 		[{
 			"placeGhost":"typeExpV",
@@ -2356,7 +2417,7 @@
 			"location":"D4"
 		}]},
 	{"heading":"Stardate 2406.6",
-	"commentary":"<p>Self-Preservation means their fleet of 3 hulls will keep their distance from our 3 Cruisers (Hull Size total 6). In other news, we conduct a pincer battle against a second Type Exp. Just like before, we rolled 1,1,1,5,8,10 (4 hits &le;5), overkilling their ship! This did come at the expense of giving the Replicator empire a new record on Fleet Size (6 ships), which is enough to give them their seventh RP. Type VII ships have been unlocked!</p>",
+	"commentary":["Self-Preservation means their fleet of 3 hulls will keep their distance from our 3 Cruisers (Hull Size total 6). In other news, we conduct a pincer battle against a second Type Exp. Just like before, we rolled 1,1,1,5,8,10 (4 hits &le;5), overkilling their ship! This did come at the expense of giving the Replicator empire a new record on Fleet Size (6 ships), which is enough to give them their seventh RP. Type VII ships have been unlocked!"],
 	"actions":
 		[{
 			"placeGhost":"typeExpV",
@@ -2468,7 +2529,7 @@
 			"location":"C4"
 		}]},
 	{"heading":"Stardate 2406.9",
-	"commentary":"<p>Both fleets have expanded in size. One of the Replicator fleets will still obey self-preservation and keep their distance (Hull Size total 5 vs total 13). They take advantage of the fact that their Type Exp can impede our movement. We also opt to forgo the black hole.</p>",
+	"commentary":["Both fleets have expanded in size. One of the Replicator fleets will still obey self-preservation and keep their distance (Hull Size total 5 vs total 13). They take advantage of the fact that their Type Exp can impede our movement. We also opt to forgo the black hole."],
 	"actions":
 		[{
 			"placeGhost":"typeExpV",
@@ -2578,7 +2639,9 @@
 			"removeCounter":"CA4Y"
 		}]},
 	{"heading":"Stardate 2407.0",
-	"commentary":"<p>The Replicators have managed to cash in more dense minreals. After building hulls on each applicable colony, they roll to determine where they should spent their CP. They roll an 8, so their CP is spent on buying another RP for their pool. They are closing in on Type IXs.</p><p>As for our empire, we will buy 4 Cruisers (-48) at our homeworld, plus 1 more Cruiser at sector D4.</p>",
+	"commentary":[
+		"The Replicators have managed to cash in more dense minreals. After building hulls on each applicable colony, they roll to determine where they should spent their CP. They roll an 8, so their CP is spent on buying another RP for their pool. They are closing in on Type IXs.",
+		"As for our empire, we will buy 4 Cruisers (-48) at our homeworld, plus 1 more Cruiser at sector D4."],
 	"prodTable":
 		[{
 			"name":"CSY (Yellow)","initCP":2,"colonyCP":66,"mineralCP":0,"pipeCP":7,"maint":10,"bidCP":0,"techBuy":0,"unitBuy":60
@@ -2680,7 +2743,7 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2407.2",
-	"commentary":"<p>The eastern Replicator fleet (Hull Size total 7) continues to exert pressure. We have a Cruiser fleet nearby (hull total 8), but difference is limited. These two fleets are considered equal for self-preservation purposes.</p>",
+	"commentary":["The eastern Replicator fleet (Hull Size total 7) continues to exert pressure. We have a Cruiser fleet nearby (hull total 8), but difference is limited. These two fleets are considered equal for self-preservation purposes."],
 	"actions":
 		[{
 			"placeCounter":"expV2",
@@ -2730,8 +2793,21 @@
 			"placeCounter":"Miner2Y",
 			"location":"C6"
 		}]},
-	{"heading":"Stardate 2407.5",
-	"commentary":"<p>It is because these two fleets on the eastern half are equal that they advanced into our home system boundary. Nonetheless, since they could assault our lightly defended homeworld; we will go on ahead and intercept them.</p><h3>The Battle for Sector D6</h3><ol><li>They have 4 unidentified hulls available at their disposal. Since their RP is now 8, they convert to two Type VII hulls.</li><li><b>Round 1</b>: We have 4 Cruisers to their 3 ships. About the same size</li><li>Their Type Flag has the best Weapon Class, so it shoots first. Since only our Cruisers are available, it rolled a 3 (hit &le;7), damaging one of our Cruisers</li><li>Their Type VIIs have the best Tactics, so they shoot next. They rolled 5,6 (1 hit &le;5), finishing off a Cruiser</li><li>Our 3 surviving Cruisers finally get to shoot. Numbers are not on our side, so we will focus on their Type VIIs (&le;2 to hit). We rolled 2,2,10 (2 hits), cleanly destroying one of their Type VIIs<br /><br /></li><li><b>Round 2</b>: We have 3 Cruisers to their 2 ships. Not much has changed</li><li>Their Type Flag shoots once more. It rolled a 6 (hit &le;7), damaging another Cruiser</li><li>Their 1 surviving Type VII shoots next. It rolled an 8 (miss &gt;5)</li><li>Our 3 Cruisers shoot once more. We will stay with Type VIIs (&le;2 to hit). We rolled 4,6,8 (0 hits)<br /><br /></li><li><b>Round 3</b>: Their Type Flag shoots once more, rolling a 1 (hit &le;7), and finishing off a second Cruiser</li><li>Their 1 Type VII shoots next, rolling a 6 (miss &gt;5)</li><li>Our 2 surviving Cruisers have decided they will retreat, to Sector C6</li></ol>",
+	{"heading":"Stardate 2407.5 (The Battle for Sector D6)",
+	"commentary":[
+		"It is because these two fleets on the eastern half are equal that they advanced into our home system boundary. Nonetheless, since they could assault our lightly defended homeworld; we will go on ahead and intercept them.",
+		"<ol><li>They have 4 unidentified hulls available at their disposal. Since their RP is now 8, they convert to two Type VII hulls.</li>",
+		"<li><b>Round 1</b>: We have 4 Cruisers to their 3 ships. About the same size</li>",
+		"<li>Their Type Flag has the best Weapon Class, so it shoots first. Since only our Cruisers are available, it rolled a 3 (hit &le;7), damaging one of our Cruisers</li>",
+		"<li>Their Type VIIs have the best Tactics, so they shoot next. They rolled 5,6 (1 hit &le;5), finishing off a Cruiser</li>",
+		"<li>Our 3 surviving Cruisers finally get to shoot. Numbers are not on our side, so we will focus on their Type VIIs (&le;2 to hit). We rolled 2,2,10 (2 hits), cleanly destroying one of their Type VIIs<br /><br /></li>",
+		"<li><b>Round 2</b>: We have 3 Cruisers to their 2 ships. Not much has changed</li>",
+		"<li>Their Type Flag shoots once more. It rolled a 6 (hit &le;7), damaging another Cruiser</li>",
+		"<li>Their 1 surviving Type VII shoots next. It rolled an 8 (miss &gt;5)</li>",
+		"<li>Our 3 Cruisers shoot once more. We will stay with Type VIIs (&le;2 to hit). We rolled 4,6,8 (0 hits)<br /><br /></li>",
+		"<li><b>Round 3</b>: Their Type Flag shoots once more, rolling a 1 (hit &le;7), and finishing off a second Cruiser</li>",
+		"<li>Their 1 Type VII shoots next, rolling a 6 (miss &gt;5)</li>",
+		"<li>Our 2 surviving Cruisers have decided they will retreat, to Sector C6</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"expV2",
@@ -2793,8 +2869,17 @@
 			"placeCounter":"Miner2Y",
 			"location":"D7"
 		}]},
-	{"heading":"Stardate 2407.8 (Replicator Turn)",
-	"commentary":"<p>This is rather bad news. Because the Replicator empire has initiative, they can assault our homeworld <i>this</i> turn, before we can even bring our Cruisers back home to assist.</p><h3>The First Battle for Vasyr</h3><ol><li><b>Round 1</b>: They have 2 ships to our 4 Ship Yards. We gain the Fleet Size Bonus</li><li>Still, their Type Flag has the best weapon class. Since only our fragile Ship Yards are available, it rolled a 5 (hit &le;8)</li><li>Their Type VII has superior Tactics, so it shoots next. It rolled a 3 (hit &le;6)</li><li>Our 2 surviving Ship Yards can finally shoot. We rolled 2,9 against their Type VII (1 hit &le;2)<br /><br /></li><li><b>Round 2</b>: They have 2 ships to our 2 Ship Yards. We lost the Fleet Size Bonus</li><li>Their Type Flag shoots once more. It rolled a 5 (hit &le;8)</li><li>Their Type VII shoots next. It rolled a 2 (hit &le;6), finishing off our Ship Yards</li><li><b>Bombardment Round</b>: Vasyr is exposed. Type Flag rolls a 1 (hit &le;8), while Type VII rolls a 5 (hit &le;6). Their damage combined has reduced our homeworld strength to 10 CP.</li></ol>",
+	{"heading":"Stardate 2407.8R (The First Battle for Vasyr)",
+	"commentary":[
+		"This is rather bad news. Because the Replicator empire has initiative, they can assault our homeworld <i>this</i> turn, before we can even bring our Cruisers back home to assist.",
+		"<ol><li><b>Round 1</b>: They have 2 ships to our 4 Ship Yards. We gain the Fleet Size Bonus</li>",
+		"<li>Still, their Type Flag has the best weapon class. Since only our fragile Ship Yards are available, it rolled a 5 (hit &le;8)</li>",
+		"<li>Their Type VII has superior Tactics, so it shoots next. It rolled a 3 (hit &le;6)</li>",
+		"<li>Our 2 surviving Ship Yards can finally shoot. We rolled 2,9 against their Type VII (1 hit &le;2)<br /><br /></li>",
+		"<li><b>Round 2</b>: They have 2 ships to our 2 Ship Yards. We lost the Fleet Size Bonus</li>",
+		"<li>Their Type Flag shoots once more. It rolled a 5 (hit &le;8)</li>",
+		"<li>Their Type VII shoots next. It rolled a 2 (hit &le;6), finishing off our Ship Yards</li>",
+		"<li><b>Bombardment Round</b>: Vasyr is exposed. Type Flag rolls a 1 (hit &le;8), while Type VII rolls a 5 (hit &le;6). Their damage combined has reduced our homeworld strength to 10 CP.</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"expV2",
@@ -2897,8 +2982,17 @@
 			"revealCounter":"systemB6",
 			"name":"home30Y"
 		}]},
-	{"heading":"Stardate 2407.8 (Player Turn)",
-	"commentary":"<p>Our homeworld of Vasyr is in bad shape now thanks to the recent assault. In addition to being damaged, the <q>master</q> pipeline has been destroyed, greatly reducing our income for the upcoming economic phase.</p><p>Although late to the party, our 2 surviving Cruisers will attempt to further thin the attacking Replicator player's strength.</p><h3>The Second Battle for Vasyr</h3><ol><li><b>Round 1</b>: They have 2 ships to our 2 Cruisers. Neither side gets the Fleet Size Bonus</li><li>Same priorities as before the homeworld was assaulted. Their Type Flag rolled a 1 (hit &le;8), damaging a Cruiser</li><li>Their Type VII rolled a 6 (hit &le;6), cleaning up said Cruiser</li><li>Our 1 surviving Cruiser rolled a 4 against their Type VII (miss &gt;2)<br /><br /></li><li><b>Round 2</b>: They have 2 ships to our 1 Cruiser. They gained the Fleet Size Bonus</li><li>Their Type Flag shoots once more. It rolled a 5 (hit &le;9), damaging the last Cruiser</li><li>Their Type VII shoots next. It rolled a 6 (hit &le;7), finishing off our last Cruiser. Since this battle concluded during <i>our</i> turn, they don't get to bombard again</li></ol>",
+	{"heading":"Stardate 2407.8P (The Second Battle for Vasyr)",
+	"commentary":[
+		"Our homeworld of Vasyr is in bad shape now thanks to the recent assault. In addition to being damaged, the <q>master</q> pipeline has been destroyed, harshly reducing our income for the upcoming economic phase.",
+		"Although late to the party, our 2 surviving Cruisers will attempt to further thin the attacking Replicator player's strength.",
+		"<ol><li><b>Round 1</b>: They have 2 ships to our 2 Cruisers. Neither side gets the Fleet Size Bonus</li>",
+		"<li>Same priorities as before the homeworld was assaulted. Their Type Flag rolled a 1 (hit &le;8), damaging a Cruiser</li>",
+		"<li>Their Type VII rolled a 6 (hit &le;6), cleaning up said Cruiser</li>",
+		"<li>Our 1 surviving Cruiser rolled a 4 against their Type VII (miss &gt;2)<br /><br /></li>",
+		"<li><b>Round 2</b>: They have 2 ships to our 1 Cruiser. They gained the Fleet Size Bonus</li>",
+		"<li>Their Type Flag shoots once more. It rolled a 5 (hit &le;9), damaging the last Cruiser</li>",
+		"<li>Their Type VII shoots next. It rolled a 6 (hit &le;7), finishing off our last Cruiser. Since this battle concluded during <i>our</i> turn, they don't get to bombard again</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"expV2",
@@ -2991,7 +3085,9 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2408.0",
-	"commentary":"<p>Since our homeworld is blockaded, it can neither produce CP, nor can it cash in the minerals that were unloaded. Additionally, with its pipeline destroyed, our income from this source has been nullified. It can still repair some of the damage though, regaining one stage of <q>health</q>. Nonetheless, if we are to ensure that Vasyr can survive, we <i>must</i> take initiative (-15), and attempt to deny the upcoming hulls a chance to combine with the fleet. We will also buy a Ship Yard (-6) and a Base (-12) at the colony of D4.</p><p>The Replicator environment is taking advantage of its two newest fully developed colonies. They have produced a whopping <i>10</i> hulls! Additionally, we have reached a stage in the playthrough where a Replicator player gets a free Movement technology level. Finally, they have just enough CP to buy an extra homeworld hull. They rolled a 2, buying that extra hull, and spending the rest of its CP. These machines are doing extremely well, but are also nearing their first depletion.</p>",
+	"commentary":[
+		"Since our homeworld is blockaded, it can neither produce CP, nor can it cash in the minerals that were unloaded. Additionally, with its pipeline destroyed, our income from this source has been nullified. It can still repair some of the damage though, regaining one stage of <q>health</q>. Nonetheless, if we are to ensure that Vasyr can survive, we <i>must</i> take initiative (-15), and attempt to deny the upcoming hulls a chance to combine with the fleet. We will also buy a Ship Yard (-6) and a Base (-12) at the colony of D4.",
+		"The Replicator environment is taking advantage of its two newest fully developed colonies. They have produced a whopping <i>10</i> hulls! Additionally, we have reached a stage in the playthrough where a Replicator player gets a free Movement technology level. Finally, they have just enough CP to buy an extra homeworld hull. They rolled a 2, buying that extra hull, and spending the rest of its CP. These machines are doing extremely well, but are also nearing their first depletion."],
 	"prodTable":
 		[{
 			"name":"CSY (Yellow)","initCP":5,"colonyCP":41,"mineralCP":5,"pipeCP":0,"maint":12,"bidCP":15,"techBuy":0,"unitBuy":18
@@ -3096,7 +3192,7 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2408.1",
-	"commentary":"<p>Even with initiative, the Type Flag fleet can do one last turn of bombardment before we can intercept them. Type Flag rolled a 6 (hit &le;8), while Type VII rolled a 10 (miss &gt;6).</p>",
+	"commentary":["Even with initiative, the Type Flag fleet can do one last turn of bombardment before we can intercept them. Type Flag rolled a 6 (hit &le;8), while Type VII rolled a 10 (miss &gt;6)."],
 	"actions":
 		[{
 			"placeCounter":"expV2",
@@ -3163,8 +3259,18 @@
 			"revealCounter":"systemB6",
 			"name":"home20Y"
 		}]},
-	{"heading":"Stardate 2408.4 (Player Turn)",
-	"commentary":"<p>If we can force them out of Vasyr, it will be worth it. To that end, it is time to battle!</p><h3>The Third Battle for Vasyr</h3><ol><li><b>Round 1</b>: We have 7 ships, to their 2. We have gained the Fleet Size Bonus</li><li>Their Type Flag goes first. It rolled an 8 against our Cruisers (miss &gt;7)</li><li>Our Flagship is next. We will focus their Type Flag, now that we have the numbers. We rolled a 4 (miss &gt;3)</li><li>Their Type VII is next. It rolled a 2 (hit &le;5), damaging a Cruiser</li><li>Our 6 Cruisers can now shoot. We will roll until we score 3 hits on the Type Flag (&le;3 to hit): 2,1,3</li><li>Against their Type VII, our Cruisers rolled 6,9,10 (0 hits &le;3)<br /><br /></li><li><b>Round 2</b>: We have 7 ships, to their 1. Their Type Flag is gone for good</li><li>Our Flagship goes first this time. Only their Type VII remains. We rolled a 6 (miss &gt;3)</li><li>Their Type VII is outnumbered 15:2 in Hull Size totals, exceeding the 3:1 retreat threshold. It will go on ahead and perform this action, and save its hide</li></ol>",
+	{"heading":"Stardate 2408.4P (The Third Battle for Vasyr)",
+	"commentary":[
+		"If we can force them out of Vasyr, it will be worth it. To that end, it is time to battle!",
+		"<ol><li><b>Round 1</b>: We have 7 ships, to their 2. We have gained the Fleet Size Bonus</li>",
+		"<li>Their Type Flag goes first. It rolled an 8 against our Cruisers (miss &gt;7)</li>",
+		"<li>Our Flagship is next. We will focus their Type Flag, now that we have the numbers. We rolled a 4 (miss &gt;3)</li>",
+		"<li>Their Type VII is next. It rolled a 2 (hit &le;5), damaging a Cruiser</li>",
+		"<li>Our 6 Cruisers can now shoot. We will roll until we score 3 hits on the Type Flag (&le;3 to hit): 2,1,3</li>",
+		"<li>Against their Type VII, our Cruisers rolled 6,9,10 (0 hits &le;3)<br /><br /></li>",
+		"<li><b>Round 2</b>: We have 7 ships, to their 1. Their Type Flag is gone for good</li>",
+		"<li>Our Flagship goes first this time. Only their Type VII remains. We rolled a 6 (miss &gt;3)</li>",
+		"<li>Their Type VII is outnumbered 15:2 in Hull Size totals, exceeding the 3:1 retreat threshold. It will go on ahead and perform this action, and save its hide</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"expV2",
@@ -3242,8 +3348,18 @@
 			"revealCounter":"systemB6",
 			"name":"home10Y"
 		}]},
-	{"heading":"Stardate 2408.4 (Replicator Turn)",
-	"commentary":"<p>We have successfully eliminated the threat to our homeworld. However, the Type VII straggler was able to get away, and it bombards a different colony. We lost our pipeline, but we still have a ground unit present. With accuracy reduced, the Type VII rolled a 9 (miss &gt;5).</p><p>In other news, thanks to the free Movement 3 that the Replicator environment has gained; the other fleet is able to assault our lightly defended colony (protected by Hull Size total 7) at D4. Even with the Base counting twice as much Hull Size, it is still inferior to their 15 hulls total. With 15 hulls total and 8 RP, this allows for 7 Type VII ships and one Type IV ship.</p><ol><li><b>Round 1</b>: They have 8 ships. We have 3 ships. They have gained the fleet size bonus</li><li>Our Base has the best weapon class, so it shoots first. We prioritize their Type IV, and roll a 5 (hit &le;6), eliminating it</li><li>Their 7 Type VIIs shoot next. Our 2 Ship Yards are the smallest ships, so they will be targeted first (&le;7 to hit). They rolled 7,1 (2 hits), cleaning that group up. They then roll 8,9,8,6,10 against our Base (0 hits &le;5)<br /><br /></li><li><b>Round 2</b>: Our Base is all alone. They keep the Fleet Size bonus unless we somehow knock them down to 1 ship</li><li>Our Base shoots once more. Only their Type VIIs remain. We rolled a 7 (miss &gt;5)</li><li>Their 7 Type VIIs shoot next. They rolled 2,3,4,6,7,9,10 (3 hits &le;5), cleanly destroying our Base<br /><br /></li><li><b>Bombardment Round</b>: Their 7 Type VIIs now have a clear surface to bombard, though our 1 Light Infantry reduces their accuracy. They rolled 3,4,5,5,8,9,9 (3 hits &le;5), cleanly destroying our colony also</li><li>One of the Type VII ships breaks down into two hulls in order to spend one to colonize the newly conquered planet</li></ol>",
+	{"heading":"Stardate 2408.4R",
+	"commentary":[
+		"We have successfully eliminated the threat to our homeworld. However, the Type VII straggler was able to get away, and it bombards a different colony. We lost our pipeline, but we still have a ground unit present. With accuracy reduced, the Type VII rolled a 9 (miss &gt;5).",
+		"In other news, thanks to the free Movement 3 that the Replicator environment has gained; the other fleet is able to assault our lightly defended colony (protected by Hull Size total 7) at D4. Even with the Base counting twice as much Hull Size, it is still inferior to their 15 hulls total. With 15 hulls total and 8 RP, this allows for 7 Type VII ships and one Type IV ship.",
+		"<ol><li><b>Round 1</b>: They have 8 ships. We have 3 ships. They have gained the fleet size bonus</li>",
+		"<li>Our Base has the best weapon class, so it shoots first. We prioritize their Type IV, and roll a 5 (hit &le;6), eliminating it</li>",
+		"<li>Their 7 Type VIIs shoot next. Our 2 Ship Yards are the smallest ships, so they will be targeted first (&le;7 to hit). They rolled 7,1 (2 hits), cleaning that group up. They then roll 8,9,8,6,10 against our Base (0 hits &le;5)<br /><br /></li>",
+		"<li><b>Round 2</b>: Our Base is all alone. They keep the Fleet Size bonus unless we somehow knock them down to 1 ship</li>",
+		"<li>Our Base shoots once more. Only their Type VIIs remain. We rolled a 7 (miss &gt;5)</li>",
+		"<li>Their 7 Type VIIs shoot next. They rolled 2,3,4,6,7,9,10 (3 hits &le;5), cleanly destroying our Base<br /><br /></li>",
+		"<li><b>Bombardment Round</b>: Their 7 Type VIIs now have a clear surface to bombard, though our 1 Light Infantry reduces their accuracy. They rolled 3,4,5,5,8,9,9 (3 hits &le;5), cleanly destroying our colony also</li>",
+		"<li>One of the Type VII ships breaks down into two hulls in order to spend one to colonize the newly conquered planet</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"expV2",
@@ -3371,7 +3487,9 @@
 			"name":"colony5Y"
 		}]},
 	{"heading":"Stardate 2408.7",
-	"commentary":"<p>We have decided that our fleet will remain at our damaged homeworld, so as to provide better protection and allow for rebuilding. Meanwhile, their Type Exp manages to expose a black hole. Since the last unexplored system requires crossing into our home system territory, it simply gets flipped face up.</p><p>In other news, their Type VIIs combine arms, and 3 more hulls enter into the fray, allowing for an eighth Type VII. The one leftover hull becomes a Type IV. Since our colony at C4 remains undefended, they simply bombard away. The Type VIIs rolled 2,2,2,4,6,9,10,10 (4 hits &le;5), eliminating the colony. The leftover Type IV then crashes down and creates a new colony.</p>",
+	"commentary":[
+		"We have decided that our fleet will remain at our damaged homeworld, so as to provide better protection and allow for rebuilding. Meanwhile, their Type Exp manages to expose a black hole. Since the last unexplored system requires crossing into our home system territory, it simply gets flipped face up.",
+		"In other news, their Type VIIs combine arms, and 3 more hulls enter into the fray, allowing for an eighth Type VII. The one leftover hull becomes a Type IV. Since our colony at C4 remains undefended, they simply bombard away. The Type VIIs rolled 2,2,2,4,6,9,10,10 (4 hits &le;5), eliminating the colony. The leftover Type IV then crashes down and creates a new colony."],
 	"actions":
 		[{
 			"placeCounter":"expV2",
@@ -3496,7 +3614,9 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2409.0",
-	"commentary":"<p>Though we are unable to build mobile ships, we can still throw down Ship Yards, Bases, and ground units. In this case, we bought Attack 1 (-20), followed by a Ship Yard (-6) and a Base (-12) at B6. Since there are no minerals left, and that Terraforming 2 is disabled, we have scuttled our obsoleted Miners.</p><p>Since the Replicator environment has access to no more CP <span class=\"bindTxt\">(assuming they do not conquer any NPA planets)</span>, their economics are extremely simple; produce hulls at previously maxed colonies. Still, this is the last economic phase <i>before</i> the depletion mechanic takes effect.</p>",
+	"commentary":[
+		"Though we are unable to build mobile ships, we can still throw down Ship Yards, Bases, and ground units. In this case, we bought Attack 1 (-20), followed by a Ship Yard (-6) and a Base (-12) at B6. Since there are no minerals left, and that Terraforming 2 is disabled, we have scuttled our obsoleted Miners.",
+		"Since the Replicator environment has access to no more CP <span class=\"bindTxt\">(assuming they do not conquer any NPA planets)</span>, their economics are extremely simple; produce hulls at previously maxed colonies. Still, this is the last economic phase <i>before</i> the depletion mechanic takes effect."],
 	"prodTable":
 		[{
 			"name":"CSY (Yellow)","initCP":6,"colonyCP":43,"mineralCP":15,"pipeCP":4,"maint":12,"bidCP":0,"techBuy":20,"unitBuy":18
@@ -3582,7 +3702,9 @@
 			"name":"colony5Y"
 		}]},
 	{"heading":"Stardate 2409.3",
-	"commentary":"<p>The Type VIIs assault the colony at B5. Their bombardment rolls are 1,2,3,4,4,5,9,10 (6 hits &le;5), sterilizing the planet and then some. One of the Type VIIs then breaks down into two hulls so that one of them can colonize the planet.</p><p>On our turn, all we do is upgrade our existing combat ships. This process consumed 15 of our available CP.</p>",
+	"commentary":[
+		"The Type VIIs assault the colony at B5. Their bombardment rolls are 1,2,3,4,4,5,9,10 (6 hits &le;5), sterilizing the planet and then some. One of the Type VIIs then breaks down into two hulls so that one of them can colonize the planet.",
+		"On our turn, all we do is upgrade our existing combat ships. This process consumed 15 of our available CP."],
 	"actions":
 		[{
 			"placeCounter":"expV2",
@@ -3624,7 +3746,9 @@
 			"name":"colony5Y"
 		}]},
 	{"heading":"Stardate 2409.6",
-	"commentary":"<p>A total of 17 Replicator hulls are able to challenge our homeworld, which is defended by 22 Hull Size worth of combat ships. A 29% advantage is sufficient to justify our fleet being considered a superior fleet, so the homwworld is off limits. They are just one hull shy of avoiding inferiority...</p><p>Instead, they were able to bring 20 hulls (worth 10 Type VIIs) to sector B4, and roll 2,3,3,4,6,7,8,9,9,10 to bombard (5 hits &le;6). Just like last turn, they break one of these Type VIIs down in order to colonize the newly conquered planet.</p>",
+	"commentary":[
+		"A total of 17 Replicator hulls are able to challenge our homeworld, which is defended by 22 Hull Size worth of combat ships. A 29% advantage is sufficient to justify our fleet being considered a superior fleet, so the homwworld is off limits. They are just one hull shy of avoiding inferiority...",
+		"Instead, they were able to bring 20 hulls (worth 10 Type VIIs) to sector B4, and roll 2,3,3,4,6,7,8,9,9,10 to bombard (5 hits &le;6). Just like last turn, they break one of these Type VIIs down in order to colonize the newly conquered planet."],
 	"actions":
 		[{
 			"placeCounter":"expV2",
@@ -3713,8 +3837,32 @@
 			"revealCounter":"systemB4",
 			"name":"colony5Y"
 		}]},
-	{"heading":"Stardate 2409.9 (The Battle for Vasyr)",
-	"commentary":"<p>They are now able to assemble <i>26</i> hulls (7 more from sector D6) if they assault our homeworld. Both fleets are still considered equal, but equal is enough to justify assaulting a planet. This total is good for a whopping <b>13</b> Type VII ships!</p><ol><li><b>Round 1</b>: We have 9 ships. They have 13 ships. Neither side achieves Fleet Size Bonus</li><li>Our Base has the best weapon class, so it shoots first. We rolled a 4 (hit &le;6), damaging one of their ships</li><li>Our Flagship shoots next. We rolled a 4 (miss &gt;3)</li><li>Their 13 Type VIIs have the tactics advantage, so they shoot next. Going from smallest to largest, they rolled a 6 against our Ship Yard (&le;6 to hit)</li><li>Their 12 Type VIIs have ammo still. They rolled 7,7,7,10,7,1,10,10,2,2,7,2 against our 6 Cruisers (4 hits &le;5). This cleanly wipes out 2 Cruisers</li><li>Our 4 surviving Cruisers finally get a chance to shoot. We rolled 1,1,4,7 (2 hits &le;3), cleanly destroying a Type VII (though they still have one damaged)<br /><br /></li><li><b>Round 2</b>: We have 6 ships. They have 12 ships. They gained the Fleet Size Bonus</li><li>Our Base shoots once more. We rolled a 2 (hit &le;6), finishing one of their ships</li><li>Our Flagship shoots next. We rolled an 8 (miss &gt;3)</li><li>Their 11 surviving Type VIIs shoot next. They rolled 9,5,10,4,9,9,6,10,7,6,9 against our 4 Cruisers (4 hits &le;6), cleanly sniping another 2 Cruisers</li><li>Our 2 surviving Cruisers shoot once more. We rolled 5,8 (0 hits &le;3)<br /><br /></li><li><b>Round 3</b>: We have 4 ships. They have 11 ships</li><li>Our Base shoots once more. We rolled a 1 (hit &le;6), damaging one of them</li><li>Our Flagship shoots next. We rolled a 9 (miss &gt;3)</li><li>Their 11 Type VIIs shoot next. They rolled 8,4,1,9,8,1,9,9,8,7,5 against our 2 Cruisers (4 hits &le;6), cleanly finishing off our Cruisers<br /><br /></li><li><b>Round 4</b>: We have 2 ships. They have 11 ships</li><li>Our Base shoots once more. We rolled a 2 (hit &le;6), finishing one of them</li><li>Our Flagship shoots next. We rolled a 4 (miss &gt;3)</li><li>Their 10 surviving Type VIIs shoot once more. Our Flagship has the lowest Defense strength, so that is their next target. They rolled 3,6,2,6,3 accordingly (3 hits &le;5), finishing it off</li><li>Their 5 Type VIIs have ammo still. Our Base is all alone now. They rolled 5,8,3,10,10 (1 hit &le;4), damaging it<br /><br /></li><li><b>Round 5</b>: Our Base shoots once more. We rolled a 10 (miss &gt;6)</li><li>Their 10 Type VIIs shoot once more. They rolled 2,2,4,4,6,7,7,8,10,10 (4 hits &le;4), destroying the last of our orbital protection!<br /><br /></li><li><b>Bombardment Round</b>: Their 10 Type VIIs now have a relatively clear shot of our homeworld. They rolled 1,2,5,7,7,7,7,8,9,10 (3 hits &le;5), finishing it off exactly and taking the 1 Light Infantry out as well!</li></ol>",
+	{"heading":"Stardate 2409.9 (The Fourth Battle for Vasyr)",
+	"commentary":[
+		"They are now able to assemble <i>26</i> hulls (7 more from sector D6) if they assault our homeworld. Both fleets are still considered equal, but equal is enough to justify assaulting a planet. This total is good for a whopping <b>13</b> Type VII ships!",
+		"<ol><li><b>Round 1</b>: We have 9 ships. They have 13 ships. Neither side achieves Fleet Size Bonus</li>",
+		"<li>Our Base has the best weapon class, so it shoots first. We rolled a 4 (hit &le;6), damaging one of their ships</li>",
+		"<li>Our Flagship shoots next. We rolled a 4 (miss &gt;3)</li>",
+		"<li>Their 13 Type VIIs have the tactics advantage, so they shoot next. Going from smallest to largest, they rolled a 6 against our Ship Yard (&le;6 to hit)</li>",
+		"<li>Their 12 Type VIIs have ammo still. They rolled 7,7,7,10,7,1,10,10,2,2,7,2 against our 6 Cruisers (4 hits &le;5). This cleanly wipes out 2 Cruisers</li>",
+		"<li>Our 4 surviving Cruisers finally get a chance to shoot. We rolled 1,1,4,7 (2 hits &le;3), cleanly destroying a Type VII (though they still have one damaged)<br /><br /></li>",
+		"<li><b>Round 2</b>: We have 6 ships. They have 12 ships. They gained the Fleet Size Bonus</li>",
+		"<li>Our Base shoots once more. We rolled a 2 (hit &le;6), finishing one of their ships</li>",
+		"<li>Our Flagship shoots next. We rolled an 8 (miss &gt;3)</li>",
+		"<li>Their 11 surviving Type VIIs shoot next. They rolled 9,5,10,4,9,9,6,10,7,6,9 against our 4 Cruisers (4 hits &le;6), cleanly sniping another 2 Cruisers</li>",
+		"<li>Our 2 surviving Cruisers shoot once more. We rolled 5,8 (0 hits &le;3)<br /><br /></li>",
+		"<li><b>Round 3</b>: We have 4 ships. They have 11 ships</li>",
+		"<li>Our Base shoots once more. We rolled a 1 (hit &le;6), damaging one of them</li>",
+		"<li>Our Flagship shoots next. We rolled a 9 (miss &gt;3)</li>",
+		"<li>Their 11 Type VIIs shoot next. They rolled 8,4,1,9,8,1,9,9,8,7,5 against our 2 Cruisers (4 hits &le;6), cleanly finishing off our Cruisers<br /><br /></li>",
+		"<li><b>Round 4</b>: We have 2 ships. They have 11 ships</li>",
+		"<li>Our Base shoots once more. We rolled a 2 (hit &le;6), finishing one of them</li>",
+		"<li>Our Flagship shoots next. We rolled a 4 (miss &gt;3)</li>",
+		"<li>Their 10 surviving Type VIIs shoot once more. Our Flagship has the lowest Defense strength, so that is their next target. They rolled 3,6,2,6,3 accordingly (3 hits &le;5), finishing it off</li>",
+		"<li>Their 5 Type VIIs have ammo still. Our Base is all alone now. They rolled 5,8,3,10,10 (1 hit &le;4), damaging it<br /><br /></li>",
+		"<li><b>Round 5</b>: Our Base shoots once more. We rolled a 10 (miss &gt;6)</li>",
+		"<li>Their 10 Type VIIs shoot once more. They rolled 2,2,4,4,6,7,7,8,10,10 (4 hits &le;4), destroying the last of our orbital protection!<br /><br /></li>",
+		"<li><b>Bombardment Round</b>: Their 10 Type VIIs now have a relatively clear shot of our homeworld. They rolled 1,2,5,7,7,7,7,8,9,10 (3 hits &le;5), finishing it off exactly and taking the 1 Light Infantry out as well!</li></ol>"],
 	"actions":
 		[{
 			"placeGhost":"hiddenV",
@@ -3817,7 +3965,10 @@
 			"name":"home20Y"
 		}]},
 	{"heading":"Stardate 2410.0 (Game Over)",
-	"commentary":"<p>At this point, the scenario is now over. We were unable to assemble a fleet able to neutralize their colonies.</p><p>Replicator Solitaire is an entirely new beast. Even on Easy difficulty, we failed to achieve victory. Although it was technically unnecessary (rules-wise) for two equal fleets to clash over a space wreck, said space wreck <i>was</i> within 3 hexes of the nearest Replicator colony.</p><p>Barren planet arrangement was not exactly in our favor, thus we never saw fit to conquer non-player aliens, nevermind develop Terraforming 1. Still; this was a mixed bag between going for Anti-Replicator Transports, or planet busting Titans. We were able to achieve neither of these goals.</p>",
+	"commentary":[
+		"At this point, the scenario is now over. We were unable to assemble a fleet able to neutralize their colonies.",
+		"Replicator Solitaire is an entirely new beast. Even on Easy difficulty, we failed to achieve victory. Although it was technically unnecessary (rules-wise) for two equal fleets to clash over a space wreck, said space wreck <i>was</i> within 3 hexes of the nearest Replicator colony.",
+		"Barren planet arrangement was not exactly in our favor, thus we never saw fit to conquer non-player aliens, nevermind develop Terraforming 1. Still; this was a mixed bag between going for Anti-Replicator Transports, or planet busting Titans. We were able to achieve neither of these goals."],
 	"techTableX":
 		[{
 			"name":"CSY (Yellow)","size":3,"explore":1,"SY":3,"move":2,"atk":1,"isDead":true

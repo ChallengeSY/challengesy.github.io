@@ -1,6 +1,8 @@
 {"stages": [
 	{"heading":"Stardate 2400.0 (Introduction)",
-	"commentary":"<p>Welcome to a rematch of Replicator Solitaire. Last time we attempted this; our homeworld was overrun by these machines, even on Easy difficulty, albiet with a reduced map size.</p><p>In addition to a larger map size, we will shake things up by introducing Empire Advantages to the mixture. Our choices this time are Space Pilgrims and Traders. We have chosen the former. The Replicators, named Xinu, are dealt Fast Replicators.</p>",
+	"commentary":[
+		"Welcome to a rematch of Replicator Solitaire. Last time we attempted this; our homeworld was overrun by these machines, even on Easy difficulty, albiet with a reduced map size.",
+		"In addition to a larger map size, we will shake things up by introducing Empire Advantages to the mixture. Our choices this time are Space Pilgrims and Traders. We have chosen the former. The Replicators, named Xinu, are dealt Fast Replicators."],
 	"techTableX":
 		[{
 			"name":"CSY (Blue)"
@@ -18,8 +20,10 @@
 			"playerBottom":"B6",
 			"extraHexAway":false
 		}]},
-	{"heading":"Stardate 2400.3 (Turn 1)",
-	"commentary":"<p>Xinu having access to Movement 3 from the get go will make things tougher; not to mention they can buy subsequent Movement technology cheaper.</p><p><i>But</i>, our own empire advantage allows us to safely uncover the entirety of the home systems from the beginning. We do not have to hold our Flagship + other ships back; even if they run into a black hole, we need not worry about destruction.</p>",
+	{"heading":"Stardate 2400.3",
+	"commentary":[
+		"Xinu having access to Movement 3 from the get go will make things tougher; not to mention they can buy subsequent Movement technology cheaper.",
+		"<i>But</i>, our own empire advantage allows us to safely uncover the entirety of the home systems from the beginning. We do not have to hold our Flagship + other ships back; even if they run into a black hole, we need not worry about destruction."],
 	"actions":
 		[{
 			"placeHullsV":"L3,K3,K4,L5,L3",
@@ -103,8 +107,8 @@
 			"revealCounter":"systemB8",
 			"name":"unexploredB"
 		}]},
-	{"heading":"Stardate 2400.6 (Turn 2)",
-	"commentary":"<p>As aggressive as the Replicator environment is when colonizing planets, they will never spend their Type Flag to perform this task.</p>",
+	{"heading":"Stardate 2400.6",
+	"commentary":["As aggressive as the Replicator environment is when colonizing planets, they will never spend their Type Flag to perform this task."],
 	"actions":
 		[{
 			"removeHullsV":"2"
@@ -213,8 +217,10 @@
 			"revealCounter":"systemC7",
 			"name":"unexploredB"
 		}]},
-	{"heading":"Stardate 2400.9 (Turn 3)",
-	"commentary":"<p>Xinu has ran into their supernova early. This slows their mission down.</p><p>Normally, we would be screwed by our home system barren planet. But, because Replicators are present in this scenario, we can colonize it as if it was a regular planet. We still have to develop Terraforming 1 in order to colonize deep space barren planets, a process we may or may not do because of the presence of non-player aliens.</p>",
+	{"heading":"Stardate 2400.9",
+	"commentary":[
+		"Xinu has ran into their supernova early. This slows their mission down.",
+		"Normally, we would be screwed by our home system barren planet. But, because Replicators are present in this scenario, we can colonize it as if it was a regular planet. We still have to develop Terraforming 1 in order to colonize deep space barren planets, a process we may or may not do because of the presence of non-player aliens."],
 	"actions":
 		[{
 			"removeHullsV":"1,5,6,7"
@@ -319,8 +325,10 @@
 			"revealCounter":"systemC7",
 			"name":"minerals5"
 		}]},
-	{"heading":"Stardate 2401.0 (Economic Phase 1)",
-	"commentary":"<p>Xinu has managed to cash in a lot of minerals. Their home systems contain a total of 65 CP worth of minerals, so they are already more than half done. Since this is before economic phase 4, they will buy an extra hull (-8) with their money.</p><p>As for our own economics, we will attempt to rush to Titans. We will buy Ship Size 2 (-10) in an effort to work on this goal. We will also go on ahead and buy 4 Colony Ships (-32).</p>",
+	{"heading":"Stardate 2401.0",
+	"commentary":[
+		"Xinu has managed to cash in a lot of minerals. Their home systems contain a total of 65 CP worth of minerals, so they are already more than half done. Since this is before economic phase 4, they will buy an extra hull (-8) with their money.",
+		"As for our own economics, we will attempt to rush to Titans. We will buy Ship Size 2 (-10) in an effort to work on this goal. We will also go on ahead and buy 4 Colony Ships (-32)."],
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":10,"colonyCP":30,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":10,"unitBuy":32
@@ -425,8 +433,8 @@
 			"revealCounter":"systemC6",
 			"name":"unexploredB"
 		}]},
-	{"heading":"Stardate 2401.2 (Turn 4)",
-	"commentary":"<p>Normally, we would need to conduct a black hole check for our Flagship. Space Pilgrims allows us to bypass this check.</p>",
+	{"heading":"Stardate 2401.2)",
+	"commentary":["Normally, we would need to conduct a black hole check for our Flagship. Space Pilgrims allows us to bypass this check."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -505,8 +513,8 @@
 			"revealCounter":"systemC8",
 			"name":"unexploredB"
 		}]},
-	{"heading":"Stardate 2401.5 (Turn 5)",
-	"commentary":"<p>We have found the last of our home system planets.</p>",
+	{"heading":"Stardate 2401.5",
+	"commentary":["We have found the last of our home system planets."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -598,8 +606,8 @@
 			"revealCounter":"systemD8",
 			"name":"unexploredW"
 		}]},
-	{"heading":"Stardate 2401.8 (Turn 6)",
-	"commentary":"<p>Danger markers still instantly destroy our ships. Space Pilgrims does not guard against this.</p>",
+	{"heading":"Stardate 2401.8",
+	"commentary":["Danger markers still instantly destroy our ships. Space Pilgrims does not guard against this."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -703,8 +711,10 @@
 			"revealCounter":"systemA9",
 			"name":"planetB7"
 		}]},
-	{"heading":"Stardate 2402.0 (Economic Phase 2)",
-	"commentary":"<p>Replicator economics are extremely simple as usual prior to economic phase 4.</p><p>For this economic phase, we will continue to work towards Titans. Thus, we will buy Ship Size 3 (-15), and just leave it at that.</p>",
+	{"heading":"Stardate 2402.0",
+	"commentary":[
+		"Replicator economics are extremely simple as usual prior to economic phase 4.",
+		"For this economic phase, we will continue to work towards Titans. Thus, we will buy Ship Size 3 (-15), and just leave it at that."],
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":0,"colonyCP":34,"mineralCP":5,"pipeCP":0,"maint":2,"bidCP":0,"techBuy":15,"unitBuy":0
@@ -813,8 +823,8 @@
 			"revealCounter":"systemD5",
 			"name":"unexploredW"
 		}]},
-	{"heading":"Stardate 2402.1 (Turn 7)",
-	"commentary":"<p>We have found a warp point marker. Too bad this terrain is never used in Replicator Solitaire.</p>",
+	{"heading":"Stardate 2402.1",
+	"commentary":["We have found a warp point marker. Too bad this terrain is never used in Replicator Solitaire."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -868,8 +878,8 @@
 			"revealCounter":"systemE4",
 			"name":"unexploredW"
 		}]},
-	{"heading":"Stardate 2402.4 (Turn 8)",
-	"commentary":"<p>Deep Space itself claims another Scout.</p>",
+	{"heading":"Stardate 2402.4",
+	"commentary":["Deep Space itself claims another Scout."],
 	"actions":
 		[{
 			"placeGhost":"FlagV",
@@ -924,8 +934,8 @@
 			"placeCounter":"systemE4",
 			"name":"danger"
 		}]},
-	{"heading":"Stardate 2402.7 (Turn 9)",
-	"commentary":"<p>Clearly, we will need Exploration equipped on our ships in order to venture further into deep space. Recent losses to Dangerous terrain did reduce our maintenance.</p>",
+	{"heading":"Stardate 2402.7",
+	"commentary":["Clearly, we will need Exploration equipped on our ships in order to venture further into deep space. Recent losses to Dangerous terrain did reduce our maintenance."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -1008,8 +1018,10 @@
 			"revealCounter":"systemA2",
 			"name":"planetB1"
 		}]},
-	{"heading":"Stardate 2403.0 (Economic Phase 3)",
-	"commentary":"<p>Replicator economics will grow in complexity soon. They are also almost done with their home systems.</p><p>Ship Size 4 (-20) is the next step on the Titan <q>build</q>, so we will proceed with that. We will also go on ahead and buy Exploration 1 (-15) and Movement 2 (-20) in order to stay within the carryover limit of 30 CP.</p>",
+	{"heading":"Stardate 2403.0",
+	"commentary":[
+		"Replicator economics will grow in complexity soon. They are also almost done with their home systems.",
+		"Ship Size 4 (-20) is the next step on the Titan <q>build</q>, so we will proceed with that. We will also go on ahead and buy Exploration 1 (-15) and Movement 2 (-20) in order to stay within the carryover limit of 30 CP."],
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":22,"colonyCP":44,"mineralCP":10,"pipeCP":0,"maint":1,"bidCP":0,"techBuy":55,"unitBuy":0
@@ -1101,8 +1113,8 @@
 			"revealCounter":"systemA2",
 			"name":"colony1"
 		}]},
-	{"heading":"Stardate 2403.3 (Turn 10)",
-	"commentary":"<p>While Xinu cleans up their mission, we opt to bring our Flagship home to perform an upgrade.</p>",
+	{"heading":"Stardate 2403.3",
+	"commentary":["While Xinu cleans up their mission, we opt to bring our Flagship home to perform an upgrade."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -1126,8 +1138,8 @@
 			"placeCounter":"Miner1B",
 			"location":"B3"
 		}]},
-	{"heading":"Stardate 2403.6 (Turn 11)",
-	"commentary":"<p>At least... if it were not for the fact that Xinu was still missing 3 planets. Their immediate colonization gimmick prevents them from achieving their current mission before the next economic phase.</p>",
+	{"heading":"Stardate 2403.6",
+	"commentary":["At least... if it were not for the fact that Xinu was still missing 3 planets. Their immediate colonization gimmick prevents them from achieving their current mission before the next economic phase."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -1166,8 +1178,8 @@
 			"location":"C3",
 			"size":1
 		}]},
-	{"heading":"Stardate 2403.9 (Turn 12)",
-	"commentary":"<p>Since we are late in an economic phase, we will hold off on upgrades for a little longer.</p>",
+	{"heading":"Stardate 2403.9",
+	"commentary":["Since we are late in an economic phase, we will hold off on upgrades for a little longer."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -1231,8 +1243,10 @@
 			"revealCounter":"systemA2",
 			"name":"colony1"
 		}]},
-	{"heading":"Stardate 2404.0 (Economic Phase 4)",
-	"commentary":"<p>Xinu has a few fully developed colonies, so they will no longer buy extra hulls for CP automatically. Instead, because they are Fast Replicators, they will focus on their Movement (-15 each) until they reach level 6.</p><p>Continuing our Titan build, we will buy Ship Size 5 (-20). We will also buy Movement 3 (-25) to help stay within 30 CP. We also will buy an extra Ship Yard (-6) at our homeworld, so as to improve our options. Finally, we have enough full colonies that we are gaining free Light Infantry.</p>",
+	{"heading":"Stardate 2404.0",
+	"commentary":[
+		"Xinu has a few fully developed colonies, so they will no longer buy extra hulls for CP automatically. Instead, because they are Fast Replicators, they will focus on their Movement (-15 each) until they reach level 6.",
+		"Continuing our Titan build, we will buy Ship Size 5 (-20). We will also buy Movement 3 (-25) to help stay within 30 CP. We also will buy an extra Ship Yard (-6) at our homeworld, so as to improve our options. Finally, we have enough full colonies that we are gaining free Light Infantry."],
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":20,"colonyCP":59,"mineralCP":0,"pipeCP":0,"maint":1,"bidCP":0,"techBuy":45,"unitBuy":6
@@ -1307,7 +1321,7 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2404.2",
-	"commentary":"<p>Xinu has accomplished their home system mission at last. Meanwhile, we have finished upgrading our Flagship (-3 CP).</p>",
+	"commentary":["Xinu has accomplished their home system mission at last. Meanwhile, we have finished upgrading our Flagship (-3 CP)."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -1339,7 +1353,7 @@
 			"size":2
 		}]},
 	{"heading":"Stardate 2404.5",
-	"commentary":"<p>While waiting for their Type Exps, they can begin to form a fleet. We opted to finish upgrading our last Scout also (-1 CP), for consistency sake.</p>",
+	"commentary":["While waiting for their Type Exps, they can begin to form a fleet. We opted to finish upgrading our last Scout also (-1 CP), for consistency sake."],
 	"actions":
 		[{
 			"placeGhost":"FlagV",
@@ -1383,7 +1397,9 @@
 			"size":1
 		}]},
 	{"heading":"Stardate 2404.8",
-	"commentary":"<p>Their fleet has formed, and is now awaiting the next economic phase.</p><p>We used our Flagship's Exploration to uncover a deep space hex safely; uncovering a NPA barren planet. Still, because we did not engage against them, their ships remain hidden.</p>",
+	"commentary":[
+		"Their fleet has formed, and is now awaiting the next economic phase.",
+		"We used our Flagship's Exploration to uncover a deep space hex safely; uncovering a NPA barren planet. Still, because we did not engage against them, their ships remain hidden."],
 	"actions":
 		[{
 			"placeCounter":"FlagV",
@@ -1461,7 +1477,9 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2405.0",
-	"commentary":"<p>Xinu has reached the next economic phase with their home system mission accomplished. Their reward is Exploration technology <i>and</i> 3 Type Exp ships (though this comes at the expense of producing fewer hulls). They also continue their Fast Replicators mission, so they buy Movement 5 (-15).</p><p>Our Titan project is nearly finished, as we are able to buy Ship Size 6 (-20) this phase. We will also buy Terraforming 1 (-20), followed by 4 Scouts (-24) + 1 Colony Ship (-8) + 1 Ship Yard (-6).</p>",
+	"commentary":[
+		"Xinu has reached the next economic phase with their home system mission accomplished. Their reward is Exploration technology <i>and</i> 3 Type Exp ships (though this comes at the expense of producing fewer hulls). They also continue their Fast Replicators mission, so they buy Movement 5 (-15).",
+		"Our Titan project is nearly finished, as we are able to buy Ship Size 6 (-20) this phase. We will also buy Terraforming 1 (-20), followed by 4 Scouts (-24) + 1 Colony Ship (-8) + 1 Ship Yard (-6)."],
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":23,"colonyCP":64,"mineralCP":10,"pipeCP":0,"maint":1,"bidCP":0,"techBuy":40,"unitBuy":38
@@ -1557,7 +1575,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2405.1",
-	"commentary":"<p>Thus begins their journey through deep space. One Type Exp will expose a path to our home systems, while the rest will simply uncover the map.</p>",
+	"commentary":["Thus begins their journey through deep space. One Type Exp will expose a path to our home systems, while the rest will simply uncover the map."],
 	"actions":
 		[{
 			"placeCounter":"expV1",
@@ -1640,7 +1658,19 @@
 			"removeCounter":"NPA3"
 		}]},
 	{"heading":"Stardate 2405.4 (The Battle for Rukbat)",
-	"commentary":"<p>They have acquired a new mission with the discovery of Aries. Since they can assault it before the next economic phase, they will attempt to do so.</p><p>Meanwhile, we have decided we will try assaulting the NPA planet closest to our home systems.</p><ol><li><b>Round 1</b>: We have 6 ships. They have 4. Neither gets the Fleet Size Bonus</li><li>Rukbat has the Tactics advantage, so their Alien-Bs shoot first. Targeting our scouts, they rolled 7,9 (0 hits &le;6)</li><li>Our Flagship gets to shoot next. We will target their Alien-Bs, and rolled a 5 (miss &gt;2)</li><li>Their Alien-Cs shoot next. They rolled 2,4 (2 hits &le;5)</li><li>Our 3 surviving Scouts rolled 2,4,10 against their Alien-Bs (0 hits &le;1)<br /><br /></li><li><b>Round 2</b>: 4 versus 4. No change in Fleet Size Bonus</li><li>Their Alien-Bs shoot once more. They rolled 6,9 (1 hit &le;6)</li><li>Our Flagship has decided to retreat Eden (C6)</li><li>Their Alien-Cs shoot next. They rolled 5,6 (1 hit &le;5)</li><li>Our 1 surviving Scout also retreats, following the Flagship</li></ol>",
+	"commentary":[
+		"They have acquired a new mission with the discovery of Aries. Since they can assault it before the next economic phase, they will attempt to do so.",
+		"Meanwhile, we have decided we will try assaulting the NPA planet closest to our home systems.",
+		"<ol><li><b>Round 1</b>: We have 6 ships. They have 4. Neither gets the Fleet Size Bonus</li>",
+		"<li>Rukbat has the Tactics advantage, so their Alien-Bs shoot first. Targeting our scouts, they rolled 7,9 (0 hits &le;6)</li>",
+		"<li>Our Flagship gets to shoot next. We will target their Alien-Bs, and rolled a 5 (miss &gt;2)</li>",
+		"<li>Their Alien-Cs shoot next. They rolled 2,4 (2 hits &le;5)</li>",
+		"<li>Our 3 surviving Scouts rolled 2,4,10 against their Alien-Bs (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 2</b>: 4 versus 4. No change in Fleet Size Bonus</li>",
+		"<li>Their Alien-Bs shoot once more. They rolled 6,9 (1 hit &le;6)</li>",
+		"<li>Our Flagship has decided to retreat Eden (C6)</li>",
+		"<li>Their Alien-Cs shoot next. They rolled 5,6 (1 hit &le;5)</li>",
+		"<li>Our 1 surviving Scout also retreats, following the Flagship</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"expV1",
@@ -1730,7 +1760,32 @@
 			"removeCounter":"NPA5"
 		}]},
 	{"heading":"Stardate 2405.7 (The Battle for Aries)",
-	"commentary":"<p>The time has come for them to assault Aries.</p><ol><li><b>Round 1</b>: Xinu has 10 ships. Aries has 4. Xinu get the Fleet Size Bonus</li><li>Tactics are equal among weapon class B, so Aries wins the defender tie. Their Alien-B shoots first. Targeting the Type 0s, they rolled a 1 (hit &le;6)</li><li>The Replicator Type Flag gets to shoot next. They will target the Alien-D, and rolled a 7 (miss &gt;1)</li><li>The Alien-Cs shoot next. They rolled 3,7 (1 hit &le;5)</li><li>The Alien-D also gets to shoot. It rolled a 10 against (miss &gt;4)</li><li>The 7 surviving Type 0 Replicators finally can shoot. They rolled 4,9,3,5,10,4,1 against the Alien-D (&le;2 to hit)<br /><br /></li><li><b>Round 2</b>: Xinu has 8 ships. Aries has 3. Xinu keeps the Fleet Size Bonus; though it is pointless with Attack 2 versus Defense 2</li><li>Aries' Alien-B shoots once more. It rolled a 6 (hit &le;6)</li><li>The Type Flag Replicator shoots next. They will target the Alien-B, and rolled a 5 (miss &gt;1)</li><li>The Alien-Cs shoot next. They rolled 1,6 (1 hit &le;5)</li><li>The 5 surviving Type 0 Replicators finally can shoot. They rolled 7,8,9,6,5 against the Alien-B (&le;1 to hit)<br /><br /></li><li><b>Round 3</b>: Aries' Alien-B shoots once more. It rolled a 1 (hit &le;6)</li><li>The Type Flag Replicator shoots next. It rolled a 5 (miss &gt;1)</li><li>The Alien-Cs shoot next. They rolled 4,9 (1 hit &le;5)</li><li>The 3 surviving Type 0 Replicators finally can shoot. They rolled 7,4,7 (0 hits &le;1)<br /><br /></li><li><b>Round 4</b>: Xinu has 4 ships. Aries still has 3. Neither side gets the Fleet Size Bonus</li><li>Aries' Alien-B shoots once more. It rolled a 2 (hit &le;6)</li><li>The Type Flag Replicator has rolled a 10 (miss &gt;1)</li><li>The Alien-Cs shoot next. They rolled 2,5 (2 hits &le;5), cleanly finishing off the Type 0s<br /><br /></li><li><b>Round 5</b>: Xinu has 1 ship. Aries still has 3. Aries gains the Fleet Size Bonus</li><li>Aries' Alien-B rolls a 10 against the Type Flag (miss &gt;6)</li><li>Hull Size totals are equal, and the Type Flag is intact; so it rolls a 2 (miss &gt;1)</li><li>The Alien-Cs shoot next. They rolled 1,5 (2 hits &le;5), reducing the Type Flag to 1 HP<br /><br /></li><li><b>Round 6</b>: Aries' Alien-B rolls a 1 (hit &le;6), finishing off the Type Flag and wiping out the Replicator fleet!</li></ol>",
+	"commentary":[
+		"The time has come for them to assault Aries.",
+		"<ol><li><b>Round 1</b>: Xinu has 10 ships. Aries has 4. Xinu get the Fleet Size Bonus</li>",
+		"<li>Tactics are equal among weapon class B, so Aries wins the defender tie. Their Alien-B shoots first. Targeting the Type 0s, they rolled a 1 (hit &le;6)</li>",
+		"<li>The Replicator Type Flag gets to shoot next. They will target the Alien-D, and rolled a 7 (miss &gt;1)</li>",
+		"<li>The Alien-Cs shoot next. They rolled 3,7 (1 hit &le;5)</li>",
+		"<li>The Alien-D also gets to shoot. It rolled a 10 against (miss &gt;4)</li>",
+		"<li>The 7 surviving Type 0 Replicators finally can shoot. They rolled 4,9,3,5,10,4,1 against the Alien-D (&le;2 to hit)<br /><br /></li>",
+		"<li><b>Round 2</b>: Xinu has 8 ships. Aries has 3. Xinu keeps the Fleet Size Bonus; though it is pointless with Attack 2 versus Defense 2</li>",
+		"<li>Aries' Alien-B shoots once more. It rolled a 6 (hit &le;6)</li>",
+		"<li>The Type Flag Replicator shoots next. They will target the Alien-B, and rolled a 5 (miss &gt;1)</li>",
+		"<li>The Alien-Cs shoot next. They rolled 1,6 (1 hit &le;5)</li>",
+		"<li>The 5 surviving Type 0 Replicators finally can shoot. They rolled 7,8,9,6,5 against the Alien-B (&le;1 to hit)<br /><br /></li>",
+		"<li><b>Round 3</b>: Aries' Alien-B shoots once more. It rolled a 1 (hit &le;6)</li>",
+		"<li>The Type Flag Replicator shoots next. It rolled a 5 (miss &gt;1)</li>",
+		"<li>The Alien-Cs shoot next. They rolled 4,9 (1 hit &le;5)</li>",
+		"<li>The 3 surviving Type 0 Replicators finally can shoot. They rolled 7,4,7 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 4</b>: Xinu has 4 ships. Aries still has 3. Neither side gets the Fleet Size Bonus</li>",
+		"<li>Aries' Alien-B shoots once more. It rolled a 2 (hit &le;6)</li>",
+		"<li>The Type Flag Replicator has rolled a 10 (miss &gt;1)</li>",
+		"<li>The Alien-Cs shoot next. They rolled 2,5 (2 hits &le;5), cleanly finishing off the Type 0s<br /><br /></li>",
+		"<li><b>Round 5</b>: Xinu has 1 ship. Aries still has 3. Aries gains the Fleet Size Bonus</li>",
+		"<li>Aries' Alien-B rolls a 10 against the Type Flag (miss &gt;6)</li>",
+		"<li>Hull Size totals are equal, and the Type Flag is intact; so it rolls a 2 (miss &gt;1)</li>",
+		"<li>The Alien-Cs shoot next. They rolled 1,5 (2 hits &le;5), reducing the Type Flag to 1 HP<br /><br /></li>",
+		"<li><b>Round 6</b>: Aries' Alien-B rolls a 1 (hit &le;6), finishing off the Type Flag and wiping out the Replicator fleet!</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"expV1",
@@ -1824,7 +1879,9 @@
 			"name":"fold"
 		}]},
 	{"heading":"Stardate 2406.0",
-	"commentary":"<p>Although wiped out, Xinu can always build fresh hulls with ease. They also gain their first RP for battling the NPA planet of Aries. Finally, they finish their Fast Replicators' unique mission of developing Movement 6. They will be free to roll for subsequent purchases until deep space minerals are exhausted.</p><p>We have successfully accomplished our Titan project, by researching Ship Size 7 (-30). We also will develop Fighter tech 1 (-25), and build our first Titan (-32) and Fighter (-5) together.</p>",
+	"commentary":[
+		"Although wiped out, Xinu can always build fresh hulls with ease. They also gain their first RP for battling the NPA planet of Aries. Finally, they finish their Fast Replicators' unique mission of developing Movement 6. They will be free to roll for subsequent purchases until deep space minerals are exhausted.",
+		"We have successfully accomplished our Titan project, by researching Ship Size 7 (-30). We also will develop Fighter tech 1 (-25), and build our first Titan (-32) and Fighter (-5) together."],
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":18,"colonyCP":70,"mineralCP":5,"pipeCP":0,"maint":1,"bidCP":0,"techBuy":55,"unitBuy":37
@@ -1906,7 +1963,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2406.3",
-	"commentary":"<p>We are almost ready to try out our Titan against Rukbat. (Small note; Pirates and Doomsday Machines are also unused.)</p>",
+	"commentary":["We are almost ready to try out our Titan against Rukbat. (Small note; Pirates and Doomsday Machines are also unused.)"],
 	"actions":
 		[{
 			"placeCounter":"expV1",
@@ -1962,7 +2019,24 @@
 			"name":"pirate"
 		}]},
 	{"heading":"Stardate 2406.6 (The Rematch for Rukbat)",
-	"commentary":"<p>A path has recently been exposed. Xinu has a means to exert pressure on us... <i>but</i>, we are free to use their path against them. Before we can do so, we should conduct our battle versus Rukbat.</p><ol><li><b>Round 1</b>: We have 4 ships. Rukbat has 4 ships. Neither side gets the Fleet Size Bonus</li><li>Our newly built Titan has the best weapon class, so it shoots first. We will focus on their Alien-Bs until they are all gone. We rolled a 6 (miss &gt;5)</li><li>Their 2 Alien-Bs shoot next. Our Fighter will be targeted first, and they rolled 10,3 (&le;6 to hit), cleaning that ship up</li><li>Our Flagship is up. We rolled an 8 (miss &gt;1)</li><li>Their 2 Alien-Cs shoot next. Our Scout will be targeted next, and they rolled 9,2 (&le;5 to hit), cleaning that ship up also<br /><br /></li><li><b>Round 2</b>: We have 2 ships. Rukbat still has 4 ships. Rukbat gains the Fleet Size Bonus</li><li>Our Titan shoots once more. We rolled a 1 (hit &le;5)</li><li>Their 1 surviving Alien-B shoots next. Our Flagship is next; and they rolled a 4 (hit &le;6), damaging our ship</li><li>Our Flagship is ready. We rolled a 6 (miss &gt;1)</li><li>Their 2 Alien-Cs shoot once more. They rolled 5,5 (2 hits &le;5), finishing off our Flagship<br /><br /></li><li><b>Round 3</b>: We have only our Titan now. Rukbat keeps the Fleet Size Bonus, but is unable to use it against our Titan</li><li>Our Titan shoots once more. We rolled a 4 (hit &le;5), finishing off their last Alien-B</li><li>Their 2 Alien-Cs shoot next. They rolled 5,8 (0 hits &le;2)<br /><br /></li><li><b>Round 4</b>: Our Titan rolls a 1 (hit &le;5)</li><li>Their last Alien-C rolls a 1 (hit &le;2), damaging our Titan, but we still have <b>4</b> HP left<br /><br /></li><li><b>Round 5</b>: Our Titan rolls another 1 (hit &le;5), finishing off the last NPA defender! We choose to hold our fire against the planet itself though, allowing it to become subdued</li></ol>",
+	"commentary":[
+		"A path has recently been exposed. Xinu has a means to exert pressure on us... <i>but</i>, we are free to use their path against them. Before we can do so, we should conduct our battle versus Rukbat.",
+		"<ol><li><b>Round 1</b>: We have 4 ships. Rukbat has 4 ships. Neither side gets the Fleet Size Bonus</li>",
+		"<li>Our newly built Titan has the best weapon class, so it shoots first. We will focus on their Alien-Bs until they are all gone. We rolled a 6 (miss &gt;5)</li>",
+		"<li>Their 2 Alien-Bs shoot next. Our Fighter will be targeted first, and they rolled 10,3 (&le;6 to hit), cleaning that ship up</li>",
+		"<li>Our Flagship is up. We rolled an 8 (miss &gt;1)</li>",
+		"<li>Their 2 Alien-Cs shoot next. Our Scout will be targeted next, and they rolled 9,2 (&le;5 to hit), cleaning that ship up also<br /><br /></li>",
+		"<li><b>Round 2</b>: We have 2 ships. Rukbat still has 4 ships. Rukbat gains the Fleet Size Bonus</li>",
+		"<li>Our Titan shoots once more. We rolled a 1 (hit &le;5)</li>",
+		"<li>Their 1 surviving Alien-B shoots next. Our Flagship is next; and they rolled a 4 (hit &le;6), damaging our ship</li>",
+		"<li>Our Flagship is ready. We rolled a 6 (miss &gt;1)</li>",
+		"<li>Their 2 Alien-Cs shoot once more. They rolled 5,5 (2 hits &le;5), finishing off our Flagship<br /><br /></li>",
+		"<li><b>Round 3</b>: We have only our Titan now. Rukbat keeps the Fleet Size Bonus, but is unable to use it against our Titan</li>",
+		"<li>Our Titan shoots once more. We rolled a 4 (hit &le;5), finishing off their last Alien-B</li>",
+		"<li>Their 2 Alien-Cs shoot next. They rolled 5,8 (0 hits &le;2)<br /><br /></li>",
+		"<li><b>Round 4</b>: Our Titan rolls a 1 (hit &le;5)</li>",
+		"<li>Their last Alien-C rolls a 1 (hit &le;2), damaging our Titan, but we still have <b>4</b> HP left<br /><br /></li>",
+		"<li><b>Round 5</b>: Our Titan rolls another 1 (hit &le;5), finishing off the last NPA defender! We choose to hold our fire against the planet itself though, allowing it to become subdued</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"expV1",
@@ -2038,7 +2112,7 @@
 			"size":2
 		}]},
 	{"heading":"Stardate 2406.9",
-	"commentary":"<p>Our Flagship is no more, but not all hope is lost. We have kept our first Titan on the board, opening up possibilities for a second or subsequent Titan.</p>",
+	"commentary":["Our Flagship is no more, but not all hope is lost. We have kept our first Titan on the board, opening up possibilities for a second or subsequent Titan."],
 	"actions":
 		[{
 			"placeCounter":"expV1",
@@ -2115,7 +2189,9 @@
 			"size":1
 		}]},
 	{"heading":"Stardate 2407.0",
-	"commentary":"<p>Xinu produces another fresh batch of hulls. Normally; now that Movement 6 has been developed, this would be the point where Fast Replicators would go back to rolls to determine where to spend their CP. But; the cheapest option they can go for is an extra hull for 8 CP. They do not have that much money on hand, so the rolling process is skipped for this economic phase.</p><p>Before we can do our own economics, we need to draw alien technology cards to commemorate the colonization of the NPA planet Rubkat. We can choose between The Captain's Chair and Mobile Analysis Bay, neither of which are useful towards our goal. Afterwards, we will go on ahead and buy Ship Yard 2 (-20). We then use our increased capacity to buy a <q>full</q> Titan (-32), which also includes 3 Fighters (-15).</p>",
+	"commentary":[
+		"Xinu produces another fresh batch of hulls. Normally; now that Movement 6 has been developed, this would be the point where Fast Replicators would go back to rolls to determine where to spend their CP. But; the cheapest option they can go for is an extra hull for 8 CP. They do not have that much money on hand, so the rolling process is skipped for this economic phase.",
+		"Before we can do our own economics, we need to draw alien technology cards to commemorate the colonization of the NPA planet Rubkat. We can choose between The Captain's Chair and Mobile Analysis Bay, neither of which are useful towards our goal. Afterwards, we will go on ahead and buy Ship Yard 2 (-20). We then use our increased capacity to buy a <q>full</q> Titan (-32), which also includes 3 Fighters (-15)."],
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":0,"colonyCP":70,"mineralCP":5,"pipeCP":0,"maint":5,"bidCP":0,"techBuy":20,"unitBuy":47
@@ -2192,7 +2268,7 @@
 			"size":2
 		}]},
 	{"heading":"Stardate 2407.2",
-	"commentary":"<p>Yet another NPA planet was found close to Replicator space... and they can not safely pressure it either (10+ hulls required to engage in battle). These ships will go on ahead and continue along the known path to our home space.</p>",
+	"commentary":["Yet another NPA planet was found close to Replicator space... and they can not safely pressure it either (10+ hulls required to engage in battle). These ships will go on ahead and continue along the known path to our home space."],
 	"actions":
 		[{
 			"placeCounter":"expV1",
@@ -2268,7 +2344,9 @@
 			"location":"B5"
 		}]},
 	{"heading":"Stardate 2407.5 (The Bombardment of Eden)",
-	"commentary":"<p>And now for the fun part. Normally, the 5 hulls that have just made it to one of our colonies become converted to combat hulls. However, we have Fighters on the board, forcing Xinu to roll for a possible Type PD. They neither are engaged against them, nor have they previously encountered them. Still, a 10 was rolled, causing the fleet to remotely construct one such ship. Leftover hulls are converted into Type 0 ships.</p><p>All that has to be done now is to roll for bombardment. Since we have four Light Infantry present, they provide a considerable Defense 2. The 5 ships use their minimum Attack rating of 1, and rolled 1,4,4,5,7 anyway... scoring 1 hit.</p>",
+	"commentary":[
+		"And now for the fun part. Normally, the 5 hulls that have just made it to one of our colonies become converted to combat hulls. However, we have Fighters on the board, forcing Xinu to roll for a possible Type PD. They neither are engaged against them, nor have they previously encountered them. Still, a 10 was rolled, causing the fleet to remotely construct one such ship. Leftover hulls are converted into Type 0 ships.",
+		"All that has to be done now is to roll for bombardment. Since we have four Light Infantry present, they provide a considerable Defense 2. The 5 ships use their minimum Attack rating of 1, and rolled 1,4,4,5,7 anyway... scoring 1 hit."],
 	"actions":
 		[{
 			"placeCounter":"expV1",
@@ -2344,7 +2422,16 @@
 			"name":"colony5B"
 		}]},
 	{"heading":"Stardate 2407.5 (The Defense of Eden)",
-	"commentary":"<p>Since multiple battles were taking place at Eden (C6), we have opted to break the current turn into stages. This time, we will be countering their bombardment efforts.</p><ol><li><b>Round 1</b>: Each side has 5 ships. Neither side gets a Fleet Size Bonus</li><li>Their 1 Type PD has the Tactics advantage, so it shoots first. It rolls a 9 against our Fighters (miss &gt;6)</li><li>Our 2 Titans have a chance to shoot. We rolled a 5 against their Type PD (&le;7 to hit), followed by a 3 against their Type 0s</li><li>Our 3 Fighters shoot next. We rolled 1,8,8 (1 hit &le;5)</li><li>Their 2 surviving Type 0s now shoot. Our Fighters are the smallest and most vulnerable targets (&le;2 to hit), so they rolled 5,10 accordingly<br /><br /></li><li><b>Round 2</b>: We still have 5 ships. Xinu is down to 2 ships. We gain the Fleet Size Bonus</li><li>Our 2 Titans have rolled 3,10 (1 hit &le;8)</li><li>Our 3 Fighters shoot next. We rolled 4,9,10 (1 hit &le;6), finishing their fleet off</li></ol>",
+	"commentary":[
+		"Since multiple battles were taking place at Eden (C6), we have opted to break the current turn into stages. This time, we will be countering their bombardment efforts.",
+		"<ol><li><b>Round 1</b>: Each side has 5 ships. Neither side gets a Fleet Size Bonus</li>",
+		"<li>Their 1 Type PD has the Tactics advantage, so it shoots first. It rolls a 9 against our Fighters (miss &gt;6)</li>",
+		"<li>Our 2 Titans have a chance to shoot. We rolled a 5 against their Type PD (&le;7 to hit), followed by a 3 against their Type 0s</li>",
+		"<li>Our 3 Fighters shoot next. We rolled 1,8,8 (1 hit &le;5)</li>",
+		"<li>Their 2 surviving Type 0s now shoot. Our Fighters are the smallest and most vulnerable targets (&le;2 to hit), so they rolled 5,10 accordingly<br /><br /></li>",
+		"<li><b>Round 2</b>: We still have 5 ships. Xinu is down to 2 ships. We gain the Fleet Size Bonus</li>",
+		"<li>Our 2 Titans have rolled 3,10 (1 hit &le;8)</li>",
+		"<li>Our 3 Fighters shoot next. We rolled 4,9,10 (1 hit &le;6), finishing their fleet off</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"expV1",
@@ -2407,7 +2494,7 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2407.8",
-	"commentary":"<p>Now that our Titans have consolidated into one fleet (Hull Size 13 total), the newest Replicator fleet is now following self-preservation mechanics (only Hull Size total 5-7), and keeping their distance. We are taking advantage of our exceptionally potent Space Pilgrims advantage, and moving our Titans directly into the asteroid belt.</p>",
+	"commentary":["Now that our Titans have consolidated into one fleet (Hull Size 13 total), the newest Replicator fleet is now following self-preservation mechanics (only Hull Size total 5-7), and keeping their distance. We are taking advantage of our exceptionally potent Space Pilgrims advantage, and moving our Titans directly into the asteroid belt."],
 	"actions":
 		[{
 			"placeCounter":"expV1",
@@ -2490,7 +2577,9 @@
 			"removeCounter":"Inf4B"
 		}]},
 	{"heading":"Stardate 2408.0",
-	"commentary":"<p>Another economic phase, another fresh batch of hulls. Normally this would open up a rematch with Aries; but we have Titans in deep space, nullifying eligibility for this mission. Much like the previous phase, Xinu is short on CP. Instead, because we have reached economic phase 8, they get a free Movement technology. We <i>did</i> use our Titans in battle against them, giving them a <b>massive</b> RP boost! They can now build Type IXs!</p><p>We will build 2 full Carriers this time around (-54 CP total). That is it!</p>",
+	"commentary":[
+		"Another economic phase, another fresh batch of hulls. Normally this would open up a rematch with Aries; but we have Titans in deep space, nullifying eligibility for this mission. Much like the previous phase, Xinu is short on CP. Instead, because we have reached economic phase 8, they get a free Movement technology. We <i>did</i> use our Titans in battle against them, giving them a <b>massive</b> RP boost! They can now build Type IXs!",
+		"We will build 2 full Carriers this time around (-54 CP total). That is it!"],
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":3,"colonyCP":69,"mineralCP":0,"pipeCP":0,"maint":13,"bidCP":0,"techBuy":0,"unitBuy":54
@@ -2574,7 +2663,7 @@
 			"location":"A6"
 		}]},
 	{"heading":"Stardate 2408.1",
-	"commentary":"<p>Self-Preservation continues to be in effect: 9 hulls are still somewhat inferior to a Titan fleet (Hull Size 13 total)</p>",
+	"commentary":["Self-Preservation continues to be in effect: 9 hulls are still somewhat inferior to a Titan fleet (Hull Size 13 total)"],
 	"actions":
 		[{
 			"placeCounter":"expV1",
@@ -2660,7 +2749,14 @@
 			"location":"B7"
 		}]},
 	{"heading":"Stardate 2408.4 (The Rematch for Aries)",
-	"commentary":"<p>With the assistance of 6-9 more hulls, the primary Replicator fleet has now become equal-superior (15-18 hulls total). While the reinforcements are not quite close enough to attack <i>our</i> Titan fleet, it allows them to execute the fourth priority on their non-mission movement system; namely a rematch with Aries.</p><p>Before a battle can take place though, the 18 hulls need to be built; and a die needs to be rolled to determine the presence of a Type PD. A 5 was rolled this way. Even though Fighters were previously encountered, no Type PD gets built this time. The hulls all convert to Type IX ships.</p><ol><li><b>Round 1</b>: Xinu has 18 ships. Aries has 3 ships remaining. Xinu has the Fleet Size Bonus</li><li>Aries' 1 Alien-B has the best weapon class, so it shoots first. It rolled a 6 (miss &gt;5)</li><li>Their 2 Alien-Cs shoot next. They rolled 3,4 (2 hits &le;4)</li><li>The 16 surviving Type IX Replicators now have a chance to shoot. Prioritizing the Alien-B (but otherwise having &le;5 to hit all around), they rolled 9,5,6,9,3,9,1,10,1,10,9,2,6,1,2,10 (7 hits), easily finishing off the NPA stragglers</li><li>One of the victorious ships then deconstructs itself in order to start a new colony, and convert the alien technology into 10 CP</li></ol><p>While Xinu was busy with Aries, we opted to take advantage of our Space Pilgrims and enter into the neighboring black hole.</p>",
+	"commentary":[
+		"With the assistance of 6-9 more hulls, the primary Replicator fleet has now become equal-superior (15-18 hulls total). While the reinforcements are not quite close enough to attack <i>our</i> Titan fleet, it allows them to execute the fourth priority on their non-mission movement system; namely a rematch with Aries.",
+		"Before a battle can take place though, the 18 hulls need to be built; and a die needs to be rolled to determine the presence of a Type PD. A 5 was rolled this way. Even though Fighters were previously encountered, no Type PD gets built this time. The hulls all convert to Type IX ships.",
+		"<ol><li><b>Round 1</b>: Xinu has 18 ships. Aries has 3 ships remaining. Xinu has the Fleet Size Bonus</li>",
+		"<li>Aries' 1 Alien-B has the best weapon class, so it shoots first. It rolled a 6 (miss &gt;5)</li>",
+		"<li>Their 2 Alien-Cs shoot next. They rolled 3,4 (2 hits &le;4)</li>",
+		"<li>The 16 surviving Type IX Replicators now have a chance to shoot. Prioritizing the Alien-B (but otherwise having &le;5 to hit all around), they rolled 9,5,6,9,3,9,1,10,1,10,9,2,6,1,2,10 (7 hits), easily finishing off the NPA stragglers</li>",
+		"<li>One of the victorious ships then deconstructs itself in order to start a new colony, and convert the alien technology into 10 CP</li></ol><p>While Xinu was busy with Aries, we opted to take advantage of our Space Pilgrims and enter into the neighboring black hole."],
 	"actions":
 		[{
 			"placeGhost":"typeExpV",
@@ -2767,7 +2863,12 @@
 			"size":1
 		}]},
 	{"heading":"Stardate 2408.7",
-	"commentary":"<p>Xinu has a superior fleet, yes; but our Titan fleet is protected by a black hole just outside their space. Thus, because they can not assault our fleet without risking unnecessary casualties, they will ignore our fleet and resume their movement toward our space.</p><p>Taking advantage of said protection, our Titan fleet now pushes closer to the homeworld of Alpha. We also intercept one of their Type Exp ships, using our Carrier fleet.</p><ol><li><b>Round 1</b>: We have 8 ships, to their 1 Type Exp. We have the fleet size bonus</li><li>But... the presence of an asteroid belt negates our weapon class advantage. Their ship shoots first. Since only our Fighters are fair game (yet), they rolled a 1 (hit &le;1)</li><li>Our 5 surviving Fighters now shoot. We rolled 2,5,6,7,10 (2 hits &le;5), cleanly finishing off this Type Exp</li></ol>",
+	"commentary":[
+		"Xinu has a superior fleet, yes; but our Titan fleet is protected by a black hole just outside their space. Thus, because they can not assault our fleet without risking unnecessary casualties, they will ignore our fleet and resume their movement toward our space.",
+		"Taking advantage of said protection, our Titan fleet now pushes closer to the homeworld of Alpha. We also intercept one of their Type Exp ships, using our Carrier fleet.",
+		"<ol><li><b>Round 1</b>: We have 8 ships, to their 1 Type Exp. We have the fleet size bonus</li>",
+		"<li>But... the presence of an asteroid belt negates our weapon class advantage. Their ship shoots first. Since only our Fighters are fair game (yet), they rolled a 1 (hit &le;1)</li>",
+		"<li>Our 5 surviving Fighters now shoot. We rolled 2,5,6,7,10 (2 hits &le;5), cleanly finishing off this Type Exp</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"expV1",
@@ -2849,7 +2950,9 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2409.0",
-	"commentary":"<p>Xinu is nearing depletion, for what little it matters this playthrough. They continue to produce more hulls. Now that they have money, they roll to determine where to spend their CP. A 9 normally would cause them to buy Movement technology, except they have already maxed that out. Since deep space has not yet been exhausted, no spending takes place this phase.</p><p>Meanwhile, we can take initiative for 15 CP. We then buy a full Titan (-47), spending our money.</p>",
+	"commentary":[
+		"Xinu is nearing depletion, for what little it matters this playthrough. They continue to produce more hulls. Now that they have money, they roll to determine where to spend their CP. A 9 normally would cause them to buy Movement technology, except they have already maxed that out. Since deep space has not yet been exhausted, no spending takes place this phase.",
+		"Meanwhile, we can take initiative for 15 CP. We then buy a full Titan (-47), spending our money."],
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":5,"colonyCP":73,"mineralCP":5,"pipeCP":0,"maint":20,"bidCP":15,"techBuy":0,"unitBuy":47
@@ -2917,7 +3020,9 @@
 			"name":"colony5B"
 		}]},
 	{"heading":"Stardate 2409.3 (The Battle for Alpha)",
-	"commentary":"<p>By stealing the initiative right from under Xinu's nose, we can immediately assault the homeworld of Alpha. Since they only have 1 hull to defend, and since they are in battle versus Fighters for the second time, their one and only hull automatically becomes a Type PD</p><p>Their Type PD has the Tactics advantage, so it shoots first. Prioritizing our Fighters, it rolls a 1 (hit &le;6). Our 2 Titans then rolled 5,9 (1 hit &le;8), finishing off the last straggler. Our Titans then use their extremely powerful weaponry to instantly <b>pulverize</b> their homeworld...</p>",
+	"commentary":[
+		"By stealing the initiative right from under Xinu's nose, we can immediately assault the homeworld of Alpha. Since they only have 1 hull to defend, and since they are in battle versus Fighters for the second time, their one and only hull automatically becomes a Type PD",
+		"Their Type PD has the Tactics advantage, so it shoots first. Prioritizing our Fighters, it rolls a 1 (hit &le;6). Our 2 Titans then rolled 5,9 (1 hit &le;8), finishing off the last straggler. Our Titans then use their extremely powerful weaponry to instantly <b>pulverize</b> their homeworld..."],
 	"actions":
 		[{
 			"placeCounter":"Titan1B",
@@ -2952,7 +3057,7 @@
 			"name":"home30V"
 		}]},
 	{"heading":"Stardate 2409.6 (Conclusion)",
-	"commentary":"<p>... ending the playthrough. Space Pilgrims is a huge boon, for the many benefits it provides to offensive fleets. It also helps that we came up with a plan from the beginning, and made certain to <i>not</i> deviate from the plan. The Replicators themselves have just two vulnerabilities when it comes to their colonies. We went with what was probably the easiest to field. Titans are easier and more natural to build than Anti-Replicator Transports.</p>",
+	"commentary":["... ending the playthrough. Space Pilgrims is a huge boon, for the many benefits it provides to offensive fleets. It also helps that we came up with a plan from the beginning, and made certain to <i>not</i> deviate from the plan. The Replicators themselves have just two vulnerabilities when it comes to their colonies. We went with what was probably the easiest to field. Titans are easier and more natural to build than Anti-Replicator Transports."],
 	"actions":
 		[{
 			"resizeCounter":"Ftr2B",

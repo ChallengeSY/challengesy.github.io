@@ -1,6 +1,8 @@
 {"stages": [
 	{"heading":"Stardate 2400.0 (Introduction)",
-	"commentary":"<p>Welcome to yet another Space Amoeba solitaire playthrough. Empire Advantages did not work out, given how wonky they can be in the first place. (Warrior Race bit us more than it helped us.)</p><p>While in between published playthroughs, All Good Things was released; giving us a new faction. Their Missile Boats appear to be a high risk high reward build, since battle-able amoeba types typically have 2 HP. Thus, we will try using them in this rematch on Hard difficulty. We have also named these amoeba after Neptune's moons.</p>",
+	"commentary":[
+		"Welcome to yet another Space Amoeba solitaire playthrough. Empire Advantages did not work out, given how wonky they can be in the first place. (Warrior Race bit us more than it helped us.)",
+		"While in between published playthroughs, All Good Things was released; giving us a new faction. Their Missile Boats appear to be a high risk high reward build, since battle-able amoeba types typically have 2 HP. Thus, we will try using them in this rematch on Hard difficulty. We have also named these amoeba after Neptune's moons."],
 	"amoebaTable":
 		[{
 			"name":"Despina (1)"
@@ -15,7 +17,7 @@
 			"playerColor":"O"
 		}]},
 	{"heading":"Stardate 2400.3",
-	"commentary":"<p>This is the first time we risk our Flagship to our home system black hole.</p>",
+	"commentary":["This is the first time we risk our Flagship to our home system black hole, simply because time is not a luxury against higher difficulty space amoeba."],
 	"actions":
 		[{
 			"placeCounter":"FlagO",
@@ -67,7 +69,7 @@
 			"name":"unexploredO"
 		}]},
 	{"heading":"Stardate 2400.6",
-	"commentary":"<p>With only a 5-economic phase grace period, combined with <i>2</i> previous defeats (one of which was never published); we need to be as aggressive as we can on exploration and colonization.</p>",
+	"commentary":["With only a 5-economic phase grace period, combined with <i>2</i> previous defeats (one of which was never published); we need to be as aggressive as we can on exploration and colonization."],
 	"actions":
 		[{
 			"placeCounter":"FlagO",
@@ -123,7 +125,10 @@
 			"name":"unexploredO"
 		}]},
 	{"heading":"Stardate 2400.9",
-	"commentary":"<p>Our objectives during the early stages are two-fold:</p><ol type=\"A\"><li>Get the available amoeba researched as quickly as possible (requires losing a ship to begin research on Minesweeping)</li><li>Ensure that there is a minelayer at each amoeba hex <i>before</i> they begin spreading in economic phase 5 (requires an explored path to each amoeba)</li></ol>",
+	"commentary":[
+		"Our objectives during the early stages are two-fold:",
+		"<ol type=\"A\"><li>Get the available amoeba researched as quickly as possible (requires losing a ship to begin research on Minesweeping)</li>",
+		"<li>Ensure that there is a minelayer at each amoeba hex <i>before</i> they begin spreading in economic phase 5 (requires an explored path to each amoeba)</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"FlagO",
@@ -181,7 +186,7 @@
 			"name":"planetO5"
 		}]},
 	{"heading":"Stardate 2401.0",
-	"commentary":"<p>Neither of these objectives are pursuable just yet. While the respective conditions are unmet, we will buy 3 Colony Ships (-24) and an extra Ship Yard (-6).</p>",
+	"commentary":["Neither of these objectives are pursuable just yet. While the respective conditions are unmet, we will buy 3 Colony Ships (-24) and an extra Ship Yard (-6)."],
 	"prodTable":
 		[{
 			"name":"CSY (Orange)","initCP":0,"colonyCP":30,"mineralCP":5,"pipeCP":0,"techBuy":0,"unitBuy":30
@@ -246,7 +251,7 @@
 			"name":"unexploredO"
 		}]},
 	{"heading":"Stardate 2401.2",
-	"commentary":"<p>The good news about Missile Boats is they are easier <i>and</i> slightly cheaper to tech up than Ship Size (3+).</p>",
+	"commentary":["The good news about Missile Boats is they are easier <i>and</i> slightly cheaper to tech up than Ship Size (3+)."],
 	"actions":
 		[{
 			"placeCounter":"FlagO",
@@ -305,7 +310,7 @@
 			"name":"unexploredO"
 		}]},
 	{"heading":"Stardate 2401.5",
-	"commentary":"<p>The bad news is they are just as good as a Destroyer (80% theoretical success chance) if we encounter the amoeba type that requires <a href=\"javascript:showBox('sa8')\">detonations</a>.</p>",
+	"commentary":["The bad news is they are just as good as a Destroyer (80% theoretical success chance) if we encounter the amoeba type that requires <a href=\"javascript:showBox('sa8')\">detonations</a>."],
 	"actions":
 		[{
 			"placeCounter":"FlagO",
@@ -360,7 +365,7 @@
 			"name":"unexploredO"
 		}]},
 	{"heading":"Stardate 2401.8",
-	"commentary":"<p>We finally run into our home system black hole; and it was a Scout that ran into it. We rolled a 7, causing the ship to be sucked in.</p>",
+	"commentary":["We finally run into our home system black hole; and it was a Scout that ran into it. We rolled a 7, causing the ship to be sucked in."],
 	"actions":
 		[{
 			"placeCounter":"FlagO",
@@ -417,7 +422,7 @@
 			"name":"planetO2"
 		}]},
 	{"heading":"Stardate 2402.0",
-	"commentary":"<p>The prerequisite to objective <b>A</b> has now been satisfied. Now that we have lost a ship to the amoeba, we can start work on Minesweeping 1. We will do just that (-10). We then buy 4 Minesweepers (-24) and 1 Colony Ship (-8).</p>",
+	"commentary":["The prerequisite to objective <b>A</b> has now been satisfied. Now that we have lost a ship to the amoeba, we can start work on Minesweeping 1. We will do just that (-10). We then buy 4 Minesweepers (-24) and 1 Colony Ship (-8)."],
 	"prodTable":
 		[{
 			"name":"CSY (Orange)","initCP":5,"colonyCP":32,"mineralCP":5,"pipeCP":0,"techBuy":10,"unitBuy":32
@@ -475,7 +480,7 @@
 			"name":"unexploredO"
 		}]},
 	{"heading":"Stardate 2402.1",
-	"commentary":"<p>We can explore more of the unexplored terrain while the first Minesweepers are on their way.</p>",
+	"commentary":["We can explore more of the unexplored terrain while the first Minesweepers are on their way."],
 	"actions":
 		[{
 			"placeCounter":"FlagO",
@@ -514,7 +519,7 @@
 			"name":"unexploredO"
 		}]},
 	{"heading":"Stardate 2402.4",
-	"commentary":"<p>And that is the last deep space planet available in this scenario.</p>",
+	"commentary":["And that is the last deep space planet available in this scenario."],
 	"actions":
 		[{
 			"placeCounter":"FlagO",
@@ -559,7 +564,7 @@
 			"name":"unexploredO"
 		}]},
 	{"heading":"Stardate 2402.7",
-	"commentary":"<p>Seems our home systems are being rude. 2 planets are still unaccounted for, and only 3 unexplored systems remain.</p>",
+	"commentary":["Seems our home systems are being rude. 2 planets are still unaccounted for, and only 3 unexplored systems remain."],
 	"actions":
 		[{
 			"placeCounter":"FlagO",
@@ -619,7 +624,9 @@
 			"name":"planetO4"
 		}]},
 	{"heading":"Stardate 2403.0",
-	"commentary":"<p>This is not a good sign. We are unable to fully accomplish objective <b>B</b>, because we did not quite manage our money wisely.</p><p>We will prioritize the amoeba that do <i>not</i> already have minesweepers en route. To that end, we will buy Minelaying (-30), followed by 2 Minelayers (-10).</p>",
+	"commentary":[
+		"This is not a good sign. We are unable to fully accomplish objective <b>B</b>, because we did not quite manage our money wisely.",
+		"We will prioritize the amoeba that do <i>not</i> already have minesweepers en route. To that end, we will buy Minelaying (-30), followed by 2 Minelayers (-10)."],
 	"prodTable":
 		[{
 			"name":"CSY (Orange)","initCP":0,"colonyCP":38,"mineralCP":5,"pipeCP":0,"techBuy":30,"unitBuy":10
@@ -685,7 +692,7 @@
 			"name":"unexploredO"
 		}]},
 	{"heading":"Stardate 2403.3",
-	"commentary":"<p>Finally, we got the last of the home systems.</p>",
+	"commentary":["Finally, we got the last of the home systems."],
 	"actions":
 		[{
 			"placeCounter":"FlagO",
@@ -730,7 +737,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2403.6",
-	"commentary":"<p>Only a bunch of dense minerals remain now...</p>",
+	"commentary":["Only a bunch of dense minerals remain now..."],
 	"actions":
 		[{
 			"placeCounter":"FlagO",
@@ -769,7 +776,7 @@
 			"name":"minerals10"
 		}]},
 	{"heading":"Stardate 2403.9",
-	"commentary":"<p>Our Minesweepers have finally made it to Thalassa. They rolled 2,5,7,10 (3 RP + 1 loss).</p>",
+	"commentary":["Our Minesweepers have finally made it to Thalassa. They rolled 2,5,7,10 (3 RP + 1 loss)."],
 	"amoebaTable":
 		[{
 			"name":"Despina (1)"
@@ -834,7 +841,7 @@
 			"name":"planetO6"
 		}]},
 	{"heading":"Stardate 2404.0",
-	"commentary":"<p>Our grace period is nearing expiration, and Ship Yard capacity is currently the bottleneck! Thus, we buy 4 Minelayers (-20) and 1 Colony Ship (-8), followed by an extra Ship Yard (-6).</p>",
+	"commentary":["Our grace period is nearing expiration, and Ship Yard capacity is currently the bottleneck! Thus, we buy 4 Minelayers (-20) and 1 Colony Ship (-8), followed by an extra Ship Yard (-6)."],
 	"prodTable":
 		[{
 			"name":"CSY (Orange)","initCP":3,"colonyCP":48,"mineralCP":0,"pipeCP":0,"techBuy":0,"unitBuy":34
@@ -904,7 +911,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2404.2",
-	"commentary":"<p>Hopefully these Minesweepers can fully understand Thalassa before spreading begins. The remaining ships rolled 7,7,7 (0 RP + 0 losses).</p>",
+	"commentary":["Hopefully these Minesweepers can fully understand Thalassa before spreading begins. The remaining ships rolled 7,7,7 (0 RP + 0 losses)."],
 	"amoebaTable":
 		[{
 			"name":"Despina (1)"
@@ -950,7 +957,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2404.5",
-	"commentary":"<p>The Minesweepers rolled 2,8,10 (2 RP + 1 loss).</p>",
+	"commentary":["The Minesweepers rolled 2,8,10 (2 RP + 1 loss)."],
 	"amoebaTable":
 		[{
 			"name":"Despina (1)"
@@ -1000,7 +1007,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2404.8",
-	"commentary":"<p>The Minesweepers rolled 5,6 (1 RP + 0 losses).</p>",
+	"commentary":["The Minesweepers rolled 5,6 (1 RP + 0 losses)."],
 	"amoebaTable":
 		[{
 			"name":"Despina (1)"
@@ -1076,7 +1083,11 @@
 			"name":"planetO7"
 		}]},
 	{"heading":"Stardate 2405.0",
-	"commentary":"<p>Amoeba have begun to spread! Granted, recent minelayer detonations have sharply slowed their spread, but we were still unable to stop them entirely.</p><p>The types that were inhibited this economic phase rolled 5 (Despina) / 3 (Halimede). Neither of them gain immunity this time. (&ge;9 required to gain immunity.)</p>{amoebaTable}<p>Now that the amoeba have conducted their turn (so to speak), we can conduct our economics. We start with Ship Yards 2 (-20). We then buy another 4 Minelayers (-20) and 5 Minesweepers (-30).</p>",
+	"commentary":[
+		"Amoeba have begun to spread! Granted, recent minelayer detonations have sharply slowed their spread, but we were still unable to stop them entirely.",
+		"The types that were inhibited this economic phase rolled 5 (Despina) / 3 (Halimede). Neither of them gain immunity this time. (&ge;9 required to gain immunity.)",
+		"{amoebaTable}",
+		"Now that the amoeba have conducted their turn (so to speak), we can conduct our economics. We start with Ship Yards 2 (-20). We then buy another 4 Minelayers (-20) and 5 Minesweepers (-30)."],
 	"prodTable":
 		[{
 			"name":"CSY (Orange)","initCP":17,"colonyCP":57,"mineralCP":10,"pipeCP":0,"techBuy":20,"unitBuy":50
@@ -1159,7 +1170,7 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2405.1",
-	"commentary":"<p>While our backup Minesweepers are en route, the ships already in position rolled 1,2 (4 RP + 0 losses). Miraculously, we already managed to learn Thalassa. We rolled a 1 to learn its strength.</p>",
+	"commentary":["While our backup Minesweepers are en route, the ships already in position rolled 1,2 (4 RP + 0 losses). Miraculously, we already managed to learn Thalassa. We rolled a 1 to learn its strength."],
 	"amoebaTable":
 		[{
 			"name":"Despina (1)"
@@ -1213,7 +1224,7 @@
 			"size":3
 		}]},
 	{"heading":"Stardate 2405.4",
-	"commentary":"<p>How fortuitous that we were already able to get our <q>backup</q> minesweepers slightly to the right. We will simply send them to Halimede, while the survivors from Thalassa go to Despina.</p>",
+	"commentary":["How fortuitous that we were already able to get our <q>backup</q> minesweepers slightly to the right. We will simply send them to Halimede, while the survivors from Thalassa go to Despina."],
 	"actions":
 		[{
 			"placeCounter":"FlagO",
@@ -1259,7 +1270,7 @@
 			"size":3
 		}]},
 	{"heading":"Stardate 2405.7",
-	"commentary":"<p>This process means we get a small break from dice rolls, until our Minesweepers get in position to research the amoeba that are still unknown.</p>",
+	"commentary":["This process means we get a small break from dice rolls, until our Minesweepers get in position to research the amoeba that are still unknown."],
 	"actions":
 		[{
 			"placeCounter":"FlagO",
@@ -1317,7 +1328,10 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2406.0",
-	"commentary":"<p>Normally, this would be a time where amoeba would resume spreading. We have managed to inhibit <i>all</i> infected hexes this time. They rolled 6 (Despina) / 2 (Halimede) / 6 (Thalassa). No immunities acquired still.</p>{amoebaTable}<p>Now might be a good time to try out the newest toys. We will start with Missile Boats 1 (-20). We then build 2 Minelayers (-10) + 5 Missile Boats (-50) + 1 Minesweeper (-6).</p>",
+	"commentary":[
+		"Normally, this would be a time where amoeba would resume spreading. We have managed to inhibit <i>all</i> infected hexes this time. They rolled 6 (Despina) / 2 (Halimede) / 6 (Thalassa). No immunities acquired still.",
+		"{amoebaTable}",
+		"Now might be a good time to try out the newest toys. We will start with Missile Boats 1 (-20). We then build 2 Minelayers (-10) + 5 Missile Boats (-50) + 1 Minesweeper (-6)."],
 	"prodTable":
 		[{
 			"name":"CSY (Orange)","initCP":14,"colonyCP":64,"mineralCP":10,"pipeCP":0,"techBuy":20,"unitBuy":66
@@ -1393,7 +1407,9 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2406.3",
-	"commentary":"<p>This is a rather bold attempt we are making, but we still should attempt to battle at least one of Thalassa's hexes.</p><p>This is one of the few times where our Flagship has a weapon class advantage. We shoot first, having rolled a 3 (hit &le;4). Since Thalassa only has 1 HP in each hex, we easily cleanse this hex.</p>",
+	"commentary":[
+		"This is a rather bold attempt we are making, but we still should attempt to battle at least one of Thalassa's hexes.",
+		"This is one of the few times where our Flagship has a weapon class advantage. We shoot first, having rolled a 3 (hit &le;4). Since Thalassa only has 1 HP in each hex, we easily cleanse this hex."],
 	"actions":
 		[{
 			"placeCounter":"FlagO",
@@ -1444,7 +1460,11 @@
 			"name":"amoeba3"
 		}]},
 	{"heading":"Stardate 2406.6",
-	"commentary":"<p>Since we were decisively successful, we challenge Thalassa's last hex.</p><ol><li><b>Round 1</b>: Our Flagship rolled a 7... a miss (&le;4 to hit)</li><li>Thalassa rolls a 4 to target our cheapest ships (Scout), followed by a 6 to try to swallow our Scout (success &le;7). This was only marginally successful, so that finishes its <q>shooting</q><br /><br /></li><li><b>Round 2</b>: Our Flagship rolled a 4... barely cleansing this hex too!</li></ol>",
+	"commentary":[
+		"Since we were decisively successful, we challenge Thalassa's last hex.",
+		"<ol><li><b>Round 1</b>: Our Flagship rolled a 7... a miss (&le;4 to hit)</li>",
+		"<li>Thalassa rolls a 4 to target our cheapest ships (Scout), followed by a 6 to try to swallow our Scout (success &le;7). This was only marginally successful, so that finishes its <q>shooting</q><br /><br /></li>",
+		"<li><b>Round 2</b>: Our Flagship rolled a 4... barely cleansing this hex too!</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"FlagO",
@@ -1500,7 +1520,9 @@
 			"name":"amoeba3"
 		}]},
 	{"heading":"Stardate 2406.9",
-	"commentary":"<p>It is not everyday we find an amoeba type weak enough to be eliminable by our starting forces. Such is also a fortunate side effect of slowing their spread with Minelayers. In return though, we will never encounter this very same type again for the rest of the playthrough.</p><p>Against Halimede, our Minesweepers have rolled 4,5,6,7,8 (2 RP + 0 losses).</p>",
+	"commentary":[
+		"It is not everyday we find an amoeba type weak enough to be eliminable by our starting forces. Such is also a fortunate side effect of slowing their spread with Minelayers. In return though, we will never encounter this very same type again for the rest of the playthrough.",
+		"Against Halimede, our Minesweepers have rolled 4,5,6,7,8 (2 RP + 0 losses)."],
 	"amoebaTable":
 		[{
 			"name":"Despina (1)"
@@ -1566,7 +1588,10 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2407.0",
-	"commentary":"<p>Once again, spreading has been stopped via Minelayer detonations. The amoeba types that are still alive have rolled 5 (Despina) / 5 (Halimede). No immunities acquired still.</p>{amoebaTable}<p>Since we got some extra minelayers from no longer needing to inhibit Thalassa, we opted to buy 9 extra Minesweepers (-54) this phase.</p>",
+	"commentary":[
+		"Once again, spreading has been stopped via Minelayer detonations. The amoeba types that are still alive have rolled 5 (Despina) / 5 (Halimede). No immunities acquired still.",
+		"{amoebaTable}",
+		"Since we got some extra minelayers from no longer needing to inhibit Thalassa, we opted to buy 9 extra Minesweepers (-54) this phase."],
 	"prodTable":
 		[{
 			"name":"CSY (Orange)","initCP":2,"colonyCP":68,"mineralCP":0,"pipeCP":0,"techBuy":0,"unitBuy":54
@@ -1632,7 +1657,7 @@
 			"name":"colony5O"
 		}]},
 	{"heading":"Stardate 2407.2",
-	"commentary":"<p>Halimede studies continue. The remaining ships rolled 3,4,5,6,8 (3 RP + 0 losses).</p>",
+	"commentary":["Halimede studies continue. The remaining ships rolled 3,4,5,6,8 (3 RP + 0 losses)."],
 	"amoebaTable":
 		[{
 			"name":"Despina (1)"
@@ -1683,7 +1708,7 @@
 			"size":3
 		}]},
 	{"heading":"Stardate 2407.5",
-	"commentary":"<p>Both remaining amoeba types are now able to be studied. Against Despina, we rolled 8,9 (0 RP + 1 loss). Against Halimede, we rolled 1,4,6,6,7 (3 RP + 0 losses).</p>",
+	"commentary":["Both remaining amoeba types are now able to be studied. Against Despina, we rolled 8,9 (0 RP + 1 loss). Against Halimede, we rolled 1,4,6,6,7 (3 RP + 0 losses)."],
 	"amoebaTable":
 		[{
 			"name":"Despina (1)"
@@ -1734,7 +1759,7 @@
 			"size":3
 		}]},
 	{"heading":"Stardate 2407.8",
-	"commentary":"<p>Amoeba studies continue. Against Despina, we rolled 2,9 (2 RP + 1 loss). Against Halimede, we rolled 2,2,3,5,8 (6 RP + 0 losses). Since we finished studying Halimede, we then roll a 10 on the strength table; this amoeba is <i>not</i> battle-able!</p>",
+	"commentary":["Amoeba studies continue. Against Despina, we rolled 2,9 (2 RP + 1 loss). Against Halimede, we rolled 2,2,3,5,8 (6 RP + 0 losses). Since we finished studying Halimede, we then roll a 10 on the strength table; this amoeba is <i>not</i> battle-able!"],
 	"amoebaTable":
 		[{
 			"name":"Despina (1)","RP":2
@@ -1787,7 +1812,10 @@
 			"size":1
 		}]},
 	{"heading":"Stardate 2408.0",
-	"commentary":"<p>We stop the spread <i>yet again</i>. The remaining amoeba rolled 9 (Despina) / 8 (Thalassa), causing the former to gain immunity to subsequent minelayers. It was only a matter of time before this would happen.</p>{amoebaTable}<p>Anyway, since we got tons of minesweepers en route, we will go on ahead and buy 9 Missile Boats (-90).</p>",
+	"commentary":[
+		"We stop the spread <i>yet again</i>. The remaining amoeba rolled 9 (Despina) / 8 (Thalassa), causing the former to gain immunity to subsequent minelayers. It was only a matter of time before this would happen.",
+		"{amoebaTable}",
+		"Anyway, since we got tons of minesweepers en route, we will go on ahead and buy 9 Missile Boats (-90)."],
 	"prodTable":
 		[{
 			"name":"CSY (Orange)","initCP":16,"colonyCP":70,"mineralCP":10,"pipeCP":0,"techBuy":0,"unitBuy":90
@@ -1850,7 +1878,7 @@
 			"size":1
 		}]},
 	{"heading":"Stardate 2408.1",
-	"commentary":"<p>Hopefully our efforts against Despina will be sufficient such that we can eventually start cleansing their hexes. For now, our last ship rolls a 6 (nothing).</p>",
+	"commentary":["Hopefully our efforts against Despina will be sufficient such that we can eventually start cleansing their hexes. For now, our last ship rolls a 6 (nothing)."],
 	"amoebaTable":
 		[{
 			"name":"Despina (1)","RP":2,"noMines":true
@@ -1898,7 +1926,7 @@
 			"name":"minerals5"
 		}]},
 	{"heading":"Stardate 2408.4",
-	"commentary":"<p>Our first Missile Boat attempts detonation against Halimede. We rolled an 8, barely cleansing this hex! Against Despina, we rolled a 1 (+2 RP).</p>",
+	"commentary":["Our first Missile Boat attempts detonation against Halimede. We rolled an 8, barely cleansing this hex! Against Despina, we rolled a 1 (+2 RP)."],
 	"amoebaTable":
 		[{
 			"name":"Despina (1)","RP":4,"noMines":true
@@ -1955,7 +1983,9 @@
 			"name":"amoeba2"
 		}]},
 	{"heading":"Stardate 2408.7",
-	"commentary":"<p>Our Minelayers are no longer useful now that every amoeba type has gained immunity <i>or</i> has been cleansed entirely. Thus, we have scuttled them to make the board cleaner.</p><p>Our research against Despina has been vastly reinforced. We rolled 1,4,6,6,7,9 (3 RP + 1 loss).</p>",
+	"commentary":[
+		"Our Minelayers are no longer useful now that every amoeba type has gained immunity <i>or</i> has been cleansed entirely. Thus, we have scuttled them to make the board cleaner.",
+		"Our research against Despina has been vastly reinforced. We rolled 1,4,6,6,7,9 (3 RP + 1 loss)."],
 	"amoebaTable":
 		[{
 			"name":"Despina (1)","RP":7,"noMines":true
@@ -2008,7 +2038,7 @@
 			"removeCounter":"systemK2"
 		}]},
 	{"heading":"Stardate 2409.0",
-	"commentary":"<p>Not much to say; now that we no longer have to do immunity checks. Despina is the only amoeba type still alive, and it has previously gained minelayer immunity. We buy another 8 Missile Boats (-80).</p>",
+	"commentary":["Not much to say; now that we no longer have to do immunity checks. Despina is the only amoeba type still alive, and it has previously gained minelayer immunity. We buy another 8 Missile Boats (-80)."],
 	"prodTable":
 		[{
 			"name":"CSY (Orange)","initCP":6,"colonyCP":70,"mineralCP":5,"pipeCP":0,"techBuy":0,"unitBuy":80
@@ -2056,7 +2086,7 @@
 			"name":"amoeba1"
 		}]},
 	{"heading":"Stardate 2409.3",
-	"commentary":"<p>This is one of the few times where we are <i>booking</i> it! Against the black hole, we rolled 3,7,7,7,10 (4 losses). Against Despina, we rolled 2,2,4,7,9 (5 RP + 1 loss). On the strength step, we rolled a 4.</p>",
+	"commentary":["This is one of the few times where we are <i>booking</i> it! Against the black hole, we rolled 3,7,7,7,10 (4 losses). Against Despina, we rolled 2,2,4,7,9 (5 RP + 1 loss). On the strength step, we rolled a 4."],
 	"amoebaTable":
 		[{
 			"name":"Despina (1)","RP":12,"str":4,"noMines":true
@@ -2099,7 +2129,10 @@
 			"size":1
 		}]},
 	{"heading":"Stardate 2409.6",
-	"commentary":"<p>And again! Against the black hole, we rolled 2,6,7,9 (2 losses). We are now ready to conduct a battle.</p><ol><li><b>Round 1</b>: Despina has the tactics advantage, so it <q>shoots</q> first. Since we no longer need our Minesweepers to do their work, we will use them in battle. Despina rolled 2,4/6,9 (1 swallow &le;7)</li><li>Our Missile Boats launch their missiles. Since there are no ships in between, they immediately reach their target. We rolled 3,3,4,5,5,7,7,7,7 (3 hits &le;4), cleansing this hex</li></ol>",
+	"commentary":[
+		"And again! Against the black hole, we rolled 2,6,7,9 (2 losses). We are now ready to conduct a battle.",
+		"<ol><li><b>Round 1</b>: Despina has the tactics advantage, so it <q>shoots</q> first. Since we no longer need our Minesweepers to do their work, we will use them in battle. Despina rolled 2,4/6,9 (1 swallow &le;7)</li>",
+		"<li>Our Missile Boats launch their missiles. Since there are no ships in between, they immediately reach their target. We rolled 3,3,4,5,5,7,7,7,7 (3 hits &le;4), cleansing this hex</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"FlagO",
@@ -2137,7 +2170,8 @@
 			"name":"amoeba1"
 		}]},
 	{"heading":"Stardate 2409.9",
-	"commentary":"<p>This could be the final battle! We should make it count!</p><ol><li><b>Round 1</b>: Despina rolls 3,10 (0 swallows &le;7)</li><li>Our Missiles rolled 4,5,5,6,6,7,7,8,10 (1 hit &le;4), cleansing this hex also</li></ol>",
+	"commentary":["This could be the final battle! We should make it count!",
+		"Despina rolls 3,10 (0 swallows &le;7). Our Missiles then rolled 4,5,5,6,6,7,7,8,10 (1 hit &le;4), cleansing this hex also."],
 	"actions":
 		[{
 			"placeCounter":"FlagO",
@@ -2180,7 +2214,10 @@
 			"name":"amoeba1"
 		}]},
 	{"heading":"Stardate 2410.0 (Conclusion)",
-	"commentary":"<p>We have conquered Space Amoeba solitaire at last on Hard! After 2 failed attempts, we believe we truly earned this one.</p><p>Granted, Missile Boats are a bit cheesy (2 damage per hit, and with decent accuracy), and we had quite the luck on Minesweepers (we learned and eliminated <a href=\"javascript:showBox('sa1')\">Thalassa</a> early), and even Minelayers. <a href=\"javascript:showBox('sa10')\">Halimede</a> never gained immunity. <a href=\"javascript:showBox('sa4')\">Despina</a> did not gain immunity until it was already stopped for 4 economic phases (roughly a 41% to not become immune at this stage); at which point its infestion was significantly limited. Sometimes we need a breath of fresh air, and All Good Things gave us just that.</p><p>There exist two unbeaten harder difficulties; both of which cause amoeba to start spreading at a <i>mere</i> economic phase 4 (not to mention one of them gives the amoeba +1/+1). If we follow a similar build, we may have to sacrifice our economy to slow their spread as much as possible.</p>",
+	"commentary":[
+		"We have conquered Space Amoeba solitaire at last on Hard! After 2 failed attempts, we believe we truly earned this one.",
+		"Granted, Missile Boats are a bit cheesy (2 damage per hit, and with decent accuracy), and we had quite the luck on Minesweepers (we learned and eliminated <a href=\"javascript:showBox('sa1')\">Thalassa</a> early), and even Minelayers. <a href=\"javascript:showBox('sa10')\">Halimede</a> never gained immunity. <a href=\"javascript:showBox('sa4')\">Despina</a> did not gain immunity until it was already stopped for 4 economic phases (roughly a 41% to not become immune at this stage); at which point its infestion was significantly limited. Sometimes we need a breath of fresh air, and All Good Things gave us just that.",
+		"There exist two unbeaten harder difficulties; both of which cause amoeba to start spreading at a <i>mere</i> economic phase 4 (not to mention one of them gives the amoeba +1/+1). If we follow a similar build, we may have to sacrifice our economy to slow their spread as much as possible."],
 	"amoebaTable":
 		[{
 			"name":"Despina (1)","RP":12,"str":4,"noMines":true,"isDead":true

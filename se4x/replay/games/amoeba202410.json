@@ -1,6 +1,8 @@
 {"stages": [
 	{"heading":"Stardate 2400.0 (Introduction)",
-	"commentary":"<p>Welcome to another Close Encounters Space Amoeba solitaire playthrough. The names assigned to the Amoebas this playthrough are based on Uranus' moons. Since we were successful last time, we will be attempt this scenario on Hard difficulty.</p><p>This time, we will try our hand with Empire Advantages, so we opt to draw a pair of cards. Our available choices this playthrough are Horsemen of the Plains, and Warrior Race. We will settle for the latter this playthrough.</p>",
+	"commentary":[
+		"Welcome to another Close Encounters Space Amoeba solitaire playthrough. The names assigned to the Amoebas this playthrough are based on Uranus' moons. Since we were successful last time, we will be attempt this scenario on Hard difficulty.",
+		"This time, we will try our hand with Empire Advantages, so we opt to draw a pair of cards. Our available choices this playthrough are Horsemen of the Plains, and Warrior Race. We will settle for the latter this playthrough."],
 	"amoebaTable":
 		[{
 			"name":"Desdomona (1)"
@@ -15,7 +17,7 @@
 			"playerColor":"G"
 		}]},
 	{"heading":"Stardate 2400.3 (Turn 1)",
-	"commentary":"<p>As usual with no Exploration at our side, we will hold back on our Flagship.</p>",
+	"commentary":["As usual with no Exploration at our side, we will hold back on our Flagship."],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -61,7 +63,7 @@
 			"name":"unexploredG"
 		}]},
 	{"heading":"Stardate 2400.6 (Turn 2)",
-	"commentary":"<p>Replicators aside, there is always a black hole lingering somewhere in our home systems...</p>",
+	"commentary":["Replicators aside, there is always a black hole lingering somewhere in our home systems..."],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -111,7 +113,7 @@
 			"name":"unexploredG"
 		}]},
 	{"heading":"Stardate 2400.9 (Turn 3)",
-	"commentary":"<p>... until we uncover it.</p>",
+	"commentary":["... until we uncover it."],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -168,7 +170,9 @@
 			"name":"minerals5"
 		}]},
 	{"heading":"Stardate 2401.0 (Economic Phase 1)",
-	"commentary":"<p>Thanks to our scenario of choice, we need not have to worry about maintenance. However, if we are to get a foothold on Minesweeping, we must lose a ship to the Amoeha themselves. On top of that, Hard difficulty gives us just a <b>5</b> economic phase grace period before these amoeba start spreading.</p><p>At least we were able to get an excellent start, having founded 3 colonies this phase. We will buy 2 Scouts (-12), 1 Miner (-5), and 1 Colony Ship (-8). This uses all of our Ship Yard capacity.</p>",
+	"commentary":[
+		"Thanks to our scenario of choice, we need not have to worry about maintenance. However, if we are to get a foothold on Minesweeping, we must lose a ship to the Amoeha themselves. On top of that, Hard difficulty gives us just a <b>5</b> economic phase grace period before these amoeba start spreading.",
+		"At least we were able to get an excellent start, having founded 3 colonies this phase. We will buy 2 Scouts (-12), 1 Miner (-5), and 1 Colony Ship (-8). This uses all of our Ship Yard capacity."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":0,"colonyCP":30,"mineralCP":5,"pipeCP":0,"techBuy":0,"unitBuy":25
@@ -235,7 +239,7 @@
 			"name":"unexploredG"
 		}]},
 	{"heading":"Stardate 2401.2 (Turn 4)",
-	"commentary":"<p>Taking advantage of how much safer deep space is (though only thanks to the scenario setup), our Flagship will be uncovering the western half of unexplored systems.</p>",
+	"commentary":["Taking advantage of how much safer deep space is (though only thanks to the scenario setup), our Flagship will be uncovering the western half of unexplored systems."],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -300,7 +304,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2401.5 (Turn 5)",
-	"commentary":"<p>So far, our home system black hole is well hidden.</p>",
+	"commentary":["So far, our home system black hole is well hidden."],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -367,7 +371,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2401.8 (Turn 6)",
-	"commentary":"<p>Whump! One of our Scouts has been swallowed this turn! Speaking of, the newly uncovered black hole also gets a chance to suck a Scout in. It rolled a 3 (failure &le;6).</p>",
+	"commentary":["Whump! One of our Scouts has been swallowed this turn! Speaking of, the newly uncovered black hole also gets a chance to suck a Scout in. It rolled a 3 (failure &le;6)."],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -438,7 +442,7 @@
 			"name":"planetG3"
 		}]},
 	{"heading":"Stardate 2402.0 (Econimic Phase 2)",
-	"commentary":"<p>With a reduced grace period available, we need to be aggressive on learning these amoeba. Thus, we will buy Minesweeping 1 (-10), followed by 4 Minesweepers (-24) at the homeworld. We will also buy 2 forward Ship Yards (-12) at the farthest colonies.</p>",
+	"commentary":["With a reduced grace period available, we need to be aggressive on learning these amoeba. Thus, we will buy Minesweeping 1 (-10), followed by 4 Minesweepers (-24) at the homeworld. We will also buy 2 forward Ship Yards (-12) at the farthest colonies."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":10,"colonyCP":33,"mineralCP":5,"pipeCP":0,"techBuy":10,"unitBuy":36
@@ -512,7 +516,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2402.1 (Turn 7)",
-	"commentary":"<p>Now that our home system black hole has been uncovered, there should be no unexplored hazards left to worry about.</p>",
+	"commentary":["Now that our home system black hole has been uncovered, there should be no unexplored hazards left to worry about."],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -570,7 +574,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2402.4 (Turn 8)",
-	"commentary":"<p>We are almost done with the remaining unexplored systems...</p>",
+	"commentary":["We are almost done with the remaining unexplored systems..."],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -636,7 +640,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2402.7 (Turn 9)",
-	"commentary":"<p>And with that out of the way, we have finished exploring the map.</p>",
+	"commentary":["And with that out of the way, we have finished exploring the map."],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -705,7 +709,7 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2403.0 (Economic Phase 3)",
-	"commentary":"<p>We are now more than half way through the provided grace period. We need to keep on pushing for more amoeba knowledge. We will buy another 4 Minesweepers (-24) at our homeworld, and 2 Colony Ships (-16) at our respective forward Ship Yards.</p>",
+	"commentary":["We are now more than half way through the provided grace period. We need to keep on pushing for more amoeba knowledge. We will buy another 4 Minesweepers (-24) at our homeworld, and 2 Colony Ships (-16) at our respective forward Ship Yards."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":2,"colonyCP":40,"mineralCP":0,"pipeCP":0,"techBuy":0,"unitBuy":40
@@ -763,7 +767,7 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2403.3 (Turn 10)",
-	"commentary":"<p>Now that one of our groups of Minesweepers is more than half way to reaching a destination, we can consolidate our remaining combat ships accordingly.</p>",
+	"commentary":["Now that one of our groups of Minesweepers is more than half way to reaching a destination, we can consolidate our remaining combat ships accordingly."],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -801,7 +805,7 @@
 			"location":"L8"
 		}]},
 	{"heading":"Stardate 2403.6 (Turn 11)",
-	"commentary":"<p>This is a relatively lax turn. May as well as make the most of it, as something big will happen very soon.</p>",
+	"commentary":["This is a relatively lax turn. May as well as make the most of it, as something big will happen very soon."],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -840,7 +844,7 @@
 			"location":"L9"
 		}]},
 	{"heading":"Stardate 2403.9 (Turn 12)",
-	"commentary":"<p>Our initial Minesweepers have arrived at Stephano, and are ready to conduct research on it. Their luck has been horrible though, rolling 5,8,9,10 (1 RP + 2 losses)</p>",
+	"commentary":["Our initial Minesweepers have arrived at Stephano, and are ready to conduct research on it. Their luck has been horrible though, rolling 5,8,9,10 (1 RP + 2 losses)"],
 	"amoebaTable":
 		[{
 			"name":"Desdomona (1)"
@@ -914,7 +918,9 @@
 			"name":"planetG8"
 		}]},
 	{"heading":"Stardate 2404.0 (Economic Phase 4)",
-	"commentary":"<p>The amoeba will start spreading soon. This recent setback is not good, as we need every bit of RP as soon as possible!</p><p>Now that Minesweeping 2 is fair game (we did begin our studies after all), we will amplify our push and buy it (-15). The forward Ship Yard at K8 will buy a Colony Ship (-8), while all other capacity will be spent on more Minesweepers (-30 total). Our existing forward sites will also buy extra Ship Yards (-12 total)</p>",
+	"commentary":[
+		"The amoeba will start spreading soon. This recent setback is not good, as we need every bit of RP as soon as possible!",
+		"Now that Minesweeping 2 is fair game (we did begin our studies after all), we will amplify our push and buy it (-15). The forward Ship Yard at K8 will buy a Colony Ship (-8), while all other capacity will be spent on more Minesweepers (-30 total). Our existing forward sites will also buy extra Ship Yards (-12 total)"],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":2,"colonyCP":48,"mineralCP":20,"pipeCP":0,"techBuy":15,"unitBuy":50
@@ -982,7 +988,7 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2404.2",
-	"commentary":"<p>While we move the rest of our ships, our 2 surviving Minesweepers will continue to survey Stephano. We rolled 3,7 (1 RP + 0 losses).</p>",
+	"commentary":["While we move the rest of our ships, our 2 surviving Minesweepers will continue to survey Stephano. We rolled 3,7 (1 RP + 0 losses)."],
 	"amoebaTable":
 		[{
 			"name":"Desdomona (1)"
@@ -1018,7 +1024,7 @@
 			"location":"L4"
 		}]},
 	{"heading":"Stardate 2404.5",
-	"commentary":"<p>Stephano's research continues. We rolled 4,7 (1 RP + 0 losses).</p>",
+	"commentary":["Stephano's research continues. We rolled 4,7 (1 RP + 0 losses)."],
 	"amoebaTable":
 		[{
 			"name":"Desdomona (1)"
@@ -1056,7 +1062,7 @@
 			"location":"L3"
 		}]},
 	{"heading":"Stardate 2404.8",
-	"commentary":"<p>We now have minesweepers at each of two types of amoebas. We will start with the duo at Stephano, rolling 5,9 (1 RP + 1 loss). A squad also arrived at Juliet, rolling 4,6,6,7 (1 RP + 0 losses).</p>",
+	"commentary":["We now have minesweepers at each of two types of amoebas. We will start with the duo at Stephano, rolling 5,9 (1 RP + 1 loss). A squad also arrived at Juliet, rolling 4,6,6,7 (1 RP + 0 losses)."],
 	"amoebaTable":
 		[{
 			"name":"Desdomona (1)"
@@ -1124,7 +1130,9 @@
 			"name":"planetG1"
 		}]},
 	{"heading":"Stardate 2405.0",
-	"commentary":"<p>We have ran out of time! The amoebas have started to spread! Normally, their spreading causes them to battle/destroy any ships that get in their way. But, because one of them spreaded to a minesweeper, no battle takes place.</p><p>Anyway, we will buy Ship Size 2 (-10), Movement 2 (-20). We will then buy 3 Minesweepers (-18) at K8, and our forward sites each get an extra Ship Yard (-12).</p>",
+	"commentary":[
+		"We have ran out of time! The amoebas have started to spread! Normally, their spreading causes them to battle/destroy any ships that get in their way. But, because one of them spreaded to a minesweeper, no battle takes place.",
+		"Anyway, we will buy Ship Size 2 (-10), Movement 2 (-20). We will then buy 3 Minesweepers (-18) at K8, and our forward sites each get an extra Ship Yard (-12)."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":5,"colonyCP":52,"mineralCP":10,"pipeCP":0,"techBuy":30,"unitBuy":30
@@ -1190,7 +1198,7 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2405.1",
-	"commentary":"<p>We are scrambling to get RP a-ess-a-pee on the amoeba. For Stephano, we roll a 10 (last ship destroyed). For Juliet, we rolled 5,7,7,8 (1 RP + 0 losses). Against Desdomona, this is the first time we will be using augmented minesweepers; where rolling is done in pairs, taking the best result from each pair. For our first such minesweeper, we rolled 4,10 (1 RP).</p>",
+	"commentary":["We are scrambling to get RP a-ess-a-pee on the amoeba. For Stephano, we roll a 10 (last ship destroyed). For Juliet, we rolled 5,7,7,8 (1 RP + 0 losses). Against Desdomona, this is the first time we will be using augmented minesweepers; where rolling is done in pairs, taking the best result from each pair. For our first such minesweeper, we rolled 4,10 (1 RP)."],
 	"amoebaTable":
 		[{
 			"name":"Desdomona (1)","RP":1
@@ -1227,7 +1235,7 @@
 			"location":"J8"
 		}]},
 	{"heading":"Stardate 2405.4",
-	"commentary":"<p>We are no longer able to research Stephano until we send more Minesweepers their way. We still got 4 ships for Juliet, rolling 1,4,7,7 (3 RP + 0 losses). We now have 5 ships for Desdomona, rolling 7,10 / 8,1 / 6,1 / 1,6 / 7,5 (7 RP + 0 losses)</p>",
+	"commentary":["We are no longer able to research Stephano until we send more Minesweepers their way. We still got 4 ships for Juliet, rolling 1,4,7,7 (3 RP + 0 losses). We now have 5 ships for Desdomona, rolling 7,10 / 8,1 / 6,1 / 1,6 / 7,5 (7 RP + 0 losses)"],
 	"amoebaTable":
 		[{
 			"name":"Desdomona (1)","RP":8
@@ -1272,7 +1280,9 @@
 			"name":"amoeba1"
 		}]},
 	{"heading":"Stardate 2405.7",
-	"commentary":"<p>Thanks to having applied the latest Movement equipment to the newest trio of minesweepers, we can resume research on Stephano and roll 9,1 / 4,5 / 7,7 (3 RP + 0 losses). Juliet's process continues with 4,4,7,7 (2 RP + 0 losses).</p><p>Desdomona's process finishes with 4,9 / 9,7 / 10,8 / 3,7 / 3,6 (3 RP + 0 losses). Since we have enough data to learn this amoeba type, we then roll a 3 to determine its strength.</p>",
+	"commentary":[
+		"Thanks to having applied the latest Movement equipment to the newest trio of minesweepers, we can resume research on Stephano and roll 9,1 / 4,5 / 7,7 (3 RP + 0 losses). Juliet's process continues with 4,4,7,7 (2 RP + 0 losses).",
+		"Desdomona's process finishes with 4,9 / 9,7 / 10,8 / 3,7 / 3,6 (3 RP + 0 losses). Since we have enough data to learn this amoeba type, we then roll a 3 to determine its strength."],
 	"amoebaTable":
 		[{
 			"name":"Desdomona (1)","RP":11,"str":3
@@ -1349,7 +1359,13 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2406.0",
-	"commentary":"<p>The amoeba spread continues. 2 empty planets have already been utterly consumed, removing them from the map permanently. The good news is we now know Desdomona, and neither of the other two remaining amoeba types are very far from being fully researched.</p><p>Some exceptionally difficult decision making is necessary here. Against Defense 0 Scouts, Desdomona has a staggering 50% chance to perform a chain swallow. With Defense 1 (requires 20 CP), this chance gets reduced to 40%. Despite this risk, we can easily build Scouts in quantity, making them useful should Desdomona suffer an early failure (or even just a 20% marginal success). Also helpful is our Warrior Race Empire Advantage, at least when conducting battles during our turns (becomes a liability during amoeba spreading).</p><p>Against Defense 0 tech Cruisers (requires 15 CP to finish Ship Size), their chance starts at 30% (natural Defense 1 + Hull Size 2). If we go Defense 1 and also build Cruisers (35 CP total in tech), their chance gets reduced to 20%. This is more reliable, but our Ship Yard capacity limits our quantity (impossible to build <q>half a Cruiser</q>).</p><p>Unique to Desdomona is that it has lost its immunity to Fighters. Only Strength 3 amoebas have this quirk, and each of the possible 7 outcomes (one of which is shared by Strength 6-7, and another by Strength 8-10) is only allowed to appear once per playthrough. Going this branch costs 25 CP (45 CP if we also throw in Defense 1), and also requires using Carriers to carry Fighters. This is probably not worth it considering these limitations.</p>{amoebaTable}<p>After much deliberation, we have decided to go Defense 1 (-20) and Ship Yards 2 (-20). We then used our increased capacity and remaining funds to build 9 Scouts (-54) throughout Row L.</p>",
+	"commentary":[
+		"The amoeba spread continues. 2 empty planets have already been utterly consumed, removing them from the map permanently. The good news is we now know Desdomona, and neither of the other two remaining amoeba types are very far from being fully researched.",
+		"Some exceptionally difficult decision making is necessary here. Against Defense 0 Scouts, Desdomona has a staggering 50% chance to perform a chain swallow. With Defense 1 (requires 20 CP), this chance gets reduced to 40%. Despite this risk, we can easily build Scouts in quantity, making them useful should Desdomona suffer an early failure (or even just a 20% marginal success). Also helpful is our Warrior Race Empire Advantage, at least when conducting battles during our turns (becomes a liability during amoeba spreading).",
+		"Against Defense 0 tech Cruisers (requires 15 CP to finish Ship Size), their chance starts at 30% (natural Defense 1 + Hull Size 2). If we go Defense 1 and also build Cruisers (35 CP total in tech), their chance gets reduced to 20%. This is more reliable, but our Ship Yard capacity limits our quantity (impossible to build <q>half a Cruiser</q>).",
+		"Unique to Desdomona is that it has lost its immunity to Fighters. Only Strength 3 amoebas have this quirk, and each of the possible 7 outcomes (one of which is shared by Strength 6-7, and another by Strength 8-10) is only allowed to appear once per playthrough. Going this branch costs 25 CP (45 CP if we also throw in Defense 1), and also requires using Carriers to carry Fighters. This is probably not worth it considering these limitations.",
+		"{amoebaTable}",
+		"After much deliberation, we have decided to go Defense 1 (-20) and Ship Yards 2 (-20). We then used our increased capacity and remaining funds to build 9 Scouts (-54) throughout Row L."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":7,"colonyCP":57,"mineralCP":30,"pipeCP":0,"techBuy":40,"unitBuy":54
@@ -1430,7 +1446,9 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2406.3",
-	"commentary":"<p>While we bring our Scouts towards Desdomona, we will finish studying Juliet and Stephano. Against Juliet, we rolled 3,8,9,10 (1 RP + 2 losses). Against Stephano, we rolled 2,1 / 7,6 / 3,9 (3 RP + 0 losses).</p><p> We successfully learned Stephano, and get to roll an extra die to determine its strength. We rolled a 2.</p>",
+	"commentary":[
+		"While we bring our Scouts towards Desdomona, we will finish studying Juliet and Stephano. Against Juliet, we rolled 3,8,9,10 (1 RP + 2 losses). Against Stephano, we rolled 2,1 / 7,6 / 3,9 (3 RP + 0 losses).",
+		" We successfully learned Stephano, and get to roll an extra die to determine its strength. We rolled a 2."],
 	"amoebaTable":
 		[{
 			"name":"Desdomona (1)","RP":11,"str":3
@@ -1501,7 +1519,12 @@
 			"name":"amoeba2"
 		}]},
 	{"heading":"Stardate 2406.6 (The Battle for Sector H7)",
-	"commentary":"<p>Now that Stephano has been learned, we are ready to try to cleanse one of their hexes. Before we proceed with Stephano, we will research Juliet some more, using our surviving 2 Minesweepers. We rolled 1,7 this way (2 RP + 0 losses), allowing us to learn Juliet also and roll a 6.</p>{amoebaTable}<ol><li><b>Round 1</b>: We are the aggressor, so Warrior Race gives us Attack +1. Anyway, our Flagship has the best weapon class, so it shoots first. We rolled a 1 (hit &le;3), reducing this hex to 1 HP</li><li>Now for the fun part. Stephano randomly chooses between the cheapest, and the most expensive ships. A 3 was rolled this way (cheapest ships). Since we no longer need our Minesweepers, we opt to allow one to be targeted. A 7 was rolled... barely failing to swallow (&le;6 to swallow a Defense 0 Hull Size 1 ship)</li><li>Our 4 Scouts then have a chance to shoot. We rolled 1,4,4,9 (1 hit &le;2), cleansing this hex of Stephano's influence</li></ol>",
+	"commentary":[
+		"Now that Stephano has been learned, we are ready to try to cleanse one of their hexes. Before we proceed with Stephano, we will research Juliet some more, using our surviving 2 Minesweepers. We rolled 1,7 this way (2 RP + 0 losses), allowing us to learn Juliet also and roll a 6.",
+		"{amoebaTable}",
+		"<ol><li><b>Round 1</b>: We are the aggressor, so Warrior Race gives us Attack +1. Anyway, our Flagship has the best weapon class, so it shoots first. We rolled a 1 (hit &le;3), reducing this hex to 1 HP</li>",
+		"<li>Now for the fun part. Stephano randomly chooses between the cheapest, and the most expensive ships. A 3 was rolled this way (cheapest ships). Since we no longer need our Minesweepers, we opt to allow one to be targeted. A 7 was rolled... barely failing to swallow (&le;6 to swallow a Defense 0 Hull Size 1 ship)</li>",
+		"<li>Our 4 Scouts then have a chance to shoot. We rolled 1,4,4,9 (1 hit &le;2), cleansing this hex of Stephano's influence</li></ol>"],
 	"amoebaTable":
 		[{
 			"name":"Desdomona (1)","RP":11,"str":3
@@ -1562,7 +1585,20 @@
 			"name":"amoeba2R"
 		}]},
 	{"heading":"Stardate 2406.9",
-	"commentary":"<p>We are positioning ourselves closer towards cleansing more hexes. Since we were very successful with Stephano last turn, we will conduct their next battle first. Both of these battles also take advantage of our Warrior Race.</p><h3>The Battle for Sector G7</h3><ol><li><b>Round 1</b>: Our Flagship shoots first, as per before. We rolled a 1 (hit &le;3), reducing Stephano's HP to 1</li><li>Stephano rolls a 5 to target cheapest ships (going after Minesweepers), followed by a 4. This scored a chained swallow! (&le;6 to succeed)</li><li>Stephano gets to <q>shoot</q> again. It rolled a 6 to target expensive ships (our Flagship), followed by a 2. This scored a swallow (&le;3 to succeed), but it expends the last of its energy this round.</li><li>Our 4 Scouts get to shoot. We rolled 1,5,5,9 (1 hit &le;2), finishing off this hex and avenging the loss of our Flagship!</li></ol><h3>The Battle for Sector L3</h3><ol><li><b>Round 1</b>: Desdomona has the best Weapon Class, so it <q>shoots</q> first. Since all our ships are the same cost, we will skip targeting rolls, and prioritize our Minesweepers. Thus, Desdomona rolls a 6, swallowing a Minesweeper (&le;7 to hit), but also expending all of its energy</li><li>Our 9 Scouts get to shoot. We rolled 2,4,6,6,7,7,8,9,9 (1 hit &le;2), damaging Desdomona to 1 HP<br /><br /></li><li><b>Round 2</b>: Desdomona rolls 2,3,10 (in that order) against our Minesweepers, successfully swallowing another 2 ships before it expends its energy.</li><li>Our 9 Scouts shoot once more. We rolled 5,5,6,6,6,7,8,8,10 (0 hits &le;2)<br /><br /></li><li><b>Round 3</b>: Desdomona rolls 4,1 against our Minesweepers (cleaning those up), followed by a 10 against our Scouts (failed attempt).</li><li>Our 9 Scouts rolled 3,4,5,6,7,7,8,9,10 (0 hits &le;2)<br /><br /></li><li><b>Round 4</b>: Desdomona rolls 1,6 against our Scouts, swallowing another 2, but expending the last of its energy against the second Scout.</li><li>Our 7 surviving Scouts rolled 1,7,7,8,9,10,10 (1 hit &le;2), finally cleansing this hex!</li></ol>",
+	"commentary":[
+		"We are positioning ourselves closer towards cleansing more hexes. Since we were very successful with Stephano last turn, we will conduct their next battle first. Both of these battles also take advantage of our Warrior Race.",
+		"<h3>The Battle for Sector G7</h3>",
+		"<ol><li><b>Round 1</b>: Our Flagship shoots first, as per before. We rolled a 1 (hit &le;3), reducing Stephano's HP to 1</li>",
+		"<li>Stephano rolls a 5 to target cheapest ships (going after Minesweepers), followed by a 4. This scored a chained swallow! (&le;6 to succeed)</li>",
+		"<li>Stephano gets to <q>shoot</q> again. It rolled a 6 to target expensive ships (our Flagship), followed by a 2. This scored a swallow (&le;3 to succeed), but it expends the last of its energy this round.</li>",
+		"<li>Our 4 Scouts get to shoot. We rolled 1,5,5,9 (1 hit &le;2), finishing off this hex and avenging the loss of our Flagship!</li></ol><h3>The Battle for Sector L3</h3><ol><li><b>Round 1</b>: Desdomona has the best Weapon Class, so it <q>shoots</q> first. Since all our ships are the same cost, we will skip targeting rolls, and prioritize our Minesweepers. Thus, Desdomona rolls a 6, swallowing a Minesweeper (&le;7 to hit), but also expending all of its energy</li>",
+		"<li>Our 9 Scouts get to shoot. We rolled 2,4,6,6,7,7,8,9,9 (1 hit &le;2), damaging Desdomona to 1 HP<br /><br /></li>",
+		"<li><b>Round 2</b>: Desdomona rolls 2,3,10 (in that order) against our Minesweepers, successfully swallowing another 2 ships before it expends its energy.</li>",
+		"<li>Our 9 Scouts shoot once more. We rolled 5,5,6,6,6,7,8,8,10 (0 hits &le;2)<br /><br /></li>",
+		"<li><b>Round 3</b>: Desdomona rolls 4,1 against our Minesweepers (cleaning those up), followed by a 10 against our Scouts (failed attempt).</li>",
+		"<li>Our 9 Scouts rolled 3,4,5,6,7,7,8,9,10 (0 hits &le;2)<br /><br /></li>",
+		"<li><b>Round 4</b>: Desdomona rolls 1,6 against our Scouts, swallowing another 2, but expending the last of its energy against the second Scout.</li>",
+		"<li>Our 7 surviving Scouts rolled 1,7,7,8,9,10,10 (1 hit &le;2), finally cleansing this hex!</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"Miner1G",
@@ -1646,7 +1682,14 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2407.0",
-	"commentary":"<p>It is time to spread the amoeba once more. We lost a colony, and our band of 4 Scouts are being assaulted. Being the defender, Warrior Race causes us to be at a disadvantage (Attack -1); though we will not go below the minimum accuracy of 10% (1 to hit).</p><ol><li><b>Round 1</b>: Stephano has the best Weapon Class this time, so it goes first. Using our Minesweepers as bait, it rolls a 5, swallowing one of our ships (&le;6 to hit), but also expending its energy</li><li>Our 4 Scouts now have a chance to counter. We rolled 6,7,7,9 (0 hits &le;1)<br /><br /></li><li><b>Round 2</b>: Stephano rolls once more. It rolled another 5, swallowing our last Minesweeper</li><li>Our 4 Scouts are now eligible to retreat, and we will do so, retreating to Sector H8</li></ol><h3>Economic Phase</h3><p>Now that the battle is over, we can conduct our economics proper. We will buy 4 Scouts at each of L5 and K8 (-48 total). Our homeworld will buy 1 Colony Ship (-8). Finally, our forward planet at H8 is getting a Ship Yard.</p>", 
+	"commentary":[
+		"It is time to spread the amoeba once more. We lost a colony, and our band of 4 Scouts are being assaulted. Being the defender, Warrior Race causes us to be at a disadvantage (Attack -1); though we will not go below the minimum accuracy of 10% (1 to hit).",
+		"<ol><li><b>Round 1</b>: Stephano has the best Weapon Class this time, so it goes first. Using our Minesweepers as bait, it rolls a 5, swallowing one of our ships (&le;6 to hit), but also expending its energy</li>",
+		"<li>Our 4 Scouts now have a chance to counter. We rolled 6,7,7,9 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 2</b>: Stephano rolls once more. It rolled another 5, swallowing our last Minesweeper</li>",
+		"<li>Our 4 Scouts are now eligible to retreat, and we will do so, retreating to Sector H8</li></ol>",
+		"<h3>Economic Phase</h3>",
+		"Now that the battle is over, we can conduct our economics proper. We will buy 4 Scouts at each of L5 and K8 (-48 total). Our homeworld will buy 1 Colony Ship (-8). Finally, our forward planet at H8 is getting a Ship Yard."], 
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":0,"colonyCP":58,"mineralCP":10,"pipeCP":0,"techBuy":0,"unitBuy":62
@@ -1734,7 +1777,14 @@
 			"name":"colony5G"
 		}]},
 	{"heading":"Stardate 2407.2 (The Battle for Sector K3)",
-	"commentary":"<p>Juliet is growing quickly, but we hope to cleanse one/both of their siblings soon. While we set up an assault on Desdomona once more, we will upgrade our oldest Scouts that have survived Stephano's expansion. This process costs 4 CP.</p><ol><li><b>Round 1</b>: As usual, Desdomona has the best Weapon Class, so it goes first. Since only our Scouts are available, we skip targetting rolls and go straight to rolling for hits. It rolled a 6, barely swallowing one of our Scouts.</li><li>Our 6 surviving Scouts shoot now. We rolled 3,3,4,5,7,8 (0 hits &le;2)<br /><br /></li><li><b>Round 2</b>: Desdomona rolls once more. This time, it rolled a 6 (another marginal success)</li><li>Our 5 surviving Scouts shoot once more. We rolled 1,3,5,8,9 (1 hit &le;2), damaging this hex to 1 HP<br /><br /></li><li><b>Round 3</b>: Desdomona rolls a 10 this time, failing to swallow a third Scout.</li><li>Our 5 Scouts shoot again. We rolled 1,5,6,7,10 (1 hit &le;2), finishing this hex off</li></ol>", 
+	"commentary":[
+		"Juliet is growing quickly, but we hope to cleanse one/both of their siblings soon. While we set up an assault on Desdomona once more, we will upgrade our oldest Scouts that have survived Stephano's expansion. This process costs 4 CP.",
+		"<ol><li><b>Round 1</b>: As usual, Desdomona has the best Weapon Class, so it goes first. Since only our Scouts are available, we skip targetting rolls and go straight to rolling for hits. It rolled a 6, barely swallowing one of our Scouts.</li>",
+		"<li>Our 6 surviving Scouts shoot now. We rolled 3,3,4,5,7,8 (0 hits &le;2)<br /><br /></li>",
+		"<li><b>Round 2</b>: Desdomona rolls once more. This time, it rolled a 6 (another marginal success)</li>",
+		"<li>Our 5 surviving Scouts shoot once more. We rolled 1,3,5,8,9 (1 hit &le;2), damaging this hex to 1 HP<br /><br /></li>",
+		"<li><b>Round 3</b>: Desdomona rolls a 10 this time, failing to swallow a third Scout.</li>",
+		"<li>Our 5 Scouts shoot again. We rolled 1,5,6,7,10 (1 hit &le;2), finishing this hex off</li></ol>"], 
 	"actions":
 		[{
 			"placeCounter":"Miner1G",
@@ -1773,7 +1823,14 @@
 			"name":"amoeba1R"
 		}]},
 	{"heading":"Stardate 2407.5 (The Battle for Sector J4)",
-	"commentary":"<p>We were fairly successful versus Desdomona last turn, and we have managed to consolidate two smaller fleets of ships. This brings us 9 Scouts versus their next hex.</p><ol><li><b>Round 1</b>: Same setup as last time. Desdomona rolled 4,8; swallowing one of our Scouts before making a failed attempt.</li><li>Our 8 surviving Scouts shoot now. We rolled 2,5,6,6,8,9,10,10 (1 hits &le;2), reducing this hex to 1 HP<br /><br /></li><li><b>Round 2</b>: Desdomona rolls 1,7, swallowing another Scout before enduring a miss</li><li>Our 7 surviving Scouts shoot once more. We rolled 3,5,6,7,8,9,10 (0 hits &le;2)<br /><br /></li><li><b>Round 3</b>: Desdomona rolls a 5 this time, barely swallowing a third Scout.</li><li>Our 6 Scouts shoot again. We rolled 2,4,4,6,8,10 (1 hit &le;2), finishing this hex off</li></ol>", 
+	"commentary":[
+		"We were fairly successful versus Desdomona last turn, and we have managed to consolidate two smaller fleets of ships. This brings us 9 Scouts versus their next hex.",
+		"<ol><li><b>Round 1</b>: Same setup as last time. Desdomona rolled 4,8; swallowing one of our Scouts before making a failed attempt.</li>",
+		"<li>Our 8 surviving Scouts shoot now. We rolled 2,5,6,6,8,9,10,10 (1 hits &le;2), reducing this hex to 1 HP<br /><br /></li>",
+		"<li><b>Round 2</b>: Desdomona rolls 1,7, swallowing another Scout before enduring a miss</li>",
+		"<li>Our 7 surviving Scouts shoot once more. We rolled 3,5,6,7,8,9,10 (0 hits &le;2)<br /><br /></li>",
+		"<li><b>Round 3</b>: Desdomona rolls a 5 this time, barely swallowing a third Scout.</li>",
+		"<li>Our 6 Scouts shoot again. We rolled 2,4,4,6,8,10 (1 hit &le;2), finishing this hex off</li></ol>"], 
 	"actions":
 		[{
 			"placeGhost":"minerals10",
@@ -1818,7 +1875,9 @@
 			"name":"amoeba1R"
 		}]},
 	{"heading":"Stardate 2407.8 (The Battle for Sector G7)",
-	"commentary":"<p>Not as successful as last time. Since Desdomona is currently set up such as they can only spread to 3 new hexes, we will go on ahead and back up a bit and regroup. We will instead push against Stephano, bringing 8 ships up to one of their hexes.</p><ol><li><b>Round 1</b>: Similar setup to last economic phase. Stephano rolled an 8; causing a Scout to pass through unharmed.</li><li>Our 8 Scouts shoot now. We rolled 1,1,1,2,4,5,6,8 (4 hits &le;2), cleansing this hex in one salvo</li></ol>", 
+	"commentary":[
+		"Not as successful as last time. Since Desdomona is currently set up such as they can only spread to 3 new hexes, we will go on ahead and back up a bit and regroup. We will instead push against Stephano, bringing 8 ships up to one of their hexes.",
+		"Similar setup to last economic phase. Stephano rolled an 8; causing a Scout to pass through unharmed. Our 8 Scouts then rolled 1,1,1,2,4,5,6,8 (4 hits &le;2), cleansing this hex in one salvo."], 
 	"amoebaTable":
 		[{
 			"name":"Desdomona (1)","RP":11,"str":3
@@ -1924,7 +1983,14 @@
 			"removeCounter":"systemH7"
 		}]},
 	{"heading":"Stardate 2408.0 (Stephano strikes back)",
-	"commentary":"<p>More spreading takes place, which includes Stephano attempting to retake the hex we just cleansed from them.</p><ol><li><b>Round 1</b>: Yet another similar setup to last economic phase. Stephano rolled a 6; barely missing a Scout.</li><li>Our 8 Scouts shoot once more. We rolled 1,2,3,6,6,8,10,10 (1 hit &le;1), reducing this hex to 1 HP<br /><br /></li><li><b>Round 2</b>: Stephano rolls a 5, barely swallowing a Scout</li><li>Our 7 Scouts shoot again. We rolled 1,6,6,7,9,10,10 (1 hit &le;1), denying Stephano this hex</li></ol><h3>Economic Phase</h3><p>Juliet is getting dangerously close to our colonies. We will attempt to slow their advance with minelayers, so we bought tech (-30) and ships (-30) accordingly. Leftover money was spent on Scouts (-18) to push against Desdomona.</p>", 
+	"commentary":[
+		"More spreading takes place, which includes Stephano attempting to retake the hex we just cleansed from them.",
+		"<ol><li><b>Round 1</b>: Yet another similar setup to last economic phase. Stephano rolled a 6; barely missing a Scout.</li>",
+		"<li>Our 8 Scouts shoot once more. We rolled 1,2,3,6,6,8,10,10 (1 hit &le;1), reducing this hex to 1 HP<br /><br /></li>",
+		"<li><b>Round 2</b>: Stephano rolls a 5, barely swallowing a Scout</li>",
+		"<li>Our 7 Scouts shoot again. We rolled 1,6,6,7,9,10,10 (1 hit &le;1), denying Stephano this hex</li></ol>",
+		"<h3>Economic Phase</h3>",
+		"Juliet is getting dangerously close to our colonies. We will attempt to slow their advance with minelayers, so we bought tech (-30) and ships (-30) accordingly. Leftover money was spent on Scouts (-18) to push against Desdomona."], 
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":2,"colonyCP":60,"mineralCP":20,"pipeCP":0,"techBuy":30,"unitBuy":48
@@ -2014,7 +2080,9 @@
 			"removeCounter":"systemG7"
 		}]},
 	{"heading":"Stardate 2408.1 (The Battle for Sector F7)",
-	"commentary":"<p>Since we seem to be doing nicely against Stephano, we have decided to attempt to finish it off.</p><ol><li><b>Round 1</b>: As usual, we have just Scouts for Stephano to try to swallow. It rolled a 7 (failure &gt;5)</li><li>Our 7 Scouts rolled 1,2,5,6,7,8,8 (2 hits &le;2), cleansing this hex in one go</li></ol>", 
+	"commentary":[
+		"Since we seem to be doing nicely against Stephano, we have decided to attempt to finish it off.",
+		"As usual, we have just Scouts for Stephano to try to swallow. It rolled a 7 (0 swallows &le;5). Our 7 Scouts then rolled 1,2,5,6,7,8,8 (2 hits &le;2), cleansing this hex in one go."], 
 	"actions":
 		[{
 			"placeCounter":"systemK5",
@@ -2055,7 +2123,17 @@
 			"name":"amoeba3R"
 		}]},
 	{"heading":"Stardate 2408.4",
-	"commentary":"<p>Thanks to a no damage victory, we continue our push against Stephano, while also looking to stem Desdomona</p><h3>The Battle for Sector G6</h3><ol><li><b>Round 1</b>: Stephano rolls 3,4 (2 swallows &le;5)</li><li>Our 5 surviving Scouts rolled 1,4,5,7,8 (1 hit &le;2), reducing this hex to 1 HP<br /><br /></li><li><b>Round 2</b>: Stephano rolls 1,5 (2 swallows &le;5)</li><li>Our 3 surviving Scouts rolled 3,9,9 (0 hits &le;2), reducing this hex to 1 HP<br /><br /></li><li><b>Round 3</b>: Stephano rolls 5 (1 swallow &le;5)</li><li>Our 2 surviving Scouts rolled 1,5 (1 hit &le;2), finishing this hex off</li></ol><h3>The Battle for Sector L3</h3><ol><li><b>Round 1</b>: Same composition as versus Stephano. Desdomona rolls a 7 (0 swallows &le;6)</li><li>Our 9 Scouts rolled 1,2,3,3,3,5,9,10,10 (2 hits &le;2), cleansing this hex in one go</li></ol>", 
+	"commentary":[
+		"Thanks to a no damage victory, we continue our push against Stephano, while also looking to stem Desdomona.",
+		"<h3>The Battle for Sector G6</h3>",
+		"<ol><li><b>Round 1</b>: Stephano rolls 3,4 (2 swallows &le;5)</li>",
+		"<li>Our 5 surviving Scouts rolled 1,4,5,7,8 (1 hit &le;2), reducing this hex to 1 HP<br /><br /></li>",
+		"<li><b>Round 2</b>: Stephano rolls 1,5 (2 swallows &le;5)</li>",
+		"<li>Our 3 surviving Scouts rolled 3,9,9 (0 hits &le;2), reducing this hex to 1 HP<br /><br /></li>",
+		"<li><b>Round 3</b>: Stephano rolls 5 (1 swallow &le;5)</li>",
+		"<li>Our 2 surviving Scouts rolled 1,5 (1 hit &le;2), finishing this hex off</li></ol>",
+		"<h3>The Battle for Sector L3</h3>",
+		"Same composition as versus Stephano. Desdomona rolls a 7 (0 swallows &le;6). Our 9 Scouts then rolled 1,2,3,3,3,5,9,10,10 (2 hits &le;2), cleansing this hex in one go."], 
 	"actions":
 		[{
 			"removeCounter":"systemK5"
@@ -2106,7 +2184,9 @@
 			"name":"amoeba3R"
 		}]},
 	{"heading":"Stardate 2408.7",
-	"commentary":"<p>Stephano managed to make an explosive comeback last turn, so we must pull our 2 surviving Scouts back from there. We instead had flawless execution versus Desdomona, so we will push for another hex there.</p><ol><li><b>Round 1</b>: Desdomona rolls 1,1,6 (3 swallows &le;6)</li><li>Our 6 surviving Scouts rolled 1,2,3,6,7,10 (2 hits &le;2), cleansing this hex also in one go</li></ol>", 
+	"commentary":[
+		"Stephano managed to make an explosive comeback last turn, so we must pull our 2 surviving Scouts back from there. We instead had flawless execution versus Desdomona, so we will push for another hex there.",
+		"Desdomona rolls 1,1,6 (3 swallows &le;6). Our 6 surviving Scouts then rolled 1,2,3,6,7,10 (2 hits &le;2), cleansing this hex also in one go."], 
 	"actions":
 		[{
 			"placeGhost":"minerals5",
@@ -2186,7 +2266,14 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2409.0",
-	"commentary":"<p>Desdomona aside, amoeba spreading has been slowed this phase by minelayers. Since the other two amoebas were inhibited, we roll to determine whether they gain immunity. They rolled 5 (Juliet) / 4 (Stephano). Neither of these amoeba types gain immunity <span class=\"bindTxt\">(&ge;9 required)</span>. Now to the battle against Desdomona itself...</p><ol><li><b>Round 1</b>: Desdomona rolls a 10 (0 swallows &le;6)</li><li>Our 6 Scouts rolled 3,4,6,7,8,10 (0 hits &le;1)<br /><br /></li><li><b>Round 2</b>: Desdomona rolls 4,10 (1 swallow &le;6)</li><li>Our 5 surviving Scouts have opted to retreat to sector K4</li></ol>{amoebaTable}<p>Anyway, we buy 4 Minelayers at K8 (-20), 1 Minelayer at L7 (-5), 1 Scouts + 1 Ship Yard at H8 (-12), 4 Scouts + 1 Ship Yard at L5 (-30), and 1 Scout at L7 (-6).</p>", 
+	"commentary":[
+		"Desdomona aside, amoeba spreading has been slowed this phase by minelayers. Since the other two amoebas were inhibited, we roll to determine whether they gain immunity. They rolled 5 (Juliet) / 4 (Stephano). Neither of these amoeba types gain immunity <span class=\"bindTxt\">(&ge;9 required)</span>. Now to the battle against Desdomona itself...",
+		"<ol><li><b>Round 1</b>: Desdomona rolls a 10 (0 swallows &le;6)</li>",
+		"<li>Our 6 Scouts rolled 3,4,6,7,8,10 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 2</b>: Desdomona rolls 4,10 (1 swallow &le;6)</li>",
+		"<li>Our 5 surviving Scouts have opted to retreat to sector K4</li></ol>",
+		"{amoebaTable}",
+		"Anyway, we buy 4 Minelayers at K8 (-20), 1 Minelayer at L7 (-5), 1 Scouts + 1 Ship Yard at H8 (-12), 4 Scouts + 1 Ship Yard at L5 (-30), and 1 Scout at L7 (-6)."], 
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":2,"colonyCP":61,"mineralCP":15,"pipeCP":0,"techBuy":0,"unitBuy":73
@@ -2278,7 +2365,7 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2409.3",
-	"commentary":"<p>We consolidate to resume our push against Desdomona, despite the fact that we seem to be rapidly losing grou-- err, space to these amoeba.</p>", 
+	"commentary":["We consolidate to resume our push against Desdomona, despite the fact that we seem to be rapidly losing grou&mdash; err, space to these amoeba."], 
 	"actions":
 		[{
 			"removeCounter":"systemJ7"
@@ -2314,7 +2401,9 @@
 			"location":"L8"
 		}]},
 	{"heading":"Stardate 2409.6 (The Battle for Sector K3)",
-	"commentary":"<p>Now let us push against these amoeba!</p><ol><li><b>Round 1</b>: As usual, Desdomona strikes first. Since we still have only Scouts, it rolls a 5 (1 swallow &le;6)</li><li>Our 8 surviving Scouts rolled 2,2,3,5,6,6,8,8 (2 hits &le;2), cleanly eliminating this hex</li></ol>", 
+	"commentary":[
+		"Now let us push against these amoeba!",
+		"As usual, Desdomona strikes first. Since we still have only Scouts, it rolls a 5 (1 swallow &le;6). Our 8 surviving Scouts rolled 2,2,3,5,6,6,8,8 (2 hits &le;2), cleanly eliminating this hex."], 
 	"actions":
 		[{
 			"placeGhost":"minerals5",
@@ -2352,7 +2441,12 @@
 			"name":"amoeba1R"
 		}]},
 	{"heading":"Stardate 2409.9 (The Battle for Sector J4)",
-	"commentary":"<p>Since we were very successful, we will push for another hex. Before we proceed though, we should roll for our Miner. It rolled a 5 (survived &le;6)</p><ol><li><b>Round 1</b>: Desdomona rolls 1,4,2,9 (3 swallows &le;6)</li><li>Our 6 surviving Scouts rolled 3,3,4,7,8,10 (0 hits &le;2)<br /><br /></li><li><b>Round 2</b>: Desdomona rolls 2,6 (2 swallows &le;6)</li><li>Our 4 surviving Scouts have decided to retreat to K4</li></ol>", 
+	"commentary":[
+		"Since we were very successful, we will push for another hex. Before we proceed though, we should roll for our Miner. It rolled a 5 (survived &le;6)",
+		"<ol><li><b>Round 1</b>: Desdomona rolls 1,4,2,9 (3 swallows &le;6)</li>",
+		"<li>Our 6 surviving Scouts rolled 3,3,4,7,8,10 (0 hits &le;2)<br /><br /></li>",
+		"<li><b>Round 2</b>: Desdomona rolls 2,6 (2 swallows &le;6)</li>",
+		"<li>Our 4 surviving Scouts have decided to retreat to K4</li></ol>"], 
 	"actions":
 		[{
 			"placeCounter":"Miner1G",
@@ -2424,7 +2518,15 @@
 			"removeCounter":"systemG6"
 		}]},
 	{"heading":"Stardate 2410.0 (The Battle for Sector K4)",
-	"commentary":"<p>This past battle was a <i>disaster</i>! We were only able to cleanse one of the two hexes we were slated to cleanse. We were able to stop Juliet's spreading, but at the expense of Desdomona's spreading causing another battle. Before we go to battle though, we should roll a 9 for Juliet (immune &ge;9).</p><ol><li><b>Round 1</b>: Desdomona strikes once more! It rolled an 8 (0 swallows &le;6)</li><li>Our 4 Scouts rolled 1,6,9,10 (1 hit &le;1)<br /><br /></li><li><b>Round 2</b>: Desdomona rolls another 8 (0 swallows &le;6)</li><li>Our 4 Scouts rolled 1,1,3,4 (2 hits &le;1), denying Desdomona this hex</li></ol>{amoebaTable}<p>Still, since Juliet can no longer be inhibited, this makes it much harder to keep on fighting, especially since our income just decreased thanks to another planet being devoured. Also, we have no minerals left to cash in, so Miners have become useless.</p><p>Our most vulnerable colony at I8 has been reinforced with a Base (-12). L5 then buys 5 Scouts (-30). L7 buys 4 Scouts (-24).</p>", 
+	"commentary":[
+		"This past battle was a <i>disaster</i>! We were only able to cleanse one of the two hexes we were slated to cleanse. We were able to stop Juliet's spreading, but at the expense of Desdomona's spreading causing another battle. Before we go to battle though, we should roll a 9 for Juliet (immune &ge;9).",
+		"<ol><li><b>Round 1</b>: Desdomona strikes once more! It rolled an 8 (0 swallows &le;6)</li>",
+		"<li>Our 4 Scouts rolled 1,6,9,10 (1 hit &le;1)<br /><br /></li>",
+		"<li><b>Round 2</b>: Desdomona rolls another 8 (0 swallows &le;6)</li>",
+		"<li>Our 4 Scouts rolled 1,1,3,4 (2 hits &le;1), denying Desdomona this hex</li></ol>",
+		"{amoebaTable}",
+		"Still, since Juliet can no longer be inhibited, this makes it much harder to keep on fighting, especially since our income just decreased thanks to another planet being devoured. Also, we have no minerals left to cash in, so Miners have become useless.",
+		"Our most vulnerable colony at I8 has been reinforced with a Base (-12). L5 then buys 5 Scouts (-30). L7 buys 4 Scouts (-24)."], 
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":5,"colonyCP":60,"mineralCP":5,"pipeCP":0,"techBuy":0,"unitBuy":66
@@ -2507,7 +2609,7 @@
 			"name":"amoeba3R"
 		}]},
 	{"heading":"Stardate 2410.2",
-	"commentary":"<p>We will shake things up a bit and take our primary fleet against Stephano</p>", 
+	"commentary":["We will shake things up a bit and take our primary fleet against Stephano"], 
 	"actions":
 		[{
 			"placeCounter":"SC2G",
@@ -2522,7 +2624,9 @@
 			"location":"K6"
 		}]},
 	{"heading":"Stardate 2410.5 (The Battle for Sector J6)",
-	"commentary":"<p>Here we go against a different opponent...</p><ol><li><b>Round 1</b>: Stephano is slightly weaker than their siblings in the Attack department. They rolled a 7 (0 swallows &le;5)</li><li>Our 13 Scouts rolled 1,1,2,3,4,4,4,6,6,7,8,9,10 (3 hits &le;2), cleansing this hex in one go</li></ol>", 
+	"commentary":[
+		"Here we go against a different opponent...",
+		"Stephano is slightly weaker than their siblings in the Attack department. They rolled a 7 (0 swallows &le;5). Our 13 Scouts responded with 1,1,2,3,4,4,4,6,6,7,8,9,10 (3 hits &le;2), cleansing this hex in one go."], 
 	"actions":
 		[{
 			"placeCounter":"SC2G",
@@ -2539,7 +2643,9 @@
 			"name":"amoeba3R"
 		}]},
 	{"heading":"Stardate 2410.8 (The Battle for Sector J7)",
-	"commentary":"<p>Flawless execution against Stephano allows for another go.</p><ol><li><b>Round 1</b>: Stephano rolls another 7 (0 swallows &le;5)</li><li>Our 13 Scouts rolled 1,1,3,3,4,4,6,7,8,8,9,10,10 (2 hits &le;2), easily cleansing this hex also</li></ol>", 
+	"commentary":[
+		"Flawless execution against Stephano allows for another go.",
+		"Stephano rolls another 7 (0 swallows &le;5). Our 13 Scouts rolled 1,1,3,3,4,4,6,7,8,8,9,10,10 (2 hits &le;2), easily cleansing this hex also."], 
 	"actions":
 		[{
 			"placeCounter":"SC2G",
@@ -2590,7 +2696,27 @@
 			"removeCounter":"systemF7"
 		}]},
 	{"heading":"Stardate 2411.0 (Battles)",
-	"commentary":"<p>These amoeba continue to spread, as if they were a wildfire. Since multiple battles are taking place here, we will split off the economics into its own stage.</p><h3>Sector J7</h3><ol><li><b>Round 1</b>: Stephano tries to take this hex back. It rolled 2,3,1,10 (3 swallows &le;5)</li><li>Our 10 surviving Scouts rolled 1,3,3,4,6,6,9,9,10,10 (1 hit &le;1)<br /><br /></li><li><b>Round 2</b>: Stephano rolled 2,8 (1 swallow &le;5)</li><li>Our 9 surviving Scouts rolled 2,3,3,4,5,7,8,9,10 (0 hits &le;1). Such is an unfortunate side effect of the Warrior Race's weakness<br /><br /></li><li><b>Round 3</b>: Stephano rolled another 2,7 (1 swallow &le;5)</li><li>Our 8 surviving Scouts rolled 1,5,5,7,8,8,9,10 (1 hit &le;1), denying Stephano this hex</li></ol><h3>Bajor (I8)</h3><ol><li><b>Round 1</b>: Juliet has ths Tactics advantage, so it gets to go first. We have only a Base here, which is difficult to swallow (natural Defense 2 + Defense tech 1 + Hull Size 3 = total penalty 5 versus their Attack 7). It rolled a 2 (&le;2), swallowing our base whole! The colony then gets devoured afterwards</li></ol><h3>Sirius (H8)</h3><ol><li><b>Round 1</b>: All of our craft are the same CP cost, so we will let Juliet attempt to swallow our Ship Yards first. It rolled a 5 (1 swallow &le;6)</li><li>Our 1 surviving Ship Yard and 3 Scouts have the same Attack total (3 - 1 = 2), so we will roll 4,5,9,10 together (0 hits &le;1)<br /><br /></li><li><b>Round 2</b>: Juliet rolled a 6 (1 swallow &le;6)</li><li>All potential retreat hexes have been blocked, so we must stand our gruond. Our 3 Scouts have rolled 3,3,7 (0 hits &le;1)<br /><br /></li><li><b>Round 3</b>: Juliet rolled 4,9 (1 swallow &le;6)</li><li>Our 2 surviving Scouts have rolled 4,5 (0 hits &le;1)<br /><br /></li><li><b>Round 4</b>: Juliet rolled a 5 (1 swallow &le;6)</li><li>Our last Scout has rolled an 8 (0 hits &le;1)<br /><br /></li><li><b>Round 5</b>: Juliet rolled a 2 (1 swallow &le;6), finishing off the last of the resistance and devouring the planet they were guarding</li></ol>", 
+	"commentary":[
+		"These amoeba continue to spread, as if they were a wildfire. Since multiple battles are taking place here, we will split off the economics into its own stage.",
+		"<h3>Sector J7</h3>",
+		"<ol><li><b>Round 1</b>: Stephano tries to take this hex back. It rolled 2,3,1,10 (3 swallows &le;5)</li>",
+		"<li>Our 10 surviving Scouts rolled 1,3,3,4,6,6,9,9,10,10 (1 hit &le;1)<br /><br /></li>",
+		"<li><b>Round 2</b>: Stephano rolled 2,8 (1 swallow &le;5)</li>",
+		"<li>Our 9 surviving Scouts rolled 2,3,3,4,5,7,8,9,10 (0 hits &le;1). Such is an unfortunate side effect of the Warrior Race's weakness<br /><br /></li>",
+		"<li><b>Round 3</b>: Stephano rolled another 2,7 (1 swallow &le;5)</li>",
+		"<li>Our 8 surviving Scouts rolled 1,5,5,7,8,8,9,10 (1 hit &le;1), denying Stephano this hex</li></ol>",
+		"<h3>Bajor (I8)</h3>",
+		"Juliet has ths Tactics advantage, so it gets to go first. We have only a Base here, which is difficult to swallow (natural Defense 2 + Defense tech 1 + Hull Size 3 = total penalty 5 versus their Attack 7). It rolled a 2 (&le;2), swallowing our base whole! The colony then gets devoured afterwards!",
+		"<h3>Sirius (H8)</h3>",
+		"<ol><li><b>Round 1</b>: All of our craft are the same CP cost, so we will let Juliet attempt to swallow our Ship Yards first. It rolled a 5 (1 swallow &le;6)</li>",
+		"<li>Our 1 surviving Ship Yard and 3 Scouts have the same Attack total (3 - 1 = 2), so we will roll 4,5,9,10 together (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 2</b>: Juliet rolled a 6 (1 swallow &le;6)</li>",
+		"<li>All potential retreat hexes have been blocked, so we must stand our gruond. Our 3 Scouts have rolled 3,3,7 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 3</b>: Juliet rolled 4,9 (1 swallow &le;6)</li>",
+		"<li>Our 2 surviving Scouts have rolled 4,5 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 4</b>: Juliet rolled a 5 (1 swallow &le;6)</li>",
+		"<li>Our last Scout has rolled an 8 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 5</b>: Juliet rolled a 2 (1 swallow &le;6), finishing off the last of the resistance and devouring the planet they were guarding</li></ol>"], 
 	"amoebaTable":
 		[{
 			"name":"Desdomona (1)","RP":11,"str":3
@@ -2675,7 +2801,7 @@
 			"name":"amoeba3R"
 		}]},
 	{"heading":"Stardate 2411.0 (Economics)",
-	"commentary":"<p>The loss of 2 colonies further decreases our production. Still, we will buy 4 Scouts at K8 (-24). We will also throw down more Bases at K6 and K8.</p>", 
+	"commentary":["The loss of 2 colonies further decreases our production. Still, we will buy 4 Scouts at K8 (-24). We will also throw down more Bases at K6 and K8."], 
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":4,"colonyCP":50,"mineralCP":0,"pipeCP":0,"techBuy":0,"unitBuy":48
@@ -2712,7 +2838,10 @@
 			"name":"amoeba2R"
 		}]},
 	{"heading":"Stardate 2411.1",
-	"commentary":"<p>Now to attempt to do a triple this phase. We will start at J8.</p><ol><li><b>Round 1</b>: Stephano will attempt to target our Minesweepers first, which never got the Defense tech equipped. It rolled 4,4 to swallow this group whole (&le;6 required), followed by a 5 against our Scouts (1 swallow &le;5)</li><li>12 surviving Scouts rolled 2,2,2,3,3,4,5,6,7,9,9,10 (3 hits &le;2), cleansing this hex</li></ol>", 
+	"commentary":[
+		"Now to attempt to do a triple this phase. We will start at J8.",
+		"<ol><li><b>Round 1</b>: Stephano will attempt to target our Minesweepers first, which never got the Defense tech equipped. It rolled 4,4 to swallow this group whole (&le;6 required), followed by a 5 against our Scouts (1 swallow &le;5)</li>",
+		"<li>12 surviving Scouts rolled 2,2,2,3,3,4,5,6,7,9,9,10 (3 hits &le;2), cleansing this hex</li></ol>"], 
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -2731,7 +2860,9 @@
 			"name":"amoeba3R"
 		}]},
 	{"heading":"Stardate 2411.4",
-	"commentary":"<p>Endured a few losses, but could be worse. Next up on the hitlist is I7.</p><ol><li><b>Round 1</b>: Stephano rolls a 4 (1 swallow &le;5)</li><li>11 surviving Scouts rolled 1,1,1,2,2,3,4,6,7,9,10 (5 hits &le;2), cleansing this hex also</li></ol>", 
+	"commentary":[
+		"Endured a few losses, but could be worse. Next up on the hitlist is I7.",
+		"Stephano rolls a 4 (1 swallow &le;5). 11 surviving Scouts then rolled 1,1,1,2,2,3,4,6,7,9,10 (5 hits &le;2), cleansing this hex also."], 
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -2751,7 +2882,9 @@
 			"name":"amoeba3R"
 		}]},
 	{"heading":"Stardate 2411.7",
-	"commentary":"<p>Near flawless. Finally, we will hit up H7.</p><ol><li><b>Round 1</b>: Stephano rolls a 5 (1 swallow &le;5)</li><li>10 surviving Scouts rolled 1,1,3,3,4,5,5,7,7,8 (2 hits &le;2), cleansing this hex</li></ol>", 
+	"commentary":[
+		"Near flawless. Finally, we will hit up H7.",
+		"Stephano rolls a 5 (1 swallow &le;5). 10 surviving Scouts rolled 1,1,3,3,4,5,5,7,7,8 (2 hits &le;2), cleansing this hex."], 
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -2787,7 +2920,33 @@
 			"removeCounter":"systemJ7"
 		}]},
 	{"heading":"Stardate 2412.0 (Battles)",
-	"commentary":"<p>With yet another spread causes more battles to erupt.</p><h3>Castor (L5)</h3><ol><li><b>Round 1</b>: We have only 4 Ship Yards to defend against Desdomona. The latter rolled a 10 (0 swallows &le;6)</li><li>Our 4 Ship Yards rolled 1,3,7,8 (1 hit &le;1)<br /><br /></li><li><b>Round 2</b>: Desdomona rolled 2,1,5 (3 swallows &le;6)</li><li>Our last Ship Yard rolled a 3 (missed &gt;1)<br /><br /></li><li><b>Round 3</b>: Desdomona rolled a 6 (hit &le;6). It has devoured the planet!</li></ol><h3>Kronos (K8)</h3><ol><li><b>Round 1</b>: Juliet has targets of differing CP costs, so it will roll targeting dice in addition to swallowing dice. For this pair, it rolled a 1 (cheapest), followed by a 1 to swallow a Ship Yard (&le;6)</li><li>Juliet scored a chained swallow, so it conducts this process again. It rolled a 6 (most expensive), followed by a 7 (&le;2 versus a Base)</li><li>Since Juliet was unsuccessful, our Base goes next. It rolled an 8 (miss &gt;4)</li><li>Our 2 surviving Ship Yards also go. We rolled 3,4 (0 hits &le;1)<br /><br /></li><li><b>Round 2</b>: Juliet gets to proceed once more. It rolled a 10 (most expensive), followed by a 5 versus our Base (&le;2 to hit)</li><li>Our Base rolled a 1 (hit &le;4), damaging Juliet</li><li>Our 2 Ship Yards rolled 1,10 (1 hit &le;1), denying Juliet this hex</li></ol><h3>Dakara (K6)</h3><ol><li><b>Round 1</b>: Stephano's Weapon Class is low, giving our Base priority this time. We rolled an 8 (miss &gt;4)</li><li>Stephano has only our Base to target. It rolled a 2 (swallowed &le;2), which allowed it to devour this planet!</li></ol><h3>Sector H7</h3><ol><li><b>Round 1</b>: Juliet decides to invade this hex. It rolled 2,2,9 (2 swallows &le;6)</li><li>Our 8 surviving Scouts rolled 1,2,2,2,3,8,9,10 (1 hit &le;1), reducing Juliet to 1 HP<br /><br /></li><li><b>Round 2</b>: Juliet rolled 1,3,9 (2 swallows &le;6)</li><li>Our 6 surviving Scouts rolled 6,8,8,8,9,10 (0 hits &le;1)<br /><br /></li><li><b>Round 3</b>: Juliet rolled a 5 (1 swallow &le;6)</li><li>Our 5 surviving Scouts rolled 3,3,4,5,7 (0 hits &le;1)<br /><br /></li><li><b>Round 4</b>: Juliet rolled 2,1,1,8 (3 swallows &le;6)</li><li>Our 2 surviving Scouts rolled 1,7 (1 hit &le;1), barely denying Juliet this hex</li></ol>", 
+	"commentary":[
+		"With yet another spread causes more battles to erupt.",
+		"<h3>Castor (L5)</h3>",
+		"<ol><li><b>Round 1</b>: We have only 4 Ship Yards to defend against Desdomona. The latter rolled a 10 (0 swallows &le;6)</li>",
+		"<li>Our 4 Ship Yards rolled 1,3,7,8 (1 hit &le;1)<br /><br /></li>",
+		"<li><b>Round 2</b>: Desdomona rolled 2,1,5 (3 swallows &le;6)</li>",
+		"<li>Our last Ship Yard rolled a 3 (missed &gt;1)<br /><br /></li>",
+		"<li><b>Round 3</b>: Desdomona rolled a 6 (hit &le;6). It has devoured the planet!</li></ol>",
+		"<h3>Kronos (K8)</h3>",
+		"<ol><li><b>Round 1</b>: Juliet has targets of differing CP costs, so it will roll targeting dice in addition to swallowing dice. For this pair, it rolled a 1 (cheapest), followed by a 1 to swallow a Ship Yard (&le;6)</li>",
+		"<li>Juliet scored a chained swallow, so it conducts this process again. It rolled a 6 (most expensive), followed by a 7 (&le;2 versus a Base)</li>",
+		"<li>Since Juliet was unsuccessful, our Base goes next. It rolled an 8 (miss &gt;4)</li>",
+		"<li>Our 2 surviving Ship Yards also go. We rolled 3,4 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 2</b>: Juliet gets to proceed once more. It rolled a 10 (most expensive), followed by a 5 versus our Base (&le;2 to hit)</li>",
+		"<li>Our Base rolled a 1 (hit &le;4), damaging Juliet</li>",
+		"<li>Our 2 Ship Yards rolled 1,10 (1 hit &le;1), denying Juliet this hex</li></ol>",
+		"<h3>Dakara (K6)</h3>",
+		"Stephano's weapon class is low, giving our Base priority this time. We rolled an 8 (miss &gt;4). Stephano has only our Base to target. It rolled a 2 (swallowed &le;2), which allowed it to devour this planet!",
+		"<h3>Sector H7</h3>",
+		"<ol><li><b>Round 1</b>: Juliet decides to invade this hex. It rolled 2,2,9 (2 swallows &le;6)</li>",
+		"<li>Our 8 surviving Scouts rolled 1,2,2,2,3,8,9,10 (1 hit &le;1), reducing Juliet to 1 HP<br /><br /></li>",
+		"<li><b>Round 2</b>: Juliet rolled 1,3,9 (2 swallows &le;6)</li>",
+		"<li>Our 6 surviving Scouts rolled 6,8,8,8,9,10 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 3</b>: Juliet rolled a 5 (1 swallow &le;6)</li>",
+		"<li>Our 5 surviving Scouts rolled 3,3,4,5,7 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 4</b>: Juliet rolled 2,1,1,8 (3 swallows &le;6)</li>",
+		"<li>Our 2 surviving Scouts rolled 1,7 (1 hit &le;1), barely denying Juliet this hex</li></ol>"], 
 	"amoebaTable":
 		[{
 			"name":"Desdomona (1)","RP":11,"str":3
@@ -2856,7 +3015,9 @@
 			"location":"H7"
 		}]},
 	{"heading":"Stardate 2412.0 (Economics)",
-	"commentary":"<p>We were able to win 2 of the 4 battles that the amoeba initiated. Still, we are all but guaranteed for our homeworld to be overrun with these bugs!</p><p>We will still make one attempt to defend our homeworld. To that end, we will buy 1 Base (-12) and 5 Scouts (-30).</p>", 
+	"commentary":[
+		"We were able to win 2 of the 4 battles that the amoeba initiated. Still, we are all but guaranteed for our homeworld to be overrun with these bugs!",
+		"We will still make one attempt to defend our homeworld. To that end, we will buy 1 Base (-12) and 5 Scouts (-30)."], 
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":6,"colonyCP":40,"mineralCP":0,"pipeCP":0,"techBuy":0,"unitBuy":42
@@ -2901,7 +3062,14 @@
 			"removeCounter":"systemL6"
 		}]},
 	{"heading":"Stardate 2413.0 (The Battle for Chulak)",
-	"commentary":"<p>Here, we make our stand versus the amoeba. Our opponent for this encounter will be Juliet.</p><ol><li><b>Round 1</b>: Juliet strikes first. Ships of different costs require rolling in pairs. Juliet starts with 10,9 (miss &gt;2 versus Base)</li><li>Our Base rolls a 10 (miss &gt;4)</li><li>Our 4 Ship Yards and 5 Scouts have the same minimum Attack power (1). We rolled 1,2,2,2,6,7,7,7,7 (1 hit)<br /><br /></li><li><b>Round 2</b>: Juliet rolled 6,9 (miss &gt;2 versus Base)</li><li>Our Base rolls a 10 (miss &gt;4)</li><li>Our 4 Ship Yards and 5 Scouts rolled 1,3,5,5,5,8,9,9,9 (1 hit); denying Juliet this hex, but only delaying the inevitable</li></ol>", 
+	"commentary":[
+		"Here, we make our stand versus the amoeba. Our opponent for this encounter will be Juliet.",
+		"<ol><li><b>Round 1</b>: Juliet strikes first. Ships of different costs require rolling in pairs. Juliet starts with 10,9 (miss &gt;2 versus Base)</li>",
+		"<li>Our Base rolls a 10 (miss &gt;4)</li>",
+		"<li>Our 4 Ship Yards and 5 Scouts have the same minimum Attack power (1). We rolled 1,2,2,2,6,7,7,7,7 (1 hit)<br /><br /></li>",
+		"<li><b>Round 2</b>: Juliet rolled 6,9 (miss &gt;2 versus Base)</li>",
+		"<li>Our Base rolls a 10 (miss &gt;4)</li>",
+		"<li>Our 4 Ship Yards and 5 Scouts rolled 1,3,5,5,5,8,9,9,9 (1 hit); denying Juliet this hex, but only delaying the inevitable</li></ol>"], 
 	"actions":
 		[{
 			"placeCounter":"systemL6",
@@ -2934,12 +3102,6 @@
 			"placeCounter":"base2G",
 			"location":"K8"
 		},{
-			"revealCounter":"systemK8",
-			"name":"planetG5"
-		},{
-			"revealCounter":"systemK8",
-			"name":"colony5G"
-		},{
 			"revealCounter":"systemK7",
 			"name":"amoeba3R"
 		},{
@@ -2953,10 +3115,18 @@
 			"revealCounter":"systemK8",
 			"name":"unexploredG"
 		},{
+			"revealCounter":"systemK8",
+			"name":"planetG5"
+		},{
+			"revealCounter":"systemK8",
+			"name":"colony5G"
+		},{
 			"removeCounter":"systemH7"
 		}]},
 	{"heading":"Stardate 2414.0 (Game Over)",
-	"commentary":"<p>Thus, the entire map has been overrun by the space amoeba. Best we can summarize is that their numbers need to be kept small, or the map will eventually be overrun. Not only was our minesweeper luck sub-average when acquiring amoeba RP, but our planet arrangement did not allow us to easily inhibit Juliet's <q>core</q> with minelayers.</p><p>Warrior Race worked well when we were on the offense, but it significantly inhibited the idea of larger ships and attack technology when defending. We would have needed both to overcome the empire advantage's side effect.</p>", 
+	"commentary":[
+		"Thus, the entire map has been overrun by the space amoeba. Best we can summarize is that their numbers need to be kept small, or the map will eventually be overrun. Not only was our minesweeper luck sub-average when acquiring amoeba RP, but our planet arrangement did not allow us to easily inhibit Juliet's <q>core</q> with minelayers.",
+		"Warrior Race worked well when we were on the offense, but it significantly inhibited the idea of larger ships and attack technology when defending. We would have needed both to overcome the empire advantage's side effect."],
 	"actions":
 		[{
 			"removeCounter":"SC2G"

@@ -186,6 +186,10 @@ function autoNameCounter(localObj) {
 		localObj.title = "Space Pirate"
 	} else if (localObj.src.indexOf("gfx/amoeba") >= 0) {
 		localObj.title = "Space Amoeba"
+	} else if (localObj.src.indexOf("gfx/station10") >= 0) {
+		localObj.title = "Space Station (Tech)"
+	} else if (localObj.src.indexOf("gfx/station5") >= 0) {
+		localObj.title = "Space Station (5 CP)"
 	} else if (localObj.src.indexOf("gfx/doomsday") >= 0) {
 		localObj.title = "Doomsday Machine"
 	} else if (localObj.src.indexOf("gfx/capitol") >= 0) {
@@ -368,6 +372,10 @@ function autoNameCounter(localObj) {
 		localObj.title = "Scout-E";
 	} else if (localObj.src.indexOf("gfx/talon/SC") >= 0) {
 		localObj.title = "Scout";
+	} else if (localObj.src.indexOf("gfx/talon/FFE") >= 0) {
+		localObj.title = "Frigate-E";
+	} else if (localObj.src.indexOf("gfx/talon/FF") >= 0) {
+		localObj.title = "Frigate";
 	} else if (localObj.src.indexOf("gfx/talon/DDE") >= 0) {
 		localObj.title = "Destroyer-E";
 	} else if (localObj.src.indexOf("gfx/talon/DDD") >= 0) {
@@ -380,8 +388,12 @@ function autoNameCounter(localObj) {
 		localObj.title = "Destroyer-X";
 	} else if (localObj.src.indexOf("gfx/talon/DD") >= 0) {
 		localObj.title = "Destroyer";
+	} else if (localObj.src.indexOf("gfx/talon/CLX") >= 0) {
+		localObj.title = "Light Cruiser-X";
 	} else if (localObj.src.indexOf("gfx/talon/CL") >= 0) {
 		localObj.title = "Light Cruiser";
+	} else if (localObj.src.indexOf("gfx/talon/CAX") >= 0) {
+		localObj.title = "Heavy Cruiser-X";
 	} else if (localObj.src.indexOf("gfx/talon/CA") >= 0) {
 		localObj.title = "Heavy Cruiser";
 	} else if (localObj.src.indexOf("gfx/talon/BCH") >= 0) {
@@ -400,6 +412,8 @@ function autoNameCounter(localObj) {
 		localObj.title = "Fighter Squadron";
 	} else if (localObj.src.indexOf("gfx/talon/SB") >= 0) {
 		localObj.title = "Starbase";
+	} else if (localObj.src.indexOf("gfx/talon/Tran") >= 0) {
+		localObj.title = "Transport";
 	} else if (localObj.src.indexOf("gfx/talon/missileDmg") >= 0) {
 		localObj.title = "Talon Missile (Damaged)";
 		stackable = true;
@@ -905,7 +919,7 @@ function renderCounter(curId, newPic, newId) {
 	
 		if (newId) {
 			findObj.id = newId;
-		} else if (curId.startsWith("system")) {
+		} else if (curId.startsWith("system") || curId.startsWith("binRsys")) {
 			paintTile(findObj, newPic);
 		}
 		autoNameCounter(findObj);
@@ -979,7 +993,23 @@ function readJson() {
 	var seekObj, readX, readY, seekTag;
 	
 	if (stageNum == 0 || !multiStages || stageNum >= stageMem) {
-		commentary.innerHTML = curStage.commentary;
+		if (Array.isArray(curStage.commentary)) {
+			var buildCommentary = "";
+			
+			for (var p = 0; p < curStage.commentary.length; p++) {
+				var getParag = curStage.commentary[p];
+				
+				if (getParag.startsWith("<") || getParag.startsWith("{")) {
+					buildCommentary = buildCommentary + getParag;
+				} else {
+					buildCommentary = buildCommentary + "<p>" + getParag + "</p>";
+				}
+			}
+			
+			commentary.innerHTML = buildCommentary;
+		} else {
+			commentary.innerHTML = curStage.commentary;
+		}
 		keywordifyCollection(document.getElementsByTagName("p"));
 		keywordifyCollection(document.getElementsByTagName("li"));
 		
@@ -1622,7 +1652,7 @@ function readJson() {
 				readValue(activePlayer.purchased, 0) + readValue(activePlayer.advBonus, 0) + 
 				Math.min(readValue(activePlayer.NPA, 0) + readValue(activePlayer.DM, 0) + readValue(activePlayer.wrecks, 0), 3);
 
-			var classMods = ["","","","","","","","","","","","","","","","","",""];
+			var classMods = ["","","","","","","","","","","","","","","","","","",""];
 			
 			if (activePlayer.hullSize > 0) {
 				classMods[0] = " increase";
@@ -2054,6 +2084,30 @@ function readJson() {
 					}
 				} else if (workId.startsWith("DM")) {
 					convertName = "doomsday";
+				} else if (workId.startsWith("type0V")) {
+					convertName = "type0V";
+				} else if (workId.startsWith("type2V")) {
+					convertName = "type2V";
+				} else if (workId.startsWith("type4V")) {
+					convertName = "type4V";
+				} else if (workId.startsWith("type5V")) {
+					convertName = "type5V";
+				} else if (workId.startsWith("type7V")) {
+					convertName = "type7V";
+				} else if (workId.startsWith("type9V")) {
+					convertName = "type9V";
+				} else if (workId.startsWith("type11V")) {
+					convertName = "type11V";
+				} else if (workId.startsWith("type13V")) {
+					convertName = "type13V";
+				} else if (workId.startsWith("type15V")) {
+					convertName = "type15V";
+				} else if (workId.startsWith("typeExpV")) {
+					convertName = "typeExpV";
+				} else if (workId.startsWith("typePDV")) {
+					convertName = "typePDV";
+				} else if (workId.startsWith("typeScanV")) {
+					convertName = "typeScanV";
 				}
 				
 				placeCounter(workId, readX, readY, convertName, readValue(actionPool[i].size,0), largeSize);
@@ -2206,7 +2260,7 @@ function readJson() {
 			makeHexes(actionPool[i].createPreset.toLowerCase().indexOf("talon") >= 0);
 			
 			if (actionPool[i].createPreset == "alienEmpiresSolo") {
-				expansionHWs = false;
+				expansionHWs = readValue(actionPool[i].useExpansion, false);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColor = actionPool[i].playerColor;
 				
@@ -2268,7 +2322,7 @@ function readJson() {
 					dispRow(letterRows.charAt(z), false);
 				}
 			} else if (actionPool[i].createPreset == "alienEmpiresSoloLg") {
-				expansionHWs = false;
+				expansionHWs = readValue(actionPool[i].useExpansion, false);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColor = actionPool[i].playerColor;
 				
@@ -2310,7 +2364,7 @@ function readJson() {
 				}
 				
 			} else if (actionPool[i].createPreset == "alienEmpiresSoloTalon") {
-				expansionHWs = false;
+				expansionHWs = readValue(actionPool[i].useExpansion, false);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColor = actionPool[i].playerColor;
 				
@@ -3987,7 +4041,7 @@ function readJson() {
 				}
 				
 				for (var y = 1; y < 12; y++) {
-					for (var x = 1; x <= 16; x++) {
+					for (var x = 1; x <= 24; x++) {
 						if (y <= 2) {
 							paintTile(letterRows.charAt(y)+x,"unexplored"+plrColors.charAt(0));
 						} else if (y >= 10) {

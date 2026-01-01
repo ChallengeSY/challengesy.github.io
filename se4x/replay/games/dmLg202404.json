@@ -1,6 +1,9 @@
 {"stages": [
 	{"heading":"Stardate 2400.0 (Introduction)",
-	"commentary":"<p>Welcome to a Doomsday Machine Large-sized scenario. This scenario lasts decently longer than a Small map, and is also harder in the sense that the titular Doomsday Machines are stronger in strength.</p>{dmTable}<p>For reference compared to the <a href=\"watch.htm?replay=aeLg202404\">Large size</a> Alien Empires map that was introduced in the Close Encounters expansion, the Doomsday Machine spawn points are slightly closer (on average), and that we need only to defend to win.</p>",
+	"commentary":[
+		"Welcome to a Doomsday Machine Large-sized scenario. This scenario lasts decently longer than a Small map, and is also harder in the sense that the titular Doomsday Machines are stronger in strength.",
+		"{dmTable}",
+		"For reference compared to the <a href=\"watch.htm?replay=aeLg202404\">Large size</a> Alien Empires map that was introduced in the Close Encounters expansion, the Doomsday Machine spawn points are slightly closer (on average), and that we need only to defend to win."],
 	"dmTable":
 		[{
 			"soloLg":3,"ecoPhase":0
@@ -10,8 +13,8 @@
 			"createPreset":"doomsdaySoloLg",
 			"playerColor":"G"
 		}]},
-	{"heading":"Stardate 2400.3 (Turn 1)",
-	"commentary":"<p>As we are playing this large map on Hard difficulty, we need every bit of advantage we can get our hands on if we are to defeat these stronger Doomsday Machines.</p>",
+	{"heading":"Stardate 2400.3",
+	"commentary":["As we are playing this large map on Hard difficulty, we need every bit of advantage we can get our hands on if we are to defeat these stronger Doomsday Machines."],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -53,8 +56,8 @@
 			"revealCounter":"systemK8",
 			"name":"unexploredG"
 		}]},
-	{"heading":"Stardate 2400.6 (Turn 2)",
-	"commentary":"<p>Fortunately, we are off to a fairly nice start.</p>",
+	{"heading":"Stardate 2400.6",
+	"commentary":["Fortunately, we are off to a fairly nice start."],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -101,8 +104,8 @@
 			"revealCounter":"systemJ8",
 			"name":"unexploredG"
 		}]},
-	{"heading":"Stardate 2400.9 (Turn 3)",
-	"commentary":"<p>Especially as we uncover more planets and minerals.</p>",
+	{"heading":"Stardate 2400.9",
+	"commentary":["Especially as we uncover more planets and minerals."],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -153,8 +156,11 @@
 			"revealCounter":"systemL8",
 			"name":"planetG6"
 		}]},
-	{"heading":"Stardate 2401.0 (Economic Phase 1)",
-	"commentary":"<p>The first Doomsday Machine will spawn on economic phase 7. This gives us a decent preparation window to develop our economy and tech up.</p>{dmTable}<p>For this phase, we will buy 1 each of Scout (-6), Mining Ship (-5), and Colony Ship (-8)</p>",
+	{"heading":"Stardate 2401.0",
+	"commentary":[
+	"The first Doomsday Machine will spawn on economic phase 7. This gives us a decent preparation window to develop our economy and tech up.",
+		"{dmTable}",
+		"For this phase, we will buy 1 each of Scout (-6), Mining Ship (-5), and Colony Ship (-8)"],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":0,"colonyCP":20,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":0,"unitBuy":19
@@ -214,8 +220,8 @@
 			"revealCounter":"systemI7",
 			"name":"unexploredG"
 		}]},
-	{"heading":"Stardate 2401.2 (Turn 4)",
-	"commentary":"<p>With a fourth Scout at our disposal, we are able to uncover the remaining home systems 33% faster.</p>",
+	{"heading":"Stardate 2401.2",
+	"commentary":["With a fourth Scout at our disposal, we are able to uncover the remaining home systems 33% faster."],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -263,8 +269,8 @@
 			"revealCounter":"systemJ7",
 			"name":"unexploredG"
 		}]},
-	{"heading":"Stardate 2401.5 (Turn 5)",
-	"commentary":"<p>Yet... the obligatory black hole remains unexplored.</p>",
+	{"heading":"Stardate 2401.5",
+	"commentary":["Yet... the obligatory black hole remains unexplored."],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -320,8 +326,8 @@
 			"revealCounter":"systemJ6",
 			"name":"unexploredG"
 		}]},
-	{"heading":"Stardate 2401.8 (Turn 6)",
-	"commentary":"<p>Despite the extreme risk said black hole traditionally poses, there is always a possibility that the exact opposite happens; that it becomes one of the last unexplored home systems.</p>",
+	{"heading":"Stardate 2401.8",
+	"commentary":["Despite the extreme risk said black hole traditionally poses, there is always a possibility that the exact opposite happens; that it becomes one of the last unexplored home systems."],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -384,8 +390,8 @@
 			"revealCounter":"systemH7",
 			"name":"planetG8"
 		}]},
-	{"heading":"Stardate 2402.0 (Economic Phase 2)",
-	"commentary":"<p>So far, so good on the playthrough. We will soon venture into deep space, and see what goodies we can snag from there. Our economics this phase are extremely simple: We buy 3 Colony Ships</p>",
+	{"heading":"Stardate 2402.0",
+	"commentary":["So far, so good on the playthrough. We will soon venture into deep space, and see what goodies we can snag from there. Our economics this phase are extremely simple: We buy 3 Colony Ships"],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":3,"colonyCP":22,"mineralCP":5,"pipeCP":0,"maint":4,"bidCP":0,"techBuy":0,"unitBuy":24
@@ -457,8 +463,8 @@
 			"revealCounter":"systemI5",
 			"name":"unexploredG"
 		}]},
-	{"heading":"Stardate 2402.1 (Turn 7)",
-	"commentary":"<p>It was only a matter of time before we stumbled upon our black hole; unavoidable by virtue of uncovering the last of our home systems. The vulnerable Scout rolled a 6 on the Black Hole check (survived &le;6).</p>",
+	{"heading":"Stardate 2402.1",
+	"commentary":["It was only a matter of time before we stumbled upon our black hole; unavoidable by virtue of uncovering the last of our home systems. The vulnerable Scout rolled a 6 on the Black Hole check (survived &le;6)."],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -517,8 +523,8 @@
 			"revealCounter":"systemG8",
 			"name":"unexploredW"
 		}]},
-	{"heading":"Stardate 2402.4 (Turn 8)",
-	"commentary":"<p>Only deep space remains to uncover from here on out. And, well... one could say this turn was extremely Dangerous.</p>",
+	{"heading":"Stardate 2402.4",
+	"commentary":["Only deep space remains to uncover from here on out. And, well... one could say this turn was extremely Dangerous."],
 	"actions":
 		[{
 			"placeCounter":"SC1G",
@@ -574,8 +580,8 @@
 			"revealCounter":"systemG6",
 			"name":"unexploredW"
 		}]},
-	{"heading":"Stardate 2402.7 (Turn 9)",
-	"commentary":"<p>And, well... that was the last of our Scouts that went <i>poof</i> to deep space! What a scam...</p>",
+	{"heading":"Stardate 2402.7",
+	"commentary":["And, well... that was the last of our Scouts that went <i>poof</i> to deep space! What a scam..."],
 	"actions":
 		[{
 			"removeCounter":"SC1G"
@@ -647,8 +653,8 @@
 			"revealCounter":"systemJ6",
 			"name":"planetG1"
 		}]},
-	{"heading":"Stardate 2403.0 (Economic Phase 3)",
-	"commentary":"<p>The previous phase's worth of turns have left us with no combat ships left to pay maintenance. Moving along, we will buy Attack 1 (-20), followed by a Colony Ship (-8) and a Ship Yard (-6) at our homeworld.</p>",
+	{"heading":"Stardate 2403.0",
+	"commentary":["The previous phase's worth of turns have left us with no combat ships left to pay maintenance. Moving along, we will buy Attack 1 (-20), followed by a Colony Ship (-8) and a Ship Yard (-6) at our homeworld."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":2,"colonyCP":28,"mineralCP":5,"pipeCP":0,"maint":0,"bidCP":0,"techBuy":20,"unitBuy":14
@@ -714,8 +720,8 @@
 			"revealCounter":"systemJ6",
 			"name":"colony1"
 		}]},
-	{"heading":"Stardate 2403.3 (Turn 10)",
-	"commentary":"<p>While there is barely any action...</p>",
+	{"heading":"Stardate 2403.3",
+	"commentary":["While there is barely any action..."],
 	"actions":
 		[{
 			"placeCounter":"Miner1G",
@@ -736,8 +742,8 @@
 			"placeCounter":"CO8G",
 			"location":"K6"
 		}]},
-	{"heading":"Stardate 2403.6 (Turn 11)",
-	"commentary":"<p>... we will discuss our strategy plan.</p>",
+	{"heading":"Stardate 2403.6",
+	"commentary":["... we will discuss our strategy plan."],
 	"actions":
 		[{
 			"placeCounter":"Miner1G",
@@ -751,8 +757,8 @@
 			"placeCounter":"Miner2G",
 			"location":"J9"
 		}]},
-	{"heading":"Stardate 2403.9 (Turn 12)",
-	"commentary":"<p>We will try our hand at Raiders versus the Doomsday Machines.</p>",
+	{"heading":"Stardate 2403.9",
+	"commentary":["We will try our hand at Raiders versus the Doomsday Machines."],
 	"actions":
 		[{
 			"placeCounter":"Miner1G",
@@ -799,8 +805,8 @@
 			"revealCounter":"systemK6",
 			"name":"planetG7"
 		}]},
-	{"heading":"Stardate 2404.0 (Economic Phase 4)",
-	"commentary":"<p>In order to work towards that goal, we will buy Cloaking 1 (-30), followed by 1 Ship Yard (-6) at our homeworld.</p>",
+	{"heading":"Stardate 2404.0",
+	"commentary":["In order to work towards that goal, we will buy Cloaking 1 (-30), followed by 1 Ship Yard (-6) at our homeworld."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":2,"colonyCP":39,"mineralCP":15,"pipeCP":0,"maint":0,"bidCP":0,"techBuy":30,"unitBuy":6
@@ -854,7 +860,7 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2404.2",
-	"commentary":"<p>Just keep harvesting...</p>",
+	"commentary":["Just keep harvesting..."],
 	"actions":
 		[{
 			"placeCounter":"Miner1G",
@@ -875,7 +881,7 @@
 			"name":"minerals5"
 		}]},
 	{"heading":"Stardate 2404.5",
-	"commentary":"<p>... and keep harvesting.</p>",
+	"commentary":["... and keep harvesting."],
 	"actions":
 		[{
 			"placeCounter":"Miner1G",
@@ -894,7 +900,7 @@
 			"location":"J8"
 		}]},
 	{"heading":"Stardate 2404.8",
-	"commentary":"<p>That is enough. Already it is almost economic phase time.</p>",
+	"commentary":["That is enough. Already it is almost economic phase time."],
 	"actions":
 		[{
 			"placeCounter":"Miner1G",
@@ -923,8 +929,11 @@
 			"revealCounter":"systemK6",
 			"name":"colony1"
 		}]},
-	{"heading":"Stardate 2405.0 (Economic Phase 5)",
-	"commentary":"<p>And bam! Though we still have 2 phases worth of preparation time left.</p>{dmTable}<p>We will use this opportunity to buy Attack 2 (-30), Defense 1 (-20), and Cloaking 2 (-30).</p>",
+	{"heading":"Stardate 2405.0",
+	"commentary":[
+		"And bam! Though we still have 2 phases worth of preparation time left.",
+		"{dmTable}",
+		"We will use this opportunity to buy Attack 2 (-30), Defense 1 (-20), and Cloaking 2 (-30)."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":20,"colonyCP":50,"mineralCP":10,"pipeCP":0,"maint":0,"bidCP":0,"techBuy":80,"unitBuy":0
@@ -968,7 +977,7 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2405.1",
-	"commentary":"<p>Based on how our planets are laid out, Doomsday Machines that spawn on the western or central side of the board have plenty of <q>food</q> to eat; thus plenty of opportunities to reduce our income.</p>",
+	"commentary":["Based on how our planets are laid out, Doomsday Machines that spawn on the western or central side of the board have plenty of <q>food</q> to eat; thus plenty of opportunities to reduce our income."],
 	"actions":
 		[{
 			"placeCounter":"Miner1G",
@@ -990,7 +999,7 @@
 			"name":"minerals5"
 		}]},
 	{"heading":"Stardate 2405.4",
-	"commentary":"<p>Doomsday Machines that spawn on the eastern side of the board have relatively little food to eat.</p>",
+	"commentary":["Doomsday Machines that spawn on the eastern side of the board have relatively little food to eat."],
 	"actions":
 		[{
 			"placeCounter":"Miner1G",
@@ -1003,7 +1012,7 @@
 			"location":"H7"
 		}]},
 	{"heading":"Stardate 2405.7",
-	"commentary":"<p>In fact, one planet is all it takes and the homeworld is already within reach of the eastern machines.</p>",
+	"commentary":["In fact, one planet is all it takes and the homeworld is already within reach of the eastern machines."],
 	"actions":
 		[{
 			"placeCounter":"Miner1G",
@@ -1025,8 +1034,10 @@
 		},{
 			"removeCounter":"R1G"
 		}]},
-	{"heading":"Stardate 2406.0 (Economic Phase 6)",
-	"commentary":"<p>Our preparation time is nearly exhausted; and so is the minerals we were able to uncover. Such is an unfortunate side effect of losing all our Scouts so early to deep space.</p>{dmTable}<p>We will start by buying Defense 2 (-30), followed by 3 Raiders (-36). This gives us combat ships back on the board.</p>",
+	{"heading":"Stardate 2406.0",
+	"commentary":["Our preparation time is nearly exhausted; and so is the minerals we were able to uncover. Such is an unfortunate side effect of losing all our Scouts so early to deep space.",
+		"{dmTable}",
+		"We will start by buying Defense 2 (-30), followed by 3 Raiders (-36). This gives us combat ships back on the board."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":0,"colonyCP":58,"mineralCP":10,"pipeCP":0,"maint":0,"bidCP":0,"techBuy":30,"unitBuy":36
@@ -1062,7 +1073,7 @@
 			"name":"colony5G"
 		}]},
 	{"heading":"Stardate 2406.3",
-	"commentary":"<p>At this point, all there is to do is to just take and unload the last of the minerals.</p>",
+	"commentary":["At this point, all there is to do is to just take and unload the last of the minerals."],
 	"actions":
 		[{
 			"placeCounter":"Miner1G",
@@ -1083,7 +1094,7 @@
 			"name":"minerals10"
 		}]},
 	{"heading":"Stardate 2406.6",
-	"commentary":"",
+	"commentary":["... so that we can maximize our CP available to build Raiders."],
 	"actions":
 		[{
 			"placeCounter":"Miner2G",
@@ -1096,7 +1107,7 @@
 			"name":"minerals10"
 		}]},
 	{"heading":"Stardate 2406.9",
-	"commentary":"<p>We have cashed in the last of the available minerals. We can safely scuttle the Mining Ships.</p>",
+	"commentary":["We have cashed in the last of the available minerals. We can safely scuttle the Mining Ships."],
 	"actions":
 		[{
 			"placeCounter":"Miner1G",
@@ -1117,8 +1128,11 @@
 		},{
 			"removeCounter":"dm1"
 		}]},
-	{"heading":"Stardate 2407.0 (Economic Phase 7)",
-	"commentary":"<p>We have officially ran out of time. Before we conduct our own economics, we need to roll to see where the first Doomsday Machine will spawn. We roll a 10, causing it to spawn on the eastern side of the board.</p>{dmTable}<p>Proceeding to our economics, we will buy Ship Yard tech level 2 (-20). We can then used our increased capacity to buy 4 more Raiders (-48).</p>",
+	{"heading":"Stardate 2407.0",
+	"commentary":[
+		"We have officially ran out of time. Before we conduct our own economics, we need to roll to see where the first Doomsday Machine will spawn. We roll a 10, causing it to spawn on the eastern side of the board.",
+		"{dmTable}",
+		"Proceeding to our economics, we will buy Ship Yard tech level 2 (-20). We can then used our increased capacity to buy 4 more Raiders (-48)."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":0,"colonyCP":60,"mineralCP":15,"pipeCP":0,"maint":6,"bidCP":0,"techBuy":20,"unitBuy":48
@@ -1153,7 +1167,7 @@
 			"location":"L7"
 		}]},
 	{"heading":"Stardate 2407.2",
-	"commentary":"<p>The first DM has two colonies that meet its closest distance requirement. It uses the colony at J8 to break the tie, because that would put it closer to the homeworld.</p>",
+	"commentary":["The first DM has two colonies that meet its closest distance requirement. It uses the colony at J8 to break the tie, because that would put it closer to the homeworld."],
 	"actions":
 		[{
 			"placeCounter":"R1G",
@@ -1166,7 +1180,7 @@
 			"location":"H12"
 		}]},
 	{"heading":"Stardate 2407.5",
-	"commentary":"<p>This pathway gives it relatively little food, and makes it easy for us to try to stop it in its tracks.</p>",
+	"commentary":["This pathway gives it relatively little food, and makes it easy for us to try to stop it in its tracks."],
 	"actions":
 		[{
 			"placeCounter":"R1G",
@@ -1179,7 +1193,7 @@
 			"location":"H11"
 		}]},
 	{"heading":"Stardate 2407.8",
-	"commentary":"<p>Nonetheless, the spawn points are still very far from our home systems, and we could hardly break out into deep space thanks to the early Danger markers.</p>",
+	"commentary":["Nonetheless, the spawn points are still very far from our home systems, and we could hardly break out into deep space thanks to the early Danger markers."],
 	"actions":
 		[{
 			"placeCounter":"dm1",
@@ -1188,7 +1202,7 @@
 			"removeCounter":"R3G"
 		}]},
 	{"heading":"Stardate 2408.0",
-	"commentary":"<p>This is the obligatory grace period in between the first two Doomsday Machines. We have enough money to buy another 3 Raiders and add them to our fleet before the first machine reaches its first colony.</p>",
+	"commentary":["This is the obligatory grace period in between the first two Doomsday Machines. We have enough money to buy another 3 Raiders and add them to our fleet before the first machine reaches its first colony."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":1,"colonyCP":60,"mineralCP":0,"pipeCP":0,"maint":14,"bidCP":0,"techBuy":0,"unitBuy":36
@@ -1211,7 +1225,7 @@
 			"location":"H10"
 		}]},
 	{"heading":"Stardate 2408.1",
-	"commentary":"<p>The threat looms closer.</p>",
+	"commentary":["The threat looms closer."],
 	"actions":
 		[{
 			"placeCounter":"R3G",
@@ -1221,7 +1235,7 @@
 			"location":"I9"
 		}]},
 	{"heading":"Stardate 2408.4",
-	"commentary":"<p>At the very least, we are prepared to tackle this Doomsday Machine. If successful, we lose no colonies.</p>",
+	"commentary":["At the very least, we are prepared to tackle this Doomsday Machine. If successful, we lose no colonies."],
 	"actions":
 		[{
 			"placeCounter":"R3G",
@@ -1230,8 +1244,14 @@
 			"placeCounter":"dm1",
 			"location":"J9"
 		}]},
-	{"heading":"Stardate 2408.7 (The Battle for Sector J8)",
-	"commentary":"<p>Here goes nothing! The <a href=\"javascript:showBox('dm5')\">first</a> Doomsday Machine has arrived and is ready to cause havoc! But, before it can destroy its first planet, it needs to defeat our 10 Raiders! Thank goodness for our battle simulator!</p><hr /><ol><li><b>Round 1</b>: Since this is the machine's first battle, it will roll for weakness. This machine rolled a 3 (weak to minelayer ammo)</li><li>Since only our Raiders are present (and with Hull Size 2) this battle, this makes rolling easy. The DM rolled 6,1,1,1,9 (4 hits &le;7), cleaning knocking out 2 of our Raiders</li><li>Our surviving 8 Raiders respond with 9,3,7,3,1,6,8,7 (3 hits &le;5)<br /><br /></li><li><b>Round 2</b>: The DM rolled 3,7,9,8,9 (2 hits)</li><li>Our surviving 7 Raiders respond with 6,5,5,2,9,5,5 (5 hits). We have finished them off!</li></ol>",
+	{"heading":"Stardate 2408.7 (The Battle for Castor)",
+	"commentary":[
+		"Here goes nothing! The <a href=\"javascript:showBox('dm5')\">first</a> Doomsday Machine has arrived and is ready to cause havoc! But, before it can destroy its first planet, it needs to defeat our 10 Raiders! Thank goodness for our battle simulator!",
+		"<ol><li><b>Round 1</b>: Since this is the machine's first battle, it will roll for weakness. This machine rolled a 3 (weak to minelayer ammo)</li>",
+		"<li>Since only our Raiders are present (and with Hull Size 2) this battle, this makes rolling easy. The DM rolled 6,1,1,1,9 (4 hits &le;7), cleaning knocking out 2 of our Raiders</li>",
+		"<li>Our surviving 8 Raiders respond with 9,3,7,3,1,6,8,7 (3 hits &le;5)<br /><br /></li>",
+		"<li><b>Round 2</b>: The DM rolled 3,7,9,8,9 (2 hits)</li>",
+		"<li>Our surviving 7 Raiders respond with 6,5,5,2,9,5,5 (5 hits). We have finished them off!</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"R3G",
@@ -1245,7 +1265,9 @@
 			"removeCounter":"dm2"
 		}]},
 	{"heading":"Stardate 2409.0",
-	"commentary":"<p>Hardly any time to rest from our recent success. To be fair, we should not forget the increased distance on this map. Still, the second machine has spawned (rolled an 8), and is ready to move in.</p>{dmTable}<p>We now have enough money for another 4 Raiders.</p>",
+	"commentary":["Hardly any time to rest from our recent success. To be fair, we should not forget the increased distance on this map. Still, the second machine has spawned (rolled an 8), and is ready to move in.",
+		"{dmTable}",
+		"We now have enough money for another 4 Raiders."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":11,"colonyCP":60,"mineralCP":0,"pipeCP":0,"maint":14,"bidCP":0,"techBuy":0,"unitBuy":48
@@ -1271,7 +1293,7 @@
 			"location":"L7"
 		}]},
 	{"heading":"Stardate 2409.3",
-	"commentary":"<p>Despite being further south, it still has roughly the same 2 candidate colonies as the previous machine.</p>",
+	"commentary":["Despite being further south, it still has roughly the same 2 candidate colonies as the previous machine."],
 	"actions":
 		[{
 			"placeCounter":"R3G",
@@ -1281,7 +1303,7 @@
 			"location":"F11"
 		}]},
 	{"heading":"Stardate 2409.6",
-	"commentary":"<p>Thus, we do not have to relocate our fleet anywhere.</p>",
+	"commentary":["Thus, we do not have to relocate our fleet anywhere."],
 	"actions":
 		[{
 			"placeCounter":"R3G",
@@ -1291,7 +1313,7 @@
 			"location":"G10"
 		}]},
 	{"heading":"Stardate 2409.9",
-	"commentary":"<p>... making it easier to prepare for the next battle.</p>",
+	"commentary":["... making it easier to prepare for the next battle."],
 	"actions":
 		[{
 			"resizeCounter":"R1G",
@@ -1308,7 +1330,10 @@
 			"location":"H10"
 		}]},
 	{"heading":"Stardate 2410.0",
-	"commentary":"<p>Since we are playing on neither Normal nor Harder difficulty, we get another grace phase in between the second and final Doomsday Machines.</p>{dmTable}<p>Thanks to relatively high maintenance, we only have enough money to buy another 3 Raiders.</p>",
+	"commentary":[
+		"Since we are playing on neither Normal nor Harder difficulty, we get another grace phase in between the second and final Doomsday Machines.",
+		"{dmTable}",
+		"Thanks to relatively high maintenance, we only have enough money to buy another 3 Raiders."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":9,"colonyCP":60,"mineralCP":0,"pipeCP":0,"maint":22,"bidCP":0,"techBuy":0,"unitBuy":36
@@ -1337,7 +1362,7 @@
 			"location":"H10"
 		}]},
 	{"heading":"Stardate 2410.2",
-	"commentary":"<p>Having a few more Raiders in our fleet will counterbalance the increase in strength.</p>",
+	"commentary":["Having a few more Raiders in our fleet will counterbalance the increase in strength."],
 	"actions":
 		[{
 			"placeCounter":"R3G",
@@ -1347,7 +1372,7 @@
 			"location":"I9"
 		}]},
 	{"heading":"Stardate 2410.5",
-	"commentary":"<p>And with the latest Raiders in position, all we have to do is remain as such.</p>",
+	"commentary":["And with the latest Raiders in position, all we have to do is remain as such."],
 	"actions":
 		[{
 			"placeCounter":"R3G",
@@ -1356,8 +1381,14 @@
 			"placeCounter":"dm2",
 			"location":"J9"
 		}]},
-	{"heading":"Stardate 2410.8 (The Battle for Sector J8)",
-	"commentary":"<p>It is battle time versus the <a href=\"javascript:showBox('dm7')\">second</a> Doomsday Machine!</p><hr /><ol><li><b>Round 1</b>: Since we get to do another fresh battle, we will roll for weakness. This machine rolled a 6 (weak to Cloaking)</li><li>The weakness is perfect for our Raiders! We have successfully ambushed them, giving us Attack +1 for this round (&le;5 to hit, then &le;4 afterwards), <b>and</b> Defense +2 for the entire battle (&gt;6 to avoid a hit)</li><li>Our Raiders have the best Weapon Class, so we will shoot first! We rolled 3,6,6,5,2,3,1,7,10,8,5,2,3,10 (8 hits). So close!!</li><li>The Doomsday Machine barely lived (<b>1</b> HP left), so it rolled 6,1,2,5,1,4 (6 hits). So much for our increased Defense.<br /><br /></li><li><b>Round 2</b>: Our surviving 11 Raiders respond with 5,7,4,8,2,10,3,3,1,8,1 (6 hits). We have finished them off!</li></ol>",
+	{"heading":"Stardate 2410.8 (The Battle for Castor)",
+	"commentary":[
+		"It is battle time versus the <a href=\"javascript:showBox('dm7')\">second</a> Doomsday Machine!",
+		"<ol><li><b>Round 1</b>: Since we get to do another fresh battle, we will roll for weakness. This machine rolled a 6 (weak to Cloaking)</li>",
+		"<li>The weakness is perfect for our Raiders! We have successfully ambushed them, giving us Attack +1 for this round (&le;5 to hit, then &le;4 afterwards), <b>and</b> Defense +2 for the entire battle (&gt;6 to avoid a hit)</li>",
+		"<li>Our Raiders have the best Weapon Class, so we will shoot first! We rolled 3,6,6,5,2,3,1,7,10,8,5,2,3,10 (8 hits). So close!!</li>",
+		"<li>The Doomsday Machine barely lived (<b>1</b> HP left), so it rolled 6,1,2,5,1,4 (6 hits). So much for our increased Defense.<br /><br /></li>",
+		"<li><b>Round 2</b>: Our surviving 11 Raiders respond with 5,7,4,8,2,10,3,3,1,8,1 (6 hits). We have finished them off!</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"R3G",
@@ -1386,7 +1417,10 @@
 			"removeCounter":"dm3"
 		}]},
 	{"heading":"Stardate 2411.0",
-	"commentary":"<p>Despite our recent success, the final machine was not far behind (rolled an 2), and is ready to move in.</p>{dmTable}<p>We now have enough money for another 4 Raiders.</p>",
+	"commentary":[
+		"Despite our recent success, the final machine was not far behind (rolled an 2), and is ready to move in.",
+		"{dmTable}",
+		"We now have enough money for another 4 Raiders."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":11,"colonyCP":60,"mineralCP":0,"pipeCP":0,"maint":22,"bidCP":0,"techBuy":0,"unitBuy":48
@@ -1420,7 +1454,7 @@
 			"location":"L7"
 		}]},
 	{"heading":"Stardate 2411.1",
-	"commentary":"<p>The final machine has two equally valid colonies from its spawn position. L4 and K4 are both 5 hexes from the spawn point, and 3 hexes from the homeworld.</p>",
+	"commentary":["The final machine has two equally valid colonies from its spawn position. L4 and K4 are both 5 hexes from the spawn point, and 3 hexes from the homeworld."],
 	"actions":
 		[{
 			"placeCounter":"R1G",
@@ -1436,7 +1470,7 @@
 			"location":"I1"
 		}]},
 	{"heading":"Stardate 2411.4",
-	"commentary":"<p>We need to scramble our forces west a-ess-a-pee!</p>",
+	"commentary":["We need to scramble our forces west a-ess-a-pee!"],
 	"actions":
 		[{
 			"placeCounter":"R1G",
@@ -1452,7 +1486,7 @@
 			"location":"J2"
 		}]},
 	{"heading":"Stardate 2411.7",
-	"commentary":"<p>... in order to minimize the final machine's damage.</p>",
+	"commentary":["... in order to minimize the final machine's damage."],
 	"actions":
 		[{
 			"placeCounter":"R1G",
@@ -1468,7 +1502,7 @@
 			"location":"K2"
 		}]},
 	{"heading":"Stardate 2412.0",
-	"commentary":"<p>Taking a short economic phase break, we build 2 more Raiders.</p>",
+	"commentary":["Taking a short economic phase break, we build 2 more Raiders."],
 	"prodTable":
 		[{
 			"name":"CSY (Green)","initCP":1,"colonyCP":60,"mineralCP":0,"pipeCP":0,"maint":30,"bidCP":0,"techBuy":0,"unitBuy":24
@@ -1500,7 +1534,7 @@
 			"location":"K2"
 		}]},
 	{"heading":"Stardate 2412.3",
-	"commentary":"<p>Some planet losses may be unavoidable.</p>",
+	"commentary":["Some planet losses may be unavoidable."],
 	"actions":
 		[{
 			"placeCounter":"R1G",
@@ -1519,7 +1553,7 @@
 			"location":"K3"
 		}]},
 	{"heading":"Stardate 2412.6",
-	"commentary":"<p>Yet... this <i>is</i> the final machine. As soon as we destroy it, this scenario will end.</p>",
+	"commentary":["Yet... this <i>is</i> the final machine. As soon as we destroy it, this scenario will end."],
 	"actions":
 		[{
 			"placeCounter":"R1G",
@@ -1543,8 +1577,15 @@
 			"revealCounter":"systemL4",
 			"name":"colony5G"
 		}]},
-	{"heading":"Stardate 2412.9 (The Battle for Sector L5)",
-	"commentary":"<p>Taking advantage of the fact that the <a href=\"javascript:showBox('dm9')\">final</a> Doomsday Machine has only a single valid colony (L5) this turn, we will defend the colony accordingly with our 17 Raiders.</p><hr /><ol><li><b>Round 1</b>: The final battle is here. We will roll for weakness. This machine rolled a 8 (weak to large fleets)</li><li>This weakness also works well for our Raiders. While we have 10+ ships in our fleet, we will benefit from Fleet Size Bonus (Attack +1)</li><li>The machine has the best Weapon Class once more, so it gets to shoot first. It rolled 4,10,7,4,2,8 (5 hits &le;9)</li><li>Our 15 surviving Raiders respond with 5,4,8,2,10,6,3,10,2,7,4,3,8,2,6 (7 hits &le;4)<br /><br /></li><li><b>Round 2</b>: The machine shoots once more. It rolled 9,7,4,9,5,7 (6 hits)</li><li>Our 12 surviving Raiders respond with 9,5,2,8,8,10,8,2,2,10,4,2 (5 hits). We have finished off the final machine!</li></ol>",
+	{"heading":"Stardate 2412.9 (The Battle for Kronos)",
+	"commentary":[
+		"Taking advantage of the fact that the <a href=\"javascript:showBox('dm9')\">final</a> Doomsday Machine has only a single valid colony (L5) this turn, we will defend the colony accordingly with our 17 Raiders.",
+		"<ol><li><b>Round 1</b>: The final battle is here. We will roll for weakness. This machine rolled a 8 (weak to large fleets)</li>",
+		"<li>This weakness also works well for our Raiders. While we have 10+ ships in our fleet, we will benefit from Fleet Size Bonus (Attack +1)</li>",
+		"<li>The machine has the best Weapon Class once more, so it gets to shoot first. It rolled 4,10,7,4,2,8 (5 hits &le;9)</li>",
+		"<li>Our 15 surviving Raiders respond with 5,4,8,2,10,6,3,10,2,7,4,3,8,2,6 (7 hits &le;4)<br /><br /></li>",
+		"<li><b>Round 2</b>: The machine shoots once more. It rolled 9,7,4,9,5,7 (6 hits)</li>",
+		"<li>Our 12 surviving Raiders respond with 9,5,2,8,8,10,8,2,2,10,4,2 (5 hits). We have finished off the final machine!</li></ol>"],
 	"actions":
 		[{
 			"revealCounter":"systemL4",
@@ -1573,7 +1614,9 @@
 			"name":"doomsday"
 		}]},
 	{"heading":"Stardate 2413.0 (Conclusion)",
-	"commentary":"<p>We have managed to destroy all the Doomsday Machines. This ends the scenario in victory.</p><p>Not exactly much to say. While a Large map does make for a little longer playthrough, the scenario is still considerably shorter and simpler than Alien Empires by virtue of only needing to defend.</p>",
+	"commentary":[
+		"We have managed to destroy all the Doomsday Machines. This ends the scenario in victory.",
+		"Not exactly much to say. While a Large map does make for a little longer playthrough, the scenario is still considerably shorter and simpler than Alien Empires by virtue of only needing to defend."],
 	"techTable":
 		[{
 			"name":"CSY (Green)","atk":2,"cloak":2,"def":2,"SY":2

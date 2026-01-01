@@ -1,6 +1,9 @@
 {"stages": [
 	{"heading":"Stardate 2400.0 (Introduction)",
-	"commentary":"<p>Welcome to Replicator Solitaire... again. We will put our recently enlightened understanding to the test in this rematch. We also have taken advantage of the new toys that All Good Things have introduced, and augmented the corresponding Battle Simulator. We fixed a few bugs along the way also.</p><p>Most notably, we fixed a <b>hardlock</b> edge case that occurs whenever a Replicator fleet ends up with <i>only</i> Type Scans and/or Type SWs. This is one of the few times where we believe sticking with the solo scenario book to a tee does <i>not</i> make sense. We handwave this by making the rest of the fleet exert Shield Projectors on the aforementioned support classes while they have at least as many ships as the Player fleet.</p><p>On the Empire Advantage step, we encountered our first instance where we have to outright <q>redraw</q> a card. Quick Learners is entirely useless in this scenario, because experience is never used in a game involving the Replicator faction. Our valid choices this time are Warrior Race and Industrious Race. Since we rarely initiate battles, we believe the latter is the safest choice. Our opponent, dubbed Gase, was dealt Fast Replicators.</p>",
+	"commentary":[
+		"Welcome to Replicator Solitaire... again. We will put our recently enlightened understanding to the test in this rematch. We also have taken advantage of the new toys that All Good Things have introduced, and augmented the corresponding Battle Simulator. We fixed a few bugs along the way also.",
+		"Most notably, we fixed a <b>hardlock</b> edge case that occurs whenever a Replicator fleet ends up with <i>only</i> Type Scans and/or Type SWs. This is one of the few times where we believe sticking with the solo scenario book to a tee does <i>not</i> make sense. We handwave this by making the rest of the fleet exert Shield Projectors on the aforementioned support classes while they have at least as many ships as the Player fleet.",
+		"On the Empire Advantage step, we encountered our first instance where we have to outright <q>redraw</q> a card. Quick Learners is entirely useless in this scenario, because experience is never used in a game involving the Replicator faction. Our valid choices this time are Warrior Race and Industrious Race. Since we rarely initiate battles, we believe the latter is the safest choice. Our opponent, dubbed Gase, was dealt Fast Replicators."],
 	"techTableX":
 		[{
 			"name":"CSY (Blue)"
@@ -19,7 +22,7 @@
 			"extraHexAway":true
 		}]},
 	{"heading":"Stardate 2400.3",
-	"commentary":"<p>Ancient Race has left us spoiled, but that is what makes each playthrough different. While Industrious Race and Fast Replicators have been seen previously individually, this is the first playthrough that mixes them together.</p>",
+	"commentary":["Ancient Race has left us spoiled, but that is what makes each playthrough different. While Industrious Race and Fast Replicators have been seen previously individually, this is the first playthrough that mixes them together."],
 	"actions":
 		[{
 			"placeHullsV":"J2,J1,K2,J2,J1,K2",
@@ -92,7 +95,7 @@
 			"name":"unexploredB"
 		}]},
 	{"heading":"Stardate 2400.6",
-	"commentary":"<p>We have found our black hole fairly early. Our vulnerable scout rolls a 7, sucking it in.</p>",
+	"commentary":["We have found our black hole fairly early. Our vulnerable scout rolls a 7, sucking it in."],
 	"actions":
 		[{
 			"removeHullsV":"1"
@@ -170,7 +173,7 @@
 			"name":"unexploredB"
 		}]},
 	{"heading":"Stardate 2400.9",
-	"commentary":"<p>Off to a wacky start; but uncovering the black hole early allows us to do a manuever we otherwise would not take in unexplored space.</p>",
+	"commentary":["Off to a wacky start; but uncovering the black hole early allows us to do a manuever we otherwise would not take in unexplored space."],
 	"actions":
 		[{
 			"removeHullsV":"3,6,7,8"
@@ -243,7 +246,9 @@
 			"name":"planetB7"
 		}]},
 	{"heading":"Stardate 2401.0",
-	"commentary":"<p>Gase does their usual early Replicator economics until economic phase 4; extra hulls.</p><p>Since this is the earliest stages in the adventure, we are investing in Exploration 1 (-15), followed by 3 Colony Ships (-24).</p>",
+	"commentary":[
+		"Gase does their usual early Replicator economics until economic phase 4; extra hulls.",
+		"Since this is the earliest stages in the adventure, we are investing in Exploration 1 (-15), followed by 3 Colony Ships (-24)."],
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":10,"colonyCP":30,"mineralCP":5,"pipeCP":0,"maint":2,"bidCP":0,"techBuy":15,"unitBuy":24
@@ -331,7 +336,7 @@
 			"name":"unexploredB"
 		}]},
 	{"heading":"Stardate 2401.2",
-	"commentary":"<p>We proceed to upgrade the Flagship, spending 3 CP in the process.</p>",
+	"commentary":["We proceed to upgrade the Flagship, spending 3 CP in the process."],
 	"actions":
 		[{
 			"placeHullsV":"I3",
@@ -402,7 +407,7 @@
 			"name":"unexploredB"
 		}]},
 	{"heading":"Stardate 2401.5",
-	"commentary":"<p>We take advantage of the recent upgrade, and use it to uncover the last of the unexplored eastern home systems.</p>",
+	"commentary":["We take advantage of the recent upgrade, and use it to uncover the last of the unexplored eastern home systems."],
 	"actions":
 		[{
 			"placeHullsV":"I4",
@@ -480,7 +485,7 @@
 			"name":"unexploredB"
 		}]},
 	{"heading":"Stardate 2401.8",
-	"commentary":"<p>Soon, it will be time to regroup...</p>",
+	"commentary":["Soon, it will be time to regroup..."],
 	"actions":
 		[{
 			"removeHullsV":"2,9,10"
@@ -571,7 +576,7 @@
 			"name":"planetB5"
 		}]},
 	{"heading":"Stardate 2402.0",
-	"commentary":"<p>After doing the usual for Gase, we conduct our own economics. We buy Terraforming 1 (-20), followed by 2 Colony Ships (-16).</p>",
+	"commentary":["After doing the usual for Gase, we conduct our own economics. We buy Terraforming 1 (-20), followed by 2 Colony Ships (-16)."],
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":1,"colonyCP":32,"mineralCP":5,"pipeCP":0,"maint":2,"bidCP":0,"techBuy":20,"unitBuy":16
@@ -681,7 +686,7 @@
 			"name":"unexploredB"
 		}]},
 	{"heading":"Stardate 2402.1",
-	"commentary":"<p>Exploration technology continues to be used, only this time to step foot into deep space.</p>",
+	"commentary":["Exploration technology continues to be used, only this time to step foot into deep space."],
 	"actions":
 		[{
 			"placeHullsV":"I6,I6",
@@ -770,7 +775,7 @@
 			"name":"unexploredB"
 		}]},
 	{"heading":"Stardate 2402.4",
-	"commentary":"<p>Regional Maps are quite a potent discovery. This saves us several turns, but at the expense of completing a path to Replicator territory sooner.</p>",
+	"commentary":["Regional Maps are quite a potent discovery. This saves us several turns, but at the expense of completing a path to Replicator territory sooner."],
 	"actions":
 		[{
 			"removeHullsV":"8"
@@ -861,7 +866,7 @@
 			"name":"unexploredB"
 		}]},
 	{"heading":"Stardate 2402.7",
-	"commentary":"<p>It is looking quite likely both empires will uncover the last of the home systems before the fourth economic phase.</p>",
+	"commentary":["It is looking quite likely both empires will uncover the last of the home systems before the fourth economic phase."],
 	"actions":
 		[{
 			"removeHullsV":"5,11,12"
@@ -975,7 +980,10 @@
 			"name":"planetB8"
 		}]},
 	{"heading":"Stardate 2403.0",
-	"commentary":"<p>This concludes Gase's obligatory homeworld hulls segment. Still, no dice rolls will take place for them while their Movement technology is below level 6. This will open up <b>ludicrious</b> speeds once they achieve their goal!</p><p>Admittedly, it seems the Replicator opponent is far tougher than we imagined. We have done multiple sets of simulations of roughly equal fleets (bearing in mind that the replicators tend to get RP from us and also an NPA planet <i>before</i> engaging in a proper battle), and it seems our best bet is to shoot for Fighter technology, so we will start there.</p><p>With that theory crafted, we will try out hand at Fighter 1 (-25). This leaves us exactly enough CP leftover for 2 colony ships (-16).</p>",
+	"commentary":[
+		"This concludes Gase's obligatory homeworld hulls segment. Still, no dice rolls will take place for them while their Movement technology is below level 6. This will open up <b>ludicrious</b> speeds once they achieve their goal!",
+		"Admittedly, it seems the Replicator opponent is far tougher than we imagined. We have done multiple sets of simulations of roughly equal fleets (bearing in mind that the replicators tend to get RP from us and also an NPA planet <i>before</i> engaging in a proper battle), and it seems our best bet is to shoot for Fighter technology, so we will start there.",
+		"With that theory crafted, we will try out hand at Fighter 1 (-25). This leaves us exactly enough CP leftover for 2 colony ships (-16)."],
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":0,"colonyCP":38,"mineralCP":5,"pipeCP":0,"maint":2,"bidCP":0,"techBuy":25,"unitBuy":16
@@ -1093,7 +1101,7 @@
 			"name":"unexploredB"
 		}]},
 	{"heading":"Stardate 2403.3",
-	"commentary":"<p>At this point, we expect both empires to finish their home system exploration before the next economic phase. Gase has no unexplored planets left to uncover.</p>",
+	"commentary":["At this point, we expect both empires to finish their home system exploration before the next economic phase. Gase has no unexplored planets left to uncover."],
 	"actions":
 		[{
 			"placeHullsV":"K7,K7,K2,K2",
@@ -1146,7 +1154,7 @@
 			"name":"unexploredB"
 		}]},
 	{"heading":"Stardate 2403.6",
-	"commentary":"<p>We will forgo the risk with the black hole we just uncovered...</p>",
+	"commentary":["We will forgo the risk with the black hole we just uncovered..."],
 	"actions":
 		[{
 			"placeGhost":"hiddenV",
@@ -1203,7 +1211,7 @@
 			"name":"minerals5"
 		}]},
 	{"heading":"Stardate 2403.9",
-	"commentary":"<p>And thus concludes their home system exploration task (formerly known as a mission).</p>",
+	"commentary":["And thus concludes their home system exploration task (formerly known as a mission)."],
 	"actions":
 		[{
 			"placeGhost":"hiddenV",
@@ -1294,7 +1302,9 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2404.0",
-	"commentary":"<p>And thus their reward of Type Exps has arrived. They were not able to take a lot of planets before the first economic phase, so their flexibility is nearly non-existent. They also begin investing in Movement (-15).</p><p>Our Fighter investments continue. Strangely, All Good Things reduces the cost of this <i>specific</i> level (25 &rarr; 20 CP). We also buy Attack 1 (-20).</p>",
+	"commentary":[
+		"And thus their reward of Type Exps has arrived. They were not able to take a lot of planets before the first economic phase, so their flexibility is nearly non-existent. They also begin investing in Movement (-15).",
+		"Our Fighter investments continue. Strangely, All Good Things reduces the cost of this <i>specific</i> level (25 &rarr; 20 CP). We also buy Attack 1 (-20)."],
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":0,"colonyCP":50,"mineralCP":5,"pipeCP":0,"maint":2,"bidCP":0,"techBuy":40,"unitBuy":0
@@ -1392,7 +1402,7 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2404.2",
-	"commentary":"<p>None of their Type Exps were able to go into deep space right away, so this slows them down a bit.</p>",
+	"commentary":["None of their Type Exps were able to go into deep space right away, so this slows them down a bit."],
 	"actions":
 		[{
 			"placeGhost":"hiddenV",
@@ -1458,7 +1468,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2404.5",
-	"commentary":"<p>Their first adventures into deep space were partially successful. A black hole slows them down a bit.</p>",
+	"commentary":["Their first adventures into deep space were partially successful. A black hole slows them down a bit."],
 	"actions":
 		[{
 			"placeGhost":"hiddenV",
@@ -1531,7 +1541,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2404.8",
-	"commentary":"<p>Being only a Medium-sized map, combined with us having partially explored deep space, there is already a completed route now.</p>",
+	"commentary":["Being only a Medium-sized map, combined with us having partially explored deep space, there is already a completed route now."],
 	"actions":
 		[{
 			"removeHullsV":"14,15,16,17,18,19"
@@ -1631,7 +1641,9 @@
 			"name":"planetB3"
 		}]},
 	{"heading":"Stardate 2405.0",
-	"commentary":"<p>Gase is now more than halfway through its Movement technology task. One level remains before dice rolls become applicable.</p><p>We have just finished our project; Fighters 3 has been attained (-25). We have also bought Movement 2 (-20). Afterwards, we buy a full carrier at our homeworld (-27).</p>",
+	"commentary":[
+		"Gase is now more than halfway through its Movement technology task. One level remains before dice rolls become applicable.",
+		"We have just finished our project; Fighters 3 has been attained (-25). We have also bought Movement 2 (-20). Afterwards, we buy a full carrier at our homeworld (-27)."],
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":13,"colonyCP":62,"mineralCP":10,"pipeCP":0,"maint":2,"bidCP":0,"techBuy":45,"unitBuy":27
@@ -1745,7 +1757,7 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2405.1",
-	"commentary":"<p>While one of their newest hulls takes on a task to learn from an NPA planet, we have an acid question: Can Gase expose a path that contains <i>no</i> difficult terrain?</p>",
+	"commentary":["While one of their newest hulls takes on a task to learn from an NPA planet, we have an acid question: Can Gase expose a path that contains <i>no</i> difficult terrain?"],
 	"actions":
 		[{
 			"placeHullsV":"H5",
@@ -1831,7 +1843,12 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2405.4R (Replicator Turn)",
-	"commentary":"<p>The answer... is yes: They did uncover a path that has no difficult terrain. We also opted to be sneaky, and see what it is like to try shuffling in a Quantum Filament.</p><p>What a missed opportunity to update the Solo Scenario Book to address All Good Things terrain. We will adapt from the updated Alien Empires rules, and infer that they will try to avoid ion storms and plasma storms, but can enter other terrain as normal.</p><hr /><p>Before we do our turn, we have 2 Replicator-initiated battles to conduct. Since RP gains take effect in between turns, it does not matter which order we do them. We will start with our fleet. Our Flagship rolls a 2, easily dispatching their lone hull (ends up being a Type 0).</p><p>Against the NPA planet, the Alien-B goes first. It rolled a 10 (&le;6 to hit). The Alien-Cs then rolled 2,10 (1 hit &le;5), finishing this hull off (also a Type 0).</p>",
+	"commentary":[
+		"The answer... is yes: They did uncover a path that has no difficult terrain. We also opted to be sneaky, and see what it is like to try shuffling in a Quantum Filament.",
+		"What a missed opportunity to update the Solo Scenario Book to address All Good Things terrain. We will adapt from the updated Alien Empires rules, and infer that they will try to avoid ion storms and plasma storms, but can enter other terrain as normal.",
+		"<hr />",
+		"Before we do our turn, we have 2 Replicator-initiated battles to conduct. Since RP gains take effect in between turns, it does not matter which order we do them. We will start with our fleet. Our Flagship rolls a 2, easily dispatching their lone hull (ends up being a Type 0).",
+		"Against the NPA planet, the Alien-B goes first. It rolled a 10 (&le;6 to hit). The Alien-Cs then rolled 2,10 (1 hit &le;5), finishing this hull off (also a Type 0)."],
 	"actions":
 		[{
 			"placeHullsV":"G6",
@@ -1934,7 +1951,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2405.4P (Player Turn)",
-	"commentary":"<p>Our fleet takes advantage of the vulnerability of one of their Type Exps, and intercepts it. Our ships rolled 4/1,10 (2 hits &le;4), easily eliminating this straggler and denying it the ability to convert into 2 hulls once deep space is exhausted.</p>",
+	"commentary":["Our fleet takes advantage of the vulnerability of one of their Type Exps, and intercepts it. Our ships rolled 4/1,10 (2 hits &le;4), easily eliminating this straggler and denying it the ability to convert into 2 hulls once deep space is exhausted."],
 	"actions":
 		[{
 			"placeHullsV":"G6",
@@ -1997,7 +2014,7 @@
 			"name":"fold"
 		}]},
 	{"heading":"Stardate 2405.7R",
-	"commentary":"<p>Another hull is split off from the first <q>fleet</q> in order to learn from our Attack 1. Rolling a 4, it becomes a Type II. Our Fighters then rolled 4,9,9 (1 hit &le;8), easily dispatching this ship. The last ship then reaches our unguarded colony and proceeds to bombard. It rolls a 6, becoming another Type II, and then rolls a 5 for bombardment; a miss.</p>",
+	"commentary":["Another hull is split off from the first <q>fleet</q> in order to learn from our Attack 1. Rolling a 4, it becomes a Type II. Our Fighters then rolled 4,9,9 (1 hit &le;8), easily dispatching this ship. The last ship then reaches our unguarded colony and proceeds to bombard. It rolls a 6, becoming another Type II, and then rolls a 5 for bombardment; a miss."],
 	"actions":
 		[{
 			"placeHullsV":"E8",
@@ -2076,7 +2093,7 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2405.7P",
-	"commentary":"<p>Now that it is our turn to do some counter-damage, we use our Carrier to fend off their lone Type II. Our Fighters rolled 1,6,6 (3 hits &le;8), easily blowing it out of our space.</p>",
+	"commentary":["Now that it is our turn to do some counter-damage, we use our Carrier to fend off their lone Type II. Our Fighters rolled 1,6,6 (3 hits &le;8), easily blowing it out of our space."],
 	"actions":
 		[{
 			"removeHullsV":"20,21,22,23,24,25,26,27,28"
@@ -2145,7 +2162,9 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2406.0",
-	"commentary":"<p>Gase had an extremely successful economic phase, though thanks to stealing several minerals we uncovered. They finish their Movement task also (-15). Starting with the next phase, they will be rolling the dice to see what takes place.</p><p>Since our technology investments have slowed, this frees up money for other matters. We can take advantage of how (relatively) vulnerable the Type Flag is, and steal the initiative this phase (-15). We then buy Ship Size 2 (-10), followed by a full carrier at the homeworld (-27), a forward Ship Yard at D2 (-6), and two Bases near our homeworld (-24 total).</p>",
+	"commentary":[
+		"Gase had an extremely successful economic phase, though thanks to stealing several minerals we uncovered. They finish their Movement task also (-15). Starting with the next phase, they will be rolling the dice to see what takes place.",
+		"Since our technology investments have slowed, this frees up money for other matters. We can take advantage of how (relatively) vulnerable the Type Flag is, and steal the initiative this phase (-15). We then buy Ship Size 2 (-10), followed by a full carrier at the homeworld (-27), a forward Ship Yard at D2 (-6), and two Bases near our homeworld (-24 total)."],
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":11,"colonyCP":73,"mineralCP":5,"pipeCP":0,"maint":6,"bidCP":15,"techBuy":10,"unitBuy":57
@@ -2242,7 +2261,21 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2406.3P",
-	"commentary":"<h3>The Battle for Sector E8</h3><p>The packed action continues, only this time we have the initiative. Against their Flagship <q>fleet</q>, we take advantage of the fact that their lone unidentified hull automatically becomes a Type PD by virtue of having previously seen our fighters.</p><ol><li><b>Round 1</b>: Their Type PD goes first. It rolled a 1 against our fighters (hit &le;5)</li><li>Their Type Flag also shoots against our fighters, having rolled a 8 (&le;3 to hit)</li><li>With the assistance of Fleet Size Bonus, our remaining 2 Fighters rolled an 8 against their Type PD (hit &le;9), followed by a 2 against their Type Flag (hit &le;8)</li><li>Our Carrier rolled a 5 (&le;4 to hit)<br /><br /></li><li><b>Round 2</b>: Their Type Flag rolled a 6 (&le;3 to hit)</li><li>Our 2 Fighters rolled 1,10 (1 hit &le;8)</li><li>Our Carrier rolled a 4 (hit &le;4), eliminating their flagship!</li></ol><h3>The Battle for Sector F1</h3><p>Next up is their second Type Exp. We intentionally left a Scout behind to block retreat.</p><ol><li><b>Round 1</b>: Making use of FSB again, our ships rolled 6/4 (1 hit &le;4)</li><li>Their Type Exp rolled a 4 (&le;1 to hit)<br /><Br /></li><li><b>Round 2</b>: Our ships rolled 8/2 (1 hit &le;4), finishing them off</li></ol>",
+	"commentary":[
+		"<h3>The Battle for Sector E8</h3>",
+		"The packed action continues, only this time we have the initiative. Against their Flagship <q>fleet</q>, we take advantage of the fact that their lone unidentified hull automatically becomes a Type PD by virtue of having previously seen our fighters.",
+		"<ol><li><b>Round 1</b>: Their Type PD goes first. It rolled a 1 against our fighters (hit &le;5)</li>",
+		"<li>Their Type Flag also shoots against our fighters, having rolled a 8 (&le;3 to hit)</li>",
+		"<li>With the assistance of Fleet Size Bonus, our remaining 2 Fighters rolled an 8 against their Type PD (hit &le;9), followed by a 2 against their Type Flag (hit &le;8)</li>",
+		"<li>Our Carrier rolled a 5 (&le;4 to hit)<br /><br /></li>",
+		"<li><b>Round 2</b>: Their Type Flag rolled a 6 (&le;3 to hit)</li>",
+		"<li>Our 2 Fighters rolled 1,10 (1 hit &le;8)</li>",
+		"<li>Our Carrier rolled a 4 (hit &le;4), eliminating their flagship!</li></ol>",
+		"<h3>The Battle for Sector F1</h3>",
+		"Next up is their second Type Exp. We intentionally left a Scout behind to block retreat.",
+		"<ol><li><b>Round 1</b>: Making use of FSB again, our ships rolled 6/4 (1 hit &le;4)</li>",
+		"<li>Their Type Exp rolled a 4 (&le;1 to hit)<br /><Br /></li>",
+		"<li><b>Round 2</b>: Our ships rolled 8/2 (1 hit &le;4), finishing them off</li></ol>"],
 	"actions":
 		[{
 			"removeHullsV":"10"
@@ -2315,7 +2348,7 @@
 			"name":"danger"
 		}]},
 	{"heading":"Stardate 2406.3R",
-	"commentary":"<p>And now for some bad news; because the Replicators now have two valid paths, a second fleet was formed. Their intermediate fleet also made it to one of our planets. On the Type PD step, a 5 was rolled; causing one support ship to be built alongside 2 Type IVs. They then rolled 1,1/8 (2 hits &le;5/1), damaging (but not destroying) our colony.</p>",
+	"commentary":["And now for some bad news; because the Replicators now have two valid paths, a second fleet was formed. Their intermediate fleet also made it to one of our planets. On the Type PD step, a 5 was rolled; causing one support ship to be built alongside 2 Type IVs. They then rolled 1,1/8 (2 hits &le;5/1), damaging (but not destroying) our colony."],
 	"actions":
 		[{
 			"removeHullsV":"24"
@@ -2419,7 +2452,12 @@
 			"name":"unexploredW"
 		}]},
 	{"heading":"Stardate 2406.6",
-	"commentary":"<h3>Player Turn</h3><p>That was a useless regional map; there are no more unexplored systems in the western half of the map... Still, we combine our carriers, and use them to defend our planet.</p><p>With no unidentified hulls available, we go straight into battle. Their Type PD rolls a 6... barely a miss against our well-equipped fighters. Our Fighters then rolled 2/4,2,8,9 (4 hits &le;8), wiping out their entire fleet.</p><h3>Replicator Turn</h3><p>Now that action has slowed, we can start condensing stages once more. Since no colonies are currently in reach, self-preservation causes the eastern fleet to keep its distance.</p>",
+	"commentary":[
+		"<h3>Player Turn</h3>",
+		"That was a useless regional map; there are no more unexplored systems in the western half of the map... Still, we combine our carriers, and use them to defend our planet.",
+		"With no unidentified hulls available, we go straight into battle. Their Type PD rolls a 6... barely a miss against our well-equipped fighters. Our Fighters then rolled 2/4,2,8,9 (4 hits &le;8), wiping out their entire fleet.",
+		"<h3>Replicator Turn</h3>",
+		"Now that action has slowed, we can start condensing stages once more. Since no colonies are currently in reach, self-preservation causes the eastern fleet to keep its distance."],
 	"actions":
 		[{
 			"removeHullsV":"14,17,20,25,26,28"
@@ -2503,7 +2541,7 @@
 			"name":"map"
 		}]},
 	{"heading":"Stardate 2406.9",
-	"commentary":"<p>Not much to say now. Best we can do is minimize the impact of further damage. Anyway, their eastern fleet has managed to make planetfall once more. They rolled a 4 on the Type PD step (giving them 0), and they build 2 Type Vs. They then rolled 2,4 (2 hits &le;6), finishing off our colony. They then break down one of their Type Vs into 2 hulls, and use one of them to colonize.</p>",
+	"commentary":["Not much to say now. Best we can do is minimize the impact of further damage. Anyway, their eastern fleet has managed to make planetfall once more. They rolled a 4 on the Type PD step (giving them 0), and they build 2 Type Vs. They then rolled 2,4 (2 hits &le;6), finishing off our colony. They then break down one of their Type Vs into 2 hulls, and use one of them to colonize."],
 	"actions":
 		[{
 			"removeHullsV":"27,30,31,32,33,34,35,36,37,38,39"
@@ -2600,7 +2638,9 @@
 			"removeCounter":"systemE1"
 		}]},
 	{"heading":"Stardate 2407.0",
-	"commentary":"<p>Gase has had another major success in its book. This is also the first economic phase in which it rolls to determine its purchase. An 8 was rolled, causing it to buy 1 RP (-30).</p><p>We have endured an unfortunate setback with the Replicators having stolen a planet from us. In order to thwart their colonies, we need to purchase Anti-Replicator technology (-10). We also buy Ship Yards 2 (-20). Afterwards, we buy a full carrier (-27) + 1 Transport (-6) at the homeworld; and 1 Fighter (-5) + 1 Ship Yard (-6) at our forward site to the west.</p>",
+	"commentary":[
+		"Gase has had another major success in its book. This is also the first economic phase in which it rolls to determine its purchase. An 8 was rolled, causing it to buy 1 RP (-30).",
+		"We have endured an unfortunate setback with the Replicators having stolen a planet from us. In order to thwart their colonies, we need to purchase Anti-Replicator technology (-10). We also buy Ship Yards 2 (-20). Afterwards, we buy a full carrier (-27) + 1 Transport (-6) at the homeworld; and 1 Fighter (-5) + 1 Ship Yard (-6) at our forward site to the west."],
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":1,"colonyCP":74,"mineralCP":10,"pipeCP":0,"maint":9,"bidCP":0,"techBuy":30,"unitBuy":44
@@ -2698,7 +2738,9 @@
 			"name":"colony5B"
 		}]},
 	{"heading":"Stardate 2407.2",
-	"commentary":"<p>Self-Preservation necesssitates pulling back their hulls on the eastern side, for a turn or two.</p><p>Pre-AGT, the Replicators could do a task that assigns appropriate ships to conquer a NPA planet, as long as the size was not <i>Small</i> (unofficial size). The All Good Things Solo scenario book clarifies it by stating that this task can now take place only on a <b>Large</b> map (presumably the minimum, if one does not mind going beyond this size).</p>",
+	"commentary":[
+		"Self-Preservation necesssitates pulling back their hulls on the eastern side, for a turn or two.",
+		"Pre-AGT, the Replicators could do a task that assigns appropriate ships to conquer a NPA planet, as long as the size was not <i>Small</i> (unofficial size). The All Good Things Solo scenario book clarifies it by stating that this task can now take place only on a <b>Large</b> map (presumably the minimum, if one does not mind going beyond this size)."],
 	"actions":
 		[{
 			"placeGhost":"hiddenV",
@@ -2782,7 +2824,12 @@
 			"name":"minerals5"
 		}]},
 	{"heading":"Stardate 2407.5",
-	"commentary":"<h3>Replicator Turn</h3><p>Warp Points are unused... and, besides, there is not enough unexplored deep space remaining for them to be of any benefit, to either party.</p><p>The western fleet makes planetfall. A 4 was rolled for a potential Type PD (none), causing the hulls to become 3 Type V ships. These ships then rolled 6,7,8 for bombardment... 0 hits thanks to our Light Infantry reducing their threshold to &le;5.</p><h3>Player Turn</h3><p>Our eastern Carrier fleet has successfully escorted the Transport to its destination. Our Fighters then rolled 3,4,4,4,6 (5 hits &le;7), allowing our transport to finish this colony off.</p>",
+	"commentary":[
+		"<h3>Replicator Turn</h3>",
+		"Warp Points are unused... and, besides, there is not enough unexplored deep space remaining for them to be of any benefit, to either party.",
+		"The western fleet makes planetfall. A 4 was rolled for a potential Type PD (none), causing the hulls to become 3 Type V ships. These ships then rolled 6,7,8 for bombardment... 0 hits thanks to our Light Infantry reducing their threshold to &le;5.",
+		"<h3>Player Turn</h3>",
+		"Our eastern Carrier fleet has successfully escorted the Transport to its destination. Our Fighters then rolled 3,4,4,4,6 (5 hits &le;7), allowing our transport to finish this colony off."],
 	"actions":
 		[{
 			"placeGhost":"hiddenV",
@@ -2869,8 +2916,15 @@
 			"revealCounter":"systemD9",
 			"name":"colony1"
 		}]},
-	{"heading":"Stardate 2407.8R",
-	"commentary":"<p>Luckily for the pesky Replicators, Doomsday Machines are also unused. The western fleet gains one new hull mid-bombardment. A 6 was rolled, so it becomes a Type IV. The 4 ships together rolled 4/6,9,10 (1 hit &le;4).</p><h3>The Battle for Odyssey</h3><p>The eastern fleet has regrouped, and is now ready to assault Odyssey. On the Type PD step, a 4 was rolled (none). This gives them 1 Type IV and 4 Type Vs.</p><ol><li><b>Round 1</b>: Our Base has the best Weapon Class. It rolled a 5 against their Type IV (hit &le;7), eliminating it</li><li>With the Fleet Size Bonus on their hands, their ships rolled 1,5,8,10 (2 hits &le;5)<br /><br /></li><li><b>Round 2</b>: Our Base rolls a 2, damaging one of their Type Vs (&le;2)</li><li>Their Type Vs rolled 1,1,5,6 (3 hits &le;5), finishing our Base off<br /><br /></li><li><b>Bombardment Round</b>: Our colony is exposed. They rolled 5,7,8,10 (1 hit &le;5)</li></ol>",
+	{"heading":"Stardate 2407.8R (The Battle for Odyssey)",
+	"commentary":[
+		"Luckily for the pesky Replicators, Doomsday Machines are also unused. The western fleet gains one new hull mid-bombardment. A 6 was rolled, so it becomes a Type IV. The 4 ships together rolled 4/6,9,10 (1 hit &le;4).",
+		"The eastern fleet has regrouped, and is now ready to assault Odyssey. On the Type PD step, a 4 was rolled (none). This gives them 1 Type IV and 4 Type Vs.",
+		"<ol><li><b>Round 1</b>: Our Base has the best Weapon Class. It rolled a 5 against their Type IV (hit &le;7), eliminating it</li>",
+		"<li>With the Fleet Size Bonus on their hands, their ships rolled 1,5,8,10 (2 hits &le;5)<br /><br /></li>",
+		"<li><b>Round 2</b>: Our Base rolls a 2, damaging one of their Type Vs (&le;2)</li>",
+		"<li>Their Type Vs rolled 1,1,5,6 (3 hits &le;5), finishing our Base off<br /><br /></li>",
+		"<li><b>Bombardment Round</b>: Our colony is exposed. They rolled 5,7,8,10 (1 hit &le;5)</li></ol>"],
 	"actions":
 		[{
 			"placeGhost":"hiddenV",
@@ -2953,7 +3007,12 @@
 			"name":"colony5B"
 		}]},
 	{"heading":"Stardate 2407.8P",
-	"commentary":"<p>As powerful as the Replicators are, their luck partially failed them on bombardment. We can repel them on one of our colonies <i>this</i> turn.</p><ol><li><b>Round 1</b>: Having gained the FSB for ourselves, our Fighters rolled 1,1,2,4,5,5,9,9 (6 hits &le;7)</li><li>Their last Type V rolled a 1, eliminating one fighter</li><li>Our Carriers rolled 1,8,9 (1 hit &le;3)</li><li>Our Transport rolled a 1 (1 hit &le;1), cleaning up this fleet and ending the blockade!</li></ol>",
+	"commentary":[
+		"As powerful as the Replicators are, their luck partially failed them on bombardment. We can repel them on one of our colonies <i>this</i> turn.",
+		"<ol><li><b>Round 1</b>: Having gained the FSB for ourselves, our Fighters rolled 1,1,2,4,5,5,9,9 (6 hits &le;7)</li>",
+		"<li>Their last Type V rolled a 1, eliminating one fighter</li>",
+		"<li>Our Carriers rolled 1,8,9 (1 hit &le;3)</li>",
+		"<li>Our Transport rolled a 1 (1 hit &le;1), cleaning up this fleet and ending the blockade!</li></ol>"],
 	"actions":
 		[{
 			"removeHullsV":"40,41,42,43,44,45,46,47,48,49,50"
@@ -3033,7 +3092,9 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2408.0",
-	"commentary":"<p>The good news is that we were able to slow our loss of income when we denied one of the two blockades. The bad news is that Gase has gained a 7th RP from our fleet size. They have also gained a free Movement technology at this economic phase. They roll a 2, giving them an extra homeworld hull.</p><p>Even though they just unlocked Type VIIs, none of the stats they gain (relative to Type V) are meaningful[ly adverse] to our strategy. However, their purchase last economic phase leaves us vulnerable to Type IXs, should they successfully buy another RP. Still, we simply buy a full Carrier at the homeworld (-27), and finish building a full Carrier (-22) while adding an extra Ship Yard (-6) at our forward site.</p>",
+	"commentary":[
+		"The good news is that we were able to slow our loss of income when we denied one of the two blockades. The bad news is that Gase has gained a 7th RP from our fleet size. They have also gained a free Movement technology at this economic phase. They roll a 2, giving them an extra homeworld hull.",
+		"Even though they just unlocked Type VIIs, none of the stats they gain (relative to Type V) are meaningful[ly adverse] to our strategy. However, their purchase last economic phase leaves us vulnerable to Type IXs, should they successfully buy another RP. Still, we simply buy a full Carrier at the homeworld (-27), and finish building a full Carrier (-22) while adding an extra Ship Yard (-6) at our forward site."],
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":2,"colonyCP":73,"mineralCP":5,"pipeCP":0,"maint":14,"bidCP":0,"techBuy":0,"unitBuy":55
@@ -3131,7 +3192,23 @@
 			"name":"colony5B"
 		}]},
 	{"heading":"Stardate 2408.1",
-	"commentary":"<h3>Replicator Turn</h3><p>It can be tough deciding where hulls move when the western half of the map is literred with difficult terrain. Working around such terrain, we will use the fewest turns required to resolve indecision.</p><p>A task opportunity was found on the empty planet we recently vacated, causing the nearest hull to begin its journey there. The western fleet's bombardment continues, with their ships rolling 5,7,9/8 (1 hit &le;5).</p><h3>Player Turn (The Battle for Bethel)</h3><p>We set up countermeasures on the eastern half, while also preparing to clean up the stragglers harassing our colony.</p><ol><li><b>Round 1</b>: Our Flagship rolls a 5 against their Type IV (&le;3 to hit)</li><li>Our Fighters rolled a 3 against the Type IV, followed by 1,5 against their Type Vs (3 hits &le;6)</li><li>Their Type Vs rolled 3,10 against our fighters (1 hit &le;5)</li><li>Out remaining ships rolled 3,8/8 (0 hits &le;1)<br /><br /></li><li><b>Round 2</b>: Now that we have gained the Fleet Size Bonus, our Flagship rolls another 5 (&le;3 to hit)</li><li>Our Fighters rolled 7,9 (1 hit &le;7)</li><li>Their Type Vs rolled 6,9 against our fighters (0 hits &le;5)</li><li>Out remaining ships rolled 2,8/6 (1 hit &le;2)<br /><br /></li><li><b>Round 3</b>: Our Flagship rolls a 7 (&le;3 to hit)</li><li>Our Fighters rolled 5,9 (1 hit &le;7)</li><li>Their last Type V has retreated to the unguarded hex of D3. We have successfully defended our colony!</li></ol>",
+	"commentary":[
+		"<h3>Replicator Turn</h3>",
+		"It can be tough deciding where hulls move when the western half of the map is literred with difficult terrain. Working around such terrain, we will use the fewest turns required to resolve indecision.",
+		"A task opportunity was found on the empty planet we recently vacated, causing the nearest hull to begin its journey there. The western fleet's bombardment continues, with their ships rolling 5,7,9/8 (1 hit &le;5).",
+		"<h3>Player Turn (The Battle for Bethel)</h3>",
+		"We set up countermeasures on the eastern half, while also preparing to clean up the stragglers harassing our colony.",
+		"<ol><li><b>Round 1</b>: Our Flagship rolls a 5 against their Type IV (&le;3 to hit)</li>",
+		"<li>Our Fighters rolled a 3 against the Type IV, followed by 1,5 against their Type Vs (3 hits &le;6)</li>",
+		"<li>Their Type Vs rolled 3,10 against our fighters (1 hit &le;5)</li>",
+		"<li>Out remaining ships rolled 3,8/8 (0 hits &le;1)<br /><br /></li>",
+		"<li><b>Round 2</b>: Now that we have gained the Fleet Size Bonus, our Flagship rolls another 5 (&le;3 to hit)</li>",
+		"<li>Our Fighters rolled 7,9 (1 hit &le;7)</li>",
+		"<li>Their Type Vs rolled 6,9 against our fighters (0 hits &le;5)</li>",
+		"<li>Out remaining ships rolled 2,8/6 (1 hit &le;2)<br /><br /></li>",
+		"<li><b>Round 3</b>: Our Flagship rolls a 7 (&le;3 to hit)</li>",
+		"<li>Our Fighters rolled 5,9 (1 hit &le;7)</li>",
+		"<li>Their last Type V has retreated to the unguarded hex of D3. We have successfully defended our colony!</li></ol>"],
 	"actions":
 		[{
 			"placeHullsV":"F2",
@@ -3230,7 +3307,15 @@
 			"name":"colony5B"
 		}]},
 	{"heading":"Stardate 2408.4",
-	"commentary":"<h3>Replicator Turn</h3><p>Letting that last Type V get away was not the most favorable. Fortunately, our Ship Yards are protected by an asteroid belt. Since 3 hulls is superior to 2, they instead attempt to bombard our other asteroid belt. It rolled a 3... a hit.</p><p>Meanwhile, a set of 4 straggler hulls make it to an undefended colony. They rolled a 5, becoming 2 Type VIIs. They then roll 8,10 for bombardment... no hits.</p><h3>Player Turn</h3><p>Scouts are more useful than we give them credit. We use one of them to block Gase's ability to <q>blitz</q> through our space. Self-Preservation is effective for non-task movement <i>until</i> it involves being able to assault a colony or battling an equal fleet that threatens one of their colonies.</p><p>We use one of our Carriers to meet up with straggling hulls. Our Fighters rolled 4,4,6 (3 hits &le;7), easily blowing one out of the sky. Their last Type V then rolled a 6, a miss against our Fighters (&le;5 to hit). Our Carrier then rolled a 10, also a miss. Our Fighters circle around again, having rolled 1,4,9 and cleaning up the other Type V.</p><p>Another Carrier meets up with the lone Type V, but asteroid interference has negated our weapon class and Attack advantages. After their ship rolled a 10 (&le;5 to hit), our Fighters rolled 4,5 (2 hits &le;6), cleaning it up.</p><p>Our Transport finally takes advantage of the recent re-colonization of Vulcan, and cleans up the colony before it can even grow.</p>",
+	"commentary":[
+		"<h3>Replicator Turn</h3>",
+		"Letting that last Type V get away was not the most favorable. Fortunately, our Ship Yards are protected by an asteroid belt. Since 3 hulls is superior to 2, they instead attempt to bombard our other asteroid belt. It rolled a 3... a hit.",
+		"Meanwhile, a set of 4 straggler hulls make it to an undefended colony. They rolled a 5, becoming 2 Type VIIs. They then roll 8,10 for bombardment... no hits.",
+		"<h3>Player Turn</h3>",
+		"Scouts are more useful than we give them credit. We use one of them to block Gase's ability to <q>blitz</q> through our space. Self-Preservation is effective for non-task movement <i>until</i> it involves being able to assault a colony or battling an equal fleet that threatens one of their colonies.",
+		"We use one of our Carriers to meet up with straggling hulls. Our Fighters rolled 4,4,6 (3 hits &le;7), easily blowing one out of the sky. Their last Type V then rolled a 6, a miss against our Fighters (&le;5 to hit). Our Carrier then rolled a 10, also a miss. Our Fighters circle around again, having rolled 1,4,9 and cleaning up the other Type V.",
+		"Another Carrier meets up with the lone Type V, but asteroid interference has negated our weapon class and Attack advantages. After their ship rolled a 10 (&le;5 to hit), our Fighters rolled 4,5 (2 hits &le;6), cleaning it up.",
+		"Our Transport finally takes advantage of the recent re-colonization of Vulcan, and cleans up the colony before it can even grow."],
 	"actions":
 		[{
 			"removeHullsV":"30,35,42,43,44,45,46,47,48,49,50"
@@ -3342,7 +3427,12 @@
 			"name":"colony5B"
 		}]},
 	{"heading":"Stardate 2408.7R (The Battle for Odyssey)",
-	"commentary":"<p>Once again, Gase is able to assault a lightly defended player colony. Since fighters are in this battle, they roll a 10 on the Type PD step (3 ships). 1 Type IV is then built.</p><ol><li><b>Round 1</b>: Their 3 Type PDs go first. They rolled 1,2,2 (3 hits &le;6)</li><li>Our Carrier rolled an 8 against their Type PDs (&le;4 to hit)</li><li>Their Type IV rolled a 5 (hit &le;5), destroying our last ship<br /><br /></li><li><b>Bombardment Round</b>: Their ships have rolled 1/4,6,7 (1 hit &le;1), damaging our colony.</li></ol>",
+	"commentary":[
+		"Once again, Gase is able to assault a lightly defended player colony. Since fighters are in this battle, they roll a 10 on the Type PD step (3 ships). 1 Type IV is then built.",
+		"<ol><li><b>Round 1</b>: Their 3 Type PDs go first. They rolled 1,2,2 (3 hits &le;6)</li>",
+		"<li>Our Carrier rolled an 8 against their Type PDs (&le;4 to hit)</li>",
+		"<li>Their Type IV rolled a 5 (hit &le;5), destroying our last ship<br /><br /></li>",
+		"<li><b>Bombardment Round</b>: Their ships have rolled 1/4,6,7 (1 hit &le;1), damaging our colony.</li></ol>"],
 	"actions":
 		[{
 			"removeHullsV":"40,41,42,43,45,46,50"
@@ -3435,7 +3525,11 @@
 			"removeCounter":"systemB1"
 		}]},
 	{"heading":"Stardate 2408.7P",
-	"commentary":"<p>Our adjacent ships then swoop in to counter their failed bombardment attempt.</p><ol><li><b>Round 1</b>: Their Type PDs rolled 1,1,4 (3 hits &le;6)</li><li>Having secured Fleet Size Bonus, our remaining Fighters rolled 6,4,10,5 (3 hits &le;9), easily dispatching the Type PDs</li><li>Our Carriers then rolled 4,5,6 (1 hit &le;4), taking care of the Type IV also; and also their fleet</li></ol>",
+	"commentary":[
+		"Our adjacent ships then swoop in to counter their failed bombardment attempt.",
+		"<ol><li><b>Round 1</b>: Their Type PDs rolled 1,1,4 (3 hits &le;6)</li>",
+		"<li>Having secured Fleet Size Bonus, our remaining Fighters rolled 6,4,10,5 (3 hits &le;9), easily dispatching the Type PDs</li>",
+		"<li>Our Carriers then rolled 4,5,6 (1 hit &le;4), taking care of the Type IV also; and also their fleet</li></ol>"],
 	"actions":
 		[{
 			"removeHullsV":"51,52,53,54,55,56,57,58,59,60"
@@ -3518,7 +3612,9 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2409.0",
-	"commentary":"<p>Gase's colonies are nearing depletion. This is the last economic phase they are able to build 10 natural home system hulls. A 7 was rolled, causing them to buy a RP (-30). Since this spent virtually all of their available CP, this is likely the last roll they will do for this playthrough.</p><p>Although we have had a very hard time applying offensive pressure, our tactically sound defensive plays have held the replicators at bay. Anyway, we buy 2 full Carriers at compatible sites (-54 total); and then throw down a forward Ship Yard (-6) and Base (-12) at the recently defended Odyssey, and also an extra 2 Fighters (-10) at Terra to counter-balance the fact that a carrier was recently emptied.</p>",
+	"commentary":[
+		"Gase's colonies are nearing depletion. This is the last economic phase they are able to build 10 natural home system hulls. A 7 was rolled, causing them to buy a RP (-30). Since this spent virtually all of their available CP, this is likely the last roll they will do for this playthrough.",
+		"Although we have had a very hard time applying offensive pressure, our tactically sound defensive plays have held the replicators at bay. Anyway, we buy 2 full Carriers at compatible sites (-54 total); and then throw down a forward Ship Yard (-6) and Base (-12) at the recently defended Odyssey, and also an extra 2 Fighters (-10) at Terra to counter-balance the fact that a carrier was recently emptied."],
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":11,"colonyCP":74,"mineralCP":10,"pipeCP":0,"maint":13,"bidCP":0,"techBuy":0,"unitBuy":82
@@ -3632,7 +3728,7 @@
 			"name":"colony5B"
 		}]},
 	{"heading":"Stardate 2409.3",
-	"commentary":"<p>It is not everyday we see a Replicator fleet in the middle; self-preservation sometimes means taking a different route altogether. Since both halfs of the map are equally valid, we opted to add a little randomizing to determine where the fleet goes... west.</p>",
+	"commentary":["It is not everyday we see a Replicator fleet in the middle; self-preservation sometimes means taking a different route altogether. Since both halfs of the map are equally valid, we opted to add a little randomizing to determine where the fleet goes... west."],
 	"actions":
 		[{
 			"placeGhost":"hiddenV",
@@ -3731,7 +3827,14 @@
 			"size":1
 		}]},
 	{"heading":"Stardate 2409.6 (The Battle for Rukbat)",
-	"commentary":"<p>Of course, thanks to the NPA planet near our border, it is easy to cause it to take another route still. On that subject though, they now have 12 hulls able to assault the NPA planet near <i>their</i> border, and that none of the previous priorities are available; so they proceed to assault it as such. First, they roll a 6 on the Type PD step (0 ships), causing them to build 6 Type VIIs.</p><ol><li>Round 1</b>: Rukbat's ships rolled 1/1,3,9 (3 hits &le;4/3)</li><li>The remaining Type VIIs rolled 4/3,6,6,9 (2 hits &le;5)<br /><br /></li><li>Round 2</b>: Rukbat's ships rolled 2,8 (1 hit &le;3)</li><li>Their Type VIIs rolled 3,7,9,10 (1 hit &le;5)<br /><br /></li><li>Round 3</b>: Rukbat's last ship rolled a 2 (hit &le;3)</li><li>Their Type VIIs rolled 4,6,6,7 (1 hit &le;5), cleaning this planet up and allowing them to colonize it. This leaves the eastern fleet with 7 hulls leftover</li></ol>",
+	"commentary":[
+		"Of course, thanks to the NPA planet near our border, it is easy to cause it to take another route still. On that subject though, they now have 12 hulls able to assault the NPA planet near <i>their</i> border, and that none of the previous priorities are available; so they proceed to assault it as such. First, they roll a 6 on the Type PD step (0 ships), causing them to build 6 Type VIIs.",
+		"<ol><li>Round 1</b>: Rukbat's ships rolled 1/1,3,9 (3 hits &le;4/3)</li>",
+		"<li>The remaining Type VIIs rolled 4/3,6,6,9 (2 hits &le;5)<br /><br /></li>",
+		"<li>Round 2</b>: Rukbat's ships rolled 2,8 (1 hit &le;3)</li>",
+		"<li>Their Type VIIs rolled 3,7,9,10 (1 hit &le;5)<br /><br /></li>",
+		"<li>Round 3</b>: Rukbat's last ship rolled a 2 (hit &le;3)</li>",
+		"<li>Their Type VIIs rolled 4,6,6,7 (1 hit &le;5), cleaning this planet up and allowing them to colonize it. This leaves the eastern fleet with 7 hulls leftover</li></ol>"],
 	"actions":
 		[{
 			"removeHullsV":"52,53,54,55,56,57,58,59"
@@ -3841,7 +3944,7 @@
 			"size":1
 		}]},
 	{"heading":"Stardate 2409.9",
-	"commentary":"<p>Mostly just a consolidation turn on both sides... We do quietly dismantle the colony they formed in our territory, though.</p>",
+	"commentary":["Mostly just a consolidation turn on both sides... We do quietly dismantle the colony they formed in our territory, though."],
 	"actions":
 		[{
 			"removeHullsV":"51,61,62,63,64,65,66,67,68,69"
@@ -3950,7 +4053,9 @@
 			"size":2
 		}]},
 	{"heading":"Stardate 2410.0",
-	"commentary":"<p>And thus Gase's first colony was depleted. Since the planet is now utterly useless, we simply remove it from the board. They did manage to scavenge a few CP from the NPA planet they recently conquered, allowing them to roll still. They rolled an 8. They tried to buy another RP, but did not have the money. Minerals technically remain on the map, but it is deep in our home systems.</p><p>We buy another 2 full carriers at compatible sites (-54), and then buy another forward Ship Yard (-6) at Odyssey.</p>",
+	"commentary":[
+		"And thus Gase's first colony was depleted. Since the planet is now utterly useless, we simply remove it from the board. They did manage to scavenge a few CP from the NPA planet they recently conquered, allowing them to roll still. They rolled an 8. They tried to buy another RP, but did not have the money. Minerals technically remain on the map, but it is deep in our home systems.",
+		"We buy another 2 full carriers at compatible sites (-54), and then buy another forward Ship Yard (-6) at Odyssey."],
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":0,"colonyCP":80,"mineralCP":5,"pipeCP":0,"maint":23,"bidCP":0,"techBuy":0,"unitBuy":60
@@ -4049,7 +4154,9 @@
 			"size":1
 		}]},
 	{"heading":"Stardate 2410.2R",
-	"commentary":"<p>Their eastern fleet has managed to amass enough hulls. Thus, they no longer fear our fleet adjacent to our lone Transport, and proceed to battle the latter.</p><p>Since our side of the hex contains only a single Transport, we go to the quick battle step. A 7 is rolled, causing our ship to be destroyed without converting hulls (&gt;5 to quick resolve). One of those hulls then gets spent colonizing the planet.</p>",
+	"commentary":[
+		"Their eastern fleet has managed to amass enough hulls. Thus, they no longer fear our fleet adjacent to our lone Transport, and proceed to battle the latter.",
+		"Since our side of the hex contains only a single Transport, we go to the quick battle step. A 7 is rolled, causing our ship to be destroyed without converting hulls (&gt;5 to quick resolve). One of those hulls then gets spent colonizing the planet."],
 	"actions":
 		[{
 			"placeGhost":"hiddenV",
@@ -4132,7 +4239,21 @@
 			"size":1
 		}]},
 	{"heading":"Stardate 2410.2P (The Battle for Vulcan)",
-	"commentary":"<p>Unfortunate, but at least Transports are not very expensive. Anyway, we counter-assault their foothold on Vulcan. On the Type PD step, they rolled a 9... causing them to build <b>6</b> Type PDs and 1 Type IV</p><ol><li><b>Round 1</b>: Their Type PDs rolled 2,3,5,5,10,10 against our fighters (4 hits &le;6)</li><li>Our remaining Fighters rolled 4,7 against their Type PDs (2 hits &le;8)</li><li>Their Type IV rolled a 5 against our fighters (&le;4 to hit)</li><li>Our Carriers rolled 3,9,3 against their Type PDs (2 hits &le;4)<br /><br /></li><li><b>Round 2</b>: Their Type PDs rolled 4,10 (1 hit &le;6)</li><li>Our last Fighter rolled a 1 against their Type PDs (hit &le;8)</li><li>Their Type IV rolled a 3 against our fighter (hit &le;4)</li><li>Our Carriers, having been emptied, rolled 9,9,9 against their Type PDs (0 hits &le;4)<br /><br /></li><li><b>Round 3</b>: With our fighters all gone, their Type IV rolled a 4 (hit &le;5)</li><li>Their last Type PD rolled a 6 (&le;1 to hit)</li><li>Our Carriers rolled 10,3 against their Type PD (1 hit &le;4)<br /><br /></li><li><b>Round 4</b>: Their Type IV, being all alone, rolled a 7 (&le;5 to hit)</li><li>With Fleet Size Bonus, our Carriers rolled 1,9 (1 hit &le;4), cleansing the space orbiting the colony</li></ol>",
+	"commentary":[
+		"Unfortunate, but at least Transports are not very expensive. Anyway, we counter-assault their foothold on Vulcan. On the Type PD step, they rolled a 9... causing them to build <b>6</b> Type PDs and 1 Type IV",
+		"<ol><li><b>Round 1</b>: Their Type PDs rolled 2,3,5,5,10,10 against our fighters (4 hits &le;6)</li>",
+		"<li>Our remaining Fighters rolled 4,7 against their Type PDs (2 hits &le;8)</li>",
+		"<li>Their Type IV rolled a 5 against our fighters (&le;4 to hit)</li>",
+		"<li>Our Carriers rolled 3,9,3 against their Type PDs (2 hits &le;4)<br /><br /></li>",
+		"<li><b>Round 2</b>: Their Type PDs rolled 4,10 (1 hit &le;6)</li>",
+		"<li>Our last Fighter rolled a 1 against their Type PDs (hit &le;8)</li>",
+		"<li>Their Type IV rolled a 3 against our fighter (hit &le;4)</li>",
+		"<li>Our Carriers, having been emptied, rolled 9,9,9 against their Type PDs (0 hits &le;4)<br /><br /></li>",
+		"<li><b>Round 3</b>: With our fighters all gone, their Type IV rolled a 4 (hit &le;5)</li>",
+		"<li>Their last Type PD rolled a 6 (&le;1 to hit)</li>",
+		"<li>Our Carriers rolled 10,3 against their Type PD (1 hit &le;4)<br /><br /></li>",
+		"<li><b>Round 4</b>: Their Type IV, being all alone, rolled a 7 (&le;5 to hit)</li>",
+		"<li>With Fleet Size Bonus, our Carriers rolled 1,9 (1 hit &le;4), cleansing the space orbiting the colony</li></ol>"],
 	"actions":
 		[{
 			"placeHullsV":"H1,I1,H6,H8,H1,G6,G7,G6,F8",
@@ -4183,7 +4304,7 @@
 			"size":1
 		}]},
 	{"heading":"Stardate 2410.5",
-	"commentary":"<p>Considering we had a marginal success at Vulcan, we do not have as much prowess as we normally would; making it much harder to defend this section of space.</p>",
+	"commentary":["Considering we had a marginal success at Vulcan, we do not have as much prowess as we normally would; making it much harder to defend this section of space."],
 	"actions":
 		[{
 			"removeHullsV":"61,63,64,65,66,67,68,69"
@@ -4251,7 +4372,7 @@
 			"size":2
 		}]},
 	{"heading":"Stardate 2410.8",
-	"commentary":"<p>Meticulous positioning was required to ensure we did not get assaulted again this phase. Meanwhile, since no minerals remain on the board, and that Terraforming 2 is forbidden; we have scuttled our obsoleted Miner to clean up the board a little.</p>",
+	"commentary":["Meticulous positioning was required to ensure we did not get assaulted again this phase. Meanwhile, since no minerals remain on the board, and that Terraforming 2 is forbidden; we have scuttled our obsoleted Miner to clean up the board a little."],
 	"actions":
 		[{
 			"removeHullsV":"62,70,71,72,73,74,75,76,77,78"
@@ -4337,7 +4458,9 @@
 			"removeCounter":"Miner1B"
 		}]},
 	{"heading":"Stardate 2411.0",
-	"commentary":"<p>Gase's depletion continues, rendering another planet useless. With no minerals left, it spends its leftover money on an extra homeworld hulls as able.</p><p>On the western half, we build another full Carrier (-27). On the eastern side, we take advantage of 2 empty carriers at the homeworld, and refill them with Fighters (-30). We also build a Transport (-6) at Odyssey.</p>",
+	"commentary":[
+		"Gase's depletion continues, rendering another planet useless. With no minerals left, it spends its leftover money on an extra homeworld hulls as able.",
+		"On the western half, we build another full Carrier (-27). On the eastern side, we take advantage of 2 empty carriers at the homeworld, and refill them with Fighters (-30). We also build a Transport (-6) at Odyssey."],
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":2,"colonyCP":80,"mineralCP":5,"pipeCP":0,"maint":23,"bidCP":0,"techBuy":0,"unitBuy":63
@@ -4425,7 +4548,7 @@
 			"removeCounter":"Ftr5B"
 		}]},
 	{"heading":"Stardate 2411.1",
-	"commentary":"<p>The usual consolidation is happening this turn.</p>",
+	"commentary":["The usual consolidation is happening this turn."],
 	"actions":
 		[{
 			"placeGhost":"hiddenV",
@@ -4498,7 +4621,17 @@
 			"size":9
 		}]},
 	{"heading":"Stardate 2411.4R (The Battle for Rigel)",
-	"commentary":"<p>Now that their eastern fleet is able to assault a colony that is not protected by a superior fleet, they can do so. Since no fighters are in this battle, on the Type PD step, a 4 is rolled (0 ships). This causes 3 Type VII and 1 Type IV to be built.</p><ol><li><b>Round 1</b>: Our Base goes first. It rolled a 3 against their Type IV, destroying it (&le;7 to hit)</li><li>With the assistance of Fleet Size Bonus, their Type VIIs rolled 1,6,8 (1 hit &le;5)<br /><br /></li><li><b>Round 2</b>: Our Base rolls another 3 (hit &le;6)</li><li>Their Type VIIs rolled 6,8,9 (0 hits &le;5)<br /><br /></li><li><b>Round 3</b>: Our Base rolls a 1 (hit &le;6), finishing off one of their Type VIIs</li><li>Their Type VIIs rolled 4,9 (1 hit &le;5)<br /><br /></li><li><b>Round 4</b>: Our Base rolls another 1 (hit &le;6)</li><li>Their Type VIIs rolled 4,6 (1 hit &le;5), finishing our base off at last<br /><br /></li><li><b>Bombardment Round</b>: Their victorious Type VIIs rolled 5,5 (2 hits &le;5), damaging our colony considerably</li></ol>",
+	"commentary":[
+		"Now that their eastern fleet is able to assault a colony that is not protected by a superior fleet, they can do so. Since no fighters are in this battle, on the Type PD step, a 4 is rolled (0 ships). This causes 3 Type VII and 1 Type IV to be built.",
+		"<ol><li><b>Round 1</b>: Our Base goes first. It rolled a 3 against their Type IV, destroying it (&le;7 to hit)</li>",
+		"<li>With the assistance of Fleet Size Bonus, their Type VIIs rolled 1,6,8 (1 hit &le;5)<br /><br /></li>",
+		"<li><b>Round 2</b>: Our Base rolls another 3 (hit &le;6)</li>",
+		"<li>Their Type VIIs rolled 6,8,9 (0 hits &le;5)<br /><br /></li>",
+		"<li><b>Round 3</b>: Our Base rolls a 1 (hit &le;6), finishing off one of their Type VIIs</li>",
+		"<li>Their Type VIIs rolled 4,9 (1 hit &le;5)<br /><br /></li>",
+		"<li><b>Round 4</b>: Our Base rolls another 1 (hit &le;6)</li>",
+		"<li>Their Type VIIs rolled 4,6 (1 hit &le;5), finishing our base off at last<br /><br /></li>",
+		"<li><b>Bombardment Round</b>: Their victorious Type VIIs rolled 5,5 (2 hits &le;5), damaging our colony considerably</li></ol>"],
 	"actions":
 		[{
 			"placeGhost":"hiddenV",
@@ -4574,7 +4707,7 @@
 			"name":"colony5B"
 		}]},
 	{"heading":"Stardate 2411.4P",
-	"commentary":"<p>Since there are fewer loose hulls available on the eastern side of the map, we pile on <i>all</i> ships and counter-battle their forces. With the assistance of FSB, our Fighters rolled 3,4,4,5,6,6,7,7,9,10,10,10 (8 hits &le;7), easily dispatching their Type VIIs.</p>",
+	"commentary":["Since there are fewer loose hulls available on the eastern side of the map, we pile on <i>all</i> ships and counter-battle their forces. With the assistance of FSB, our Fighters rolled 3,4,4,5,6,6,7,7,9,10,10,10 (8 hits &le;7), easily dispatching their Type VIIs."],
 	"actions":
 		[{
 			"placeHullsV":"F7,F7",
@@ -4635,7 +4768,12 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2411.7R",
-	"commentary":"<p>The positioning of the western fleet and loose eastern hulls has caused our Flagship fleet to be <i>sandwiched</i>. Worse, because we recently used a larger than usual show of force, they now have their nineth RP. On the Type PD step, they rolled a 7 (2 ships), causing their leftover hulls to be all Type IX.</p><ol><li><b>Round 1</b>: Benefitting from FSB, their Type PDs rolled 7,10 against our fighters (1 hit &le;7)</li><li>Our Flagship rolled a 2 against their Type PD (hit &le;4)</li><li>Our last Fighter rolled an 8 against their Type PD (hit &le;8)</li><li>Their Type IXs rolled a 4 against our last fighter (hit &le;6), followed by a 3 against our carrier (hit &le;7), and finally 1,2,3,4,5,7,7,8,8,8 (5 hits &le;6), wiping this fleet out!</li></ol>",
+	"commentary":[
+		"The positioning of the western fleet and loose eastern hulls has caused our Flagship fleet to be <i>sandwiched</i>. Worse, because we recently used a larger than usual show of force, they now have their nineth RP. On the Type PD step, they rolled a 7 (2 ships), causing their leftover hulls to be all Type IX.",
+		"<ol><li><b>Round 1</b>: Benefitting from FSB, their Type PDs rolled 7,10 against our fighters (1 hit &le;7)</li>",
+		"<li>Our Flagship rolled a 2 against their Type PD (hit &le;4)</li>",
+		"<li>Our last Fighter rolled an 8 against their Type PD (hit &le;8)</li>",
+		"<li>Their Type IXs rolled a 4 against our last fighter (hit &le;6), followed by a 3 against our carrier (hit &le;7), and finally 1,2,3,4,5,7,7,8,8,8 (5 hits &le;6), wiping this fleet out!</li></ol>"],
 	"actions":
 		[{
 			"placeGhost":"hiddenV",
@@ -4692,7 +4830,13 @@
 			"size":9
 		}]},
 	{"heading":"Stardate 2411.7P",
-	"commentary":"<p>Not the most favorable we lost our Flagship, but their fleet has weakened a bit. We take advantage of the lack of uncertainty, and bring 3 full Carriers to battle against the remaining 12 ships, all Type IX.</p><ol><li><b>Round 1</b>: Our Fighters have rolled 2,2,4,6,6,7,8,10,10 (6 hits &le;7)</li><li>Their Type IXs have rolled 1,2,5,6,9,10 against our fighters (3 hits &le;5)</li><li>Our Carriers rolled 5,5,5 (0 hits &le;3)<br /><br /></li><li><b>Round 2</b>: Our Fighters have rolled 4,7,7,8,8,10 (3 hits &le;7)</li><li>Their remaining 3 Type IXs have retreated from this battle, to sector F5</li></ol><p>Moving onto the colony of Vulcan, our Fighters have rolled 2,2,3,4,5,6,6,7,9,9,9,10, easily reducing their colony to minimial strength. Our Transport then finishes it off.</p>",
+	"commentary":[
+		"Not the most favorable we lost our Flagship, but their fleet has weakened a bit. We take advantage of the lack of uncertainty, and bring 3 full Carriers to battle against the remaining 12 ships, all Type IX.",
+		"<ol><li><b>Round 1</b>: Our Fighters have rolled 2,2,4,6,6,7,8,10,10 (6 hits &le;7)</li>",
+		"<li>Their Type IXs have rolled 1,2,5,6,9,10 against our fighters (3 hits &le;5)</li>",
+		"<li>Our Carriers rolled 5,5,5 (0 hits &le;3)<br /><br /></li>",
+		"<li><b>Round 2</b>: Our Fighters have rolled 4,7,7,8,8,10 (3 hits &le;7)</li>",
+		"<li>Their remaining 3 Type IXs have retreated from this battle, to sector F5</li></ol><p>Moving onto the colony of Vulcan, our Fighters have rolled 2,2,3,4,5,6,6,7,9,9,9,10, easily reducing their colony to minimial strength. Our Transport then finishes it off."],
 	"actions":
 		[{
 			"removeHullsV":"79,80,81,82,83,84,85,86"
@@ -4765,7 +4909,9 @@
 			"name":"colony1"
 		}]},
 	{"heading":"Stardate 2412.0",
-	"commentary":"<p>Gase has now had its third planet depleted. The hulls they produce decrease with each subsequent phase; but counter-balanced by the newest deep space colony reaching full strength.</p><p>Our maintenance is nearing the production of our homeworld. Fortunately, we have kept most of our home system colonies. We will buy just one full Carrier (-27) this time, on the western side. At Odyssey, we buy 1 Scout (-6) and an extra Ship Yard (-6).</p>",
+	"commentary":[
+		"Gase has now had its third planet depleted. The hulls they produce decrease with each subsequent phase; but counter-balanced by the newest deep space colony reaching full strength.",
+		"Our maintenance is nearing the production of our homeworld. Fortunately, we have kept most of our home system colonies. We will buy just one full Carrier (-27) this time, on the western side. At Odyssey, we buy 1 Scout (-6) and an extra Ship Yard (-6)."],
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":1,"colonyCP":76,"mineralCP":0,"pipeCP":0,"maint":28,"bidCP":0,"techBuy":0,"unitBuy":39
@@ -4842,7 +4988,7 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2412.3",
-	"commentary":"<p>We take advantage of the Scout we had just built, and use it to block the path to Rigel, which is currently exposed.</p>",
+	"commentary":["We take advantage of the Scout we had just built, and use it to block the path to Rigel, which is currently exposed."],
 	"actions":
 		[{
 			"placeGhost":"hiddenV",
@@ -4924,7 +5070,7 @@
 			"size":3
 		}]},
 	{"heading":"Stardate 2412.6",
-	"commentary":"<p>Quite neat being able to limit where the remaining Replicator hulls can go.</p>",
+	"commentary":["Quite neat being able to limit where the remaining Replicator hulls can go."],
 	"actions":
 		[{
 			"placeGhost":"hiddenV",
@@ -4990,7 +5136,13 @@
 			"size":3
 		}]},
 	{"heading":"Stardate 2412.9R",
-	"commentary":"<p>An opportunity presents itself for Gase's eastern fleet. One of our fleets is equal to it and it <i>could</i> assault one of their colonies when we take our next turn. Thus, it proceeds to battle. On the Type PD step, a 1 was rolled (1 ship)</p><ol><li><b>Round 1</b>: Their lone Type PD rolls a 9 (&le;6 to hit)</li><li>Our Fighters rolled a 3 against their Type PD (hit &le;8), followed by 3,7,7,8,10 against their Type IXs (3 hits &le;7)</li><li>Their Type IXs rolled 5,7,10,10 against our fighters (1 hit &le;5)</li><li>Our Carriers rolled 6,7,7 (0 hits &le;3)<br /><br /></li><li><b>Round 2</b>: With the assistance of Fleet Size Bonus, our Fighters rolled 1,5,6,6,10, cleanly eliminating their Type IXs</li></ol>",
+	"commentary":[
+		"An opportunity presents itself for Gase's eastern fleet. One of our fleets is equal to it and it <i>could</i> assault one of their colonies when we take our next turn. Thus, it proceeds to battle. On the Type PD step, a 1 was rolled (1 ship)",
+		"<ol><li><b>Round 1</b>: Their lone Type PD rolls a 9 (&le;6 to hit)</li>",
+		"<li>Our Fighters rolled a 3 against their Type PD (hit &le;8), followed by 3,7,7,8,10 against their Type IXs (3 hits &le;7)</li>",
+		"<li>Their Type IXs rolled 5,7,10,10 against our fighters (1 hit &le;5)</li>",
+		"<li>Our Carriers rolled 6,7,7 (0 hits &le;3)<br /><br /></li>",
+		"<li><b>Round 2</b>: With the assistance of Fleet Size Bonus, our Fighters rolled 1,5,6,6,10, cleanly eliminating their Type IXs</li></ol>"],
 	"actions":
 		[{
 			"removeHullsV":"80"
@@ -5042,7 +5194,7 @@
 			"size":3
 		}]},
 	{"heading":"Stardate 2412.9P",
-	"commentary":"<p>We almost flawlessly destroyed their fleet. Still, this puts us in a position to assault their deep space colony. Our Fighters rolled 1,4,4,5,5,6,6,6,6,6,7,7,8,8,9,9,10 (14 hit &le;8), overcoming all but the most resistant machines! Our Transport then dismantles whatever little machinery remains.</p>",
+	"commentary":["We almost flawlessly destroyed their fleet. Still, this puts us in a position to assault their deep space colony. Our Fighters rolled 1,4,4,5,5,6,6,6,6,6,7,7,8,8,9,9,10 (14 hit &le;8), overcoming all but the most resistant machines! Our Transport then dismantles whatever little machinery remains."],
 	"actions":
 		[{
 			"removeHullsV":"87,88,89,90,91,92"
@@ -5127,7 +5279,9 @@
 			"name":"colony3"
 		}]},
 	{"heading":"Stardate 2413.0",
-	"commentary":"<p>Gase's depletion consumes a fourth planet now. This may be potentially be the beginning of the end, but is not the final economic phase. We have neither a Transport nor a Titan that is quite close enough to take it out.</p><p>We build another 2 full carriers (-54), one set at each of the asteroid site and also Odyssey.</p>",
+	"commentary":[
+		"Gase's depletion consumes a fourth planet now. This may be potentially be the beginning of the end, but is not the final economic phase. We have neither a Transport nor a Titan that is quite close enough to take it out.",
+		"We build another 2 full carriers (-54), one set at each of the asteroid site and also Odyssey."],
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":10,"colonyCP":78,"mineralCP":0,"pipeCP":0,"maint":32,"bidCP":0,"techBuy":0,"unitBuy":54
@@ -5219,7 +5373,7 @@
 			"name":"colony5B"
 		}]},
 	{"heading":"Stardate 2413.2",
-	"commentary":"<p>Now that we have an overwhelming fleet, we are pretty much using it as if it was an extermination fleet.</p>",
+	"commentary":["Now that we have an overwhelming fleet, we are pretty much using it as if it was an extermination fleet."],
 	"actions":
 		[{
 			"removeHullsV":"88,89,90"
@@ -5298,7 +5452,7 @@
 			"size":3
 		}]},
 	{"heading":"Stardate 2413.5",
-	"commentary":"<p>They manage to re-colonize Rukbat, but were cut off from re-colonizing Vulcan. Still; even with one task aborted, it weakens them by virtue of having to spend an extra hull with the former.</p>",
+	"commentary":["They manage to re-colonize Rukbat, but were cut off from re-colonizing Vulcan. Still; even with one task aborted, it weakens them by virtue of having to spend an extra hull with the former."],
 	"actions":
 		[{
 			"removeHullsV":"87,92"
@@ -5368,7 +5522,7 @@
 			"size":3
 		}]},
 	{"heading":"Stardate 2413.8",
-	"commentary":"<p>Regardless; since the paranoia concept was not refitted for Replicator Solitaire, we must press on. Our primary fleet has made it to Zeta, and bombard it accordingly. Our Fighters rolled 1,1,2,3,3,3,5,5,5,7,7,7,9,9,9,9,10 (12 hits &le;8), and work together with the Transport to eliminate this colony also.</p>",
+	"commentary":["Regardless; since the paranoia concept was not refitted for Replicator Solitaire, we must press on. Our primary fleet has made it to Zeta, and bombard it accordingly. Our Fighters rolled 1,1,2,3,3,3,5,5,5,7,7,7,9,9,9,9,10 (12 hits &le;8), and work together with the Transport to eliminate this colony also."],
 	"actions":
 		[{
 			"removeHullsV":"91,93,94,95,96"
@@ -5434,7 +5588,9 @@
 			"size":1
 		}]},
 	{"heading":"Stardate 2414.0",
-	"commentary":"<p>Gase's misery worsens with the fifth planet depleted. The good news is that this is likely the final economic phase of this playthrough.</p><p>Our maintenance has managed to reach half of our total colony income. Still, we buy a full Carrier (-27) at Odyssey.</p>",
+	"commentary":[
+		"Gase's misery worsens with the fifth planet depleted. The good news is that this is likely the final economic phase of this playthrough.",
+		"Our maintenance has managed to reach half of our total colony income. Still, we buy a full Carrier (-27) at Odyssey."],
 	"prodTable":
 		[{
 			"name":"CSY (Blue)","initCP":2,"colonyCP":80,"mineralCP":0,"pipeCP":0,"maint":40,"bidCP":0,"techBuy":0,"unitBuy":27
@@ -5515,7 +5671,9 @@
 			"size":2
 		}]},
 	{"heading":"Stardate 2414.2",
-	"commentary":"<p>Incidentally, this is one of the few times where sneaking in some fancy terrain arguably bites the Replicators.</p><p>If the western fleet leaves the quantum filament, it suddenly becomes inferior to our fleet. Otherwise, it stays the superior fleet by virtue of quantum interference prohibiting fighter use.</p>",
+	"commentary":[
+		"Incidentally, this is one of the few times where sneaking in some fancy terrain arguably bites the Replicators.",
+		"If the western fleet leaves the quantum filament, it suddenly becomes inferior to our fleet. Otherwise, it stays the superior fleet by virtue of quantum interference prohibiting fighter use."],
 	"actions":
 		[{
 			"placeGhost":"hiddenV",
@@ -5571,7 +5729,13 @@
 			"size":3
 		}]},
 	{"heading":"Stardate 2414.5R",
-	"commentary":"<p>As steeply disadvantaged as the Replicators have become, they are still able to launch a battle against one of our smaller Carriers. On the Type PD step, a 1 was rolled (1 ship).</p><ol><li><b>Round 1</b>: Their lone Type PD rolls a 4 (hit &le;6)</li><li>Our Fighters rolled a 3 against their Type PD (hit &le;8), followed by a 3 against their Type IXs (hit &le;7)</li><li>Their Type IXs rolled 7,8,3,4 against our fighters (2 hits &le;5)</li><li>Our Carrier rolled a 5 (&le;3 to hit)<br /><br /></li><li><b>Round 2</b>: Benefitting from Fleet Size Bonus, their Type IXs rolled 2,2,2,7 (4 hits &le;7), finishing our fleet off</li></ol>",
+	"commentary":[
+		"As steeply disadvantaged as the Replicators have become, they are still able to launch a battle against one of our smaller Carriers. On the Type PD step, a 1 was rolled (1 ship).",
+		"<ol><li><b>Round 1</b>: Their lone Type PD rolls a 4 (hit &le;6)</li>",
+		"<li>Our Fighters rolled a 3 against their Type PD (hit &le;8), followed by a 3 against their Type IXs (hit &le;7)</li>",
+		"<li>Their Type IXs rolled 7,8,3,4 against our fighters (2 hits &le;5)</li>",
+		"<li>Our Carrier rolled a 5 (&le;3 to hit)<br /><br /></li>",
+		"<li><b>Round 2</b>: Benefitting from Fleet Size Bonus, their Type IXs rolled 2,2,2,7 (4 hits &le;7), finishing our fleet off</li></ol>"],
 	"actions":
 		[{
 			"placeGhost":"hiddenV",
@@ -5621,7 +5785,12 @@
 			"size":3
 		}]},
 	{"heading":"Stardate 2414.5P",
-	"commentary":"<p>They were marginally successful, leaving them exposed to a rematch without the ability to build more Type PDs.</p><ol><li><b>Round 1</b>: Our Fighters rolled 1,5,6 (3 hits &le;7)</li><li>Their last Type IX rolled a 7 against our fighters (&le;5 to hit)</li><li>Our Carrier and Scout rolled 5,6 (0 hits &le;3)<br /><br /></li><li><b>Round 2</b>: Benefitting from FSB, our Fighters rolled 3,7,10 (2 hits &le;8), finishing their fleet off</li></ol>",
+	"commentary":[
+		"They were marginally successful, leaving them exposed to a rematch without the ability to build more Type PDs.",
+		"<ol><li><b>Round 1</b>: Our Fighters rolled 1,5,6 (3 hits &le;7)</li>",
+		"<li>Their last Type IX rolled a 7 against our fighters (&le;5 to hit)</li>",
+		"<li>Our Carrier and Scout rolled 5,6 (0 hits &le;3)<br /><br /></li>",
+		"<li><b>Round 2</b>: Benefitting from FSB, our Fighters rolled 3,7,10 (2 hits &le;8), finishing their fleet off</li></ol>"],
 	"actions":
 		[{
 			"placeCounter":"fleet1V",
@@ -5659,7 +5828,9 @@
 			"size":3
 		}]},
 	{"heading":"Stardate 2414.8",
-	"commentary":"<p>Their homeworld is exposed. Even if they were smart enough to have taken the remaining 5 hulls home, it almost certainly would have been insufficient against our sheer show of force.</p><p>Once more, our Fighters rolled 2,2,3,3,3,3,3,4,4,5,6,6,6,7,7,9,10 (15 hits &le;8), making it removable even if we treated it similarly to AGT homeworlds.</p>",
+	"commentary":[
+		"Their homeworld is exposed. Even if they were smart enough to have taken the remaining 5 hulls home, it almost certainly would have been insufficient against our sheer show of force.",
+		"Once more, our Fighters rolled 2,2,3,3,3,3,3,4,4,5,6,6,6,7,7,9,10 (15 hits &le;8), making it removable even if we treated it similarly to AGT homeworlds."],
 	"actions":
 		[{
 			"removeCounter":"fleet3V"
@@ -5685,7 +5856,10 @@
 			"location":"K1"
 		}]},
 	{"heading":"Stardate 2415.0 (Conclusion)",
-	"commentary":"<p>This is probably the most proper Replicator Solitaire playthrough we have yet recorded. Still, Fast Replicators are a pain to deal against, as one should be prepared to deal with ludicrious speeds by the time the eighth economic phase is reached. It is fortunate that the map ended up being somewhat clastrophobic.</p><p>Even with the reduced map size, Industrious Race proved useful by giving us +10 extra CP per phase (roughly 14% extra income), and by providing us with a forward site that can not be easily assaulted by their fleets. Even with 1 colony lost (which we opted to not replace), this made it easier to rival the Replicators while they were at full economic strength, and snowballed more effectively once depletion started removing their planets. Not to mention we learned how useful Scouts can be in stopping their ludicrious movement speed...</p><p>Finally, we should not underestimate how potent the Battle Simulator is, with the many refits and testing that took place, including barely catching an edge case involving fighter use in a quantum filament. Still, it is only thanks to the thousands of simulations that we even found something that can put up with the exceptionally productive Replicators. When other builds seem to give roughly a 10% win rate, versus a very roughly 70% win rate with Fighters is quite telling. Only Titans come remotely close, and only if we can reach a sweet spot with Attack 3/4 equipment versus Type XIs...</p>",
+	"commentary":[
+		"This is probably the most proper Replicator Solitaire playthrough we have yet recorded. Still, Fast Replicators are a pain to deal against, as one should be prepared to deal with ludicrious speeds by the time the eighth economic phase is reached. It is fortunate that the map ended up being somewhat clastrophobic.",
+		"Even with the reduced map size, Industrious Race proved useful by giving us +10 extra CP per phase (roughly 14% extra income), and by providing us with a forward site that can not be easily assaulted by their fleets. Even with 1 colony lost (which we opted to not replace), this made it easier to rival the Replicators while they were at full economic strength, and snowballed more effectively once depletion started removing their planets. Not to mention we learned how useful Scouts can be in stopping their ludicrious movement speed...",
+		"Finally, we should not underestimate how potent the Battle Simulator is, with the many refits and testing that took place, including barely catching an edge case involving fighter use in a quantum filament. Still, it is only thanks to the thousands of simulations that we even found something that can put up with the exceptionally productive Replicators. When other builds seem to give roughly a 10% win rate, versus a very roughly 70% win rate with Fighters is quite telling. Only Titans come remotely close, and only if we can reach a sweet spot with Attack 3/4 equipment versus Type XIs..."],
 	"actions":
 		[{
 			"revealCounter":"systemK1",
