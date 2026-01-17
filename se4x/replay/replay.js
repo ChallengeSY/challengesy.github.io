@@ -121,10 +121,6 @@ function dispCol(a, newDisp) {
 	}
 }
 
-function irandom(mini, maxi) {
-	return Math.floor((Math.random() * (maxi - mini + 1)) + mini);
-}
-
 function readKeyInput(e) {
 	e = e || event;
 	
@@ -2195,12 +2191,16 @@ function readJson() {
 			
 			workObj = document.getElementById(workId);
 			if (workObj) {
-				if (workObj.id.startsWith("system")) {
-					auxObj = document.getElementById("back"+workObj.id.substring(6));
+				if (workObj.id.startsWith("system") || workObj.id.startsWith("binRsys")) {
+					if (workObj.id.startsWith("system")) {
+						auxObj = document.getElementById("back"+workObj.id.substring(6));
+					} else {
+						auxObj = document.getElementById("back"+workObj.id.substring(7));
+					}
 					
 					if (auxObj) {
-						if (workObj.src.search("warp") != -1 || auxObj.src.search("planetW") != -1 ||
-							auxObj.src.search("amoeba") != -1) {
+						if (workObj.src.search("warp") != -1 || auxObj.src.search("asteroids") != -1 || auxObj.src.search("planetW") != -1 ||
+							auxObj.src.search("amoeba") != -1 || auxObj.src.search("Storm") != -1) {
 							auxObj.src = "gfx/tiles/borderW.png";
 						} else if (auxObj.src.search("home20B") != -1 || auxObj.src.search("home30B") != -1 ||
 							auxObj.src.search("planetB") != -1) {
@@ -3362,9 +3362,13 @@ function readJson() {
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColors = "GYRB";
+				var plrPos = [1,13,1,12];
 				
 				if (actionPool[i].playerColors) {
 					plrColors = actionPool[i].playerColors;
+				}
+				if (actionPool[i].createPreset == "versus4P" && actionPool[i].playerPos) {
+					plrPos = actionPool[i].playerPos;
 				}
 				
 				for (var y = 0; y < 12; y++) {
@@ -3412,10 +3416,10 @@ function readJson() {
 					paintTile("F13","empty");
 				}
 				
-				placeHomeworld(1,0,plrColors.charAt(0));
-				placeHomeworld(13,0,plrColors.charAt(1));
-				placeHomeworld(1,11,plrColors.charAt(2));
-				placeHomeworld(12,11,plrColors.charAt(3));
+				placeHomeworld(plrPos[0],0,plrColors.charAt(0));
+				placeHomeworld(plrPos[1],0,plrColors.charAt(1));
+				placeHomeworld(plrPos[2],11,plrColors.charAt(2));
+				placeHomeworld(plrPos[3],11,plrColors.charAt(3));
 			} else if (actionPool[i].createPreset == "versus4Pds") {
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
@@ -4139,68 +4143,30 @@ function getJsonFile() {
 	fileRequest.onreadystatechange = function() {
 		if (fileRequest.readyState === 4) {
 			if (fileRequest.status==200) {
-				rawJson = JSON.parse(fileRequest.responseText);
-				setupBox();
-				stageTotal = rawJson.stages.length - 1;
-				
-				if (getStorage("se4xReplay") && getStorage("se4xReplay").startsWith(getParam("replay"))) {
-					stageMem = getStorage("se4xReplay").split("~")[1];
+				try {
+					rawJson = JSON.parse(fileRequest.responseText);
+					setupBox();
+					stageTotal = rawJson.stages.length - 1;
+					
+					if (getStorage("se4xReplay") && getStorage("se4xReplay").startsWith(getParam("replay"))) {
+						stageMem = getStorage("se4xReplay").split("~")[1];
+					}
+					
+					readJson();
+					while (stageNum < stageMem) {
+						changeStage(1);
+					}
+					multiStages = false;
+				} catch(err) {
+					document.getElementById("commentary").innerHTML = "<p>Malformed file detected. Sequence aborted.</p>"
+					console.error(err);
 				}
-				
-				readJson();
-				while (stageNum < stageMem) {
-					changeStage(1);
-				}
-				multiStages = false;
 			} else {
 				if (fileRequest.status == 404) {
 					makeHexes(false);
 					document.getElementById("commentary").innerHTML = "<p>No file detected.</p>"
 				}
 				console.error("Error "+fileRequest.status);
-			}
-		}
-	}
-}
-
-//Storage
-function setStorage(sName, sValue) {
-	if (typeof(Storage) !== "undefined") {
-		localStorage.setItem(sName, sValue);
-	} else {
-		var targetDate = new Date();
-		targetDate.setTime(targetDate.getTime() + (360*24*60*60*1000));
-		
-		setCookie(sName, sValue, targetDate, "/");
-	}
-}
-
-function getStorage(sName) {
-	if (typeof(Storage) !== "undefined") {
-		return localStorage.getItem(sName);
-	} else {
-		return getCookie(sName);
-	}
-}
-
-//Fallback Cookies
-function setCookie(cName, cValue, expDate, cPath, cDomain, cSecure) {
-	if (cName && cValue != "") {
-		var cString = cName + "=" + encodeURI(cValue) + ";samesite=lax";
-		cString += (expDate ? ";expires=" + expDate.toUTCString(): "");
-		cString += (cPath ? ";path=" + cPath : "");
-		cString += (cDomain ? ";domain=" + cDomain : "");
-		cString += (cSecure ? ";secure" : "");
-		document.cookie = cString;
-	}
-}
-
-function getCookie(cName) {
-	if (document.cookie) {
-		var cookies = document.cookie.split("; ");
-		for (var i = 0; i < cookies.length; i++) {
-			if (cookies[i].split("=")[0] == cName) {
-				return decodeURI(cookies[i].split("=")[1]);
 			}
 		}
 	}

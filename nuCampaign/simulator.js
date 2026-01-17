@@ -580,10 +580,13 @@ function initShips() {
 					special = shipAbility("Heats to 100");
 					break;
 
-				case "Moscow Star Class Escort":
+				case "Moscow Class Star Escort":
 					// Fall through
-				case "Moscow Star Class Destroyer":
+				case "Moscow Class Star Destroyer":
 					special = shipAbility("Radiation Shielding") + " and " + shipAbility("Intercept Interference");
+					break;
+				case "Super Star Destroyer":
+					special = shipAbility("Imperial Assault") + " and " + shipAbility("Planet Immunity");
 					break;
 
 				case "Pawn Class Baseship":
@@ -828,13 +831,12 @@ function dispInfo(techItem) {
 			displayTxt = shipAbility("Quantum Torpedoes") + " targeting this ship have their accuracy reduced to 10% (from 35%)";
 			break;
 		case "Emork's Spirit Bonus":
-			displayTxt = "Complex hull function adds the following abilities and restrictions:<ul style=\"text-align: left;\"> \
-				<li>This ship can only be built at a homeworld, with a fixed name assigned to the ship</li> \
-				<li>This ship is unclonable, but can still be traded or captured</li> \
-				<li>Gains one fighter bay for each homeworld under control. Applies only to the building player</li> \
-				<li>Destruction, capture, or trading away decreases the happiness of the homeworld responsible by 100%</li> \
-				<li>If the homeworld responsible falls to foreign hands, this ship will self-destruct with a force of a " + shipAbility("Glory Device (100-100)") + "</li> \
-				</ul>";
+			displayTxt = "Complex hull function adds the following abilities and restrictions:<ul style=\"text-align: left;\">\
+				<li>This ship can only be built at a homeworld, with a fixed name assigned to the ship</li>\
+				<li>This ship is unclonable, but can still be traded or captured</li>\
+				<li>Gains one fighter bay for each homeworld under control. Applies only to the building pl-ayer</li>\
+				<li>Destruction, capture, or trading away decreases the happiness of the homeworld responsible by 100%</li>\
+				<li>If the homeworld responsible falls to foreign hands, this ship will self-destruct with a force of a " + shipAbility("Glory Device (100-100)") + "</li></ul>";
 			break;
 		case "Fear":
 			displayTxt = "Ship will reduce the happiness of enemy planets within 100 LY by 1-10 points per turn. (Based linearly on distance)";
@@ -849,13 +851,15 @@ function dispInfo(techItem) {
 			if (!abilityAmt) {
 				abilityAmt = 20;
 			}
-			displayTxt = "When detonated, this device will deal roughly 100kT worth of damage to all ships. Fury ships and ships belonging to the owner of the detonator receive "+abilityAmt+"% of the full damage dealt";
+			displayTxt = "When detonated, this device will deal roughly 100kT worth of damage to all ships. \
+				Fury ships and ships belonging to the owner of the detonator receive "+abilityAmt+"% of the full damage dealt";
 			break;
 		case "Glory Device (100-100)":
 			displayTxt = "When detonated, this device will deal roughly 100kT worth of damage to ALL ships, regardless of owner";
 			break;
 		case "Glory Device (50-20)":
-			displayTxt = "When detonated, this device will deal roughly 50kT worth of damage to all ships. Fury ships and ships belonging to the owner of the detonator receive 20% of the full damage dealt";
+			displayTxt = "When detonated, this device will deal roughly 50kT worth of damage to all ships. \
+				Fury ships and ships belonging to the owner of the detonator receive 20% of the full damage dealt";
 			break;
 		case "Gravitonic Acceleration":
 			displayTxt = "Ship will move at twice the normal LY per turn while consuming half the normal fuel per LY. Gains " + shipAbility("Elusive (Quantum)") + ".";
@@ -878,8 +882,14 @@ function dispInfo(techItem) {
 		case "Imperial Assault":
 			displayTxt = "Ship can capture ANY planet with ease by simply dropping 10 or more clans. Requires fuel and no damage";
 			break;
+		case "Interdictor":
+			displayTxt = "When activated via mission, applies an inhibiting aura with a radius based on the warp factor (limited by engine quality). \
+				<span class=\"bindTxt\">Stops movement of ships</span> with a lower hull mass than interdiction strength (based on engine quality and warp factor). \
+				<span class=\"bindTxt\">Also stops all towing</span>.";
+			break;
 		case "Intercept Interference":
-			displayTxt = "Prevents the use of " + shipAbility("Cloak and Intercept") + ", and the benefits of " + shipAbility("Priority Intercept Attack") + "s, against starships at the same point as the ability.";
+			displayTxt = "Prevents the use of " + shipAbility("Cloak and Intercept") + ", and the \
+				benefits of " + shipAbility("Priority Intercept Attack") + "s, against starships at the same point as the ability.";
 			break;
 		case "Move Minefields":
 			displayTxt = "Can move minefields using the <q>Push minefield</q> and <q>Pull minefield</q> missions.";
@@ -1270,7 +1280,10 @@ function dispInfo(techItem) {
 		var reqName;
 		
 		for (var j = 1; j <= 5; j++) {
-			reqName = j + " Free Starbase Fighters";
+			reqName = j + " Free Starbase Fighter";
+			if (j > 1) {
+				reqName = reqName + "s";
+			}
 			if (techItem == reqName)
 				displayTxt = "Starbases automatically build " + j + " fighter(s) per turn, minerals and space permitting";
 		}
@@ -1440,6 +1453,8 @@ function detailedReport(targetDesign) {
 			similiarDesign = "Moscow Class Star Escort";
 			break;
 		case "Super Star Carrier II":
+			// Fall through
+		case "Super Star Carrier+":
 			similiarDesign = "Super Star Carrier";
 			break;
 		case "Super Star Cruiser II":

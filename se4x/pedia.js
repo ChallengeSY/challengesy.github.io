@@ -29,10 +29,6 @@ function closeBox() {
 	document.getElementById("infobox").style.display = "none";
 }
 
-function rollD10() {
-	return 1 + Math.floor(Math.random()*10);
-}
-
 function cloneArray(orgArray) {
 	newArray = new Array();
 	
@@ -117,7 +113,7 @@ function dspaStats(shipCt, HIcount) {
 function dmBase(strength) {
 	const dmCommonA = "Non-player <q>boss</q> ship that will instantly destroy any undefended "+conceptLink("planet")+" it contests.";
 		
-	var dmCommonB = "<br />Equipped with "+conceptLink("Scanning")+" 2.";
+	var dmCommonB = "<br />Equipped with "+conceptLink("Scanning")+" 2. ";
 	if (useRuleset == "AGT") {
 		dmCommonB = dmCommonB + "Immune to "+conceptLink("boarding")+", "+conceptLink("fighter")+"s, "+conceptLink("mines")+", \
 			and non-"+conceptLink("amoeba")+" non-"+conceptLink("quasar")+" non-"+conceptLink("ion storm")+" terrain. Resistant to "+conceptLink("missile")+"s.";
@@ -130,7 +126,7 @@ function dmBase(strength) {
 	dmCommonB = dmCommonB + "<br />Prevents the benefits of "+conceptLink("Fleet Size Bonus")+"es and "+conceptLink("combat ship")+" "+conceptLink("screen")+"ing.";
 	
 	if (strength == "MP") {
-		return "<b class=\"headOx\">Doomsday Machine (Competitive variant)</b><br />"+dmCommonA+dmCommonB+" <span class=\"bindTxt\">Repairs damage in between "+conceptLink("battle")+"s.</span>";
+		return "<b class=\"headOx\">Doomsday Machine (Master variant)</b><br />"+dmCommonA+dmCommonB+" <span class=\"bindTxt\">Repairs damage in between "+conceptLink("battle")+"s.</span>";
 	} else if (strength) {
 		return "<b class=\"headOx\">Doomsday Machine (Strength "+strength+")</b><br />"+dmCommonA+dmCommonB+" <span class=\"bindTxt\">May have a "+conceptLink("weakness")+".</span>";
 	}
@@ -143,6 +139,9 @@ function dmBase(strength) {
 		dmCommonC = dmCommonC + "<br /><br />As a "+conceptLink("scenario card")+", any DMs revealed "+conceptLink("battle")+" the ship that just revealed it, even via "+conceptLink("Exploration")+". \
 			They then move directly towards the revealing player's "+conceptLink("homeworld")+", avoiding subsequent "+conceptLink("battle")+"s as long as doing so would not prolong their journey.";
 	}
+	
+	dmCommonC = dmCommonC + "<br /><br />If enabled outside the above, it moves 1-2 "+conceptLink("hex")+"es in a semi-random direction, \
+		also destroying any "+conceptLink("asteroids")+" it contests, but avoiding "+conceptLink("home system")+"s.";
 	
 	return dmCommonC;
 }
@@ -1214,6 +1213,10 @@ function showBox(concept) {
 				displayTxt = displayTxt + "<br /><br />"+conceptLink("Expansion fleet")+"s and "+conceptLink("Extermination fleet")+"s also constitute non-raider fleets, but have unique targeting rules.";
 			}
 			break;
+		case "carrier fleet":
+			displayTxt = conceptLink("Alien Player")+" "+conceptLink("fleet")+" that contains at least 1 "+conceptLink("Carrier")+". \
+				May still contain regular ships (up to 26 "+conceptLink("CP")+" in cost), and still acts as a "+conceptLink("non-raider fleet")+".";
+			break;
 		case "raider fleet":
 			displayTxt = conceptLink("Alien Player")+" "+conceptLink("fleet")+" that contains <i>only</i> cloaked "+conceptLink("Raider")+"s. \
 				They strive to be sneaky, and avoid combat with superior fleets (in terms of "+conceptLink("CP")+" cost).";
@@ -2264,6 +2267,10 @@ function showBox(concept) {
 				Avoids terrain other than "+conceptLink("nebula")+" and "+conceptLink("asteroid")+"s. Avoids "+conceptLink("home system")+"s.\
 				<br /><br />"+conceptLink("Ion storm")+"s and "+conceptLink("plasma storm")+"s constitute cosmic storms.";
 			break;
+		case "dyo":
+			headingTxt = "Do it YourSelf (DYO)";
+			displayTxt = "Completely customizable element, taking advantage of the modularity of the "+conceptLink("Space Empires Anthology")+".";
+			break;
 		case "ion storm":
 			displayTxt = "Hits scored in "+conceptLink("battle")+"s taking place in this "+conceptLink("hex")+" deal double damage.<br />\
 				Difficult to escape (If a 9+ is rolled, <i>no</i> player "+conceptLink("ship")+"s may move on a given "+conceptLink("turn")+"). Has "+conceptLink("Storm Movement")+".";
@@ -2279,7 +2286,7 @@ function showBox(concept) {
 			// Fall thru
 		case "defense satellite network":
 			headingTxt = "Defense Satellite Network";
-			displayTxt = "Satellite group placed defensively. One can be built at a "+conceptLink("colony")+" alongside a "+conceptLink("Base")+"; but not on the very same "+conceptLink("economic phase");
+			displayTxt = conceptLink("Immobile")+" Satellite group placed defensively. One can be built at a "+conceptLink("colony")+" alongside a "+conceptLink("Base")+"; but not on the very same "+conceptLink("economic phase");
 			displayTxt = displayTxt + stats4X("Common", 6, "B4", 1, 2, -1, conceptLink("Ship Size")+" 2");
 			break;
 		case "jammer":
@@ -2343,7 +2350,7 @@ function showBox(concept) {
 				displayTxt = displayTxt + statsTalon("Talon", 278, "Dual Disruptors x2 + Dual Missile Launchers x2", "10/10/10/10", 12, "6/8", "2/4/7/10");
 			} else {
 				displayTxt = displayTxt + " with overpowering weaponry, can shoot twice per "+conceptLink("round")+"! Can not move. \
-					Requires upgrading an "+conceptLink("Advanced Base")+" at a "+conceptLink("colony")+" that has naturally produced 5 "+conceptLink("CP")+". \
+					Requires upgrading an Advanced "+conceptLink("Base")+" at a "+conceptLink("colony")+" that has naturally produced 5 "+conceptLink("CP")+". \
 					Counts as building a "+conceptLink("Ship Yard")+".";
 				displayTxt = displayTxt + stats4X("Common", 12, "A7", 3, 4, -1, conceptLink("Advanced Construction")+" 2");
 			}
@@ -2585,7 +2592,7 @@ function showBox(concept) {
 					<li class=\"noKeywords\">The farthest 3 human "+conceptLink("colonies")+" are at strength 1. The rest at strength 5</li>\
 					<li class=\"noKeywords\">"+conceptLink("Mineral")+"s have already been harvested</li>\
 					<li class=\"noKeywords\">1 extra "+conceptLink("Ship Yard")+" can be placed at any colony</li>\
-					<li class=\"noKeywords\">5 "+conceptLink("Pipelines")+" and starting forces can be placed anywhere in the home systems, other than a "+conceptLink("black hole")+"</li>\
+					<li class=\"noKeywords\">5 "+conceptLink("Pipelines")+" and mobile starting forces can be placed anywhere in the home systems, other than a "+conceptLink("black hole")+"</li>\
 					<li class=\"noKeywords\">100 "+conceptLink("CP")+" is spent on "+conceptLink("technology")+". Up to 10 CP can be saved for the next "+conceptLink("economic phase")+"</li>\
 					<li class=\"noKeywords\">20 CP is spent on extra ships/units, as if they were being built normally. Up to 6 CP can be saved</li>\
 					<li class=\"noKeywords\">The scenario proceeds as if 4 economic phases had already been completed</li></ul>";
@@ -3351,6 +3358,11 @@ function showBox(concept) {
 			displayTxt = "Program that allows designing a "+conceptLink("Talon")+" "+conceptLink("fleet")+".";
 			provideLinks = 3;
 			break;
+		case "system shuffler":
+			displayTxt = "Substitute program that can shuffle and deal <i>nearly any</i> mix of "+conceptLink("deep space")+" counters.\
+				<br /><br />Remembers the current stock of counters in between sessions, being reset <i>only</i> when a new mix is generated.";
+			provideLinks = 4;
+			break;
 		case "zen solitaire":
 			displayTxt = "Custom solo scenario that lacks a specific antagonist. The primary objective instead is to explore the entire map, \
 				and eliminate any local threats that may be encountered.";
@@ -3425,6 +3437,10 @@ function showBox(concept) {
 			
 		case 3:
 			displayTxt = displayTxt + "<a class=\"interact\" href=\"/se4x/talFleetBldr.htm\" target=\"_blank\">Open Fleet Builder</a>";
+			break;
+			
+		case 4:
+			displayTxt = displayTxt + "<a class=\"interact\" href=\"/se4x/systemShuffle.htm\" target=\"_blank\">Open System Shuffler</a>";
 			break;
 	}
 	displayTxt = displayTxt + "<a class=\"interact\" href=\"javascript:closeBox();\">Close</a>";
@@ -3678,7 +3694,7 @@ function keywordifyDocument() {
 
 function keywordifyCollection(collObj) {
 	const keyTerms = ["Space Empires 4X", "Close Encounters", "Replicator", "All Good Things", "AGT", "Space Empires Anthology",
-		"Replay Center", "Unique Designer", "Zen Solitaire",
+		"Replay Center", "Unique Designer", "System Shuffler", "Zen Solitaire",
 		"AI", "Barren", "Campaign", "Colony", "Colonies", "Combat Ship", "CP", "Economic Phase", "Faction", "Homeworld", "Maintenance", "Planet", "Starship", "Scuttle", "Turn",
 		"Bid", "Competitive", "Cooperative", "Galactic Capitol", "Initiative", "Primary Objective", "Uneasy Alliance", "Versus Map", "Victory Point", "VP", "Blood Brothers",
 		"Battle", "Battling", "Blockade", "Bombard", "Fleet", "FSB", "Immobile", "Non-Player Alien", "NPA", "Subdue", "Subduing", "Priority Class", "Retreat", "Round", "Screen", "Weakness", "Weapon Class",
@@ -3748,6 +3764,8 @@ function keywordifyCollection(collObj) {
 		{regex: "Hidden "+conceptLink("Fleet"), newTxt: conceptLink("Hidden Fleet")},
 		{regex: conceptLink("raider")+" "+conceptLink("fleet"), newTxt: conceptLink("raider fleet")},
 		{regex: conceptLink("Raider")+" "+conceptLink("Fleet"), newTxt: conceptLink("Raider Fleet")},
+		{regex: conceptLink("carrier")+" "+conceptLink("fleet"), newTxt: conceptLink("carrier fleet")},
+		{regex: conceptLink("Carrier")+" "+conceptLink("Fleet"), newTxt: conceptLink("Carrier Fleet")},
 		{regex: "non-"+conceptLink("raider fleet"), newTxt: conceptLink("non-raider fleet")},
 		{regex: "Non-"+conceptLink("raider")+" "+conceptLink("Fleet"), newTxt: conceptLink("Non-raider Fleet")},
 		{regex: conceptLink("experience")+"d", newTxt: "experienced"},
@@ -3985,6 +4003,59 @@ function keywordifyCollection(collObj) {
 				for (var g = 0; g < keyExpressions.length; g++) {
 					e.innerHTML = e.innerHTML.replace(keyExpressions[g].regex, keyExpressions[g].newTxt);
 				}
+			}
+		}
+	}
+}
+
+/* ------------------------------------------------------------------------ */
+
+function rollD10() {
+	return irandom(1,10);
+}
+
+function irandom(mini, maxi) {
+	return Math.floor((Math.random() * (maxi - mini + 1)) + mini);
+}
+
+//Storage
+function setStorage(sName, sValue) {
+	if (typeof(Storage) !== "undefined") {
+		localStorage.setItem(sName, sValue);
+	} else {
+		var targetDate = new Date();
+		targetDate.setTime(targetDate.getTime() + (360*24*60*60*1000));
+		
+		setCookie(sName, sValue, targetDate, "/");
+	}
+}
+
+function getStorage(sName) {
+	if (typeof(Storage) !== "undefined") {
+		return localStorage.getItem(sName);
+	} else {
+		return getCookie(sName);
+	}
+}
+
+//Fallback Cookies
+function setCookie(cName, cValue, expDate, cPath, cDomain, cSecure) {
+	if (cName && cValue != "") {
+		var cString = cName + "=" + encodeURI(cValue) + ";samesite=lax";
+		cString += (expDate ? ";expires=" + expDate.toUTCString(): "");
+		cString += (cPath ? ";path=" + cPath : "");
+		cString += (cDomain ? ";domain=" + cDomain : "");
+		cString += (cSecure ? ";secure" : "");
+		document.cookie = cString;
+	}
+}
+
+function getCookie(cName) {
+	if (document.cookie) {
+		var cookies = document.cookie.split("; ");
+		for (var i = 0; i < cookies.length; i++) {
+			if (cookies[i].split("=")[0] == cName) {
+				return decodeURI(cookies[i].split("=")[1]);
 			}
 		}
 	}
