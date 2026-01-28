@@ -20,7 +20,7 @@
 	if (getParam("newSkill") != -1) {
 		seriesGame = 1;
 		seriesDiff = parseInt(getParam("newSkill"));
-		seriesSeason = 4;
+		seriesSeason = 5;
 		if (seriesDiff < 4) {
 			seriesLives = 3;
 		} else {
@@ -41,6 +41,7 @@
 	downturnDepth = [0];
 	emptyPileRefills = "finalRank";
 	tableauBuilding = "downColorAlt";
+	tableauMovement = "builds";
 	maxRedeals = 0;
 	deckCost = 52;
 	stockDealTo = 0;
@@ -58,7 +59,6 @@
 				seriesName = "Klondike";
 				tableauStructure = [1,2,3,4,5,6,7];
 				downturnDepth = [6];
-				tableauMovement = "builds";
 				maxRedeals = -1;
 				deckCost = 28;
 			} else if (seriesSeason == 3) {
@@ -67,12 +67,18 @@
 				tableauMovement = "oneCard";
 				emptyPileRefills = "anyCard";
 				maxReserve = 4;
-			} else {
+			} else if (seriesSeason == 4) {
 				seriesName = "KingCell";
 				tableauStructure = [8,8,8,8,7,7,7,7];
 				tableauBuilding = "downAnySuit";
 				tableauMovement = "oneCard";
 				maxReserve = 4;
+			} else if (seriesSeason == 5) {
+				seriesName = "Westcliff";
+				tableauStructure = [3,3,3,3,3,3,3,3,3,3];
+				downturnDepth = [2];
+				emptyPileRefills = "anyCard";
+				deckCost = 30;
 			}
 			break;
 			
@@ -104,6 +110,15 @@
 				tableauMovement = "yukonStyle";
 				tableauBuilding = "downSuit";
 				emptyPileRefills = "anyCard";
+			} else if (seriesSeason == 5) {
+				seriesName = "Courtyard";
+				wizardDecks = 2;
+				tableauStructure = [1,1,1,1,1,1,1,1,1,1,1,1];
+				tableauBuilding = "downSuit";
+				emptyPileRefills = "none";
+				emptyAutoRefills = 1;
+				deckCost = 12;
+				stockDealTo = 1;
 			}
 			break;
 			
@@ -144,6 +159,12 @@
 				emptyPileRefills = "anyCard";
 				stockDealTo = 1;
 				deckCost = 40;
+			} else if (seriesSeason == 5) {
+				seriesName = "Northwest Territory";
+				tableauStructure = [1,2,3,4,5,6,7,8];
+				downturnDepth = [7];
+				emptyPileRefills = "finalRank";
+				prefilledReserve = 16;
 			}
 			break;
 	}
@@ -191,7 +212,7 @@
 <h3>Scoring</h3>
 <p>Points are awarded for each card secured, times the number of lives available (with the maximum lives being used if playing on Hardcore), minus 0-3 points for each move that was undone.</p>
 
-<p>Games won beyond the first game also have a fixed reward that is not reduced by losses made on unsuccessful attempts, although the undo penalty can chew into this bonus.</p>
+<p>Games won may also have a fixed reward that is not reduced by losses made on unsuccessful attempts, although the undo penalty can chew into this bonus.</p>
 
 <table style="margin-left: auto; margin-right: auto;" summary="A breakdown of the scoring system. In short, the Win bonus increases with each subsequent game. The grand total maximum can be $1,000; for successfully winning the entire series on the respective first tries, and without using undo.">
 <thead><tr>
@@ -205,37 +226,37 @@
 	<td>Grand Total</td>
 	<td class="numeric">208</td>
 	<td class="numeric">&mdash;</td>
-	<td class="numeric">116</td>
+	<td class="numeric">168</td>
 	<td class="numeric">1,000</td>
 </tr></tfoot>
 <tbody><tr>
-	<td>KingCell</td>
+	<td>Westcliff</td>
 	<td class="numeric">52</td>
 	<td class="numeric">3</td>
 	<td class="numeric">0</td>
 	<td class="numeric">156</td>
 </tr><tr>
-	<td>Queensland</td>
-	<td class="numeric">52</td>
-	<td class="numeric">4</td>
-	<td class="numeric">52</td>
-	<td class="numeric">260</td>
-</tr><tr>
-	<td>Napoleon's Exile</td>
+	<td>Courtyard</td>
 	<td class="numeric">104</td>
+	<td class="numeric">4</td>
+	<td class="numeric">0</td>
+	<td class="numeric">416</td>
+</tr><tr>
+	<td>Northwest Territory</td>
+	<td class="numeric">52</td>
 	<td class="numeric">5</td>
-	<td class="numeric">64</td>
-	<td class="numeric">584</td>
+	<td class="numeric">168</td>
+	<td class="numeric">428</td>
 </tr></tbody>
 </table>
 
 <h3>Skill Levels</h3>
 
 <ol>
-<li><b>Casual</b>: Simply move onto the next game in the series, whether win or loss. Points are awarded accordingly for non-winning games. No undo penalty</li>
-<li><b>Regular</b>: Each game must be won before the series can progress. Lives are finite, but are fully replenished with each win. 1 point is deducted per undo</li>
-<li><b>Fanatic</b>: Lives are very finite; one life is given after each win. 2 points are deducted per undo</li>
-<li><b>Hardcore</b>: One life is all that is provided to conquer the entire series! It is impossibled to earn more lives. 3 points are deducted per undo</li>
+	<li><b>Casual</b>: Simply move onto the next game in the series, whether win or loss. Points are awarded accordingly for non-winning games. No undo penalty</li>
+	<li><b>Regular</b>: Each game must be won before the series can progress. Lives are finite, but are fully replenished with each win. 1 point is deducted per undo</li>
+	<li><b>Fanatic</b>: Lives are very finite; one life is given after each win. 2 points are deducted per undo</li>
+	<li><b>Hardcore</b>: One life is all that is provided to conquer the entire series! It is impossibled to earn more lives. 3 points are deducted per undo</li>
 </ol>
 </div>
 

@@ -1111,7 +1111,7 @@ solCard.prototype.innerCode = function() {
 				jokeSuit = "club";
 				break;
 			case "Diamond":
-				jokeSuit = "s`ade";
+				jokeSuit = "spade";
 				break;
 			case "Club":
 				jokeSuit = "heart";
@@ -1433,7 +1433,7 @@ function saveSeriesFile(gameWon) {
 			case 2:
 				if (seriesSeason < 3) {
 					winBonus = 128;
-				} else {
+				} else if (seriesSeason < 5) {
 					winBonus = 52;
 				}
 				break;
@@ -1443,6 +1443,8 @@ function saveSeriesFile(gameWon) {
 					cardsMod = -4;
 				} else if (seriesSeason == 2) {
 					winBonus = 248;
+				} else if (seriesSeason == 5) {
+					winBonus = 168;
 				} else {
 					winBonus = 64;
 				}
