@@ -2404,9 +2404,9 @@ function showBox(concept) {
 			displayTxt = displayTxt + stats4X("Bot", 20, 0, 0, 0);
 			break;
 		case "guard fleet":
-			displayTxt = "An "+conceptLink("expansion fleet")+" that has been assigned guard duty of the "+conceptLink("planet")+" it conquered. It can fend off player stragglers";
+			displayTxt = "An "+conceptLink("expansion fleet")+" that has been assigned guard duty of the nearest friendly "+conceptLink("colony")+", often the "+conceptLink("planet")+" it conquered. It can fend off player stragglers";
 			if (useRuleset == "AGT") {
-				displayTxt = displayTxt + ",<br /> or merge with another fleet (if an "+conceptLink("AP Bot")+").";
+				displayTxt = displayTxt + ", or merge with another fleet (if an "+conceptLink("AP Bot")+").";
 			}
 			break;
 		case "morale":
@@ -2429,7 +2429,10 @@ function showBox(concept) {
 			break;
 		
 		// AP Bot Strategies
+		case "fleet strategies":
+			// Fall thru
 		case "fleet strategy":
+			headingTxt = "Fleet Strategy";
 			displayTxt = "A strategy that an "+conceptLink("AP bot")+" uses to determine how to buy "+conceptLink("technology")+" and built "+conceptLink("ship")+"s remotely.\
 				<br />Pursued until the corrosponding "+conceptLink("paranoia")+" check fails while there is 30+ "+conceptLink("CP")+" in the tech bank.";
 			break;
@@ -3865,8 +3868,11 @@ function keywordifyCollection(collObj) {
 		{regex: conceptLink("defense")+" posture", newTxt: conceptLink("defense posture")},
 		{regex: conceptLink("Fleet")+" Strategy", newTxt: conceptLink("Fleet Strategy")},
 		{regex: conceptLink("fleet")+" strategy", newTxt: conceptLink("fleet strategy")},
+		{regex: conceptLink("fleet")+" strategies", newTxt: conceptLink("fleet strategies")},
 		{regex: "Forward Operating "+conceptLink("Base"), newTxt: conceptLink("Forward Operating Base")},
 		{regex: "forward operating "+conceptLink("base"), newTxt: conceptLink("forward operating base")},
+		{regex: "Guard "+conceptLink("Fleet"), newTxt: conceptLink("Guard Fleet")},
+		{regex: "guard "+conceptLink("fleet"), newTxt: conceptLink("guard fleet")},
 		{regex: "Shattered "+conceptLink("Fleet"), newTxt: conceptLink("Shattered Fleet")},
 		{regex: "shattered "+conceptLink("fleet"), newTxt: conceptLink("shattered fleet")},
 		{regex: conceptLink("Exploration")+" Vessel", newTxt: conceptLink("Exploration Vessel")},

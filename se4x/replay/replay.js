@@ -1469,7 +1469,7 @@ function readJson() {
 				}
 				
 				var HStotal = Math.max(readValue(activePlayer.baseHS,7) - readValue(activePlayer.HSdmg,0) - readValue(activePlayer.maint,0) + readValue(activePlayer.DSmin,0), 1); 
-				var DStotal = readValue(activePlayer.DScol,0) + readValue(activePlayer.nebMin,0);
+				var DStotal = readValue(activePlayer.DScol,0) + readValue(activePlayer.nebula,0);
 				
 				constructTable = constructTable + "<td>"+activePlayer.name+"</td> \
 					<td class=\"numeric\">"+readValue(activePlayer.baseHS,7)+"</td> \
@@ -1478,14 +1478,14 @@ function readJson() {
 					<td class=\"numeric increase\">+"+readValue(activePlayer.DSmin,0)+"</td> \
 					<td class=\"numeric\">"+HStotal+"</td> \
 					<td class=\"numeric\">"+readValue(activePlayer.DScol,0)+"</td> \
-					<td class=\"numeric increase\">+"+readValue(activePlayer.nebMin,0)+"</td> \
+					<td class=\"numeric increase\">+"+readValue(activePlayer.nebula,0)+"</td> \
 					<td class=\"numeric\">"+DStotal+"</td> \
 					<td class=\"numeric\">"+paranoiaThresh[readValue(activePlayer.paranoia,1)-1]+"</td></tr>";
 			}
 			
 			constructTable = constructTable + "<tr><th>Player</th>\
 				<th>"+conceptLink("Fleet")+" Init</th>\
-				<th title=\"1-7 to gain from a roll. Leftovers post-construction also return here\">Gains</th>\
+				<th title=\"1-7 to gain from a roll\">Gains</th>\
 				<th title=\"&le;8 to launch after mods\">Spent</th>\
 				<th>Leftover</th>\
 				<th>"+conceptLink("Tech")+" Init</th>\
