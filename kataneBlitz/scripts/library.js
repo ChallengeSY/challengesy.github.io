@@ -1,5 +1,7 @@
+// This function determines how to build the elements for a given module. One case per module
 function createBombModule(moduleObj, moduleClass) {
 	switch (moduleClass) {
+		// Vanilla modules
 		case "bigButton":
 			newButton = document.createElement("button");
 			newButton.className = "bigButton";
@@ -614,7 +616,6 @@ function createBombModule(moduleObj, moduleClass) {
 			break;
 		
 		// Needy modules
-		
 		case "capacitor":
 			dispDiv = document.createElement("div");
 			dispDiv.className = "ventGasDisp";
@@ -930,7 +931,7 @@ function createBombModule(moduleObj, moduleClass) {
 			moduleObj.appendChild(masterDiv);
 			break;
 		
-		// Pack 2
+		// Pack 2 modules
 		case "alphabet":
 			var targWord = alphaTable[irandom(0,alphaTable.length-1)];
 			var auxLetters = [-1, -1];
@@ -1003,30 +1004,27 @@ function createBombModule(moduleObj, moduleClass) {
 			break;
 			
 		case "coprime":
+			var labels = ["Coprime", "Not Coprime"];
+		
 			copDisp = document.createElement("div");
 			copDisp.className = "coprimeDisp";
-			copDisp.id = moduleObj.id+"cD";
-			copDisp.innerHTML = "<span id=\""+moduleObj.id+"cT\"></span><br /><span id=\""+moduleObj.id+"cB\"></span>"
+			copDisp.id = moduleObj.id+"ccD";
+			copDisp.innerHTML = "<span id=\""+moduleObj.id+"ccT\"></span><br /><span id=\""+moduleObj.id+"ccB\"></span>"
 			moduleObj.appendChild(copDisp);
 			
 			for (var s = 3; s >= 1; s--) {
 				copStage = document.createElement("div");
 				copStage.className = "coprimeStage";
-				copStage.id = moduleObj.id+"cS"+s;
+				copStage.id = moduleObj.id+"ccS"+s;
 				moduleObj.appendChild(copStage);
 				
 				if (s == 1) {
-					var buttonLabel = "Coprime";
-					
 					for (var b = 1; b <= 2; b++) {
 						copButtonWrap = document.createElement("div");
 						copButtonWrap.className = "coprimeButton";
 						copButton = document.createElement("button");
-						copButton.id = moduleObj.id+"cB"+b;
-						if (b > 1) {
-							buttonLabel = "Not " + buttonLabel;
-						}
-						copButton.innerHTML = buttonLabel;
+						copButton.id = moduleObj.id+"ccB"+b;
+						copButton.innerHTML = labels[b-1];
 						copButton.onclick = function() {pressCoprimeButton(moduleObj, this);}
 						copButtonWrap.appendChild(copButton);
 						moduleObj.appendChild(copButtonWrap);
