@@ -344,7 +344,7 @@ function showPlrRows(rowId, rowVis) {
 		showPlrRows("Alien-C", plrFaction == 3);
 		showPlrRows("Alien-B", plrFaction == 3);
 		showPlrRows("Alien-A", plrFaction == 3);
-		showPlrRows("Pirate", plrFaction < 3 && auxTech);
+		showPlrRows("Pirate", plrFaction < 3);
 
 		showPlrRows("Destroyer-X", sizeTech >= 2 && advConTech >= 1);
 		showPlrRows("Battle Carrier", ftrTech > 0 && advConTech >= 2);
@@ -570,7 +570,7 @@ function computeHitChances(refreshDM) {
 						dmThreat = dmThreat + Math.pow(1+Math.floor(hitChance/10),3-(hullSize-1)/2) + Math.pow(10-(Math.max(evaChance,10)/10),2.2);
 					
 						if (dmWeak == 4) {
-							dmThreat = dmThreat * Math.max(Math.pow(3.5-hullSize,2),1);
+							dmThreat = dmThreat * Math.max(Math.pow((5.5-hullSize)/2,1.5),1);
 							bonus = (hullSize < 3);
 						}
 					}

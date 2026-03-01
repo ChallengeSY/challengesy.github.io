@@ -1,0 +1,7228 @@
+{"stages": [
+	{"heading":"Stardate 2227.00X",
+	"commentary":[
+		"Welcome to yet another Talon battle! Since we were decisively successful on Green difficulty (+0% SP handicap), we are stepping it up to Experienced difficulty (+10% SP). We set up this AI Solitaire by rolling a 2 on the terrain step (consult the Astrometrics Lab twice), followed by a 5 on the Last Ship Standing table (600 SP).",
+		"On the Astrometrics Lab step, we rolled 3,4 (asteroids); followed by 2,1 (energy nebula). Some internal rolling was performed, causing the asteroid belt to be flipped, and for the sub-layouts to be roughly 4 hexes apart. Finally, it was only at this point that we understood what Talon 1000 meant by the first row being energy nebula; the entire top-most row of the Astrometrics Lab is treated as such. We render these hexes with a yellow border.",
+		"We randomly choose the Talon faction while rolling a 9 for our fleet. We deployed 2 Cruisers, 2 Light Cruisers, 1 Destroyer-D, and 3 regular Destroyers.",
+		"The +10% modifier causes the AI to have 660 SP... rounding to 650 SP. There is no 650 SP table, so they use the 600 SP table, and get an extra Destroyer. They rolled a 1. This gives them 3 Battleships and 1 Destroyer. They then roll a 2 for distance (uses the row closest to our deployment zone), a 6 for side (east side), and a 6 for formation (balanced)."],
+	"scoreboard":
+		[{
+			"name":"CSY (Red)","initPts":601,"killPts":0,"lostPts":0
+		},{
+			"name":"Ticlanat (Grey)","initPts":650,"killPts":0,"lostPts":0
+		}],
+	"actions":
+		[{
+			"createPreset":"talonSkirmish",
+			"playerColors":"RV"
+		},{
+			"paintHex":"G3",
+			"name":"asteroidsW"
+		},{
+			"paintHex":"F4",
+			"name":"asteroidsW"
+		},{
+			"paintHex":"F5",
+			"name":"asteroidsW"
+		},{
+			"paintHex":"E5",
+			"name":"asteroidsW"
+		},{
+			"paintHex":"F11",
+			"name":"nebulaY"
+		},{
+			"paintHex":"F12",
+			"name":"nebulaY"
+		},{
+			"paintHex":"F13",
+			"name":"nebulaY"
+		},{
+			"paintHex":"E12",
+			"name":"nebulaY"
+		},{
+			"paintHex":"E13",
+			"name":"nebulaY"
+		},{
+			"placeCounter":"BB-A1",
+			"location":"B16",
+			"name":"BB-AI",
+			"pwrCurve":"0-4-1",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"BB-A2",
+			"location":"B15",
+			"name":"BB-AI",
+			"pwrCurve":"0-4-1",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"BB-A3",
+			"location":"B14",
+			"name":"BB-AI",
+			"pwrCurve":"0-4-1",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"DD-A1",
+			"location":"B13",
+			"name":"DD-AI",
+			"pwrCurve":"0-4-1",
+			"shields":[3,3,3,2],
+			"wepCharge":[{
+				"name":"Laser",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"CA-T1",
+			"location":"K11",
+			"name":"CA-Tal",
+			"pwrCurve":"3-3-1",
+			"shields":[7,4,4,3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"CA-T2",
+			"location":"K13",
+			"name":"CA-Tal",
+			"pwrCurve":"3-3-1",
+			"shields":[7,4,4,3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"CL-T1",
+			"location":"K10",
+			"name":"CL-Tal",
+			"pwrCurve":"4-3-1",
+			"shields":[6,3,3,3],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"CL-T2",
+			"location":"K12",
+			"name":"CL-Tal",
+			"pwrCurve":"4-3-1",
+			"shields":[6,3,3,3],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"DDD-T1",
+			"location":"K14",
+			"name":"DDD-Tal",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,2,2],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"DD-T1",
+			"location":"K15",
+			"name":"DD-Tal",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"DD-T2",
+			"location":"K9",
+			"name":"DD-Tal",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"DD-T3",
+			"location":"K8",
+			"name":"DD-Tal",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":4
+		}]},
+	{"heading":"Stardate 2227.01A",
+	"commentary":["Unlike previous Talon versus AI battles, pathfinding does get a bit awkward with all of this terrain on the board. Asteroids and nebulae each have their own unique hazardous effects on starships."],
+	"actions":
+		[{
+			"createPreset":"paintEmptyTiles",
+			"brush":"unexploredW"
+		},{
+			"placeCounter":"BB-A1",
+			"location":"C15",
+			"pwrCurve":"0-4-1",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"BB-A2",
+			"location":"C14",
+			"pwrCurve":"0-4-1",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"BB-A3",
+			"location":"C13",
+			"pwrCurve":"0-4-1",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"DD-A1",
+			"location":"C12",
+			"pwrCurve":"0-4-1",
+			"shields":[3,3,3,2],
+			"wepCharge":[{
+				"name":"Laser",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"CA-T1",
+			"location":"K11",
+			"pwrCurve":"3-3-1",
+			"shields":[7,4,4,3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"CA-T2",
+			"location":"K13",
+			"pwrCurve":"3-3-1",
+			"shields":[7,4,4,3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"CL-T1",
+			"location":"K10",
+			"pwrCurve":"4-3-1",
+			"shields":["6+A",3,3,3],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"CL-T2",
+			"location":"K12",
+			"pwrCurve":"4-3-1",
+			"shields":["6+A",3,3,3],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"DDD-T1",
+			"location":"K14",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,2,2],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"DD-T1",
+			"location":"K15",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"DD-T2",
+			"location":"K9",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"DD-T3",
+			"location":"K8",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":4
+		}]},
+	{"heading":"Stardate 2227.01B",
+	"commentary":["And the energy nebulae is also a mixed bag... at least, for us."],
+	"actions":
+		[{
+			"placeCounter":"BB-A1",
+			"location":"C15",
+			"pwrCurve":"0-4-1",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"BB-A2",
+			"location":"C14",
+			"pwrCurve":"0-4-1",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"BB-A3",
+			"location":"C13",
+			"pwrCurve":"0-4-1",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"DD-A1",
+			"location":"C12",
+			"pwrCurve":"0-4-1",
+			"shields":[3,3,3,2],
+			"wepCharge":[{
+				"name":"Laser",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"CA-T1",
+			"location":"J11",
+			"pwrCurve":"3-3-1",
+			"shields":["7+B",4,4,3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"CA-T2",
+			"location":"J13",
+			"pwrCurve":"3-3-1",
+			"shields":["7+B",4,4,3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"CL-T1",
+			"location":"J10",
+			"pwrCurve":"4-3-1",
+			"shields":["6+A",3,3,3],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"CL-T2",
+			"location":"J12",
+			"pwrCurve":"4-3-1",
+			"shields":["6+A",3,3,3],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"DDD-T1",
+			"location":"J14",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,2,2],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"DD-T1",
+			"location":"J15",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"DD-T2",
+			"location":"J9",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"DD-T3",
+			"location":"J8",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":4
+		}]},
+	{"heading":"Stardate 2227.01C",
+	"commentary":["But, the AI has no power capacity whatsoever. Combined with other elements, this makes planets and black holes <b>hard</b> avoids. Asteroids and nebulae are <i>soft</i> avoids (they take calculated risks on the latter terrain)."],
+	"actions":
+		[{
+			"placeCounter":"BB-A1",
+			"location":"D15",
+			"pwrCurve":"0-4-1",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"BB-A2",
+			"location":"D14",
+			"pwrCurve":"0-4-1",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"BB-A3",
+			"location":"D13",
+			"pwrCurve":"0-4-1",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"DD-A1",
+			"location":"D12",
+			"pwrCurve":"0-4-1",
+			"shields":[3,3,3,2],
+			"wepCharge":[{
+				"name":"Laser",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"CA-T1",
+			"location":"J11",
+			"pwrCurve":"3-3-1",
+			"shields":["7+B",4,4,3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"CA-T2",
+			"location":"J13",
+			"pwrCurve":"3-3-1",
+			"shields":["7+B",4,4,3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"CL-T1",
+			"location":"J10",
+			"pwrCurve":"4-3-1",
+			"shields":["6+A",3,3,3],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"CL-T2",
+			"location":"J12",
+			"pwrCurve":"4-3-1",
+			"shields":["6+A",3,3,3],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"DDD-T1",
+			"location":"J14",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,2,2],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"DD-T1",
+			"location":"J15",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"DD-T2",
+			"location":"J9",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"DD-T3",
+			"location":"J8",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":4
+		}]},
+	{"heading":"Stardate 2227.01D",
+	"commentary":["Since we could use our disruptors (as unreliable as they are at range 4), their ships opt to avoid the nebulae. Still, with needing &ge;5 to hit, and with nebulaic interference, we opt to use no weapons this impulse."],
+	"actions":
+		[{
+			"placeCounter":"BB-A1",
+			"location":"E15",
+			"pwrCurve":"0-4-1",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"BB-A2",
+			"location":"E14",
+			"pwrCurve":"0-4-1",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"BB-A3",
+			"location":"D12",
+			"pwrCurve":"0-4-1",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"DD-A1",
+			"location":"E11",
+			"pwrCurve":"0-4-1",
+			"shields":[3,3,3,2],
+			"wepCharge":[{
+				"name":"Laser",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"CA-T1",
+			"location":"I11",
+			"pwrCurve":"3-3-1",
+			"shields":["7+B",4,4,3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"CA-T2",
+			"location":"I13",
+			"pwrCurve":"3-3-1",
+			"shields":["7+B",4,4,3],
+			"hullDmg":0,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"CL-T1",
+			"location":"I10",
+			"pwrCurve":"4-3-1",
+			"shields":["6+A",3,3,3],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"CL-T2",
+			"location":"I12",
+			"pwrCurve":"4-3-1",
+			"shields":["6+A",3,3,3],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"DDD-T1",
+			"location":"I14",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,2,2],
+			"hullDmg":0,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"DD-T1",
+			"location":"I15",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"DD-T2",
+			"location":"I9",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"DD-T3",
+			"location":"I8",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":5
+		}]},
+	{"heading":"Stardate 2227.01E (AI Turn)",
+	"commentary":[
+		"Their right-most Battleships (that were already able to move around the nebulae) use their afterburners to move in an otherwise <i>empty</i> impulse. This allows them to unleash their Cobalt Cannons against our right-most Heavy Cruiser, a ship they can ensure they can destroy... even if every die roll is a 1.",
+		"From left to right, their first battleship rolls 2,5 (2 extra dmg &ge;4). Already we have to make a critical roll; 3+5 = 8. We suffer Power Relay Damage (-1). The second battleship's first cobalt cannon is able to destroy our heavy cruiser without fail...",
+		"After applying some <i>heavy</i> explosion damage, our Destroyer-D now must makes its own critical roll; 1+2 = 3 (Shields Down). This is embarrassing, as it now allows the final cobalt cannon to destroy this ship... without fail!"],
+	"actions":
+		[{
+			"placeCounter":"BB-A1",
+			"location":"F15",
+			"pwrCurve":"0-4-1",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":0,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"BB-A2",
+			"location":"F14",
+			"pwrCurve":"0-4-1",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":0,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"BB-A3",
+			"location":"D12",
+			"pwrCurve":"0-4-1",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"DD-A1",
+			"location":"E11",
+			"pwrCurve":"0-4-1",
+			"shields":[3,3,3,2],
+			"wepCharge":[{
+				"name":"Laser",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"CA-T1",
+			"location":"I11",
+			"pwrCurve":"3-3-1",
+			"shields":["7+B",4,4,3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"CA-T2",
+			"location":"I13",
+			"name":"CA-Tal",
+			"pwrCurve":"3-3-1",
+			"shields":["7+B",0,4,3],
+			"hullDmg":"7 (!)",
+			"critDmg":["Power Relay Damage (-1)"],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"CL-T1",
+			"location":"I10",
+			"pwrCurve":"4-3-1",
+			"shields":["6+A",3,3,3],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"CL-T2",
+			"location":"I12",
+			"pwrCurve":"4-3-1",
+			"shields":["6+A",0,3,3],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"DDD-T1",
+			"location":"I14",
+			"name":"DDD-Tal",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,0,2],
+			"hullDmg":"4 (!)",
+			"critDmg":["Shields Down"],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"DD-T1",
+			"location":"I15",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,1,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"DD-T2",
+			"location":"I9",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"DD-T3",
+			"location":"I8",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"removeCounter":"turn-T1"
+		}]},
+	{"heading":"Stardate 2227.01E (Player Turn)",
+	"commentary":["We use afterburners on one of our Light Cruisers, in order to optimize its Disruptor use against one of the Battleships. It is a huge difference in accuracy at this ideal range. We rolled 1,2,4 on these weapons, allowing us to score 2 hits (at &ge;2) that otherwise would miss at range 1/4 (&ge;5 to hit at those ranges)."],
+	"actions":
+		[{
+			"placeCounter":"BB-A1",
+			"location":"F15",
+			"pwrCurve":"0-4-1",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":0,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"BB-A2",
+			"location":"F14",
+			"pwrCurve":"0-4-1",
+			"shields":[5,9,9,9],
+			"hullDmg":0,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":0,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"BB-A3",
+			"location":"D12",
+			"pwrCurve":"0-4-1",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"DD-A1",
+			"location":"E11",
+			"pwrCurve":"0-4-1",
+			"shields":[3,3,3,2],
+			"wepCharge":[{
+				"name":"Laser",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"CA-T1",
+			"location":"I11",
+			"pwrCurve":"3-3-1",
+			"shields":["7+B",4,4,3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"removeCounter":"CA-T2"
+		},{
+			"placeCounter":"CL-T1",
+			"location":"I10",
+			"pwrCurve":"4-3-1",
+			"shields":["6+A",3,3,3],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"CL-T2",
+			"location":"H13",
+			"pwrCurve":"4-3-1",
+			"shields":["6+A",0,3,3],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			}],
+			"aft":1,
+			"rotation":5
+		},{
+			"removeCounter":"DDD-T1"
+		},{
+			"placeCounter":"DD-T1",
+			"location":"I15",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,1,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"DD-T2",
+			"location":"I9",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"DD-T3",
+			"location":"I8",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"turn-T1",
+			"location":"G13",
+			"name":"turn1",
+			"rotation":5
+		},{
+			"removeCounter":"turn-T2"
+		},{
+			"removeCounter":"turn-T3"
+		},{
+			"removeCounter":"missile1"
+		},{
+			"removeCounter":"missile2"
+		},{
+			"removeCounter":"missile3"
+		}]},
+	{"heading":"Stardate 2227.01F",
+	"commentary":[
+		"The very same Battleships are now ready to shoot their Lasers. One of them used their brakes, allowing them to be still on an impulse where they would otherwise move. Their weapons rolled 2,3 (0 extra dmg &ge;5).",
+		"<hr />",
+		"During our segment, we did our moves. In reading order, we used 4 missile launchers against their lone destroyer (E10), all remaining disruptors against Battleship F14, and the last 2 missile launchers against Battleship G14.",
+		"Resolving our weapons in reading order, Light Cruiser H11 rolled 4,5,6 (2 hits &ge;5). Thank goodness we barely avoided a penalty from nebulaic interference. Heavy Cruiser H12 rolled 1,2,5,5 (2 hits &ge;3), causing non-critical hull damage. Destroyer H15's missiles landed instantly due to relatively little distance."],
+	"actions":
+		[{
+			"placeCounter":"BB-A1",
+			"location":"G14",
+			"pwrCurve":"0-4-1",
+			"shields":[9,9,5,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"BB-A2",
+			"location":"F14",
+			"pwrCurve":"0-4-1",
+			"shields":[0,9,9,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":2
+		},{
+			"placeCounter":"BB-A3",
+			"location":"E11",
+			"pwrCurve":"0-4-1",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"DD-A1",
+			"location":"E10",
+			"pwrCurve":"0-4-1",
+			"shields":[3,3,3,2],
+			"wepCharge":[{
+				"name":"Laser",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"CA-T1",
+			"location":"H12",
+			"pwrCurve":"3-3-1",
+			"shields":["7+B",4,"4+F",3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"CL-T1",
+			"location":"H11",
+			"pwrCurve":"4-3-1",
+			"shields":["6+A",3,"3+F",3],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"CL-T2",
+			"location":"G13",
+			"pwrCurve":"4-3-1",
+			"shields":[5,0,3,3],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":1,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			}],
+			"aft":1,
+			"rotation":5
+		},{
+			"placeCounter":"DD-T1",
+			"location":"H15",
+			"pwrCurve":"1-3-0",
+			"shields":["4+F",2,1,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":0
+			},{
+				"name":"Missile Launcher",
+				"chargeR":0
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"DD-T2",
+			"location":"H10",
+			"pwrCurve":"1-3-0",
+			"shields":["4+F",2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":0
+			},{
+				"name":"Missile Launcher",
+				"chargeR":0
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"DD-T3",
+			"location":"H9",
+			"pwrCurve":"1-3-0",
+			"shields":["4+F",2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":0
+			},{
+				"name":"Missile Launcher",
+				"chargeR":0
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"removeCounter":"turn-T1"
+		},{
+			"placeCounter":"turn-T2",
+			"location":"G12",
+			"name":"turn1",
+			"rotation":5
+		},{
+			"placeCounter":"turn-T3",
+			"location":"G11",
+			"name":"turn1",
+			"rotation":5
+		},{
+			"placeCounter":"missile1",
+			"location":"G9",
+			"name":"missile",
+			"size":2,
+			"rotation":5
+		},{
+			"placeCounter":"missile2",
+			"location":"G10",
+			"name":"missile",
+			"size":2,
+			"rotation":5
+		},{
+			"placeCounter":"missile3",
+			"location":"G14",
+			"name":"missile",
+			"size":2,
+			"rotation":4
+		}]},
+	{"heading":"Stardate 2227.01X",
+	"commentary":[
+		"Overall, this is not looking too good for us. We have already lost a quarter of our strength, and the AI has lost no ships yet. We shift our bigger ships down so that they are more manueverable and/or have more power in their reservoirs. Our smaller ships get no change; their natural turn radius is already <i>0</i>, and shifting up would widen it.",
+		"{scoreboard}",
+		"During the AI's power phase, we actually have a single ship (Destroyer H15) that is entirely in their sides, so it becomes a potential priority target. The Estimated Fleet Value totals are 10:13, in favor of the AI. Battleship G14 rolls a 5... a success at &ge;3. Since the EFV total of assigned ships (4) exceeds the EFV total of PPTs (1), we finish this step even though it was a success.",
+		"The Battleship that was given a Priority Target slows down. No changes are made to other power curves."],
+	"scoreboard":
+		[{
+			"name":"CSY (Red)","initPts":601,"killPts":0,"lostPts":166
+		},{
+			"name":"Ticlanat (Grey)","initPts":650,"killPts":166,"lostPts":0
+		}],
+	"actions":
+		[{
+			"placeCounter":"BB-A1",
+			"location":"G14",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,5,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":0,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"BB-A2",
+			"location":"F14",
+			"pwrCurve":"0-4-1",
+			"shields":[0,9,9,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":2
+		},{
+			"placeCounter":"BB-A3",
+			"location":"E11",
+			"pwrCurve":"0-4-1",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"DD-A1",
+			"location":"E10",
+			"pwrCurve":"0-4-1",
+			"shields":[3,3,3,2],
+			"wepCharge":[{
+				"name":"Laser",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"CA-T1",
+			"location":"H12",
+			"pwrCurve":"4-2-1",
+			"shields":["7+B",4,"4+F",3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"CL-T1",
+			"location":"H11",
+			"pwrCurve":"4-2-0",
+			"shields":["6+A",3,"3+F",3],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"CL-T2",
+			"location":"G13",
+			"pwrCurve":"4-2-0",
+			"shields":[5,0,3,3],
+			"hullDmg":0,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":1,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":5
+		},{
+			"placeCounter":"DD-T1",
+			"location":"H15",
+			"pwrCurve":"1-3-0",
+			"shields":["4+F",2,1,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"DD-T2",
+			"location":"H10",
+			"pwrCurve":"1-3-0",
+			"shields":["4+F",2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"DD-T3",
+			"location":"H9",
+			"pwrCurve":"1-3-0",
+			"shields":["4+F",2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"turn-T2",
+			"location":"G12",
+			"name":"turn1",
+			"rotation":5
+		},{
+			"placeCounter":"turn-T3",
+			"location":"G11",
+			"name":"turn1",
+			"rotation":5
+		},{
+			"placeCounter":"missile1",
+			"location":"G9",
+			"size":2,
+			"rotation":5
+		},{
+			"placeCounter":"missile2",
+			"location":"G10",
+			"size":2,
+			"rotation":5
+		},{
+			"removeCounter":"missile3"
+		}]},
+	{"heading":"Stardate 2227.02A",
+	"commentary":[
+		"After resolving moves, the AI is now ready to shoot. Normally, the Cobalt Cannons could help destroy another one of our ships without fail, but nebulaic interference outright prevents 100% accuracy on their battleship <span class=\"bindTxt\">(-1 modifier to accuracy)</span>.",
+		"Thus, they instead focus on our missiles. Their Destroyer can, well, destroy one of our missiles without fail. Their Battleship cobalt cannons rolled 1,4. Thanks to the aforementioned interference, only one of those cannons landed; rolls reduced below 1 as a result of terrain automatically miss. The very same battleship then tries to use its single laser against the smallest ship it can target (Destroyer H10)... a 6, which still deals 2 damage even with 1 nebula hex in the way.",
+		"Moving onto the eastern battleships, they now have 2 lasers ready for use. As far as we understand, the Priority Target system affects <i>only</i> movement. One of them can use it against our light cruiser's exposed hull armor, rolling a 1 and dealing 1 non-critical damage. The other Battleship uses it against our eastern-most destroyer (all options exhausted), having rolled a 6 (2 dmg)",
+		"<hr />",
+		"Moving onto our segment, our 2 remaining missiles landed, weakening their destroyer's shields. We also have one Disruptor ready to shoot, and we opt to try it against the battleship in the nebula. Normally, we could hit on a 3; but we must shoot through 2 nebulae. We rolled a 3... a miss thanks to a -2 modifier."],
+	"actions":
+		[{
+			"placeCounter":"BB-A1",
+			"location":"G14",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,5,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"BB-A2",
+			"location":"G13",
+			"pwrCurve":"0-4-1",
+			"shields":[0,9,9,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":2
+		},{
+			"placeCounter":"BB-A3",
+			"location":"F11",
+			"pwrCurve":"0-4-1",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"DD-A1",
+			"location":"F10",
+			"pwrCurve":"0-4-1",
+			"shields":[1,3,1,2],
+			"wepCharge":[{
+				"name":"Laser",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"CA-T1",
+			"location":"H12",
+			"pwrCurve":"4-2-1",
+			"shields":["7+B",4,"4+F",3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":1,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"CL-T1",
+			"location":"H11",
+			"pwrCurve":"4-2-0",
+			"shields":[6,3,"3+F",3],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":1,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"CL-T2",
+			"location":"G13",
+			"pwrCurve":"4-2-0",
+			"shields":[5,0,3,3],
+			"hullDmg":1,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":5
+		},{
+			"placeCounter":"DD-T1",
+			"location":"H15",
+			"pwrCurve":"1-3-0",
+			"shields":[3,2,1,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"DD-T2",
+			"location":"H10",
+			"pwrCurve":"1-3-0",
+			"shields":[3,2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"DD-T3",
+			"location":"H9",
+			"pwrCurve":"1-3-0",
+			"shields":["4+F",2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"turn-T2",
+			"location":"G12",
+			"name":"turn1",
+			"rotation":5
+		},{
+			"placeCounter":"turn-T3",
+			"location":"G11",
+			"name":"turn1",
+			"rotation":5
+		},{
+			"placeCounter":"missile1",
+			"location":"F10",
+			"name":"missile",
+			"size":1,
+			"rotation":5
+		},{
+			"placeCounter":"missile2",
+			"location":"F10",
+			"name":"missile",
+			"size":1,
+			"rotation":4
+		}]},
+	{"heading":"Stardate 2227.02B",
+	"commentary":["Now that all of their weapons have been spent once more, the rest of the action should be a little faster."],
+	"actions":
+		[{
+			"placeCounter":"BB-A1",
+			"location":"H15",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,5,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":1,
+			"rotation":1
+		},{
+			"placeCounter":"BB-A2",
+			"location":"G13",
+			"pwrCurve":"0-4-1",
+			"shields":[0,9,9,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":2
+		},{
+			"placeCounter":"BB-A3",
+			"location":"F11",
+			"pwrCurve":"0-4-1",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"DD-A1",
+			"location":"F10",
+			"pwrCurve":"0-4-1",
+			"shields":[1,3,1,2],
+			"hullDmg":0,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Laser",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"CA-T1",
+			"location":"H12",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,"4+F",3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":1,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"CL-T1",
+			"location":"H11",
+			"pwrCurve":"4-2-0",
+			"shields":[6,3,"3+F",3],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":1,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"CL-T2",
+			"location":"G13",
+			"pwrCurve":"4-2-0",
+			"shields":[5,0,3,3],
+			"hullDmg":1,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":5
+		},{
+			"placeCounter":"DD-T1",
+			"location":"G14",
+			"pwrCurve":"1-3-0",
+			"shields":[3,2,1,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"DD-T2",
+			"location":"G10",
+			"pwrCurve":"1-3-0",
+			"shields":[3,2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"DD-T3",
+			"location":"G9",
+			"pwrCurve":"1-3-0",
+			"shields":["4+F",2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"turn-T2",
+			"location":"G12",
+			"name":"turn1",
+			"rotation":5
+		},{
+			"placeCounter":"turn-T3",
+			"location":"G11",
+			"name":"turn1",
+			"rotation":5
+		},{
+			"removeCounter":"missile1"
+		},{
+			"removeCounter":"missile2"
+		},{
+			"placeCounter":"turn-T2",
+			"location":"G12",
+			"name":"turn1",
+			"rotation":5
+		},{
+			"placeCounter":"turn-T3",
+			"location":"G11",
+			"name":"turn1",
+			"rotation":5
+		}]},
+	{"heading":"Stardate 2227.02C",
+	"commentary":["Though not as fast as the previous round now that some ship turning needs to take place. Still, we have another Disruptor ready for use, and we will do so against their destroyer, now that there is no terrain in the way. We rolled a 4... an easy hit at range 2 (&ge;2 to hit), and causing 1 non-critical hull damage."],
+	"actions":
+		[{
+			"placeCounter":"BB-A1",
+			"location":"H15",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,5,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":1,
+			"rotation":1
+		},{
+			"placeCounter":"BB-A2",
+			"location":"G12",
+			"pwrCurve":"0-4-1",
+			"shields":[0,9,9,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":2
+		},{
+			"placeCounter":"BB-A3",
+			"location":"G10",
+			"pwrCurve":"0-4-1",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"DD-A1",
+			"location":"G9",
+			"pwrCurve":"0-4-1",
+			"shields":[1,3,0,2],
+			"hullDmg":1,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Laser",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"CA-T1",
+			"location":"G12",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,"4+F",3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"CL-T1",
+			"location":"G11",
+			"pwrCurve":"4-2-0",
+			"shields":[6,3,"3+F",3],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"CL-T2",
+			"location":"F14",
+			"pwrCurve":"4-2-0",
+			"shields":[5,0,3,3],
+			"hullDmg":1,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":1,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":5
+		},{
+			"placeCounter":"DD-T1",
+			"location":"G14",
+			"pwrCurve":"1-3-0",
+			"shields":[3,2,1,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"DD-T2",
+			"location":"G10",
+			"pwrCurve":"1-3-0",
+			"shields":[3,2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"DD-T3",
+			"location":"G9",
+			"pwrCurve":"1-3-0",
+			"shields":["4+F",2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"removeCounter":"turn-T2"
+		},{
+			"removeCounter":"turn-T3"
+		},{
+			"removeCounter":"turn-A1"
+		},{
+			"removeCounter":"turn-A2"
+		},{
+			"removeCounter":"turn-A3"
+		}]},
+	{"heading":"Stardate 2227.02D",
+	"commentary":["Not much going on this time, although a few of our ships entered the nebulae, negating their shield reinforcements."],
+	"actions":
+		[{
+			"placeCounter":"BB-A1",
+			"location":"I14",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,5,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":1,
+			"rotation":2
+		},{
+			"placeCounter":"BB-A2",
+			"location":"G11",
+			"pwrCurve":"0-4-1",
+			"shields":[0,9,9,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":3
+		},{
+			"placeCounter":"BB-A3",
+			"location":"H11",
+			"pwrCurve":"0-4-1",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":1
+		},{
+			"placeCounter":"DD-A1",
+			"location":"H10",
+			"pwrCurve":"0-4-1",
+			"shields":[1,3,0,2],
+			"hullDmg":1,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Laser",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":1
+		},{
+			"placeCounter":"CA-T1",
+			"location":"F13",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,4,3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":1,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"CL-T1",
+			"location":"F12",
+			"pwrCurve":"4-2-0",
+			"shields":[6,3,3,3],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":1,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"CL-T2",
+			"location":"F15",
+			"pwrCurve":"4-2-0",
+			"shields":[5,0,3,3],
+			"hullDmg":1,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":0
+		},{
+			"placeCounter":"DD-T1",
+			"location":"G13",
+			"pwrCurve":"1-3-0",
+			"shields":[3,2,1,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":3
+		},{
+			"placeCounter":"DD-T2",
+			"location":"F10",
+			"pwrCurve":"1-3-0",
+			"shields":[3,2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"DD-T3",
+			"location":"F9",
+			"pwrCurve":"1-3-0",
+			"shields":["4+F",2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"turn-A1",
+			"location":"G10",
+			"name":"turn1",
+			"rotation":3
+		},{
+			"placeCounter":"turn-A2",
+			"location":"I11",
+			"name":"turn1",
+			"rotation":1
+		},{
+			"placeCounter":"turn-A3",
+			"location":"I10",
+			"name":"turn1",
+			"rotation":1
+		},{
+			"removeCounter":"turn-T1"
+		}]},
+	{"heading":"Stardate 2227.02F",
+	"commentary":["Almost done with the round..."],
+	"actions":
+		[{
+			"placeCounter":"BB-A1",
+			"location":"I13",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,5,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":1,
+			"rotation":3
+		},{
+			"placeCounter":"BB-A2",
+			"location":"H11",
+			"pwrCurve":"0-4-1",
+			"shields":[0,9,9,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":3
+		},{
+			"placeCounter":"BB-A3",
+			"location":"I10",
+			"pwrCurve":"0-4-1",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":1
+		},{
+			"placeCounter":"DD-A1",
+			"location":"I9",
+			"pwrCurve":"0-4-1",
+			"shields":[1,3,0,2],
+			"hullDmg":1,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Laser",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":1
+		},{
+			"placeCounter":"CA-T1",
+			"location":"F14",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,4,3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":0
+		},{
+			"placeCounter":"CL-T1",
+			"location":"E11",
+			"pwrCurve":"4-2-0",
+			"shields":[6,3,3,3],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"CL-T2",
+			"location":"G15",
+			"pwrCurve":"4-2-0",
+			"shields":[5,0,3,3],
+			"hullDmg":1,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":1,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":1
+		},{
+			"placeCounter":"DD-T1",
+			"location":"H13",
+			"pwrCurve":"1-3-0",
+			"shields":[3,2,"1+F",2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":2
+		},{
+			"placeCounter":"DD-T2",
+			"location":"F9",
+			"pwrCurve":"1-3-0",
+			"shields":[3,2,"2+F",2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":3
+		},{
+			"placeCounter":"DD-T3",
+			"location":"F8",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,"2+F",2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":3
+		},{
+			"removeCounter":"turn-A1"
+		},{
+			"removeCounter":"turn-A2"
+		},{
+			"removeCounter":"turn-A3"
+		},{
+			"placeCounter":"turn-T1",
+			"location":"F15",
+			"name":"turn1",
+			"rotation":0
+		}]},
+	{"heading":"Stardate 2227.02X",
+	"commentary":[
+		"Not much change in fleet strength this time. We are still at a disadvantage, but may be able to wrangle our way out of this mess. We have decided there will be no change to our power curves this time.",
+		"{scoreboard}",
+		"The AI now has multiple PPTs, harshly complicating this step of the power phase. The EFV total is still 10:13 in the AI's favor. As usual, Destroyer H13 remains Battleship I13's closest PPT, so we will start here. A 1 was rolled (failure &le;3). No priority targets are assigned this power phase (previous assignments were cleared at the start of this step).",
+		"Since no assignments took place, we sticked with the usual; if the closest target was not within each AI ship's front arc, it was slowed down to (or stayed at) <u>0-3-0</u>."],
+	"scoreboard":
+		[{
+			"name":"CSY (Red)","initPts":601,"killPts":0,"lostPts":166
+		},{
+			"name":"Ticlanat (Grey)","initPts":650,"killPts":166,"lostPts":0
+		}],
+	"actions":
+		[{
+			"placeCounter":"BB-A1",
+			"location":"I13",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,5,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":0,
+			"brake":1,
+			"rotation":3
+		},{
+			"placeCounter":"BB-A2",
+			"location":"H11",
+			"pwrCurve":"0-4-1",
+			"shields":[0,9,9,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":3
+		},{
+			"placeCounter":"BB-A3",
+			"location":"I10",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":1
+		},{
+			"placeCounter":"DD-A1",
+			"location":"I9",
+			"pwrCurve":"0-3-0",
+			"shields":[1,3,0,2],
+			"hullDmg":1,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Laser",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":1
+		},{
+			"placeCounter":"CA-T1",
+			"location":"F14",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,4,3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":0
+		},{
+			"placeCounter":"CL-T1",
+			"location":"E11",
+			"pwrCurve":"4-2-0",
+			"shields":[6,3,3,3],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"CL-T2",
+			"location":"G15",
+			"pwrCurve":"4-2-0",
+			"shields":[5,0,3,3],
+			"hullDmg":1,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":3,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":1
+		},{
+			"placeCounter":"DD-T1",
+			"location":"H13",
+			"pwrCurve":"1-3-0",
+			"shields":[3,2,"1+F",2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":2
+		},{
+			"placeCounter":"DD-T2",
+			"location":"F9",
+			"pwrCurve":"1-3-0",
+			"shields":[3,2,"2+F",2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":3
+		},{
+			"placeCounter":"DD-T3",
+			"location":"F8",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,"2+F",2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":3
+		},{
+			"placeCounter":"turn-T1",
+			"location":"F15",
+			"name":"turn1",
+			"rotation":0
+		}]},
+	{"heading":"Stardate 2227.03A",
+	"commentary":[
+		"They are able to use 2 of the Lasers that just recharged. Against Destroyer H13, a 5 was rolled (2 dmg). Against Destroyer F9, another 5 (2 dmg). The respective hits drained the shield arcs exactly.",
+		"<hr />",
+		"During our segment, we use several of our available afterburners (throughout our fleet) to squeeze in some extra moves. We then fire some missiles against their destroyer, while disruptors able hit Battleship I13's rear are done so. Our Light Cruiser rolled 2,2,4 (3 hits &ge;2)."],
+	"actions":
+		[{
+			"placeCounter":"BB-A1",
+			"location":"I13",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,5,3],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":1,
+			"rotation":3
+		},{
+			"placeCounter":"BB-A2",
+			"location":"G10",
+			"pwrCurve":"0-4-1",
+			"shields":[0,9,9,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":3
+		},{
+			"placeCounter":"BB-A3",
+			"location":"I10",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":1
+		},{
+			"placeCounter":"DD-A1",
+			"location":"I9",
+			"pwrCurve":"0-3-0",
+			"shields":[1,3,0,2],
+			"hullDmg":1,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Laser",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":1
+		},{
+			"placeCounter":"CA-T1",
+			"location":"G14",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,4,3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":1
+		},{
+			"placeCounter":"CL-T1",
+			"location":"E11",
+			"pwrCurve":"4-2-0",
+			"shields":[6,3,3,3],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":3,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"CL-T2",
+			"location":"H15",
+			"pwrCurve":"4-2-0",
+			"shields":[5,0,3,3],
+			"hullDmg":1,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			}],
+			"aft":0,
+			"rotation":2
+		},{
+			"placeCounter":"DD-T1",
+			"location":"H12",
+			"pwrCurve":"1-3-0",
+			"shields":[3,2,0,2],
+			"hullDmg":0,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":0
+			},{
+				"name":"Missile Launcher",
+				"chargeR":0
+			}],
+			"aft":1,
+			"rotation":3
+		},{
+			"placeCounter":"DD-T2",
+			"location":"G8",
+			"pwrCurve":"1-3-0",
+			"shields":[3,2,"2+F",0],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":1,
+			"rotation":2
+		},{
+			"placeCounter":"DD-T3",
+			"location":"F8",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,"2+F",2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":3
+		},{
+			"placeCounter":"turn-T1",
+			"location":"H15",
+			"name":"turn1",
+			"rotation":1
+		},{
+			"placeCounter":"missile1",
+			"location":"H11",
+			"name":"missile",
+			"size":2,
+			"rotation":3
+		},{
+			"removeCounter":"missile2"
+		}]},
+	{"heading":"Stardate 2227.03B",
+	"commentary":[
+		"2 of the remaining 3 lasers are then used against one of our missiles, while a third laser is then used against Destroyer H12's exposed hull. A 4 is rolled (1 dmg). Since our destroyers are fragile, we immediately roll 3+5 on the critical table (Power Relay Damage).",
+		"<hr />",
+		"During our segment, the last loose missile lands, dealing 2 more hull damage. Their destroyer then rolls 3+5 for critical damage. It would have been Power Relay Damage, but the AI has no use for power. Their ship instead takes 1 extra damage... which finishes it off. This makes us free to fire 2 more missiles against one of their battleships.",
+		"We also take advantage of a shortcoming in their <q>logic</q>, and shoot more disruptors into the rear of another battleship. We rolled 1,6 (1 hit &ge;2)."],
+	"actions":
+		[{
+			"placeCounter":"BB-A1",
+			"location":"H13",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,5,1],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":1,
+			"rotation":3
+		},{
+			"placeCounter":"BB-A2",
+			"location":"G10",
+			"pwrCurve":"0-4-1",
+			"shields":[0,9,9,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":3
+		},{
+			"placeCounter":"BB-A3",
+			"location":"I11",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":0
+		},{
+			"placeCounter":"DD-A1",
+			"location":"I10",
+			"name":"DD-AI",
+			"pwrCurve":"0-3-0",
+			"shields":[1,3,0,2],
+			"hullDmg":"4 (!)",
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Laser",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":0
+		},{
+			"placeCounter":"CA-T1",
+			"location":"G14",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,4,3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":1
+		},{
+			"placeCounter":"CL-T1",
+			"location":"E11",
+			"pwrCurve":"4-2-0",
+			"shields":[6,3,3,3],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":3,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"CL-T2",
+			"location":"H15",
+			"pwrCurve":"4-2-0",
+			"shields":[5,0,3,3],
+			"hullDmg":1,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			}],
+			"aft":0,
+			"rotation":2
+		},{
+			"placeCounter":"DD-T1",
+			"location":"H11",
+			"pwrCurve":"1-3-0",
+			"shields":[3,2,0,2],
+			"hullDmg":1,
+			"critDmg":["Power Relay Damage (-1)"],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":0
+			},{
+				"name":"Missile Launcher",
+				"chargeR":0
+			}],
+			"aft":1,
+			"rotation":3
+		},{
+			"placeCounter":"DD-T2",
+			"location":"H9",
+			"pwrCurve":"1-3-0",
+			"shields":[3,2,"2+F",0],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":0
+			},{
+				"name":"Missile Launcher",
+				"chargeR":0
+			}],
+			"aft":1,
+			"rotation":1
+		},{
+			"placeCounter":"DD-T3",
+			"location":"E7",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,"2+F",2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"turn-T1",
+			"location":"H15",
+			"name":"turn1",
+			"rotation":1
+		},{
+			"placeCounter":"missile1",
+			"location":"I10",
+			"name":"missile",
+			"size":1,
+			"rotation":2
+		},{
+			"placeCounter":"missile2",
+			"location":"I9",
+			"name":"missile",
+			"size":2,
+			"rotation":1
+		}]},
+	{"heading":"Stardate 2227.03C",
+	"commentary":["Not much going on this impulse."],
+	"actions":
+		[{
+			"placeCounter":"BB-A1",
+			"location":"H13",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,5,1],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":1,
+			"rotation":3
+		},{
+			"placeCounter":"BB-A2",
+			"location":"H10",
+			"pwrCurve":"0-4-1",
+			"shields":[0,9,9,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":3
+		},{
+			"placeCounter":"BB-A3",
+			"location":"I11",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":0
+		},{
+			"removeCounter":"DD-A1"
+		},{
+			"placeCounter":"CA-T1",
+			"location":"H14",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,4,3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":2
+		},{
+			"placeCounter":"CL-T1",
+			"location":"E10",
+			"pwrCurve":"4-2-0",
+			"shields":[6,3,3,3],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":3
+		},{
+			"placeCounter":"CL-T2",
+			"location":"I14",
+			"pwrCurve":"4-2-0",
+			"shields":[5,0,3,3],
+			"hullDmg":1,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":1,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			}],
+			"aft":0,
+			"rotation":2
+		},{
+			"placeCounter":"DD-T1",
+			"location":"H11",
+			"pwrCurve":"1-3-0",
+			"shields":[3,2,0,2],
+			"hullDmg":1,
+			"critDmg":["Power Relay Damage (-1)"],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":0
+			},{
+				"name":"Missile Launcher",
+				"chargeR":0
+			}],
+			"aft":1,
+			"rotation":3
+		},{
+			"placeCounter":"DD-T2",
+			"location":"H9",
+			"pwrCurve":"1-3-0",
+			"shields":[3,2,"2+F",0],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":0
+			},{
+				"name":"Missile Launcher",
+				"chargeR":0
+			}],
+			"aft":1,
+			"rotation":1
+		},{
+			"placeCounter":"DD-T3",
+			"location":"E7",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,"2+F",2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"turn-T1",
+			"location":"I13",
+			"name":"turn1",
+			"rotation":2
+		},{
+			"removeCounter":"missile1"
+		},{
+			"placeCounter":"missile2",
+			"location":"I10",
+			"size":2,
+			"rotation":0
+		}]},
+	{"heading":"Stardate 2227.03D",
+	"commentary":["Still, these thick shields and hull armor is so tough to whittle down! AI battleships are the most durable of the factions released so far, in pretty much every regard."],
+	"actions":
+		[{
+			"placeCounter":"BB-A1",
+			"location":"H12",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,5,1],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":1,
+			"rotation":3
+		},{
+			"placeCounter":"BB-A2",
+			"location":"H9",
+			"pwrCurve":"0-4-1",
+			"shields":[0,9,9,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":3
+		},{
+			"placeCounter":"BB-A3",
+			"location":"I12",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,9,9],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":0
+		},{
+			"placeCounter":"CA-T1",
+			"location":"H14",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,4,3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":2
+		},{
+			"placeCounter":"CL-T1",
+			"location":"E10",
+			"pwrCurve":"4-2-0",
+			"shields":["6+D",3,3,3],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":3
+		},{
+			"placeCounter":"CL-T2",
+			"location":"I14",
+			"pwrCurve":"4-2-0",
+			"shields":[5,0,3,3],
+			"hullDmg":1,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			}],
+			"aft":0,
+			"rotation":2
+		},{
+			"placeCounter":"DD-T1",
+			"location":"H10",
+			"pwrCurve":"1-3-0",
+			"shields":[3,2,0,2],
+			"hullDmg":1,
+			"critDmg":["Power Relay Damage (-1)"],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":0
+			},{
+				"name":"Missile Launcher",
+				"chargeR":0
+			}],
+			"aft":1,
+			"rotation":3
+		},{
+			"placeCounter":"DD-T2",
+			"location":"I9",
+			"pwrCurve":"1-3-0",
+			"shields":[3,2,"2+F",0],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":0
+			},{
+				"name":"Missile Launcher",
+				"chargeR":0
+			}],
+			"aft":1,
+			"rotation":1
+		},{
+			"placeCounter":"DD-T3",
+			"location":"D8",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,"2+F",2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"removeCounter":"turn-T1"
+		},{
+			"placeCounter":"missile2",
+			"location":"I11",
+			"size":2,
+			"rotation":0
+		}]},
+	{"heading":"Stardate 2227.03E",
+	"commentary":["One of the few times where impulse <b>E</b> is not an empty impulse; our missiles finally land, weakening more rear shields."],
+	"actions":
+		[{
+			"placeCounter":"BB-A1",
+			"location":"H12",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,5,1],
+			"hullDmg":0,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":1,
+			"rotation":3
+		},{
+			"placeCounter":"BB-A2",
+			"location":"H9",
+			"pwrCurve":"0-4-1",
+			"shields":[0,9,9,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":3
+		},{
+			"placeCounter":"BB-A3",
+			"location":"I12",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,9,5],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":1,
+			"brake":1,
+			"rotation":0
+		},{
+			"placeCounter":"CA-T1",
+			"location":"H14",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,4,3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":2
+		},{
+			"placeCounter":"CL-T1",
+			"location":"E10",
+			"pwrCurve":"4-2-0",
+			"shields":["6+D",3,3,3],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":3
+		},{
+			"placeCounter":"CL-T2",
+			"location":"I14",
+			"pwrCurve":"4-2-0",
+			"shields":[5,0,3,3],
+			"hullDmg":1,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			}],
+			"aft":0,
+			"rotation":2
+		},{
+			"placeCounter":"DD-T1",
+			"location":"H10",
+			"pwrCurve":"1-3-0",
+			"shields":[3,2,0,2],
+			"hullDmg":1,
+			"critDmg":["Power Relay Damage (-1)"],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":0
+			},{
+				"name":"Missile Launcher",
+				"chargeR":0
+			}],
+			"aft":1,
+			"rotation":3
+		},{
+			"placeCounter":"DD-T2",
+			"location":"I9",
+			"pwrCurve":"1-3-0",
+			"shields":[3,2,"2+F",0],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":0
+			},{
+				"name":"Missile Launcher",
+				"chargeR":0
+			}],
+			"aft":1,
+			"rotation":1
+		},{
+			"placeCounter":"DD-T3",
+			"location":"D8",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,"2+F",2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"missile2",
+			"location":"I12",
+			"name":"missile",
+			"size":2,
+			"rotation":0
+		},{
+			"removeCounter":"turn-A1"
+		},{
+			"removeCounter":"turn-T1"
+		}]},
+	{"heading":"Stardate 2227.03F",
+	"commentary":["One last impulse before we start cleaning up the round. One of their ships used brakes to allow for a better chance of shooting at the beginning of the next round. Meanwhile, we lob another 2 disruptors towards the rear. Our Heavy Cruiser rolled 2,4 (2 hits &ge;2), dealing 3 non-critical hull damage."],
+	"actions":
+		[{
+			"placeCounter":"BB-A1",
+			"location":"H11",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,5,0],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":1,
+			"rotation":3
+		},{
+			"placeCounter":"BB-A2",
+			"location":"I8",
+			"pwrCurve":"0-4-1",
+			"shields":[0,9,9,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":2
+		},{
+			"placeCounter":"BB-A3",
+			"location":"I12",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,9,5],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":1,
+			"brake":0,
+			"rotation":0
+		},{
+			"placeCounter":"CA-T1",
+			"location":"H13",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,4,3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":1,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			}],
+			"aft":1,
+			"rotation":3
+		},{
+			"placeCounter":"CL-T1",
+			"location":"F10",
+			"pwrCurve":"4-2-0",
+			"shields":["6+D",3,"3+F",3],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":2
+		},{
+			"placeCounter":"CL-T2",
+			"location":"I13",
+			"pwrCurve":"4-2-0",
+			"shields":[5,0,3,3],
+			"hullDmg":1,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":1,
+				"chargeR":0
+			}],
+			"aft":0,
+			"rotation":3
+		},{
+			"placeCounter":"DD-T1",
+			"location":"I9",
+			"pwrCurve":"1-3-0",
+			"shields":[3,2,0,2],
+			"hullDmg":1,
+			"critDmg":["Power Relay Damage (-1)"],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":0
+			},{
+				"name":"Missile Launcher",
+				"chargeR":0
+			}],
+			"aft":1,
+			"rotation":3
+		},{
+			"placeCounter":"DD-T2",
+			"location":"I10",
+			"pwrCurve":"1-3-0",
+			"shields":[3,2,2,"0+F"],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":0
+			},{
+				"name":"Missile Launcher",
+				"chargeR":0
+			}],
+			"aft":1,
+			"rotation":0
+		},{
+			"placeCounter":"DD-T3",
+			"location":"D9",
+			"pwrCurve":"1-3-0",
+			"shields":["4+F",2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":0
+		},{
+			"removeCounter":"missile2"
+		},{
+			"placeCounter":"turn-A1",
+			"location":"J8",
+			"name":"turn1",
+			"rotation":2
+		},{
+			"placeCounter":"turn-T1",
+			"location":"H12",
+			"name":"turn1",
+			"rotation":3
+		}]},
+	{"heading":"Stardate 2227.03X",
+	"commentary":[
+		"We finally got our first kill on the board. Still, we are considerably behind. Worse, 2 of their battleships now have their cobalt cannons ready for use again.",
+		"The Destroyer furthest from the action has been shifted up. Another destroyer of ours can keep its current speed, but now has a net power generation of zero. The rest of our power curves remain unchanged.",
+		"{scoreboard}",
+		"The EFV ratio has changed a little (10:12 in favor of AI). On the PPT step, we actually have a true two-way tie, so we must flip a coin. Heads, the last Heavy Cruiser is picked first. A 5 is rolled, binding Battleship I12 to our heavy cruiser. Since the EFV total of PPTs is 7 this time; we proceed to Destroyer I10, which rolls a 1... a failure, so no further priority targets are assigned. The two Battleships that do not have a priority target have traded power curves."],
+	"scoreboard":
+		[{
+			"name":"CSY (Red)","initPts":601,"killPts":50,"lostPts":166
+		},{
+			"name":"Ticlanat (Grey)","initPts":650,"killPts":166,"lostPts":50
+		}],
+	"actions":
+		[{
+			"placeCounter":"BB-A1",
+			"location":"H11",
+			"pwrCurve":"0-4-1",
+			"shields":[9,9,5,0],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":0,
+			"brake":1,
+			"rotation":3
+		},{
+			"placeCounter":"BB-A2",
+			"location":"I8",
+			"pwrCurve":"0-3-0",
+			"shields":[0,9,9,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":2
+		},{
+			"placeCounter":"BB-A3",
+			"location":"I12",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,9,5],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":0,
+			"rotation":0
+		},{
+			"placeCounter":"CA-T1",
+			"location":"H13",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,4,3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":1,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":3
+		},{
+			"placeCounter":"CL-T1",
+			"location":"F10",
+			"pwrCurve":"4-2-0",
+			"shields":["6+D",3,"3+F",3],
+			"hullDmg":0,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":2
+		},{
+			"placeCounter":"CL-T2",
+			"location":"I13",
+			"pwrCurve":"4-2-0",
+			"shields":[5,0,3,3],
+			"hullDmg":1,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":1,
+				"chargeR":1
+			}],
+			"aft":0,
+			"rotation":3
+		},{
+			"placeCounter":"DD-T1",
+			"location":"I9",
+			"pwrCurve":"0-3-0",
+			"shields":[3,2,0,2],
+			"hullDmg":1,
+			"critDmg":["Power Relay Damage (-1)"],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":3
+		},{
+			"placeCounter":"DD-T2",
+			"location":"I10",
+			"pwrCurve":"1-3-0",
+			"shields":[3,2,2,"0+F"],
+			"hullDmg":0,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":0
+		},{
+			"placeCounter":"DD-T3",
+			"location":"D9",
+			"pwrCurve":"1-4-1",
+			"shields":["4+F",2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":0
+		},{
+			"removeCounter":"turn-T2"
+		},{
+			"removeCounter":"missile1"
+		}]},
+	{"heading":"Stardate 2227.04A",
+	"commentary":[
+		"This has led to an awkward series of events. The most intelligent series of weapon usage seems to involve starting with Battleship I8, so we will start there. The first Cobalt Cannon <i>could</i> finish off Destroyer I10, but it is not a guarantee. We rolled a 5 (5 dmg), so this cannon was successful. Since our first ship is already destroyed, we skip directly to the explosion step. One of their battleships is in the very same hex, so it gets an extra +1 damage (2 total) to a random quadrant. We rolled the rear quadrant. Lucky! Their battleship then rolls 1+3 for critical damage (Helm Down).",
+		"Against Destroyer I9, the very same battleship rolled another 5, causing us to roll for another critical. We rolled 1+6 (none). Since they were unable to save their weapons, the laser is then used to finish this second ship off.",
+		"Next is the second pair of cobalt cannons for Light Cruiser F10. They rolled 5,6 (4 extra dmg &ge;4). We rolled 4+5 for critical (Random Weapon Group Destroyed), causing us to lose our single (but flexible) Disruptor.",
+		"That leaves only the east-most Laser, used against our <i>other</i> light cruiser. It rolled a 4 (1 dmg).",
+		"<hr />",
+		"Now it is our time to use the weapons available. First, we use the last single Disruptor that is available in our fleet, against Battleship I10. We rolled a 5, a good hit! We then fire 2 missiles, one against each battleship (I8 and I10) in range.",
+		"Finally, we use an afterburner charge, and fire more disruptors against Battleship I12's rear. We rolled 2,5 (1 hit &ge;3)."],
+	"actions":
+		[{
+			"placeCounter":"BB-A1",
+			"location":"I10",
+			"pwrCurve":"0-4-1",
+			"shields":[8,9,5,0],
+			"hullDmg":7,
+			"critDmg":["Helm Down"],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":0,
+			"brake":1,
+			"rotation":3
+		},{
+			"placeCounter":"BB-A2",
+			"location":"I8",
+			"pwrCurve":"0-3-0",
+			"shields":[0,9,8,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":2
+		},{
+			"placeCounter":"BB-A3",
+			"location":"I12",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,9,3],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":1,
+			"brake":0,
+			"rotation":0
+		},{
+			"placeCounter":"CA-T1",
+			"location":"H13",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,4,3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":1,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":1,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":3
+		},{
+			"placeCounter":"CL-T1",
+			"location":"G10",
+			"pwrCurve":"4-2-0",
+			"shields":["0+A",3,"3+F",3],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			}],
+			"aft":1,
+			"rotation":1
+		},{
+			"placeCounter":"CL-T2",
+			"location":"I13",
+			"pwrCurve":"4-2-0",
+			"shields":[4,0,3,3],
+			"hullDmg":1,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			}],
+			"aft":0,
+			"rotation":3
+		},{
+			"placeCounter":"DD-T1",
+			"location":"I9",
+			"name":"DD-Tal",
+			"pwrCurve":"0-3-0",
+			"shields":[0,2,0,1],
+			"hullDmg":"4 (!)",
+			"critDmg":["Power Relay Damage (-1)"],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":3
+		},{
+			"placeCounter":"DD-T2",
+			"location":"I10",
+			"name":"DD-Tal",
+			"pwrCurve":"1-3-0",
+			"shields":[3,2,2,0],
+			"hullDmg":"4 (!)",
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":0
+		},{
+			"placeCounter":"DD-T3",
+			"location":"E9",
+			"pwrCurve":"1-4-1",
+			"shields":["4+F",2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":0
+			},{
+				"name":"Missile Launcher",
+				"chargeR":0
+			}],
+			"aft":2,
+			"rotation":1
+		},{
+			"placeCounter":"turn-A1",
+			"location":"J8",
+			"name":"turn1",
+			"rotation":2
+		},{
+			"placeCounter":"turn-T1",
+			"location":"H12",
+			"name":"turn1",
+			"rotation":3
+		},{
+			"placeCounter":"turn-T2",
+			"location":"F10",
+			"name":"turn1",
+			"rotation":1
+		},{
+			"placeCounter":"missile1",
+			"location":"F10",
+			"name":"missile",
+			"size":2,
+			"rotation":1
+		}]},
+	{"heading":"Stardate 2227.04B",
+	"commentary":["This is looking somewhat grim, but we do get to enjoy a beneficial side effect of having a cleaner board. Their very last Laser is now usable, against Light Cruiser G10. A 4 was rolled (1 dmg), negating the shield reinforcement that was placed last impulse. This is also the earliest in which they can start repairing their Helm Down. A 6 was rolled, fixing it right away."],
+	"actions":
+		[{
+			"placeCounter":"BB-A1",
+			"location":"I10",
+			"pwrCurve":"0-4-1",
+			"shields":[8,9,5,0],
+			"hullDmg":7,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":1,
+			"rotation":3
+		},{
+			"placeCounter":"BB-A2",
+			"location":"J9",
+			"pwrCurve":"0-3-0",
+			"shields":[0,9,8,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":2
+		},{
+			"placeCounter":"BB-A3",
+			"location":"H13",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,9,3],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":1,
+			"brake":0,
+			"rotation":5
+		},{
+			"placeCounter":"CA-T1",
+			"location":"H13",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,4,3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":1,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":1,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":3
+		},{
+			"placeCounter":"CL-T1",
+			"location":"G10",
+			"pwrCurve":"4-2-0",
+			"shields":[0,3,"3+F",3],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			}],
+			"aft":1,
+			"rotation":1
+		},{
+			"placeCounter":"CL-T2",
+			"location":"I13",
+			"pwrCurve":"4-2-0",
+			"shields":[4,0,3,3],
+			"hullDmg":1,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			}],
+			"aft":0,
+			"rotation":3
+		},{
+			"removeCounter":"DD-T1"
+		},{
+			"removeCounter":"DD-T2"
+		},{
+			"placeCounter":"DD-T3",
+			"location":"E9",
+			"pwrCurve":"1-4-1",
+			"shields":["4+F",2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":0
+			},{
+				"name":"Missile Launcher",
+				"chargeR":0
+			}],
+			"aft":2,
+			"rotation":1
+		},{
+			"removeCounter":"turn-A1"
+		},{
+			"placeCounter":"turn-T1",
+			"location":"H12",
+			"name":"turn1",
+			"rotation":3
+		},{
+			"placeCounter":"turn-T2",
+			"location":"F10",
+			"name":"turn1",
+			"rotation":1
+		},{
+			"placeCounter":"missile1",
+			"location":"G10",
+			"name":"missile",
+			"size":2,
+			"rotation":1
+		}]},
+	{"heading":"Stardate 2227.04C",
+	"commentary":["1 of the missiles has connected to Battleship H10. The other missile is bound to Battleship J9."],
+	"actions":
+		[{
+			"placeCounter":"BB-A1",
+			"location":"H10",
+			"pwrCurve":"0-4-1",
+			"shields":[8,7,5,0],
+			"hullDmg":7,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":1,
+			"rotation":4
+		},{
+			"placeCounter":"BB-A2",
+			"location":"J9",
+			"pwrCurve":"0-3-0",
+			"shields":[0,9,8,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":2
+		},{
+			"placeCounter":"BB-A3",
+			"location":"H13",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,9,3],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":1,
+			"brake":0,
+			"rotation":5
+		},{
+			"placeCounter":"CA-T1",
+			"location":"I12",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,4,3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":1,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":1,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":3
+		},{
+			"placeCounter":"CL-T1",
+			"location":"G11",
+			"pwrCurve":"4-2-0",
+			"shields":[0,3,"3+F",3],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":1,
+				"chargeR":0
+			}],
+			"aft":1,
+			"rotation":0
+		},{
+			"placeCounter":"CL-T2",
+			"location":"J13",
+			"pwrCurve":"4-2-0",
+			"shields":[4,0,3,3],
+			"hullDmg":1,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			}],
+			"aft":0,
+			"rotation":3
+		},{
+			"placeCounter":"DD-T3",
+			"location":"F10",
+			"pwrCurve":"1-4-1",
+			"shields":["4+F",2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":0
+			},{
+				"name":"Missile Launcher",
+				"chargeR":0
+			}],
+			"aft":2,
+			"rotation":1
+		},{
+			"placeCounter":"turn-A1",
+			"location":"G9",
+			"name":"turn1",
+			"rotation":4
+		},{
+			"removeCounter":"turn-T1"
+		},{
+			"removeCounter":"turn-T2"
+		},{
+			"placeCounter":"missile1",
+			"location":"H10",
+			"name":"missile",
+			"size":1,
+			"rotation":2
+		}]},
+	{"heading":"Stardate 2227.04D",
+	"commentary":["The dust is almost all settled, once more..."],
+	"actions":
+		[{
+			"placeCounter":"BB-A1",
+			"location":"G10",
+			"pwrCurve":"0-4-1",
+			"shields":[8,7,5,0],
+			"hullDmg":7,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":1,
+			"rotation":4
+		},{
+			"placeCounter":"BB-A2",
+			"location":"K9",
+			"pwrCurve":"0-3-0",
+			"shields":[0,9,8,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":1
+		},{
+			"placeCounter":"BB-A3",
+			"location":"H14",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,9,3],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":1,
+			"brake":0,
+			"rotation":0
+		},{
+			"placeCounter":"CA-T1",
+			"location":"I12",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,4,3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":1,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":3
+		},{
+			"placeCounter":"CL-T1",
+			"location":"G11",
+			"pwrCurve":"4-2-0",
+			"shields":[0,3,"3+F",3],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":0
+			}],
+			"aft":1,
+			"rotation":0
+		},{
+			"placeCounter":"CL-T2",
+			"location":"J13",
+			"pwrCurve":"4-2-0",
+			"shields":[4,0,3,3],
+			"hullDmg":1,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":1,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			}],
+			"aft":0,
+			"rotation":3
+		},{
+			"placeCounter":"DD-T3",
+			"location":"G10",
+			"pwrCurve":"1-4-1",
+			"shields":["4+F",2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":0
+			},{
+				"name":"Missile Launcher",
+				"chargeR":0
+			}],
+			"aft":2,
+			"rotation":1
+		},{
+			"removeCounter":"turn-A1"
+		},{
+			"placeCounter":"missile1",
+			"location":"I9",
+			"name":"missile",
+			"size":1,
+			"rotation":2
+		}]},
+	{"heading":"Stardate 2227.04E",
+	"commentary":["Yet again, we have <i>something</i> to do for impulse <b>E</b>."],
+	"actions":
+		[{
+			"placeCounter":"BB-A1",
+			"location":"G10",
+			"pwrCurve":"0-4-1",
+			"shields":[8,7,5,0],
+			"hullDmg":7,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":1,
+			"rotation":4
+		},{
+			"placeCounter":"BB-A2",
+			"location":"K9",
+			"pwrCurve":"0-3-0",
+			"shields":[0,9,8,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":1
+		},{
+			"placeCounter":"BB-A3",
+			"location":"H14",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,9,3],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":1,
+			"brake":0,
+			"rotation":0
+		},{
+			"placeCounter":"CA-T1",
+			"location":"I12",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,4,3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":1,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":3
+		},{
+			"placeCounter":"CL-T1",
+			"location":"G11",
+			"pwrCurve":"4-2-0",
+			"shields":[0,3,"3+F",3],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":0
+			}],
+			"aft":1,
+			"rotation":0
+		},{
+			"placeCounter":"CL-T2",
+			"location":"J13",
+			"pwrCurve":"4-2-0",
+			"shields":[4,0,3,3],
+			"hullDmg":1,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":1,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			}],
+			"aft":0,
+			"rotation":3
+		},{
+			"placeCounter":"DD-T3",
+			"location":"G10",
+			"pwrCurve":"1-4-1",
+			"shields":["4+F",2,2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":0
+			},{
+				"name":"Missile Launcher",
+				"chargeR":0
+			}],
+			"aft":2,
+			"rotation":1
+		},{
+			"removeCounter":"turn-T1"
+		},{
+			"placeCounter":"missile1",
+			"location":"J10",
+			"name":"missile",
+			"size":1,
+			"rotation":1
+		}]},
+	{"heading":"Stardate 2227.04F",
+	"commentary":["Admittedly, this was tough to deliberate. Normally, Battleship G10 would turn towards our adjacent light cruiser; but that would cause it to enter a nebula. We would be expected to be able to shoot at it within the next 2 impulses if it did so; never mind the fact that its rear shield arc is already empty."],
+	"actions":
+		[{
+			"placeCounter":"BB-A1",
+			"location":"F10",
+			"pwrCurve":"0-4-1",
+			"shields":[8,7,5,0],
+			"hullDmg":7,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":1,
+			"rotation":4
+		},{
+			"placeCounter":"BB-A2",
+			"location":"K10",
+			"pwrCurve":"0-3-0",
+			"shields":[0,9,6,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":0
+		},{
+			"placeCounter":"BB-A3",
+			"location":"I14",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,9,3],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":1,
+			"brake":0,
+			"rotation":1
+		},{
+			"placeCounter":"CA-T1",
+			"location":"I11",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,4,3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":3
+		},{
+			"placeCounter":"CL-T1",
+			"location":"G12",
+			"pwrCurve":"4-2-0",
+			"shields":[0,3,3,3],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":3,
+				"chargeR":0
+			}],
+			"aft":1,
+			"rotation":0
+		},{
+			"placeCounter":"CL-T2",
+			"location":"I12",
+			"pwrCurve":"4-2-0",
+			"shields":[4,0,3,3],
+			"hullDmg":1,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":1,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			}],
+			"aft":0,
+			"rotation":3
+		},{
+			"placeCounter":"DD-T3",
+			"location":"H10",
+			"pwrCurve":"1-4-1",
+			"shields":[4,2,"2+F",2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":0
+			},{
+				"name":"Missile Launcher",
+				"chargeR":0
+			}],
+			"aft":2,
+			"rotation":2
+		},{
+			"placeCounter":"turn-T1",
+			"location":"I9",
+			"name":"turn1",
+			"rotation":2
+		},{
+			"placeCounter":"missile1",
+			"location":"K10",
+			"name":"missile",
+			"size":1,
+			"rotation":1
+		}]},
+	{"heading":"Stardate 2227.04X",
+	"commentary":[
+		"We have fallen to roughly half strength now. The only consolation is that one of their battleships is almost dead; which would <b>deny</b> their ability to score a decisive victory. Anyway, we shift our last Destroyer back down, so that it can turn  more sharply from here on out. Light Cruiser G12 has also taken enough hull damage to reduce its power output.",
+		"{scoreboard}",
+		"For this power phase, all of our ships are PPTs, sans Light Cruiser I12. The EFV totals have shifted (8:12 in favor of AI). Our last Heavy Cruiser remains the closest PPT, so we will start there. They rolled a 3, binding Battleship K10 to this ship. Next, they rolled a 1, causing Battleship F10 to <i>not</i> gain a priority target. That concludes this phase. Each of these battleships has a different reason for shifting down to <u>0-3-0</u>, so they all do so accordingly."],
+	"scoreboard":
+		[{
+			"name":"CSY (Red)","initPts":601,"killPts":50,"lostPts":262
+		},{
+			"name":"Ticlanat (Grey)","initPts":650,"killPts":262,"lostPts":50
+		}],
+	"actions":
+		[{
+			"placeCounter":"BB-A1",
+			"location":"F10",
+			"pwrCurve":"0-3-0",
+			"shields":[8,7,5,0],
+			"hullDmg":7,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":0,
+			"brake":1,
+			"rotation":4
+		},{
+			"placeCounter":"BB-A2",
+			"location":"K10",
+			"pwrCurve":"0-3-0",
+			"shields":[0,9,6,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":0
+		},{
+			"placeCounter":"BB-A3",
+			"location":"I14",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,9,3],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":0,
+			"rotation":1
+		},{
+			"placeCounter":"CA-T1",
+			"location":"I11",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,4,3],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":3
+		},{
+			"placeCounter":"CL-T1",
+			"location":"G12",
+			"pwrCurve":"3-2-0",
+			"shields":[0,3,3,3],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":3,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":0
+		},{
+			"placeCounter":"CL-T2",
+			"location":"I12",
+			"pwrCurve":"4-2-0",
+			"shields":[4,0,3,3],
+			"hullDmg":1,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":1,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":0,
+			"rotation":3
+		},{
+			"placeCounter":"DD-T3",
+			"location":"H10",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,"2+F",2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":2
+		},{
+			"removeCounter":"turn-T2"
+		},{
+			"removeCounter":"missile1"
+		}]},
+	{"heading":"Stardate 2227.05A",
+	"commentary":[
+		"Before we can capitalize on their vulnerabilities, we have to resolve their shooting first. Battleship I14 starts off with its Cobalt Cannons against Light Cruiser I12. First, a 2 was rolled (3 dmg to empty the rear shield). Then a 4 was rolled (5 dmg to destroy the hull).",
+		"This leaves only Battleship K10's laser, which can only be used against said heavy cruiser, and there is no sense in waiting for a better shot. A 5 was rolled (2 dmg).",
+		"<hr />",
+		"During out segment, we use our Heavy Cruiser's last afterburner charge to go after their almost dead battleship (F10). We then fire our right-side disruptors, having rolled 2,6 (2 hits &ge;2). Overkill, sure; but such is an unfortunate side effect of having two disruptors in one weapon group, and only one target to use them on."],
+	"actions":
+		[{
+			"placeCounter":"BB-A1",
+			"location":"F10",
+			"name":"BB-AI",
+			"pwrCurve":"0-3-0",
+			"shields":[8,7,5,0],
+			"hullDmg":"11 (!)",
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":0,
+			"brake":1,
+			"rotation":4
+		},{
+			"placeCounter":"BB-A2",
+			"location":"K10",
+			"pwrCurve":"0-3-0",
+			"shields":[0,9,6,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":0
+		},{
+			"placeCounter":"BB-A3",
+			"location":"I14",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,9,3],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":0,
+			"rotation":1
+		},{
+			"placeCounter":"CA-T1",
+			"location":"H11",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,2,"1+A"],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			}],
+			"aft":0,
+			"rotation":4
+		},{
+			"placeCounter":"CL-T1",
+			"location":"G12",
+			"pwrCurve":"3-2-0",
+			"shields":[0,3,3,3],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":3,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":0
+		},{
+			"placeCounter":"CL-T2",
+			"location":"I12",
+			"name":"CL-Tal",
+			"pwrCurve":"4-2-0",
+			"shields":[4,0,3,0],
+			"hullDmg":"6 (!)",
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":1,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":0,
+			"rotation":3
+		},{
+			"placeCounter":"DD-T3",
+			"location":"H10",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,"2+F",2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":2
+		},{
+			"placeCounter":"turn-T1",
+			"location":"I9",
+			"name":"turn1",
+			"rotation":2
+		},{
+			"placeCounter":"turn-T2",
+			"location":"G10",
+			"name":"turn1",
+			"rotation":4
+		}]},
+	{"heading":"Stardate 2227.05B",
+	"commentary":["Each ship that gets destroyed makes the board that much cleaner. We have 3 smaller ships remaining, versus their 2 battleships."],
+	"actions":
+		[{
+			"removeCounter":"BB-A1"
+		},{
+			"placeCounter":"BB-A2",
+			"location":"J11",
+			"pwrCurve":"0-3-0",
+			"shields":[0,9,6,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":5
+		},{
+			"placeCounter":"BB-A3",
+			"location":"J14",
+			"pwrCurve":"0-3-0",
+			"shields":[9,9,9,3],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":0,
+			"rotation":2
+		},{
+			"placeCounter":"CA-T1",
+			"location":"H11",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,2,"1+A"],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			}],
+			"aft":0,
+			"rotation":4
+		},{
+			"placeCounter":"CL-T1",
+			"location":"G12",
+			"pwrCurve":"3-2-0",
+			"shields":[0,3,3,3],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":0
+		},{
+			"removeCounter":"CL-T2"
+		},{
+			"placeCounter":"DD-T3",
+			"location":"I9",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,"2+F",2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":2
+		},{
+			"removeCounter":"turn-T1"
+		},{
+			"placeCounter":"turn-T2",
+			"location":"G10",
+			"name":"turn1",
+			"rotation":4
+		}]},
+	{"heading":"Stardate 2227.05C",
+	"commentary":["We looked far and wide for an opportunity to hit Battleship J14's rear, but it appears there will not be one. We have no reason to hold back the Light Cruiser's disruptors that are still available, so we shoot away. We rolled 1,6 (1 hit &ge;2)."],
+	"actions":
+		[{
+			"placeCounter":"BB-A2",
+			"location":"J11",
+			"pwrCurve":"0-3-0",
+			"shields":[0,9,6,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":5
+		},{
+			"placeCounter":"BB-A3",
+			"location":"J14",
+			"pwrCurve":"0-3-0",
+			"shields":[9,7,9,3],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":0,
+			"rotation":2
+		},{
+			"placeCounter":"CA-T1",
+			"location":"G11",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,2,"1+A"],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			}],
+			"aft":0,
+			"rotation":5
+		},{
+			"placeCounter":"CL-T1",
+			"location":"H13",
+			"pwrCurve":"3-2-0",
+			"shields":[0,3,3,3],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			}],
+			"aft":1,
+			"rotation":1
+		},{
+			"placeCounter":"DD-T3",
+			"location":"I9",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,"2+F",2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":2
+		},{
+			"placeCounter":"turn-T2",
+			"location":"F12",
+			"name":"turn1",
+			"rotation":5
+		}]},
+	{"heading":"Stardate 2227.05D",
+	"commentary":["And now their Battleship can return fire its single Laser against our last light cruiser. It rolled a 4 (1 dmg)... not quite enough to finish it, but it does necessitate rolling for critical. We rolled 2+6 = 8 (Power Relay Damage)."],
+	"actions":
+		[{
+			"placeCounter":"BB-A2",
+			"location":"I10",
+			"pwrCurve":"0-3-0",
+			"shields":[0,9,6,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":5
+		},{
+			"placeCounter":"BB-A3",
+			"location":"J13",
+			"pwrCurve":"0-3-0",
+			"shields":[9,7,9,3],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":1,
+			"brake":0,
+			"rotation":3
+		},{
+			"placeCounter":"CA-T1",
+			"location":"G11",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,2,"1+A"],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			}],
+			"aft":0,
+			"rotation":5
+		},{
+			"placeCounter":"CL-T1",
+			"location":"H13",
+			"pwrCurve":"3-2-0",
+			"shields":[0,3,3,3],
+			"hullDmg":4,
+			"critDmg":["Power Relay Damage (-1)"],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":1,
+				"chargeR":0
+			}],
+			"aft":1,
+			"rotation":1
+		},{
+			"placeCounter":"DD-T3",
+			"location":"I8",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,"2+F",2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":3
+		},{
+			"removeCounter":"turn-T2"
+		}]},
+	{"heading":"Stardate 2227.05F",
+	"commentary":["Quite rough shaking their ships off of our heavy cruiser..."],
+	"actions":
+		[{
+			"placeCounter":"BB-A2",
+			"location":"H11",
+			"pwrCurve":"0-3-0",
+			"shields":[0,9,6,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":5
+		},{
+			"placeCounter":"BB-A3",
+			"location":"I12",
+			"pwrCurve":"0-3-0",
+			"shields":[9,7,9,3],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":1,
+			"brake":0,
+			"rotation":4
+		},{
+			"placeCounter":"CA-T1",
+			"location":"G12",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,2,"1+A"],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":1,
+				"chargeR":0
+			}],
+			"aft":0,
+			"rotation":0
+		},{
+			"placeCounter":"CL-T1",
+			"location":"I13",
+			"pwrCurve":"3-2-0",
+			"shields":[0,3,3,3],
+			"hullDmg":4,
+			"critDmg":["Power Relay Damage (-1)"],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":0
+			}],
+			"aft":1,
+			"rotation":1
+		},{
+			"placeCounter":"DD-T3",
+			"location":"H8",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,"2+F",2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":2,
+			"rotation":4
+		},{
+			"placeCounter":"turn-T2",
+			"location":"G13",
+			"name":"turn1",
+			"rotation":0
+		}]},
+	{"heading":"Stardate 2227.05X",
+	"commentary":[
+		"Although still at a disadvantage, we eliminated their ability to secure a decisive victory; and may still be able to negate a tactical victory on their end. Despite the sheer loss of power on our last light cruiser (-3 total), we decide to do no changes to our power curves.",
+		"{scoreboard}",
+		"Our 2 smallest ships are PPTs this time around. The EFV totals are now 6:8, still in favor of the AI. Starting with our light cruiser, they rolled a 6, binding Battleship I12 to it. Since the EFV of assigned ships now exceeds EFV of PPTs (4 &gt; 3), we end it at this step. The battleship that remains unassigned is able to shift back up, so it does just that."],
+	"scoreboard":
+		[{
+			"name":"CSY (Red)","initPts":601,"killPts":250,"lostPts":350
+		},{
+			"name":"Ticlanat (Grey)","initPts":650,"killPts":350,"lostPts":250
+		}],
+	"actions":
+		[{
+			"placeCounter":"BB-A2",
+			"location":"H11",
+			"pwrCurve":"0-4-1",
+			"shields":[0,9,6,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":5
+		},{
+			"placeCounter":"BB-A3",
+			"location":"I12",
+			"pwrCurve":"0-3-0",
+			"shields":[9,7,9,3],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":1,
+			"brake":0,
+			"rotation":4
+		},{
+			"placeCounter":"CA-T1",
+			"location":"G12",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,2,"1+A"],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":1,
+				"chargeR":1
+			}],
+			"aft":0,
+			"rotation":0
+		},{
+			"placeCounter":"CL-T1",
+			"location":"I13",
+			"pwrCurve":"1-2-0",
+			"shields":[0,3,3,3],
+			"hullDmg":4,
+			"critDmg":["Power Relay Damage (-1)"],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":1
+		},{
+			"placeCounter":"DD-T3",
+			"location":"H8",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,"2+F",2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":4
+		}]},
+	{"heading":"Stardate 2227.06A",
+	"commentary":[
+		"Their Lasers are ready for use once more; and they use them after our light cruiser. Since a potential synergy opportunity presented itself against the rear, Battleship I12 uses its afterburner charge. The two ships then rolled 2,4, only damaging the shields.",
+		"Meanwhile, an opportunity presented itself to use more disruptors against Battleship H12... whose front is exposed. The odds are not good (&ge;5 to hit), but we must try. We rolled 3,4 (0 hits)."],
+	"actions":
+		[{
+			"placeCounter":"BB-A2",
+			"location":"H12",
+			"pwrCurve":"0-4-1",
+			"shields":[0,9,6,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":5
+		},{
+			"placeCounter":"BB-A3",
+			"location":"H13",
+			"pwrCurve":"0-3-0",
+			"shields":[9,7,9,3],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":5
+		},{
+			"placeCounter":"CA-T1",
+			"location":"G12",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,2,1],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			}],
+			"aft":0,
+			"rotation":0
+		},{
+			"placeCounter":"CL-T1",
+			"location":"I13",
+			"pwrCurve":"1-2-0",
+			"shields":[0,3,3,1],
+			"hullDmg":4,
+			"critDmg":["Power Relay Damage (-1)"],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":1
+		},{
+			"placeCounter":"DD-T3",
+			"location":"H8",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,"2+F",2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":4
+		}]},
+	{"heading":"Stardate 2227.06B",
+	"commentary":["Since our light cruiser is still standing, their priority target remains active."],
+	"actions":
+		[{
+			"placeCounter":"BB-A2",
+			"location":"H12",
+			"pwrCurve":"0-4-1",
+			"shields":[0,9,6,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":5
+		},{
+			"placeCounter":"BB-A3",
+			"location":"H14",
+			"pwrCurve":"0-3-0",
+			"shields":[9,7,9,3],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":0
+		},{
+			"placeCounter":"CA-T1",
+			"location":"G12",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,2,1],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			}],
+			"aft":0,
+			"rotation":0
+		},{
+			"placeCounter":"CL-T1",
+			"location":"I13",
+			"pwrCurve":"1-2-0",
+			"shields":[0,3,3,1],
+			"hullDmg":4,
+			"critDmg":["Power Relay Damage (-1)"],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":1
+		},{
+			"placeCounter":"DD-T3",
+			"location":"G8",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,"2+F",2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":2,
+			"rotation":5
+		},{
+			"placeCounter":"turn-T2",
+			"location":"G13",
+			"name":"turn1",
+			"rotation":0
+		}]},
+	{"heading":"Stardate 2227.06C",
+	"commentary":["We opt to use one of the destroyer's afterburner charges to do a daring gambit against Battleship H14."],
+	"actions":
+		[{
+			"placeCounter":"BB-A2",
+			"location":"G12",
+			"pwrCurve":"0-4-1",
+			"shields":[0,9,6,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":5
+		},{
+			"placeCounter":"BB-A3",
+			"location":"H14",
+			"pwrCurve":"0-3-0",
+			"shields":[9,7,9,3],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":0
+		},{
+			"placeCounter":"CA-T1",
+			"location":"G13",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,2,1],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":1,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			}],
+			"aft":0,
+			"rotation":0
+		},{
+			"placeCounter":"CL-T1",
+			"location":"J13",
+			"pwrCurve":"1-2-0",
+			"shields":[0,3,3,1],
+			"hullDmg":4,
+			"critDmg":["Power Relay Damage (-1)"],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":2
+		},{
+			"placeCounter":"DD-T3",
+			"location":"G9",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,"2+F",2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":1,
+			"rotation":0
+		},{
+			"removeCounter":"turn-T2"
+		},{
+			"removeCounter":"turn-A1"
+		}]},
+	{"heading":"Stardate 2227.06D",
+	"commentary":["Still not quite close enough, so we will be taking a daring risk..."],
+	"actions":
+		[{
+			"placeCounter":"BB-A2",
+			"location":"G13",
+			"pwrCurve":"0-4-1",
+			"shields":[0,9,6,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":0
+		},{
+			"placeCounter":"BB-A3",
+			"location":"I14",
+			"pwrCurve":"0-3-0",
+			"shields":[9,7,9,3],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":1
+		},{
+			"placeCounter":"CA-T1",
+			"location":"G13",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,2,1],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			}],
+			"aft":0,
+			"rotation":0
+		},{
+			"placeCounter":"CL-T1",
+			"location":"J13",
+			"pwrCurve":"1-2-0",
+			"shields":[0,3,3,1],
+			"hullDmg":4,
+			"critDmg":["Power Relay Damage (-1)"],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":2
+		},{
+			"placeCounter":"DD-T3",
+			"location":"G10",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,"2+F",2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":1,
+			"rotation":0
+		},{
+			"placeCounter":"turn-A1",
+			"location":"G14",
+			"name":"turn1",
+			"rotation":0
+		},{
+			"removeCounter":"missile1"
+		}]},
+	{"heading":"Stardate 2227.06E",
+	"commentary":["... by using the destroyer's last afterburner charge while they are unable to move. Towards Battleship I14, we lob 2 missiles their way."],
+	"actions":
+		[{
+			"placeCounter":"BB-A2",
+			"location":"G13",
+			"pwrCurve":"0-4-1",
+			"shields":[0,9,6,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":0
+		},{
+			"placeCounter":"BB-A3",
+			"location":"I14",
+			"pwrCurve":"0-3-0",
+			"shields":[9,7,9,3],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":1
+		},{
+			"placeCounter":"CA-T1",
+			"location":"G13",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,2,1],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			}],
+			"aft":0,
+			"rotation":0
+		},{
+			"placeCounter":"CL-T1",
+			"location":"J13",
+			"pwrCurve":"1-2-0",
+			"shields":[0,3,3,1],
+			"hullDmg":4,
+			"critDmg":["Power Relay Damage (-1)"],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":2
+		},{
+			"placeCounter":"DD-T3",
+			"location":"G11",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,"2+F",2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":0
+			},{
+				"name":"Missile Launcher",
+				"chargeR":0
+			}],
+			"aft":0,
+			"rotation":0
+		},{
+			"placeCounter":"turn-A1",
+			"location":"G14",
+			"name":"turn1",
+			"rotation":0
+		},{
+			"placeCounter":"missile1",
+			"location":"G12",
+			"name":"missile",
+			"size":2,
+			"rotation":0
+		}]},
+	{"heading":"Stardate 2227.06F",
+	"commentary":["The calm before the storm..."],
+	"actions":
+		[{
+			"placeCounter":"BB-A2",
+			"location":"G14",
+			"pwrCurve":"0-4-1",
+			"shields":[0,9,6,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":0
+		},{
+			"placeCounter":"BB-A3",
+			"location":"J14",
+			"pwrCurve":"0-3-0",
+			"shields":[9,7,9,3],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":2
+		},{
+			"placeCounter":"CA-T1",
+			"location":"F14",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,2,1],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			}],
+			"aft":0,
+			"rotation":0
+		},{
+			"placeCounter":"CL-T1",
+			"location":"K12",
+			"pwrCurve":"1-2-0",
+			"shields":[0,3,3,"1+F"],
+			"hullDmg":4,
+			"critDmg":["Power Relay Damage (-1)"],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":2
+		},{
+			"placeCounter":"DD-T3",
+			"location":"G12",
+			"pwrCurve":"1-3-0",
+			"shields":[4,"2+F",2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":0
+			},{
+				"name":"Missile Launcher",
+				"chargeR":0
+			}],
+			"aft":0,
+			"rotation":0
+		},{
+			"removeCounter":"turn-A1"
+		},{
+			"placeCounter":"missile1",
+			"location":"H13",
+			"name":"missile",
+			"size":2,
+			"rotation":1
+		},{
+			"paintHex":"G3",
+			"name":"asteroidsW"
+		},{
+			"paintHex":"F4",
+			"name":"asteroidsW"
+		},{
+			"paintHex":"F5",
+			"name":"asteroidsW"
+		},{
+			"paintHex":"E5",
+			"name":"asteroidsW"
+		},{
+			"paintHex":"F11",
+			"name":"nebulaY"
+		},{
+			"paintHex":"F12",
+			"name":"nebulaY"
+		},{
+			"paintHex":"F13",
+			"name":"nebulaY"
+		},{
+			"paintHex":"E12",
+			"name":"nebulaY"
+		},{
+			"paintHex":"E13",
+			"name":"nebulaY"
+		},{
+			"paintHex":"C6",
+			"name":"borderW"
+		},{
+			"paintHex":"C7",
+			"name":"borderW"
+		},{
+			"paintHex":"C8",
+			"name":"borderW"
+		},{
+			"paintHex":"B8",
+			"name":"borderW"
+		},{
+			"paintHex":"B9",
+			"name":"borderW"
+		}]},
+	{"heading":"Stardate 2227.06X",
+	"commentary":[
+		"Some of their cobalt cannons are ready for use once more. This is not good! Still, we will do no change to our power curves.",
+		"{scoreboard}",
+		"On the PPT step, we start at their southern Battleship. They rolled a 2, a failure. No priority targets are assigned this time. Their power curves have been shifted accordingly.",
+		"Finally, since it appears that a shift is unavoidable, we will do just that. The battlefield floats so that the remaining ships are relatively center (6 hexes shifted in total). The asteroid belt is no longer relevant (no ship within 6 hexes), and has been removed from the board."],
+	"scoreboard":
+		[{
+			"name":"CSY (Red)","initPts":601,"killPts":250,"lostPts":350
+		},{
+			"name":"Ticlanat (Grey)","initPts":650,"killPts":350,"lostPts":250
+		}],
+	"actions":
+		[{
+			"placeCounter":"BB-A2",
+			"location":"D10",
+			"pwrCurve":"0-3-0",
+			"shields":[0,9,6,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":0
+		},{
+			"placeCounter":"BB-A3",
+			"location":"G9",
+			"pwrCurve":"0-4-1",
+			"shields":[9,7,9,3],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":2
+		},{
+			"placeCounter":"CA-T1",
+			"location":"C9",
+			"pwrCurve":"4-2-1",
+			"shields":[7,4,2,1],
+			"hullDmg":0,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":0,
+			"rotation":0
+		},{
+			"placeCounter":"CL-T1",
+			"location":"H8",
+			"pwrCurve":"1-2-0",
+			"shields":[0,3,3,"1+F"],
+			"hullDmg":4,
+			"critDmg":["Power Relay Damage (-1)"],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":2
+		},{
+			"placeCounter":"DD-T3",
+			"location":"D8",
+			"pwrCurve":"1-3-0",
+			"shields":[4,"2+F",2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":0,
+			"rotation":0
+		},{
+			"placeCounter":"missile1",
+			"location":"E8",
+			"name":"missile",
+			"size":2,
+			"rotation":1
+		},{
+			"paintHex":"G3",
+			"name":"borderW"
+		},{
+			"paintHex":"F4",
+			"name":"borderW"
+		},{
+			"paintHex":"F5",
+			"name":"borderW"
+		},{
+			"paintHex":"E5",
+			"name":"borderW"
+		},{
+			"paintHex":"F11",
+			"name":"borderW"
+		},{
+			"paintHex":"F12",
+			"name":"borderW"
+		},{
+			"paintHex":"F13",
+			"name":"borderW"
+		},{
+			"paintHex":"E12",
+			"name":"borderW"
+		},{
+			"paintHex":"E13",
+			"name":"borderW"
+		},{
+			"paintHex":"C6",
+			"name":"nebulaY"
+		},{
+			"paintHex":"C7",
+			"name":"nebulaY"
+		},{
+			"paintHex":"C8",
+			"name":"nebulaY"
+		},{
+			"paintHex":"B8",
+			"name":"nebulaY"
+		},{
+			"paintHex":"B9",
+			"name":"nebulaY"
+		}]},
+	{"heading":"Stardate 2227.07A",
+	"commentary":[
+		"We have a feeling this may be the beginning of the end. Battleship G8 now shoots the one laser it has, against our light cruiser. It rolled a 2 (1 dmg), merely negating the extra shield we placed last impulse.",
+		"The other battleship now fires its weapons against our heavy cruiser. Their Cobalt Cannons rolled 2,3 (0 extra dmg &ge;4), dealing 6 damage (including 2 non-critical hull damage). Their Laser now gets a turn, and rolls a 6 (2 more dmg). We then rolled 4+5 for our critical... Random Weapon Group Destroyed. We lost our right-side disruptors."],
+	"actions":
+		[{
+			"placeCounter":"BB-A2",
+			"location":"D10",
+			"pwrCurve":"0-3-0",
+			"shields":[0,9,6,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":0
+		},{
+			"placeCounter":"BB-A3",
+			"location":"G8",
+			"pwrCurve":"0-4-1",
+			"shields":[9,7,9,3],
+			"hullDmg":0,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":2
+		},{
+			"placeCounter":"CA-T1",
+			"location":"C9",
+			"pwrCurve":"4-2-1",
+			"shields":[7,0,2,1],
+			"hullDmg":4,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":3,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			}],
+			"aft":0,
+			"rotation":0
+		},{
+			"placeCounter":"CL-T1",
+			"location":"H8",
+			"pwrCurve":"1-2-0",
+			"shields":[0,3,3,1],
+			"hullDmg":4,
+			"critDmg":["Power Relay Damage (-1)"],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":2
+		},{
+			"placeCounter":"DD-T3",
+			"location":"D8",
+			"pwrCurve":"1-3-0",
+			"shields":[4,"2+F",2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":0,
+			"rotation":0
+		},{
+			"placeCounter":"missile1",
+			"location":"F9",
+			"name":"missile",
+			"size":2,
+			"rotation":1
+		}]},
+	{"heading":"Stardate 2227.07B",
+	"commentary":["The missiles land... quite easily thanks to their recent side slip. They have taken 1 non-critical hull damage."],
+	"actions":
+		[{
+			"placeCounter":"BB-A2",
+			"location":"C10",
+			"pwrCurve":"0-3-0",
+			"shields":[0,9,6,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":5
+		},{
+			"placeCounter":"BB-A3",
+			"location":"G8",
+			"pwrCurve":"0-4-1",
+			"shields":[9,7,9,0],
+			"hullDmg":1,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":2
+		},{
+			"placeCounter":"CA-T1",
+			"location":"C9",
+			"pwrCurve":"4-2-1",
+			"shields":[7,0,2,1],
+			"hullDmg":4,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":3,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			}],
+			"aft":0,
+			"rotation":0
+		},{
+			"placeCounter":"CL-T1",
+			"location":"H8",
+			"pwrCurve":"1-2-0",
+			"shields":[0,3,3,1],
+			"hullDmg":4,
+			"critDmg":["Power Relay Damage (-1)"],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":2
+		},{
+			"placeCounter":"DD-T3",
+			"location":"E8",
+			"pwrCurve":"1-3-0",
+			"shields":[4,"2+F",2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":0,
+			"rotation":1
+		},{
+			"placeCounter":"missile1",
+			"location":"G8",
+			"name":"missile",
+			"size":2,
+			"rotation":2
+		},{
+			"removeCounter":"turn-T1"
+		}]},
+	{"heading":"Stardate 2227.07C",
+	"commentary":["Once again, heavy cruiser disruptors (at least, the ones that are still functional) are ready for use. Even with the odds against us, we must try. We rolled 4,5 (1 hit &ge;5). Again, they take non-critical hull damage."],
+	"actions":
+		[{
+			"placeCounter":"BB-A2",
+			"location":"C10",
+			"pwrCurve":"0-3-0",
+			"shields":[0,9,6,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":5
+		},{
+			"placeCounter":"BB-A3",
+			"location":"H8",
+			"pwrCurve":"0-4-1",
+			"shields":[9,7,9,0],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":2
+		},{
+			"placeCounter":"CA-T1",
+			"location":"D10",
+			"pwrCurve":"4-2-1",
+			"shields":[7,0,2,1],
+			"hullDmg":4,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			}],
+			"aft":0,
+			"rotation":1
+		},{
+			"placeCounter":"CL-T1",
+			"location":"I7",
+			"pwrCurve":"1-2-0",
+			"shields":[0,3,3,1],
+			"hullDmg":4,
+			"critDmg":["Power Relay Damage (-1)"],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":2
+		},{
+			"placeCounter":"DD-T3",
+			"location":"E8",
+			"pwrCurve":"1-3-0",
+			"shields":[4,"2+F",2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":0,
+			"rotation":1
+		},{
+			"removeCounter":"missile1"
+		},{
+			"placeCounter":"turn-T1",
+			"location":"E10",
+			"name":"turn1",
+			"rotation":1
+		}]},
+	{"heading":"Stardate 2227.07D",
+	"commentary":["Not much to do here... such is an unfortunate side effect of having lost 2 weapon groups now."],
+	"actions":
+		[{
+			"placeCounter":"BB-A2",
+			"location":"C11",
+			"pwrCurve":"0-3-0",
+			"shields":[0,9,6,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":0
+		},{
+			"placeCounter":"BB-A3",
+			"location":"I7",
+			"pwrCurve":"0-4-1",
+			"shields":[9,7,9,0],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":2
+		},{
+			"placeCounter":"CA-T1",
+			"location":"D10",
+			"pwrCurve":"4-2-1",
+			"shields":[7,0,2,1],
+			"hullDmg":4,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":1,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			}],
+			"aft":0,
+			"rotation":1
+		},{
+			"placeCounter":"CL-T1",
+			"location":"I7",
+			"pwrCurve":"1-2-0",
+			"shields":[0,3,3,1],
+			"hullDmg":4,
+			"critDmg":["Power Relay Damage (-1)"],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":2
+		},{
+			"placeCounter":"DD-T3",
+			"location":"F9",
+			"pwrCurve":"1-3-0",
+			"shields":[4,"2+F",2,2],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":0,
+			"rotation":1
+		},{
+			"placeCounter":"turn-T1",
+			"location":"E10",
+			"name":"turn1",
+			"rotation":1
+		}]},
+	{"heading":"Stardate 2227.07F",
+	"commentary":["Almost time to clean up..."],
+	"actions":
+		[{
+			"placeCounter":"BB-A2",
+			"location":"D12",
+			"pwrCurve":"0-3-0",
+			"shields":[0,9,6,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":0
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":1
+		},{
+			"placeCounter":"BB-A3",
+			"location":"J7",
+			"pwrCurve":"0-4-1",
+			"shields":[9,7,9,0],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":2
+			},{
+				"name":"Laser",
+				"chargeR":0
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":2
+		},{
+			"placeCounter":"CA-T1",
+			"location":"E10",
+			"pwrCurve":"4-2-1",
+			"shields":[7,0,2,1],
+			"hullDmg":4,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":0
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			}],
+			"aft":0,
+			"rotation":1
+		},{
+			"placeCounter":"CL-T1",
+			"location":"I6",
+			"pwrCurve":"1-2-0",
+			"shields":[0,3,3,1],
+			"hullDmg":4,
+			"critDmg":["Power Relay Damage (-1)"],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":2
+		},{
+			"placeCounter":"DD-T3",
+			"location":"G8",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,2,"2+F"],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":1
+			},{
+				"name":"Missile Launcher",
+				"chargeR":1
+			}],
+			"aft":0,
+			"rotation":2
+		},{
+			"removeCounter":"turn-T1"
+		}]},
+	{"heading":"Stardate 2227.07X",
+	"commentary":[
+		"... and quite literally, at that. With 5 ships destroyed, and 2 others partially disarmed (-1 weapon group each), we see no sense in continuing to struggle.",
+		"Until now, our biggest bottleneck was our last Heavy Cruiser. Now that it has fully spooled (along with the rest of our fleet), we opt to punch our FTL drives, and retreat all of our ships from this battle."],
+	"actions":
+		[{
+			"placeCounter":"BB-A2",
+			"location":"D12",
+			"pwrCurve":"0-3-0",
+			"shields":[0,9,6,9],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":1
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":1
+		},{
+			"placeCounter":"BB-A3",
+			"location":"J7",
+			"pwrCurve":"0-3-0",
+			"shields":[9,7,9,0],
+			"hullDmg":3,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Cobalt Cannon",
+				"chargeR":3
+			},{
+				"name":"Laser",
+				"chargeR":1
+			}],
+			"aft":0,
+			"brake":0,
+			"rotation":2
+		},{
+			"placeCounter":"CA-T1",
+			"location":"E10",
+			"name":"CA-Tal",
+			"pwrCurve":"2-2-1",
+			"shields":[7,0,2,1],
+			"hullDmg":4,
+			"critDmg":[],
+			"wepCharge":[{
+				"name":"Dual Disruptor",
+				"chargeY":2,
+				"chargeR":1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			}],
+			"aft":0,
+			"rotation":1
+		},{
+			"placeCounter":"CL-T1",
+			"location":"I6",
+			"name":"CL-Tal",
+			"pwrCurve":"1-2-0",
+			"shields":[0,3,3,1],
+			"hullDmg":4,
+			"critDmg":["Power Relay Damage (-1)"],
+			"wepCharge":[{
+				"name":"Disruptor",
+				"chargeY":0,
+				"chargeR":-1
+			},{
+				"name":"Dual Disruptor",
+				"chargeY":4,
+				"chargeR":1
+			}],
+			"aft":1,
+			"rotation":2
+		},{
+			"placeCounter":"DD-T3",
+			"location":"G8",
+			"name":"DD-Tal",
+			"pwrCurve":"1-3-0",
+			"shields":[4,2,2,"2+F"],
+			"wepCharge":[{
+				"name":"Missile Launcher",
+				"chargeR":2
+			},{
+				"name":"Missile Launcher",
+				"chargeR":2
+			}],
+			"aft":0,
+			"rotation":2
+		}]},
+	{"heading":"Stardate 2227.07X (Game Over)",
+	"commentary":[
+		"And thus, our first battle on Experienced difficulty (+10% SP) ends in a defeat. We allowed them only a marginal victory though; a ship that retreated is a ship that did not get destroyed (thus, gives neither score nor explosion). By minimizing the extent at which we lost this battle, it makes us better able to consider a rematch on the same difficulty. <i>If</i> this was an Empire War battle, we would have denied them the ability to conquer this conflict zone.",
+		"Still, their Battleships are quite tough to take down, thanks to having more total durability than any other mobile ship, sans a Talon Dreadnought. It is also very easy to underestimate their larger weapons. Their Lasers have a higher <i>potential</i> (per power phase); but Cobalt Cannons are more reliable, are usable from slightly further away, and do their damage in <q>bursts</q>. This burst damage is often what gets ships destroyed much faster than if they only had Destroyers."],
+	"scoreboard":
+		[{
+			"name":"CSY (Red)","initPts":601,"killPts":250,"lostPts":350,"retreatPts":251
+		},{
+			"name":"Ticlanat (Grey)","initPts":650,"killPts":350,"lostPts":250
+		}],
+	"actions":
+		[{
+			"removeCounter":"CA-T1"
+		},{
+			"removeCounter":"CL-T1"
+		},{
+			"removeCounter":"DD-T3"
+		}]}
+]}

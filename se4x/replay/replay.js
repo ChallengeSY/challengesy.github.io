@@ -256,6 +256,9 @@ function autoNameCounter(localObj) {
 	} else if (localObj.src.indexOf("gfx/DN") >= 0) {
 		localObj.title = "Dreadnought";
 		stackable = true;
+	} else if (localObj.src.indexOf("gfx/BD") >= 0) {
+		localObj.title = "Boarding Ship";
+		stackable = true;
 	} else if (localObj.src.indexOf("gfx/Titan") >= 0) {
 		localObj.title = "Titan";
 		stackable = true;
@@ -303,6 +306,12 @@ function autoNameCounter(localObj) {
 		stackable = true;
 	} else if (localObj.src.indexOf("gfx/Mar") >= 0) {
 		localObj.title = "Space Marines";
+		stackable = true;
+	} else if (localObj.src.indexOf("gfx/Grav") >= 0) {
+		localObj.title = "Grav Armor";
+		stackable = true;
+	} else if (localObj.src.indexOf("gfx/CyberA") >= 0) {
+		localObj.title = "Cyber Armor";
 		stackable = true;
 	} else if (localObj.src.indexOf("gfx/Tran") >= 0) {
 		localObj.title = "Transport";

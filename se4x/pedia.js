@@ -110,6 +110,19 @@ function dspaStats(shipCt, HIcount) {
 	return fragTxt;
 }
 
+function paranoiaTable() {
+	var paranoiaThresh = [5,9,16,26,37,50,62,74,84,91];
+	
+	fragTxt = "<table><caption>Paranoia/Morale chart by stage</caption>";
+	fragTxt = fragTxt + "<tr><th>Threshold</th>";
+	for (var b = 0; b < 10; b++) {
+		fragTxt = fragTxt + "<td class=\"numeric\" style=\"padding-left: 10px;\">"+paranoiaThresh[b]+"</td>";
+	}
+	fragTxt = fragTxt + "</tr></table>";
+	
+	return fragTxt;
+}
+
 function dmBase(strength) {
 	const dmCommonA = "Non-player <q>boss</q> ship that will instantly destroy any undefended "+conceptLink("planet")+" it contests.";
 		
@@ -271,8 +284,11 @@ function showBox(concept) {
 			break;
 		case "competitive":
 			headingTxt = "Competitive scenario";
-			displayTxt = "A scenario that pits two or more human players against each other on a "+conceptLink("versus map")+". Can be a Free For All, or a Team Game.<br /><br />\
-				The default "+conceptLink("primary objective")+" is to be the first player to destroy a hostile "+conceptLink("homeworld")+".";
+			displayTxt = "A scenario that pits two or more human players against each other on a "+conceptLink("versus map")+". Can be a "+conceptLink("Free For All")+", ";
+			if (useRuleset == "AGT") {
+				displayTxt = displayTxt + conceptLink("Sinister")+", ";
+			}
+			displayTxt = displayTxt + "or Team game.";
 			break;
 		case "cp":
 			headingTxt = "Construction Points (CP)";
@@ -365,6 +381,10 @@ function showBox(concept) {
 			displayTxt = "If one player has at least twice as many un"+conceptLink("screen")+"ed "+conceptLink("combat ship")+"s as their opponent \
 				at the start of a battle "+conceptLink("round")+", all their "+conceptLink("ship")+"s get an additional "+conceptLink("Attack")+" +1 for that round.";
 			break;
+		case "free for all":
+			displayTxt = "A "+conceptLink("competitive")+" format where every player is for themselves. The default \
+				"+conceptLink("primary objective")+" is to be the first player to destroy a hostile "+conceptLink("homeworld")+".";
+			break;
 		case "hex":
 			displayTxt = "A hexagonal-shaped space on a board where pieces (example: counters) can move/be placed to.";
 			if (useRuleset == "talon") {
@@ -380,11 +400,15 @@ function showBox(concept) {
 			break;
 		case "immobile":
 			headingTxt = "Immobile craft";
-			displayTxt = "Not every space craft has the engines necessary to move from "+conceptLink("hex")+" to hex. They are also unable to "+conceptLink("retreat")+".<br />";
+			displayTxt = "Not every space craft has the engines necessary to move from "+conceptLink("hex")+" to hex. They are also unable to "+conceptLink("retreat");
 			if (useRuleset == "talon") {
-				displayTxt = displayTxt + conceptLink("Base")+"s and "+conceptLink("Starbase")+"s are immobile on their own accord in "+conceptLink("Talon")+", \
+				displayTxt = displayTxt + ". "+conceptLink("Base")+"s and "+conceptLink("Starbase")+"s are immobile on their own accord in "+conceptLink("Talon")+", \
 					but can be dragged to a "+conceptLink("black hole")+". They can neither cause nor receieve "+conceptLink("collision")+" damage.";
 			} else {
+				if (useRuleset != "SE4X") {
+					displayTxt = displayTxt + ", but are immune to "+conceptLink("capture");
+				}
+				displayTxt = displayTxt + ".<br />";
 				if (useRuleset == "SE4X" || useRuleset == "CE") {
 					displayTxt = displayTxt + conceptLink("Ship Yard")+"s and "+conceptLink("Base")+"s are entirely immobile.";
 				} else {
@@ -479,7 +503,7 @@ function showBox(concept) {
 		case "scuttle":
 			headingTxt = "Scuttling";
 			displayTxt = "A player may choose to voluntarily remove "+conceptLink("ship")+"s from the board without refund, referred to as scuttling.<br />\
-				This process is useful for freeing up counters for reconstruction, and/or to reduce "+conceptLink("maintenance")+" costs.";
+				This process is useful for freeing up counters, and/or to reduce "+conceptLink("maintenance")+" costs.";
 			break;
 		case "starship":
 			// Fall through
@@ -1027,8 +1051,9 @@ function showBox(concept) {
 		case "pipeline":
 			headingTxt = "Merchant Pipeline";
 			displayTxt = "Support ship able to connect to Pipeline "+conceptLink("ship")+"s in adjacent hexes to \
-				assist in movement along a <q>road</q> <span class=\"bindTxt\">(+1 "+conceptLink("hex")+" per "+conceptLink("turn")+" and ignores terrain)</span> and \
-				income <span class=\"bindTxt\">(+1 "+conceptLink("CP")+" if it connects a "+conceptLink("colony")+" to the "+conceptLink("homeworld")+")</span>";
+				assist in movement along a <q>road</q> \
+				<span class=\"bindTxt\">(+1 "+conceptLink("hex")+" per "+conceptLink("turn")+" and negates the movement effects of "+conceptLink("asteroids")+"/"+conceptLink("nebula")+"e/"+conceptLink("black hole")+"s)</span> \
+				and income <span class=\"bindTxt\">(+1 "+conceptLink("CP")+" if it connects a "+conceptLink("colony")+" to the "+conceptLink("homeworld")+")</span>";
 			displayTxt = displayTxt + stats4X("Common", 3, 0, 0, 0);
 			break;
 		case "raider":
@@ -1144,9 +1169,12 @@ function showBox(concept) {
 			break;
 		case "counter tech":
 			headingTxt = "Counter Technology";
-			displayTxt = conceptLink("Technology")+" that is bought with the intentions of countering player technology that was seen.";
+			displayTxt = conceptLink("Technology")+" that is bought with the intentions of countering technology that was seen.";
 			if (useRuleset == "AGT") {
-				displayTxt = displayTxt + "<br /><br />"+conceptLink("AP Bot")+"s can buy these levels pre-emptively if it engages against a player.";
+				displayTxt = displayTxt + "<br /><br />"+conceptLink("Alien Player")+"s and "+conceptLink("AP Bot")+"s can buy these techs pre-emptively, \
+					but the former will cap them at level 1 until the technology it counters is seen.";
+			} else if (useRuleset != "talon") {
+				displayTxt = displayTxt + "<br /><br />"+conceptLink("Alien Player")+"s can buy these techs pre-emptively.";
 			}
 			break;
 		case "defense composition":
@@ -1243,7 +1271,8 @@ function showBox(concept) {
 			displayTxt = displayTxt + "<br />Requires "+conceptLink("Movement")+" 3, or below Hard difficulty.";
 			break;
 		case "boarding ship":
-			displayTxt = "Specialist ship designed to "+conceptLink("capture")+" enemy ships. Reduced to F1 versus immune targets. No benefit from "+conceptLink("Attack")+" tech";
+			displayTxt = "Specialist ship designed to "+conceptLink("capture")+" enemy ships by attempting to pierce their "+conceptLink("hull size")+".<br />\
+				Reduced to F1 versus immune targets. No benefit from "+conceptLink("Attack")+" tech, and "+conceptLink("Fleet Size Bonus")+" only effective against immune targets";
 			displayTxt = displayTxt + stats4X("Base", 12, "F5", 0, 2, -1, conceptLink("Boarding")+" 1");
 			break;
 		case "capturing":
@@ -1388,8 +1417,8 @@ function showBox(concept) {
 				<br />Sometimes appears as extra temporary units (akin to "+conceptLink("militia")+"). "+stats4X("Common", 3, "D4 / C6", 2, 2, -1, conceptLink("Troops")+" 2");
 			break;
 		case "grav armor":
-			displayTxt = "Powerful support "+conceptLink("ground unit")+". \
-				At the start of each "+conceptLink("round")+", each uncontested Grav Armor is able to support another ground unit with +1/+1.\
+			displayTxt = "Powerful support "+conceptLink("ground unit")+". At the start of each "+conceptLink("round")+", \
+				each Grav Armor (in excess of any oppposing Grav Armor) is able to support a cheaper ground unit with +1/+1.\
 				"+stats4X("Common", 4, "C6", 2, 2, -1, conceptLink("Troops")+" 3");
 			break;
 			
@@ -2283,7 +2312,8 @@ function showBox(concept) {
 				("+conceptLink("Fighter")+"s in cargo are only destroyed if in excess of capacity. They may not be launched in "+conceptLink("battle")+".)";
 			break;
 		case "satellites":
-			// Fall thru
+			// Fall thru... twice
+		case "satellite network":
 		case "defense satellite network":
 			headingTxt = "Defense Satellite Network";
 			displayTxt = conceptLink("Immobile")+" Satellite group placed defensively. One can be built at a "+conceptLink("colony")+" alongside a "+conceptLink("Base")+"; but not on the very same "+conceptLink("economic phase");
@@ -2335,6 +2365,9 @@ function showBox(concept) {
 				"+conceptLink("Scout")+"s, "+conceptLink("Raider")+"s, and "+conceptLink("Space Pirate")+"s are always in range, making them immune to this limitation.<br />\
 				Lone "+conceptLink("Exploration")+"-equipped ships that have not met up with any other combat ships within the past eco phase are also always in range.";
 			break;
+		case "sinister":
+			displayTxt = "A focused "+conceptLink("competitive")+" variant where a player wins if the "+conceptLink("homeworld")+" closest to their own clockwise (or otherwise to the left) is destroyed.";
+			break;
 		case "space station":
 			displayTxt = "Non-aligned base that fights any ships in the same "+conceptLink("hex")+". \
 				Has fixed "+conceptLink("Point-Defense")+" 2, "+conceptLink("Scanning")+" 1. Immune to "+conceptLink("boarding")+"\
@@ -2376,7 +2409,7 @@ function showBox(concept) {
 			displayTxt = "Currency that is used exclusively to empower "+conceptLink("temporal engine")+"s.";
 			break;
 		case "cyber armor":
-			displayTxt = "Extremely potent "+conceptLink("grount unit");
+			displayTxt = "Extremely potent "+conceptLink("grount unit")+", counting as 3 "+conceptLink("Grav Armor")+" for support purposes";
 			displayTxt = displayTxt + stats4X("Common", 5, "B8", 3, 3) + "<br /><b>Required Tech</b>: "+conceptLink("Troops")+" 3 + "+conceptLink("Advanced Construction")+" 2";
 			break;
 			
@@ -2412,14 +2445,17 @@ function showBox(concept) {
 		case "morale":
 			displayTxt = "A level that an "+conceptLink("AP Bot")+" uses to measure its confidence in "+conceptLink("battle")+", calculated each "+conceptLink("round")+". \
 				If any damage/losses were incurred, 1d100 is rolled at the earliest "+conceptLink("retreat")+" opportunity each "+conceptLink("round")+" \
-				until the check fails. A roll that is less than or equal to the threshold fail the check, causing it to retreat as able. ";
+				until the check fails (via a roll less than or equal to the threshold). Once failed, the "+conceptLink("fleet")+" begins retreat procedures.";
+			displayTxt = displayTxt + paranoiaTable();
 			break;
 		case "offense posture":
 			displayTxt = "Posture in which the "+conceptLink("AP Bot")+" will move in an aggressive fashion.";
 			break;
 		case "paranoia":
 			displayTxt = "A level that an "+conceptLink("AP Bot")+" uses to measure its confidence in its current "+conceptLink("fleet strategy")+". \
-				Multiple steps are influenced by this system, and the outcome determines the course of action. A 1d100 that is less than or equal to the threshold will cause its check to fail.";
+				Multiple steps are influenced by this system, and the outcome determines the course of action. A 1d100 that is less than or equal to the threshold will cause its check to fail.\
+				<br /><br />Generally, paranoia rises (and falls) with "+conceptLink("battle")+"s lost (and won) against a human player, and is reset whenever the strategy is changed.";
+			displayTxt = displayTxt + paranoiaTable();
 			break;
 		case "prime directive":
 			displayTxt = "A system where the "+conceptLink("AI")+" always strives to operate intelligently. When rules are silent or conflict, this system takes precedence.";
@@ -2451,7 +2487,7 @@ function showBox(concept) {
 			break;
 		case "yarr":
 			headingTxt = "Yarr!";
-			displayTxt = conceptLink("Fleet strategy")+" that prioritizes "+conceptLink("Boarding")+" tech, and will also try to sneak in "+conceptLink("Battleship")+"s as "+conceptLink("Ship Size")+" permits.";
+			displayTxt = conceptLink("Fleet strategy")+" that prioritizes "+conceptLink("Boarding")+" tech, and will also sneak in "+conceptLink("Battleship")+"s as "+conceptLink("Ship Size")+" and "+conceptLink("Tractor Beam")+" tech permits.";
 			break;
 			
 		// Deep Space Planet attributes
@@ -3090,7 +3126,7 @@ function showBox(concept) {
 			displayTxt = "Whenever two mobile "+conceptLink("ship")+"s from the same faction enter the very same "+conceptLink("hex")+", \
 				distortions caused by their NFTL drives cause them to collide, dealing 3 damage to <i>each</i> ship... \
 				including each "+conceptLink("fighter")+" in any squadrons that may get caught in the distortions.<br /><br />\
-				Due to differing signatures, two ships from opposing factions will not damage each other.";
+				Due to differing signatures, two ships from opposing factions will not damage each other this way.";
 			break;
 		case "dock":
 			headingTxt = "Docking";
@@ -3224,7 +3260,7 @@ function showBox(concept) {
 			break;
 		case "ftl offline": // 10. Also adds 1 hull dmg
 			headingTxt = "FTL Offline";
-			displayTxt = conceptLink("Ship")+"s that have this condition are unable to "+conceptLink("spool")+" their FTL drive. Repaired at the end of the "+conceptLink("battle")+".";
+			displayTxt = conceptLink("Ship")+"s that have this condition are unable to "+conceptLink("spool")+"/use their FTL drive. Repaired at the end of the "+conceptLink("battle")+".";
 			break;
 		case "power loss": // 11
 			displayTxt = conceptLink("Ship")+"s that have this condition are unable to receive "+conceptLink("power")+" from any source, \
@@ -3361,9 +3397,9 @@ function showBox(concept) {
 			displayTxt = "Program that allows designing a "+conceptLink("Talon")+" "+conceptLink("fleet")+".";
 			provideLinks = 3;
 			break;
-		case "system shuffler":
-			displayTxt = "Substitute program that can shuffle and deal <i>nearly any</i> mix of "+conceptLink("deep space")+" counters.\
-				<br /><br />Remembers the current stock of counters in between sessions, being reset <i>only</i> when a new mix is generated.";
+		case "shuffler":
+			displayTxt = "Programs that can shuffle and deal <i>nearly any</i> mix of elements, depending on the program in use. Only a limited subset of planned programs are currently available.\
+				<br /><br />Remembers the current stocks in between sessions, being reset <i>only</i> when a new mix is generated.";
 			provideLinks = 4;
 			break;
 		case "zen solitaire":
@@ -3430,8 +3466,8 @@ function showBox(concept) {
 	}
 	switch (provideLinks) {
 		case 1:
-			displayTxt = displayTxt + "<a class=\"interact\" href=\"/se4x/dmBatSim.htm\" target=\"_blank\">Doomsday Machine simulator</a>\
-				<a class=\"interact\" href=\"/se4x/repBatSim.htm\" target=\"_blank\">Replicator Solitaire simulator</a>";
+			displayTxt = displayTxt + "<a class=\"interact\" href=\"/se4x/batSims/doomsday.htm\" target=\"_blank\">Doomsday Machine simulator</a>\
+				<a class=\"interact\" href=\"/se4x/batSims/repSol.htm\" target=\"_blank\">Replicator Solitaire simulator</a>";
 			break;
 		
 		case 2:
@@ -3443,7 +3479,7 @@ function showBox(concept) {
 			break;
 			
 		case 4:
-			displayTxt = displayTxt + "<a class=\"interact\" href=\"/se4x/systemShuffle.htm\" target=\"_blank\">Open System Shuffler</a>";
+			displayTxt = displayTxt + "<a class=\"interact\" href=\"/se4x/shufflers/deepSpace.htm\" target=\"_blank\">Deep Space Shuffler</a>";
 			break;
 	}
 	displayTxt = displayTxt + "<a class=\"interact\" href=\"javascript:closeBox();\">Close</a>";
@@ -3697,7 +3733,7 @@ function keywordifyDocument() {
 
 function keywordifyCollection(collObj) {
 	const keyTerms = ["Space Empires 4X", "Close Encounters", "Replicator", "All Good Things", "AGT", "Space Empires Anthology",
-		"Replay Center", "Unique Designer", "System Shuffler", "Zen Solitaire",
+		"Replay Center", "Unique Designer", "Shuffler", "Zen Solitaire",
 		"AI", "Barren", "Campaign", "Colony", "Colonies", "Combat Ship", "CP", "Economic Phase", "Faction", "Homeworld", "Maintenance", "Planet", "Starship", "Scuttle", "Turn",
 		"Bid", "Competitive", "Cooperative", "Galactic Capitol", "Initiative", "Primary Objective", "Uneasy Alliance", "Versus Map", "Victory Point", "VP", "Blood Brothers",
 		"Battle", "Battling", "Blockade", "Bombard", "Fleet", "FSB", "Immobile", "Non-Player Alien", "NPA", "Subdue", "Subduing", "Priority Class", "Retreat", "Round", "Screen", "Weakness", "Weapon Class",
@@ -3724,7 +3760,7 @@ function keywordifyCollection(collObj) {
 		"Depletion", "Deplete", "Advanced Research", "Self-Preservation",
 		"Hull", "Type 0", "Type II", "Type IV", "Type V", "Type IX", "Type XI", "Type XV",
 		"Type Exp", "Type Flag", "Type PD", "Type Scan", "Type SW",
-		"Cosmic Storm", "Ion Storm", "Jammer", "Missile", "Plasma Storm", "Quantum", "Quasar", "Scenario Card", "Space Station",
+		"Cosmic Storm", "Ion Storm", "Jammer", "Missile", "Plasma Storm", "Quantum", "Quasar", "Satellites", "Satellite Network", "Scenario Card", "Sinister", "Space Station",
 		"AP Bot", "AP bot", "EV", "FOB", "Morale", "Offense Posture", "Paranoia", "Prime Directive", "Biggest Ship", "Yarr",
 		"Aggressive", "Spice", "Abundant", "Wealthy", "Poor", "Desolate", "Builder", "Accurate", 
 		"Talon", "Terran", "EFV", "PPT", "SP", "LP", "Astrometrics Lab", "Deployment Zone", "Reserve",
@@ -3853,8 +3889,11 @@ function keywordifyCollection(collObj) {
 		{regex: conceptLink("type xi")+"ii", newTxt: conceptLink("type xiii")},
 		{regex: "Fast "+conceptLink("Replicator")+"s", newTxt: conceptLink("Fast Replicators")},
 		{regex: conceptLink("Replicator")+" Capitol", newTxt: conceptLink("Replicator Capitol")},
+		{regex: conceptLink("sinister"), newTxt: "sinister"},
 		{regex: "Star"+conceptLink("base"), newTxt: conceptLink("Starbase")},
 		{regex: "star"+conceptLink("base"), newTxt: conceptLink("Starbase")},
+		{regex: conceptLink("Defense")+" "+conceptLink("Satellite Network"), newTxt: conceptLink("Defense Satellite Network")},
+		{regex: conceptLink("defense")+" "+conceptLink("satellite network"), newTxt: conceptLink("defense satellite network")},
 		{regex: conceptLink("Quantum")+" Filament", newTxt: conceptLink("Quantum Filament")},
 		{regex: conceptLink("quantum")+" filament", newTxt: conceptLink("quantum filament")},
 		{regex: "Storm "+conceptLink("Movement"), newTxt: conceptLink("Storm Movement")},
@@ -3883,6 +3922,7 @@ function keywordifyCollection(collObj) {
 		{regex: conceptLink("deep space")+" "+conceptLink("planet")+" attribute", newTxt: conceptLink("deep space planet attribute")},
 		{regex: conceptLink("poor"), newTxt: "poor"},
 		{regex: conceptLink("accurate"), newTxt: "accurate"},
+		{regex: conceptLink("spice"), newTxt: "spice"},
 		{regex: "Minor "+conceptLink("Technology"), newTxt: conceptLink("Minor Technology")},
 		{regex: "minor "+conceptLink("technology"), newTxt: conceptLink("minor technology")},
 		{regex: "Major "+conceptLink("Technology"), newTxt: conceptLink("Major Technology")},
