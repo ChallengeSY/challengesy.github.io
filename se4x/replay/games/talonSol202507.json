@@ -3,6 +3,12 @@
 	"commentary":[
 		"Welcome to another AI Solitaire battle. This time, we have decided to shake things up a bit by randomizing some of the elements. We have hand picked the Terran faction, and partially randomized the terrain (one of our friends wanted us to bring a planet to battle). We have then rolled a 1 for 250 SP, followed by a 10 for our Terran fleet and a 7 for the AI fleet.",
 		"We field 1 Destroyer-P, 2 regular Destroyers, 1 Destroyer-E, and 1 Scout. The AI fields 3 Destroyers, and 1 Light Cruiser."],
+	"scoreboard":
+		[{
+			"name":"CSY (Blue)","initPts":251,"killPts":0,"lostPts":0
+		},{
+			"name":"Ficcipa (Grey)","initPts":250,"killPts":0,"lostPts":0
+		}],
 	"actions":
 		[{
 			"createPreset":"talonSkirmish",

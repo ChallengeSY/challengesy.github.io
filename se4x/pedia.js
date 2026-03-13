@@ -221,7 +221,7 @@ function showBox(concept) {
 			headingTxt = "Artificial Intelligence (AI)";
 			if (useRuleset == "talon") {
 				displayTxt = "Extremely antagonistic machine "+conceptLink("faction")+" that operates their ships autonomously, introduced in "+conceptLink("Talon 1000")+".\
-					<br />Their ships use "+conceptLink("Laser")+"s and "+conceptLink("Cobalt Cannon")+"s, and have neither utility nor capacity for "+conceptLink("power")+".";
+					<br />Their ships use "+conceptLink("Laser")+"s, "+conceptLink("Cobalt Cannon")+"s, "+conceptLink("Afterburner")+"s, and "+conceptLink("Brake")+"s. They also have neither utility nor capacity for "+conceptLink("power")+".";
 			} else {
 				displayTxt = "Extremely antagonistic empire that operates autonomously. Their rules vary wildly from one scenario to another.";
 			}
@@ -359,16 +359,16 @@ function showBox(concept) {
 			if (useRuleset == "talon") {
 				displayTxt = displayTxt + "<br /><br />" + conceptLink("Talon")+" and "+conceptLink("Terran")+" are known playable factions in, well, Talon. There also exists the environment-exclusive "+conceptLink("AI")+" faction.";
 			} else if (useRuleset == "AGT") {
-				displayTxt = displayTxt + "<br /><br />The base, "+conceptLink("Replicator")+", and alternate factions are playable.";
+				displayTxt = displayTxt + "<br /><br />The regular (base), "+conceptLink("Replicator")+", and alternate factions are playable.";
 			} else if (useRuleset == "rep") {
-				displayTxt = displayTxt + "<br /><br />The base and "+conceptLink("Replicator")+" factions are playable.";
+				displayTxt = displayTxt + "<br /><br />The regular (base) and "+conceptLink("Replicator")+" factions are playable.";
 			}
 				
 			break;
 		case "fleet":
 			displayTxt = "A fleet is a collection of "+conceptLink("starship")+"s, usually with a specific purpose.";
 			if (useRuleset == "AGT") {
-				displayTxt = displayTxt + "<br /><br />As an "+conceptLink("Alien Player")+"/Bot bank, this is spent whenever they launch ships from their "+conceptLink("homeworld")+" or from a forward "+conceptLink("ship yard")+".";
+				displayTxt = displayTxt + "<br /><br />As an "+conceptLink("Alien Player")+"/Bot bank, this is spent whenever they launch ships from their "+conceptLink("homeworld")+" or from a "+conceptLink("forward operating base")+".";
 			} else if (useRuleset != "talon") {
 				displayTxt = displayTxt + "<br /><br />As an "+conceptLink("Alien Player")+" bank, this is spent whenever they launch ships from their "+conceptLink("homeworld")+".";
 			}
@@ -451,8 +451,15 @@ function showBox(concept) {
 			if (useRuleset != "talon") {
 				displayTxt = displayTxt + "<br />As a "+conceptLink("technology")+", improving this increases the number of total "+conceptLink("hex")+"es that most "+conceptLink("ship")+"s can move per "+conceptLink("economic phase")+".\
 					<br />"+conceptLink("Decoy")+"s aside, "+conceptLink("non-combat ship")+"s have a fixed "+conceptLink("Movement")+" 1.\
-					<br /><br />At level 1 (default), ships can move 3 hexes per economic phase (divided into 1 + 1 + 1, for the respective "+conceptLink("turn")+"s.)<br />\
-					Each subsequent level adds another hex, favoring the later turns, but keeping it as even as possible. <span class=\"bindTxt\">(1 + 1 + 2 for level 2; 1 + 2 + 2 for level 3)</span>.";
+					<br /><br />The number of hexes a ship can move each turn is divided into the chart as follows:\
+					<table><tr><th>Level</th><th>Turn 1</th><th>Turn 2</th><th>Turn 3</th></tr>\
+					<tr class=\"numeric\"><td>1</td><td>1</td><td>1</td><td>1</td></tr>\
+					<tr class=\"numeric\"><td>2</td><td>1</td><td>1</td><td>2</td></tr>\
+					<tr class=\"numeric\"><td>3</td><td>1</td><td>2</td><td>2</td></tr>\
+					<tr class=\"numeric\"><td>4</td><td>2</td><td>2</td><td>2</td></tr>\
+					<tr class=\"numeric\"><td>5</td><td>2</td><td>2</td><td>3</td></tr>\
+					<tr class=\"numeric\"><td>6</td><td>2</td><td>3</td><td>3</td></tr>\
+					<tr class=\"numeric\"><td>7</td><td>3</td><td>3</td><td>3</td></tr></table>";
 			}
 			break;
 		case "non-combat ship":
@@ -587,6 +594,7 @@ function showBox(concept) {
 		case "cloaking":
 			headingTxt = "Cloaking Technology";
 			displayTxt = "Allows building "+conceptLink("Raider")+"s, which cloak by default, but can be detected or otherwise nullified.<br />\
+				A fleet comprising only cloaked ships can choose to not "+conceptLink("battle")+", unless negated.<br />\
 				If a surprise is achieved, cloaked ships can choose between "+conceptLink("Attack")+" +1 or an instant "+conceptLink("retreat")+" on their first "+conceptLink("round")+" only.<br />\
 				Level 2 equipment adds an additional Attack +1 throughout the "+conceptLink("battle")+" and negates "+conceptLink("Scanning")+" 1.";
 			break;
@@ -780,6 +788,10 @@ function showBox(concept) {
 		case "home system":
 			displayTxt = "A set of "+conceptLink("hex")+"es that surround a "+conceptLink("homeworld")+". These systems are relatively safe, \
 				with usually only a single dangerous "+conceptLink("black hole")+" counter shuffled among these 25 "+conceptLink("unexplored")+" systems.";
+			if (useRuleset == "AGT") {
+				displayTxt = displayTxt + "<br /><br />" + conceptLink("All Good Things")+" introduced 8 additional systems that can be used \
+					by each non-"+conceptLink("Replicator")+" "+conceptLink("faction")+", used whenever a <q>variable home system</q> setup is activated.";
+			}
 			break;
 		case "lost":
 			// Fall through
@@ -1285,11 +1297,11 @@ function showBox(concept) {
 		case "experience":
 			displayTxt = conceptLink("Combat Ship")+" groups can gain experience from destroying enemy ships in a "+conceptLink("battle")+".\
 				<br />The levels are: Green / Skilled / Veteran / Elite / Legendary.<br />\
-				"+conceptLink("Ship Yard")+"s / "+conceptLink("Base")+"s / "+conceptLink("ground unit")+"s / "+conceptLink("Doomsday Machine")+"s / "+conceptLink("Space Amoeba")+"s \
+				"+conceptLink("Immobile")+" craft / "+conceptLink("ground unit")+"s / "+conceptLink("Doomsday Machine")+"s / "+conceptLink("Space Amoeba")+"s \
 				neither have a skill level <span class=\"bindTxt\">(always counts as equal sans "+conceptLink("Hull Size")+" modifiers)</span>, \
 				nor do they award experience when destroyed.<br /><br />\
 				Ships that have an experience advantage over an opposing group gain "+conceptLink("Attack")+" +1 (1 level advantage),<br />\
-				effective "+conceptLink("Defense")+" +1 (2 level advantage), and can be untargetable (3 levels advantage).<br /><br />\
+				effective "+conceptLink("Defense")+" +1 (2 level advantage), and can be untargetable (3 level advantage).<br /><br />\
 				Elite+ ships benefit from "+conceptLink("low maintenance")+". Legendary ships are one "+conceptLink("Hull Size")+" more durable.";
 			break;
 		case "facilities":
@@ -2941,10 +2953,12 @@ function showBox(concept) {
 		case "talon":
 			displayTxt = "Younger and faster paced sibling to the "+conceptLink("Space Empires 4X")+" board game.<br />\
 				Rather than two or more empires duking it out on a galactic scale, two "+conceptLink("fleet")+"s duke it out in a scenario that span an entire "+conceptLink("battle")+".<br /><br />\
-				Named after the antagonist "+conceptLink("faction")+" responsible for invading "+conceptLink("Terran")+" space, and made by several of the very same people.<br />\
-				Their ships use "+conceptLink("Disruptor")+"s, "+conceptLink("Missile Launcher")+"s and "+conceptLink("Fusion Cannon")+"s.";
+				Named after the antagonist "+conceptLink("faction")+" responsible for invading "+conceptLink("Terran")+" space, and made by several of the very same people.";
 				
-			if (useRuleset != "talon") {
+			if (useRuleset == "talon") {
+				displayTxt = displayTxt + "<br />\
+					Their ships use "+conceptLink("Disruptor")+"s, "+conceptLink("Missile Launcher")+"s, "+conceptLink("Fusion Cannon")+"s, and "+conceptLink("Afterburner")+"s.";
+			} else {
 				displayTxt = displayTxt + "<br /><br />There are crossover scenarios that use one (170) or <i>both</i> (258) Talon boards on a galactic scale \
 					<span class=\"bindTxt\">(versus the original 150 "+conceptLink("hex")+"es)</span>, and that it is possible to mix the strategic aspects of Space Empires and the tactical aspects of Talon.";
 			}
@@ -2955,8 +2969,12 @@ function showBox(concept) {
 		case "terran":
 			displayTxt = "The humans who explored the vast depths of "+conceptLink("deep space")+". \
 				They wisely built a collection of defensive ships when unrecognized FTL signatures were detected, \
-				eventually coming into contact with the "+conceptLink("Talon")+" "+conceptLink("faction")+".<br />\
-				Their ships use "+conceptLink("Phaser")+"s, "+conceptLink("Anti-Matter Torpedo")+"es and "+conceptLink("Wave-Motion Gun")+"s.";
+				eventually coming into contact with the "+conceptLink("Talon")+" "+conceptLink("faction")+".";
+				
+			if (useRuleset == "talon") {
+				displayTxt = displayTxt + "<br />\
+					Their ships use "+conceptLink("Phaser")+"s, "+conceptLink("Anti-Matter Torpedo")+"es, "+conceptLink("Wave-Motion Gun")+"s, and "+conceptLink("Batteries")+".";
+			}
 			break;
 		case "minor victory":
 			// Fall thru
@@ -3066,7 +3084,7 @@ function showBox(concept) {
 		case "ai solitaire":
 			headingTxt = "AI Solitaire";
 			displayTxt = "Scenario (usually "+conceptLink("Last Ship Standing")+") against the [literal] "+conceptLink("AI")+" faction. \
-				Difficulty settings determine how much extra "+conceptLink("SP")+" the antagonist AI get.";
+				Difficulty settings determine how much extra "+conceptLink("SP")+" (0-30%) the AI gets.";
 			break;
 		case "priority target":
 			headingTxt = "Priority Target (PT)";
@@ -3747,7 +3765,7 @@ function keywordifyCollection(collObj) {
 		"Fastmove", "Second Salvo",
 		"Quick Start", "Slingshot", "Gearing Limits", "Unpredictable Research", "Research Grant", "Heavy Terrain",
 		"Safer Space", "Slow Scientists", "Smart Scientists", "Bloody Combat", "Head Start", "Galactic Situation",
-		"Transport", "Troops", "Capture", "Militia", "Light Infantry", "Space Marines", "Heavy Infantry", "Grav Armor", "Drop Ships",
+		"Transport", "Troops", "Capture", "Capturing", "Militia", "Light Infantry", "Space Marines", "Heavy Infantry", "Grav Armor", "Drop Ships",
 		"Experience", "RP", "Boarding", "Security Forces", "Military Academy", "Flagship", "Swallow",
 		"Facility", "Facilities", "Industrial Center", "Research Center", "Logistic Center", "Temporal Center",
 		"Advanced Construction",

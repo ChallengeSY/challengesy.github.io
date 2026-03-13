@@ -2123,10 +2123,12 @@
 			"revealCounter":"systemI7",
 			"name":"planetY6"
 		}]},
-	{"heading":"Stardate 2410.2 (Conclusion)",
+	{"heading":"Stardate 2410.0 (Conclusion)",
 	"commentary":[
-		"Hermes conceded, ending this playthrough in victory for us. 19 pages may seem confusing, but we found the newly introduced AP Bot system easier to follow as we progressed through this playthrough. Damaging/destroying their colonies has a profound impact on their ability to sustain fleets, especially on lower difficulty settings where they get <i>fewer</i> home system economic rolls. On top of that, sufficiently small maps (at most 2 rows of deep space) effectively cap their income, as the value of Terraforming technology becomes next to non-existant; making deep space economic rolls unobtainable.",
-		"Since this was our first adventure, we made no assumptions on how easy or difficult it would be. Not all scenarios are created equal throughout the Space Empires Anthology. Most notably, we argue that Replicator Solitaire is overtuned. Still, we opted to scale back on complexity where we could. Whenever we do another one, we probably will add some complexity back into the mixture."],
+		"Hermes conceded, ending this playthrough in victory for us. 19 pages may seem confusing, but we found the newly introduced AP Bot system easier to follow as we progressed through this playthrough. Damaging/destroying/capturing their colonies has a profound impact on their ability to sustain fleets, especially on lower difficulty where they get <i>fewer</i> home system economic rolls.",
+		"Furthermore, out of the three homeworld configurations that are supported, we went with the configuration (20 CP and no facilities) that gave them the lowest number of such rolls (6). Their starting economic rolls are increased if we play with 30 CP homeworlds (+1), or if we toss facilities into the equation (+3). On top of that, sufficiently small maps (at most 2 rows of deep space) effectively cap their income, as the value of Terraforming technology becomes next to non-existant; making deep space rolls virtually unobtainable.",
+		"Since this was our first adventure, we made no assumptions on how easy or difficult it would be. Not all scenarios are created equal throughout the Space Empires Anthology. Most notably, we argue that Replicator Solitaire is overtuned. Still, we opted to scale back on complexity where we could. Whenever we do another one, we probably will add some complexity back into the mixture.",
+		"Granted; it could be argued we did something wrong with the AP Bot during the early stages of this adventure, when we placed their Exploration Vessels one economic phase too late; but this is one of the reasons we designated this as a learning playthrough. Mistakes get ironed out as we improve our knowledge and understanding."],
 	"actions":
 		[]}
 ]}
