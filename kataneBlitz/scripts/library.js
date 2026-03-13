@@ -1058,6 +1058,49 @@ function createBombModule(moduleObj, moduleClass) {
 			frameDiv.id = moduleObj.id+"nbF";
 			moduleObj.appendChild(frameDiv);
 			break;
+			
+		// Pack 3 modules
+		case "coloFlash":
+			var labels = ["Yes", "No"];
+			var newCombo = null, prevCombo = {word: null, color: null};
+			
+			frameDiv = document.createElement("div");
+			frameDiv.className = "colFlashFrame";
+		
+			for (var w = 0; w <= 8; w++) {
+				newWord = document.createElement("div");
+				newWord.className = "colFlashDisp";
+				newWord.id = moduleObj.id+"cfW"+w;
+
+				if (w == 0) {
+					newWord.innerHTML = "&nbsp;";
+				} else {
+					do {
+						newCombo = {word: colFlashWords[irandom(0,colFlashWords.length-1)],
+							colour: colFlashColors[irandom(0,colFlashColors.length-1)]};
+					} while (newCombo.word == prevCombo.word && newCombo.colour == prevCombo.colour);
+					prevCombo = newCombo;
+					
+					newWord.innerHTML = newCombo.word;
+					newWord.style.color = newCombo.colour;
+					newWord.style.display = "none";
+				}
+				
+				frameDiv.appendChild(newWord);
+			}
+
+			for (var b = 1; b <= 2; b++) {
+				colButton = document.createElement("button");
+				colButton.className = "colFlashButton";
+				colButton.id = moduleObj.id+"cfB"+labels[b-1].charAt(0);
+				colButton.innerHTML = labels[b-1];
+				colButton.onclick = function() {pressColFlashButton(moduleObj, this);}
+				frameDiv.appendChild(colButton);
+			}
+			
+			frameDiv.id = moduleObj.id+"cfF";
+			moduleObj.appendChild(frameDiv);
+			break;
 		
 		
 		default: 

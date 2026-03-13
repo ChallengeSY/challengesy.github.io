@@ -3316,6 +3316,7 @@ function readJson() {
 				placeHomeworld(23,11,plrColors.charAt(1));
 			} else if (actionPool[i].createPreset == "versus3P" || actionPool[i].createPreset == "doomsdayCoop3P" ||
 				actionPool[i].createPreset == "alienEmpiresCoop3P") {
+				expansionHWs = readValue(actionPool[i].useExpansion, false);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColors = actionPool[i].playerColors;
 				
