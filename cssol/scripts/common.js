@@ -23,7 +23,7 @@ var golfGame = false;
 var tallyStreak, longestStreak;
 var dynamicDealCt = false;
 var skipSounds = 0;
-var shuffleID = Math.floor(Math.random()*4);
+var shuffleID = Math.floor(Math.random()*6);
 var scoringModel = "buildUpSuit";
 var rankValue = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1];
 
@@ -1067,9 +1067,10 @@ function solDeck(numDecks) {
 	
 	// Shuffle method to randomize the card order
 	this.shuffle = function () {
-		this.cards.sort(function() {
-			return 0.5 - Math.random();
-		})
+		for (var c = this.cards.length - 1; c > 0; c--) {
+			let d = Math.floor(Math.random() * (c + 1));
+			[this.cards[c], this.cards[d]] = [this.cards[d], this.cards[c]];
+		}
 	}
 
 	// Deal a card
@@ -1282,13 +1283,9 @@ function getRank(object) {
 
 function shuffleDeck(decks) {
 	passField = document.getElementById("password");
-	numShuffles = 2 + decks * 5;
 	bestCasual = 0;
 
-	for (var i = 0; i < numShuffles; i++) {
-		playDeck.shuffle();
-	}
-	
+	playDeck.shuffle();
 	seedPassword = "";
 
 	for (var j = 0; j < 52 * decks; j++) {
