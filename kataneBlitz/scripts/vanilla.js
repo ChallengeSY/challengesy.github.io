@@ -869,7 +869,7 @@ function createRandomPassChars(targWord) {
 			}
 		}
 		
-		var tempWord
+		var tempWord;
 		
 		// Validate the columns
 		validate: {

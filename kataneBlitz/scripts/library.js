@@ -1059,6 +1059,7 @@ function createBombModule(moduleObj, moduleClass) {
 			moduleObj.appendChild(frameDiv);
 			break;
 			
+			
 		// Pack 3 modules
 		case "coloFlash":
 			var labels = ["Yes", "No"];
@@ -1102,6 +1103,112 @@ function createBombModule(moduleObj, moduleClass) {
 			moduleObj.appendChild(frameDiv);
 			break;
 		
+		case "coloSquares":
+			frameDiv = document.createElement("div");
+			frameDiv.className = "colSquareFrame";
+		
+			for (var y = 0; y < 4; y++) {
+				for (var x = 0; x < 4; x++) {
+					newSlot = document.createElement("div");
+					newSlot.className = "colSquareButton";
+					newSlot.id = moduleObj.id+"csTx"+x+"y"+y;
+					if (y < 1) {
+						newSlot.style.marginTop = "auto";
+					}
+					if (x == 0) {
+						newSlot.style.marginLeft = "auto";
+					}
+					
+					newSlot.innerHTML = "&nbsp;";
+					newSlot.onclick = function() {tapColoredSquare(moduleObj, this)};
+					
+					frameDiv.appendChild(newSlot);
+				}
+			}
+			
+			auxSlot = document.createElement("div");
+			auxSlot.className = "colSquareAux";
+			auxSlot.id = moduleObj.id+"csX";
+			frameDiv.appendChild(auxSlot);
+			
+			frameDiv.id = moduleObj.id+"csF";
+			moduleObj.appendChild(frameDiv);
+			break;
+		
+		case "twoBits":
+			bitDispDiv = document.createElement("div");
+			bitDispDiv.className = "twoBitDisplay";
+			bitDispDiv.innerHTML = "_ _";
+			bitDispDiv.id = moduleObj.id+"tbD";
+			moduleObj.appendChild(bitDispDiv);
+			
+			for (var d = 0; d < 10; d++) {
+				buttonDiv = document.createElement("div");
+				createButton = document.createElement("button");
+				createButton.className = "twoBitButton";
+				createButton.innerHTML = tbButtonLabels.charAt(d).toUpperCase();
+				createButton.onclick = function() {inputTBletter(moduleObj, this);}
+				buttonDiv.appendChild(createButton);
+				moduleObj.appendChild(buttonDiv);
+			}
+				
+			buttonDiv = document.createElement("div");
+			buttonDiv.className = "twoBitQuery";
+			createButton = document.createElement("button");
+			createButton.innerHTML = "Query";
+			createButton.onclick = function() {queryTwoBit(moduleObj);}
+			buttonDiv.appendChild(createButton);
+			moduleObj.appendChild(buttonDiv);
+			
+			shuffleDiv = document.createElement("div");
+			shuffleDiv.className = "twoBitShuffle";
+			shuffleDiv.innerHTML = shuffleArray(tbQueryTable);
+			shuffleDiv.id = moduleObj.id+"tbS";
+			moduleObj.appendChild(shuffleDiv);
+				
+			buttonDiv = document.createElement("div");
+			buttonDiv.className = "twoBitSubmit";
+			createButton = document.createElement("button");
+			createButton.innerHTML = "Submit";
+			createButton.onclick = function() {submitTwoBit(moduleObj);}
+			buttonDiv.appendChild(createButton);
+			moduleObj.appendChild(buttonDiv);
+
+			moduleObj.className = "twoBitsFrame";
+			break;
+		
+		case "lightsOut":
+			for (var y = 0; y < 3; y++) {
+				for (var x = 0; x < 3; x++) {
+					dispDiv = document.createElement("div");
+					dispDiv.className = "lightsOutSlot";
+					dispDiv.id = moduleObj.id+"nLx"+x+"y"+y;
+					dispDiv.onclick = function() {tapLOslot(moduleObj, this);}
+					moduleObj.appendChild(dispDiv);
+				}
+			}
+
+			timerDiv = document.createElement("div");
+			timerDiv.className = "lightsOutTimer needyTimer";
+			
+			timerMeter = document.createElement("meter");
+			timerMeter.id = moduleObj.id+"nH";
+			timerMeter.className = "needyModule";
+			timerMeter.max = 40;
+			timerMeter.min = -35;
+			timerDiv.appendChild(timerMeter);
+			
+			timerDiv.innerHTML += "<br />";
+
+			timerDisp = document.createElement("span");
+			timerDisp.id = moduleObj.id+"nT";
+			timerDisp.innerHTML = "&nbsp;";
+			timerDiv.appendChild(timerDisp);
+			moduleObj.appendChild(timerDiv);
+		
+			moduleObj.className = "lightsOutFrame";
+			break;
+
 		
 		default: 
 			newButton = document.createElement("button");
