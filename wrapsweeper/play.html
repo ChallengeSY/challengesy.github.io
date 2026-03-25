@@ -24,15 +24,24 @@
 		return -1; //not found 
 	}
 	
-	boardWidth = Math.min(Math.max(parseInt(getQueryParam("wid") != -1 ? getQueryParam("wid") : 8),2),128);
-	boardHeight = Math.min(Math.max(parseInt(getQueryParam("hei") != -1 ? getQueryParam("hei") : 8),2),128);
-	boardMines = Math.min(Math.max(parseInt(getQueryParam("mines") != -1 ? getQueryParam("mines") : 10),1),boardWidth*boardHeight-1);
 	gameModule = (getQueryParam("module") != -1 ? getQueryParam("module").toLowerCase() : defaultModule);
+	boardLength = Math.min(Math.max(parseInt(getQueryParam("len") != -1 ? getQueryParam("len") : 3),1),32);
+	boardWidth = Math.min(Math.max(parseInt(getQueryParam("wid") != -1 ? getQueryParam("wid") : 8),1),128);
+	boardHeight = Math.min(Math.max(parseInt(getQueryParam("hei") != -1 ? getQueryParam("hei") : 8),1),128);
+	if (gameModule == "prismsweeper") {
+		totalTiles = 2*(boardLength * boardWidth + boardLength * boardHeight + boardWidth * boardHeight);
+		boardWidth = Math.min(boardWidth,32);
+		boardHeight = Math.min(boardHeight,32);
+	} else {
+		totalTiles = boardWidth * boardHeight;
+	}
+	
+	boardMines = Math.min(Math.max(parseInt(getQueryParam("mines") != -1 ? getQueryParam("mines") : 10),0),totalTiles-1);
 	</script>
 </head>
 <body>
 
-<p id="banner"><a href="index.html"><img src="banner.png" alt="Wrapsweeper" /></a></p>
+<p id="banner"><a href="index.html"><img id="bannerDynam" src="banner.png" alt="Wrapsweeper" /></a></p>
 
 <p id="scoreboard">Flags: <span id="flags">0</span> / Time: <span id="time">0'00''</span>
 <span id="dmgpanel"><br />Damage: <span id="damage">0</span> / Penalty: <span id="penalty">0</span></span></p>
@@ -44,7 +53,7 @@
 
 <p style="text-align: center;" id="commandBar">
 <input class="button" type="button" id="newGame" onclick="newGame(false)" value="New game" />
-<input class="button" type="button" id="helpButton" onclick="toggleHelp()" value="Show help" />
+<input class="button" type="button" id="helpButton" onclick="toggleHelp()" value="Toggle help" />
 <span class="smScreen"><input type="checkbox" id="flagMode" name="flagMode" /> <label for="flagMode">Flag mode</label></span>
 </p>
 
@@ -52,7 +61,9 @@
 
 <div id="helpPanel"> 
 <h2>Instructions</h2>
-<p>The rules of Wrapsweeper are not so simple. The player is given an empty grid. The objective is to sweep the board, uncovering all safe tiles while also detonating as few mines as possible. Each safe tile has a number on it that determines how many adjacent tiles are mines. <span class="bigScreen">(Ctrl+Click a tile to mark a flag).</span> Tiles touch other tiles on sides and corners, and <em>will</em> wrap through borders! Wraparound makes it harder to play, but the chances of being forced to guess is reduced.</p>
+<p id="prismRules">The rules of Prismsweeper are quite complex. A set of six grids are dealt to the player, laid as if they were about to form a prism. The objective is to sweep the board, uncovering all safe tiles while also detonating as few mines as possible. Each safe tile has a number on it that determines how many adjacent tiles are mines. <span class="bigScreen">(Ctrl+Click a tile to mark a flag).</span> Tiles touch other tiles on sides and corners, and also wrap across adjacent edges!</p>
+
+<p id="wrapRules">The rules of Wrapsweeper are not so simple. The player is given an empty grid. The objective is to sweep the board, uncovering all safe tiles while also detonating as few mines as possible. Each safe tile has a number on it that determines how many adjacent tiles are mines. <span class="bigScreen">(Ctrl+Click a tile to mark a flag).</span> Tiles touch other tiles on sides and corners, and <em>will</em> wrap through borders! Wraparound makes it harder to play, but the chances of being forced to guess is reduced.</p>
 
 <p>Mines detonated will cause a time penalty, instead of ending the game. The penalty varies, but generally decreases as more of the board is cleared.</p>
 </div>

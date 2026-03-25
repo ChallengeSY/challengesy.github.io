@@ -30,12 +30,10 @@ function createBombModule(moduleObj, moduleClass) {
 		case "keypad":
 			var randColumn = irandom(0,5);
 			var drawChar = new Array(4);
-			var charPool = cloneArray(keypadTable[randColumn]);
+			var charPool = shuffleArray(keypadTable[randColumn]);
 			
 			for (var k = 0; k < 4; k++) {
-				rollChar = irandom(0,charPool.length-1);
-				drawChar[k] = charPool[rollChar];
-				charPool.splice(rollChar, 1);
+				drawChar[k] = charPool[k];
 				
 				newKeypad = document.createElement("button");
 				newKeypad.className = "keypad";
@@ -155,7 +153,7 @@ function createBombModule(moduleObj, moduleClass) {
 		
 		case "morse":
 			var targFreq = validMorseFreqs[irandom(0,validMorseFreqs.length-1)];
-			var animationTotal = Math.max((20000 - Math.floor(score/25)*1000),16000);
+			var animationTotal = Math.max((20000 - Math.floor(score[0]/25)*1000),16000);
 		
 			newLight = document.createElement("div");
 			newLight.className = "morseLight";
@@ -203,11 +201,12 @@ function createBombModule(moduleObj, moduleClass) {
 			var targWord = validPasswords[irandom(0,validPasswords.length-1)];
 
 			for (var u = 0; u < 5; u++) {
+				const col = u;
+				
 				newCell = document.createElement("div");
 				newButton = document.createElement("button");
 				newButton.className = "passDelta";
-				newButton.id = moduleObj.id+"u"+u;
-				newButton.onclick = function() {shiftPassColumn(moduleObj, this, false)};
+				newButton.onclick = function() {shiftPassColumn(moduleObj, col, false)};
 				newButton.innerHTML = "&#9650;";
 				newCell.style.textAlign = "center";
 				newCell.appendChild(newButton);
@@ -224,12 +223,13 @@ function createBombModule(moduleObj, moduleClass) {
 				moduleObj.appendChild(newCell);
 			}
 
-			for (var d = 0; d < 5; d++) {
+			for (let d = 0; d < 5; d++) {
+				const col = d;
+				
 				newCell = document.createElement("div");
 				newButton = document.createElement("button");
 				newButton.className = "passDelta";
-				newButton.id = moduleObj.id+"d"+d;
-				newButton.onclick = function() {shiftPassColumn(moduleObj, this, true)};
+				newButton.onclick = function() {shiftPassColumn(moduleObj, col, true)};
 				newButton.innerHTML = "&#9660;";
 				newCell.style.textAlign = "center";
 				newCell.appendChild(newButton);

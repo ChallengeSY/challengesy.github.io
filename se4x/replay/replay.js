@@ -1047,7 +1047,7 @@ function readJson() {
 				var LPconversion = [readValue(activePlayer.convertCP,0) + readValue(activePlayer.convertLP,0) * 3,
 					readValue(activePlayer.convertCP,0) + readValue(activePlayer.convertLP,0)];
 				
-				var availPoints = [readValue(activePlayer.initCP,0) + Math.max(readValue(activePlayer.colonyCP,0) + readValue(activePlayer.mineralCP,0) + readValue(activePlayer.pipeCP,0) - LPconversion[0], 0),
+				var availPoints = [initPoints + Math.max(readValue(activePlayer.colonyCP,0) + readValue(activePlayer.mineralCP,0) + readValue(activePlayer.pipeCP,0) - LPconversion[0], 0),
 					readValue(activePlayer.initRP,0) + readValue(activePlayer.colonyRP,0),
 					readValue(activePlayer.initLP,0) + readValue(activePlayer.colonyLP,0) + LPconversion[1] - readValue(activePlayer.maint,0) - readValue(activePlayer.bidLP,0),
 					readValue(activePlayer.initTP,0) + readValue(activePlayer.colonyTP,0)];
@@ -1189,21 +1189,28 @@ function readJson() {
 					constructTable = constructTable + "<tr>";
 				}
 				
-				var availCP = readValue(activePlayer.initCP,0) + Math.max(readValue(activePlayer.colonyCP,0) + 
+				var initPoints = readValue(activePlayer.initCP,0);
+				var availPoints = readValue(activePlayer.initCP,0) + Math.max(readValue(activePlayer.colonyCP,0) + 
 					readValue(activePlayer.mineralCP,0) + readValue(activePlayer.pipeCP,0) - readValue(activePlayer.maint,0),0);
-				var leftoverCP = availCP - readValue(activePlayer.bidCP,0) - readValue(activePlayer.techBuy,0) - readValue(activePlayer.unitBuy,0);
+				var leftoverPoints = availPoints - readValue(activePlayer.bidCP,0) - readValue(activePlayer.techBuy,0) - readValue(activePlayer.unitBuy,0);
+				
+				if (!isFinite(initPoints) || !isFinite(availPoints) || !isFinite(leftoverPoints)) {
+					initPoints = "?";
+					availPoints = "?";
+					leftoverPoints = "?";
+				}
 				
 				constructTable = constructTable + "<td>"+activePlayer.name+"</td> \
-					<td class=\"numeric\">"+readValue(activePlayer.initCP,0)+"</td> \
+					<td class=\"numeric\">"+initPoints+"</td> \
 					<td class=\"numeric increase\">+"+readValue(activePlayer.colonyCP,0)+"</td> \
 					<td class=\"numeric increase\">+"+readValue(activePlayer.mineralCP,0)+"</td> \
 					<td class=\"numeric increase\">+"+readValue(activePlayer.pipeCP,0)+"</td> \
 					<td class=\"numeric decrease\">-"+readValue(activePlayer.maint,0)+"</td> \
-					<td class=\"numeric\">"+availCP+"</td> \
+					<td class=\"numeric\">"+availPoints+"</td> \
 					<td class=\"numeric\">-"+readValue(activePlayer.bidCP,0)+"</td> \
 					<td class=\"numeric\">-"+readValue(activePlayer.techBuy,0)+"</td> \
 					<td class=\"numeric\">-"+readValue(activePlayer.unitBuy,0)+"</td> \
-					<td class=\"numeric\">"+leftoverCP+"</td></tr>"
+					<td class=\"numeric\">"+leftoverPoints+"</td></tr>"
 			}
 				
 			constructTable = constructTable + "</table>";
@@ -2087,6 +2094,8 @@ function readJson() {
 					} else {
 						convertName = "alien"+lastChar;
 					}
+				} else if (workId.startsWith("hid")) {
+					convertName = "hidden"+lastChar;
 				} else if (workId.startsWith("DM")) {
 					convertName = "doomsday";
 				} else if (workId.startsWith("type0V")) {

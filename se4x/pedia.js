@@ -476,6 +476,14 @@ function showBox(concept) {
 		case "primary objective":
 			displayTxt = "A scenario objective that must be completed in order to achieve victory.";
 			break;
+		case "public information":
+			displayTxt = "Information that is available to <i>all</i> players. "+conceptLink("Non-combat ship")+"s, explored "+conceptLink("hex")+"es, and income are always visible this way. \
+				"+conceptLink("Combat Ship")+"s become visible at the start of "+conceptLink("battle")+", and remain this way until they visit a friendly "+conceptLink("colony")+". \
+				"+conceptLink("Bid")+"s become visible at the end of the "+conceptLink("economic phase")+".";
+			if (useRuleset == "AGT") {
+				displayTxt = displayTxt + " The "+conceptLink("Hidden Exploration")+" variant introduces an exception towards "+conceptLink("deep space")+".";
+			}
+			break;
 		case "retreat":
 			if (useRuleset == "talon") {
 				displayTxt = "Process by which a "+conceptLink("ship")+" removes itself from "+conceptLink("battle")+" alive. Can be performed by entering a "+conceptLink("worm hole")+"; \
@@ -541,6 +549,12 @@ function showBox(concept) {
 			break;
 		case "space empires anthology":
 			displayTxt = "The base "+conceptLink("Space Empires 4X")+" game, plus the expansions that have been released: "+conceptLink("Close Encounters")+" / "+conceptLink("Replicators")+" / "+conceptLink("All Good Things");
+			break;
+		case "space imperia 4x":
+			headingTxt = "Space Imperia 4X";
+			displayTxt = "Computer-ized adaptation of "+conceptLink("Space Empires 4X")+", made by Breich Games. \
+				Supports base mechanics and its own "+conceptLink("AI")+" system, with the rest of the "+conceptLink("Space Empires Anthology")+" in development.";
+			provideLinks = -2;
 			break;
 		case "movement turn":
 			// Fall through
@@ -2323,6 +2337,22 @@ function showBox(concept) {
 				"+conceptLink("mineral")+"s, and "+conceptLink("space wreck")+"s.<br />\
 				("+conceptLink("Fighter")+"s in cargo are only destroyed if in excess of capacity. They may not be launched in "+conceptLink("battle")+".)";
 			break;
+		case "hidden exploration":
+			displayTxt = "Variant that splits knowledge of "+conceptLink("deep space")+" across two teams (using stands that came with "+conceptLink("AGT")+" accordingly). The following differences apply to the first exploring team, unless overridden:\
+				<ul style=\"max-width: 650px; margin-top: 0px; margin-left: auto; margin-right: auto; text-align: left;\">\
+				<li class=\"noKeywords\">When first explored by a ship, an additional "+conceptLink("decoy")+" may be placed. Whichever is removed depends on how hazardous the terrain is.</li>\
+				<li class=\"noKeywords\">"+conceptLink("Black hole")+"s automatically suck in ships when initially uncovered</li>\
+				<li class=\"noKeywords\">"+conceptLink("NPA")+" planets automatically destroy lone ships sent in by the first team</li>\
+				<li class=\"noKeywords\">"+conceptLink("Lost in space")+" markers are treated similarly to "+conceptLink("Danger")+" markers when initially uncovered, but no longer affect the first team afterwards</li>\
+				<li class=\"noKeywords\">"+conceptLink("Space pirates")+" are an exception to this gimmick, revealed right away and handled normally</li>\
+				<li class=\"noKeywords\">"+conceptLink("Regional maps")+" are a partial exception. Their effects are used right away, but benefit only the exploring player</li>\
+				<li class=\"noKeywords\">"+conceptLink("Mineral")+"s and "+conceptLink("Space Wreck")+"s can be picked up by a "+conceptLink("Miner")+"</li>\
+				<li class=\"noKeywords\">"+conceptLink("Supernova")+"s are treated similarly to "+conceptLink("Danger")+" markers when initially uncovered</li>\
+				<li class=\"noKeywords\">"+conceptLink("Fold in space")+" markers are ineffective when initially uncovered</li>\
+				<li class=\"noKeywords\">"+conceptLink("Quantum Filament")+"s are treated similarly to "+conceptLink("Danger")+" markers when initially uncovered</li>\
+				<li class=\"noKeywords\">Terrain with beneficial effects may be ignored to prevent revealing them</li></ul>\
+				";
+			break;
 		case "satellites":
 			// Fall thru... twice
 		case "satellite network":
@@ -3483,6 +3513,10 @@ function showBox(concept) {
 		displayTxt = displayTxt + "<br /><br />";
 	}
 	switch (provideLinks) {
+		case -2:
+			displayTxt = displayTxt + "<a class=\"interact\" href=\"https://store.steampowered.com/app/3815550/Space_Imperia_4X/\" target=\"_blank\">Visit the Store Page</a>";
+			break;
+
 		case 1:
 			displayTxt = displayTxt + "<a class=\"interact\" href=\"/se4x/batSims/doomsday.htm\" target=\"_blank\">Doomsday Machine simulator</a>\
 				<a class=\"interact\" href=\"/se4x/batSims/repSol.htm\" target=\"_blank\">Replicator Solitaire simulator</a>";
@@ -3750,10 +3784,10 @@ function keywordifyDocument() {
 }
 
 function keywordifyCollection(collObj) {
-	const keyTerms = ["Space Empires 4X", "Close Encounters", "Replicator", "All Good Things", "AGT", "Space Empires Anthology",
+	const keyTerms = ["Space Empires 4X", "Close Encounters", "Replicator", "All Good Things", "AGT", "Space Imperia 4X", "Space Empires Anthology",
 		"Replay Center", "Unique Designer", "Shuffler", "Zen Solitaire",
 		"AI", "Barren", "Campaign", "Colony", "Colonies", "Combat Ship", "CP", "Economic Phase", "Faction", "Homeworld", "Maintenance", "Planet", "Starship", "Scuttle", "Turn",
-		"Bid", "Competitive", "Cooperative", "Galactic Capitol", "Initiative", "Primary Objective", "Uneasy Alliance", "Versus Map", "Victory Point", "VP", "Blood Brothers",
+		"Bid", "Competitive", "Cooperative", "Galactic Capitol", "Initiative", "Primary Objective", "Public Information", "Uneasy Alliance", "Versus Map", "Victory Point", "VP", "Blood Brothers",
 		"Battle", "Battling", "Blockade", "Bombard", "Fleet", "FSB", "Immobile", "Non-Player Alien", "NPA", "Subdue", "Subduing", "Priority Class", "Retreat", "Round", "Screen", "Weakness", "Weapon Class",
 		"Alien-E", "Alien-D", "Alien-C", "Alien-B", "Alien-A", "Doomsday Machine", "DM", "Amoeba", "Alien Empires", "Alien Player", "Counter Tech", "Economic Roll",
 		"Decoy", "Scout", "Destroyer", "Cruiser", "Dreadnought", "Titan", "Ship Yard", "Base", "Mining Ship", "Miner",
@@ -3916,6 +3950,8 @@ function keywordifyCollection(collObj) {
 		{regex: conceptLink("quantum")+" filament", newTxt: conceptLink("quantum filament")},
 		{regex: "Storm "+conceptLink("Movement"), newTxt: conceptLink("Storm Movement")},
 		{regex: "storm "+conceptLink("movement"), newTxt: conceptLink("storm movement")},
+		{regex: "Hidden "+conceptLink("Exploration"), newTxt: conceptLink("Hidden Exploration")},
+		{regex: "hidden "+conceptLink("exploration"), newTxt: conceptLink("hidden exploration")},
 		{regex: conceptLink("aggressive"), newTxt: "aggressive"},
 		{regex: "Buffed "+conceptLink("Cruiser")+"s", newTxt: conceptLink("Buffed Cruisers")},
 		{regex: "buffed "+conceptLink("cruiser")+"s", newTxt: conceptLink("buffed cruisers")},
@@ -4026,6 +4062,7 @@ function keywordifyCollection(collObj) {
 		{regex: "lanet</a>ary", newTxt: "lanetary</a>"},
 		{regex: "ebula</a>e", newTxt: "ebulae</a>"},
 		{regex: "ebula</a>ic", newTxt: "ebulaic</a>"},
+		{regex: "id</a>ded", newTxt: "idded</a>"},
 		{regex: "id</a>ding", newTxt: "idding</a>"},
 		{regex: "</a>d", newTxt: "d</a>"},
 		{regex: "</a>ly", newTxt: "ly</a>"}
