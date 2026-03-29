@@ -273,7 +273,7 @@
 		}]},
 	{"heading":"Stardate 2401.0",
 	"commentary":[
-		"Here is where things operate differently. Because competitive games typically hide most information, we know not most of the AI's economic phase. Income and (at phase's end) bids <i>are</i> public information; which is why we can still see those figures on the production table. Their technology will also likely be <q>inaccurate</q>, as it updates as we learn of their studies.",
+		"Here is where things operate differently. Because competitive games typically hide most information, we know not most of the AI's economic phase. The public information that <i>is</i> available is reflected on the map (non-combat ships and explored hexes) and in the production table (income and, when all done, bids). Their technology will also likely be <q>inaccurate</q>, as it updates as we learn of their studies.",
 		"Anyway, we build 1 Scout (-6) and 2 Colony Ships (-16). This process spends all of our money. We can also see that the AI, dubbed Breich Alpha, built 2 colony ships themselves. Since neither player bidded, we can choose who takes the initiative. We will keep it for now."],
 	"prodTable":
 		[{
