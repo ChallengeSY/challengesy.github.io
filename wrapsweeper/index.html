@@ -32,7 +32,7 @@
 		}
 
 		function openMenu(submenu) {
-			var menuList = ["standard", "custom", "options"];
+			var menuList = ["standard", "prism", "custom", "options"];
 			
 			for (i = 0; i < menuList.length; i++) {
 				if (submenu == menuList[i]) {
@@ -44,9 +44,19 @@
 		}
 		
 		function updateDensity() {
-			denseMeter = document.getElementById("density");
-			var percentage = parseInt(document.forms[0]["mines"].value)*100/
-				(parseInt(document.forms[0]["wid"].value)*parseInt(document.forms[0]["hei"].value));
+			var denseMeter = document.getElementById("density");
+			var activeMode = document.forms[0]["module"].selectedIndex;
+			var totalTiles = parseInt(document.forms[0]["wid"].value)*parseInt(document.forms[0]["hei"].value);
+			
+			if (activeMode == 2) {
+				totalTiles = 2*(parseInt(document.forms[0]["len"].value)*parseInt(document.forms[0]["wid"].value) + 
+					parseInt(document.forms[0]["wid"].value)*parseInt(document.forms[0]["hei"].value) + 
+					parseInt(document.forms[0]["len"].value)*parseInt(document.forms[0]["hei"].value));
+			}
+			
+			document.forms[0]["len"].disabled = (activeMode != 2);
+			
+			var percentage = parseInt(document.forms[0]["mines"].value)*100/totalTiles;
 			
 			denseMeter.value = percentage;
 			denseMeter.innerHTML = percentage.toFixed(3)+"%";
@@ -54,24 +64,6 @@
 		}
 
 		function applyConfig(cName, cVal) {
-			if (cName == "pileDensity") {
-				findObj = document.getElementById("vertCard1");
-				
-				if (findObj) {
-					findObj.style.top = cVal+"px";
-				}
-			} else if (cName == "cardback") {
-				findObj = document.getElementById("backSample");
-				
-				if (findObj) {
-					applyBackId = cVal - 1;
-					
-					if (applyBackId >= 0) {
-						findObj.className = "card back"+applyBackId;
-					}
-				}
-			}
-			
 			setStorage(cName, cVal);
 			
 			if (!manualSave) {
@@ -104,6 +96,7 @@
 
 <!-- Main menu -->
 <p class="center"><button class="interact" onclick="openMenu('standard')">Standard Mode</button>
+<button class="interact" onclick="openMenu('prism')">Prism Mode</button>
 <button class="interact" onclick="openMenu('custom')">Custom Mode</button>
 <button class="interact" onclick="openMenu('options')">Options</button></p>
 
@@ -116,20 +109,31 @@ The main experience of Wrapsweeper<br />
 <a class="interact" href="play.html?wid=40&hei=24&mines=215">Master</a>
 </div>
 
+<!-- Prism Mode menu -->
+<div class="center" style="display: none;" id="prism">
+Prismsweeper lays out a set of 6 grids, the components necessary to form the solid it names<br />
+<a class="interact" href="play.html?len=3&wid=3&hei=3&mines=7&module=prismsweeper">Beginner</a>
+<a class="interact" href="play.html?len=6&wid=6&hei=3&mines=23&module=prismsweeper">Intermediate</a>
+<a class="interact" href="play.html?len=10&wid=6&hei=4&mines=51&module=prismsweeper">Expert</a>
+<a class="interact" href="play.html?len=12&wid=8&hei=6&mines=99&module=prismsweeper">Master</a>
+</div>
+
 <!-- Custom Mode menu -->
 <div class="center" style="display: none;" id="custom">
 Customize your experience<br />
 <form id="customForm" action="play.html" method="get">
-<label for="wid">Width</label>: <input class="text" id="wid" name="wid" type="number" min="2" max="299" value="8" size="4" onchange="updateDensity()" onblur="updateDensity()" /> /
-<label for="hei">Height</label>: <input class="text" id="hei" name="hei" type="number" min="2" max="299" value="8" size="4" onchange="updateDensity()" onblur="updateDensity()" /> /
-<label for="mines">Mines</label>: <input class="text" id="mines" name="mines" type="number" min="1" max="99999" value="10" size="5" onchange="updateDensity()" onblur="updateDensity()" />
+<label for="len">Length</label>: <input class="text numeric" id="len" name="len" type="number" min="1" max="32" value="3" size="4" onchange="updateDensity()" onblur="updateDensity()" /> /
+<label for="wid">Width</label>: <input class="text numeric" id="wid" name="wid" type="number" min="1" max="32" value="9" size="4" onchange="updateDensity()" onblur="updateDensity()" /> /
+<label for="hei">Height</label>: <input class="text numeric" id="hei" name="hei" type="number" min="1" max="32" value="9" size="4" onchange="updateDensity()" onblur="updateDensity()" /> /
+<label for="mines">Mines</label>: <input class="text numeric" id="mines" name="mines" type="number" min="0" max="6143" value="10" size="5" onchange="updateDensity()" onblur="updateDensity()" />
 <br />
-<label for="density">Density:</label> <meter style="width: 100px;" id="density" min="0.0" max="33.3" low="16.0" high="25.0" optimum="12.0"></meter> /
+<label for="density">Density:</label> <meter style="width: 200px;" id="density" min="0.0" max="35.0" low="16.0" high="25.0" optimum="12.0"></meter> /
 
 <label for="module">Ruleset</label>:
 <select class="text" id="module" name="module" onchange="updateDensity()" onblur="updateDensity()">
 <option id="wrapsweeper" name="wrapsweeper">Wrapsweeper</option>
 <option id="earthsweeper" name="earthsweeper" title="Board wraps horizontally, but not vertically">Earthsweeper</option>
+<option id="prismsweeper" name="prismsweeper" title="Board is laid out as a set of 6 faces making up a rectangular prism">Prismsweeper</option>
 </select>
 <br />
 <input class="button" type="submit" value="Play custom game" />
