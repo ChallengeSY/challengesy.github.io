@@ -156,7 +156,8 @@ function dmBase(strength) {
 	
 	if (useRuleset == "AGT") {
 		dmCommonC = dmCommonC + "<br /><br />As a "+conceptLink("scenario card")+", any DMs revealed "+conceptLink("battle")+" the ship that just revealed it, even via "+conceptLink("Exploration")+". \
-			They then move directly towards the revealing player's "+conceptLink("homeworld")+", avoiding subsequent "+conceptLink("battle")+"s as long as doing so would not prolong their journey.";
+			They then move directly towards the revealing player's "+conceptLink("homeworld")+", avoiding subsequent "+conceptLink("battle")+"s as long as doing so would not prolong their journey.\
+			<br /><br /><a href=\"javascript:showBox('DMMP')\">MP</a> DMs award 2 "+conceptLink("space wreck")+" rolls instantly if destroyed.";
 	}
 	
 	dmCommonC = dmCommonC + "<br /><br />If enabled outside the above, it moves 1-2 "+conceptLink("hex")+"es in a semi-random direction, \
@@ -420,7 +421,7 @@ function showBox(concept) {
 				if (useRuleset == "SE4X" || useRuleset == "CE") {
 					displayTxt = displayTxt + conceptLink("Ship Yard")+"s and "+conceptLink("Base")+"s are entirely immobile.";
 				} else {
-					displayTxt = displayTxt + conceptLink("Ship Yard")+"s and "+conceptLink("Base")+"s require the advantage "+conceptLink("On the Move")+" to have <i>any</i> mobility.";
+					displayTxt = displayTxt + conceptLink("Ship Yard")+"s and "+conceptLink("Base")+"s require the "+conceptLink("empire advantage")+" "+conceptLink("On the Move")+" to have <i>any</i> mobility.";
 					if (useRuleset == "AGT") {
 						displayTxt = displayTxt + "<br />"+conceptLink("Starbase")+"s and "+conceptLink("Defense Satellite Network")+"s still may never move.";
 					}
@@ -1048,7 +1049,7 @@ function showBox(concept) {
 				displayTxt = "Faction-exclusive transport ship, able to carry up to 4 "+conceptLink("Fighter")+" squadrons<br />";
 				displayTxt = displayTxt + statsTalon("Terran", 70, "Phasers x2", "4/4/4/4", 6, "3/5", "2/4");
 			} else {
-				displayTxt = "Combat transport craft, able to carry up to 3 "+conceptLink("Fighter")+"s into space";
+				displayTxt = "Combat transport craft, able to carry up to 3 "+conceptLink("Fighter")+"s into space, and to launch them into "+conceptLink("battle")+".";
 				displayTxt = displayTxt + stats4X("Base", 12, "E3", 0, 1, -1, conceptLink("Fighter")+" tech 1");
 			}
 			break;
@@ -1310,11 +1311,15 @@ function showBox(concept) {
 			displayTxt = displayTxt + stats4X("Base", 12, "F5", 0, 2, -1, conceptLink("Boarding")+" 1");
 			break;
 		case "capturing":
-			// Fall through
+			// Double fall through
+		case "capturable":
 		case "capture":
 			headingTxt = "Capture";
 			displayTxt = conceptLink("Combat Ship")+"s and "+conceptLink("planet")+"s can be captured in the respective "+conceptLink("battle")+"s. \
-				Whenever a compatible object gets captured, the victor is the new owner of said object";
+				Whenever a compatible object gets captured, the victor is the new owner of said object\
+				<br /><br />"+conceptLink("Boarding Ship")+"s are used to capture opposing ships. Ships captured this way are highly vulnerable until 2 "+conceptLink("round")+"s following capture.\
+				<br />(Does not count towards fleet size, nor can it shoot/"+conceptLink("retreat")+" in this state.)\
+				<br /><br />"+conceptLink("Ground Unit")+"s are used to capture opposing planets. Planets captured this way are reduced as if they endured 1 "+conceptLink("bombardment")+" hit, but survive being reduced to 0. (A colony already at 0 is instead treated as if the victor just colonized the planet.)";
 			break;
 		case "experience":
 			displayTxt = conceptLink("Combat Ship")+" groups can gain experience from destroying enemy ships in a "+conceptLink("battle")+".\
@@ -1396,7 +1401,10 @@ function showBox(concept) {
 				Resistant to "+conceptLink("Mines")+" and "+conceptLink("Fleet Size Bonus")+". \
 				Weak to "+conceptLink("Fighter")+"s. Unable to "+conceptLink("retreat")+" or be "+conceptLink("screen")+"ed.";
 				displayTxt = displayTxt + stats4X("Base", 32, "A7", 3, 5, -1, conceptLink("Ship Size")+" 7");
-				displayTxt = displayTxt + stats4X("Alternate", "&infin;", "A7", 3, 5)+"<br /><b>Required <a href=\"javascript:showBox('Empire Advantage')\">Advantage</a></b>: "+conceptLink("War Sun");
+				displayTxt = displayTxt + stats4X("Alternate", "&infin;", "A7", 3, 5);
+				if (useRuleset == "AGT") {
+					displayTxt = displayTxt + "<br /><b>Required <a href=\"javascript:showBox('Empire Advantage')\">Advantage</a></b>: "+conceptLink("War Sun");
+				}
 			break;
 			
 		// Troops concepts
@@ -1407,7 +1415,8 @@ function showBox(concept) {
 				displayTxt = displayTxt + statsTalon("Talon", 36, "No weapons", "5/4/4/3", 4, 2, 2);
 			} else {
 				if (useRuleset == "AGT") {
-					displayTxt = "Utility "+conceptLink("combat ship")+", able to pick up 6 "+conceptLink("ground unit")+"s and/or "+conceptLink("fighter")+"s; or up to 30 "+conceptLink("LP")+" worth of crates";
+					displayTxt = "Utility "+conceptLink("combat ship")+", able to pick up 6 "+conceptLink("ground unit")+"s and/or "+conceptLink("fighter")+"s; or up to 30 "+conceptLink("LP")+" worth of crates\
+						<br />Fighters carried this way can not be launched into "+conceptLink("battle")+"";
 				} else {
 					displayTxt = "Utility "+conceptLink("combat ship")+", able to pick up 6 "+conceptLink("ground unit")+"s from friendly "+conceptLink("colonies")+" and use them to invade enemy colonies";
 				}
@@ -1597,7 +1606,8 @@ function showBox(concept) {
 			displayTxt = conceptLink("Boarding Ship")+"s and "+conceptLink("Transport")+"s benefit from "+conceptLink("low maintenance")+".";
 			break;
 		case "minesweep jammer":
-			displayTxt = conceptLink("Minesweeper")+"s used against the holder are one level less in effectiveness. Reducible to level 0 (0 mines per sweeper).";
+			displayTxt = conceptLink("Minesweeper")+"s used against the holder are one level less in effectiveness. Reducible to level 0 (0 mines per sweeper).\
+				<br /><br />"+conceptLink("Replicator")+" "+conceptLink("Type SW")+"s used against the holder are instead half as effective (round down <i>totals</i> per "+conceptLink("hex")+").";
 			break;
 		case "air support":
 			displayTxt = conceptLink("Transport")+"s are usable in ground "+conceptLink("battle")+"s, but are unable to be used to "+conceptLink("capture")+" a "+conceptLink("planet")+".\
@@ -1712,8 +1722,10 @@ function showBox(concept) {
 			break;
 		case "space pilgrims":
 			displayTxt = "Empire's ships are unaffected by "+conceptLink("Asteroid")+"s, "+conceptLink("Nebula")+", \
-				"+conceptLink("Black Hole")+"s, and "+conceptLink("Lost in Space")+" markers when moving; \
-				even when using a "+conceptLink("slingshot")+".";
+				"+conceptLink("Black Hole")+"s, and "+conceptLink("Lost in Space")+" markers when moving; even when using a "+conceptLink("slingshot")+".";
+			if (useRuleset == "AGT") {
+				displayTxt = displayTxt + "<br /><br />If acquired as an "+conceptLink("auxiliary")+" technology, this perk affects <i>only</i> the ship type the tech was drawn for.";
+			}
 			break;
 		case "hive mind":
 			displayTxt = "Empire adapts to their opponents. Starting at "+conceptLink("round")+" 2 of each "+conceptLink("battle")+", \
@@ -1874,7 +1886,9 @@ function showBox(concept) {
 		case "anti-sensor hull":
 			headingTxt = "Anti-Sensor Hull";
 			displayTxt = "Allows the "+conceptLink("Unique Ship")+" to be optionally immune to "+conceptLink("mines");
-			if (useRuleset == "rep" || useRuleset == "AGT") {
+			if (useRuleset == "AGT") {
+				displayTxt = displayTxt + "<br />"+conceptLink("Battle Carrier")+"s and potentially a random alternate type (as granted by "+conceptLink("auxiliary")+" tech) are also equipped with this perk.";
+			} else if (useRuleset == "rep") {
 				displayTxt = displayTxt + "<br />"+conceptLink("Battle Carrier")+"s are also equipped with this perk.";
 			}
 			break;
@@ -1982,7 +1996,7 @@ function showBox(concept) {
 		case "battle carrier":
 			headingTxt = "Battle Carrier";
 			displayTxt = "Heavy "+conceptLink("Carrier")+" variant, equipped with "+conceptLink("Anti-Sensor Hull")+"s, \
-				and able to carry 6 "+conceptLink("Fighter")+"s and benefit from "+conceptLink("Fastmove")+" 2 technology\
+				and able to carry/launch 6 "+conceptLink("Fighter")+"s and benefit from "+conceptLink("Fastmove")+" 2 technology\
 				"+ stats4X("Base", 20, "B5", 1, 3) + "<br /><b>Required Techs</b>: "+conceptLink("Fighter")+" 1 and "+conceptLink("Advanced Construction")+" 2";
 			break;
 		case "miner-x":
@@ -2310,6 +2324,8 @@ function showBox(concept) {
 				increased "+conceptLink("home system")+" variety, "+conceptLink("cosmic storm")+"s + other terrain, \
 				"+conceptLink("scenario card")+"s, "+conceptLink("mission card")+"s, "+conceptLink("crew card")+"s, and more "+conceptLink("facilities")+".";
 			break;
+		case "auxiliary technology":
+			// Fall thru
 		case "auxiliary":
 			headingTxt = "Auxiliary Technology";
 			displayTxt = "Additional technology that can be outfitted to a "+conceptLink("Battlecruiser")+", "+conceptLink("Battleship")+", or "+conceptLink("Dreadnought")+".<br />\
@@ -2321,6 +2337,13 @@ function showBox(concept) {
 			} else {
 				displayTxt = displayTxt + "Fastmove aside, these augmentations require "+conceptLink("Advanced Construction")+" 1.";
 			}
+			break;
+		case "advanced munitions":
+			displayTxt = "Ability that allows the compatible ship to mount one additional "+conceptLink("Attack")+" technology, allowing even Attack 4. \
+				Available exclusively as "+conceptLink("auxiliary")+" technology.";
+			break;
+		case "construction efficiency":
+			displayTxt = "Compatible ships cost 2 less "+conceptLink("CP")+" to build. Available exclusively as "+conceptLink("auxiliary")+" technology.";
 			break;
 		case "storm movement":
 			// Fall thru
@@ -2528,6 +2551,9 @@ function showBox(concept) {
 			headingTxt = "Fleet Strategy";
 			displayTxt = "A strategy that an "+conceptLink("AP bot")+" uses to determine how to buy "+conceptLink("technology")+" and built "+conceptLink("ship")+"s remotely.\
 				<br />Pursued until the corrosponding "+conceptLink("paranoia")+" check fails while there is 30+ "+conceptLink("CP")+" in the tech bank.";
+			break;
+		case "key ship":
+			displayTxt = "Ships that are most integral to the current "+conceptLink("fleet strategy")+".";
 			break;
 		case "biggest ship":
 			headingTxt = "Biggest Ships";
@@ -3721,7 +3747,7 @@ function showBox(concept) {
 			break;
 		case "battle simulator":
 			displayTxt = "Program that simulates "+conceptLink("battle")+"s using its internal dice rolling and targeting systems.<br />\
-				"+conceptLink("Doomsday Machine")+" and "+conceptLink("Replicator Solitaire")+" simulations are supported.";
+				A limited subset of solo scenarios are supported.";
 			provideLinks = 1;
 			break;
 		case "unique designer":
@@ -3833,7 +3859,8 @@ function showBox(concept) {
 						displayTxt = displayTxt + "<a class=\"interact\" href=\"/se4x/shufflers/resource.htm\" target=\"_blank\">Resource Cards</a>";
 						
 						if (useRuleset != "Rep") {
-							displayTxt = displayTxt + " <span class=\"bindTxt\"><a class=\"interact\" href=\"/se4x/shufflers/crew.htm\" target=\"_blank\">Crew</a>\
+							displayTxt = displayTxt + " <span class=\"bindTxt\"><a class=\"interact\" href=\"/se4x/shufflers/auxTech.htm\" target=\"_blank\">Aux Tech</a>\
+								<a class=\"interact\" href=\"/se4x/shufflers/crew.htm\" target=\"_blank\">Crew</a>\
 								<a class=\"interact\" href=\"/se4x/shufflers/scenario.htm\" target=\"_blank\">Scenario Cards</a>\
 								<a class=\"interact\" href=\"/se4x/shufflers/dspa.htm\" target=\"_blank\">DSPA</a></span>";
 						}
@@ -4107,7 +4134,7 @@ function keywordifyCollection(collObj) {
 		"Fastmove", "Second Salvo",
 		"Quick Start", "Slingshot", "Gearing Limits", "Unpredictable Research", "Research Grant", "Heavy Terrain",
 		"Safer Space", "Slow Scientists", "Smart Scientists", "Bloody Combat", "Head Start", "Galactic Situation",
-		"Transport", "Troops", "Capture", "Capturing", "Militia", "Light Infantry", "Space Marines", "Heavy Infantry", "Grav Armor", "Drop Ships",
+		"Transport", "Troops", "Capture", "Capturing", "Capturable", "Militia", "Light Infantry", "Space Marines", "Heavy Infantry", "Grav Armor", "Drop Ships",
 		"Experience", "RP", "Boarding", "Security Forces", "Military Academy", "Flagship", "Swallow",
 		"Facility", "Facilities", "Industrial Center", "Research Center", "Logistic Center", "Temporal Center",
 		"Advanced Construction",
@@ -4120,10 +4147,11 @@ function keywordifyCollection(collObj) {
 		"Depletion", "Deplete", "Advanced Research", "Self-Preservation",
 		"Hull", "Type 0", "Type II", "Type IV", "Type V", "Type IX", "Type XI", "Type XV",
 		"Type Exp", "Type Flag", "Type PD", "Type Scan", "Type SW",
-		"Cosmic Storm", "Ion Storm", "Jammer", "Missile", "Plasma Storm", "Quantum", "Quasar", "Satellites", "Satellite Network", "Scenario Card", "Sinister", "Space Station",
+		"Cosmic Storm", "Ion Storm", "Plasma Storm", "Quantum", "Quasar", "Scenario Card", "Sinister", "Space Station",
+		"Advanced Munitions", "Construction Efficiency", "Jammer", "Missile", "Satellites", "Satellite Network",
 		"Mission Card",
 		"Crew Card",
-		"AP Bot", "AP bot", "EV", "FOB", "Morale", "Offense Posture", "Paranoia", "Prime Directive", "Biggest Ship", "Yarr",
+		"AP Bot", "AP bot", "EV", "FOB", "Morale", "Offense Posture", "Paranoia", "Prime Directive", "Key Ship", "Biggest Ship", "Hit and Run", "Yarr",
 		"Aggressive", "Spice", "Abundant", "Wealthy", "Poor", "Desolate", "Builder", "Accurate", 
 		"Talon", "Terran", "EFV", "PPT", "SP", "LP", "Astrometrics Lab", "Deployment Zone", "Reserve",
 		"Empire War", "Conflict Zone", "Marginal Victory", "Tactical Victory", "Decisive Victory",
@@ -4260,6 +4288,8 @@ function keywordifyCollection(collObj) {
 		{regex: conceptLink("quantum")+" filament", newTxt: conceptLink("quantum filament")},
 		{regex: "Storm "+conceptLink("Movement"), newTxt: conceptLink("Storm Movement")},
 		{regex: "storm "+conceptLink("movement"), newTxt: conceptLink("storm movement")},
+		{regex: "Auxiliary "+conceptLink("Technology"), newTxt: conceptLink("Auxiliary Technology")},
+		{regex: "auxiliary "+conceptLink("technology"), newTxt: conceptLink("auxiliary technology")},
 		{regex: "Hidden "+conceptLink("Exploration"), newTxt: conceptLink("Hidden Exploration")},
 		{regex: "hidden "+conceptLink("exploration"), newTxt: conceptLink("hidden exploration")},
 		{regex: conceptLink("aggressive"), newTxt: "aggressive"},

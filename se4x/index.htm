@@ -9,29 +9,68 @@
 	<title>Space Empires Resourcepedia</title>
 
 	<link type="text/css" href="../nuCampaign/planets.css" rel="stylesheet" />
+	<script src="shufflers/manage.js"></script>
 	<script src="pedia.js"></script>
+	<script>
+		function openMenu(submenu) {
+			var subMenuArray = ['batSims', 'shuffler', 'smaller'];
+			
+			for (i = 0; i < subMenuArray.length; i++) {
+				if (submenu == subMenuArray[i]) {
+					document.getElementById(subMenuArray[i]).style.display = "";
+				} else {
+					document.getElementById(subMenuArray[i]).style.display = "none";
+				}
+			}
+			
+			if (submenu == "shuffler") {
+				checkShufflerData();
+			}
+		}
+	</script>
 </head>
-<body onload="setupBox()">
+<body>
 
 <p id="banner"><img src="banner.png" alt="Space Empires 4X Resourcepedia" /></p>
 
 <p>Welcome to the <strong>Space Empires Resourcepedia</strong>, a supplementary collection of resources designed to augment the experience of the <a href="https://www.gmtgames.com/xsearch?searchterm=Space+Empires">board game</a> and related games.</p>
 
-<h2>Sub-project List</h2>
+<!-- Main Menu -->
+<p id="menu">
+<a class="interact" href="replay/">Replay Center</a>
+<button class="interact" onclick="openMenu('batSims')">Battle Simulators</button>
+<button class="interact" onclick="openMenu('shuffler')">Shufflers</button>
+<button class="interact" onclick="openMenu('smaller')">Smaller Apps</button></p>
 
-<h3>Battle Simulators</h3>
-<p>This collection supports near-through simulations of a player fleet versus one or more environmental opponents. The following modules are currently supported.</p>
+<!-- Battle Simulators menu -->
+<div class="center" style="display: none;" id="batSims">
+<a class="interact" href="batSims/doomsday.htm">Doomsday Machines</a>
+<a class="interact" href="batSims/repSol.htm">Replicator Solitaire</a>
+</div>
 
-<p style="text-align: center;"><a class="interact" href="batSims/doomsday.htm">Doomsday Machines</a> <a class="interact" href="batSims/repSol.htm">Replicator Solitaire</a></p>
+<!-- Shufflers menu -->
+<div class="center" style="display: none;" id="shuffler">
+<a class="interact" href="shufflers/homeSystem.htm">Home System</a>
+<a class="interact" href="shufflers/deepSpace.htm">Deep Space</a>
+<a class="interact" href="shufflers/npa.htm">Non-Player Aliens</a>
+<a class="interact" href="shufflers/empireAdv.htm">Empire Advantages</a>
+<a class="interact" href="shufflers/alienTech.htm">Alien Tech</a>
+<a class="interact" href="shufflers/resource.htm">Resource Cards</a>
+<a class="interact" href="shufflers/auxTech.htm">Auxiliary Tech</a>
+<a class="interact" href="shufflers/scenario.htm">Scenario Cards</a>
+<a class="interact" href="shufflers/crew.htm">Crew Cards</a>
+<a class="interact" href="shufflers/dspa.htm">Attributes</a>
+<a class="interact" href="shufflers/talonAI.htm">Talon AI</a>
+<button class="interact" id="resetShufflers" onclick="clearShufflerData()" disabled="disabled">Reset All</button>
+</div>
 
-<h3><a href="replay/">Replay Center</a></h3>
-<p>This program allows viewing playthroughs in a more interactive format. The oldest playthroughs have been migrated, and more playthroughs are occasionally added.</p>
+<!-- Smaller Apps menu -->
+<div class="center" style="display: none;" id="smaller">
+<a class="interact" href="talFleetBldr.htm">Talon Fleet Builder</a>
+<a class="interact" href="uniqueDesign.htm">Unique Ship Designer</a>
+</div>
 
-<h3><a href="talFleetBldr.htm">Talon Fleet Builder</a></h3>
-<p>Although very loosely related to <a href="javascript:showBox('Space Empires 4X')">Space Empires</a> by itself, it is possible to design your own <a href="javascript:showBox('fleet')">fleet</a> for almost any <a href="javascript:showBox('Talon')">Talon</a> battle. It is also possible to set up for an <a href="javascript:showBox('Empire War')">Empire War</a>.</p>
-
-<h3><a href="uniqueDesign.htm">Unique Ship Designer</a></h3>
-<p>This program allows easily designing your own <a href="javascript:showBox('Unique Ship')">Unique Ship</a>, as if you were playing a <a href="javascript:showBox('Close Encounters')">Close Encounters</a> expansion game.</p>
+<hr />
 
 <p class="footer">
 <a class="interact" href="../spaceYard.htm">Return to Space Yard</a>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta name="description" content="Space Empires 4X Resourcepedia" />
+	<meta name="keywords" content="Space, Empires, Space Empires" />
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>SE4X - Alien Tech Shuffler</title>
+
+	<link type="text/css" href="shufflers.css" rel="stylesheet" />
+	<script src="../pedia.js"></script>
+	<script src="alienTech.js"></script>
+	<script src="common.js"></script>
+</head>
+<body>
+<p id="banner"><a href="../index.htm"><img src="../banner.png" alt="Space Empires 4X Resourcepedia" /></a></p>
+
+<hr />
+
+<h2>Alien Technology Shuffler</h2>
+
+<table class="clean">
+<thead>
+<tr>
+<th>Card</th>
+<td></td>
+<th>Stock</th>
+<th>Maximum</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<th>Total</th>
+<td></td>
+<td class="numeric" id="totalStock">0</td>
+</tr>
+</tfoot>
+<tbody id="inventory">
+</tbody>
+</table>
+
+<p class="noKeywords center">
+<input class="button" type="button" onclick="applyPreset([])" value="Clear all" />
+<input class="button" type="button" onclick="applyPreset([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1])" value="Close Encounters" />
+<input class="button" type="button" onclick="applyPreset([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1])" value="Replicators" />
+<input class="button" type="button" onclick="applyPreset([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1])" value="All Good Things" />
+<span class="bigScreen">&mdash;</span><br class="smScreen" /><br class="smScreen" />
+<input class="button" type="button" onclick="buildDeck(1)" value="Build Single Deck" />
+<input class="button" type="button" onclick="buildDeck(2)" value="Build Double Deck" />
+<input class="button" type="button" onclick="dealItems(1)" value="Deal One" id="dealOne" />
+<input class="button" type="button" onclick="dealItems(2)" value="Deal Two" id="dealTwo" />
+</p>
+
+<hr />
+
+<h2>Instructions</h2>
+<p>This Shuffler allows for the creation of <i>nearly any</i> deck of alien technology cards. Select a preset <i>or</i> design your own deck, build a single or double <q>deck</q> (with the latter causing <i>twice</i> as many cards to be generated), and then deal away as cards are drawn. This program also saves your stock of cards from one session to another.</p>
+
+</body>
+</html>

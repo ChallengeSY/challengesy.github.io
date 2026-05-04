@@ -19,6 +19,8 @@
 			"playerTop":"V9",
 			"playerBottom":"R3",
 			"extraHexAway":false
+		},{
+			"useRuleset":"rep"
 		}]},
 	{"heading":"Stardate 2400.3",
 	"commentary":["Space Pilgrims left us so spoiled last time. We should hold back our more expensive starships and our Miner this time."],

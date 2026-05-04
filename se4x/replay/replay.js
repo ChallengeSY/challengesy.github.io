@@ -4,6 +4,7 @@ var stageNum = 0;
 var multiStages = true;
 var doubleDS = false;
 var expansionHWs = false;
+var initFacilities = 0;
 var boardCreated = false;
 var alienHWs = 0;
 const letterRows = "LKJIHGFEDCBAZYXWVUTSRQPONM";
@@ -230,6 +231,17 @@ function autoNameCounter(localObj) {
 				localObj.title = "Miner (with Space Wreck towed)"
 				break;
 		}
+	} else if (localObj.src.indexOf("gfx/IC") >= 0) {
+		localObj.title = "Industrial Center";
+	} else if (localObj.src.indexOf("gfx/RC") >= 0) {
+		localObj.title = "Research Center";
+	} else if (localObj.src.indexOf("gfx/LC") >= 0) {
+		localObj.title = "Logistic Center";
+	} else if (localObj.src.indexOf("gfx/TC") >= 0) {
+		localObj.title = "Temporal Center";
+	} else if (localObj.src.indexOf("gfx/LP") >= 0) {
+		localObj.title = "Logistic Crates";
+		stackable = true;
 	} else if (localObj.src.indexOf("gfx/CO") >= 0) {
 		localObj.title = "Colony Ship"
 	} else if (localObj.src.indexOf("gfx/SY") >= 0) {
@@ -432,6 +444,9 @@ function autoNameCounter(localObj) {
 	if (stackable) {
 		if (localObj.title.startsWith("Fleet")) {
 			localObj.title = localObj.title + " (Size "+stackSize+")";
+		} else if (localObj.title.startsWith("Logistic")) {
+			var pointsWorth = stackSize * 5;
+			localObj.title = localObj.title + " ("+pointsWorth+" LP)";
 		} else {
 			localObj.title = localObj.title + " Group (Size "+stackSize+")";
 		}
@@ -797,7 +812,7 @@ function placeSystemMarker(newX, newY, newPic, binaryStars) {
 
 function placeHomeworld(newX, newY, color) {
 	var initCP = 20;
-	if (expansionHWs || color == "V") {
+	if ((expansionHWs && initFacilities <= 0) || color == "V") {
 		initCP = 30;
 	}
 	
@@ -819,6 +834,12 @@ function placeHomeworld(newX, newY, color) {
 		placeCounter("Miner1"+color,newX,newY,null,1);
 		if (expansionHWs) {
 			placeCounter("Flag"+color,newX,newY,null,1);
+		}
+		if (initFacilities > 0) {
+			placeCounter("RC"+color,newX,newY,null,1);
+		}
+		if (initFacilities > 1) {
+			placeCounter("LC"+color,newX,newY,null,1);
 		}
 	}
 }
@@ -2073,6 +2094,10 @@ function readJson() {
 			}
 		}
 		
+		if (actionPool[i].useRuleset) {
+			useRuleset = actionPool[i].useRuleset;
+		}
+		
 		if (actionPool[i].placeCounter) {
 			// Place a counter. Permanent until deleted
 			workId = actionPool[i].placeCounter;
@@ -2283,15 +2308,6 @@ function readJson() {
 				var plrColor = actionPool[i].playerColor;
 				
 				place3plrHomeMarkers(plrColor, "top");
-				if (plrColor == "O" || plrColor == "U") {
-					useRuleset = "AGT";
-				} else if (plrColor == "V") {
-					useRuleset = "rep";
-				} else if (expansionHWs) {
-					useRuleset = "CE";
-				} else {
-					useRuleset = "SE4X";
-				}
 				
 				for (var l = 1; l <= 12; l++) {
 					if (l <= 3 || l >= 10) {
@@ -2357,15 +2373,6 @@ function readJson() {
 				}
 
 				placeHomeworld(7,0,plrColor);
-				if (plrColor == "O" || plrColor == "U") {
-					useRuleset = "AGT";
-				} else if (plrColor == "V") {
-					useRuleset = "rep";
-				} else if (expansionHWs) {
-					useRuleset = "CE";
-				} else {
-					useRuleset = "SE4X";
-				}
 
 				for (var z = 9; z < 12; z++) {
 					dispRow(letterRows.charAt(z), false);
@@ -2387,11 +2394,6 @@ function readJson() {
 				var plrColor = actionPool[i].playerColor;
 				
 				place3plrHomeMarkers(plrColor, "topTalon");
-				if (expansionHWs) {
-					useRuleset = "CE";
-				} else {
-					useRuleset = "SE4X";
-				}
 
 				for (var l = 1; l <= 16; l++) {
 					if ((l <= 4 || l >= 11) && l < 16) {
@@ -2472,11 +2474,6 @@ function readJson() {
 				}
 
 				place3plrHomeMarkers(plrColor, "top");
-				if (readValue(actionPool[i].useExpansion, false)) {
-					useRuleset = "rep";
-				} else {
-					useRuleset = "CE";
-				}
 				
 				if (actionPool[i].createPreset.startsWith("doomsday")) {
 					placeSystemMarker(3,11,markerCounter+plrColor);
@@ -2499,15 +2496,6 @@ function readJson() {
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				
 				place3plrHomeMarkers(plrColor, "top");
-				if (plrColor == "V") {
-					useRuleset = "rep";
-				} else if (plrColor != "O" && plrColor != "U") {
-					if (expansionHWs) {
-						useRuleset = "CE";
-					} else {
-						useRuleset = "SE4X";
-					}
-				}
 				
 				placeSystemMarker(3,0,deepSpace);
 				placeSystemMarker(10,0,deepSpace);
@@ -2562,15 +2550,6 @@ function readJson() {
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				
 				place3plrHomeMarkers(plrColor, "top");
-				if (plrColor == "V") {
-					useRuleset = "rep";
-				} else if (plrColor != "O" && plrColor != "U") {
-					if (expansionHWs) {
-						useRuleset = "CE";
-					} else {
-						useRuleset = "SE4X";
-					}
-				}
 
 				for (var l = 1; l <= 13; l++) {
 					if (l <= 3 || l >= 10) {
@@ -2621,15 +2600,6 @@ function readJson() {
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				
 				place3plrHomeMarkers(plrColor, "top");
-				if (plrColor == "V") {
-					useRuleset = "rep";
-				} else if (plrColor != "O" && plrColor != "U") {
-					if (expansionHWs) {
-						useRuleset = "CE";
-					} else {
-						useRuleset = "SE4X";
-					}
-				}
 
 				for (var l = 1; l <= 13; l++) {
 					if (l <= 3 || l >= 10) {
@@ -2773,13 +2743,6 @@ function readJson() {
 				
 				placeHomeworld(6,2,plrColors.charAt(0));
 				placeHomeworld(9,2,plrColors.charAt(1));
-				if (plrColors.search("O") >= 0 || plrColors.search("U") >= 0) {
-					useRuleset = "AGT";
-				} else if (plrColors.search("V") >= 0) {
-					useRuleset = "rep";
-				} else {
-					useRuleset = "CE";
-				}
 
 				if (actionPool[i].createPreset.startsWith("doomsday")) {
 					placeSystemMarker(3,11,markerCounter+plrColors.charAt(0));
@@ -2801,13 +2764,6 @@ function readJson() {
 				var aomeba = ["amoeba1", "amoeba2", "amoeba3"]
 				
 				place3plrHomeMarkers(plrColor, "top");
-				if (plrColor.search("O") >= 0 || plrColor.search("U") >= 0) {
-					useRuleset = "AGT";
-				} else if (plrColor.search("V") >= 0) {
-					useRuleset = "rep";
-				} else {
-					useRuleset = "CE";
-				}
 				
 				placeSystemMarker(3,0,deepSpace);
 				placeSystemMarker(10,0,deepSpace);
@@ -2854,9 +2810,11 @@ function readJson() {
 				for (var z = 7; z < 12; z++) {
 					dispRow(letterRows.charAt(z), false);
 				}
+				
 			} else if (actionPool[i].createPreset == "versus2Pknife") {
 				ctrlPanel.className = "dmBoard";
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				initFacilities = readValue(actionPool[i].facilities, 0);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColors = actionPool[i].playerColors;
 				
@@ -2887,6 +2845,7 @@ function readJson() {
 			} else if (actionPool[i].createPreset == "versus2Psm") {
 				ctrlPanel.className = "versusBoard";
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				initFacilities = readValue(actionPool[i].facilities, 0);
 				var plrSlots = [actionPool[i].playerTop, actionPool[i].playerBottom];
 				var plrColors = [plrSlots[0].charAt(0), plrSlots[1].charAt(0)];
 				var plrCols = [plrSlots[0].substr(1), plrSlots[1].substr(1)];
@@ -2930,6 +2889,7 @@ function readJson() {
 			} else if (actionPool[i].createPreset == "versus2Pmed" || actionPool[i].createPreset == "replicatorSolo") {
 				ctrlPanel.className = "versusBoard";
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				initFacilities = readValue(actionPool[i].facilities, 0);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrSlots = [actionPool[i].playerTop, actionPool[i].playerBottom];
 				var plrColors = [plrSlots[0].charAt(0), plrSlots[1].charAt(0)];
@@ -2938,18 +2898,13 @@ function readJson() {
 				
 				if (actionPool[i].createPreset == "replicatorSolo") {
 					expansionHWs = true;
+					initFacilities = 0;
 					plrColors[0] = "V";
 					difficulty = actionPool[i].difficulty;
 					repEdition = actionPool[i].edition;
 					
 					for (var g = 1; g <= 9; g++) {
 						deleteCounter("hull"+plrColors[0]+g);
-					}
-
-					if (plrColors[1].search("O") >= 0 || plrColors[1].search("U") >= 0 || repEdition >= 2) {
-						useRuleset = "AGT";
-					} else {
-						useRuleset = "rep";
 					}
 				}
 				var plrCols = [plrSlots[0].substr(1), plrSlots[1].substr(1)];
@@ -3028,6 +2983,7 @@ function readJson() {
 			} else if (actionPool[i].createPreset == "versus2Pgc") {
 				ctrlPanel.className = "versusBoard";
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				initFacilities = readValue(actionPool[i].facilities, 0);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrSlots = [actionPool[i].playerTop, actionPool[i].playerBottom];
 				var plrColors = [plrSlots[0].charAt(0), plrSlots[1].charAt(0)];
@@ -3078,6 +3034,7 @@ function readJson() {
 			} else if (actionPool[i].createPreset == "versus2Plg" || actionPool[i].createPreset == "replicatorSoloLg") {
 				ctrlPanel.className = "versusBoard";
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				initFacilities = readValue(actionPool[i].facilities, 0);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrSlots = [actionPool[i].playerTop, actionPool[i].playerBottom];
 				var plrColors = [plrSlots[0].charAt(0), plrSlots[1].charAt(0)];
@@ -3086,18 +3043,13 @@ function readJson() {
 				
 				if (actionPool[i].createPreset == "replicatorSoloLg") {
 					expansionHWs = true;
+					initFacilities = 0;
 					plrColors[0] = "V";
 					difficulty = actionPool[i].difficulty;
 					repEdition = actionPool[i].edition;
 
 					for (var g = 1; g <= 9; g++) {
 						deleteCounter("hull"+plrColors[0]+g);
-					}
-
-					if (plrColors[1].search("O") >= 0 || plrColors[1].search("U") >= 0 || repEdition >= 2) {
-						useRuleset = "AGT";
-					} else {
-						useRuleset = "rep";
 					}
 				}
 				var plrCols = [plrSlots[0].substr(1), plrSlots[1].substr(1)];
@@ -3172,6 +3124,7 @@ function readJson() {
 				}
 			} else if (actionPool[i].createPreset == "versus2Pxl" || actionPool[i].createPreset == "versus2P3D") {
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				initFacilities = readValue(actionPool[i].facilities, 0);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrSlots = [actionPool[i].playerTop, actionPool[i].playerBottom];
 				var plrColors = [plrSlots[0].charAt(0), plrSlots[1].charAt(0)];
@@ -3203,6 +3156,7 @@ function readJson() {
 				placeHomeworld(plrCols[1],11,plrColors[1]);
 			} else if (actionPool[i].createPreset == "versus2Pmassive") {
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				initFacilities = readValue(actionPool[i].facilities, 0);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrSlots = [actionPool[i].playerTop, actionPool[i].playerBottom];
 				var plrColors = [plrSlots[0].charAt(0), plrSlots[1].charAt(0)];
@@ -3236,6 +3190,8 @@ function readJson() {
 				placeHomeworld(plrCols[1],11,plrColors[1]);
 			} else if (actionPool[i].createPreset == "versus2Pdare") {
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				initFacilities = readValue(actionPool[i].facilities, 0);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrSlots = [actionPool[i].playerTop, actionPool[i].playerBottom];
 				var plrColors = [plrSlots[0].charAt(0), plrSlots[1].charAt(0)];
 				var plrCols = [plrSlots[0].substr(1), plrSlots[1].substr(1)];
@@ -3268,6 +3224,7 @@ function readJson() {
 				placeHomeworld(plrCols[1],11,plrColors[1]);
 			} else if (actionPool[i].createPreset == "versus2Ptalon") {
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				initFacilities = readValue(actionPool[i].facilities, 0);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColors = actionPool[i].playerColors;
 				
@@ -3291,6 +3248,7 @@ function readJson() {
 				placeHomeworld(15,11,plrColors.charAt(1));
 			} else if (actionPool[i].createPreset == "versus2PtalonW") {
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				initFacilities = readValue(actionPool[i].facilities, 0);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColors = actionPool[i].playerColors;
 				var ctrlPanel = document.getElementById("controls");
@@ -3326,6 +3284,7 @@ function readJson() {
 			} else if (actionPool[i].createPreset == "versus3P" || actionPool[i].createPreset == "doomsdayCoop3P" ||
 				actionPool[i].createPreset == "alienEmpiresCoop3P") {
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				initFacilities = readValue(actionPool[i].facilities, 0);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColors = actionPool[i].playerColors;
 				
@@ -3339,18 +3298,12 @@ function readJson() {
 				
 				if (!actionPool[i].createPreset.startsWith("versus")) {
 					expansionHWs = true;
+					initFacilities = 0;
 					placeSystemMarker(1,10,"warp1");
 					placeSystemMarker(13,10,"warp1");
 					
 					placeSystemMarker(7,6,"capitol");
 					placeCounter("galMin",7,6,"minerals10",1);
-					if (plrColors.search("O") >= 0 || plrColors.search("U") >= 0) {
-						useRuleset = "AGT";
-					} else if (plrColors.search("V") >= 0) {
-						useRuleset = "rep";
-					} else {
-						useRuleset = "CE";
-					}
 					
 					placeSystemMarker(6,5,"nebula");
 					placeSystemMarker(7,5,"nebula");
@@ -3379,6 +3332,7 @@ function readJson() {
 				place3plrHomeMarkers(plrColors.charAt(2), "right");
 			} else if (actionPool[i].createPreset == "versus4P" || actionPool[i].createPreset == "doomsdayCoop4P") {
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				initFacilities = readValue(actionPool[i].facilities, 0);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColors = "GYRB";
 				var plrPos = [1,13,1,12];
@@ -3410,17 +3364,11 @@ function readJson() {
 				
 				if (actionPool[i].createPreset.startsWith("doomsday")) {
 					expansionHWs = true;
+					initFacilities = 0;
 					placeSystemMarker(7,11,"warp1");
 					
 					placeSystemMarker(7,0,"capitol");
 					placeCounter("galMin",7,0,"minerals10",1);
-					if (plrColors.search("O") >= 0 || plrColors.search("U") >= 0) {
-						useRuleset = "AGT";
-					} else if (plrColors.search("V") >= 0) {
-						useRuleset = "rep";
-					} else {
-						useRuleset = "CE";
-					}
 					
 					placeSystemMarker(6,0,"nebula");
 					placeSystemMarker(6,1,"nebula");
@@ -3441,6 +3389,7 @@ function readJson() {
 				placeHomeworld(plrPos[3],11,plrColors.charAt(3));
 			} else if (actionPool[i].createPreset == "versus4Pds") {
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
+				initFacilities = readValue(actionPool[i].facilities, 0);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var useOlderLayout = readValue(actionPool[i].olderLayout, false);
 				var plrColors = "GYRB";
@@ -3473,6 +3422,7 @@ function readJson() {
 				placeHomeworld(12,11,plrColors.charAt(3));
 			} else if (actionPool[i].createPreset == "versus4P3row") {
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				initFacilities = readValue(actionPool[i].facilities, 0);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColors = "GYRB";
 				
@@ -3510,6 +3460,7 @@ function readJson() {
 				dispRow("A", false);
 			} else if (actionPool[i].createPreset == "versus4P4row") {
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				initFacilities = readValue(actionPool[i].facilities, 0);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColors = "GYRB";
 				
@@ -3545,6 +3496,7 @@ function readJson() {
 				placeHomeworld(9,11,plrColors.charAt(3));
 			} else if (actionPool[i].createPreset == "versus4Pdouble") {
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				initFacilities = readValue(actionPool[i].facilities, 0);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColors = "GYRB";
 				
@@ -3585,6 +3537,7 @@ function readJson() {
 				
 			} else if (actionPool[i].createPreset == "versus4PdoubleCorner") {
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				initFacilities = readValue(actionPool[i].facilities, 0);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColors = "GYRB";
 				
@@ -3621,6 +3574,7 @@ function readJson() {
 				
 			} else if (actionPool[i].createPreset == "versus4Ptalon") {
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				initFacilities = readValue(actionPool[i].facilities, 0);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColors = "GYRB";
 				
@@ -3653,6 +3607,7 @@ function readJson() {
 				
 			} else if (actionPool[i].createPreset == "versus4PtalonWL") {
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				initFacilities = readValue(actionPool[i].facilities, 0);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColors = "GYRB";
 				
@@ -3698,6 +3653,8 @@ function readJson() {
 				
 			} else if (actionPool[i].createPreset == "versus4PtalonWS") {
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				initFacilities = readValue(actionPool[i].facilities, 0);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColors = "GYRB";
 				
@@ -3743,6 +3700,7 @@ function readJson() {
 				
 			} else if (actionPool[i].createPreset == "versus4PtalonWC") {
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				initFacilities = readValue(actionPool[i].facilities, 0);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				var plrColors = "GYRB";
 				
@@ -3788,6 +3746,7 @@ function readJson() {
 				
 			} else if (actionPool[i].createPreset == "versus5P") {
 				expansionHWs = true;
+				initFacilities = readValue(actionPool[i].facilities, 0);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				plrColors = actionPool[i].playerColors;
 				
@@ -3828,6 +3787,7 @@ function readJson() {
 				}
 			} else if (actionPool[i].createPreset == "versus5Ptight") {
 				expansionHWs = true;
+				initFacilities = readValue(actionPool[i].facilities, 0);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				plrColors = actionPool[i].playerColors;
 				
@@ -3873,6 +3833,7 @@ function readJson() {
 				
 			} else if (actionPool[i].createPreset == "versus6P") {
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				initFacilities = readValue(actionPool[i].facilities, 0);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				plrColors = actionPool[i].playerColors;
 				
@@ -3911,6 +3872,7 @@ function readJson() {
 
 			} else if (actionPool[i].createPreset == "versus6Pdouble") {
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				initFacilities = readValue(actionPool[i].facilities, 0);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				plrColors = actionPool[i].playerColors;
 				
@@ -3949,6 +3911,7 @@ function readJson() {
 
 			} else if (actionPool[i].createPreset == "versus6PtalonW") {
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				initFacilities = readValue(actionPool[i].facilities, 0);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				plrColors = actionPool[i].playerColors;
 				var ctrlPanel = document.getElementById("controls");
@@ -4019,15 +3982,6 @@ function readJson() {
 				}
 
 				placeHomeworld(7,initRow*2,plrColor);
-				if (plrColor == "O" || plrColor == "U") {
-					useRuleset = "AGT";
-				} else if (plrColor == "V") {
-					useRuleset = "rep";
-				} else if (expansionHWs) {
-					useRuleset = "CE";
-				} else {
-					useRuleset = "SE4X";
-				}
 
 				for (var z = 2; z < 26; z++) {
 					dispRow(letterRows.charAt(z), z <= numRows);
@@ -4046,6 +4000,8 @@ function readJson() {
 					deleteCounter("SY1"+workColor);
 					deleteCounter("Miner1"+workColor);
 					deleteCounter("Flag"+workColor);
+					deleteCounter("RC"+workColor);
+					deleteCounter("LC"+workColor);
 				}
 				
 			} else if (actionPool[i].createPreset == "emptyBoard") {

@@ -8,6 +8,8 @@
 			"createPreset":"doomsdaySoloSm",
 			"playerColor":"R"
 		},{
+			"useRuleset":"SE4X"
+		},{
 			"removeCounter":"systemF6"
 		},{
 			"placeCounter":"systemF6",

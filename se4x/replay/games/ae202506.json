@@ -18,6 +18,8 @@
 			"useExpansion":true,
 			"playerColor":"Y",
 			"alienColors":"RG"
+		},{
+			"useRuleset":"CE"
 		}]},
 	{"heading":"Stardate 2400.3",
 	"commentary":["Well... it is not every day our first turn uncovers <i>only</i> minerals."],

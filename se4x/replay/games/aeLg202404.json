@@ -8,6 +8,8 @@
 			"createPreset":"alienEmpiresSoloLg",
 			"playerColor":"Y",
 			"alienColors":"BR"
+		},{
+			"useRuleset":"SE4X"
 		}]},
 	{"heading":"Stardate 2400.3",
 	"commentary":["Normally, the first turn would be the most dangerous turn of a fresh playthrough. But, because our home systems have no black hole this time, it is safe to exploit this terrain right away."],

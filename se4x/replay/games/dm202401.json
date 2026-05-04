@@ -11,6 +11,8 @@
 		[{
 			"createPreset":"doomsdaySoloSm",
 			"playerColor":"Y"
+		},{
+			"useRuleset":"SE4X"
 		}]},
 	{"heading":"Stardate 2400.3",
 	"commentary":["As usual, it is safest to move <i>only</i> Scouts during the first turn. Risking a Colony Ship and/or Mining Ship early in the game is <q>extremely expensive</q>."],

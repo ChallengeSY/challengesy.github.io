@@ -26,6 +26,8 @@
 			"createPreset":"alienEmpiresSoloVP",
 			"playerColor":"R",
 			"alienColors":"GB"
+		},{
+			"useRuleset":"CE"
 		}]},
 	{"heading":"Stardate 2400.3",
 	"commentary":["As usual, we will move only our Scouts during this first turn. Exposing a barren planet is normally something that would slow us down, but because we start with Terraforming 1 <span class=\"bindTxt\">(applied immediately to our colony ships)</span>, we can colonize it right away. Then again, we <i>did</i> forget that our Flagship comes equipped with Exploration 1..."],

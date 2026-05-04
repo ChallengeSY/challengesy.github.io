@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta name="description" content="Space Empires 4X Resourcepedia" />
+	<meta name="keywords" content="Space, Empires, Space Empires" />
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>SE4X - Talon AI Ship Shuffler</title>
+
+	<link type="text/css" href="shufflers.css" rel="stylesheet" />
+	<script src="../pedia.js"></script>
+	<script src="talonAI.js"></script>
+	<script src="common.js"></script>
+</head>
+<body>
+<p id="banner"><a href="../index.htm"><img src="../banner.png" alt="Space Empires 4X Resourcepedia" /></a></p>
+
+<hr />
+
+<h2>Talon AI Ship Shuffler</h2>
+
+<table class="clean">
+<thead>
+<tr>
+<th>Ship</th>
+<td></td>
+<th>Stock</th>
+<th>Maximum</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<th>Total</th>
+<td></td>
+<td class="numeric" id="totalStock">0</td>
+</tr>
+</tfoot>
+<tbody id="inventory">
+</tbody>
+</table>
+
+<p class="noKeywords center">
+<input class="button" type="button" onclick="applyPreset([])" value="Clear all" />
+<input class="button" type="button" onclick="recallStock()" value="Edit Stock" />
+<span class="bigScreen">&mdash;</span><br class="smScreen" /><br class="smScreen" />
+<input class="button" type="button" onclick="buildDeck(1)" value="Build Deck" />
+<input class="button" type="button" onclick="dealItems(1)" value="Deal One" id="dealOne" />
+</p>
+
+<hr />
+
+<h2>Instructions</h2>
+<p>This Shuffler allows for the creation of <i>nearly any</i> AI fleet, for use with Talon. Design your opponent's fleet, build its <q>deck</q>, and then deal away. Though usually only used at battle start, this program still saves your stock of cards from one session to another.</p>
+
+</body>
+</html>

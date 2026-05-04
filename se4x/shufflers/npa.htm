@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta name="description" content="Space Empires 4X Resourcepedia" />
+	<meta name="keywords" content="Space, Empires, Space Empires" />
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>SE4X - Non-Player Alien Shuffler</title>
+
+	<link type="text/css" href="shufflers.css" rel="stylesheet" />
+	<script src="../pedia.js"></script>
+	<script src="npa.js"></script>
+	<script src="common.js"></script>
+</head>
+<body>
+<p id="banner"><a href="../index.htm"><img src="../banner.png" alt="Space Empires 4X Resourcepedia" /></a></p>
+
+<hr />
+
+<h2>Non-Player Alien Shuffler</h2>
+
+<table class="clean">
+<thead>
+<tr>
+<th>Ship</th>
+<td></td>
+<th>Stock</th>
+<th>Maximum</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<th>Total</th>
+<td></td>
+<td class="numeric" id="totalStock">0</td>
+</tr>
+</tfoot>
+<tbody id="inventory">
+</tbody>
+</table>
+
+<p class="noKeywords center">
+<input class="button" type="button" onclick="applyPreset([])" value="Clear all" />
+<input class="button" type="button" onclick="applyPreset([0,4,8,4])" value="First Edition" />
+<input class="button" type="button" onclick="applyPreset([0,10,20,10])" value="Regular" />
+<input class="button" type="button" onclick="applyPreset([10,10,20,10,10])" value="All Good Things" />
+<input class="button" type="button" onclick="recallStock()" value="Edit Stock" />
+<span class="bigScreen">&mdash;</span><br class="smScreen" /><br class="smScreen" />
+<input class="button" type="button" onclick="buildDeck(1)" value="Build Single Deck" />
+<input class="button" type="button" onclick="buildDeck(2)" value="Build Double Deck" />
+<input class="button" type="button" onclick="dealItems(1)" value="Deal One" id="dealOne" />
+</p>
+
+<hr />
+
+<h2>Instructions</h2>
+<p>This Shuffler allows for the creation of <i>nearly any</i> mixture of non-player aliens. Select a preset <i>or</i> design your own mixture, build a single or double <q>deck</q> (with the latter causing <i>twice</i> as many counters to be generated), and then deal away as counters are revealed. This program also saves your stock of counters from one session to another.</p>
+
+</body>
+</html>

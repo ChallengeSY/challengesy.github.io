@@ -13,6 +13,8 @@
 			"createPreset":"alienEmpiresSolo",
 			"playerColor":"B",
 			"alienColors":"RYG"
+		},{
+			"useRuleset":"SE4X"
 		}]},
 	{"heading":"Stardate 2400.3 (Turn 1)",
 	"commentary":[

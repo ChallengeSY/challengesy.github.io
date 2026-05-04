@@ -19,6 +19,8 @@
 			"playerTop":"V4",
 			"playerBottom":"B6",
 			"extraHexAway":false
+		},{
+			"useRuleset":"rep"
 		}]},
 	{"heading":"Stardate 2400.3",
 	"commentary":[

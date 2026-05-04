@@ -29,6 +29,8 @@
 			"playerTop":"V4",
 			"playerBottom":"Y6",
 			"extraHexAway":true
+		},{
+			"useRuleset":"rep"
 		}]},
 	{"heading":"Stardate 2400.3 (Turn 1)",
 	"commentary":["Though it will not be obvious at first, the Replicator environment has initiative by default in Replicator Solitaire; unless we bid 15 CP in an economic phase."],

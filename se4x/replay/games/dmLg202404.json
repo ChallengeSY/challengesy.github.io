@@ -12,6 +12,8 @@
 		[{
 			"createPreset":"doomsdaySoloLg",
 			"playerColor":"G"
+		},{
+			"useRuleset":"SE4X"
 		}]},
 	{"heading":"Stardate 2400.3",
 	"commentary":["As we are playing this large map on Hard difficulty, we need every bit of advantage we can get our hands on if we are to defeat these stronger Doomsday Machines."],

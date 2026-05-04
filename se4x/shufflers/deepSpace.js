@@ -1,0 +1,28 @@
+const shuffler = "DeepSpace";
+
+const itemCollection = [
+	{nameeS:"Ast", nameeL:"Asteroid Belt"},
+	{nameeS:"Planet", nameeL:"Barren Planet"},
+	{nameeS:"BH", nameeL:"Black Hole"},
+	{nameeS:"Danger", nameeL:"Danger"},
+	{nameeS:"DM", nameeL:"Doomsday Machine"},
+	{nameeS:"Fold", nameeL:"Fold in Space"},
+	{nameeS:"Ion", nameeL:"Ion Storm"},
+	{nameeS:"Lost", nameeL:"Lost in Space"},
+	{nameeS:"Min", nameeL:"Mineral (10 CP)"},
+	{nameeS:"Neb", nameeL:"Nebula"},
+	{nameeS:"Plasma", nameeL:"Plasma Storm"},
+	{nameeS:"PulsarA", nameeL:"Pulsar (Attack)"},
+	{nameeS:"PulsarD", nameeL:"Pulsar (Defense)"},
+	{nameeS:"PulsarM", nameeL:"Pulsar (Movement)"},
+	{nameeS:"Quantum", nameeL:"Quantum Filament"},
+	{nameeS:"Quasar", nameeL:"Quasar"},
+	{nameeS:"Map", nameeL:"Regional Map"},
+	{nameeS:"Pirate", nameeL:"Space Pirate"},
+	{nameeS:"Station5", nameeL:"Space Station (5 CP)"},
+	{nameeS:"Station10", nameeL:"Space Station (Tech)"},
+	{nameeS:"Wreck", nameeL:"Space Wreck"},
+	{nameeS:"Nova", nameeL:"Supernova"},
+	{nameeS:"WP1", nameeL:"Warp Point (1)"},
+	{nameeS:"WP2", nameeL:"Warp Point (2)"},
+	{nameeS:"DYO", nameeL:"DYO"}];

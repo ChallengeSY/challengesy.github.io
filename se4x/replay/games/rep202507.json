@@ -21,6 +21,8 @@
 			"playerBottom":"G2",
 			"extraHexAway":true
 		},{
+			"useRuleset":"rep"
+		},{
 			"revealCounter":"systemB1",
 			"name":"nebula"
 		},{
