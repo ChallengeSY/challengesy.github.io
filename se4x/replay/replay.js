@@ -836,10 +836,10 @@ function placeHomeworld(newX, newY, color) {
 			placeCounter("Flag"+color,newX,newY,null,1);
 		}
 		if (initFacilities > 0) {
-			placeCounter("RC"+color,newX,newY,null,1);
+			placeCounter("RC1"+color,newX,newY,"RC"+color,1);
 		}
 		if (initFacilities > 1) {
-			placeCounter("LC"+color,newX,newY,null,1);
+			placeCounter("LC1"+color,newX,newY,"LC"+color,1);
 		}
 	}
 }
@@ -1045,15 +1045,15 @@ function readJson() {
 		
 		if (curStage.prodTableAGT) {
 			var constructTable = "<table><caption>Player Economics + Logistics</caption> \
-				<tr><th>Player</th><th>Initial "+conceptLink("CP")+"</th>\
+				<tr><th>Player</th><th>Init "+conceptLink("CP")+"</th>\
 				<th>"+conceptLink("Colonies")+"</th>\
 				<th><a href=\"javascript:showBox('mineral')\">Minerals</a></th>\
 				<th><a href=\"javascript:showBox('pipeline')\">Pipelines</a></th>\
 				<th>Conversion</th><th>Units</th>\
-				<th>Leftover CP</th><th>Initial "+conceptLink("RP")+"</th>\
+				<th>Leftover</th><th>Init "+conceptLink("RP")+"</th>\
 				<th>Production</th>\
 				<th>Spending</th>\
-				<th>Leftover RP</th></tr>";
+				<th>Leftover</th></tr>";
 				
 			for (var a = 0; a < curStage.prodTableAGT.length; a++) {
 				var activePlayer = curStage.prodTableAGT[a];
@@ -1098,10 +1098,10 @@ function readJson() {
 				<th><a href=\"javascript:showBox('maintenance')\">Maint</a></th>\
 				<th>"+conceptLink("Bid")+"</th>\
 				<th>Packaged</th>\
-				<th>Leftover LP</th><th>Initial "+conceptLink("TP")+"</th>\
+				<th>Leftover</th><th>Initial "+conceptLink("TP")+"</th>\
 				<th>Production</th>\
 				<th>Spending</th>\
-				<th>Leftover TP</th></tr>";
+				<th>Leftover</th></tr>";
 				
 			for (var b = 0; b < curStage.prodTableAGT.length; b++) {
 				var activePlayer = curStage.prodTableAGT[b];
@@ -1138,16 +1138,17 @@ function readJson() {
 				
 		} else if (curStage.prodTableCE) {
 			var constructTable = "<table><caption>Player Economics</caption> \
-				<tr><th>Player</th><th>Initial "+conceptLink("CP")+"</th>\
+				<tr><th>Player</th><th>Init "+conceptLink("CP")+"</th>\
 				<th>"+conceptLink("Colonies")+"</th>\
 				<th><a href=\"javascript:showBox('mineral')\">Minerals</a></th>\
 				<th><a href=\"javascript:showBox('pipeline')\">Pipelines</a></th>\
 				<th><a href=\"javascript:showBox('maintenance')\">Maint</a></th>\
 				<th>"+conceptLink("Bid")+"</th>\
-				<th>Units</th><th>Leftover CP</th><th>Initial "+conceptLink("RP")+"</th>\
+				<th>Units</th><th>Leftover</th>\
+				<th>Init "+conceptLink("RP")+"</th>\
 				<th>Production</th>\
-				<th>Spending</th>\
-				<th>Leftover RP</th></tr>";
+				<th>Tech</th>\
+				<th>Leftover</th></tr>";
 				
 			for (var a = 0; a < curStage.prodTableCE.length; a++) {
 				var activePlayer = curStage.prodTableCE[a];
@@ -1173,7 +1174,7 @@ function readJson() {
 					<td class=\"numeric\">-"+readValue(activePlayer.bidCP,0)+"</td> \
 					<td class=\"numeric\">-"+readValue(activePlayer.unitBuy,0)+"</td> \
 					<td class=\"numeric\">"+leftoverPoints[0]+"</td> \
-					<td class=\"numeric\">"+readValue(activePlayer.initTP,0)+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.initRP,0)+"</td> \
 					<td class=\"numeric increase\">+"+readValue(activePlayer.colonyRP,0)+"</td> \
 					<td class=\"numeric\">-"+readValue(activePlayer.techBuy,0)+"</td> \
 					<td class=\"numeric\">"+leftoverPoints[1]+"</td></tr>"
@@ -1488,6 +1489,7 @@ function readJson() {
 				<th>DS <a href=\"javascript:showBox('mineral')\">Minerals</a></th>\
 				<th><a href=\"javascript:showBox('home system')\">HS</a> <a href=\"javascript:showBox('economic roll')\">Eco</a></th>\
 				<th>DS Colonies</th>\
+				<th><a href=\"javascript:showBox('deep space planet attribute')\">DSPA</a></th>\
 				<th><a href=\"javascript:showBox('terraforming')\">Nebulae</a></th>\
 				<th><a href=\"javascript:showBox('deep space')\">DS</a> Eco</th>\
 				<th>"+conceptLink("Paranoia")+"</th></tr>";
@@ -1497,6 +1499,8 @@ function readJson() {
 
 			for (var a = 0; a < workTable.length; a++) {
 				var activePlayer = workTable[a];
+				var dspaStyle = "";
+				var dspaMod = "";
 				
 				if (readValue(activePlayer.isDead, false)) {
 					// Alien Player is dead. Their empire has been destroyed.
@@ -1505,8 +1509,18 @@ function readJson() {
 					constructTable = constructTable + "<tr>";
 				}
 				
-				var HStotal = Math.max(readValue(activePlayer.baseHS,7) - readValue(activePlayer.HSdmg,0) - readValue(activePlayer.maint,0) + readValue(activePlayer.DSmin,0), 1); 
-				var DStotal = readValue(activePlayer.DScol,0) + readValue(activePlayer.nebula,0);
+				var HStotal = Math.max(readValue(activePlayer.baseHS,7) - readValue(activePlayer.HSdmg,0) - readValue(activePlayer.maint,0) + readValue(activePlayer.DSmin,0), 1);
+				var DSPAmod = readValue(activePlayer.DSPA,0);
+				var DStotal = readValue(activePlayer.DScol,0) + DSPAmod + readValue(activePlayer.nebula,0);
+				
+				if (DSPAmod >= 0) {
+					dspaMod = "+";
+					if (DSPAmod > 0) {
+						dspaStyle = " increase";
+					}
+				} else {
+					dspaStyle = " decrease";
+				}
 				
 				constructTable = constructTable + "<td>"+activePlayer.name+"</td> \
 					<td class=\"numeric\">"+readValue(activePlayer.baseHS,7)+"</td> \
@@ -1515,6 +1529,7 @@ function readJson() {
 					<td class=\"numeric increase\">+"+readValue(activePlayer.DSmin,0)+"</td> \
 					<td class=\"numeric\">"+HStotal+"</td> \
 					<td class=\"numeric\">"+readValue(activePlayer.DScol,0)+"</td> \
+					<td class=\"numeric"+dspaStyle+"\">"+dspaMod+DSPAmod+"</td> \
 					<td class=\"numeric increase\">+"+readValue(activePlayer.nebula,0)+"</td> \
 					<td class=\"numeric\">"+DStotal+"</td> \
 					<td class=\"numeric\">"+paranoiaThresh[readValue(activePlayer.paranoia,1)-1]+"</td></tr>";
@@ -1529,7 +1544,7 @@ function readJson() {
 				<th title=\"8-10\">Gains</th>\
 				<th>Spent</th>\
 				<th>Leftover</th>\
-				<th><a href=\"javascript:showBox('hidden fleet')\">Hidden</a></th></tr>";
+				<th colspan=\"2\"><a href=\"javascript:showBox('hidden fleet')\">Hidden</a></th></tr>";
 			
 			for (var b = 0; b < workTable.length; b++) {
 				var activePlayer = workTable[b];
@@ -1552,7 +1567,7 @@ function readJson() {
 					<td class=\"numeric increase\">+"+readValue(activePlayer.techGain,0)+"</td> \
 					<td class=\"numeric decrease\">-"+readValue(activePlayer.techSpend,0)+"</td> \
 					<td class=\"numeric\">"+totalBanks[1]+"</td> \
-					<td class=\"numeric\">"+readValue(activePlayer.hidden,"&mdash;")+"</td></tr>";
+					<td colspan=\"2\" class=\"numeric\">"+readValue(activePlayer.hidden,"&mdash;")+"</td></tr>";
 			}
 			
 			constructTable = constructTable + "</table>";
@@ -2113,6 +2128,18 @@ function readJson() {
 				
 				if (workId.startsWith("CO")) {
 					convertName = "CO"+lastChar;
+				} else if (workId.startsWith("decoy")) {
+					convertName = "decoy"+lastChar;
+				} else if (workId.startsWith("RC")) {
+					convertName = "RC"+lastChar;
+				} else if (workId.startsWith("IC")) {
+					convertName = "IC"+lastChar;
+				} else if (workId.startsWith("LC")) {
+					convertName = "LC"+lastChar;
+				} else if (workId.startsWith("TC")) {
+					convertName = "TC"+lastChar;
+				} else if (workId.startsWith("MS")) {
+					convertName = "MSa"+lastChar;
 				} else if (workId.startsWith("NPA")) {
 					if (lastChar == "H") {
 						convertName = "hiddenA";
@@ -3179,7 +3206,7 @@ function readJson() {
 				for (var z = 0; z < actionPool[i].extraHexes.length; z++) {
 					seekHex = actionPool[i].extraHexes[z];
 					
-					if (z == 0) {
+					if (seekHex.substr(1) > 6) {
 						placeSystemMarker(seekHex.substr(1),letterRows.indexOf(seekHex.charAt(0)),"unexplored"+plrColors[0]);
 					} else {
 						placeSystemMarker(seekHex.substr(1),letterRows.indexOf(seekHex.charAt(0)),"unexplored"+plrColors[1]);
@@ -4000,8 +4027,8 @@ function readJson() {
 					deleteCounter("SY1"+workColor);
 					deleteCounter("Miner1"+workColor);
 					deleteCounter("Flag"+workColor);
-					deleteCounter("RC"+workColor);
-					deleteCounter("LC"+workColor);
+					deleteCounter("RC1"+workColor);
+					deleteCounter("LC1"+workColor);
 				}
 				
 			} else if (actionPool[i].createPreset == "emptyBoard") {
@@ -4088,7 +4115,7 @@ function readJson() {
 function jumpToEcoPhase(direction) {
 	do {
 		changeStage(direction);
-	} while (stageNum > 0 && stageNum < stageTotal && typeof curStage.prodTable === "undefined" && typeof curStage.scoreboard === "undefined")
+	} while (stageNum > 0 && stageNum < stageTotal && typeof curStage.prodTable === "undefined" && typeof curStage.prodTableCE === "undefined" && typeof curStage.prodTableAGT === "undefined" && typeof curStage.scoreboard === "undefined")
 }
 
 function changeStage(direction) {
