@@ -1667,7 +1667,7 @@ function showBox(concept) {
 			displayTxt = conceptLink("Missile")+"s strike at "+conceptLink("Weapon Class")+" C.";
 			break;
 		case "bioweapons":
-			displayTxt = "During "+conceptLink("bombardment")+", "+conceptLink("Destroyer")+"s automatically score hits against a "+conceptLink("colony")+".";
+			displayTxt = "During "+conceptLink("bombard")+"ment, "+conceptLink("Destroyer")+"s automatically score hits against a "+conceptLink("colony")+".";
 			break;
 		case "aegis frigate":
 			displayTxt = conceptLink("Alien Technology")+"-exclusive design, equipped with "+conceptLink("Shield Projector")+"s";
@@ -2061,10 +2061,10 @@ function showBox(concept) {
 				One "+conceptLink("minelayer")+"'s ammo can trigger its detonation early, against <i>any</i> craft. Also usable as a "+conceptLink("cancel card")+". " + discardVal(4,2);
 			break;
 		case "heroic":
-			displayTxt = "Granted by a corresponding "+conceptLink("Heroic Ships")+" card, these ships gain an additional \
+			displayTxt = "Granted by a corresponding "+conceptLink("Heroic Ships")+" or "+conceptLink("Heroic Ground Unit")+" card, these ships gain an additional \
 				"+conceptLink("Attack")+" +1, "+conceptLink("Defense")+" +1, are durable as if they have "+conceptLink("Hull Size")+" +1, and require no "+conceptLink("maintenance")+".";
 			if (useRuleset == "AGT") {
-				displayTxt = displayTxt + "<br />Not available if "+conceptLink("crew card")+"s are enabled.";
+				displayTxt = displayTxt + "<br />Available only to "+conceptLink("ground unit")+"s if "+conceptLink("crew card")+"s are enabled.";
 			}
 			break;
 		case "heroic ships":

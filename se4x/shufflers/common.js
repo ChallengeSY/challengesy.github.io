@@ -33,7 +33,7 @@ function addItemRow(itemObj) {
 		itemObj.nameeS == "HeroicCA" || itemObj.nameeS == "HeroicBC" || itemObj.nameeS == "HeroicBB" || itemObj.nameeS.search("VsHull") >= 0) {
 		tdFrag.innerHTML = "";
 	} else {
-		tdFrag.innerHTML = "<a href=\"javascript:showBox('" + itemObj.nameeL.split(" (")[0] + "')\">(?)</a>";
+		tdFrag.innerHTML = "<a href=\"javascript:showBox('" + itemObj.nameeL.split(" (")[0].replace("'","\\'") + "')\">(?)</a>";
 	}
 	trFrag.appendChild(tdFrag);
 	
