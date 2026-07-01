@@ -213,7 +213,7 @@ function modifyPlrMaxTech(modifier) {
 			workObj[0].max = parseInt(workObj[0].min) + parseInt(workObj[2].innerHTML) + modifier;
 			workObj[1].max = parseInt(workObj[1].min) + parseInt(workObj[2].innerHTML) + modifier;
 			
-			if (plrShipList[d].search("Destroyer") < 0) {
+			if (plrShipList[d].search("Destroyer") < 0 && plrShipList[d] != "Fighter") {
 				workObj[0].value = Math.min(parseInt(workObj[0].value), parseInt(workObj[0].max));
 				workObj[1].value = Math.min(parseInt(workObj[1].value), parseInt(workObj[1].max));
 			}
@@ -279,6 +279,7 @@ function changeFaction() {
 		changeDesign("Raider-X", 5, 0);
 		changeDesign("Flagship", 5, 0);
 		changeDesign("Advanced Flagship", 6, 2);
+		
 		document.getElementById("techSize").max = 6;
 	}
 	
@@ -351,7 +352,7 @@ function showPlrRows(rowId, rowVis) {
 		
 		// Tactical settings
 		var sizeTech = parseInt(document.getElementById("techSize").value);
-		var ftrTech = parseInt(document.getElementById("techFtr").value);
+		ftrTech = parseInt(document.getElementById("techFtr").value);
 		var cloakTech = parseInt(document.getElementById("techClk").value);
 		mineTech = document.getElementById("techMines").checked;
 		var auxTech = document.getElementById("techAux").checked;
@@ -625,6 +626,7 @@ function simShip(baseID) {
 	this.damage = 0;
 	this.allied = (baseID.search("Type") < 0);
 	this.cloaked = (baseID.search("Raider") >= 0);
+	this.screened = false;
 	
 	this.updateSpecs = function(ignoreStats) {
 		if (this.namee.search("Destroyed") >= 0) {
@@ -818,12 +820,18 @@ function playerFleet() {
 	this.destroyedFives = new simShip("Destroyed Fives");
 	
 	this.totalShips = function() {
-		return this.scouts.quantity + this.destroyers.quantity + this.cruisers.quantity + this.battlecruisers.quantity +
+		var totalCount = this.scouts.quantity + this.destroyers.quantity + this.cruisers.quantity + this.battlecruisers.quantity +
 			this.battleships.quantity + this.dreadnoughts.quantity + this.shipYards.quantity + this.battleStations.quantity +
 			this.carriers.quantity + this.fighters.quantity + this.mines.quantity + this.raiders.quantity + this.minesweepers.quantity +
-			this.flagships.quantity + this.boardingShips.quantity + this.transports.quantity + this.titans.quantity +
+			this.flagships.quantity + this.boardingShips.quantity + this.titans.quantity +
 			this.destroyerXes.quantity + this.battleCarriers.quantity + this.advancedFlagships.quantity + this.raiderXes.quantity +
 			this.defSats.quantity + this.starbases.quantity + this.missileBoats.quantity + this.missiles.quantity;
+			
+		if (!this.transports.screened) {
+			totalCount += this.transports.quantity;
+		}
+		
+		return totalCount;
 	}
 	
 	this.totalCloakers = function() {
@@ -1444,7 +1452,7 @@ function fireTacticsLv(tacLv) {
 }
 
 function firePlrWeps(shipObj, tacLvReq) {
-	if (shipObj.quantity > 0 && (shipObj.tactics == tacLvReq || tacLvReq < 0)) {
+	if (shipObj.quantity > 0 && !shipObj.screened && (shipObj.tactics == tacLvReq || tacLvReq < 0)) {
 		var plrRetreatBan = 1;
 		shipObj.updateSpecs(true);
 		if (simRound == 1 && shipObj.cloaked && simRepFleet.typeScans.quantity <= 0 && combatHex != "hexNebula" && combatHex != "hexQuantum") {
@@ -1509,6 +1517,8 @@ function firePlrWeps(shipObj, tacLvReq) {
 					rollsAvail = 0;
 				} else {
 					var hitThresh = shipObj.attackRating;
+					hitThresh = Math.max(hitThresh + largeFleetBonus[0] - activeTarget.defenseRating, 1);
+					
 					if (plrAdvStr == "Star Wolves" && activeTarget.hullSize > 1 &&
 						(shipObj.namee == "Scout" || shipObj.namee == "Destroyer" || shipObj.namee == "Destroyer-X" || shipObj.namee == "Fighter")) {
 						// Star Wolves grant specific ships Attack +1 versus Hull Size 2+ targets
@@ -1520,7 +1530,6 @@ function firePlrWeps(shipObj, tacLvReq) {
 							hitThresh++;
 						}
 					}
-					hitThresh = Math.max(hitThresh + largeFleetBonus[0] - activeTarget.defenseRating, 1);
 					
 					// Berserker Genome "husks" have a fixed threshold
 					switch (shipObj.namee) {
@@ -1611,6 +1620,8 @@ function fireRepWeps(shipObj, tacLvReq) {
 			
 			do {
 				var activeTarget = simPlrFleet.targetOptimal();
+				hitThresh = shipObj.attackRating - activeTarget.defenseRating;
+
 				if (shipObj.namee == "Type Scan") {
 					if (simPlrFleet.destroyerXes.quantity > 0 && plrAdvStr == "Cloaking Geniuses" && cloakLv > 0) {
 						activeTarget = simPlrFleet.destroyerXes;
@@ -1632,9 +1643,14 @@ function fireRepWeps(shipObj, tacLvReq) {
 				if (shipObj.namee == "Type PD" && simPlrFleet.fighters.quantity > 0) {
 					activeTarget = simPlrFleet.fighters;
 					repBonusUsed[1] = true;
+
+					if (ftrTech > 1 && ftrTech < 4) {
+						// Some fighter variants get Defense +1 versus Point-Defense, weakening Type PDs in these circumstances
+						console.log("Defense vs PD active");
+						hitThresh--;
+					}
 				}
 				
-				var hitThresh = shipObj.attackRating - activeTarget.defenseRating;
 				if (plrAdvStr == "House of Speed" && activeTarget.namee != "Ship Yard" && activeTarget.namee != "Base") {
 					//House of Speed side effect
 					hitThresh = hitThresh + 2;
@@ -1877,6 +1893,7 @@ function runSimRound() {
 		// Tactical/Tech settings
 		cloakLv = parseInt(document.getElementById("techClk").value);
 		
+		tranScreening = document.getElementById("plrScreenTransports").checked;
 		retreatThresh = parseInt(document.getElementById("retreatThresh").value);
 		raidersProx = document.getElementById("repRprox").checked;
 		raidersSeen = document.getElementById("repRseen").checked;
@@ -1925,6 +1942,9 @@ function runSimRound() {
 				rollBHsurvival(simPlrFleet.flagships);
 				rollBHsurvival(simPlrFleet.battlecruisers);
 				rollBHsurvival(simPlrFleet.battleCarriers);
+				if (plrFaction == 1) {
+					rollBHsurvival(simPlrFleet.fighters);
+				}
 
 				rollBHsurvival(simPlrFleet.shipYards);
 				rollBHsurvival(simPlrFleet.cruisers);
@@ -1939,7 +1959,9 @@ function runSimRound() {
 				rollBHsurvival(simPlrFleet.transports);
 				rollBHsurvival(simPlrFleet.boardingShips);
 				
-				simPlrFleet.fighters.quantity = Math.min(simPlrFleet.fighters.quantity, (simPlrFleet.carriers.quantity + simPlrFleet.titans.quantity + simPlrFleet.battleCarriers*2) * 3);
+				if (plrFaction == 0) {
+					simPlrFleet.fighters.quantity = Math.min(simPlrFleet.fighters.quantity, (simPlrFleet.carriers.quantity + simPlrFleet.titans.quantity + simPlrFleet.battleCarriers*2) * 3);
+				}
 			}
 		}
 
@@ -2374,6 +2396,15 @@ function runSimRound() {
 		if (plrAlienTech.sweeperTurret) {
 			simPlrFleet.minesweepers.addAttack(warriorBonus + 2);
 		}
+	}
+	
+	simPlrFleet.transports.screened = false; //Reset this flag
+	if (tranScreening && simPlrFleet.totalShips() - simPlrFleet.transports.quantity >= simRepFleet.totalShips()) {
+		simPlrFleet.transports.screened = true;
+		
+		pFrag = document.createElement("p");
+		pFrag.innerHTML = simPlrFleet.transports.toString()+" screened for this round!";
+		divFrag.appendChild(pFrag);
 	}
 
 	if (plrAdvStr == "Expert Tacticians") {

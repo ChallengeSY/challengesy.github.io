@@ -128,7 +128,7 @@ function exportLog(gameWon) {
 			saveSeriesFile(true);
 			if (seriesGame <= 3) {
 				appendStatus("<br />The series has been saved. Tap <q>Finish</q> when you are ready to play the next game.");
-			} else if (seriesScore < 1000) {
+			} else if (seriesScore < perfectScore) {
 				appendStatus("<br />The series has been successfully completed!");
 			} else {
 				appendStatus("<br />A perfect score has been achieved on this series!");
@@ -1440,7 +1440,7 @@ function saveSeriesFile(gameWon) {
 					cardsMod = -4;
 				} else if (seriesSeason == 2) {
 					winBonus = 248;
-				} else if (seriesSeason == 5) {
+				} else if (seriesSeason == 5 || seriesSeason == 6) {
 					winBonus = 168;
 				} else {
 					winBonus = 64;

@@ -449,7 +449,7 @@ function showBox(concept) {
 					displayTxt = displayTxt + ", "+conceptLink("Replicators") + ", "+conceptLink("Pirate")+"s";
 				}
 			}
-			displayTxt = displayTxt + " require no maintenance.)";
+			displayTxt = displayTxt + " require no maintenance.)<br />If maintenance exceeds total income, then net income is set to zero.";
 			if (useRuleset == "AGT") {
 				displayTxt = displayTxt + "<br /><br />Since "+conceptLink("AP Bot")+"s use "+conceptLink("economic roll")+"s to generate CP, they instead roll one less "+conceptLink("home system")+" die \
 					per non-<a href=\"javascript:showBox('Shattered Fleet')\">shattered</a> "+conceptLink("fleet")+" in service.";
@@ -461,14 +461,14 @@ function showBox(concept) {
 				displayTxt = displayTxt + "<br />As a "+conceptLink("technology")+", improving this increases the number of total "+conceptLink("hex")+"es that most "+conceptLink("ship")+"s can move per "+conceptLink("economic phase")+".\
 					<br />"+conceptLink("Decoy")+"s aside, "+conceptLink("non-combat ship")+"s have a fixed "+conceptLink("Movement")+" 1.\
 					<br /><br />The number of hexes a ship can move each turn is divided into the chart as follows:\
-					<table><tr><th>Level</th><th>Turn 1</th><th>Turn 2</th><th>Turn 3</th></tr>\
-					<tr class=\"numeric\"><td>1</td><td>1</td><td>1</td><td>1</td></tr>\
-					<tr class=\"numeric\"><td>2</td><td>1</td><td>1</td><td>2</td></tr>\
-					<tr class=\"numeric\"><td>3</td><td>1</td><td>2</td><td>2</td></tr>\
-					<tr class=\"numeric\"><td>4</td><td>2</td><td>2</td><td>2</td></tr>\
-					<tr class=\"numeric\"><td>5</td><td>2</td><td>2</td><td>3</td></tr>\
-					<tr class=\"numeric\"><td>6</td><td>2</td><td>3</td><td>3</td></tr>\
-					<tr class=\"numeric\"><td>7</td><td>3</td><td>3</td><td>3</td></tr></table>";
+					<table><tr><th>Level</th><th>Turn 1</th><th>Turn 2</th><th>Turn 3</th><th>Total</th></tr>\
+					<tr class=\"numeric\"><td>1</td><td>1</td><td>1</td><td>1</td><td>3</td></tr>\
+					<tr class=\"numeric\"><td>2</td><td>1</td><td>1</td><td>2</td><td>4</td></tr>\
+					<tr class=\"numeric\"><td>3</td><td>1</td><td>2</td><td>2</td><td>5</td></tr>\
+					<tr class=\"numeric\"><td>4</td><td>2</td><td>2</td><td>2</td><td>6</td></tr>\
+					<tr class=\"numeric\"><td>5</td><td>2</td><td>2</td><td>3</td><td>7</td></tr>\
+					<tr class=\"numeric\"><td>6</td><td>2</td><td>3</td><td>3</td><td>8</td></tr>\
+					<tr class=\"numeric\"><td>7</td><td>3</td><td>3</td><td>3</td><td>9</td></tr></table>";
 			}
 			break;
 		case "mvp":
@@ -540,6 +540,22 @@ function showBox(concept) {
 			displayTxt = "Spacefaring vessel, able to travel in space.";
 			if (useRuleset != "talon") {
 				displayTxt = displayTxt + " Can be built at a "+conceptLink("Ship Yard")+".";
+			}
+			break;
+		case "starting forces":
+			displayTxt = "The ships (and other assets) that a player starts with, before the first ";
+			if (useRuleset == "talon") {
+				displayTxt = displayTxt + conceptLink("impulse")+" even takes place.";
+			} else {
+				displayTxt = displayTxt + conceptLink("turn")+" even takes place, and before applying "+conceptLink("Quick Start")+".<br />Unless specified otherwise, \
+					each player starts with a "+conceptLink("homeworld")+", 4 "+conceptLink("Ship Yard")+"s, 3 "+conceptLink("scout")+"s, 3 "+conceptLink("colony ship")+"s, 1 "+conceptLink("miner");
+				if (useRuleset != "SE4X") {
+					displayTxt = displayTxt + ", and optionally 1 "+conceptLink("flagship");
+					if (useRuleset != "CE") {
+						displayTxt = displayTxt + "<br /><br />Since the "+conceptLink("replicators")+" have a different set of ships, \
+							they instead start with a "+conceptLink("homeworld")+", 5 "+conceptLink("Type 0")+"s and 1 "+conceptLink("flagship");
+					}
+				}
 			}
 			break;
 		case "subduing":
@@ -719,7 +735,10 @@ function showBox(concept) {
 					harvest from "+conceptLink("nebula")+"e connected to a "+conceptLink("colony")+", at a rate of 5 "+conceptLink("CP")+" per turn.";
 			}
 			break;
+		case "upgrading":
+			// Fall through
 		case "upgrade":
+			headingTxt = "Upgrade";
 			displayTxt = "The process of upgrading "+conceptLink("technology")+", usually on a "+conceptLink("ship")+". This usually is <i>not</i> an automatic process. \
 				Outdated <q>equipment</q> can be upgraded at a "+conceptLink("Ship Yard")+", at a cost of "+conceptLink("CP")+" equal to its "+conceptLink("Hull Size")+". \
 				The ship group must not move for an entire "+conceptLink("turn")+" to perform their upgrades.<br />\
@@ -1296,7 +1315,7 @@ function showBox(concept) {
 		case "close encounters":
 			displayTxt = "First expansion to "+conceptLink("Space Empires 4X")+".<br />\
 				Adds "+conceptLink("titan")+" + "+conceptLink("boarding")+" + "+conceptLink("troops")+" "+conceptLink("tech")+", "+conceptLink("experience")+", \
-				"+conceptLink("empire advantage")+"s, "+conceptLink("co-op")+", and "+conceptLink("space amoeba")+".";
+				"+conceptLink("facilities")+", "+conceptLink("empire advantage")+"s, "+conceptLink("co-op")+", and "+conceptLink("space amoeba")+".";
 			break;
 		case "boarding":
 			headingTxt = "Boarding Technology";
@@ -2106,16 +2125,21 @@ function showBox(concept) {
 		case "overload weapons":
 			displayTxt = "(Play with one additional discard; before one of the ships with "+conceptLink("Attack")+" "+conceptLink("tech")+" 1+ shoots)<br />\
 				Attack bonus from technology is doubled. A hit that is scored deals <b>2</b> additional damage.\
-				<br />In return, the ship loses benefit from this technology <i>after</i> it fires its overloaded ammo.<br /><br />\
+				<br />In return, the ship's final Attack strength is reduced to <b>0</b> <i>after</i> it fires its overloaded ammo.<br /><br />\
 				In a "+conceptLink("Replicator")+" hand, this card is instead "+conceptLink("Extra Move")+"." + discardVal(5,3);
 			break;
 		case "unconventional boarding":
 			displayTxt = "(Play with one additional discard; before one of the ships <q>shoots</q>)<br />\
 				Rather than shooting with one ship, that ship conducts a boarding attempt at strength 5, \
 				ignoring non-"+conceptLink("Hull Size")+" "+conceptLink("experience")+" and "+conceptLink("Security Forces")+". \
-				Each "+conceptLink("Boarding")+" level adds +2. Only usable against non-immune targets. "+conceptLink("Immortals")+" can not play this card. \
-				<br />In return, the ship loses benefit from this technology <i>after</i> it fires its overloaded ammo.<br /><br />\
-				In a "+conceptLink("Replicator")+" hand, this card is instead "+conceptLink("Extra Move")+"." + discardVal(5,3);
+				Each "+conceptLink("Boarding")+" level adds +2 to strength. Only usable against non-immune targets.";
+			if (useRuleset == "AGT") {
+				displayTxt = displayTxt + "<br />Neither "+conceptLink("Immortals")+" nor alternate "+conceptLink("faction")+" can play this card, \
+					nor can the card be used against the latter.";
+			} else {
+				displayTxt = displayTxt + " "+conceptLink("Immortals")+" can not play this card.";
+			}
+			displayTxt = displayTxt + "<br /><br />In a "+conceptLink("Replicator")+" hand, this card is instead "+conceptLink("Extra Move")+"." + discardVal(5,3);
 			break;
 		case "xeno-archaeology":
 			// Fall thru; UK spelling
@@ -2243,8 +2267,9 @@ function showBox(concept) {
 			// Fall through
 		case "depletion":
 			headingTxt = "Depletion";
-			displayTxt = conceptLink("Replicator")+" "+conceptLink("colonies")+" grow/produce quickly, but also quickly consume their resources.\
-				<br />Starting on "+conceptLink("Economic Phase")+" 10 (default), one colony is depleted; rendering its "+conceptLink("planet")+" no longer usable for the rest of the scenario.\
+			displayTxt = conceptLink("Replicator")+" "+conceptLink("colonies")+" grow/produce quickly, but also quickly consume their "+conceptLink("planet")+"s' resources.\
+				<br />Each "+conceptLink("economic phase")+" (starting on EP 10 by default), the closest colony is depleted (prioritizing full strength);\
+				<br />rendering its planet entirely useless for the rest of the scenario.\
 				<br /><br />The "+conceptLink("homeworld")+" is immune to depletion, ensuring the Replicators are always able to produce "+conceptLink("hull")+"s.";
 			break;
 		case "self-preservation":
@@ -3801,6 +3826,11 @@ function showBox(concept) {
 			displayTxt = "Number of battles to simulate at once. Battles simulated as a series give a short summary of success rate,\
 				<br />followed by detailed ships survived and HP remaining (if against a "+conceptLink("DM")+") on each side.";
 			break;
+		case "transcreening":
+			headingTxt = "Transport Screening";
+			displayTxt = "If "+conceptLink("transport")+"s are brought into battle, they typically are "+conceptLink("screen")+"ed (if able) for strategic reasons.\
+				<br />For example; against the "+conceptLink("replicators")+", keeping them alive is a good idea to dismantle their "+conceptLink("colonies")+".";
+			break;
 		case "retreatthresh":
 			headingTxt = "Retreat Threshold";
 			displayTxt = "At how many ships (or less) will the simulator cause surviving player ships to "+conceptLink("retreat")+"?";
@@ -4150,7 +4180,7 @@ function keywordifyDocument() {
 function keywordifyCollection(collObj) {
 	const keyTerms = ["Space Empires 4X", "Close Encounters", "Replicator", "All Good Things", "AGT", "Space Imperia 4X", "Space Empires Anthology",
 		"Replay Center", "Unique Designer", "Shuffler", "Zen Solitaire",
-		"AI", "Barren", "Campaign", "Colony", "Colonies", "Combat Ship", "CP", "Economic Phase", "Faction", "Homeworld", "Maintenance", "Planet", "Starship", "Scuttle", "Turn",
+		"AI", "Barren", "Campaign", "Colony", "Colonies", "Combat Ship", "CP", "Economic Phase", "Faction", "Homeworld", "Maintenance", "Planet", "Starship", "Scuttle", "Starting Forces", "Turn",
 		"Bid", "Competitive", "Cooperative", "Galactic Capitol", "Initiative", "Primary Objective", "Public Information", "Uneasy Alliance", "Versus Map", "Victory Point", "VP", "Blood Brothers",
 		"Battle", "Battling", "Blockade", "Blockading", "Bombard", "Fleet", "FSB", "Immobile", "Non-Player Alien", "NPA", "Subdue", "Subduing", "Priority Class", "Retreat", "Round", "Screen", "Weakness", "Weapon Class",
 		"Alien-E", "Alien-D", "Alien-C", "Alien-B", "Alien-A", "Doomsday Machine", "DM", "Amoeba", "Alien Empires", "Alien Player", "Counter Tech", "Economic Roll",
@@ -4158,7 +4188,7 @@ function keywordifyCollection(collObj) {
 		"Minelayer", "Minesweeper", "Carrier", "Raider", "Pipeline", "Unique Ship",
 		"Asteroid", "Black Hole", "Danger", "Deep Space", "Hex", "Home System", "Lost in Space", "Nebula", "Space Wreck", "Supernova",
 		"Warp Point", "Regional Map", "Fold in Space", "Folds in Space", "Pirate",
-		"Technology", "Technologies", "Attack", "Defense", "Explore", "Exploration", "Movement", "PD", "React Move", "Ship Size", "Tactics", "Terraforming", "Upgrade",
+		"Technology", "Technologies", "Attack", "Defense", "Explore", "Exploration", "Movement", "PD", "React Move", "Ship Size", "Tactics", "Terraforming", "Upgrade", "Upgrading",
 		"Cloaking", "Fighter", "Minelaying", "Minesweeping", "Nanomachine", "Scanning",
 		"Fastmove", "Second Salvo",
 		"Quick Start", "Slingshot", "Gearing Limits", "Unpredictable Research", "Research Grant", "Heavy Terrain",
@@ -4174,7 +4204,7 @@ function keywordifyCollection(collObj) {
 		"Electronic Warfare Module", "Holodeck", "Mobile Analysis Bay", "Photon Bomb", "Soylent Purple", "Advanced Ordnance Storage System", "Bioweapons",
 		"Phased Warp Coil", "Hidden Turret", "Superhighway", 
 		"Resource Card",
-		"Depletion", "Deplete", "Advanced Research", "Self-Preservation",
+		"Depletion", "Deplete", "Advanced Research", "Self-Preservation", "Improved Gunnery",
 		"Hull", "Type 0", "Type II", "Type IV", "Type V", "Type IX", "Type XI", "Type XV",
 		"Type Exp", "Type Flag", "Type Scan", "Type SW",
 		"Cosmic Storm", "Ion Storm", "Plasma Storm", "Pulsar", "Quantum", "Quasar", "Sinister", "Space Station",
@@ -4230,6 +4260,7 @@ function keywordifyCollection(collObj) {
 		{regex: conceptLink("Carrier")+" "+conceptLink("Fleet"), newTxt: conceptLink("Carrier Fleet")},
 		{regex: "non-"+conceptLink("raider fleet"), newTxt: conceptLink("non-raider fleet")},
 		{regex: "Non-"+conceptLink("raider")+" "+conceptLink("Fleet"), newTxt: conceptLink("Non-raider Fleet")},
+		{regex: conceptLink("base")+"line", newTxt: "baseline"},
 		{regex: conceptLink("experience")+"d", newTxt: "experienced"},
 		{regex: conceptLink("Experience")+"d", newTxt: "Experienced"},
 		{regex: "expansion "+conceptLink("fleet"), newTxt: conceptLink("expansion fleet")},

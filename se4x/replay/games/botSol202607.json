@@ -1,0 +1,5200 @@
+{"stages": [
+	{"heading":"Stardate 2400.0 (Introduction)",
+	"commentary":[
+		"Welcome to another map of AP Bot Solitaire. Last time we left off, we easily overran their homeworld thanks to how insanely potent replicators are. Not helping their cause was the fact that, perhaps, the most optimal fleet strategy they could have used against us... Fighters, was not availalble when fighting a NPA planet.",
+		"To that end, because of how difficult the replicators are to balance; we will challenge Normal difficulty again; only we will stick with the regular factions this time around. We also decided to hit up the Extra Large size, which uses the entire board... yet, because the shortest paths require going through just 4 hexes of deep space, that is the size the AP Bot treats this map as."],
+	"actions":
+		[{
+			"createPreset":"versus2Pxl",
+			"useExpansion":true,
+			"playerTop":"G10",
+			"playerBottom":"Y5"
+		},{
+			"createPreset":"makeAPbots",
+			"botColors":"G"
+		},{
+			"removeAllCounters":"MSaY"
+		},{
+			"removeCounter":"FlagY"
+		},{
+			"removeCounter":"SY2Y"
+		},{
+			"removeCounter":"CA1Y"
+		},{
+			"removeCounter":"Miner2G"
+		}]},
+	{"heading":"Stardate 2404.0 (Quick Start)",
+	"commentary":[
+		"Unique to AP Bot games is its own Quick Start model. Like the competitive scenarios, this is intended to speed up play by removing the need to colonize home system planets. Unlike <i>those</i> scenarios, the game clock effectively skips ahead 4 economic phases, allowing the AI to benefit from this system also.",
+		"After having placed our colonies, 5 Pipelines, and 1 Ship Yard at no additional charge, we can then spend our reserve of cash. We can spend 90-100 CP into technology, and 14-20 CP into ships. With this reserve, we buy Ship Size up to 3 (-25 total), Attack up to 2 (-50 total), and Exploration 1 (-15). We then buy 1 Cruiser (-12), and 2 Pipelines (-6).",
+		"{prodTable}",
+		"Now that we are playing on a more proper map; our opponent, dubbed Demeter, will purchase Exploration 1 (-15) right away, and places their exploration vessels. We then flip a coin to determine who gains the initiative. Tails! Demeter will move first."],
+	"prodTable":
+		[{
+			"name":"CSY (Yellow)","initCP":120,"colonyCP":0,"mineralCP":0,"pipeCP":0,"maint":0,"bidCP":0,"techBuy":90,"unitBuy":18
+		}],
+	"botTable":
+		[{
+			"name":"Demeter (Green)","baseHS":7,"fleetInit":30,"fleetGain":0,"fleetSpend":0,"techInit":120,"techGain":0,"techSpend":15
+		}],
+	"techTableX":
+		[{
+			"name":"CSY (Yellow)","size":3,"atk":2,"explore":1
+		},{
+			"name":"Demeter (Green)","explore":1
+		}],
+	"actions":
+		[{
+			"revealCounter":"systemA1",
+			"name":"planetY6"
+		},{
+			"revealCounter":"systemA1",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemA2",
+			"name":"nebula"
+		},{
+			"revealCounter":"systemA3",
+			"name":"planetY4"
+		},{
+			"revealCounter":"systemA3",
+			"name":"colony5Y"
+		},{
+			"revealCounter":"systemA4",
+			"name":"planetY2"
+		},{
+			"revealCounter":"systemA4",
+			"name":"colony5Y"
+		},{
+			"revealCounter":"systemB1",
+			"name":"planetY8"
+		},{
+			"revealCounter":"systemB1",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemB3",
+			"name":"blackHole"
+		},{
+			"revealCounter":"systemB4",
+			"name":"planetY9"
+		},{
+			"revealCounter":"systemB5",
+			"name":"planetY7"
+		},{
+			"revealCounter":"systemB5",
+			"name":"colony5Y"
+		},{
+			"revealCounter":"systemB6",
+			"name":"asteroids"
+		},{
+			"revealCounter":"systemC4",
+			"name":"planetY5"
+		},{
+			"revealCounter":"systemC4",
+			"name":"colony5Y"
+		},{
+			"revealCounter":"systemD2",
+			"name":"asteroids"
+		},{
+			"revealCounter":"systemE1",
+			"name":"planetY1"
+		},{
+			"revealCounter":"systemE1",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemE2",
+			"name":"nebula"
+		},{
+			"revealCounter":"systemE5",
+			"name":"planetY3"
+		},{
+			"revealCounter":"systemE5",
+			"name":"colony5Y"
+		},{
+			"placeCounter":"MS1Y",
+			"location":"A5",
+			"name":"MSaY"
+		},{
+			"placeCounter":"MS2Y",
+			"location":"B5",
+			"name":"MSaY"
+		},{
+			"placeCounter":"MS3Y",
+			"location":"C4",
+			"name":"MSaY"
+		},{
+			"placeCounter":"MS4Y",
+			"location":"D5",
+			"name":"MSaY"
+		},{
+			"placeCounter":"MS5Y",
+			"location":"E5",
+			"name":"MSaY"
+		},{
+			"placeCounter":"MS6Y",
+			"location":"A4",
+			"name":"MSaY"
+		},{
+			"placeCounter":"MS7Y",
+			"location":"A3",
+			"name":"MSaY"
+		},{
+			"placeCounter":"SY2Y",
+			"location":"E5"
+		},{
+			"placeCounter":"SC1Y",
+			"location":"E5",
+			"size":3
+		},{
+			"placeCounter":"CA1Y",
+			"location":"A5"
+		},{
+			"removeCounter":"SC2Y"
+		},{
+			"removeCounter":"SC3Y"
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"A5"
+		},{
+			"removeAllCounters":"COY"
+		},{
+			"removeAllCounters":"unexploredY"
+		},{
+			"revealCounter":"systemA6",
+			"name":"unexploredW"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"H9"
+		},{
+			"placeCounter":"Miner2G",
+			"location":"K8"
+		},{
+			"revealCounter":"systemK7",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemG8",
+			"name":"unexploredW"
+		},{
+			"removeCounter":"NPA18H"
+		}]},
+	{"heading":"Stardate 2404.2",
+	"commentary":["We opt to build a Deep Space <q>Shuffler</q>, and use it to take care of our corresponding needs. Regrettably, the AI got screwed on its opening; as <i>both</i> hexes are unsafe (or even impassable)."],
+	"actions":
+		[{
+			"placeCounter":"CA1Y",
+			"location":"B6"
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"B6"
+		},{
+			"revealCounter":"systemA6",
+			"name":"asteroids"
+		},{
+			"revealCounter":"systemB7",
+			"name":"unexploredW"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"H9"
+		},{
+			"placeCounter":"Miner2G",
+			"location":"K8"
+		},{
+			"revealCounter":"systemK7",
+			"name":"planetW18"
+		},{
+			"revealCounter":"systemG8",
+			"name":"supernova"
+		},{
+			"placeCounter":"NPA18H",
+			"location":"K7",
+			"size":4
+		},{
+			"revealCounter":"systemJ8",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemH8",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2404.5",
+	"commentary":["One of the few times where using a more accurate model (with 200 deep space counters) means there is a higher risk of being bitten by bad <q>draws</q>."],
+	"actions":
+		[{
+			"placeCounter":"CA1Y",
+			"location":"B7"
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"B7"
+		},{
+			"placeCounter":"systemB7",
+			"name":"danger"
+		},{
+			"revealCounter":"systemC6",
+			"name":"unexploredW"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"H10"
+		},{
+			"placeCounter":"Miner2G",
+			"location":"L8"
+		},{
+			"revealCounter":"systemJ8",
+			"name":"station5"
+		},{
+			"revealCounter":"systemH8",
+			"name":"supernova"
+		},{
+			"revealCounter":"systemL7",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemG9",
+			"name":"unexploredW"
+		},{
+			"removeCounter":"NPA15H"
+		}]},
+	{"heading":"Stardate 2404.8",
+	"commentary":["Demeter's luck has just been... abyssmal so far. At least this problem is remediable, once they conduct their next economic phase. We are due to hit this phase very soon."],
+	"actions":
+		[{
+			"placeCounter":"CA1Y",
+			"location":"C6"
+		},{
+			"removeCounter":"CA2Y"
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"C6"
+		},{
+			"resizeCounter":"SY1Y",
+			"size":4
+		},{
+			"resizeCounter":"SY2Y",
+			"size":1
+		},{
+			"removeCounter":"Inf1Y"
+		},{
+			"removeCounter":"systemB7"
+		},{
+			"placeCounter":"systemC6",
+			"name":"danger"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"H11"
+		},{
+			"placeCounter":"Miner2G",
+			"location":"K8"
+		},{
+			"removeCounter":"fleet1G"
+		},{
+			"revealCounter":"systemL7",
+			"name":"quantumFilament"
+		},{
+			"revealCounter":"systemG9",
+			"name":"planetW15"
+		},{
+			"placeCounter":"NPA15H",
+			"location":"G9",
+			"size":4
+		},{
+			"revealCounter":"systemA1",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemB1",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemE1",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemL8",
+			"name":"unexploredG"
+		},{
+			"revealCounter":"systemL9",
+			"name":"unexploredG"
+		},{
+			"revealCounter":"systemL11",
+			"name":"unexploredG"
+		},{
+			"placeCounter":"systemL12",
+			"name":"unexploredG"
+		},{
+			"placeCounter":"systemL13",
+			"name":"unexploredG"
+		},{
+			"placeCounter":"systemK8",
+			"name":"unexploredG"
+		},{
+			"revealCounter":"systemK9",
+			"name":"unexploredG"
+		},{
+			"revealCounter":"systemK10",
+			"name":"unexploredG"
+		},{
+			"revealCounter":"systemK11",
+			"name":"unexploredG"
+		},{
+			"revealCounter":"systemK12",
+			"name":"unexploredG"
+		},{
+			"placeCounter":"systemJ9",
+			"name":"unexploredG"
+		},{
+			"placeCounter":"systemJ10",
+			"name":"unexploredG"
+		},{
+			"revealCounter":"systemJ11",
+			"name":"unexploredG"
+		},{
+			"revealCounter":"systemJ12",
+			"name":"unexploredG"
+		},{
+			"revealCounter":"systemJ13",
+			"name":"unexploredG"
+		},{
+			"revealCounter":"systemI8",
+			"name":"unexploredG"
+		},{
+			"placeCounter":"systemI9",
+			"name":"unexploredG"
+		},{
+			"placeCounter":"systemI10",
+			"name":"unexploredG"
+		},{
+			"revealCounter":"systemI11",
+			"name":"unexploredG"
+		},{
+			"placeCounter":"systemI12",
+			"name":"unexploredG"
+		},{
+			"placeCounter":"systemH9",
+			"name":"unexploredG"
+		},{
+			"placeCounter":"systemH10",
+			"name":"unexploredG"
+		},{
+			"revealCounter":"systemH11",
+			"name":"unexploredG"
+		},{
+			"revealCounter":"systemH12",
+			"name":"unexploredG"
+		},{
+			"placeCounter":"systemH13",
+			"name":"unexploredG"
+		}]},
+	{"heading":"Stardate 2405.0",
+	"commentary":[
+		"Now that 3 turns have passed, it is time to conduct the [likely] most explosive economic phase of AP Bot Solitaire. Before we reach the most explosive segment though, we need to do our own regular economics.",
+		"Since Demeter revealed two supernovas back-to-back on the closest path to our home systems, this denies us the ability to use Benden as our own <q>chokepoint</q>. Since our Ship Yard count is low, we will buy Ship Yards 2 (-20) right away to allow for faster construction. We then buy 3 Cruisers at our homeworld (-36), and then add more Ship Yards to existing sites (-12 total). Finally, since ground units are enabled, we place our first free Light Infantry.",
+		"{prodTable}",
+		"Now that Demeter has finished its infrastructure, its home systems have now been revealed on the board. The AI has rolled 1,1,2,3,4,4,6 for its home system economic rolls, dumping the entirety of the income it just generated into its fleet bank.",
+		"For the series of paranoia checks, a 92 was rolled for Exploration (pass / skip), and a 15 was rolled on Terraforming (pass / buy). We skip the Military Academy step (inactive). An 8 was rolled for bidding (pass / bid 0). Since Terraforming 1 was bought at this point in the playthrough, we will infer that they colonize their obligatory barren planet right away. They will gain an extra roll after this phase.",
+		"The fleet launch step is skipped, because their deep space colony goal has <i>not</i> been met. They automatically launch an expansion fleet as a result of the previous goal. They also buy Movement 2 (-20), and rolled a 7 to try to buy an extra level on top of that (which is a skip)."],
+	"prodTable":
+		[{
+			"name":"CSY (Yellow)","initCP":12,"colonyCP":58,"mineralCP":0,"pipeCP":5,"maint":5,"bidCP":0,"techBuy":20,"unitBuy":48
+		}],
+	"botTable":
+		[{
+			"name":"Demeter (Green)","baseHS":7,"fleetInit":30,"fleetGain":70,"fleetSpend":100,"techInit":105,"techGain":0,"techSpend":40,"hidden":"100 (P M2)"
+		}],
+	"techTableX":
+		[{
+			"name":"CSY (Yellow)","size":3,"atk":2,"explore":1,"SY":2
+		},{
+			"name":"Demeter (Green)","explore":1,"terraform":1,"move":2
+		}],
+	"actions":
+		[{
+			"placeCounter":"SC1Y",
+			"location":"E5",
+			"size":3
+		},{
+			"placeCounter":"CA1Y",
+			"location":"C6"
+		},{
+			"placeCounter":"CA2Y",
+			"location":"A5",
+			"size":3
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"C6"
+		},{
+			"resizeCounter":"SY1Y",
+			"size":5
+		},{
+			"resizeCounter":"SY2Y",
+			"size":2
+		},{
+			"placeCounter":"Inf1Y",
+			"location":"E5"
+		},{
+			"removeCounter":"systemC6"
+		},{
+			"revealCounter":"systemD6",
+			"name":"unexploredW"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"H11"
+		},{
+			"placeCounter":"Miner2G",
+			"location":"K8"
+		},{
+			"placeCounter":"fleet1G",
+			"location":"L10",
+			"size":16
+		},{
+			"placeCounter":"systemG10",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemA1",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemB1",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemE1",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemL8",
+			"name":"planetG5"
+		},{
+			"revealCounter":"systemL8",
+			"name":"colony5G"
+		},{
+			"revealCounter":"systemL9",
+			"name":"planetG1"
+		},{
+			"revealCounter":"systemL9",
+			"name":"colony5G"
+		},{
+			"revealCounter":"systemL11",
+			"name":"blackHole"
+		},{
+			"revealCounter":"systemK9",
+			"name":"asteroids"
+		},{
+			"revealCounter":"systemK10",
+			"name":"planetG3"
+		},{
+			"revealCounter":"systemK10",
+			"name":"colony5G"
+		},{
+			"revealCounter":"systemK11",
+			"name":"planetG2"
+		},{
+			"revealCounter":"systemK11",
+			"name":"colony5G"
+		},{
+			"revealCounter":"systemK12",
+			"name":"planetG4"
+		},{
+			"revealCounter":"systemK12",
+			"name":"colony5G"
+		},{
+			"revealCounter":"systemJ11",
+			"name":"nebula"
+		},{
+			"revealCounter":"systemJ12",
+			"name":"planetG6"
+		},{
+			"revealCounter":"systemJ12",
+			"name":"colony5G"
+		},{
+			"revealCounter":"systemJ13",
+			"name":"nebula"
+		},{
+			"revealCounter":"systemI8",
+			"name":"planetG8"
+		},{
+			"revealCounter":"systemI8",
+			"name":"colony5G"
+		},{
+			"revealCounter":"systemI11",
+			"name":"planetG9"
+		},{
+			"revealCounter":"systemI11",
+			"name":"colony5G"
+		},{
+			"revealCounter":"systemH11",
+			"name":"planetG7"
+		},{
+			"revealCounter":"systemH11",
+			"name":"colony5G"
+		},{
+			"revealCounter":"systemH12",
+			"name":"asteroids"
+		},{
+			"removeAllCounters":"unexploredG"
+		}]},
+	{"heading":"Stardate 2405.1",
+	"commentary":["Demeter finally finds a suitable path to exit their home systems. They run into their first pirate. They rolled a 6, and hire the pirate for 10 CP; tapping into its Tech bank in the process."],
+	"actions":
+		[{
+			"placeCounter":"CA1Y",
+			"location":"D6"
+		},{
+			"placeGhost":"CA2Y",
+			"location":"B5"
+		},{
+			"placeCounter":"CA2Y",
+			"location":"C4",
+			"size":3
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"D6",
+			"size":1
+		},{
+			"placeCounter":"systemD6",
+			"name":"minerals10"
+		},{
+			"revealCounter":"systemE6",
+			"name":"unexploredW"
+		},{
+			"removeCounter":"NPA17H"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"G10"
+		},{
+			"placeCounter":"Miner2G",
+			"location":"J9"
+		},{
+			"placeCounter":"fleet1G",
+			"location":"K9",
+			"size":16
+		},{
+			"removeCounter":"systemG10"
+		},{
+			"placeCounter":"pirateG",
+			"location":"G10"
+		},{
+			"revealCounter":"systemF10",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2405.4",
+	"commentary":["Demeter also finds its first deep space minerals. Their Exploration Vessels can perform double duty; allowing them to pick up the minerals (as a dedicated task), and granting them a single extra home system economic roll when cashed in."],
+	"actions":
+		[{
+			"placeCounter":"CA1Y",
+			"location":"E5",
+			"size":1
+		},{
+			"placeGhost":"CA2Y",
+			"location":"D5"
+		},{
+			"placeCounter":"CA2Y",
+			"location":"E5",
+			"size":3
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"E5",
+			"size":3
+		},{
+			"removeCounter":"systemD6"
+		},{
+			"revealCounter":"systemE6",
+			"name":"planetW17"
+		},{
+			"revealCounter":"systemF5",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemF6",
+			"name":"unexploredW"
+		},{
+			"removeCounter":"NPA9H"
+		},{
+			"placeCounter":"NPA17H",
+			"location":"E6",
+			"size":4
+		},{
+			"placeCounter":"Miner1G",
+			"location":"F10",
+			"size":1
+		},{
+			"placeCounter":"Miner2G",
+			"location":"I8"
+		},{
+			"placeCounter":"fleet1G",
+			"location":"K8",
+			"size":16
+		},{
+			"placeCounter":"pirateG",
+			"location":"K8"
+		},{
+			"removeCounter":"Tran1G"
+		},{
+			"removeCounter":"HI1G"
+		},{
+			"removeCounter":"Mar1G"
+		},{
+			"removeCounter":"DD1G"
+		},{
+			"removeCounter":"CA1G"
+		},{
+			"placeCounter":"systemF10",
+			"name":"minerals10"
+		},{
+			"revealCounter":"systemI7",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemF9",
+			"name":"unexploredW"
+		},{
+			"placeCounter":"NPA18H",
+			"location":"K7",
+			"size":4
+		},{
+			"removeCounter":"NPA18C"
+		},{
+			"removeCounter":"NPA18B"
+		},{
+			"removeCounter":"NPA18A"
+		}]},
+	{"heading":"Stardate 2405.7 (The Battle for Tycho)",
+	"commentary":[
+		"Well... they found another pirate. Since a player is limited to 1 hired pirate at a time, they are unable to hire the new pirate. It simply vanishes.",
+		"Against Tycho, Demeter must formula a fleet strategy. A 22 was rolled, giving them Buffed Cruisers. Since they have Terraforming 1, a paranoia check is performed regarding whether to build a Transport. A 75 (pass). The remaining CP is then spent as follows:",
+		"<ol><li>Troops 2 (55 CP &rarr; 45 CP)</li>",
+		"<li>Ship Size 2 (45 CP &rarr; 35 CP)</li>",
+		"<li>Ship Size 3 (35 &rarr; 20 CP)</li>",
+		"<li>Defense 1 (20 &rarr; 0 CP)</li>",
+		"<li>1 Transport (100 assigned CP &rarr; 94 CP)</li>",
+		"<li>5 Space Marines + 1 Heavy Infantry (94 &rarr; 82 CP, factoring in 2 freebies)</li>",
+		"<li>6 Cruisers (82 &rarr; 10 CP)</li>",
+		"<li>1 Destroyer (10 &rarr; 1 CP)</li></ol>",
+		"Now that both sides have been revealed, we will proceed with battle.",
+		"<ol><li><b>Space Round 1</b>: Tycho has the best Weapon Class and Tactics, so their ships go first. Focusing on the pirate first, the NPA has rolled 7/3/2,7 (2 hits &le;5/6/3)</li>",
+		"<li>Demeter has screened their sole Transport, leaving only their Cruisers to shoot. They forgo the Fleet Size Bonus for this round. They rolled 3,7,2,4,10,3 against Tycho's smallest craft (3 hits &le;3)<br /><br /></li>",
+		"<li><b>Space Round 2</b>: Tycho's Alien-A rolled a 1 (hit &le;3)</li>",
+		"<li>Since Demeter has lost 1 ship in battle, it now conducts morale checks. A 42 was rolled (pass &gt;16), allowing this fleet to stay in battle</li>",
+		"<li>Demeter's Cruisers rolled 6,8,9,10,10 (0 hits &le;4)<br /><br /></li>",
+		"<li><b>Space Round 3</b>: Tycho's Alien-A has rolled a 5 (&le;3 to hit)</li>",
+		"<li>Demeter rolls a 47 for morale (pass &gt;37). Their Cruisers rolled 2,3,6,7,8 (2 hits &le;4), eliminating the last of the defenders<br /><br /></li>",
+		"<li><b>Ground Round 1</b>: Tycho's 5 militia take advantage of Demeter's inability to shoot for the first round, having rolled 1,2,3,6,7 against their space marines (3 hits &le;4)<br /><br /></li>",
+		"<li><b>Ground Round 2</b>: Demeter's forces have settled now, and rolled 1,4,8,10/6 (2 hits &le;6/4)</li>",
+		"<li>The 3 militia rolled 2,2,8 (2 hits &le;4)<br /><br /></li>",
+		"<li><b>Ground Round 3</b>: Demeter's forces have rolled 1,3,6/2 (4 hits &le;6/4), cleaning up the last of the militia</li></ol>",
+		"Demeter has captured Tycho! One of the remaining 3 space marines is used to install a new government. On that subject, we opt to keep the complexity manageable, and forgo alien technology for this playthrough."],
+	"actions":
+		[{
+			"placeCounter":"CA1Y",
+			"location":"E4",
+			"size":4
+		},{
+			"removeCounter":"CA2Y"
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"E4",
+			"size":1
+		},{
+			"removeCounter":"Tran1Y"
+		},{
+			"removeCounter":"HI1Y"
+		},{
+			"removeCounter":"Mar1Y"
+		},{
+			"removeCounter":"CO9Y"
+		},{
+			"revealCounter":"systemF5",
+			"name":"planetW9"
+		},{
+			"revealCounter":"systemF6",
+			"name":"blackHole"
+		},{
+			"placeCounter":"NPA9H",
+			"location":"F5",
+			"size":4
+		},{
+			"placeCounter":"Miner1G",
+			"location":"G10",
+			"size":3
+		},{
+			"placeCounter":"Miner2G",
+			"location":"I7"
+		},{
+			"removeCounter":"fleet1G"
+		},{
+			"placeCounter":"Tran1G",
+			"location":"K7"
+		},{
+			"placeCounter":"HI1G",
+			"location":"K7"
+		},{
+			"placeCounter":"Mar1G",
+			"location":"K7",
+			"size":5
+		},{
+			"placeCounter":"CA1G",
+			"location":"K7",
+			"size":6
+		},{
+			"placeCounter":"DD1G",
+			"location":"K7"
+		},{
+			"placeCounter":"pirateG",
+			"location":"K7"
+		},{
+			"removeCounter":"SY1G"
+		},{
+			"removeCounter":"systemF10"
+		},{
+			"placeCounter":"systemI7",
+			"name":"pirate"
+		},{
+			"revealCounter":"systemF9",
+			"name":"minerals10"
+		},{
+			"removeCounter":"NPA18H"
+		},{
+			"placeCounter":"NPA18C",
+			"location":"K7",
+			"size":2
+		},{
+			"placeCounter":"NPA18B",
+			"location":"K7"
+		},{
+			"placeCounter":"NPA18A",
+			"location":"K7"
+		},{
+			"revealCounter":"systemA1",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemB1",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemE1",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemK7",
+			"name":"planetW18"
+		}]},
+	{"heading":"Stardate 2406.0",
+	"commentary":[
+		"A sub-average start for us, but could be worse. We buy Troops 2 (-10) and Terraforming 1 (-20). We then take advantage of the free Heavy Infantry, and build 4 Space Marines (-12) + 1 Cruiser (-12) + 1 Transport (-6) at Benden. Our homeworld then produces 1 Colony Ship (-8).",
+		"{prodTable}",
+		"Demeter's economy has strengthened, making it easier to build/maintain larger fleets. This is also the first time we have to differentiate their economic rolls. Their home system rolls are 1,1,2,8,8,8,9, adding 10 CP per roll accordingly; or 30 into Fleet and 40 into Tech. Their first deep space roll is a 5 (adding 5 more CP into the Fleet bank).",
+		"On the Exploration step, an 11 was rolled (pass). Terraforming step is skipped from here on out, because the goal is already achieved, and said goal is &lt;2. For bidding, a 77 was rolled (pass, 0 bid).",
+		"Now that the deep space colony goal has been achieved, no more automatic launches take place. Instead, a manual roll of 8 was made. Normally this would launch (&le;8), but a maintenance penalty of +1 pushes them into the no launch zone.",
+		"Instead, they build a Forward Operating Base. An AP bot normally would prioritize deep space colonies over home system colonies when building one of these; but it is limited to colonies already at full strength. Since Demeter just captured their first deep space planet, it is one step below full strength. Thus, they put it as close to the center as possible in their home space."],
+	"prodTable":
+		[{
+			"name":"CSY (Yellow)","initCP":2,"colonyCP":64,"mineralCP":10,"pipeCP":5,"maint":11,"bidCP":0,"techBuy":30,"unitBuy":38
+		}],
+	"botTable":
+		[{
+			"name":"Demeter (Green)","baseHS":8,"HSdmg":0,"maint":1,"DSmin":0,"DScol":1,"fleetInit":1,"fleetGain":35,"fleetSpend":20,"techInit":0,"techGain":40,"techSpend":0,"hidden":""
+		}],
+	"techTableX":
+		[{
+			"name":"CSY (Yellow)","size":3,"atk":2,"explore":1,"SY":2,"troops":2,"terraform":1
+		},{
+			"name":"Demeter (Green)","explore":1,"terraform":1,"move":2,"troops":2,"size":3,"def":1
+		}],
+	"actions":
+		[{
+			"placeCounter":"SC1Y",
+			"location":"E5",
+			"size":3
+		},{
+			"placeCounter":"CA1Y",
+			"location":"E4",
+			"size":4
+		},{
+			"placeCounter":"CA2Y",
+			"location":"E5"
+		},{
+			"removeCounter":"CA3Y"
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"E4",
+			"size":1
+		},{
+			"placeCounter":"Tran1Y",
+			"location":"E5"
+		},{
+			"placeCounter":"Inf1Y",
+			"location":"E5"
+		},{
+			"placeCounter":"HI1Y",
+			"location":"E5"
+		},{
+			"placeCounter":"Mar1Y",
+			"location":"E5",
+			"size":4
+		},{
+			"placeCounter":"CO9Y",
+			"location":"A5"
+		},{
+			"placeCounter":"NPA9H",
+			"location":"F5",
+			"size":4
+		},{
+			"removeCounter":"NPA9E"
+		},{
+			"removeCounter":"NPA9C"
+		},{
+			"removeCounter":"NPA9A"
+		},{
+			"revealCounter":"systemF4",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemF3",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemG3",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemG4",
+			"name":"unexploredW"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"G10",
+			"size":3
+		},{
+			"placeCounter":"Miner2G",
+			"location":"I7"
+		},{
+			"placeCounter":"Tran1G",
+			"location":"K7"
+		},{
+			"placeCounter":"HI1G",
+			"location":"K7"
+		},{
+			"placeCounter":"Mar1G",
+			"location":"K7",
+			"size":2
+		},{
+			"placeCounter":"CA1G",
+			"location":"K7",
+			"size":6
+		},{
+			"removeCounter":"DD1G"
+		},{
+			"removeCounter":"pirateG"
+		},{
+			"placeCounter":"SY1G",
+			"location":"I8",
+			"size":2
+		},{
+			"removeCounter":"systemI7"
+		},{
+			"removeCounter":"NPA18C"
+		},{
+			"removeCounter":"NPA18B"
+		},{
+			"removeCounter":"NPA18A"
+		},{
+			"revealCounter":"systemA1",
+			"name":"colony5Y"
+		},{
+			"revealCounter":"systemB1",
+			"name":"colony5Y"
+		},{
+			"revealCounter":"systemE1",
+			"name":"colony5Y"
+		},{
+			"revealCounter":"systemK7",
+			"name":"colony5G"
+		},{
+			"revealCounter":"systemF11",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemH7",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2406.3 (The Battle for Deneb)",
+	"commentary":[
+		"On Demeter's turn, their fleet runs into a space station. After the station rolled a 7 (&le;3 to hit), their Cruisers then rolled 2,2,3,4,6,7 (3 hits &le;3), easily dispatching this station and awarding them an extra 5 CP, which will be rolled in the next economic phase as an extra deep space roll.",
+		"<h3>Player Turn</h3>",
+		"The recent discovery of a regional map... err, two of them... has made things awkward. Since we must move a combat ship into one of these hexes to activate its effects, we split one of our cruisers off. We can still assault Deneb with 4 of these ships.",
+		"<ol><li><b>Space Round 1</b>: Deneb has the best Weapon Class and Tactics, sans their Alien-E; so the rest of their ships go first. Since our Transport is screened, the NPA has rolled 3,5,8 against our scouts (2 hit &le;5)</li>",
+		"<li>Our Cruisers rolled 8,6,10,10 against their Alien-Cs (0 hits &le;4)</li>",
+		"<li>Their Alien-E rolled a 10 (&le;7 to hit)</li>",
+		"<li>Our last Scout rolls a 3 (&le;2 to hit)<br /><br /></li>",
+		"<li><b>Space Round 2</b>: Their Alien-A and Alien-Cs have rolled 1,4,5 (2 hits &le;4)</li>",
+		"<li>Our Cruisers rolled 4,1,1,2 (4 hits &le;4/5), cleaning up almost their fleet<br /><br /></li>",
+		"<li><b>Space Round 3</b>: Their Alien-A has rolled a 6 (&le;4 to hit)</li>",
+		"<li>Having gained Fleet Size Bonus, our Cruisers rolled 2,2,9,10 (2 hits &le;6), finishing off their last ship, and exposing the planet to a ground battle<br /><br /></li>",
+		"<li><b>Ground Round 1</b>: Deneb's 5 militia take advantage of our recent landfall. They rolled 8,5,2,6,7 (1 hit &le;4), eliminating our sole light infantry<br /><br /></li>",
+		"<li><b>Ground Round 2</b>: Our forces have settled now, and rolled 3,4,5,6/9 (4 hits &le;6/4)</li>",
+		"<li>Their last militia rolled a 10 (&le;4 to hit)<br /><br /></li>",
+		"<li><b>Ground Round 3</b>: Our forces have rolled 1,1,5,9/5 (2 hits &le;6/4). We then use one of our space marines to install a new government</li></ol>"],
+	"actions":
+		[{
+			"placeCounter":"SC1Y",
+			"location":"F5",
+			"size":3
+		},{
+			"placeCounter":"CA1Y",
+			"location":"F5",
+			"size":3
+		},{
+			"placeCounter":"CA2Y",
+			"location":"F5"
+		},{
+			"placeCounter":"CA3Y",
+			"location":"F4"
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"F4",
+			"size":1
+		},{
+			"placeCounter":"Tran1Y",
+			"location":"F5"
+		},{
+			"placeCounter":"Inf1Y",
+			"location":"F5"
+		},{
+			"placeCounter":"HI1Y",
+			"location":"F5"
+		},{
+			"placeCounter":"Mar1Y",
+			"location":"F5",
+			"size":4
+		},{
+			"placeCounter":"CO9Y",
+			"location":"A4"
+		},{
+			"removeCounter":"NPA9H"
+		},{
+			"placeCounter":"NPA9E",
+			"location":"F5"
+		},{
+			"placeCounter":"NPA9C",
+			"location":"F5",
+			"size":2
+		},{
+			"placeCounter":"NPA9A",
+			"location":"F5"
+		},{
+			"revealCounter":"systemF5",
+			"name":"planetW9"
+		},{
+			"placeCounter":"systemF4",
+			"name":"map"
+		},{
+			"revealCounter":"systemF3",
+			"name":"map"
+		},{
+			"placeCounter":"systemG3",
+			"name":"danger"
+		},{
+			"revealCounter":"systemG4",
+			"name":"asteroids"
+		},{
+			"revealCounter":"systemG5",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemF2",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemG2",
+			"name":"unexploredW"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"H11",
+			"size":3
+		},{
+			"placeCounter":"Miner2G",
+			"location":"H7"
+		},{
+			"placeCounter":"Tran1G",
+			"location":"J8"
+		},{
+			"placeCounter":"CA1G",
+			"location":"J8",
+			"size":6
+		},{
+			"revealCounter":"systemF11",
+			"name":"minerals10"
+		},{
+			"placeCounter":"systemH7",
+			"name":"danger"
+		},{
+			"placeCounter":"systemJ8",
+			"name":"station5"
+		},{
+			"revealCounter":"systemG11",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemG7",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2406.6",
+	"commentary":["We have captured the planet, having taken relatively minor losses."],
+	"actions":
+		[{
+			"removeCounter":"SC1Y"
+		},{
+			"placeCounter":"CA1Y",
+			"location":"G4",
+			"size":4
+		},{
+			"removeCounter":"CA2Y"
+		},{
+			"placeCounter":"CA3Y",
+			"location":"F3"
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"F3",
+			"size":1
+		},{
+			"placeCounter":"Tran1Y",
+			"location":"E5"
+		},{
+			"removeCounter":"Inf1Y"
+		},{
+			"placeCounter":"Mar1Y",
+			"location":"E5",
+			"size":3
+		},{
+			"placeCounter":"CO9Y",
+			"location":"B4"
+		},{
+			"removeCounter":"NPA9E"
+		},{
+			"removeCounter":"NPA9C"
+		},{
+			"removeCounter":"NPA9A"
+		},{
+			"revealCounter":"systemF5",
+			"name":"colony3"
+		},{
+			"removeCounter":"systemF4"
+		},{
+			"placeCounter":"systemF3",
+			"name":"map"
+		},{
+			"removeCounter":"systemG3"
+		},{
+			"revealCounter":"systemG5",
+			"name":"supernova"
+		},{
+			"revealCounter":"systemF2",
+			"name":"pirate"
+		},{
+			"revealCounter":"systemG2",
+			"name":"minerals10"
+		},{
+			"revealCounter":"systemH4",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemH5",
+			"name":"unexploredW"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"G11",
+			"size":1
+		},{
+			"placeCounter":"Miner2G",
+			"location":"H7"
+		},{
+			"placeCounter":"Tran1G",
+			"location":"I8"
+		},{
+			"placeCounter":"CA1G",
+			"location":"I8",
+			"size":6
+		},{
+			"placeCounter":"NPA15H",
+			"location":"G9",
+			"size":4
+		},{
+			"removeCounter":"NPA15D"
+		},{
+			"removeCounter":"NPA15B"
+		},{
+			"removeCounter":"NPA15A"
+		},{
+			"removeCounter":"systemH7"
+		},{
+			"removeCounter":"systemJ8"
+		},{
+			"revealCounter":"systemG11",
+			"name":"quasar"
+		},{
+			"revealCounter":"systemG7",
+			"name":"plasmaStorm"
+		},{
+			"revealCounter":"systemF12",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemH6",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2406.9 (The Battle for Defiance)",
+	"commentary":[
+		"Demeter is now ready to assault the next NPA planet, dubbed Defiance. Since their fleet is previously known, we go straight into battle.",
+		"<ol><li><b>Round 1</b>: Defiance has the best Weapon Class, sans their Alien-D; so the rest of their ships go first. Since their Transport is screened, the NPA has rolled 3,7/4 against their cruisers (2 hits &le;3/4)</li>",
+		"<li>Their Cruisers rolled 8,2 against their Alien-D (1 hit &le;4). 7,5,9 against their Alien-B (0 hits &le;3)<br /><br /></li>",
+		"<li><b>Round 2</b>: Defiance rolls 2,5/7 (1 hit &le;3/4)</li>",
+		"<li>Demeter's Cruisers must make a morale check due to recent damage/losses. They rolled an 86 (pass &gt;26). Having cleared that, they resume shooting. They rolled 5,3 against their Alien-B (1 hit &le;3), followed by 4,7,8, against their Alien-As (0 hit &le;3)<br /><br /></li>",
+		"<li><b>Round 3</b>: After Demeter screens a damaged ship, Defiance rolls 3,10 (1 hit &le;3)</li>",
+		"<li>Demeter's Cruisers gain the Fleet Size Bonus. They rolled a 36 for morale (pass &gt;16). They then rolled 1,2,3,4 for shooting (4 hits &le;4), easily wiping them up</li></ol>",
+		"Since no ground units remain (they were left at the previous planet), this planet is now subdued. Their fleet still has 66 CP worth of ships, so it remains an expansion fleet.",
+		"<h3>Player Turn</h3>",
+		"During our turn, we uncover a space wreck. We also decide no warp points will be used. We also move our straggler Cruiser into the space pirate, and choose to battle it.",
+		"<ol><li><b>Round 1</b>: The Space Pirate rolls a 10 (&le;4 to hit)</li>",
+		"<li>Our Cruiser rolls an 8 (&le;6 to hit)<br /><br /></li>",
+		"<li><b>Round 2</b>: The pirate rolls a 1 (hit &le;4)</li>",
+		"<li>Our Cruiser's engines have fully powered up, and we choose to retreat to the nearest colony</li></ol>"],
+	"actions":
+		[{
+			"placeCounter":"CA1Y",
+			"location":"H5",
+			"size":4
+		},{
+			"placeCounter":"CA3Y",
+			"location":"F2"
+		},{
+			"removeCounter":"CA4Y"
+		},{
+			"removeCounter":"CA5Y"
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"G3",
+			"size":1
+		},{
+			"placeCounter":"Tran1Y",
+			"location":"E5"
+		},{
+			"placeCounter":"Mar1Y",
+			"location":"E5",
+			"size":3
+		},{
+			"removeCounter":"HI2Y"
+		},{
+			"removeCounter":"HI3Y"
+		},{
+			"placeCounter":"CO9Y",
+			"location":"B4"
+		},{
+			"resizeCounter":"SY2Y",
+			"size":2
+		},{
+			"removeCounter":"MS8Y"
+		},{
+			"removeCounter":"systemF3"
+		},{
+			"placeCounter":"systemF2",
+			"name":"pirate"
+		},{
+			"revealCounter":"systemG2",
+			"name":"minerals10"
+		},{
+			"placeCounter":"systemH4",
+			"name":"warp2"
+		},{
+			"revealCounter":"systemH5",
+			"name":"spaceWreck"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"F11",
+			"size":1
+		},{
+			"placeCounter":"Miner2G",
+			"location":"H6",
+			"size":1
+		},{
+			"placeCounter":"Tran1G",
+			"location":"G9"
+		},{
+			"placeGhost":"CA1G",
+			"location":"H9"
+		},{
+			"placeCounter":"CA1G",
+			"location":"G9",
+			"size":6
+		},{
+			"removeCounter":"fleet2G"
+		},{
+			"removeCounter":"CO1G"
+		},{
+			"removeCounter":"NPA15H"
+		},{
+			"placeCounter":"NPA15D",
+			"location":"G9"
+		},{
+			"placeCounter":"NPA15B",
+			"location":"G9"
+		},{
+			"placeCounter":"NPA15A",
+			"location":"G9",
+			"size":2
+		},{
+			"placeCounter":"systemF11",
+			"name":"minerals10"
+		},{
+			"revealCounter":"systemF12",
+			"name":"minerals10"
+		},{
+			"placeCounter":"systemH6",
+			"name":"minerals10"
+		},{
+			"revealCounter":"systemF5",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemB4",
+			"name":"planetY9"
+		}]},
+	{"heading":"Stardate 2407.0",
+	"commentary":[
+		"We have made a small, but useful, comeback this set of turns. Since an opportunity presents itself, we will be bidding 1 in an attempt to wrestle initiative. We then buy 3 Cruisers (-36) + 1 Pipeline (-3) at the homeworld, followed by 1 Cruiser (-12) + 2 Space Marines (-6) + 1 Ship Yard (-6) at Benden.",
+		"Now that we have our first known cosmic storm, it now executes its movement step. A 7 was rolled, so it remains stationary.",
+		"{prodTable}",
+		"Demeter takes advantage of the recent cashing in of space station debris (treated as a one-time nebula roll). Their economic rolls are 2,3,4,5,6,6,6,9 (home system) / 2,8 (deep space).",
+		"Since there is an empty planet on the board able to be colonized, a Colony Ship is built (-8). On the Exploration step, a 53 was rolled (pass). For bidding, a 49 was rolled (pass). Since we overcame their bid of 0, we will take the initiative.",
+		"For fleet launch, a 1 was rolled. Natural 1's and 10's are <i>never</i> affected by modifiers, so they launch a fresh fleet. The Tech bank is barely too small (&lt;60), so we skip the Movement step. A 72 was rolled on the paranoia check (pass), so the new fleet is placed at their FOB."],
+	"prodTable":
+		[{
+			"name":"CSY (Yellow)","initCP":2,"colonyCP":73,"mineralCP":0,"pipeCP":5,"maint":14,"bidCP":1,"techBuy":0,"unitBuy":63
+		}],
+	"botTable":
+		[{
+			"name":"Demeter (Green)","baseHS":8,"HSdmg":0,"maint":1,"DSmin":1,"DScol":1,"DSPA":1,"fleetInit":16,"fleetGain":75,"fleetSpend":91,"techInit":40,"techGain":15,"techSpend":0,"hidden":"P (83 M2)"
+		}],
+	"techTableX":
+		[{
+			"name":"CSY (Yellow)","size":3,"atk":2,"explore":1,"SY":2,"troops":2,"terraform":1
+		},{
+			"name":"Demeter (Green)","explore":1,"terraform":1,"move":2,"troops":2,"size":3,"def":1
+		}],
+	"actions":
+		[{
+			"placeCounter":"CA1Y",
+			"location":"H5",
+			"size":4
+		},{
+			"placeCounter":"CA3Y",
+			"location":"E1"
+		},{
+			"placeCounter":"CA4Y",
+			"location":"A5",
+			"size":3
+		},{
+			"placeCounter":"CA5Y",
+			"location":"E5"
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"G3",
+			"size":1
+		},{
+			"placeCounter":"Tran1Y",
+			"location":"E5"
+		},{
+			"placeCounter":"Mar1Y",
+			"location":"E5",
+			"size":5
+		},{
+			"placeCounter":"HI2Y",
+			"location":"A5"
+		},{
+			"placeCounter":"HI3Y",
+			"location":"E5"
+		},{
+			"resizeCounter":"SY2Y",
+			"size":3
+		},{
+			"placeCounter":"MS8Y",
+			"location":"A5",
+			"name":"MSaY"
+		},{
+			"revealCounter":"systemI4",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemI5",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemF1",
+			"name":"unexploredW"
+		},{
+			"removeCounter":"CO9Y"
+		},{
+			"removeCounter":"systemF2"
+		},{
+			"removeCounter":"systemH4"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"F11",
+			"size":3
+		},{
+			"placeCounter":"Miner2G",
+			"location":"H6",
+			"size":3
+		},{
+			"placeCounter":"Tran1G",
+			"location":"G9"
+		},{
+			"placeCounter":"CA1G",
+			"location":"G9",
+			"size":5
+		},{
+			"placeCounter":"fleet2G",
+			"location":"I8",
+			"size":13
+		},{
+			"placeCounter":"CO1G",
+			"location":"I8"
+		},{
+			"removeCounter":"NPA15D"
+		},{
+			"removeCounter":"NPA15B"
+		},{
+			"removeCounter":"NPA15A"
+		},{
+			"removeCounter":"systemF11"
+		},{
+			"removeCounter":"systemH6"
+		},{
+			"revealCounter":"systemF5",
+			"name":"colony5Y"
+		},{
+			"revealCounter":"systemB4",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemE10",
+			"name":"unexploredW"
+		},{
+			"removeCounter":"NPA2H"
+		}]},
+	{"heading":"Stardate 2407.2",
+	"commentary":[
+		"By wrestling the initiative, it allows us to destroy one of their Exploration Vessels, denying them minerals and slowing down their economy.",
+		"We also challenge a newly revealed space station to battle. After they rolled a 5 (&le;4 to hit), our lone Cruiser rolled a 5 (hit &le;5), barely dispatching their ship. This allows us to scavenge 5 CP from its debris."],
+	"actions":
+		[{
+			"placeCounter":"CA1Y",
+			"location":"H6",
+			"size":4
+		},{
+			"placeCounter":"CA3Y",
+			"location":"F1"
+		},{
+			"placeGhost":"CA4Y",
+			"location":"B5"
+		},{
+			"placeCounter":"CA4Y",
+			"location":"C4",
+			"size":3
+		},{
+			"placeCounter":"CA5Y",
+			"location":"D6"
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"H4",
+			"size":1
+		},{
+			"placeCounter":"MS8Y",
+			"location":"A4",
+			"name":"MSmY"
+		},{
+			"revealCounter":"systemI4",
+			"name":"minerals10"
+		},{
+			"placeCounter":"systemI5",
+			"name":"danger"
+		},{
+			"placeCounter":"systemF1",
+			"name":"station5"
+		},{
+			"revealCounter":"systemG6",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemG1",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemD7",
+			"name":"unexploredW"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"G11",
+			"size":3
+		},{
+			"placeCounter":"Miner2G",
+			"location":"H6",
+			"size":3
+		},{
+			"placeCounter":"Tran1G",
+			"location":"F10"
+		},{
+			"placeCounter":"CA1G",
+			"location":"F10",
+			"size":5
+		},{
+			"placeCounter":"fleet2G",
+			"location":"I7",
+			"size":13
+		},{
+			"placeCounter":"CO1G",
+			"location":"H9"
+		},{
+			"revealCounter":"systemE10",
+			"name":"planetW2"
+		},{
+			"placeCounter":"NPA2H",
+			"location":"E10",
+			"size":4
+		},{
+			"removeCounter":"NPA2E"
+		},{
+			"removeCounter":"NPA2C"
+		},{
+			"removeCounter":"NPA2A"
+		},{
+			"revealCounter":"systemG12",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2407.5 (The Battle for Ada)",
+	"commentary":[
+		"After we conduct our turn, Demeter now battles the NPA planet of Ada, with its previously known fleet.",
+		"<ol><li><b>Round 1</b>: Ada's ships, sans the Alien-E, have the tactics advantage. They rolled 1,6,10 (1 hit &le;3)</li>",
+		"<li>Demeter's 5 Cruisers rolled 7,6,2,8,9 (1 hit &le;2)</li>",
+		"<li>Ada's Alien-E rolls an 8 (&le;5 to hit)<br /><br /></li>",
+		"<li><b>Round 2</b>: Ada's other remaining ships rolled 7,10 (0 hits &le;3)</li>",
+		"<li>Demeter's 4 unscreened cruisers rolled an 89 for morale (pass &gt;9), followed by 6,2/5,10 (1 hit &le;2/3)</li>",
+		"<li>The Alien-E rolls another 8 (&le;5 to hit)<br /><br /></li>",
+		"<li><b>Round 3</b>: The Alien-A rolls a 2 (hit &le;3)</li>",
+		"<li>Demeter's 4 unscreened cruisers rolled a 58 for morale (pass &gt;5), followed by 3,6,6,8 (1 hit &le;4); taking advantage of FSB</li>",
+		"<li>The Alien-E rolls a 7 (&le;5 to hit)<br /><br /></li>",
+		"<li><b>Round 4</b>: The Alien-A rolls a 5 (&le;3 to hit)</li>",
+		"<li>Demeter's 3 unscreened cruisers rolled a 15 for morale (failed &le;16). Even though the morale check failed, damaged ships are currently screened. The remaining ships stay for one more round, and rolled 2,6,10 (1 hit &le;3)<br /><br /></li>",
+		"<li><b>Round 5</b>: Now that Demeter has stopped screening ships, the Alien-A rolls a 2 against Demeter's damaged cruiser (hit &le;3)</li>",
+		"<li>The rest of Demeters' ships retreat, having previously failed a morale check</li></ol>"],
+	"actions":
+		[{
+			"placeCounter":"CA1Y",
+			"location":"H5",
+			"size":4
+		},{
+			"placeCounter":"CA3Y",
+			"location":"F1"
+		},{
+			"placeGhost":"CA4Y",
+			"location":"D5"
+		},{
+			"placeCounter":"CA4Y",
+			"location":"E5",
+			"size":3
+		},{
+			"placeCounter":"CA5Y",
+			"location":"D6"
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"H5",
+			"size":1
+		},{
+			"placeCounter":"Tran1Y",
+			"location":"E5"
+		},{
+			"placeCounter":"Mar1Y",
+			"location":"E5",
+			"size":5
+		},{
+			"placeCounter":"HI3Y",
+			"location":"E5"
+		},{
+			"placeCounter":"MS8Y",
+			"location":"B4",
+			"name":"MSmY"
+		},{
+			"revealCounter":"systemI4",
+			"name":"minerals10"
+		},{
+			"removeCounter":"systemI5"
+		},{
+			"removeCounter":"systemF1"
+		},{
+			"placeCounter":"systemH5",
+			"name":"spaceWreck"
+		},{
+			"placeCounter":"systemG6",
+			"name":"danger"
+		},{
+			"revealCounter":"systemG1",
+			"name":"fold"
+		},{
+			"revealCounter":"systemD7",
+			"name":"quantumFilament"
+		},{
+			"placeCounter":"NPA17H",
+			"location":"E6",
+			"size":4
+		},{
+			"removeCounter":"NPA17D"
+		},{
+			"removeCounter":"NPA17C"
+		},{
+			"removeCounter":"NPA17B"
+		},{
+			"revealCounter":"systemH1",
+			"name":"unexploredW"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"H11",
+			"size":3
+		},{
+			"removeCounter":"Miner2G"
+		},{
+			"placeCounter":"Tran1G",
+			"location":"E10"
+		},{
+			"placeCounter":"CA1G",
+			"location":"E10",
+			"size":5
+		},{
+			"placeCounter":"fleet2G",
+			"location":"H7",
+			"size":13
+		},{
+			"placeCounter":"CO1G",
+			"location":"G9"
+		},{
+			"removeCounter":"NPA2H"
+		},{
+			"placeCounter":"NPA2E",
+			"location":"E10"
+		},{
+			"placeCounter":"NPA2C",
+			"location":"E10",
+			"size":2
+		},{
+			"placeCounter":"NPA2A",
+			"location":"E10"
+		},{
+			"placeCounter":"systemG12",
+			"name":"danger"
+		}]},
+	{"heading":"Stardate 2407.8P (The Battle for Risible)",
+	"commentary":[
+		"Now it is our turn to challenge Risible!",
+		"<ol><li><b>Space Round 1</b>: Risible's ships, sans the Alien-D, have the tactics advantage. They rolled 10/9,2 (1 hit &le;5/4)</li>",
+		"<li>Our 4 Cruisers rolled 8,9,3,3 (2 hits &le;4)</li>",
+		"<li>Risible's Alien-D rolls a 7 (&le;3 to hit)<br /><br /></li>",
+		"<li><b>Space Round 2</b>: Unlike Demeter, we will keep <i>only</i> our Transport screened. The Alien-B rolls a 1 (hit &le;3)</li>",
+		"<li>Our 3 Cruisers rolled 6,4,1 (2 hits &le;4/3), eliminating their orbital defenders<br /><br /></li>",
+		"<li><b>Ground Round 1</b>: While our forces are shaken, their Militia rolls 1,2,4,5,5 against our space marines (3 hits &le;4)<br /><br /></li>",
+		"<li><b>Ground Round 2</b>: Our forces have settled down now. We rolled 3,4,5,6/1 (5 hits &le;6/4), easily eliminating their militia!</li></ol>",
+		"We captured another NPA planet! Another tactical victory for us!"],
+	"actions":
+		[{
+			"placeCounter":"CA1Y",
+			"location":"G4",
+			"size":4
+		},{
+			"placeGhost":"CA3Y",
+			"location":"G1"
+		},{
+			"placeCounter":"CA3Y",
+			"location":"G2"
+		},{
+			"placeCounter":"CA4Y",
+			"location":"E6",
+			"size":3
+		},{
+			"placeCounter":"CA5Y",
+			"location":"E6"
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"G4",
+			"size":4
+		},{
+			"placeCounter":"Tran1Y",
+			"location":"E6"
+		},{
+			"placeCounter":"Mar1Y",
+			"location":"E6",
+			"size":5
+		},{
+			"placeCounter":"HI3Y",
+			"location":"E6"
+		},{
+			"revealCounter":"MS8Y",
+			"name":"MSaY"
+		},{
+			"removeCounter":"systemH5"
+		},{
+			"removeCounter":"systemG6"
+		},{
+			"removeCounter":"NPA17H"
+		},{
+			"placeCounter":"NPA17D",
+			"location":"E6"
+		},{
+			"placeCounter":"NPA17C",
+			"location":"E6",
+			"size":2
+		},{
+			"placeCounter":"NPA17B",
+			"location":"E6"
+		},{
+			"revealCounter":"systemH1",
+			"name":"nebula"
+		},{
+			"revealCounter":"systemE6",
+			"name":"planetW17"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"H11",
+			"size":1
+		},{
+			"placeCounter":"Tran1G",
+			"location":"F10"
+		},{
+			"placeCounter":"CA1G",
+			"location":"F10",
+			"size":4
+		},{
+			"placeCounter":"fleet2G",
+			"location":"H7",
+			"size":13
+		},{
+			"placeCounter":"CO1G",
+			"location":"G9"
+		},{
+			"removeCounter":"NPA2E"
+		},{
+			"removeCounter":"NPA2C"
+		},{
+			"removeCounter":"systemG12"
+		}]},
+	{"heading":"Stardate 2407.8A (The Battle for Ada... again!)",
+	"commentary":[
+		"Although Demeter's known fleet is weakened (by 12 CP), they are still strong enough (54 &ge; 30) for a rematch with Ada. After the latter's Alien-A rolls a 3 (hit &le;3), Demeter's 4 Cruisers take advantage of FSB, and rolled 2,3,5,8 (2 hits &le;3).",
+		"The last orbital defender has been eliminated, and the planet is now subdued. However, the aforementioned 54 does not exceed the quota of 60 to remain an expansion fleet; demoting this fleet to a guard fleet."],
+	"actions":
+		[{
+			"removeCounter":"SC1Y"
+		},{
+			"removeCounter":"SC2Y"
+		},{
+			"placeCounter":"CA1Y",
+			"location":"G4",
+			"size":4
+		},{
+			"placeCounter":"CA3Y",
+			"location":"G2"
+		},{
+			"placeCounter":"CA4Y",
+			"location":"E6",
+			"size":3
+		},{
+			"removeCounter":"CA5Y"
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"G4",
+			"size":4
+		},{
+			"placeCounter":"Tran1Y",
+			"location":"E6"
+		},{
+			"placeCounter":"Mar1Y",
+			"location":"E6",
+			"size":3
+		},{
+			"resizeCounter":"HI1Y",
+			"size":1
+		},{
+			"resizeCounter":"HI2Y",
+			"size":1
+		},{
+			"placeCounter":"HI3Y",
+			"location":"E6"
+		},{
+			"removeCounter":"HI4Y"
+		},{
+			"resizeCounter":"SY2Y",
+			"size":3
+		},{
+			"revealCounter":"MS8Y",
+			"name":"MSaY"
+		},{
+			"removeCounter":"NPA17D"
+		},{
+			"removeCounter":"NPA17C"
+		},{
+			"removeCounter":"NPA17B"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"G11",
+			"size":1
+		},{
+			"placeCounter":"Tran1G",
+			"location":"E10"
+		},{
+			"placeCounter":"CA1G",
+			"location":"E10",
+			"size":4
+		},{
+			"placeGhost":"fleet2G",
+			"location":"H6"
+		},{
+			"placeCounter":"fleet2G",
+			"location":"H5",
+			"size":13
+		},{
+			"removeCounter":"fleet3G"
+		},{
+			"placeCounter":"CO1G",
+			"location":"G9"
+		},{
+			"removeCounter":"CO2G"
+		},{
+			"placeCounter":"NPA2A",
+			"location":"E10"
+		},{
+			"revealCounter":"systemE6",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemB4",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemG9",
+			"name":"planetW15"
+		}]},
+	{"heading":"Stardate 2408.0",
+	"commentary":[
+		"Our economy has grown stronger thanks to being able to capture a <i>second</i> NPA planet, as opposed to subduing it. Normally, we would need to maximize the number of <q>bodies</q> to defend against Demeter; but we should also work around the fact that one of Demeter's fleets is threatened. Thus, we place a bid of 8, we will build 4 Scouts (-24) + 1 Ship Yard (-6) at Benden, and 5 Scouts (-30) at the homeworld.",
+		"While on break, the plasma storm rolls a 9 for movement. Once more, it remains still.",
+		"{prodTable}",
+		"Demeter was able to replace a temporary economic boost with a permanent one. Their economic rolls are 1,4,8,8,8,8,8 (home system) / 7,9 (deep space).",
+		"Since there is <i>another</i> empty planet on the board able to be colonized, a Colony Ship is built (-8). On the Exploration step, an 87 was rolled (pass). For bidding, since one of the AP bot's assets is threatened (that is not a Miner/EV), they bid as if they failed the corresponding paranoia check. They rolled 1,7. The lowest is 1, paranoia modifier causes it to be 2, and that a fixed deduction of 3 reduces it below 0. Thus, no bid is placed.",
+		"For fleet launch, a 7 was rolled. The maintenance penalty is still +1 (guard fleets affect economic rolls, but not fleet launches), so a launch barely occurs anyway. Since the remaining fleet bank was well short of 60, points were taken out of the Tech bank to replace the shortage.",
+		"A 92 was rolled for a paranoia check (pass), causing the fleet to be placed at the FOB. Since the remaining Tech CP is sufficient, Movement 3 is bought right away (-25). A 6 was rolled for an additional Movement tech. At least 6 rows of deep space are required to buy even more Movement at this roll, so this purchase is not made."],
+	"prodTable":
+		[{
+			"name":"CSY (Yellow)","initCP":2,"colonyCP":79,"mineralCP":5,"pipeCP":6,"maint":20,"bidCP":8,"techBuy":0,"unitBuy":60
+		}],
+	"botTable":
+		[{
+			"name":"Demeter (Green)","baseHS":8,"HSdmg":0,"maint":2,"DSmin":1,"DScol":2,"fleetInit":0,"fleetGain":25,"fleetSpend":25,"techInit":55,"techGain":55,"techSpend":68,"hidden":"P (83 M2) / P (60 M3)"
+		}],
+	"techTableX":
+		[{
+			"name":"CSY (Yellow)","size":3,"atk":2,"explore":1,"SY":2,"troops":2,"terraform":1
+		},{
+			"name":"Demeter (Green)","explore":1,"terraform":1,"move":3,"troops":2,"size":3,"def":1
+		}],
+	"actions":
+		[{
+			"placeCounter":"SC1Y",
+			"location":"E5",
+			"size":4
+		},{
+			"placeCounter":"SC2Y",
+			"location":"A5",
+			"size":5
+		},{
+			"placeCounter":"CA1Y",
+			"location":"G4",
+			"size":4
+		},{
+			"placeCounter":"CA3Y",
+			"location":"G2"
+		},{
+			"placeCounter":"CA4Y",
+			"location":"E6",
+			"size":3
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"G4",
+			"size":4
+		},{
+			"placeCounter":"Tran1Y",
+			"location":"E6"
+		},{
+			"placeCounter":"Mar1Y",
+			"location":"E6",
+			"size":3
+		},{
+			"resizeCounter":"HI1Y",
+			"size":2
+		},{
+			"resizeCounter":"HI2Y",
+			"size":2
+		},{
+			"placeCounter":"HI4Y",
+			"location":"E5"
+		},{
+			"resizeCounter":"SY2Y",
+			"size":4
+		},{
+			"revealCounter":"systemH2",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemE7",
+			"name":"unexploredW"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"G11",
+			"size":1
+		},{
+			"placeCounter":"Tran1G",
+			"location":"E10"
+		},{
+			"placeCounter":"CA1G",
+			"location":"E10",
+			"size":4
+		},{
+			"placeCounter":"fleet2G",
+			"location":"H5",
+			"size":13
+		},{
+			"placeCounter":"fleet3G",
+			"location":"I8",
+			"size":10
+		},{
+			"removeCounter":"CO1G"
+		},{
+			"placeCounter":"CO2G",
+			"location":"I8"
+		},{
+			"removeCounter":"NPA2A"
+		},{
+			"revealCounter":"systemE6",
+			"name":"colony5Y"
+		},{
+			"revealCounter":"systemB4",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemG9",
+			"name":"colony1"
+		}]},
+	{"heading":"Stardate 2408.1",
+	"commentary":["While omitting the use of doomsday machines, we intentionally keep one of the potential systems unexplored, to discourage the use of an alternate path."],
+	"actions":
+		[{
+			"placeCounter":"SC1Y",
+			"location":"F5",
+			"size":4
+		},{
+			"placeGhost":"SC2Y",
+			"location":"B5"
+		},{
+			"placeCounter":"SC2Y",
+			"location":"C4",
+			"size":5
+		},{
+			"placeCounter":"CA1Y",
+			"location":"F5",
+			"size":4
+		},{
+			"placeCounter":"CA3Y",
+			"location":"G3"
+		},{
+			"placeCounter":"CA4Y",
+			"location":"E5",
+			"size":3
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"F5",
+			"size":4
+		},{
+			"placeCounter":"Tran1Y",
+			"location":"E5"
+		},{
+			"placeCounter":"Mar1Y",
+			"location":"E5",
+			"size":3
+		},{
+			"placeCounter":"HI4Y",
+			"location":"E5"
+		},{
+			"placeCounter":"systemH2",
+			"name":"doomsday"
+		},{
+			"placeCounter":"systemE7",
+			"name":"danger"
+		},{
+			"revealCounter":"systemH3",
+			"name":"unexploredW"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"F12",
+			"size":1
+		},{
+			"placeCounter":"Tran1G",
+			"location":"F10"
+		},{
+			"placeCounter":"CA1G",
+			"location":"F10",
+			"size":4
+		},{
+			"placeCounter":"fleet2G",
+			"location":"G4",
+			"size":13
+		},{
+			"removeCounter":"DD2G"
+		},{
+			"removeCounter":"CA2G"
+		},{
+			"placeCounter":"fleet3G",
+			"location":"I7",
+			"size":10
+		},{
+			"placeCounter":"CO2G",
+			"location":"H9"
+		},{
+			"placeCounter":"systemF12",
+			"name":"minerals10"
+		},{
+			"revealCounter":"systemE11",
+			"name":"unexploredW"
+		},{
+			"removeCounter":"NPA1H"
+		}]},
+	{"heading":"Stardate 2408.4 (The Battle for Deneb)",
+	"commentary":[
+		"Demeter is now ready to assault our colony with its next fleet. But, before it proceeds, it performs one last paranoia check. A 62, which allows it to keep its offense posture. It continues onward to battle.",
+		"The AP bot's remaining 42 Tech CP is not sufficient to buy counter tech (<60), so that step is skipped. It is sufficient for a potential fleet strategy change (≥30), so another paranoia check is performed. A 52 was rolled (pass), so the current strategy is kept. The available money is then spent as follows:",
+		"<ol><li>Transport step skipped (impossible to screen versus 11 ships)</li>",
+		"<li>Tactics 1 (42 Tech CP &rarr; 27 CP)</li>",
+		"<li>Attack 1 (27 &rarr; 7 CP)</li>",
+		"<li>6 Cruisers (83 assigned CP &rarr; 11 CP)</li>",
+		"<li>1 Destroyer (11 &rarr; 2 CP)</li></ol>",
+		"While we were not able to get all of our ships together (6 ships are one turn short of destination), 11 ships is still a sufficient count to protect our planet.",
+		"<ol><li><b>Round 1</b>: Demeter has acquired the Tactics advantage, so their Cruisers go first. Against our scouts, they rolled 1,10,9,4,8,5 (3 hits &le;5)</li>",
+		"<li>Our Cruisers can return fire. Going against their destroyer first, we rolled 10,8,6,7,1/7,3 (2 hits &le;5/4)</li>",
+		"<li>Our last Scout then rolled a 5 (&le;2 to hit)<br /><br /></li>",
+		"<li><b>Round 2</b>: Demeter has lost 1 ship so far this battle, and a second ship is damaged",
+		"<br />However, the only potential valid retreat hex involves putting them through a black hole (unsafe). The asteroid belt they vacated does <i>not</i> put them closer to one of their colonies</li>",
+		"<li>With no feasible retreat hex, we skip morale checks for this battle. Thus, their Cruisers rolled 3/5,5,6,7,10 (1 hit &le;5/4)</li>",
+		"<li>Our Cruisers respond with 3,5,7,8,9,9,10 (1 hit &le;4)<br /><br /></li>",
+		"<li><b>Round 3</b>: Their Cruisers rolled 3,5,9,9,10 (1 hit &le;4)</li>",
+		"<li>Our Cruisers rolled 2,2,2,2,5,8,10 (4 hits &le;4)<br /><br /></li>",
+		"<li><b>Round 4</b>: Their Cruisers rolled 4,6,8 (1 hit &le;4)</li>",
+		"<li>Our Cruisers gain the fleet size bonus, and rolled 1,4,4,7,7,9 (3 hits &le;5)<br /><br /></li>",
+		"<li><b>Round 5</b>: Their Cruisers rolled 3,5 (1 hit &le;4)</li>",
+		"<li>Our Cruisers gain the fleet size bonus, and rolled 3,6,7,7,9 (1 hit &le;5)<br /><br /></li>",
+		"<li><b>Round 6</b>: Demeter's last Cruiser rolled a 5 (&le;4 to hit)</li>",
+		"<li>Our Cruisers respond with 3,4,5,6,6 (3 hits &le;5), finishing off Demeter's fleet!</li></ol>"],
+	"actions":
+		[{
+			"placeCounter":"SC1Y",
+			"location":"F5",
+			"size":4
+		},{
+			"placeGhost":"SC2Y",
+			"location":"D5"
+		},{
+			"placeCounter":"SC2Y",
+			"location":"E5",
+			"size":5
+		},{
+			"placeCounter":"CA1Y",
+			"location":"F5",
+			"size":4
+		},{
+			"placeCounter":"CA3Y",
+			"location":"F4"
+		},{
+			"placeCounter":"CA4Y",
+			"location":"F5",
+			"size":3
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"F4",
+			"size":1
+		},{
+			"placeCounter":"Tran1Y",
+			"location":"E4"
+		},{
+			"placeCounter":"Mar1Y",
+			"location":"E4",
+			"size":3
+		},{
+			"placeCounter":"HI4Y",
+			"location":"E4"
+		},{
+			"removeCounter":"systemH2"
+		},{
+			"removeCounter":"systemE7"
+		},{
+			"revealCounter":"systemH3",
+			"name":"nebula"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"G11",
+			"size":3
+		},{
+			"placeCounter":"Tran1G",
+			"location":"G9"
+		},{
+			"placeCounter":"CA1G",
+			"location":"G9",
+			"size":4
+		},{
+			"removeCounter":"fleet2G"
+		},{
+			"placeCounter":"DD2G",
+			"location":"F5"
+		},{
+			"placeCounter":"CA2G",
+			"location":"F5",
+			"size":6
+		},{
+			"placeGhost":"fleet3G",
+			"location":"H7"
+		},{
+			"placeCounter":"fleet3G",
+			"location":"H6",
+			"size":10
+		},{
+			"placeCounter":"CO2G",
+			"location":"G9"
+		},{
+			"removeCounter":"systemF12"
+		},{
+			"revealCounter":"systemE11",
+			"name":"planetW1"
+		},{
+			"placeCounter":"NPA1H",
+			"location":"E11",
+			"size":4
+		}]},
+	{"heading":"Stardate 2408.7",
+	"commentary":["Demeter's paranoia has increased by 2 stages (5 &rarr; 9 &rarr; 16), not only because it lost a battle against us, but because at least 2 cruisers were destroyed in the battle that it lost."],
+	"actions":
+		[{
+			"removeCounter":"SC1Y"
+		},{
+			"placeCounter":"SC2Y",
+			"location":"F5",
+			"size":5
+		},{
+			"placeCounter":"CA1Y",
+			"location":"F5",
+			"size":5
+		},{
+			"removeCounter":"CA2Y"
+		},{
+			"placeCounter":"CA3Y",
+			"location":"F5"
+		},{
+			"removeCounter":"CA4Y"
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"F3",
+			"size":1
+		},{
+			"placeCounter":"Tran1Y",
+			"location":"F5"
+		},{
+			"placeCounter":"Mar1Y",
+			"location":"F5",
+			"size":3
+		},{
+			"resizeCounter":"HI2Y",
+			"size":2
+		},{
+			"resizeCounter":"HI3Y",
+			"size":1
+		},{
+			"placeCounter":"HI4Y",
+			"location":"F5"
+		},{
+			"removeCounter":"MS9Y"
+		},{
+			"removeCounter":"MS10Y"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"H11",
+			"size":3
+		},{
+			"removeCounter":"DD2G"
+		},{
+			"removeCounter":"CA2G"
+		},{
+			"placeGhost":"fleet3G",
+			"location":"H5"
+		},{
+			"placeCounter":"fleet3G",
+			"location":"H4",
+			"size":10
+		},{
+			"placeCounter":"CO2G",
+			"location":"F10"
+		},{
+			"removeCounter":"SY2G"
+		},{
+			"revealCounter":"systemB4",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemG9",
+			"name":"colony1"
+		}]},
+	{"heading":"Stardate 2409.0",
+	"commentary":[
+		"Our expansion has slowed a bit. Still, we had a decent tactical victory against Demeter; when we eliminated their fleet (81 CP) while having sustained moderate losses (48 CP).",
+		"Before we do any purchases, we should roll on the space wreck we recently unloaded. A 4 was rolled, giving us Attack 3. Anyway, we buy Terraforming 2 (-25), followed by 2 Pipelines (-6) at the homeworld, and 3 Cruisers (-36) at Benden.",
+		"While on break, the plasma storm rolls a 3. It tries to move, but the unexplored terrain blocks this move.",
+		"{prodTable}",
+		"Demeter's recent paranoia increase is noted in the table below. Their economic rolls are 2,3,3,5,6,8,10 (home system) / 1,10 (deep space). On the Exploration step, an 82 was rolled (pass). For bidding, a 68 was rolled (pass).",
+		"For fleet launch, a 10 was rolled. No launch takes place this time. Instead, a FOB was placed at the deep space planet they had under their control for a fair while."],
+	"prodTable":
+		[{
+			"name":"CSY (Yellow)","initCP":0,"colonyCP":83,"mineralCP":0,"pipeCP":6,"maint":18,"bidCP":0,"techBuy":25,"unitBuy":42
+		}],
+	"botTable":
+		[{
+			"name":"Demeter (Green)","baseHS":8,"HSdmg":0,"maint":2,"DSmin":1,"DScol":2,"fleetInit":2,"fleetGain":55,"fleetSpend":20,"techInit":7,"techGain":25,"techSpend":0,"paranoia":3,"hidden":"P (60 M3)"
+		}],
+	"techTableX":
+		[{
+			"name":"CSY (Yellow)","size":3,"atk":3,"explore":1,"SY":2,"troops":2,"terraform":2
+		},{
+			"name":"Demeter (Green)","explore":1,"terraform":1,"move":3,"troops":2,"size":3,"def":1,"tac":1,"atk":1
+		}],
+	"actions":
+		[{
+			"placeCounter":"SC2Y",
+			"location":"F5",
+			"size":5
+		},{
+			"placeCounter":"CA1Y",
+			"location":"F5",
+			"size":6
+		},{
+			"placeCounter":"CA2Y",
+			"location":"E5",
+			"size":3
+		},{
+			"removeCounter":"CA3Y"
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"F3",
+			"size":1
+		},{
+			"placeCounter":"Tran1Y",
+			"location":"F5"
+		},{
+			"placeCounter":"Mar1Y",
+			"location":"F5",
+			"size":4
+		},{
+			"placeCounter":"HI1Y",
+			"location":"F5",
+			"size":2
+		},{
+			"resizeCounter":"HI2Y",
+			"size":3
+		},{
+			"resizeCounter":"HI3Y",
+			"size":2
+		},{
+			"placeCounter":"MS9Y",
+			"location":"A5",
+			"name":"MSaY"
+		},{
+			"placeCounter":"MS10Y",
+			"location":"A5",
+			"name":"MSaY"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"H11",
+			"size":1
+		},{
+			"placeCounter":"fleet3G",
+			"location":"H4",
+			"size":10
+		},{
+			"placeCounter":"CO2G",
+			"location":"F10"
+		},{
+			"placeCounter":"SY2G",
+			"location":"K7",
+			"size":2
+		},{
+			"revealCounter":"systemB4",
+			"name":"colony5Y"
+		},{
+			"revealCounter":"systemG9",
+			"name":"colony3"
+		}]},
+	{"heading":"Stardate 2409.3",
+	"commentary":["The board will heat up again soon, with Demeter's final hidden fleet... (At least, until their next successful fleet launch.)"],
+	"actions":
+		[{
+			"placeCounter":"SC2Y",
+			"location":"F5",
+			"size":5
+		},{
+			"placeCounter":"CA1Y",
+			"location":"F5",
+			"size":6
+		},{
+			"placeCounter":"CA2Y",
+			"location":"F5",
+			"size":3
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"G2",
+			"size":1
+		},{
+			"placeGhost":"MSmY",
+			"location":"A4"
+		},{
+			"placeCounter":"MS9Y",
+			"location":"A3",
+			"name":"MSmY"
+		},{
+			"placeCounter":"MS10Y",
+			"location":"A3",
+			"name":"MSmY"
+		},{
+			"placeCounter":"systemG2",
+			"name":"minerals10"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"G10",
+			"size":1
+		},{
+			"placeCounter":"fleet3G",
+			"location":"G3",
+			"size":10
+		},{
+			"placeCounter":"CO2G",
+			"location":"E10"
+		},{
+			"removeCounter":"CA3G"
+		}]},
+	{"heading":"Stardate 2409.6 (The Battle for Deneb)",
+	"commentary":[
+		"With their fleet being unthreatened, they proceed to have a rematch with the colony of Deneb. On the fleet strategy step, a 68 was rolled (keep). The money available is then spent as follows:",
+		"<ol><li>Transport step skipped (impossible to screen)</li>",
+		"<li>Defense 2 (32 Tech CP &rarr; 2 CP)</li>",
+		"<li>5 Cruisers (60 assigned CP &rarr; 0 CP)</li></ol>",
+		"With a much simpler preparation this time around, we are ready to begin.",
+		"<ol><li><b>Round 1</b>: Demeter's Cruisers shoot first. Against our scouts, they rolled 7,9,7,7,5 (1 hit &le;5)</li>",
+		"<li>Our Cruisers can return fire. With the assistance of FSB, we rolled 1,1,2,3,4,7,7,9 (5 hits &le;4)</li>",
+		"<li>Our remaining Scouts then rolled 5,7,9,9 (0 hits &le;2)<br /><br /></li>",
+		"<li><b>Round 2</b>: Much like before, Demeter has no feasible retreat hex. Their Cruisers rolled 4,4,7 against our scouts (2 hits &le;5)</li>",
+		"<li>Our Cruisers rolled 2,3,4,4,6,6,7,8 (4 hits &le;4)</li>",
+		"<li>Our remaining Scouts then rolled 2,9 (1 hit &le;2), finishing off their fleet</li></ol>"],
+	"actions":
+		[{
+			"placeCounter":"SC2Y",
+			"location":"F5",
+			"size":5
+		},{
+			"placeCounter":"CA1Y",
+			"location":"F5",
+			"size":9
+		},{
+			"removeCounter":"CA2Y"
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"F3",
+			"size":3
+		},{
+			"placeCounter":"Tran1Y",
+			"location":"F5"
+		},{
+			"placeCounter":"Mar1Y",
+			"location":"F5",
+			"size":4
+		},{
+			"placeCounter":"HI1Y",
+			"location":"F5",
+			"size":2
+		},{
+			"placeCounter":"MS9Y",
+			"location":"A2",
+			"name":"MSmY"
+		},{
+			"placeCounter":"MS10Y",
+			"location":"A2",
+			"name":"MSmY"
+		},{
+			"removeCounter":"systemG2"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"F10",
+			"size":1
+		},{
+			"placeGhost":"fleet3G",
+			"location":"F4"
+		},{
+			"removeCounter":"fleet3G"
+		},{
+			"placeCounter":"CA3G",
+			"location":"F5",
+			"size":5
+		},{
+			"revealCounter":"systemE9",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2409.9",
+	"commentary":["With the last of their <q>mobile</q> fleets gone, we are now ready to begin an offensive against Demeter."],
+	"actions":
+		[{
+			"placeCounter":"SC2Y",
+			"location":"G4",
+			"size":2
+		},{
+			"placeCounter":"CA1Y",
+			"location":"G4",
+			"size":9
+		},{
+			"removeCounter":"CA3Y"
+		},{
+			"removeCounter":"CA4Y"
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"E3",
+			"size":3
+		},{
+			"placeCounter":"Tran1Y",
+			"location":"G4"
+		},{
+			"placeCounter":"Mar1Y",
+			"location":"G4",
+			"size":4
+		},{
+			"placeCounter":"HI1Y",
+			"location":"G4",
+			"size":2
+		},{
+			"revealCounter":"MS9Y",
+			"name":"MSaY"
+		},{
+			"placeCounter":"MS10Y",
+			"location":"A1",
+			"name":"MSmY"
+		},{
+			"removeCounter":"MS11Y"
+		},{
+			"resizeCounter":"HI2Y",
+			"size":3
+		},{
+			"resizeCounter":"HI3Y",
+			"size":2
+		},{
+			"resizeCounter":"HI4Y",
+			"size":1
+		},{
+			"placeCounter":"Miner1G",
+			"location":"F9",
+			"size":1
+		},{
+			"removeCounter":"CA3G"
+		},{
+			"removeCounter":"fleet1G"
+		},{
+			"placeCounter":"CO2G",
+			"location":"E10"
+		},{
+			"placeCounter":"systemF9",
+			"name":"minerals10"
+		},{
+			"revealCounter":"systemE9",
+			"name":"asteroids"
+		},{
+			"revealCounter":"systemG9",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemE10",
+			"name":"planetW2"
+		}]},
+	{"heading":"Stardate 2410.0",
+	"commentary":[
+		"It is nice being able to be on the offensive. Granted, Demeter may open a path <i>very</i> soon; but we can always begin construction of a fresh fleet. We buy 3 Cruisers (-48) at Benden, and 3 Cruisers (-24) + 1 Pipeline (-3) at our homeworld.",
+		"The plasma storm then rolls a 4. Once again, unexplored terrain blocks this move.",
+		"{prodTable}",
+		"Demeter's paranoia further increased with that second battle loss. Their economic rolls are 1,1,3,3,7,8,8 (home system) / 1,3,8 (deep space).",
+		"On the Exploration step, a 59 was rolled (pass). For bidding, a 28 was rolled (failure). Because the latter step failed, they roll 3,5 accordingly. The lowest is 3, followed by a fixed deduction of 3 and a paranoia addition of 5. Thus, they bid 2 CP from their largest bank (Flet) and retake the initiative.",
+		"For fleet launch, a 6 was rolled. With no modifiers this time around, a fresh fleet is launched. For one last paranoia check, an 85 was rolled (pass). They place it at the FOB closest to our territory."],
+	"prodTable":
+		[{
+			"name":"CSY (Yellow)","initCP":4,"colonyCP":85,"mineralCP":0,"pipeCP":7,"maint":21,"bidCP":0,"techBuy":0,"unitBuy":75
+		}],
+	"botTable":
+		[{
+			"name":"Demeter (Green)","baseHS":8,"HSdmg":0,"maint":1,"DSmin":0,"DScol":3,"fleetInit":37,"fleetGain":60,"fleetSpend":97,"techInit":2,"techGain":25,"techSpend":0,"paranoia":5,"hidden":"95 (P M3)"
+		}],
+	"techTableX":
+		[{
+			"name":"CSY (Yellow)","size":3,"atk":3,"explore":1,"SY":2,"troops":2,"terraform":2
+		},{
+			"name":"Demeter (Green)","explore":1,"terraform":1,"move":3,"troops":2,"size":3,"def":2,"tac":1,"atk":1
+		}],
+	"actions":
+		[{
+			"placeCounter":"SC2Y",
+			"location":"G4",
+			"size":2
+		},{
+			"placeCounter":"CA1Y",
+			"location":"G4",
+			"size":9
+		},{
+			"placeCounter":"CA3Y",
+			"location":"E5",
+			"size":3
+		},{
+			"placeCounter":"CA4Y",
+			"location":"A5",
+			"size":3
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"E3",
+			"size":3
+		},{
+			"placeCounter":"Tran1Y",
+			"location":"G4"
+		},{
+			"placeCounter":"Mar1Y",
+			"location":"G4",
+			"size":4
+		},{
+			"placeCounter":"HI1Y",
+			"location":"G4",
+			"size":2
+		},{
+			"revealCounter":"MS10Y",
+			"name":"MSaY"
+		},{
+			"placeCounter":"MS11Y",
+			"location":"A5",
+			"name":"MSaY"
+		},{
+			"resizeCounter":"HI2Y",
+			"size":4
+		},{
+			"resizeCounter":"HI3Y",
+			"size":3
+		},{
+			"resizeCounter":"HI4Y",
+			"size":2
+		},{
+			"placeCounter":"Miner1G",
+			"location":"F9",
+			"size":3
+		},{
+			"removeCounter":"systemF9"
+		},{
+			"placeCounter":"Tran1G",
+			"location":"G9"
+		},{
+			"placeCounter":"CA1G",
+			"location":"G9",
+			"size":4
+		},{
+			"placeCounter":"fleet1G",
+			"location":"I8",
+			"size":16
+		},{
+			"removeCounter":"CO2G"
+		},{
+			"revealCounter":"systemG9",
+			"name":"colony5G"
+		},{
+			"revealCounter":"systemE10",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemF8",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2410.2",
+	"commentary":[
+		"That plasma storm technically <i>does</i> open a path. Entry is forbidden only for the Scout Rush and Fighter fleet strategies; neither of which are viable versus a NPA planet, which happens to be the newest fleet's closest target.",
+		"... at least, if this fleet did not merge with a guard fleet. The total size is now 149 CP worth (95 + 54), upgrading this to an extermination fleet, at the expense of lowering its Movement equipment."],
+	"actions":
+		[{
+			"placeCounter":"SC2Y",
+			"location":"H5",
+			"size":2
+		},{
+			"placeCounter":"CA1Y",
+			"location":"H5",
+			"size":9
+		},{
+			"placeCounter":"CA3Y",
+			"location":"E6",
+			"size":3
+		},{
+			"placeGhost":"CA4Y",
+			"location":"B5"
+		},{
+			"placeCounter":"CA4Y",
+			"location":"C4",
+			"size":3
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"D4",
+			"size":3
+		},{
+			"placeCounter":"Tran1Y",
+			"location":"H5"
+		},{
+			"placeCounter":"Mar1Y",
+			"location":"H5",
+			"size":4
+		},{
+			"placeCounter":"HI1Y",
+			"location":"H5",
+			"size":2
+		},{
+			"placeGhost":"MSmY",
+			"location":"A4"
+		},{
+			"placeCounter":"MS11Y",
+			"location":"A3",
+			"name":"MSmY"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"G9",
+			"size":3
+		},{
+			"placeCounter":"Tran1G",
+			"location":"H9"
+		},{
+			"placeCounter":"CA1G",
+			"location":"H9",
+			"size":4
+		},{
+			"placeCounter":"fleet1G",
+			"location":"H9",
+			"size":16
+		},{
+			"revealCounter":"systemF8",
+			"name":"plasmaStorm"
+		}]},
+	{"heading":"Stardate 2410.5",
+	"commentary":["Those plasma storms <i>will</i> destroy our scouts and transport if they share the same hex. Thus, we need to decide. Take the risk? Or potentially broaden the path to Demeter's space?"],
+	"actions":
+		[{
+			"placeCounter":"SC2Y",
+			"location":"H6",
+			"size":2
+		},{
+			"placeCounter":"CA1Y",
+			"location":"H6",
+			"size":9
+		},{
+			"placeCounter":"CA3Y",
+			"location":"E6",
+			"size":3
+		},{
+			"placeGhost":"CA4Y",
+			"location":"D5"
+		},{
+			"placeCounter":"CA4Y",
+			"location":"E5",
+			"size":3
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"C4",
+			"size":3
+		},{
+			"placeCounter":"Tran1Y",
+			"location":"H6"
+		},{
+			"placeCounter":"Mar1Y",
+			"location":"H6",
+			"size":4
+		},{
+			"placeCounter":"HI1Y",
+			"location":"H6",
+			"size":2
+		},{
+			"placeGhost":"MSmY",
+			"location":"A2"
+		},{
+			"placeCounter":"MS11Y",
+			"location":"A1",
+			"name":"MSmY"
+		},{
+			"revealCounter":"systemI6",
+			"name":"unexploredW"
+		},{
+			"placeCounter":"Tran1G",
+			"location":"F10"
+		},{
+			"placeCounter":"CA1G",
+			"location":"F10",
+			"size":4
+		},{
+			"removeCounter":"DD1G"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"F9",
+			"size":1
+		},{
+			"placeCounter":"Tran1G",
+			"location":"G9"
+		},{
+			"placeCounter":"CA1G",
+			"location":"G9",
+			"size":4
+		},{
+			"placeCounter":"fleet1G",
+			"location":"G9",
+			"size":16
+		},{
+			"revealCounter":"systemE8",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2410.8",
+	"commentary":["While Demeter barely manages to open a relatively safe path to our homeworld, we deliberated on whether to attempt to broaden the upper path, and we decided it is a go. A danger marker is revealed, nullified by our Exploration technology."],
+	"actions":
+		[{
+			"placeCounter":"SC2Y",
+			"location":"I6",
+			"size":2
+		},{
+			"placeCounter":"CA1Y",
+			"location":"I6",
+			"size":9
+		},{
+			"placeCounter":"CA3Y",
+			"location":"E6",
+			"size":3
+		},{
+			"placeCounter":"CA4Y",
+			"location":"E6",
+			"size":3
+		},{
+			"removeCounter":"CA5Y"
+		},{
+			"removeCounter":"base1Y"
+		},{
+			"placeGhost":"Miner1Y",
+			"location":"B5"
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"A5",
+			"size":1
+		},{
+			"placeCounter":"Tran1Y",
+			"location":"I6"
+		},{
+			"placeCounter":"Mar1Y",
+			"location":"I6",
+			"size":4
+		},{
+			"placeCounter":"HI1Y",
+			"location":"I6",
+			"size":2
+		},{
+			"resizeCounter":"HI3Y",
+			"size":3
+		},{
+			"resizeCounter":"HI4Y",
+			"size":2
+		},{
+			"removeCounter":"HI5Y"
+		},{
+			"placeCounter":"MS11Y",
+			"location":"B1",
+			"name":"MSmY"
+		},{
+			"resizeCounter":"SY2Y",
+			"size":4
+		},{
+			"placeCounter":"systemI6",
+			"name":"danger"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"E9",
+			"size":1
+		},{
+			"placeGhost":"fleet1G",
+			"location":"F9",
+			"size":16
+		},{
+			"placeCounter":"Tran1G",
+			"location":"E8"
+		},{
+			"placeCounter":"CA1G",
+			"location":"E8",
+			"size":4
+		},{
+			"placeCounter":"fleet1G",
+			"location":"E8",
+			"size":16
+		},{
+			"removeCounter":"fleet2G"
+		},{
+			"placeCounter":"systemE8",
+			"name":"lost"
+		},{
+			"revealCounter":"systemE10",
+			"name":"colony1"
+		}]},
+	{"heading":"Stardate 2411.0",
+	"commentary":[
+		"Having a backup fleet to fend off Demeter will be necessary, because <i>someone</i> has to perform a successful assasult in order for this playthrough to eventually end. We should try to be <i>that</i> someone.",
+		"We buy another 3 Cruisers (-36) + 1 Ship Yard (-6) at Benden, 1 Cruiser (-12) at the homeworld, and opt to throw down a Base (-12) at Risible.",
+		"The cosmic storms then rolled 7,8 (in reading order). Neither storm even attempts to move this time.",
+		"{prodTable}",
+		"Their economic rolls are 5,5,6,8,8,9,10,10 (home system) / 1,2,3 (deep space).",
+		"On the Exploration step, a 2 was rolled (failure), causing them to buy level 2 (-15). This is also the last time they need to perform this step. For bidding, an 85 was rolled (pass).",
+		"For fleet launch, a 1 was rolled (success). For one last paranoia check, a 16 was rolled (failure). They place it at the homeworld."],
+	"prodTable":
+		[{
+			"name":"CSY (Yellow)","initCP":0,"colonyCP":85,"mineralCP":10,"pipeCP":8,"maint":33,"bidCP":0,"techBuy":0,"unitBuy":66
+		}],
+	"botTable":
+		[{
+			"name":"Demeter (Green)","baseHS":8,"HSdmg":0,"maint":1,"DSmin":1,"DScol":3,"fleetInit":2,"fleetGain":45,"fleetSpend":47,"techInit":27,"techGain":50,"techSpend":28,"paranoia":5,"hidden":"95+K (X M2) / 60 (P M3)"
+		}],
+	"techTableX":
+		[{
+			"name":"CSY (Yellow)","size":3,"atk":3,"explore":1,"SY":2,"troops":2,"terraform":2
+		},{
+			"name":"Demeter (Green)","explore":2,"terraform":1,"move":3,"troops":2,"size":3,"def":2,"tac":1,"atk":1
+		}],
+	"actions":
+		[{
+			"placeCounter":"SC2Y",
+			"location":"I6",
+			"size":2
+		},{
+			"placeCounter":"CA1Y",
+			"location":"I6",
+			"size":9
+		},{
+			"placeCounter":"CA3Y",
+			"location":"E6",
+			"size":6
+		},{
+			"placeCounter":"CA4Y",
+			"location":"E5",
+			"size":3
+		},{
+			"placeCounter":"CA5Y",
+			"location":"A5",
+			"size":1
+		},{
+			"placeCounter":"base1Y",
+			"location":"E6"
+		},{
+			"placeCounter":"Tran1Y",
+			"location":"I6"
+		},{
+			"placeCounter":"Mar1Y",
+			"location":"I6",
+			"size":4
+		},{
+			"placeCounter":"HI1Y",
+			"location":"I6",
+			"size":2
+		},{
+			"resizeCounter":"HI3Y",
+			"size":4
+		},{
+			"resizeCounter":"HI4Y",
+			"size":3
+		},{
+			"placeCounter":"HI5Y",
+			"location":"E5"
+		},{
+			"revealCounter":"MS11Y",
+			"name":"MSaY"
+		},{
+			"resizeCounter":"SY2Y",
+			"size":5
+		},{
+			"removeCounter":"systemI6"
+		},{
+			"revealCounter":"systemF7",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemJ6",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemJ7",
+			"name":"unexploredW"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"E9",
+			"size":1
+		},{
+			"placeCounter":"Tran1G",
+			"location":"E8"
+		},{
+			"placeCounter":"CA1G",
+			"location":"E8",
+			"size":4
+		},{
+			"placeCounter":"fleet1G",
+			"location":"E8",
+			"size":16
+		},{
+			"placeCounter":"fleet2G",
+			"location":"L10",
+			"size":10
+		},{
+			"removeCounter":"systemE8"
+		},{
+			"revealCounter":"systemE10",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemD8",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemD9",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2411.1",
+	"commentary":["While Demeter struggles with finding an entirely open path to our homeworld, we use this opportunity to upgrade our Miner with Terraforming 2. This process costs 1 CP."],
+	"actions":
+		[{
+			"placeCounter":"SC2Y",
+			"location":"J7",
+			"size":2
+		},{
+			"placeCounter":"CA1Y",
+			"location":"J7",
+			"size":9
+		},{
+			"placeCounter":"CA3Y",
+			"location":"E6",
+			"size":6
+		},{
+			"placeCounter":"CA4Y",
+			"location":"E6",
+			"size":3
+		},{
+			"placeGhost":"CA5Y",
+			"location":"B5"
+		},{
+			"placeCounter":"CA5Y",
+			"location":"C4",
+			"size":1
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"A5",
+			"size":1
+		},{
+			"placeCounter":"Tran1Y",
+			"location":"J7"
+		},{
+			"placeCounter":"Mar1Y",
+			"location":"J7",
+			"size":4
+		},{
+			"placeCounter":"HI1Y",
+			"location":"J7",
+			"size":2
+		},{
+			"placeCounter":"systemJ6",
+			"name":"danger"
+		},{
+			"placeCounter":"systemJ7",
+			"name":"danger"
+		},{
+			"placeCounter":"systemF7",
+			"name":"danger"
+		},{
+			"revealCounter":"systemK6",
+			"name":"unexploredW"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"E8",
+			"size":1
+		},{
+			"placeCounter":"Tran1G",
+			"location":"E7"
+		},{
+			"placeCounter":"CA1G",
+			"location":"E7",
+			"size":4
+		},{
+			"placeCounter":"fleet1G",
+			"location":"E7",
+			"size":16
+		},{
+			"removeCounter":"BB1G"
+		},{
+			"removeCounter":"BC1G"
+		},{
+			"placeCounter":"fleet2G",
+			"location":"K9",
+			"size":10
+		},{
+			"revealCounter":"systemD8",
+			"name":"blackHole"
+		},{
+			"revealCounter":"systemD9",
+			"name":"station10"
+		}]},
+	{"heading":"Stardate 2411.4 (The Battle for Risible)",
+	"commentary":[
+		"Unlike in Alien Empires (and Doomsday Machines) VP, an extermination fleet will put in extra effort towards ensuring that it does not make any unnecessary deviations from its goal. At the same time, because the fleet's Movement equipment is too weak to enter a quantum filament outside of a turn 3, this still leads to this fleet having two equally valid choices.",
+		"It can try to assault our colony in an attempt to open a path (only making 1 turn worth of bombardments if necessary), or remain in position for one more turn. It rolls a 71 for a paranoia check, justifying taking a risk against our colony.",
+		"<ol><li><b>Preparation</b>: On the fleet strategy step, a 36 was rolled (failure). Since this paranoia check failed, a 15 is then rolled for the new strategy (Buffed Cruisers &rarr; Biggest Ship).</li>",
+		"<li>Transport step skipped (incompatible with strategy)</li>",
+		"<li>The first unique step on the new tech <q>tree</q> is upgrade. A 9 is rolled (skip)</li>",
+		"<li>Ship Size 4 (49 Tech CP &rarr; 29 CP)</li>",
+		"<li>Ship Size 5 (29 &rarr; 9 CP)</li>",
+		"<li>Upgrade step meaningless (unable to afford anything with 9 CP)</li>",
+		"<li>4 Battleships (95 assigned CP &rarr; 15 CP)</li>",
+		"<li>1 Battlecruiser (15 &rarr; 0 CP)<br /><br /></li>",
+		"<li><b>Round 1</b>: Now that Demeter has some new toys, it uses them in this battle. Their Battleships 7,8,9,10 against our cruisers (0 hits &le;5)</li>",
+		"<li>Our Base is next in line. We rolled a 1 against their battlecruiser (hit &le;7)</li>",
+		"<li>The rest of Demeter's ships (sans their transport) rolled 3/1,1,6,10 against our cruisers (3 hits &le;5/4)</li>",
+		"<li>Our Cruisers rolled 4,2,1,9,7,7,3,3 (3 hits &le;3), having finished off their battlecruiser + 1 cruiser</li>",
+		"<li>Their Transport rolls a 10 (&le;1 to hit)<br /><br /></li>",
+		"<li><b>Round 2</b>: Demeter has lost 2 ships so far, but has also damaged 1 of our cruisers. A 60 was rolled for morale (pass &gt;26), allowing this fleet to stay in battle.</li>",
+		"<li>Their Battleships rolled 4,9,9,10 (1 hit &le;5)</li>",
+		"<li>Our Base rolled a 6 against their cruiser (hit &le;7)</li>",
+		"<li>Demeter's Cruisers rolled 2,4,10 against our cruisers (2 hits &le;4)</li>",
+		"<li>Our Cruisers rolled 1,5,8,8,8,9 (1 hit &le;3), finishing off another cruiser</li>",
+		"<li>Their Transport rolls an 8 (&le;1 to hit)<br /><br /></li>",
+		"<li><b>Round 3</b>: Demeter has lost 3 ships so far this battle. A 45 was rolled for morale (failure &le;62), causing this fleet to begin retreat procedures</li>",
+		"<li>Our Base rolled a 3 against their transport (hit &le;9)</li>",
+		"<li>The rest of their fleet (4 battleships + 2 cruisers) got away safely</li></ol>"],
+	"actions":
+		[{
+			"placeCounter":"SC2Y",
+			"location":"J8",
+			"size":2
+		},{
+			"placeCounter":"CA1Y",
+			"location":"J8",
+			"size":9
+		},{
+			"placeCounter":"CA3Y",
+			"location":"E6",
+			"size":9
+		},{
+			"removeCounter":"CA4Y"
+		},{
+			"placeGhost":"CA5Y",
+			"location":"D5"
+		},{
+			"placeCounter":"CA5Y",
+			"location":"E5",
+			"size":1
+		},{
+			"placeGhost":"Miner1Y",
+			"location":"A4"
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"A3"
+		},{
+			"placeCounter":"Tran1Y",
+			"location":"J8"
+		},{
+			"placeCounter":"Mar1Y",
+			"location":"J8",
+			"size":4
+		},{
+			"placeCounter":"HI1Y",
+			"location":"J8",
+			"size":2
+		},{
+			"removeCounter":"systemJ6"
+		},{
+			"removeCounter":"systemJ7"
+		},{
+			"revealCounter":"systemK6",
+			"name":"blackHole"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"E9",
+			"size":1
+		},{
+			"placeCounter":"Tran1G",
+			"location":"E6"
+		},{
+			"placeCounter":"CA1G",
+			"location":"E6",
+			"size":4
+		},{
+			"removeCounter":"fleet1G"
+		},{
+			"placeCounter":"BB1G",
+			"location":"E6",
+			"size":4
+		},{
+			"placeCounter":"BC1G",
+			"location":"E6"
+		},{
+			"placeGhost":"fleet2G",
+			"location":"J9"
+		},{
+			"placeCounter":"fleet2G",
+			"location":"I8",
+			"size":10
+		},{
+			"removeCounter":"BB2G"
+		},{
+			"revealCounter":"systemD10",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2411.7A (The Battle for Sector J8)",
+	"commentary":[
+		"Since our main fleet threatens Demeter's home systems, their hidden fleet assumes defense posture and battles our fleet. They recently spent their Tech bank, so the fleet strategy step is skipped. Furthermore; 60 assigned CP is extremely simple to spend, being good for just 3 battleships.",
+		"<ol><li><b>Round 1</b>: Demeter's Battleships shoot first. Focusing on our scouts first, they rolled 2,6,7 (2 hits &le;6)</li>",
+		"<li>Our Cruisers gain FSB, and rolled 1,1,3,5,5,6,7,8,10 (3 hits &le;3)<br /><br /></li>",
+		"<li><b>Round 2</b>: Demeter has lost 1 ship (+2 stages), and we are using the FSB against them (another +2 stages). Thus, they rolled a 77 for a morale check (pass &gt;37), allowing them to stay in this battle</li>",
+		"<li>Demeter's Battleships rolled 3,8 aganist our cruisers (only unscreened target) (1 hit &le;6)</li>",
+		"<li>Our Cruisers rolled 2,4,6,7,7,8,9,9,10 (1 hit &le;3)<br /><br /></li>",
+		"<li><b>Round 3</b>: Same modifiers as before (1 damaged ship on each side cancels each other out), only that more than half of Demeter's fleet is now damaged/destroyed (+1 stage). They rolled a 41 for morale (failure &le;50), causing their remaining ships to retreat</li></ol>"],
+	"actions":
+		[{
+			"placeCounter":"SC2Y",
+			"location":"J8",
+			"size":2
+		},{
+			"placeCounter":"CA1Y",
+			"location":"J8",
+			"size":9
+		},{
+			"placeCounter":"CA3Y",
+			"location":"E6",
+			"size":6
+		},{
+			"placeCounter":"CA5Y",
+			"location":"E5",
+			"size":1
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"A3"
+		},{
+			"placeCounter":"Tran1Y",
+			"location":"J8"
+		},{
+			"placeCounter":"Mar1Y",
+			"location":"J8",
+			"size":4
+		},{
+			"placeCounter":"HI1Y",
+			"location":"J8",
+			"size":2
+		},{
+			"revealCounter":"systemF7",
+			"name":"unexploredW"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"E10",
+			"size":1
+		},{
+			"removeCounter":"Tran1G"
+		},{
+			"placeCounter":"CA1G",
+			"location":"D7",
+			"size":2
+		},{
+			"placeCounter":"BB1G",
+			"location":"D7",
+			"size":4
+		},{
+			"removeCounter":"BC1G"
+		},{
+			"removeCounter":"fleet2G"
+		},{
+			"placeCounter":"BB2G",
+			"location":"J8",
+			"size":3
+		},{
+			"revealCounter":"systemD10",
+			"name":"blackHole"
+		}]},
+	{"heading":"Stardate 2411.7P (The Battle for Sector K8)",
+	"commentary":[
+		"Demeter opted to impede our ability to threaten their homeworld, which is reasonable to attempt with 2 battleships. Too bad this procedure does not really slow us down, as we opted to <i>never</i> upgrade our Movement this playthrough.",
+		"<ol><li><b>Round 1</b>: Demeter's Battleships rolled 1,9 (1 hit &le;6)</li>",
+		"<li>Our Cruisers gain FSB <i>again</i>, and rolled 1,1,3,5,5,7,7,10,10 (3 hits &le;3)<br /><br /></li>",
+		"<li><b>Round 2</b>: Again, they lost a ship and FSB is being used against them (+4 stages), only that they damaged one of our ships (-1 stage) without having a damaged ship of their own (+0 stages). Thus, they rolled a 10 for morale (failure &le;26), causing their last battleship to retreat. This is now a shattered fleet</li></ol>"],
+	"actions":
+		[{
+			"removeCounter":"SC2Y"
+		},{
+			"placeCounter":"CA1Y",
+			"location":"K8",
+			"size":9
+		},{
+			"placeGhost":"CA3Y",
+			"location":"E5"
+		},{
+			"placeCounter":"CA3Y",
+			"location":"D5",
+			"size":6
+		},{
+			"placeCounter":"CA5Y",
+			"location":"D5",
+			"size":1
+		},{
+			"placeCounter":"Miner1Y",
+			"location":"A2"
+		},{
+			"placeCounter":"Tran1Y",
+			"location":"K8"
+		},{
+			"placeCounter":"Mar1Y",
+			"location":"K8",
+			"size":4
+		},{
+			"placeCounter":"HI1Y",
+			"location":"K8",
+			"size":2
+		},{
+			"resizeCounter":"HI3Y",
+			"size":4
+		},{
+			"resizeCounter":"HI4Y",
+			"size":3
+		},{
+			"resizeCounter":"HI5Y",
+			"size":1
+		},{
+			"removeCounter":"base2Y"
+		},{
+			"placeCounter":"systemF7",
+			"name":"danger"
+		},{
+			"placeCounter":"BB2G",
+			"location":"K8",
+			"size":2
+		},{
+			"removeCounter":"fleet3G"
+		},{
+			"revealCounter":"systemE10",
+			"name":"colony3"
+		}]},
+	{"heading":"Stardate 2412.0",
+	"commentary":[
+		"The suspense is real. We have a distance advantage. The Movement advantage their extermination fleet has was only marginally useful, allowing them to <i>eventually</i> enter the quantum filament and bypass the planet they could <i>not</i> conquer.",
+		"Since there is always a possibility our assault fails, we will maximize our preparations; and buy Defense 1 (-20), followed by building 3 Cruisers (-36) + 1 Base (-12) at our homeworld.",
+		"The cosmic storms then rolled 10,9 (in reading order). Yet again, no storm movement takes place.",
+		"{prodTable}",
+		"Recent battle losses has caused Demeter's paranoia to rise; but it is not as high as it could be, because a recent fleet strategy change caused this to reset. Their economic rolls are 4,6,6,6,8,10,10 (home system) / 1,1,8 (deep space).",
+		"Since their home systems are being besieged, they bid right away, having rolled 5,8. The lowest is 5, and the <q>net</q> paranoia modifier is +3, so they spend 8 CP this way. Alas, we have no need to even take/keep the initiative.",
+		"For fleet launch, a 5 was rolled (success). Since their home systems are threatened, they place it at the homeworld right away."],
+	"prodTable":
+		[{
+			"name":"CSY (Yellow)","initCP":3,"colonyCP":85,"mineralCP":5,"pipeCP":8,"maint":33,"bidCP":0,"techBuy":20,"unitBuy":48
+		}],
+	"botTable":
+		[{
+			"name":"Demeter (Green)","baseHS":8,"HSdmg":0,"maint":1,"DSmin":0,"DScol":3,"fleetInit":0,"fleetGain":50,"fleetSpend":50,"techInit":9,"techGain":35,"techSpend":18,"paranoia":6,"hidden":"60 (P M3)"
+		}],
+	"techTableX":
+		[{
+			"name":"CSY (Yellow)","size":3,"atk":3,"explore":1,"SY":2,"troops":2,"terraform":2,"def":1
+		},{
+			"name":"Demeter (Green)","explore":2,"terraform":1,"move":3,"troops":2,"size":5,"def":2,"tac":1,"atk":1
+		}],
+	"actions":
+		[{
+			"placeCounter":"CA1Y",
+			"location":"K8",
+			"size":9
+		},{
+			"placeCounter":"CA3Y",
+			"location":"A5",
+			"size":3
+		},{
+			"placeCounter":"CA5Y",
+			"location":"D5",
+			"size":7
+		},{
+			"placeCounter":"Tran1Y",
+			"location":"K8"
+		},{
+			"placeCounter":"Mar1Y",
+			"location":"K8",
+			"size":4
+		},{
+			"placeCounter":"HI1Y",
+			"location":"K8",
+			"size":2
+		},{
+			"resizeCounter":"HI3Y",
+			"size":5
+		},{
+			"resizeCounter":"HI4Y",
+			"size":4
+		},{
+			"resizeCounter":"HI5Y",
+			"size":2
+		},{
+			"placeCounter":"base2Y",
+			"location":"A5"
+		},{
+			"removeCounter":"systemF7"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"E10",
+			"size":1
+		},{
+			"placeCounter":"CA1G",
+			"location":"D7",
+			"size":2
+		},{
+			"placeCounter":"BB1G",
+			"location":"D7",
+			"size":4
+		},{
+			"placeCounter":"BB2G",
+			"location":"L9",
+			"size":1
+		},{
+			"placeCounter":"fleet3G",
+			"location":"L10",
+			"size":10
+		},{
+			"removeCounter":"HI2G"
+		},{
+			"revealCounter":"systemE10",
+			"name":"colony5G"
+		},{
+			"revealCounter":"systemD11",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2412.3 (The Battle for Bajor)",
+	"commentary":[
+		"We will press our advantage and assault Bajor. Since we are battling one of their colonies, they roll a 7 to place 2 Heavy Infantry. They were able to consolidate their ships though. Since their Tech CP is too small, they go straight for construction. The 80 CP available (factoring in merging in 20 CP from a shattered fleet) is limited to 4 Battleships.",
+		"<ol><li><b>Space Round 1</b>: Demeter's 4 Battleships have rolled 2,3,5,6 against our cruisers (3 hits &le;5)</li>",
+		"<li>Taking advantage of FSB, our Cruisers then rolled 2,3,7,7,8,8,9,10 (2 hits &le;3)<br /><br /></li>",
+		"<li><b>Space Round 2</b>: One Demeter's ships is damaged, but so is one of our ships. Still, a 68 was rolled for morale (pass &gt;5), allowing this fleet to stay</li>",
+		"<li>Their Battleships rolled 2,4,4,6 (3 hits &le;5)</li>",
+		"<li>Our Cruisers then rolled 4,5,5,6,8,9 (0 hits &le;3)<br /><br /></li>",
+		"<li><b>Space Round 3</b>: A 34 was rolled for morale (pass &gt;9). Their Battleships rolled 2,3,3,8 (3 hits &le;5)</li>",
+		"<li>Having lost the FSB, our Cruisers then rolled 3,6,9,9,9 (0 hits &le;2)</li>",
+		"<li>Since their battleships are stubborn, we have decided to unload our ground units, so that we no longer have to screen our transport<br /><br /></li>",
+		"<li><b>Space Round 4</b>: A 32 was rolled for morale (pass &gt;5). Their Battleships rolled 6,4,2,2 (4 hits &le;6/5)</li>",
+		"<li>Our Cruisers then rolled 1,8,9 (1 hit &le;2)<br /><br /></li>",
+		"<li><b>Space Round 5</b>: Demeter has finally lost its first ship this battle. An 87 was rolled for morale (pass &gt;16)</li>",
+		"<li>Their Battleships rolled 2,3,5 (3 hits &le;5)</li>",
+		"<li>Our remaining 2 Cruisers decided that enough was enough, and retreated from this battle<br /><br /></li>",
+		"<li><b>Ground Round 1</b>: Our ground forces need this round to settle down</li>",
+		"<li>Demeter's 2 Heavy Infantry rolled 6,7 against our space marines (0 hits &le;5)</li>",
+		"<li>Their 5 Militia rolled 3,6,7,8,10 against our space marines (1 hit &le;4)<br /><br /></li>",
+		"<li><b>Ground Round 2</b>: Their 2 Heavy Infantry rolled 3,5 against our space marines (2 hits &le;5)</li>",
+		"<li>Our 3 Space Marines have settled at last, and rolled 1,4,9 against their militia (2 hits &le;6)</li>",
+		"<li>Our 2 Heavy Infantry rolled 4,10 against their militia (1 hit &le;4)</li>",
+		"<li>Their 2 Militia rolled 2,2 against our space marines (2 hits &le;4)<br /><br /></li>",
+		"<li><b>Ground Round 3</b>: Their 2 Heavy Infantry rolled 1,7 against our space marines (1 hit &le;5)</li>",
+		"<li>Our last Space Marine rolls a 3 against their militia (hit &le;6)</li>",
+		"<li>Our 2 Heavy Infantry rolled 3/1 (1 hit &le;4/2)<br /><br /></li>",
+		"<li><b>Ground Round 4</b>: Their 2 Heavy Infantry rolled 2,8 against our space marine (1 hit &le;5)</li>",
+		"<li>Our 1 Space Marine rolls a 3 (hit &le;4)</li>",
+		"<li>Our 2 Heavy Infantry rolled 5,5 (0 hits &le;2)<br /><br /></li>",
+		"<li><b>Ground Round 5</b>: Their last Heavy Infantry rolled a 2 against our space marine (hit &le;5)</li>",
+		"<li>Our 2 Heavy Infantry, being all alone, rolled 9,9 (0 hits &le;2)<br /><br /></li>",
+		"<li><b>Ground Round 6</b>: Their Heavy Infantry rolled a 1 (hit &le;4)</li>",
+		"<li>Our 2 Heavy Infantry rolled 6,9 (0 hits &le;2)<br /><br /></li>",
+		"<li><b>Ground Round 7</b>: Their Heavy Infantry rolled a 3 (hit &le;4)</li>",
+		"<li>Our last Heavy Infantry rolled a 3 (&le;2 to hit)<br /><br /></li>",
+		"<li><b>Ground Round 8</b>: Their Heavy Infantry rolled a 3 (hit &le;4)</li>",
+		"<li>Our Heavy Infantry rolled a 3 (&le;2 to hit)<br /><br /></li>",
+		"<li><b>Ground Round 9</b>: Their Heavy Infantry rolled a 3 (hit &le;4), finisning off our ground forces and repelling our assault</li></ol>"],
+	"actions":
+		[{
+			"placeCounter":"CA1Y",
+			"location":"L9",
+			"size":9
+		},{
+			"placeGhost":"CA5Y",
+			"location":"C4"
+		},{
+			"placeCounter":"CA5Y",
+			"location":"B5",
+			"size":7
+		},{
+			"placeCounter":"Tran1Y",
+			"location":"L9"
+		},{
+			"placeCounter":"Mar1Y",
+			"location":"L9",
+			"size":4
+		},{
+			"placeCounter":"HI1Y",
+			"location":"L9",
+			"size":2
+		},{
+			"placeCounter":"Miner1G",
+			"location":"D11",
+			"size":1
+		},{
+			"placeCounter":"CA1G",
+			"location":"C6",
+			"size":2
+		},{
+			"placeCounter":"BB1G",
+			"location":"C6",
+			"size":4
+		},{
+			"placeCounter":"BB2G",
+			"location":"L9",
+			"size":4
+		},{
+			"removeCounter":"fleet3G"
+		},{
+			"placeCounter":"HI2G",
+			"location":"L9",
+			"size":2
+		},{
+			"placeCounter":"systemD11",
+			"name":"minerals10"
+		},{
+			"revealCounter":"systemC10",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2412.6 (The Battle for Sector K8)",
+	"commentary":[
+		"Our stubbornness to not bow out has probably costed us this fleet, but we gave it a good shot.",
+		"<ol><li><b>Round 1</b>: Demeter's 3 Battleships have rolled 3,5,5 (3 hits &le;5)</li>",
+		"<li>Our last Cruiser rolls a 2 (hit &le;3)<br /><br /></li>",
+		"<li><b>Round 2</b>: Just like the opening of the previous battle. A 27 was rolled for morale (pass &gt;5)</li>",
+		"<li>Their Battleships rolled 7,8,9 (0 hits &le;5)</li>",
+		"<li>Our last Cruiser takes advantage of their misfortune, and retreats again (to J8)</li></ol>"],
+	"actions":
+		[{
+			"placeCounter":"CA1Y",
+			"location":"K8",
+			"size":2
+		},{
+			"placeCounter":"CA5Y",
+			"location":"A5",
+			"size":7
+		},{
+			"removeCounter":"Tran1Y"
+		},{
+			"removeCounter":"Mar1Y"
+		},{
+			"removeCounter":"HI1Y"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"E10",
+			"size":3
+		},{
+			"placeCounter":"CA1G",
+			"location":"B6",
+			"size":2
+		},{
+			"placeCounter":"BB1G",
+			"location":"B6",
+			"size":4
+		},{
+			"placeCounter":"BB2G",
+			"location":"K8",
+			"size":3
+		},{
+			"resizeCounter":"HI2G",
+			"size":1
+		},{
+			"removeCounter":"systemD11"
+		},{
+			"revealCounter":"systemC10",
+			"name":"supernova"
+		}]},
+	{"heading":"Stardate 2412.9 (The Battle for Vasyr)",
+	"commentary":[
+		"We take advantage of the good luck curently available, and use it to slow down their secondary fleet. Their battleships rolled 1,1,9 (2 hits &le;6), which already eliminates our last ship. Still, we did quite nicely by slowing them down.",
+		"Now for the real meat of this turn... Demeter is now ready to assault our homeworld! Extermination Fleets keep an offense posture, unlesss their home systems are threatened and they are adjacent to it <i>or</i> fail a paranoia check. Since the threaten part is true, a 56 is rolled for a paranoia check (success &gt;50). Their extermination fleet is already known, and simply goes straight into battle.",
+		"<ol><li><b>Round 1</b>: We will screen as many Ship Yards as the fleet size difference permits... which is presently all 5. We forgo FSB for now</li>",
+		"<li>Demeter's 4 Battleships go first, and have rolled 3,4,9,9 against our older cruisers (2 hits &le;5)</li>",
+		"<li>Our Base responds with a 4 against their cruisers (hit &le;7)</li>",
+		"<li>Their 2 Cruisers rolled 3,8 against our older cruisers (1 hit &le;4)</li>",
+		"<li>Our Cruisers all have the same Attack equipment (only Defense is different). We rolled 3,2,1/10,1,5,3,2,10 (5 hits &le;3/2)<br /><br /></li>",
+		"<li><b>Round 2</b>: Demeter has already lost 2 ships so far this battle, and the FSB can now be used against them even with Ship Yards screened. An 88 was rolled for morale (pass &gt;62)</li>",
+		"<li>Demeter's 4 Battleships, being all alone now, have rolled 2,10,10,10 against our older cruisers (1 hit &le;5)</li>",
+		"<li>Our Base responds with a 4 against (hit &le;7)</li>",
+		"<li>Our Cruisers rolled 2,2,2,6,8,9,10,10 (3 hits &le;3)<br /><br /></li>",
+		"<li><b>Round 3</b>: Demeter has now lost 4 ships this battle, causing an extreme morale threshold of 91. A 6 was rolled for morale (failure), causing the last 2 battleships to retreat</li></ol>"],
+	"actions":
+		[{
+			"placeGhost":"CA1Y",
+			"location":"J8"
+		},{
+			"placeCounter":"CA1Y",
+			"location":"J9",
+			"size":2
+		},{
+			"placeCounter":"CA3Y",
+			"location":"A5",
+			"size":3
+		},{
+			"placeCounter":"CA5Y",
+			"location":"A5",
+			"size":7
+		},{
+			"removeCounter":"BC1Y"
+		},{
+			"resizeCounter":"HI3Y",
+			"size":5
+		},{
+			"resizeCounter":"HI4Y",
+			"size":4
+		},{
+			"resizeCounter":"HI5Y",
+			"size":2
+		},{
+			"resizeCounter":"SY1Y",
+			"size":5
+		},{
+			"removeCounter":"DS1Y"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"D11",
+			"size":1
+		},{
+			"placeCounter":"CA1G",
+			"location":"A5",
+			"size":2
+		},{
+			"placeCounter":"BB1G",
+			"location":"A5",
+			"size":4
+		},{
+			"placeCounter":"BB2G",
+			"location":"J9",
+			"size":3
+		},{
+			"removeCounter":"fleet1G"
+		},{
+			"placeCounter":"systemF8",
+			"name":"plasmaStorm"
+		},{
+			"removeCounter":"binLsysF8"
+		},{
+			"removeCounter":"binRsysF7"
+		}]},
+	{"heading":"Stardate 2413.0",
+	"commentary":[
+		"We endured a partial reset here. Both offensive fleets have failed to achieve their respective objectives.",
+		"Their thick battleship armor has proven tough to damage (total Defense of 4). We go on ahead and buy Ship Size 4 (-20). We then take advantage of the battlecruisers that were just unlocked, and build 3 of them (-45 total) at the homeworld, along with an extra Ship Yard (-6) and even a defense satellite network (-6).",
+		"The cosmic storms then rolled 7,5 (in reading order). Finally one of the plasma storms move.",
+		"{prodTable}",
+		"Recent... weird battles, so to speak, has caused Demeter's paranoia to rise slightly. Their economic rolls are 6,7,8,8,9,9,10 (home system) / 2,4,5 (deep space).",
+		"Their home systems are safe, but one of their fleets is <q>threatened</q>; so they bid anyway, having rolled 5,5. The first doubles occurs, so they rolled an extra 1 on top of the initial 5. Paranoia plays no role when doubles are involved, so the final bid is 6.",
+		"For fleet launch, a 2 was rolled (success). They rolled 85 for one last paranoia check (success). They use the FOB closest to our space."],
+	"prodTable":
+		[{
+			"name":"CSY (Yellow)","initCP":0,"colonyCP":85,"mineralCP":5,"pipeCP":8,"maint":16,"bidCP":0,"techBuy":20,"unitBuy":57
+		}],
+	"botTable":
+		[{
+			"name":"Demeter (Green)","baseHS":8,"HSdmg":0,"maint":2,"DSmin":1,"DScol":3,"fleetInit":0,"fleetGain":35,"fleetSpend":35,"techInit":26,"techGain":50,"techSpend":31,"paranoia":7,"hidden":"60 (P M3)"
+		}],
+	"techTableX":
+		[{
+			"name":"CSY (Yellow)","size":4,"atk":3,"explore":1,"SY":2,"troops":2,"terraform":2,"def":1
+		},{
+			"name":"Demeter (Green)","explore":2,"terraform":1,"move":3,"troops":2,"size":5,"def":2,"tac":1,"atk":1
+		}],
+	"actions":
+		[{
+			"removeCounter":"CA1Y"
+		},{
+			"placeCounter":"CA3Y",
+			"location":"A5",
+			"size":3
+		},{
+			"placeCounter":"CA5Y",
+			"location":"A5",
+			"size":5
+		},{
+			"placeCounter":"BC1Y",
+			"location":"A5",
+			"size":3
+		},{
+			"resizeCounter":"HI3Y",
+			"size":6
+		},{
+			"resizeCounter":"HI4Y",
+			"size":5
+		},{
+			"resizeCounter":"HI5Y",
+			"size":3
+		},{
+			"resizeCounter":"SY1Y",
+			"size":6
+		},{
+			"placeCounter":"DS1Y",
+			"location":"A5"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"D11",
+			"size":1
+		},{
+			"removeCounter":"CA1G"
+		},{
+			"placeCounter":"BB1G",
+			"location":"B6",
+			"size":2
+		},{
+			"placeCounter":"BB2G",
+			"location":"J9",
+			"size":3
+		},{
+			"placeCounter":"fleet1G",
+			"location":"I8",
+			"size":10
+		},{
+			"removeCounter":"systemF8"
+		},{
+			"placeCounter":"binLsysF8",
+			"name":"minerals5"
+		},{
+			"placeCounter":"binRsysF7",
+			"name":"plasmaStorm"
+		},{
+			"revealCounter":"systemC11",
+			"name":"unexploredW"
+		},{
+			"removeCounter":"NPA13H"
+		}]},
+	{"heading":"Stardate 2413.2 (The Battle for Vasyr)",
+	"commentary":[
+		"While they merge another 2 fleets together (upgrading them to an extermination fleet in the process), their oldest extermination fleet circles around for a rematch against us.",
+		"<ol><li><b>Round 1</b>: Again, we will screen Ship Yards each round when able. We gain the FSB this time</li>",
+		"<li>Demeter's 2 Battleships go first, and have rolled 7,10 against our older cruisers (0 hits &le;5)</li>",
+		"<li>Our forces respond with 1/2,5,10/1,3,3,4,5,6,7,9 (5 hits &le;7/4/3)<br /><br /></li>",
+		"<li><b>Round 2</b>: Demeter is on the ropes already! It lost 1 ship (+2), another is badly damaged (+1), more than half damaged/lost (+1), FSB is used against them (+2). All these factors cause a high morale treshold of 62</li>",
+		"<li>And yet, a 91 was rolled (pass), allowing their last battleship to stay. It rolls a 7 (&le;5 to hit)</li>",
+		"<li>Our Base rolls a 4 (hit &le;7), finishing their last battleship off</li></ol>"],
+	"actions":
+		[{
+			"placeCounter":"Miner1G",
+			"location":"D11",
+			"size":1
+		},{
+			"placeCounter":"BB1G",
+			"location":"A5",
+			"size":2
+		},{
+			"placeCounter":"BB2G",
+			"location":"I9",
+			"size":3
+		},{
+			"placeCounter":"fleet1G",
+			"location":"I9",
+			"size":10
+		},{
+			"revealCounter":"systemC11",
+			"name":"planetW13"
+		},{
+			"placeCounter":"NPA13H",
+			"location":"C11",
+			"size":4
+		},{
+			"revealCounter":"systemD12",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2413.5",
+	"commentary":["Battleships are strong, but their offensive losses against us show that they are not as readily buildable as smaller craft."],
+	"actions":
+		[{
+			"placeCounter":"Miner1G",
+			"location":"D12",
+			"size":1
+		},{
+			"removeCounter":"BB1G"
+		},{
+			"placeGhost":"BB2G",
+			"location":"H10"
+		},{
+			"placeCounter":"BB2G",
+			"location":"G9",
+			"size":3
+		},{
+			"placeCounter":"fleet1G",
+			"location":"G9",
+			"size":10
+		},{
+			"revealCounter":"systemD12",
+			"name":"quasar"
+		},{
+			"revealCounter":"systemC12",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2413.8",
+	"commentary":["With any luck, they could change their fleet strategy soon..."],
+	"actions":
+		[{
+			"removeCounter":"BB1Y"
+		},{
+			"resizeCounter":"HI4Y",
+			"size":5
+		},{
+			"resizeCounter":"HI5Y",
+			"size":3
+		},{
+			"removeCounter":"Mar2Y"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"C12",
+			"size":1
+		},{
+			"removeCounter":"BB1G"
+		},{
+			"placeGhost":"BB2G",
+			"location":"F9"
+		},{
+			"placeCounter":"BB2G",
+			"location":"E8",
+			"size":3
+		},{
+			"placeCounter":"fleet1G",
+			"location":"E8",
+			"size":10
+		},{
+			"removeCounter":"fleet2G"
+		},{
+			"placeCounter":"systemC12",
+			"name":"danger"
+		},{
+			"placeCounter":"binRsysF7",
+			"name":"plasmaStorm"
+		},{
+			"removeCounter":"binLsysF7"
+		},{
+			"removeCounter":"binLsysG7"
+		}]},
+	{"heading":"Stardate 2414.0",
+	"commentary":[
+		"We still feel a bit nervous since their current extermination fleet is only partially known.",
+		"Since their paranoia is very high now, we do not expect them to stick with battleships much longer. We buy Ship Size 5 anyway (-20), and also buy 3 newly unlocked Battleships (-60) at the homeworld.",
+		"The plasma storms then rolled 7,1 (in reading order). Admittedly, this was a tough decision on whether to allow cosmic storms to stack. They are terrain, but they can also move from hex to hex as die rolls permit. We make an inference and allow this by virtue of the Heavy Terrain system that we currently support. Otherwise, what if a hex somehow had 2 cosmic storms in the very same hex when they were both uncovered at the same time??",
+		"{prodTable}",
+		"That last battle loss has caused Demeter's paranoia to nearly reach maximum. Their economic rolls are 2,2,3,6,7,8,9 (home system) / 5,9,10 (deep space).",
+		"None of their assets are threatened this time, so they rolled a 91 on the bid step (pass). No bid takes place this time.",
+		"For fleet launch, a 4 was rolled (success). They rolled a 92 for one last paranoia check (success). They use the FOB closest to our space. The Movement step is also performed, causing Movement 4 to be purchased automatically (-25). A 5 is then rolled on the extra Movement step, buying a fifth level (-25) on top of that."],
+	"prodTable":
+		[{
+			"name":"CSY (Yellow)","initCP":5,"colonyCP":85,"mineralCP":5,"pipeCP":8,"maint":22,"bidCP":0,"techBuy":20,"unitBuy":60
+		}],
+	"botTable":
+		[{
+			"name":"Demeter (Green)","baseHS":8,"HSdmg":0,"maint":1,"DSmin":0,"DScol":3,"fleetInit":0,"fleetGain":55,"fleetSpend":55,"techInit":45,"techGain":30,"techSpend":55,"paranoia":9,"hidden":"60+K (X M3) / 60 (P M5)"
+		}],
+	"techTableX":
+		[{
+			"name":"CSY (Yellow)","size":5,"atk":3,"explore":1,"SY":2,"troops":2,"terraform":2,"def":1
+		},{
+			"name":"Demeter (Green)","explore":2,"terraform":1,"move":5,"troops":2,"size":5,"def":2,"tac":1,"atk":1
+		}],
+	"actions":
+		[{
+			"placeCounter":"CA3Y",
+			"location":"A5",
+			"size":3
+		},{
+			"placeCounter":"CA5Y",
+			"location":"A5",
+			"size":5
+		},{
+			"placeCounter":"BC1Y",
+			"location":"A5",
+			"size":3
+		},{
+			"placeCounter":"BB1Y",
+			"location":"A5",
+			"size":3
+		},{
+			"resizeCounter":"HI4Y",
+			"size":6
+		},{
+			"resizeCounter":"HI5Y",
+			"size":4
+		},{
+			"placeCounter":"Mar2Y",
+			"location":"A5"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"C12",
+			"size":1
+		},{
+			"removeCounter":"BB1G"
+		},{
+			"placeCounter":"BB2G",
+			"location":"E8",
+			"size":3
+		},{
+			"placeCounter":"fleet1G",
+			"location":"E8",
+			"size":10
+		},{
+			"placeCounter":"fleet2G",
+			"location":"I8",
+			"size":10
+		},{
+			"removeCounter":"systemC12"
+		},{
+			"removeCounter":"binRsysF7"
+		},{
+			"placeCounter":"binLsysF7",
+			"name":"minerals5"
+		},{
+			"placeCounter":"binLsysG7",
+			"name":"plasmaStorm"
+		},{
+			"revealCounter":"systemB12",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2414.1",
+	"commentary":[
+		"A strategy change <i>could</i> still happen. As nervous as we are, Demeter's extermination fleet does not have enough Movement equipment to engage us this next set of 3 turns.",
+		"The newest expansion fleet has two equal choices regarding where to go. A paranoia roll of 44 was performed. Since this check failed, they opt to go for the safer option."],
+	"actions":
+		[{
+			"placeCounter":"Miner1G",
+			"location":"B12",
+			"size":1
+		},{
+			"placeCounter":"BB2G",
+			"location":"E7",
+			"size":3
+		},{
+			"placeCounter":"fleet1G",
+			"location":"E7",
+			"size":10
+		},{
+			"placeGhost":"fleet2G",
+			"location":"H9"
+		},{
+			"placeCounter":"fleet2G",
+			"location":"G9",
+			"size":10
+		},{
+			"placeCounter":"systemB12",
+			"name":"danger"
+		},{
+			"revealCounter":"systemB11",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2414.4",
+	"commentary":["As Movement equipment is strengthened, it becomes easier to enter quantum filaments."],
+	"actions":
+		[{
+			"placeCounter":"Miner1G",
+			"location":"B11",
+			"size":1
+		},{
+			"placeCounter":"BB2G",
+			"location":"D7",
+			"size":3
+		},{
+			"placeCounter":"fleet1G",
+			"location":"D7",
+			"size":10
+		},{
+			"placeGhost":"fleet2G",
+			"location":"F10"
+		},{
+			"placeCounter":"fleet2G",
+			"location":"E10",
+			"size":10
+		},{
+			"removeCounter":"BB3G"
+		},{
+			"placeCounter":"NPA1H",
+			"location":"E11",
+			"size":4
+		},{
+			"removeCounter":"NPA1E"
+		},{
+			"removeCounter":"NPA1C"
+		},{
+			"removeCounter":"NPA1B"
+		},{
+			"removeCounter":"NPA1A"
+		},{
+			"removeCounter":"systemB12"
+		},{
+			"placeCounter":"systemB11",
+			"name":"danger"
+		},{
+			"revealCounter":"systemB10",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2414.7 (The Battle for Abydos)",
+	"commentary":[
+		"Demeter's newest expansion fleet is now ready to battle the NPA planet of Abydos. Since they recently invested heavily in Movement technology, their bank is too small to change fleet strategy or to buy even more technology.",
+		"<ol><li><b>Round 1</b>: Abydos's Alien-A has the tactics advantage, so it shoots first. It rolled a 6 (&le;1 to hit)</li>",
+		"<li>Demeter's Battleships rolled 1,2/7 (2 hits &le;4/3)</li>",
+		"<li>The Alien-D now has its chance, and rolls a 5 (&le;3 to hit)<br /><br /></li>",
+		"<li><b>Round 2</b>: The Alien-A rolls a 4 (&le;1 to hit)</li>",
+		"<li>Demeter has taken no damage so far, so morale checks are skipped for the moment. The Battleships rolled 3,4,7 (1 hit &le;3)</li>",
+		"<li>The Alien-D rolls a 6 (&le;3 to hit)<br /><br /></li>",
+		"<li><b>Round 3</b>: The Alien-A rolls a 7 (&le;1 to hit)</li>",
+		"<li>The Battleships rolled 1,2,10 (2 hits &le;3)<br /><br /></li>",
+		"<li><b>Round 4</b>: The Alien-A rolls a 4 (&le;1 to hit)</li>",
+		"<li>The Battleships gain FSB, and rolled 2,2,7 (2 hits &le;4); finishing off Abydos' defenders and subduing the planet. Since this fleet was launched at exactly 60 CP, it automatically becomes a guard fleet after this battle</li></ol>"],
+	"actions":
+		[{
+			"resizeCounter":"BB1Y",
+			"size":3
+		},{
+			"removeCounter":"MS12Y"
+		},{
+			"resizeCounter":"HI5Y",
+			"size":4
+		},{
+			"resizeCounter":"Mar2Y",
+			"size":1
+		},{
+			"removeCounter":"Mar3Y"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"B10",
+			"size":1
+		},{
+			"placeCounter":"BB2G",
+			"location":"C6",
+			"size":3
+		},{
+			"placeCounter":"fleet1G",
+			"location":"C6",
+			"size":10
+		},{
+			"removeCounter":"fleet2G"
+		},{
+			"placeCounter":"BB3G",
+			"location":"E11",
+			"size":3
+		},{
+			"removeCounter":"fleet3G"
+		},{
+			"removeCounter":"CO3G"
+		},{
+			"removeCounter":"NPA1H"
+		},{
+			"placeCounter":"NPA1E",
+			"location":"E11"
+		},{
+			"placeCounter":"NPA1C",
+			"location":"E11"
+		},{
+			"placeCounter":"NPA1B",
+			"location":"E11"
+		},{
+			"placeCounter":"NPA1A",
+			"location":"E11"
+		},{
+			"removeCounter":"systemB11"
+		},{
+			"placeCounter":"systemB10",
+			"name":"danger"
+		},{
+			"revealCounter":"binLsysG7",
+			"name":"plasmaStorm"
+		},{
+			"placeCounter":"systemG7",
+			"name":"plasmaStorm"
+		},{
+			"placeCounter":"binLsysF8",
+			"name":"minerals5"
+		},{
+			"removeCounter":"binRsysG6"
+		},{
+			"removeCounter":"binRsysF8"
+		}]},
+	{"heading":"Stardate 2415.0",
+	"commentary":[
+		"We reach another reprieve. Since we do not need to buy more technology (yet), we can simply throw down another 3 Battleships (-60) at our homeworld. We will also buy 1 Pipeline (-3) at Benden.",
+		"The plasma storms rolled 5,3. Both of these moves are legal, so they split off accordingly.",
+		"{prodTable}",
+		"Not much has changed for Demeter. Their economic rolls are 3,4,5,6,6,8 (home system) / 7,9,10 (deep space).",
+		"They just subdued yet another planet, so they will go on ahead and buy a Colony Ship (-8). On the bid step, a 14 was rolled (failure). They then rolled 5,6. With a net paranoia modifier of +6, they place a bid of 11 CP.",
+		"For fleet launch, a 3 was rolled (success). They rolled a 38 for one last paranoia check (failure). They place their newest fleet at the homeworld."],
+	"prodTable":
+		[{
+			"name":"CSY (Yellow)","initCP":1,"colonyCP":85,"mineralCP":5,"pipeCP":8,"maint":31,"bidCP":0,"techBuy":0,"unitBuy":63
+		}],
+	"botTable":
+		[{
+			"name":"Demeter (Green)","baseHS":8,"HSdmg":0,"maint":2,"DSmin":0,"DScol":3,"fleetInit":0,"fleetGain":55,"fleetSpend":55,"techInit":20,"techGain":20,"techSpend":24,"paranoia":9,"hidden":"60+K (X M3) / 60 (P M5)"
+		}],
+	"techTableX":
+		[{
+			"name":"CSY (Yellow)","size":5,"atk":3,"explore":1,"SY":2,"troops":2,"terraform":2,"def":1
+		},{
+			"name":"Demeter (Green)","explore":2,"terraform":1,"move":5,"troops":2,"size":5,"def":2,"tac":1,"atk":1
+		}],
+	"actions":
+		[{
+			"placeCounter":"CA3Y",
+			"location":"A5",
+			"size":3
+		},{
+			"placeCounter":"CA5Y",
+			"location":"A5",
+			"size":5
+		},{
+			"placeCounter":"BC1Y",
+			"location":"A5",
+			"size":3
+		},{
+			"placeCounter":"BB1Y",
+			"location":"A5",
+			"size":6
+		},{
+			"placeCounter":"MS12Y",
+			"location":"E5",
+			"name":"MSaY"
+		},{
+			"resizeCounter":"HI5Y",
+			"size":5
+		},{
+			"resizeCounter":"Mar2Y",
+			"size":2
+		},{
+			"placeCounter":"Mar3Y",
+			"location":"E5"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"B10",
+			"size":1
+		},{
+			"placeCounter":"BB2G",
+			"location":"C6",
+			"size":3
+		},{
+			"placeCounter":"fleet1G",
+			"location":"C6",
+			"size":10
+		},{
+			"placeCounter":"BB3G",
+			"location":"E11",
+			"size":3
+		},{
+			"placeCounter":"fleet3G",
+			"location":"L10",
+			"size":10
+		},{
+			"placeCounter":"CO3G",
+			"location":"I8"
+		},{
+			"removeCounter":"NPA1E"
+		},{
+			"removeCounter":"NPA1C"
+		},{
+			"removeCounter":"NPA1B"
+		},{
+			"removeCounter":"NPA1A"
+		},{
+			"removeCounter":"systemB10"
+		},{
+			"revealCounter":"binLsysG7",
+			"name":"minerals5"
+		},{
+			"removeCounter":"systemG7"
+		},{
+			"removeCounter":"binLsysF8"
+		},{
+			"placeCounter":"binRsysG6",
+			"name":"plasmaStorm"
+		},{
+			"placeCounter":"binRsysF8",
+			"name":"plasmaStorm"
+		},{
+			"revealCounter":"systemB9",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2415.3",
+	"commentary":[
+		"It appears we will need to defend two paths at once soon...",
+		"While we attempt clean up, we position our newest pipeline inside the black hole. We rolled a 3, allowing our ship to stay. This opens up opportunities for future endeavors. We also upgrade <i>2</i> of our older cruisers."],
+	"actions":
+		[{
+			"resizeCounter":"CA3Y",
+			"size":5
+		},{
+			"resizeCounter":"CA5Y",
+			"size":3
+		},{
+			"placeGhost":"BB1Y",
+			"location":"B5"
+		},{
+			"placeCounter":"BB1Y",
+			"location":"C4",
+			"size":6
+		},{
+			"placeCounter":"MS12Y",
+			"location":"F6",
+			"name":"MSmY"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"B9",
+			"size":1
+		},{
+			"placeCounter":"BB2G",
+			"location":"B6",
+			"size":3
+		},{
+			"placeCounter":"fleet1G",
+			"location":"B6",
+			"size":10
+		},{
+			"placeCounter":"BB3G",
+			"location":"E10",
+			"size":3
+		},{
+			"placeGhost":"fleet3G",
+			"location":"L9"
+		},{
+			"placeCounter":"fleet3G",
+			"location":"K8",
+			"size":10
+		},{
+			"placeCounter":"CO3G",
+			"location":"I9"
+		},{
+			"placeCounter":"systemB9",
+			"name":"danger"
+		},{
+			"revealCounter":"systemB8",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2415.6 (The Battle for Vasyr)",
+	"commentary":[
+		"We <i>should</i> have enough strength to repel their extermination fleet. Since their Tech bank is too small, they stick with their Biggest Ship, and build 3 more battleships.",
+		"<ol><li><b>Round 1</b>: Their Battleships have the Tactics advantage as usual. They rolled 1,2,7,8,8,9 against our oldest cruisers (2 hits &le;5)</li>",
+		"<li>Having gained FSB, our forces (sans screened Ship Yards) respond with 2/8,8,8/1,4,4,5,6,6,7,10 (2 hits &le;7/4/3)<br /><br /></li>",
+		"<li><b>Round 2</b>: One of their battleships is damaged, so they must conduct a morale check. A 98 was rolled this way (pass &gt;26)</li>",
+		"<li>Since their Battleships stay, they rolled 7,6,3,3,9,1 (3 hits &le;5)</li>",
+		"<li>Having barely kept FSB, our forces respond with 10/3,4,8/1,6,6,8,8,9,10 (3 hits &le;7/4/3)<br /><br /></li>",
+		"<li><b>Round 3</b>: They have lost their first ship, but is counterbalanced by damaging one of our ships. They rolled a 9 for morale (failure &le;37), causing them to retreat right away</li></ol>"],
+	"actions":
+		[{
+			"resizeCounter":"CA5Y",
+			"size":3
+		},{
+			"placeGhost":"BB1Y",
+			"location":"D5"
+		},{
+			"placeCounter":"BB1Y",
+			"location":"E5",
+			"size":6
+		},{
+			"revealCounter":"MS12Y",
+			"name":"MSaY"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"B8",
+			"size":1
+		},{
+			"placeCounter":"BB2G",
+			"location":"A5",
+			"size":6
+		},{
+			"removeCounter":"fleet1G"
+		},{
+			"placeGhost":"fleet3G",
+			"location":"J8"
+		},{
+			"placeCounter":"fleet3G",
+			"location":"I7",
+			"size":10
+		},{
+			"placeCounter":"CO3G",
+			"location":"H10"
+		},{
+			"removeCounter":"systemB9"
+		},{
+			"placeCounter":"systemB8",
+			"name":"danger"
+		},{
+			"revealCounter":"systemC7",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2415.9 (The Battle for Vasyr)",
+	"commentary":[
+		"Demeter has two battles to execute on their turn.",
+		"<ol><li><b>Round 1</b>: Their Battleships circle around. They rolled 1,7,10,2,10 against our last oldest cruiser (2 hits &le;5)</li>",
+		"<li>Having gained FSB once more, our forces respond with 6/5,8,8/1,2,2,2,8,9 (5 hits &le;7/4/3)<br /><br /></li>",
+		"<li><b>Round 2</b>: Already they have lost a battleship, and another one is damaged. A 27 was rolled for morale (failure &le;50), causing this group to retreat... again</li></ol>"],
+	"actions":
+		[{
+			"placeCounter":"CA5Y",
+			"location":"A5",
+			"size":1
+		},{
+			"placeCounter":"BB1Y",
+			"location":"E6",
+			"size":6
+		},{
+			"placeCounter":"Miner1G",
+			"location":"B9",
+			"size":1
+		},{
+			"placeGhost":"BB2G",
+			"location":"B6"
+		},{
+			"placeCounter":"BB2G",
+			"location":"A5",
+			"size":5
+		},{
+			"placeGhost":"fleet3G",
+			"location":"H7"
+		},{
+			"placeGhost":"fleet3G",
+			"location":"G7"
+		},{
+			"placeCounter":"fleet3G",
+			"location":"F7",
+			"size":10
+		},{
+			"removeCounter":"SY3G"
+		},{
+			"placeCounter":"CO3G",
+			"location":"G10"
+		},{
+			"removeCounter":"systemB8"
+		},{
+			"revealCounter":"systemC7",
+			"name":"station10"
+		},{
+			"placeCounter":"binRsysG6",
+			"name":"plasmaStorm"
+		},{
+			"placeCounter":"binRsysF8",
+			"name":"plasmaStorm"
+		},{
+			"removeCounter":"binRsysH6"
+		},{
+			"removeCounter":"binRsysE8"
+		},{
+			"removeCounter":"binLsysG6"
+		},{
+			"removeCounter":"binLsysF8"
+		}]},
+	{"heading":"Stardate 2416.0",
+	"commentary":[
+		"That could have ended badly. Still, we buy yet another 3 Battleships (-60) at the homeworld.",
+		"The plasma storms rolled 6,3. Both of these moves are legal, so they do so accordingly.",
+		"{prodTable}",
+		"Demeter's paranoia has reached maximum! Their economic rolls are 2,5,6,7,10 (home system) / 6,7,8 (deep space).",
+		"Since their assets are threatened, they rolled 5,7 to place a bid. With a net paranoia modifier of +7, they place a bid of 12 CP.",
+		"For fleet launch, a 9 was rolled (failure). Since no launch takes place, a FOB is instead placed at a deep space colony that does not already have one. 2 compatible planets are found, so some random factor is used to determine where to place the new FOB."],
+	"prodTable":
+		[{
+			"name":"CSY (Yellow)","initCP":5,"colonyCP":85,"mineralCP":5,"pipeCP":8,"maint":34,"bidCP":0,"techBuy":0,"unitBuy":60
+		}],
+	"botTable":
+		[{
+			"name":"Demeter (Green)","baseHS":8,"HSdmg":0,"maint":3,"DSmin":0,"DScol":3,"fleetInit":0,"fleetGain":50,"fleetSpend":32,"techInit":16,"techGain":15,"techSpend":0,"paranoia":10,"hidden":"60 (P M5)"
+		}],
+	"techTableX":
+		[{
+			"name":"CSY (Yellow)","size":5,"atk":3,"explore":1,"SY":2,"troops":2,"terraform":2,"def":1
+		},{
+			"name":"Demeter (Green)","explore":2,"terraform":1,"move":5,"troops":2,"size":5,"def":2,"tac":1,"atk":1
+		}],
+	"actions":
+		[{
+			"placeCounter":"CA3Y",
+			"location":"A5",
+			"size":5
+		},{
+			"removeCounter":"CA5Y"
+		},{
+			"placeCounter":"BC1Y",
+			"location":"A5",
+			"size":3
+		},{
+			"placeCounter":"BB1Y",
+			"location":"E6",
+			"size":6
+		},{
+			"placeCounter":"BB2Y",
+			"location":"A5",
+			"size":3
+		},{
+			"resizeCounter":"HI5Y",
+			"size":6
+		},{
+			"resizeCounter":"Mar2Y",
+			"size":3
+		},{
+			"resizeCounter":"Mar3Y",
+			"size":2
+		},{
+			"placeCounter":"Miner1G",
+			"location":"B9",
+			"size":1
+		},{
+			"placeCounter":"BB2G",
+			"location":"B6",
+			"size":4
+		},{
+			"placeCounter":"fleet3G",
+			"location":"F7",
+			"size":10
+		},{
+			"placeCounter":"CO3G",
+			"location":"G10"
+		},{
+			"placeCounter":"SY3G",
+			"location":"G9",
+			"size":2
+		},{
+			"removeCounter":"binRsysG6"
+		},{
+			"removeCounter":"binRsysF8"
+		},{
+			"placeCounter":"binRsysH6",
+			"name":"plasmaStorm"
+		},{
+			"placeCounter":"binRsysE8",
+			"name":"plasmaStorm"
+		},{
+			"placeCounter":"binLsysG6",
+			"name":"minerals5"
+		},{
+			"placeCounter":"binLsysF8",
+			"name":"minerals5"
+		},{
+			"revealCounter":"systemC8",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2416.2A (The Battle for Vasyr)",
+	"commentary":[
+		"Since Demeter's expansion fleet is threatened, it performs a paranoia check. A 32 was rolled (failure), causing it to assume defense posture and fall back.",
+		"While one check is all that is performed, the extermination fleet follows a different ruleset. Since it is not near the home systems, the latter fleet reverts back to offense posture and assaults our homeworld once more.",
+		"<ol><li><b>Round 1</b>: Their Battleships circle around yet again. They rolled 3,4,5,7 against our battlecruisers (2 hits &le;4)</li>",
+		"<li>Having gained FSB once more, our forces respond with 2/1,1,7/3,4/1,1,2,2,6,10 (9 hits &le;7/5/4/3)<br /><br /></li>",
+		"<li><b>Round 2</b>: Demeter has sustained devastating losses this battle, causing its morale threshold to be extremely high (91). An 82 was rolled (failure), causing their last battleship to retreat, likely for good. This is now a shattered fleet</li></ol>"],
+	"actions":
+		[{
+			"placeCounter":"CA3Y",
+			"location":"A5",
+			"size":5
+		},{
+			"placeCounter":"BC1Y",
+			"location":"A5",
+			"size":3
+		},{
+			"placeCounter":"BB2Y",
+			"location":"A5",
+			"size":3
+		},{
+			"placeCounter":"Miner1G",
+			"location":"B9",
+			"size":1
+		},{
+			"placeCounter":"BB2G",
+			"location":"A5",
+			"size":4
+		},{
+			"placeGhost":"fleet3G",
+			"location":"F8"
+		},{
+			"placeCounter":"fleet3G",
+			"location":"F9",
+			"size":10
+		},{
+			"placeCounter":"CO3G",
+			"location":"F11"
+		},{
+			"revealCounter":"systemC8",
+			"name":"blackHole"
+		}]},
+	{"heading":"Stardate 2416.2P",
+	"commentary":[
+		"We take advantage of how extremely vulnerable their final battleship is, and intercept it; even in an asteroid belt.",
+		"<ol><li><b>Round 1</b>: Weapon Class <q>negations</q> are meaningless when they have the tactics advantage. Their last Battleship rolls a 6 against our battlecruisers (&le;3 to hit)</li>",
+		"<li>Despite having our Attack technology nullified, our forces respond with 1,3,4,5,8/1,3,7,8,10 (2 hits &le;2/1)<br /><br /></li>",
+		"<li><b>Round 2</b>: Demeter has sustained damage this battle, causing its morale threshold to be elevated (50). A 63 was rolled (pass), causing it to stay and rolled another 6.</li>",
+		"<li>Our Battleships and Battlecruisers rolled 1,1,1,7,10 (3 hits &le;2), finishing this final ship off!</li></ol>"],
+	"actions":
+		[{
+			"placeCounter":"CA3Y",
+			"location":"B6",
+			"size":5
+		},{
+			"placeCounter":"BC1Y",
+			"location":"B6",
+			"size":2
+		},{
+			"placeCounter":"BB2Y",
+			"location":"B6",
+			"size":3
+		},{
+			"placeCounter":"Miner1G",
+			"location":"B9",
+			"size":1
+		},{
+			"placeCounter":"BB2G",
+			"location":"B6",
+			"size":1
+		},{
+			"placeCounter":"fleet3G",
+			"location":"F9",
+			"size":10
+		},{
+			"placeCounter":"CO3G",
+			"location":"F11"
+		},{
+			"revealCounter":"systemC9",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2416.5",
+	"commentary":["No <q>threatened</q> assets remain, so Demeter reverts back to offense posture."],
+	"actions":
+		[{
+			"placeCounter":"CA3Y",
+			"location":"B7",
+			"size":5
+		},{
+			"placeCounter":"BC1Y",
+			"location":"B7",
+			"size":2
+		},{
+			"placeCounter":"BB2Y",
+			"location":"B7",
+			"size":3
+		},{
+			"placeCounter":"Miner1G",
+			"location":"C9",
+			"size":1
+		},{
+			"removeCounter":"BB2G"
+		},{
+			"placeGhost":"fleet3G",
+			"location":"F8"
+		},{
+			"placeCounter":"fleet3G",
+			"location":"F7",
+			"size":10
+		},{
+			"placeCounter":"CO3G",
+			"location":"E11"
+		},{
+			"placeCounter":"systemC9",
+			"name":"spaceWreck"
+		},{
+			"revealCounter":"systemA7",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2416.8",
+	"commentary":["Once again, Demeter is hesitant about engagement. A 53 was rolled (failure), causing the fleet to pull back again."],
+	"actions":
+		[{
+			"placeCounter":"CA3Y",
+			"location":"B8",
+			"size":5
+		},{
+			"placeCounter":"BC1Y",
+			"location":"B8",
+			"size":2
+		},{
+			"placeCounter":"BB1Y",
+			"location":"E6",
+			"size":6
+		},{
+			"placeCounter":"BB2Y",
+			"location":"B8",
+			"size":3
+		},{
+			"removeCounter":"DN1Y"
+		},{
+			"removeCounter":"Tran2Y"
+		},{
+			"resizeCounter":"Mar2Y",
+			"size":3
+		},{
+			"resizeCounter":"Mar3Y",
+			"size":2
+		},{
+			"removeCounter":"HI6Y"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"B10",
+			"size":4
+		},{
+			"removeCounter":"fleet1G"
+		},{
+			"placeGhost":"fleet3G",
+			"location":"F8"
+		},{
+			"placeCounter":"fleet3G",
+			"location":"F9",
+			"size":10
+		},{
+			"placeCounter":"CO3G",
+			"location":"E11"
+		},{
+			"removeCounter":"systemC9"
+		},{
+			"placeCounter":"systemA7",
+			"name":"lost"
+		},{
+			"revealCounter":"systemE11",
+			"name":"planetW1"
+		},{
+			"placeCounter":"binRsysE8",
+			"name":"plasmaStorm"
+		},{
+			"removeCounter":"binRsysF9"
+		},{
+			"removeCounter":"binLsysE8"
+		}]},
+	{"heading":"Stardate 2417.0",
+	"commentary":[
+		"We still hold our territory quite nicely. Anyway, we opt to proceed and buy Troops 3 (-15) and Ship Size 6 (-20). We then build 1 Transport (-6) at the homeworld, and our first Dreadnought (-24) at Benden.",
+		"The plasma storms rolled 4,1. The former's move is blocked by a supernova, so only the latter makes its move.",
+		"{prodTable}",
+		"Demeter's paranoia remains at maximum, but their maintenance has decreased a bit! Their economic rolls are 3,5,5,6,6,10 (home system) / 1,7,7,9 (deep space).",
+		"On the bidding step, a 46 was rolled (failure). Afterwards, they rolled 3,8 to place a bid. With a net paranoia modifier of +7, they place a bid of 10 CP.",
+		"For fleet launch, a 2 was rolled (success). One last paranoia roll of 45 (failure) causes this fleet to be placed at the homeworld."],
+	"prodTable":
+		[{
+			"name":"CSY (Yellow)","initCP":9,"colonyCP":85,"mineralCP":5,"pipeCP":8,"maint":41,"bidCP":0,"techBuy":35,"unitBuy":30
+		}],
+	"botTable":
+		[{
+			"name":"Demeter (Green)","baseHS":8,"HSdmg":0,"maint":2,"DSmin":0,"DScol":4,"fleetInit":18,"fleetGain":65,"fleetSpend":83,"techInit":31,"techGain":15,"techSpend":0,"paranoia":10,"hidden":"60 (P M5) / 73 (P M5)"
+		}],
+	"techTableX":
+		[{
+			"name":"CSY (Yellow)","size":6,"atk":3,"explore":1,"SY":2,"troops":3,"terraform":2,"def":1
+		},{
+			"name":"Demeter (Green)","explore":2,"terraform":1,"move":5,"troops":2,"size":5,"def":2,"tac":1,"atk":1
+		}],
+	"actions":
+		[{
+			"placeCounter":"CA3Y",
+			"location":"B8",
+			"size":5
+		},{
+			"placeCounter":"BC1Y",
+			"location":"B8",
+			"size":2
+		},{
+			"placeCounter":"BB1Y",
+			"location":"E6",
+			"size":6
+		},{
+			"placeCounter":"BB2Y",
+			"location":"B8",
+			"size":3
+		},{
+			"placeCounter":"DN1Y",
+			"location":"E5"
+		},{
+			"placeCounter":"Tran2Y",
+			"location":"A5"
+		},{
+			"placeCounter":"Mar2Y",
+			"location":"A5",
+			"size":4
+		},{
+			"resizeCounter":"Mar3Y",
+			"size":3
+		},{
+			"placeCounter":"HI6Y",
+			"location":"E1"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"B10",
+			"size":4
+		},{
+			"placeCounter":"fleet1G",
+			"location":"L10",
+			"size":13
+		},{
+			"placeCounter":"fleet3G",
+			"location":"F9",
+			"size":10
+		},{
+			"removeCounter":"BD1G"
+		},{
+			"removeCounter":"CO3G"
+		},{
+			"removeCounter":"systemA7"
+		},{
+			"revealCounter":"systemE11",
+			"name":"colony1"
+		},{
+			"removeCounter":"binRsysE8"
+		},{
+			"placeCounter":"binRsysF9",
+			"name":"plasmaStorm"
+		},{
+			"placeCounter":"binLsysE8",
+			"name":"minerals5"
+		},{
+			"revealCounter":"systemA9",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemA8",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2417.1 (The Battle for Sector F7)",
+	"commentary":[
+		"Since it is probable they will attempt to forge another extermination fleet, we will deny that and engage their oldest mobile fleet.",
+		"<ol><li><b>Preparation</b>: An 83 was rolled on the fleet strategy check (failure), necessitating a change</li>",
+		"<li>A 95 was rolled on the new strategy... Yarr!</li>",
+		"<li>Boarding 1 (46 Tech CP &rarr; 26 CP)</li>",
+		"<li>Boarding 2 (26 &rarr; 1 CP)</li>",
+		"<li>5 Boarding Ships (60 assigned CP &rarr; 0 CP)<br /><br /></li>",
+		"<li><b>Round 1</b>: Our Battleships go first. We rolled 1,2,2,4,8,10 (4 hits &le;6)</li>",
+		"<li>Their Boarding Ships now have a chance, but our ships are thick. They rolled 2,2,5 (2 hits &le;3)<br /><br /></li>",
+		"<li><b>Round 2</b>: Although unfortunate, our Battleships press on, and focus on their boarding ships. We rolled 1,6,10,10 (2 hits &le;6)</li>",
+		"<li>They captured 2 battleships from us, but can not use them until <i>after</i> this round</li>",
+		"<li>Despite their successful captures, they took considerable damage this battle. They rolled an 11 on the morale check (failure &le;37)</li>",
+		"<li>Thanks to winning the Tactics tie, their fleet retreats from this battle by the time our battleships would have a chance to shoot again</li></ol>"],
+	"actions":
+		[{
+			"placeCounter":"CA3Y",
+			"location":"B9",
+			"size":5
+		},{
+			"placeCounter":"BC1Y",
+			"location":"B9",
+			"size":2
+		},{
+			"placeCounter":"BB1Y",
+			"location":"F7",
+			"size":6
+		},{
+			"placeCounter":"BB2Y",
+			"location":"B9",
+			"size":3
+		},{
+			"placeCounter":"DN1Y",
+			"location":"E6"
+		},{
+			"placeGhost":"Tran2Y",
+			"location":"B5"
+		},{
+			"placeCounter":"Tran2Y",
+			"location":"C4"
+		},{
+			"placeCounter":"Mar2Y",
+			"location":"C4",
+			"size":4
+		},{
+			"placeCounter":"Miner1G",
+			"location":"B11",
+			"size":4
+		},{
+			"placeGhost":"fleet1G",
+			"location":"L9"
+		},{
+			"placeCounter":"fleet1G",
+			"location":"K8",
+			"size":13
+		},{
+			"placeGhost":"fleet3G",
+			"location":"F8"
+		},{
+			"removeCounter":"fleet3G"
+		},{
+			"placeCounter":"BD1G",
+			"location":"F7",
+			"size":5
+		},{
+			"removeCounter":"BB5G"
+		},{
+			"revealCounter":"systemA9",
+			"name":"minerals10"
+		},{
+			"placeCounter":"systemA8",
+			"name":"lost"
+		},{
+			"revealCounter":"systemA10",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2417.4A (The Battle for Sector F7... again)",
+	"commentary":[
+		"Throughout the countless playthroughs we have done, this is the first time we have seen the use of Boarding technology. Even with Hull Size reducing the odds, this strategy is quite strong against larger ships, as one hit (each) is all it takes to score a capture. This strategy is weak against smaller ships, which are more easily swarmable.",
+		"Their fleet netted a gain of strength, despite having technically lost that battle. Since they recently acquired a new strategy, their paranoia was recently reset. To determine whether they circle around, they rolled a 56 (pass &gt;16), allowing this fleet to do just that.",
+		"<ol><li><b>Round 1</b>: Since they circled around, we have the equal Tactics advantage this time (because they are using <i>our</i> equipment this time). Our Battleships rolled 1,7,8,9 against their boarding ships (1 hit &le;6)</li>",
+		"<li>Their Battleships rolled 9,10 (0 hits &le;5)</li>",
+		"<li>Their Boarding Ships rolled 7,10 (0 hits &le;3)<br /><br /></li>",
+		"<li><b>Round 2</b>: Our Battleships rolled 4,1,1,10 against their boarding ships (3 hits &le;6)</li>",
+		"<li>Since their fleet took damage, their Battleships (being all alone now) rolled a 29 for morale (pass &gt;9). They then rolled 9,10 (0 hits &le;5)<br /><br /></li>",
+		"<li><b>Round 3</b>: Our Battleships gain FSB, and rolled 6,7,8,9 (1 hit &le;6)</li>",
+		"<li>The losses pile up, so their Battleships rolled a 62 for morale (failure &le;74). Once again, they retreat from this battle</li></ol>"],
+	"actions":
+		[{
+			"placeCounter":"CA3Y",
+			"location":"B9",
+			"size":5
+		},{
+			"placeCounter":"BC1Y",
+			"location":"B9",
+			"size":2
+		},{
+			"placeCounter":"BB1Y",
+			"location":"F7",
+			"size":4
+		},{
+			"placeCounter":"BB2Y",
+			"location":"B9",
+			"size":3
+		},{
+			"placeCounter":"DN1Y",
+			"location":"E6"
+		},{
+			"placeCounter":"Tran2Y",
+			"location":"C4"
+		},{
+			"placeCounter":"Mar2Y",
+			"location":"C4",
+			"size":4
+		},{
+			"placeCounter":"Miner1G",
+			"location":"B12",
+			"size":4
+		},{
+			"placeGhost":"fleet1G",
+			"location":"J8"
+		},{
+			"placeCounter":"fleet1G",
+			"location":"I7",
+			"size":13
+		},{
+			"placeGhost":"BD1G",
+			"location":"G7"
+		},{
+			"placeCounter":"BD1G",
+			"location":"F7",
+			"size":2
+		},{
+			"placeCounter":"BB5G",
+			"location":"F7",
+			"size":2
+		},{
+			"removeCounter":"systemA8"
+		},{
+			"revealCounter":"systemA10",
+			"name":"fold"
+		}]},
+	{"heading":"Stardate 2417.4P",
+	"commentary":["We pull our remaining battleships away from empty space, taking advantage of their inability to battle with the next set of potential boarding ships before the next economic phase..."],
+	"actions":
+		[{
+			"placeCounter":"CA3Y",
+			"location":"B10",
+			"size":5
+		},{
+			"placeCounter":"BC1Y",
+			"location":"B10",
+			"size":2
+		},{
+			"placeCounter":"BB1Y",
+			"location":"E6",
+			"size":4
+		},{
+			"placeCounter":"BB2Y",
+			"location":"B10",
+			"size":3
+		},{
+			"placeCounter":"DN1Y",
+			"location":"E6"
+		},{
+			"placeGhost":"Tran2Y",
+			"location":"D5"
+		},{
+			"placeCounter":"Tran2Y",
+			"location":"E5"
+		},{
+			"placeCounter":"Mar2Y",
+			"location":"E5",
+			"size":4
+		},{
+			"resizeCounter":"Mar3Y",
+			"size":3
+		},{
+			"placeCounter":"Miner1G",
+			"location":"B12",
+			"size":4
+		},{
+			"placeCounter":"fleet1G",
+			"location":"I7",
+			"size":13
+		},{
+			"removeCounter":"BD1G"
+		},{
+			"placeCounter":"BB5G",
+			"location":"G7",
+			"size":2
+		},{
+			"revealCounter":"systemA11",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2417.7 (The Battle for Risible)",
+	"commentary":[
+		"Once more, the battleships they took from us circle around and have a rematch with us.",
+		"<ol><li><b>Round 1</b>: Once more, we have the equal Tactics and FSB advantages. Our ships rolled 7/2,4,7,8 (2 hits &le;7/6)</li>",
+		"<li>Their Battleships rolled 1,4 against our battleships (1 hit &le;3)<br /><br /></li>",
+		"<li><b>Round 2</b>: Our ships rolled 9/1,3,6,7 (3 hits &le;7/6)</li>",
+		"<li>Both fleets have damaged ships. Still, their Battleships rolled a 91 for morale (pass &gt;5). They then rolled 9,10 (0 hits &le;5)<br /><br /></li>",
+		"<li><b>Round 3</b>: Our ships rolled 3/2,2,7,7 (3 hits &le;7/6), wiping this fleet out</li></ol>"],
+	"actions":
+		[{
+			"removeCounter":"SC1Y"
+		},{
+			"placeCounter":"CA3Y",
+			"location":"B11",
+			"size":5
+		},{
+			"placeCounter":"BC1Y",
+			"location":"B11",
+			"size":2
+		},{
+			"placeCounter":"BB1Y",
+			"location":"E6",
+			"size":4
+		},{
+			"placeCounter":"BB2Y",
+			"location":"B11",
+			"size":3
+		},{
+			"placeCounter":"DN1Y",
+			"location":"E6"
+		},{
+			"placeCounter":"Tran2Y",
+			"location":"E6"
+		},{
+			"resizeCounter":"Mar3Y",
+			"size":1
+		},{
+			"resizeCounter":"HI6Y",
+			"size":1
+		},{
+			"removeCounter":"Mar4Y"
+		},{
+			"placeCounter":"Mar2Y",
+			"location":"E6",
+			"size":6
+		},{
+			"resizeCounter":"Mar3Y",
+			"size":1
+		},{
+			"placeCounter":"Miner1G",
+			"location":"C12",
+			"size":4
+		},{
+			"placeGhost":"fleet1G",
+			"location":"H7"
+		},{
+			"placeGhost":"fleet1G",
+			"location":"G6"
+		},{
+			"placeCounter":"fleet1G",
+			"location":"F7",
+			"size":13
+		},{
+			"removeCounter":"fleet2G"
+		},{
+			"placeGhost":"BB5G",
+			"location":"F7"
+		},{
+			"placeCounter":"BB5G",
+			"location":"E6",
+			"size":2
+		},{
+			"revealCounter":"systemA11",
+			"name":"blackHole"
+		},{
+			"revealCounter":"systemE11",
+			"name":"colony1"
+		}]},
+	{"heading":"Stardate 2418.0",
+	"commentary":[
+		"Boarding is quite a shake up. Fortunately, even if Defense plays no role whatsoever, we can reduce their odds of success <i>right away</i> by buying Security Forces 1 (-15). Additionally, Titans and immobile ships are <i>immune</i> to capture altogether, so it is possible we may invest in the former; especially since we are just a bit short of unlocking them.",
+		"For now, we will try overwhelming them by building 5 Scouts (-30) at Benden. We will also maximize our chances at stealing the initiative, so we place a bid accordingly based on their current paranoia level (assuming no doubles).",
+		"The plasma storms rolled 4,6 this time. Again, supernovas stop the respective moves.",
+		"{prodTable}",
+		"Despite Demeter's recent paranoia reset, battle losses has caused it to rise rapidly! Their economic rolls are 1,3,5,5,5,7 (home system) / 8,8,8,9 (deep space).",
+		"Since their sole existing expansion fleet is threatened, they rolled 10,9 to place a bid. With a net paranoia modifier of +2, they place a bid of 11 CP. How fortunate that we manage to steal it anyway.",
+		"For fleet launch, a 5 was rolled (success). What would normally be one last paranoia roll of 51 (barely a success) is followed by an extra paranoia roll of 54 on top of that (also a success). The ship is then randomly placed among one of the FOBs."],
+	"prodTable":
+		[{
+			"name":"CSY (Yellow)","initCP":1,"colonyCP":85,"mineralCP":5,"pipeCP":8,"maint":39,"bidCP":12,"techBuy":15,"unitBuy":30
+		}],
+	"botTable":
+		[{
+			"name":"Demeter (Green)","baseHS":8,"HSdmg":0,"maint":2,"DSmin":0,"DScol":4,"fleetInit":0,"fleetGain":60,"fleetSpend":60,"techInit":1,"techGain":20,"techSpend":11,"paranoia":6,"hidden":"73 (P M5) / 60 (P M5)"
+		}],
+	"techTableX":
+		[{
+			"name":"CSY (Yellow)","size":6,"atk":3,"explore":1,"SY":2,"troops":3,"terraform":2,"def":1
+		},{
+			"name":"Demeter (Green)","explore":2,"terraform":1,"move":5,"troops":2,"size":5,"def":2,"tac":1,"atk":1,"boarding":2
+		}],
+	"actions":
+		[{
+			"placeCounter":"SC1Y",
+			"location":"E5",
+			"size":5
+		},{
+			"placeCounter":"CA3Y",
+			"location":"B11",
+			"size":5
+		},{
+			"placeCounter":"BC1Y",
+			"location":"B11",
+			"size":2
+		},{
+			"placeCounter":"BB1Y",
+			"location":"E6",
+			"size":4
+		},{
+			"placeCounter":"BB2Y",
+			"location":"B11",
+			"size":3
+		},{
+			"placeCounter":"DN1Y",
+			"location":"E6"
+		},{
+			"placeCounter":"Tran2Y",
+			"location":"E6"
+		},{
+			"placeCounter":"Mar2Y",
+			"location":"E6",
+			"size":6
+		},{
+			"resizeCounter":"Mar3Y",
+			"size":2
+		},{
+			"resizeCounter":"HI6Y",
+			"size":2
+		},{
+			"placeCounter":"Mar4Y",
+			"location":"A5"
+		},{
+			"placeCounter":"NPA13H",
+			"location":"C11",
+			"size":4
+		},{
+			"removeCounter":"NPA13D"
+		},{
+			"removeCounter":"NPA13B"
+		},{
+			"removeCounter":"NPA13A"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"C12",
+			"size":4
+		},{
+			"placeCounter":"fleet1G",
+			"location":"F7",
+			"size":13
+		},{
+			"placeCounter":"fleet2G",
+			"location":"I8",
+			"size":10
+		},{
+			"removeCounter":"BB5G"
+		},{
+			"revealCounter":"systemE11",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemD13",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemE12",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2418.3 (The Battle for Ascalon)",
+	"commentary":[
+		"Stealing the initiative gives us a considerable advantage overall. Our objectives for this set of turns are two-fold:",
+		"<ol type=\"A\"><li>Defend against existing threats</li>",
+		"<li>Intercept and destroy their last Exploration Vessel, denying them the use of the space wreck</li></ol>",
+		"In order to cut down on the path time, we must clear a hex of NPA ships.",
+		"<ol><li><b>Round 1</b>: Ascalon's Alien-As have the Tactics advantage, so they shoot first. Against our battlecruisers, they rolled 2,4 (1 hit &le;3)</li>",
+		"<li>Our Battleships gain FSB, and rolled a 2 against their Alien-D (1 hit &le;8), a 6 against their Alien-B (1 hit &le;7), and a 5 against their Alien-As (1 hit &le;8)</li>",
+		"<li>The rest of our fleet rolled 6,1/5,5,7,10,10 (4 hits &le;7/6), finishing Ascalon's defenders off and subduing the planet</li></ol>",
+		"<h3>Alien Turn</h3>",
+		"On Demeter's turn, since they have a threatened fleet, they rolled a 33 for posture (failure &le;50), causing their ships to assume defense posture."],
+	"actions":
+		[{
+			"placeCounter":"SC1Y",
+			"location":"E6",
+			"size":5
+		},{
+			"placeCounter":"CA3Y",
+			"location":"C11",
+			"size":5
+		},{
+			"placeCounter":"BC1Y",
+			"location":"C11",
+			"size":2
+		},{
+			"placeCounter":"BB1Y",
+			"location":"E6",
+			"size":4
+		},{
+			"placeCounter":"BB2Y",
+			"location":"C11",
+			"size":3
+		},{
+			"placeCounter":"DN1Y",
+			"location":"E6"
+		},{
+			"placeCounter":"Tran2Y",
+			"location":"E6"
+		},{
+			"placeCounter":"Mar2Y",
+			"location":"E6",
+			"size":6
+		},{
+			"removeCounter":"NPA13H"
+		},{
+			"placeCounter":"NPA13D",
+			"location":"C11"
+		},{
+			"placeCounter":"NPA13B",
+			"location":"C11"
+		},{
+			"placeCounter":"NPA13A",
+			"location":"C11",
+			"size":2
+		},{
+			"placeCounter":"Miner1G",
+			"location":"D13",
+			"size":4
+		},{
+			"placeGhost":"fleet1G",
+			"location":"G7"
+		},{
+			"placeCounter":"fleet1G",
+			"location":"H7",
+			"size":13
+		},{
+			"placeGhost":"fleet2G",
+			"location":"I7"
+		},{
+			"placeCounter":"fleet2G",
+			"location":"H7",
+			"size":10
+		},{
+			"placeCounter":"BB3G",
+			"location":"E10",
+			"size":3
+		},{
+			"placeCounter":"systemD13",
+			"name":"map"
+		},{
+			"revealCounter":"systemE12",
+			"name":"nebula"
+		}]},
+	{"heading":"Stardate 2418.6",
+	"commentary":[
+		"Plowing through the NPA planet was important, as it allowed us to close the distance... Unfortunately, Demeter was able to <i>merge</i> 2 expansion fleets, causing the new fleet to become an extermination fleet.",
+		"Their guard fleet also finally has a chance to shine, but the potential hex involves a quasar (detrimental to their Defense tech). They rolled a 93 for paranoia (pass), and engage our eastern fleet anyway in battle.",
+		"<ol><li><b>Round 1</b>: Their Battleships have the Tactics advantage, so they shoot first. Against our battlecruisers, they rolled 5,9,10 (0 hits &le;6)</li>",
+		"<li>Our fleet gains FSB, and rolled 2,2,10/3,4/1,4,5,8,8 (7 hits &le;9/8/7)<br /><br /></li>",
+		"<li><b>Round 2</b>: Their Battleships have taken horrible damage, so they rolled a 20 for morale (failure &le;91), causing their last ship to retreat from battle.</li></ol>"],
+	"actions":
+		[{
+			"placeCounter":"SC1Y",
+			"location":"E6",
+			"size":5
+		},{
+			"placeCounter":"CA3Y",
+			"location":"D12",
+			"size":5
+		},{
+			"placeCounter":"BC1Y",
+			"location":"D12",
+			"size":2
+		},{
+			"placeCounter":"BB1Y",
+			"location":"E6",
+			"size":4
+		},{
+			"placeCounter":"BB2Y",
+			"location":"D12",
+			"size":3
+		},{
+			"placeCounter":"DN1Y",
+			"location":"E6"
+		},{
+			"placeCounter":"Tran2Y",
+			"location":"E6"
+		},{
+			"placeCounter":"Mar2Y",
+			"location":"E6",
+			"size":6
+		},{
+			"removeCounter":"NPA13D"
+		},{
+			"removeCounter":"NPA13B"
+		},{
+			"removeCounter":"NPA13A"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"E12",
+			"size":4
+		},{
+			"placeGhost":"fleet1G",
+			"location":"G7"
+		},{
+			"placeCounter":"fleet1G",
+			"location":"F7",
+			"size":23
+		},{
+			"removeCounter":"BD2G"
+		},{
+			"placeGhost":"BB3G",
+			"location":"E11"
+		},{
+			"placeCounter":"BB3G",
+			"location":"D12",
+			"size":3
+		},{
+			"removeCounter":"fleet2G"
+		},{
+			"removeCounter":"systemD13"
+		}]},
+	{"heading":"Stardate 2418.9 (The Battle for Risible)",
+	"commentary":[
+		"Thanks to the map edge, their exploration vessel could <i>not</i> get away from our fleet. We successfully intercepted it... and destroyed it instantly. Their guard fleet is threatened, so it rolls a 51 for posture check (failure &gt;62). This fleet is already at a colony, so it remains stationary while in defense posture.",
+		"Since the other fleet has become an extermination fleet, it reverts back to offense posture. Quantum Filaments are now entry forbidden to a fleet that is using the Yarr strategy. Thus, their only way forward is to assault our colony.",
+		"<ol><li><b>Preparation</b>: Advanced Construction 1 (10 Tech CP &rarr; 0 CP)</li>",
+		"<li>Transport step skipped (impossible to screen)</li>",
+		"<li>11 Boarding Ships (133 assigned CP &rarr; 1 CP)<br /><br /></li>",
+		"<li><b>Round 1</b>: The entirety of our fleet has the Weapon Class advantage, so we shoot first. We rolled 9/9/8,8,9,10/1,3,4,5,6/5 (1 hit &le;8/7/6/2/1)</li>",
+		"<li>Their Boarding Ships rolled 5,1,5,5,1,4,9,7,9,5,6 against our scouts (3 hits &le;4)<br /><br /></li>",
+		"<li><b>Round 2</b>: We still have the equal tactics advantage, so we proceed again. We rolled 8/6/3,8,9,10/3,6/7 against their boarding ships (3 hits &le;8/7/6/2/1)</li>",
+		"<li>Their Boarding Ships took a small amount of damage, requiring a morale check. They rolled a 19 (pass &gt;9). They then rolled 3,2 against our scouts (2 hits &le;4), followed by a 2 against our dreadnought (1 hit &le;2), and 10,2,9,1,1,7 against our battleships (3 hits &le;2)<br /><br /></li>",
+		"<li><b>Round 3</b>: Thanks to the very many misses, our last ships do not stand a chance against <i>this much</i> firepower. We pull our last battleship out of battle</li>",
+		"<li>Our Base rolls a 3 against one of the captured scouts (hit &le;9)</li>",
+		"<li><q>Their</q> dreadnought rolls a 5 against our transport (hit &le;7), and 5,9,10/4,6,9,9/1,1,1,1,3,4,4,7,8 against our base (5 hits &le;5/1/1). The last of our ships have been wiped out<br /><br /></li>",
+		"<li><b>Bombardment Round</b>: Their fleet rolls 7/8,6,3 (3 hits &le;7/6), destroying our colony</li></ol>"],
+	"actions":
+		[{
+			"placeCounter":"SC1Y",
+			"location":"E6",
+			"size":5
+		},{
+			"placeCounter":"CA3Y",
+			"location":"E12",
+			"size":5
+		},{
+			"placeCounter":"BC1Y",
+			"location":"E12",
+			"size":2
+		},{
+			"placeCounter":"BB1Y",
+			"location":"E6",
+			"size":4
+		},{
+			"placeCounter":"BB2Y",
+			"location":"E12",
+			"size":3
+		},{
+			"placeCounter":"DN1Y",
+			"location":"E6"
+		},{
+			"placeCounter":"Tran2Y",
+			"location":"E6"
+		},{
+			"placeCounter":"Mar2Y",
+			"location":"E6",
+			"size":6
+		},{
+			"placeCounter":"HI3Y",
+			"location":"E6"
+		},{
+			"placeCounter":"base1Y",
+			"location":"E6"
+		},{
+			"revealCounter":"systemE6",
+			"name":"colony5Y"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"E12",
+			"size":4
+		},{
+			"removeCounter":"fleet1G"
+		},{
+			"placeCounter":"BD2G",
+			"location":"E6",
+			"size":11
+		},{
+			"removeCounter":"SC1G"
+		},{
+			"removeCounter":"BB4G"
+		},{
+			"removeCounter":"DN1G"
+		},{
+			"placeCounter":"BB3G",
+			"location":"E11",
+			"size":1
+		},{
+			"revealCounter":"systemE11",
+			"name":"colony3"
+		}]},
+	{"heading":"Stardate 2419.0",
+	"commentary":[
+		"In hindsight, it could be argued that the space wreck that we denied was the least of our worries. For them to suddenly capture almost our entire defensive fleet in one battle has virtually shattered our resolve.",
+		"Even if we scuttle our eastern fleet, it would be an uphill struggle to deal with 108 CP worth of captured assets, plus 9 boarding ships on top of that. Even if their fleet is slowed down harshly by our lack of movement investments, we are not confident we can defend our homeworld against an onslaught <i>this</i> strong. Thus, we believe the best option is to just concede this map."],
+	"prodTable":
+		[{
+			"name":"CSY (Yellow)","initCP":3,"colonyCP":80,"mineralCP":5,"pipeCP":8,"maint":26,"bidCP":0,"techBuy":0,"unitBuy":0
+		}],
+	"botTable":
+		[{
+			"name":"Demeter (Green)","baseHS":8,"HSdmg":0,"maint":2,"DSmin":0,"DScol":4,"fleetInit":1,"fleetGain":60,"fleetSpend":0,"techInit":0,"techGain":20,"techSpend":0,"paranoia":6,"hidden":""
+		}],
+	"techTableX":
+		[{
+			"name":"CSY (Yellow)","size":6,"atk":3,"explore":1,"SY":2,"troops":3,"terraform":2,"def":1
+		},{
+			"name":"Demeter (Green)","explore":2,"terraform":1,"move":5,"troops":2,"size":5,"def":2,"tac":1,"atk":1,"boarding":2,"advCon":1
+		}],
+	"actions":
+		[{
+			"removeCounter":"SC1Y"
+		},{
+			"placeCounter":"CA3Y",
+			"location":"E12",
+			"size":5
+		},{
+			"placeCounter":"BC1Y",
+			"location":"E12",
+			"size":2
+		},{
+			"placeCounter":"BB1Y",
+			"location":"E5",
+			"size":1
+		},{
+			"placeCounter":"BB2Y",
+			"location":"E12",
+			"size":3
+		},{
+			"removeCounter":"HI3Y"
+		},{
+			"removeCounter":"DN1Y"
+		},{
+			"removeCounter":"Tran2Y"
+		},{
+			"removeCounter":"Mar2Y"
+		},{
+			"removeCounter":"base1Y"
+		},{
+			"revealCounter":"systemE6",
+			"name":"planetW17"
+		},{
+			"removeCounter":"Miner1G"
+		},{
+			"placeCounter":"BD2G",
+			"location":"E6",
+			"size":9
+		},{
+			"placeCounter":"SC1G",
+			"location":"E6",
+			"size":4
+		},{
+			"placeCounter":"BB4G",
+			"location":"E6",
+			"size":3
+		},{
+			"placeCounter":"DN1G",
+			"location":"E6"
+		},{
+			"placeCounter":"BB3G",
+			"location":"E11",
+			"size":1
+		},{
+			"revealCounter":"systemE11",
+			"name":"colony5G"
+		}]},
+	{"heading":"Stardate 2419.0 (Game Over)",
+	"commentary":[
+		"Then again, even if we kept our fleets combined, the dice <i>still</i> could just as easily abandon us and favor Demeter. Although it takes some time for a <i>newly</i> captured ship to be fully boarded, the <q>body</q> counts change <i>twice as fast</i> when a ship gets captured this way... especially if bigger ships are involved.",
+		"Overall, it just goes to show there is <i>a lot</i> of learning to do. Since this was still the very first time we saw Boarding technology in action, we did <i>not</i> have time to learn how to properly <q>counter</q> it. We even made a screw up that, arguably, was beneficial to them. (We ignored threatened extermination fleets when doing posture-type paranoia checks, which likely was incorrect.) Still, when something is not obvious, Prime Directive is usually our friend... and our nemesis, at the same time.",
+		"Regardless, the AP Bot system has nearly limitless potential. When playing alone, there are a wide variety of 2-player versus maps that can be played, and even a 3-player map. In the case of cooperative play, nearly <i>any</i> 4-6 player map is fair game."],
+	"actions":
+		[]}
+]}
