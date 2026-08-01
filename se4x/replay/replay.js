@@ -211,6 +211,8 @@ function autoNameCounter(localObj) {
 		localObj.title = "Black Hole"
 	} else if (localObj.src.indexOf("gfx/nebula") >= 0) {
 		localObj.title = "Nebula"
+	} else if (localObj.src.indexOf("gfx/cardMisn") >= 0) {
+		localObj.title = "Card/Mission effect"
 	} else if (localObj.src.indexOf("gfx/hidden") >= 0) {
 		localObj.title = "Unrevealed Group"
 	} else if (localObj.src.indexOf("gfx/MSa") >= 0) {
@@ -431,6 +433,20 @@ function autoNameCounter(localObj) {
 		localObj.title = "Starbase";
 	} else if (localObj.src.indexOf("gfx/talon/Tran") >= 0) {
 		localObj.title = "Transport";
+	} else if (localObj.src.indexOf("gfx/talon/critShield") >= 0) {
+		localObj.title = "Shields Down";
+	} else if (localObj.src.indexOf("gfx/talon/critHelm") >= 0) {
+		localObj.title = "Helm Down";
+	} else if (localObj.src.indexOf("gfx/talon/critManu1") >= 0) {
+		localObj.title = "Manuevering Thruster Damage +1";
+	} else if (localObj.src.indexOf("gfx/talon/critManu2") >= 0) {
+		localObj.title = "Manuevering Thruster Damage +2";
+	} else if (localObj.src.indexOf("gfx/talon/critPow1") >= 0) {
+		localObj.title = "Power Relay Damage -1";
+	} else if (localObj.src.indexOf("gfx/talon/critPow2") >= 0) {
+		localObj.title = "Power Relay Damage -2";
+	} else if (localObj.src.indexOf("gfx/talon/critPowL") >= 0) {
+		localObj.title = "Power Loss";
 	} else if (localObj.src.indexOf("gfx/talon/missileDmg") >= 0) {
 		localObj.title = "Talon Missile (Damaged)";
 		stackable = true;
@@ -462,7 +478,7 @@ function placeCounter(curId, newX, newY, newPic, newSize, talonCounter) {
 	var calcX = 50;
 	var calcY = 50;
 	var workObj, applySize = 0;
-	var smallCounter = false;
+	var smallCounter = false, permCounter;
 
 	var workSlot = document.getElementById("hex"+letterRows.charAt(newY)+newX);
 	if (typeof newSize !== "undefined") {
@@ -470,6 +486,7 @@ function placeCounter(curId, newX, newY, newPic, newSize, talonCounter) {
 	} else {
 		applySize = 0;
 	}
+	permCounter = (applySize >= 0);
 	
 	findObj = document.getElementById(curId);
 	if (findObj && applySize >= 0) {
@@ -478,11 +495,16 @@ function placeCounter(curId, newX, newY, newPic, newSize, talonCounter) {
 		workObj = document.createElement("img");
 		if (talonCounter) {
 			workObj.src = "gfx/talon/" + curId + ".png";
-			smallCounter = (curId.search("missile") >= 0 || newPic.search("turn") >= 0);
+			smallCounter = (curId.search("missile") >= 0 || newPic.search("turn") >= 0 || newPic.search("crit") >= 0 || newPic.search("slip") >= 0 || newPic.search("init") >= 0);
+			permCounter = (curId.search("missile") >= 0 || newPic.search("turn") >= 0 || !smallCounter);
 			
 			workObj.id = curId;
 			if (smallCounter) {
-				workObj.className = "counter";
+				if (permCounter) {
+					workObj.className = "counter";
+				} else {
+					workObj.className = "counter temp";
+				}
 			} else {
 				workObj.className = "counterBig";
 			}
@@ -497,7 +519,9 @@ function placeCounter(curId, newX, newY, newPic, newSize, talonCounter) {
 		}
 		
 		workObj.style.position = "absolute";
-		if (workObj.id.startsWith("system") || workObj.id.startsWith("binLsys") || workObj.id.startsWith("binRsys")) {
+		if (smallCounter) {
+			workObj.style.zIndex = 4;
+		} else if (workObj.id.startsWith("system") || workObj.id.startsWith("binLsys") || workObj.id.startsWith("binRsys")) {
 			workObj.style.zIndex = 2;
 		} else {
 			workObj.style.zIndex = 3;
@@ -627,6 +651,9 @@ function rotateCounter(baseObj, newOrient) {
 				baseObj.style.top = "31%";
 				break;
 		}
+	} else if (localFile.search("/crit") >= 0 || localFile.search("/slip") >= 0 || localFile.search("/init") >= 0) {
+		baseObj.style.left = "50%";
+		baseObj.style.top = "50%";
 	}
 }
 
@@ -1049,10 +1076,10 @@ function readJson() {
 				<th>"+conceptLink("Colonies")+"</th>\
 				<th><a href=\"javascript:showBox('mineral')\">Minerals</a></th>\
 				<th><a href=\"javascript:showBox('pipeline')\">Pipelines</a></th>\
-				<th>Conversion</th><th>Units</th>\
+				<th>Convert</th><th>Units</th>\
 				<th>Leftover</th><th>Init "+conceptLink("RP")+"</th>\
-				<th>Production</th>\
-				<th>Spending</th>\
+				<th>Plus</th>\
+				<th>Minus</th>\
 				<th>Leftover</th></tr>";
 				
 			for (var a = 0; a < curStage.prodTableAGT.length; a++) {
@@ -1068,7 +1095,7 @@ function readJson() {
 				var LPconversion = [readValue(activePlayer.convertCP,0) + readValue(activePlayer.convertLP,0) * 3,
 					readValue(activePlayer.convertCP,0) + readValue(activePlayer.convertLP,0)];
 				
-				var availPoints = [initPoints + Math.max(readValue(activePlayer.colonyCP,0) + readValue(activePlayer.mineralCP,0) + readValue(activePlayer.pipeCP,0) - LPconversion[0], 0),
+				var availPoints = [activePlayer.initCP + Math.max(readValue(activePlayer.colonyCP,0) + readValue(activePlayer.mineralCP,0) + readValue(activePlayer.pipeCP,0) - LPconversion[0], 0),
 					readValue(activePlayer.initRP,0) + readValue(activePlayer.colonyRP,0),
 					readValue(activePlayer.initLP,0) + readValue(activePlayer.colonyLP,0) + LPconversion[1] - readValue(activePlayer.maint,0) - readValue(activePlayer.bidLP,0),
 					readValue(activePlayer.initTP,0) + readValue(activePlayer.colonyTP,0)];
@@ -1085,22 +1112,22 @@ function readJson() {
 					<td class=\"numeric decrease\">-"+LPconversion[0]+"</td> \
 					<td class=\"numeric\">-"+readValue(activePlayer.unitBuy,0)+"</td> \
 					<td class=\"numeric\">"+leftoverPoints[0]+"</td> \
-					<td class=\"numeric\">"+readValue(activePlayer.initTP,0)+"</td> \
+					<td class=\"numeric\">"+readValue(activePlayer.initRP,0)+"</td> \
 					<td class=\"numeric increase\">+"+readValue(activePlayer.colonyRP,0)+"</td> \
 					<td class=\"numeric\">-"+readValue(activePlayer.techBuy,0)+"</td> \
 					<td class=\"numeric\">"+leftoverPoints[1]+"</td></tr>"
 			}
 			
 			
-			constructTable = constructTable + "<tr><th>Player</th><th>Initial "+conceptLink("LP")+"</th>\
+			constructTable = constructTable + "<tr><th>Player</th><th>Init "+conceptLink("LP")+"</th>\
 				<th>Production</th>\
-				<th>Conversion</th>\
+				<th>Convert</th>\
 				<th><a href=\"javascript:showBox('maintenance')\">Maint</a></th>\
 				<th>"+conceptLink("Bid")+"</th>\
-				<th>Packaged</th>\
-				<th>Leftover</th><th>Initial "+conceptLink("TP")+"</th>\
-				<th>Production</th>\
-				<th>Spending</th>\
+				<th>Crated</th>\
+				<th>Leftover</th><th>Prev "+conceptLink("TP")+"</th>\
+				<th>Minus</th>\
+				<th>Plus</th>\
 				<th>Leftover</th></tr>";
 				
 			for (var b = 0; b < curStage.prodTableAGT.length; b++) {
@@ -1122,8 +1149,8 @@ function readJson() {
 					<td class=\"numeric\">-"+readValue(activePlayer.packedLP,0)+"</td> \
 					<td class=\"numeric\">"+leftoverPoints[2]+"</td> \
 					<td class=\"numeric\">"+readValue(activePlayer.initTP,0)+"</td> \
-					<td class=\"numeric increase\">+"+readValue(activePlayer.colonyTP,0)+"</td> \
 					<td class=\"numeric\">-"+readValue(activePlayer.spendTP,0)+"</td> \
+					<td class=\"numeric increase\">+"+readValue(activePlayer.colonyTP,0)+"</td> \
 					<td class=\"numeric\">"+leftoverPoints[3]+"</td></tr>"
 			}
 				
@@ -1795,6 +1822,109 @@ function readJson() {
 			}
 		}
 		
+		if (curStage.cardTable) {
+			var workTable = curStage.cardTable;
+
+			var constructTable = "<table><caption>Card Inventory</caption><tr> \
+				<th>Player</th><th>Stock</th><th>Hand</th><th>Active</th><th>Discard</th></tr>";
+
+			for (var a = 0; a < workTable.length; a++) {
+				var activePlayer = workTable[a];
+				var handSize = readValue(activePlayer.hand,[]).length + readValue(activePlayer.handDown,0);
+				
+				if (readValue(activePlayer.isDead,false)) {
+					// Player is dead
+					constructTable = constructTable + "<tr class=\"deadPlr\">";
+				} else {
+					constructTable = constructTable + "<tr>";
+				}
+				constructTable = constructTable + "<td>"+activePlayer.name+"</td>\
+					<td class=\"numeric\">"+readValue(activePlayer.stock,0)+"</td>";
+				
+				var constructArray = ["","",""];
+				if (readValue(activePlayer.hand,[]).length < 1) {
+					constructArray[0] = "[]";
+				} else {
+					for (var h = 0; h < activePlayer.hand.length; h++) {
+						if (h > 0) {
+							constructArray[0] += ",";
+						}
+						
+						constructArray[0] += "'"+activePlayer.hand[h].replace("'","\\\'")+"'";
+					}
+
+					constructArray[0] = "["+constructArray[0]+"]";
+				}
+				if (readValue(activePlayer.active,[]).length < 1) {
+					constructArray[1] = "[]";
+				} else {
+					for (var b = 0; b < activePlayer.active.length; b++) {
+						if (b > 0) {
+							constructArray[1] += ",";
+						}
+						
+						constructArray[1] += "'"+activePlayer.active[b].replace("'","\\\'")+"'";
+					}
+
+					constructArray[1] = "["+constructArray[1]+"]";
+				}
+				if (readValue(activePlayer.discard,[]).length < 1) {
+					constructArray[2] = "[]";
+				} else {
+					for (var g = 0; g < activePlayer.discard.length; g++) {
+						if (g > 0) {
+							constructArray[2] += ",";
+						}
+						
+						constructArray[2] += "'"+activePlayer.discard[g].replace("'","\\\'")+"'";
+					}
+
+					constructArray[2] = "["+constructArray[2]+"]";
+				}
+					
+				if (activePlayer.name.search("Advantages") >= 0 || activePlayer.name.search("Alien Tech") >= 0 || activePlayer.name.search("Crew") >= 0) {
+					constructTable = constructTable + "<td class=\"numeric\">&mdash;</a></td><td class=\"numeric\">&mdash;</a></td>\
+						<td class=\"numeric\">"+readValue(activePlayer.discardCount,0)+"</a></td></tr>";
+				} else {
+					if (constructArray[0] != "[]") {
+						if (readValue(activePlayer.handDown,0) > 0) {
+							constructTable = constructTable + "<td class=\"numeric\">\
+								<a href=\"javascript:showCards('"+activePlayer.name+"','Known Cards',"+constructArray[0]+")\">"+handSize+"</a></td>";
+						} else {
+							constructTable = constructTable + "<td class=\"numeric\">\
+								<a href=\"javascript:showCards('"+activePlayer.name+"','Available Cards',"+constructArray[0]+")\">"+handSize+"</a></td>";
+						}
+					} else {
+						constructTable = constructTable + "<td class=\"numeric\">"+handSize+"</td>";
+					}
+					
+					if (constructArray[1] != "[]") {
+						constructTable = constructTable + "<td class=\"numeric\">\
+							<a href=\"javascript:showCards('"+activePlayer.name+"','Active Cards',"+constructArray[1]+")\">"+readValue(activePlayer.active,[]).length+"</a></td>";
+					} else {
+						constructTable = constructTable + "<td class=\"numeric\">0</td>";
+					}
+					
+					if (constructArray[2] != "[]") {
+						constructTable = constructTable + "<td class=\"numeric\">\
+							<a href=\"javascript:showCards('"+activePlayer.name+"','Discard Pile',"+constructArray[2]+")\">"+readValue(activePlayer.discard,[]).length+"</a></td></tr>";
+					} else {
+						constructTable = constructTable + "<td class=\"numeric\">0</td></tr>";
+					}
+				}
+			}
+				
+			constructTable = constructTable + "</table>";
+			seekTag = "{cardTable}";
+			
+			if (commentary.innerHTML.indexOf(seekTag) >= 0) {
+				commentary.innerHTML = commentary.innerHTML.replace(seekTag,constructTable);
+			} else {
+				commentary.innerHTML = commentary.innerHTML + constructTable;
+			}
+
+		}
+		
 		if (curStage.dmTable) {
 			// Doomsday Machine track
 			var constructTable = "<table><caption>Doomsday Machine track</caption><tr>";
@@ -1960,7 +2090,7 @@ function readJson() {
 		}
 		
 		if (curStage.victoryTable) {
-			var constructTable = "<table><caption>Victory Point Chart</caption> \
+			var constructTable = "<table><caption>Scoreboard</caption> \
 				<tr><th>Player</th><th>VP</th></tr>";
 				
 			for (var a = 0; a < curStage.victoryTable.length; a++) {
@@ -2070,13 +2200,9 @@ function readJson() {
 		}
 	}
 	
-	// Ditch all "ghost" counters
-	var ghostCollection = document.getElementsByClassName("ghost");
-	for (var g = 0; g < ghostCollection.length; g++) {
-		if (ghostCollection[g].className && ghostCollection[g].className.indexOf("ghost") >= 0) {
-			ghostCollection[g--].remove();
-		}
-	}
+	// Ditch all temporary counters
+	removeClassname("ghost");
+	removeClassname("temp");
 	
 	// Parse the many actions
 	actionPool = curStage.actions;
@@ -2146,6 +2272,8 @@ function readJson() {
 					} else {
 						convertName = "alien"+lastChar;
 					}
+				} else if (workId.startsWith("card")) {
+					convertName = "cardMisn";
 				} else if (workId.startsWith("hid")) {
 					convertName = "hidden"+lastChar;
 				} else if (workId.startsWith("DM")) {
@@ -2199,9 +2327,62 @@ function readJson() {
 					}
 					
 					var numId = workId.split("-")[1];
+					var shipCrits = readValue(actionPool[i].critDmg, []);
 					
 					var shipDetails = [workObj.title + " " + numId, actionPool[i].pwrCurve, readValue(actionPool[i].shields, []),
-						readValue(actionPool[i].wepCharge, []), readValue(actionPool[i].hullDmg, 0), readValue(actionPool[i].critDmg, []), extraFeats];
+						readValue(actionPool[i].wepCharge, []), readValue(actionPool[i].hullDmg, 0), shipCrits, extraFeats];
+					
+					if (shipCrits.includes("Power Relay Damage -2")) {
+						placeCounter(workId+"pow2", readX, readY, "critPow2", 0, true);
+						
+						var critObj = document.getElementById(workId+"pow2");
+						rotateCounter(critObj, rotationAngle);
+					} else if (shipCrits.includes("Power Relay Damage -1")) {
+						placeCounter(workId+"pow1", readX, readY, "critPow1", 0, true);
+						
+						var critObj = document.getElementById(workId+"pow1");
+						rotateCounter(critObj, rotationAngle);
+					}
+					
+					if (shipCrits.includes("Power Loss")) {
+						placeCounter(workId+"powL", readX, readY, "critPowL", 0, true);
+						
+						var critObj = document.getElementById(workId+"powL");
+						rotateCounter(critObj, rotationAngle);
+					}
+					
+					if (shipCrits.includes("Manuevering Thruster Damage +2")) {
+						placeCounter(workId+"manu2", readX, readY, "critManu2", 0, true);
+						
+						var critObj = document.getElementById(workId+"manu2");
+						rotateCounter(critObj, rotationAngle);
+					} else if (shipCrits.includes("Manuevering Thruster Damage +1")) {
+						placeCounter(workId+"manu1", readX, readY, "critManu1", 0, true);
+						
+						var critObj = document.getElementById(workId+"manu1");
+						rotateCounter(critObj, rotationAngle);
+					}
+					
+					if (shipCrits.includes("Helm Down")) {
+						placeCounter(workId+"helm", readX, readY, "critHelm", 0, true);
+						
+						var critObj = document.getElementById(workId+"helm");
+						rotateCounter(critObj, rotationAngle);
+					}
+					
+					if (shipCrits.includes("Shields Down")) {
+						placeCounter(workId+"shield", readX, readY, "critShield", 0, true);
+						
+						var critObj = document.getElementById(workId+"shield");
+						rotateCounter(critObj, rotationAngle);
+					}
+					
+					if (readValue(actionPool[i].init,null) != null) {
+						placeCounter(workId+"init", readX, readY, "init"+actionPool[i].init, 0, true);
+						
+						var critObj = document.getElementById(workId+"init");
+						rotateCounter(critObj, rotationAngle);
+					}
 					
 					if (actionPool[i].pwrCurve) {
 						embedCounter(workObj, true, shipDetails);
@@ -2327,7 +2508,7 @@ function readJson() {
 			var ctrlPanel = document.getElementById("controls");
 			var hexBoard = document.getElementById("gameBoard");
 			
-			makeHexes(actionPool[i].createPreset.toLowerCase().indexOf("talon") >= 0);
+			makeHexes(actionPool[i].createPreset.toLowerCase().search("talon") >= 0 || actionPool[i].createPreset == "versus5Plg");
 			
 			if (actionPool[i].createPreset == "alienEmpiresSolo") {
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
@@ -3007,7 +3188,7 @@ function readJson() {
 				for (var w = 13; w >= 10; w = w - 0.5) {
 					dispCol(w, false);
 				}
-			} else if (actionPool[i].createPreset == "versus2Pgc") {
+			} else if (actionPool[i].createPreset == "versus2P5R") {
 				ctrlPanel.className = "versusBoard";
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
 				initFacilities = readValue(actionPool[i].facilities, 0);
@@ -3240,7 +3421,7 @@ function readJson() {
 				for (var z = 0; z < actionPool[i].extraHexes.length; z++) {
 					seekHex = actionPool[i].extraHexes[z];
 					
-					if (z == 0) {
+					if (letterRows.indexOf(seekHex.charAt(0)) < 6) {
 						placeSystemMarker(seekHex.substr(1),letterRows.indexOf(seekHex.charAt(0)),"unexplored"+plrColors[0]);
 					} else {
 						placeSystemMarker(seekHex.substr(1),letterRows.indexOf(seekHex.charAt(0)),"unexplored"+plrColors[1]);
@@ -3253,7 +3434,12 @@ function readJson() {
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
 				initFacilities = readValue(actionPool[i].facilities, 0);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
+				excludeRows = readValue(actionPool[i].singleRows, 2);
 				var plrColors = actionPool[i].playerColors;
+				var beltColor = null;
+				if (plrColors.length > 2 && plrColors.charAt(2) != "W") {
+					beltColor = plrColors.charAt(2);
+				}
 				
 				for (var y = 1; y < 12; y++) {
 					for (var x = 1; x <= 16; x++) {
@@ -3262,10 +3448,14 @@ function readJson() {
 								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(0));
 							} else if (x > 13 && (y != 2 || x > 14)) {
 								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(1));
-							} else if (x >= 11 - Math.ceil(y/2) && x < 13 - Math.ceil(y/2)) {
-								placeSystemMarker(x,y,"unexplored"+plrColors.charAt(2));
+							} else if (x >= 11 - Math.ceil(y/2) && x < 13 - Math.ceil(y/2) && beltColor != null) {
+								placeSystemMarker(x,y,"unexplored"+beltColor);
 							} else {
-								placeSystemMarker(x,y,deepSpace);
+								var allowDouble = (doubleDS && (beltColor != null ||
+									x > 3 + excludeRows - y % 2 - ((y == 10) ? 1 : 0) &&
+									x < 14 - excludeRows + ((y == 2) ? 1 : 0)));
+								
+								placeSystemMarker(x,y,deepSpace,allowDouble);
 							}
 						}
 					}
@@ -3361,6 +3551,7 @@ function readJson() {
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
 				initFacilities = readValue(actionPool[i].facilities, 0);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
+				imperiaHWs = readValue(actionPool[i].imperiaHomes, false);
 				var plrColors = "GYRB";
 				var plrPos = [1,13,1,12];
 				
@@ -3410,10 +3601,17 @@ function readJson() {
 					paintTile("F13","empty");
 				}
 				
-				placeHomeworld(plrPos[0],0,plrColors.charAt(0));
-				placeHomeworld(plrPos[1],0,plrColors.charAt(1));
-				placeHomeworld(plrPos[2],11,plrColors.charAt(2));
-				placeHomeworld(plrPos[3],11,plrColors.charAt(3));
+				if (imperiaHWs) {
+					placeHomeworld(1,1,plrColors.charAt(0));
+					placeHomeworld(12,0,plrColors.charAt(1));
+					placeHomeworld(2,11,plrColors.charAt(2));
+					placeHomeworld(13,10,plrColors.charAt(3));
+				} else {
+					placeHomeworld(plrPos[0],0,plrColors.charAt(0));
+					placeHomeworld(plrPos[1],0,plrColors.charAt(1));
+					placeHomeworld(plrPos[2],11,plrColors.charAt(2));
+					placeHomeworld(plrPos[3],11,plrColors.charAt(3));
+				}
 			} else if (actionPool[i].createPreset == "versus4Pds") {
 				expansionHWs = readValue(actionPool[i].useExpansion, false);
 				initFacilities = readValue(actionPool[i].facilities, 0);
@@ -3772,7 +3970,7 @@ function readJson() {
 				placeHomeworld(19,11,plrColors.charAt(3));
 				
 			} else if (actionPool[i].createPreset == "versus5P") {
-				expansionHWs = true;
+				expansionHWs = readValue(actionPool[i].useExpansion, true);
 				initFacilities = readValue(actionPool[i].facilities, 0);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				plrColors = actionPool[i].playerColors;
@@ -3813,7 +4011,7 @@ function readJson() {
 					placeSystemMarker(x,y,deepSpace);
 				}
 			} else if (actionPool[i].createPreset == "versus5Ptight") {
-				expansionHWs = true;
+				expansionHWs = readValue(actionPool[i].useExpansion, true);
 				initFacilities = readValue(actionPool[i].facilities, 0);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
 				plrColors = actionPool[i].playerColors;
@@ -3856,6 +4054,229 @@ function readJson() {
 					
 					console.log({y,x});
 					placeSystemMarker(x,y,deepSpace);
+				}
+				
+			} else if (actionPool[i].createPreset == "versus5Plg") {
+				expansionHWs = readValue(actionPool[i].useExpansion, true);
+				initFacilities = readValue(actionPool[i].facilities, 0);
+				doubleDS = readValue(actionPool[i].heavyTerrain, false);
+				plrColors = actionPool[i].playerColors;
+				
+				ctrlPanel.className = "customSixteen";
+				
+				dispRow("L", true);
+				dispCol(16, true);
+				dispRow("Z", true);
+				dispRow("Y", true);
+				dispRow("X", true);
+				dispRow("W", true);
+				dispRow("V", true);
+				dispRow("U", true);
+				
+				for (var y = 0; y < 25; y++) {
+					for (var x = 1; x <= 24; x++) {
+						if (x > 16) {
+							dispCol(x, false);
+						}
+						if (y > 17) {
+							dispRow(letterRows.charAt(y), false);
+						}
+						
+						switch (y) {
+							case 0:
+								if (x == 10) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(1));
+								} else if (x == 8 || x == 9) {
+									placeSystemMarker(x,y,deepSpace);
+								}
+								break;
+								
+							case 1:
+								if (x == 7) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(0));
+								} else if (x == 8 || x == 9) {
+									placeSystemMarker(x,y,deepSpace);
+								} else if (x == 10 || x == 11) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(1));
+								}
+								break;
+								
+							case 2:
+								if (x >= 6 && x <= 8) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(0));
+								} else if (x == 9 || x == 10) {
+									placeSystemMarker(x,y,deepSpace);
+								} else if (x >= 11 && x <= 13) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(1));
+								}
+								break;
+								
+							case 3:
+								if (x >= 4 && x <= 7) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(0));
+								} else if (x == 8 || x == 9) {
+									placeSystemMarker(x,y,deepSpace);
+								} else if (x >= 10 && x <= 13) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(1));
+								}
+								break;
+								
+							case 4:
+								if (x >= 4 && x <= 8) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(0));
+								} else if (x == 9 || x == 10) {
+									placeSystemMarker(x,y,deepSpace);
+								} else if (x >= 11 && x <= 15) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(1));
+								}
+								break;
+								
+							case 5:
+								if (x >= 2 && x <= 7) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(0));
+								} else if (x == 8 || x == 9) {
+									placeSystemMarker(x,y,deepSpace);
+								} else if (x >= 10 && x <= 15) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(1));
+								}
+								break;
+								
+							case 6:
+								if (x >= 4 && x <= 8) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(0));
+								} else if (x >= 11 && x <= 13) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(1));
+								} else if (x != 1) {
+									placeSystemMarker(x,y,deepSpace);
+								}
+								break;
+								
+							case 7:
+								if (x >= 6 && x <= 7) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(0));
+								} else if (x >= 10 && x <= 11) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(1));
+								} else {
+									placeSystemMarker(x,y,deepSpace);
+								}
+								break;
+								
+							case 8:
+								if (x <= 2) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(2));
+								} else if (x >= 15) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(3));
+								} else {
+									placeSystemMarker(x,y,deepSpace);
+								}
+								break;
+								
+							case 9:
+								if (x <= 4) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(2));
+								} else if (x >= 13 && x <= 15) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(3));
+								} else if (x != 16) {
+									placeSystemMarker(x,y,deepSpace);
+								}
+								break;
+								
+							case 10:
+								if (x >= 2 && x <= 7) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(2));
+								} else if (x >= 11 && x <= 16) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(3));
+								} else if (x != 1) {
+									placeSystemMarker(x,y,deepSpace);
+								}
+								break;
+								
+							case 11:
+								if (x >= 2 && x <= 6) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(2));
+								} else if (x >= 11 && x <= 15) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(3));
+								} else if (x != 1 && x != 16) {
+									placeSystemMarker(x,y,deepSpace);
+								}
+								break;
+								
+							case 12:
+								if (x >= 3 && x <= 6) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(2));
+								} else if (x >= 12 && x <= 15) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(3));
+								} else if (x == 9) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(4));
+								} else if (x >= 7 && x <= 11) {
+									placeSystemMarker(x,y,deepSpace);
+								}
+								break;
+								
+							case 13:
+								if (x >= 3 && x <= 4) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(2));
+								} else if (x >= 12 && x <= 14) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(3));
+								} else if (x >= 8 && x <= 9) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(4));
+								} else if (x >= 5 && x <= 11) {
+									placeSystemMarker(x,y,deepSpace);
+								}
+								break;
+								
+							case 14:
+								if (x >= 3 && x <= 4) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(2));
+								} else if (x >= 14 && x <= 15) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(3));
+								} else if (x >= 8 && x <= 10) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(4));
+								} else if (x >= 5 && x <= 13) {
+									placeSystemMarker(x,y,deepSpace);
+								}
+								break;
+								
+							case 15:
+								if (x == 3) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(2));
+								} else if (x == 14) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(3));
+								} else if (x >= 6 && x <= 10) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(4));
+								} else if (x >= 4 && x <= 13) {
+									placeSystemMarker(x,y,deepSpace);
+								}
+								break;
+								
+							case 16:
+								if (x >= 6 && x <= 12) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(4));
+								} else if (x >= 4 && x <= 14) {
+									placeSystemMarker(x,y,deepSpace);
+								}
+								break;
+								
+							case 17:
+								if (x >= 5 && x <= 12) {
+									placeSystemMarker(x,y,"unexplored"+plrColors.charAt(4));
+								} else if (x >= 4 && x <= 13) {
+									placeSystemMarker(x,y,deepSpace);
+								}
+								break;
+								
+						}
+					}
+				}
+				
+				homeHexes = actionPool[i].hwHexes.split(",");
+				
+				for (var h = 0; h < homeHexes.length; h++) {
+					var x = homeHexes[h].substr(1);
+					var y = letterRows.indexOf(homeHexes[h].charAt(0));
+					
+					console.log({y,x});
+					placeHomeworld(x,y,plrColors.charAt(h));
 				}
 				
 			} else if (actionPool[i].createPreset == "versus6P") {
@@ -4031,6 +4452,20 @@ function readJson() {
 					deleteCounter("LC1"+workColor);
 				}
 				
+			} else if (actionPool[i].createPreset == "flipFacedown") {
+				var rivalColors = actionPool[i].rivalColors;
+				var workColor;
+				for (var p = 0; p < rivalColors.length; p++) {
+					workColor = rivalColors.charAt(p);
+					
+					for (var c = 1; c <= 4; c++) {
+						renderCounter("SC"+c+workColor, "hidden"+workColor);
+					}
+					renderCounter("SY1"+workColor, "hidden"+workColor);
+					resizeStack("SY1"+workColor, 1);
+					renderCounter("Flag"+workColor, "hidden"+workColor);
+				}
+				
 			} else if (actionPool[i].createPreset == "emptyBoard") {
 				for (var y = 0; y < 12; y++) {
 					for (var x = 1; x <= 13; x++) {
@@ -4121,6 +4556,15 @@ function jumpToEcoPhase(direction) {
 function changeStage(direction) {
 	stageNum += direction;
 	readJson();
+}
+
+function removeClassname(classStr) {
+	var scanCollection = document.getElementsByClassName(classStr);
+	for (var e = 0; e < scanCollection.length; e++) {
+		if (scanCollection[e].className && scanCollection[e].className.search(classStr) >= 0) {
+			scanCollection[e--].remove();
+		}
+	}
 }
 
 function getJsonFile() {

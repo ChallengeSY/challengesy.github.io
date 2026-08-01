@@ -1,0 +1,4165 @@
+{"stages": [
+	{"heading":"Stardate 2400.0 (Introduction)",
+	"commentary":[
+		"Welcome to Alien Empires. It has been quite a while since this subject was touched. Not only did All Good Things knock a door wide open when it included an extremely sophisticated AP Bot system, but Doomsday Machine scenarios have gotten a new layout, too.",
+		"That is not to say this scenario did not get several changes. Most notably, Alien Players have become less foolish, with the following differences in effect for all scenarios (unless specified otherwise):",
+		"<ul><li>An AP can have a maximuim of 50 CP in the Defense bank when playing non-VP scenarios. Excess points are applied to the Fleet bank</li>",
+		"<li>An AP can maintain a maximum of 3 active fleets at a time. No fleet launches will take place while at this cap</li>",
+		"<li>An AP will skip technology steps entirely if less than 20 CP is in the bank at the start of the step</li>",
+		"<li>The ability for a hidden fleet to become a Raider Fleet is no longer limited to the fleet that just participated in purchasing Cloaking technology</li>",
+		"<li>Technologies designated as counter tech will be capped at level 1, until the technology they specifically counter has been seen</li>",
+		"<li>If a game goes beyond 20 economic phases, APs simply repeat EPs 19-20 for purposes of economic rolls and fleet launch.</li>",
+		"<li>An AP will try to avoid cosmic storms. Quasars are treated similarly to nebulae. Folds in Space are used as pathfinding permits</li>",
+		"<li>If the AP is about to go beyond Ship Size 2, but Attack or Defense are still at level 0, and this is not the oldest scenario; then one of those is bought instead. Same goes for Ship Size &gt;4, while Attack and Defense are each below level 2</li>",
+		"<li>Missile Boats can be used against them, at least when not playing the oldest scenario. APs treat Jammer exclusively as a counter tech, regardless</li></ul>"],
+	"actions":
+		[{
+			"createPreset":"alienEmpiresSolo",
+			"useExpansion":false,
+			"playerColor":"O",
+			"alienColors":"BY"
+		},{
+			"placeCounter":"FlagO",
+			"location":"L7"
+		}]},
+	{"heading":"Stardate 2400.3",
+	"commentary":[
+		"While we get on with our home systems, Alien Empires VP has gained a few differences also, on top of the previous bullets:",
+		"<ul><li>AP fleets instantly defeat any space pirates they uncover</li>",
+		"<li>Each mineral acquired by a non-raider AP fleet provide an extra economic roll, instead of a VP. Additionally, there is no limit on extra economic rolls this way, as opposed to a limit of 2 VP from minerals</li>",
+		"<li>The Victory Point quota for the APs is set to a fixed 10 VP, instead of varying by difficulty <i>and</i> number of human players. (As high as 13 VP when playing on Easy alone, or as low as 6 VP when playing a 3-player cooperative scenario on Hard)</li>",
+		"<li>Defense banks are now capped at 50 CP, no matter how many players are working together against the Alien Players. Previously, the cap was at 75 CP when 2 players were working together; and 125 CP when 3 players were working together</li></ul>"],
+	"actions":
+		[{
+			"placeCounter":"SC1O",
+			"location":"L6"
+		},{
+			"placeCounter":"SC2O",
+			"location":"K7"
+		},{
+			"placeCounter":"SC3O",
+			"location":"K6"
+		},{
+			"placeCounter":"CO1O",
+			"location":"L7"
+		},{
+			"placeCounter":"CO2O",
+			"location":"L7"
+		},{
+			"placeCounter":"CO3O",
+			"location":"L7"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"L7"
+		},{
+			"revealCounter":"systemL6",
+			"name":"planetO8"
+		},{
+			"revealCounter":"systemK6",
+			"name":"minerals5"
+		},{
+			"revealCounter":"systemK7",
+			"name":"planetO9"
+		},{
+			"revealCounter":"systemL5",
+			"name":"unexploredO"
+		},{
+			"revealCounter":"systemK5",
+			"name":"unexploredO"
+		},{
+			"revealCounter":"systemK8",
+			"name":"unexploredO"
+		}]},
+	{"heading":"Stardate 2400.6",
+	"commentary":["Either way; it is because of how numerous the differences are (of varying complexity), that we opted to stick with the oldest Alien Empires scenario for this playthrough. We believe playing as the alternate faction and under the All Good Things updates provides enough changes at present."],
+	"actions":
+		[{
+			"placeCounter":"SC1O",
+			"location":"L5"
+		},{
+			"placeCounter":"SC2O",
+			"location":"K8"
+		},{
+			"placeCounter":"SC3O",
+			"location":"K5"
+		},{
+			"placeCounter":"CO1O",
+			"location":"L6"
+		},{
+			"placeCounter":"CO2O",
+			"location":"K6"
+		},{
+			"placeCounter":"CO3O",
+			"location":"K7"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"K6",
+			"size":1
+		},{
+			"placeCounter":"systemK6",
+			"name":"minerals5"
+		},{
+			"revealCounter":"systemL5",
+			"name":"minerals5"
+		},{
+			"revealCounter":"systemK5",
+			"name":"minerals5"
+		},{
+			"revealCounter":"systemK8",
+			"name":"planetO7"
+		},{
+			"revealCounter":"systemL4",
+			"name":"unexploredO"
+		},{
+			"revealCounter":"systemJ6",
+			"name":"unexploredO"
+		},{
+			"revealCounter":"systemJ9",
+			"name":"unexploredO"
+		}]},
+	{"heading":"Stardate 2400.9",
+	"commentary":["Overall, an above average opening. We still get to spend 2 of our starting colony ships."],
+	"actions":
+		[{
+			"placeCounter":"SC1O",
+			"location":"L4"
+		},{
+			"placeCounter":"SC2O",
+			"location":"J9"
+		},{
+			"placeCounter":"SC3O",
+			"location":"J6"
+		},{
+			"placeCounter":"CO1O",
+			"location":"L6"
+		},{
+			"placeCounter":"CO2O",
+			"location":"K5"
+		},{
+			"placeCounter":"CO3O",
+			"location":"K8"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"L6",
+			"size":2
+		},{
+			"removeCounter":"systemK6"
+		},{
+			"revealCounter":"systemL4",
+			"name":"minerals5"
+		},{
+			"revealCounter":"systemJ6",
+			"name":"planetO3"
+		},{
+			"revealCounter":"systemJ9",
+			"name":"minerals5"
+		},{
+			"revealCounter":"systemL6",
+			"name":"planetO8"
+		},{
+			"revealCounter":"systemK8",
+			"name":"planetO7"
+		}]},
+	{"heading":"Stardate 2401.0",
+	"commentary":[
+		"Yet... Because this scenario overrides the 30 starting income that AGT now uses by default, our options are not as broad as they normally would be. As a consequence, we will be buying Exploration 1 (-15), and nothing else.",
+		"{prodTable}{techTable}",
+		"We are doing this scenario on hard difficulty, causing economic rolls to be worth 10 CP a pop by default. Thus; the Alien Players, named after Kuiper Belt bodies, have rolled 7 and 4, respectively. No fleet launches will take place even if they somehow had the money to do so."],
+	"prodTable":
+		[{
+			"name":"CSY (Orange)","initCP":0,"colonyCP":20,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":15,"unitBuy":0
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Orange)","explore":1
+		},{
+			"name":"Charon (Blue)","minelay":1
+		},{
+			"name":"Varda (Yellow)","minelay":1
+		}],
+	"alienTable":
+		[{
+			"name":"Charon (Blue)","eco":1,"queue":0,"fleet":0,"tech":10,"def":0,"delta":"T"
+		},{
+			"name":"Varda (Yellow)","eco":1,"queue":0,"fleet":0,"tech":10,"def":0,"delta":"T"
+		},{
+			"name":"(Rolls)","ecoPhase":1
+		}],
+	"actions":
+		[{
+			"placeCounter":"SC1O",
+			"location":"L4"
+		},{
+			"placeCounter":"SC2O",
+			"location":"J9"
+		},{
+			"placeCounter":"SC3O",
+			"location":"J6"
+		},{
+			"removeCounter":"CO1O"
+		},{
+			"placeCounter":"CO2O",
+			"location":"K5"
+		},{
+			"removeCounter":"CO3O"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"L6",
+			"size":1
+		},{
+			"revealCounter":"systemL6",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemK8",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemK4",
+			"name":"unexploredO"
+		},{
+			"revealCounter":"systemJ7",
+			"name":"unexploredO"
+		},{
+			"revealCounter":"systemJ8",
+			"name":"unexploredO"
+		}]},
+	{"heading":"Stardate 2401.2",
+	"commentary":["While our Scouts take care of the western and southern sections of our home systems, we upgrade our Flagship (-3)."],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"L7"
+		},{
+			"placeCounter":"SC1O",
+			"location":"K4"
+		},{
+			"placeCounter":"SC2O",
+			"location":"J8"
+		},{
+			"placeCounter":"SC3O",
+			"location":"J7"
+		},{
+			"placeCounter":"CO2O",
+			"location":"J6"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"L5",
+			"size":1
+		},{
+			"placeCounter":"systemL5",
+			"name":"minerals5"
+		},{
+			"revealCounter":"systemK4",
+			"name":"planetO1"
+		},{
+			"revealCounter":"systemJ7",
+			"name":"planetO4"
+		},{
+			"revealCounter":"systemJ8",
+			"name":"minerals5"
+		},{
+			"revealCounter":"systemL8",
+			"name":"unexploredO"
+		},{
+			"revealCounter":"systemJ4",
+			"name":"unexploredO"
+		},{
+			"revealCounter":"systemI7",
+			"name":"unexploredO"
+		},{
+			"revealCounter":"systemI8",
+			"name":"unexploredO"
+		}]},
+	{"heading":"Stardate 2401.5",
+	"commentary":["It does not take long before we unveil our black hole. Our scout rolls a 5, decently escaping its gravitational pull."],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"L8"
+		},{
+			"placeCounter":"SC1O",
+			"location":"J4"
+		},{
+			"placeCounter":"SC2O",
+			"location":"I8"
+		},{
+			"placeCounter":"SC3O",
+			"location":"I7"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"L6",
+			"size":2
+		},{
+			"removeCounter":"systemL5"
+		},{
+			"revealCounter":"systemL8",
+			"name":"planetO2"
+		},{
+			"revealCounter":"systemJ4",
+			"name":"nebula"
+		},{
+			"revealCounter":"systemI7",
+			"name":"blackHole"
+		},{
+			"revealCounter":"systemI8",
+			"name":"planetO6"
+		},{
+			"revealCounter":"systemL9",
+			"name":"unexploredO"
+		},{
+			"revealCounter":"systemJ5",
+			"name":"unexploredO"
+		},{
+			"revealCounter":"systemI6",
+			"name":"unexploredO"
+		},{
+			"revealCounter":"systemH8",
+			"name":"unexploredO"
+		}]},
+	{"heading":"Stardate 2401.8",
+	"commentary":["Soon, it will be time to regroup again..."],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"L9"
+		},{
+			"placeCounter":"SC1O",
+			"location":"J5"
+		},{
+			"placeCounter":"SC2O",
+			"location":"H8"
+		},{
+			"placeCounter":"SC3O",
+			"location":"I6"
+		},{
+			"placeCounter":"CO2O",
+			"location":"J6"
+		},{
+			"removeCounter":"CO4O"
+		},{
+			"removeCounter":"CO5O"
+		},{
+			"removeCounter":"CO6O"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"K5",
+			"size":1
+		},{
+			"placeCounter":"systemK5",
+			"name":"minerals5"
+		},{
+			"revealCounter":"systemL9",
+			"name":"nebula"
+		},{
+			"revealCounter":"systemJ5",
+			"name":"asteroids"
+		},{
+			"revealCounter":"systemI6",
+			"name":"minerals5"
+		},{
+			"revealCounter":"systemH8",
+			"name":"minerals5"
+		},{
+			"revealCounter":"systemL6",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemK8",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemJ6",
+			"name":"planetO3"
+		}]},
+	{"heading":"Stardate 2402.0",
+	"commentary":[
+		"Now that our Flagship has been refitted, we focus on our economy for this EP. We build 3 Colony Ships (-24).",
+		"{prodTable}{techTable}",
+		"There is a small amount of risk involved; Alien Players can launch a fleet right away, but none of the fleets launched this EP would be very large if it were to happen. Their economic rolls are 8 (Charon) / 1 (Varda). Neither player got the resources necessary for fleet launches, so none take place. Varda's extra roll <i>will</i> take place on economic phase 5."],
+	"prodTable":
+		[{
+			"name":"CSY (Orange)","initCP":4,"colonyCP":22,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":0,"unitBuy":24
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Orange)","explore":1
+		},{
+			"name":"Charon (Blue)","minelay":1
+		},{
+			"name":"Varda (Yellow)","minelay":1
+		}],
+	"alienTable":
+		[{
+			"name":"Charon (Blue)","eco":1,"queue":0,"fleet":0,"tech":20,"def":0,"delta":"T"
+		},{
+			"name":"Varda (Yellow)","eco":1,"queue":1,"fleet":0,"tech":10,"def":0,"delta":"E"
+		},{
+			"name":"(Rolls)","ecoPhase":2
+		}],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"L9"
+		},{
+			"placeCounter":"SC1O",
+			"location":"J5"
+		},{
+			"placeCounter":"SC2O",
+			"location":"H8"
+		},{
+			"placeCounter":"SC3O",
+			"location":"I6"
+		},{
+			"removeCounter":"CO2O"
+		},{
+			"placeCounter":"CO4O",
+			"location":"L7"
+		},{
+			"placeCounter":"CO5O",
+			"location":"L7"
+		},{
+			"placeCounter":"CO6O",
+			"location":"L7"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"K5",
+			"size":2
+		},{
+			"removeCounter":"systemK5"
+		},{
+			"revealCounter":"systemL6",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemK8",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemJ6",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemL10",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemK9",
+			"name":"unexploredO"
+		},{
+			"revealCounter":"systemI5",
+			"name":"unexploredO"
+		},{
+			"revealCounter":"systemH6",
+			"name":"unexploredO"
+		},{
+			"revealCounter":"systemH7",
+			"name":"unexploredO"
+		}]},
+	{"heading":"Stardate 2402.1",
+	"commentary":["We are almost done with our home systems now..."],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"K9"
+		},{
+			"placeCounter":"SC1O",
+			"location":"I5"
+		},{
+			"placeCounter":"SC2O",
+			"location":"H7"
+		},{
+			"placeCounter":"SC3O",
+			"location":"H6"
+		},{
+			"placeCounter":"CO4O",
+			"location":"K6"
+		},{
+			"placeCounter":"CO5O",
+			"location":"K6"
+		},{
+			"placeCounter":"CO6O",
+			"location":"K7"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"J6",
+			"size":2
+		},{
+			"placeCounter":"systemL10",
+			"name":"danger"
+		},{
+			"revealCounter":"systemK9",
+			"name":"minerals5"
+		},{
+			"revealCounter":"systemI5",
+			"name":"minerals5"
+		},{
+			"revealCounter":"systemH6",
+			"name":"asteroids"
+		},{
+			"revealCounter":"systemH7",
+			"name":"minerals5"
+		},{
+			"revealCounter":"systemK10",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemJ10",
+			"name":"unexploredO"
+		}]},
+	{"heading":"Stardate 2402.4",
+	"commentary":["And thus concludes one chapter of the journey. There is still plenty of deep space though, and we have our trusty corresponding Shuffler at the ready for this task. <i>All</i> 200 markers are mixed in, though that does not mean all types will be in use."],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"J10"
+		},{
+			"placeCounter":"SC1O",
+			"location":"I6",
+			"size":1
+		},{
+			"placeCounter":"SC2O",
+			"location":"I6"
+		},{
+			"placeCounter":"SC3O",
+			"location":"I6"
+		},{
+			"placeCounter":"CO4O",
+			"location":"K5"
+		},{
+			"placeCounter":"CO5O",
+			"location":"J7"
+		},{
+			"placeCounter":"CO6O",
+			"location":"J8"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"I5",
+			"size":1
+		},{
+			"removeCounter":"systemL10"
+		},{
+			"placeCounter":"systemI5",
+			"name":"minerals5"
+		},{
+			"placeCounter":"systemK10",
+			"name":"danger"
+		},{
+			"revealCounter":"systemJ10",
+			"name":"planetO5"
+		},{
+			"revealCounter":"systemJ11",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2402.7",
+	"commentary":["For now, we will seek to expose a path to Varda."],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"J11"
+		},{
+			"placeCounter":"SC1O",
+			"location":"J7",
+			"size":3
+		},{
+			"removeCounter":"SC2O"
+		},{
+			"removeCounter":"SC3O"
+		},{
+			"placeCounter":"CO4O",
+			"location":"K4"
+		},{
+			"placeCounter":"CO5O",
+			"location":"J7"
+		},{
+			"placeCounter":"CO6O",
+			"location":"I8"
+		},{
+			"removeCounter":"CO7O"
+		},{
+			"removeCounter":"CO8O"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"J6",
+			"size":2
+		},{
+			"removeCounter":"systemI5"
+		},{
+			"removeCounter":"systemK10"
+		},{
+			"revealCounter":"systemJ11",
+			"name":"planetW17"
+		},{
+			"revealCounter":"systemL6",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemK8",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemJ6",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemK4",
+			"name":"planetO1"
+		},{
+			"revealCounter":"systemJ7",
+			"name":"planetO4"
+		},{
+			"revealCounter":"systemI8",
+			"name":"planetO6"
+		}]},
+	{"heading":"Stardate 2403.0",
+	"commentary":[
+		"So far, we are doing quite nicely. We proceed with Ship Size 2 (-10), and then prepare to finish our home system infrastructure with 2 more Colony Ships (-16)",
+		"{prodTable}{techTable}",
+		"The Alien Players have now gained a second natural economic roll, making this EP more suspenseful. Their rolls are 5,7 (Charon) / 5,10 (Varda). Once again, neither player has the CP to conduct a fleet launch."],
+	"prodTable":
+		[{
+			"name":"CSY (Orange)","initCP":4,"colonyCP":27,"mineralCP":10,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":10,"unitBuy":16
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Orange)","explore":1,"size":2
+		},{
+			"name":"Charon (Blue)","minelay":1
+		},{
+			"name":"Varda (Yellow)","minelay":1
+		}],
+	"alienTable":
+		[{
+			"name":"Charon (Blue)","eco":2,"queue":0,"fleet":0,"tech":40,"def":0,"delta":"T"
+		},{
+			"name":"Varda (Yellow)","eco":2,"queue":1,"fleet":0,"tech":20,"def":20,"delta":"TD"
+		},{
+			"name":"(Rolls)","ecoPhase":3
+		}],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"J11"
+		},{
+			"placeCounter":"SC1O",
+			"location":"J7",
+			"size":3
+		},{
+			"removeCounter":"CO4O"
+		},{
+			"removeCounter":"CO5O"
+		},{
+			"removeCounter":"CO6O"
+		},{
+			"placeCounter":"CO7O",
+			"location":"L7"
+		},{
+			"placeCounter":"CO8O",
+			"location":"L7"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"J6",
+			"size":1
+		},{
+			"revealCounter":"systemL6",
+			"name":"colony5O"
+		},{
+			"revealCounter":"systemK8",
+			"name":"colony5O"
+		},{
+			"revealCounter":"systemJ6",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemK4",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemJ7",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemI8",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemJ12",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2403.3",
+	"commentary":["We are almost done exposing a path to Varda."],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"J12"
+		},{
+			"placeCounter":"SC1O",
+			"location":"K7",
+			"size":3
+		},{
+			"placeCounter":"CO7O",
+			"location":"L8"
+		},{
+			"placeCounter":"CO8O",
+			"location":"L8"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"K5",
+			"size":1
+		},{
+			"revealCounter":"systemJ12",
+			"name":"minerals10"
+		},{
+			"revealCounter":"systemI12",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2403.6",
+	"commentary":["That did not take long at all. We can now begin exposing a path to Charon."],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"I12"
+		},{
+			"placeCounter":"SC1O",
+			"location":"L7",
+			"size":3
+		},{
+			"placeCounter":"CO8O",
+			"location":"L9"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"L5",
+			"size":1
+		},{
+			"revealCounter":"systemI12",
+			"name":"minerals10"
+		},{
+			"revealCounter":"systemH12",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2403.9",
+	"commentary":["That slows us down a bit... but it also limits Varda's options slightly."],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"J12"
+		},{
+			"placeCounter":"CO7O",
+			"location":"L8"
+		},{
+			"placeCounter":"CO8O",
+			"location":"K9"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"L4",
+			"size":1
+		},{
+			"placeCounter":"systemL4",
+			"name":"minerals5"
+		},{
+			"removeCounter":"fleet1Y"
+		},{
+			"revealCounter":"systemH12",
+			"name":"supernova"
+		},{
+			"revealCounter":"systemJ6",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemK4",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemJ7",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemI8",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemL8",
+			"name":"planetO2"
+		}]},
+	{"heading":"Stardate 2404.0",
+	"commentary":[
+		"Quite a productive and chill set of turns we are enjoying so far. Since we got a small reprieve, we will go on ahead and invest in Attack 1 (-20) and Movement 2 (-20).",
+		"{prodTable}{techTable}",
+		"Hopefully this was the right call... The Alien Players have rolled 6,6 (Charon) / 4,7 (Varda). Varda now has money to conduct a fleet launch, but this process is no longer automatic until the late-game. A 2 was rolled, so they launch anyway. They also are eligible for the Movement step. A 7 was rolled (skip &gt;4)."],
+	"prodTable":
+		[{
+			"name":"CSY (Orange)","initCP":12,"colonyCP":36,"mineralCP":0,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":40,"unitBuy":0
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Orange)","explore":1,"size":2,"atk":1,"move":2
+		},{
+			"name":"Charon (Blue)","minelay":1
+		},{
+			"name":"Varda (Yellow)","minelay":1
+		}],
+	"alienTable":
+		[{
+			"name":"Charon (Blue)","eco":2,"queue":0,"fleet":0,"tech":60,"def":0,"delta":"T"
+		},{
+			"name":"Varda (Yellow)","eco":2,"queue":1,"fleet":0,"tech":30,"def":20,"delta":"fTH","hidden":"10"
+		},{
+			"name":"(Rolls)","ecoPhase":4
+		}],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"J12"
+		},{
+			"placeCounter":"SC1O",
+			"location":"L7",
+			"size":3
+		},{
+			"removeCounter":"CO7O"
+		},{
+			"placeCounter":"CO8O",
+			"location":"K9"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"L4",
+			"size":2
+		},{
+			"removeCounter":"systemL4"
+		},{
+			"placeCounter":"fleet1Y",
+			"location":"H13"
+		},{
+			"revealCounter":"systemJ6",
+			"name":"colony5O"
+		},{
+			"revealCounter":"systemK4",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemJ7",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemI8",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemL8",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemK11",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2404.2",
+	"commentary":["While we broaden the path to Varda, they begin moving their first fleet towards us."],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"J11"
+		},{
+			"placeCounter":"SC1O",
+			"location":"L8",
+			"size":3
+		},{
+			"placeCounter":"CO8O",
+			"location":"J10"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"K4",
+			"size":2
+		},{
+			"placeCounter":"fleet1Y",
+			"location":"I12"
+		},{
+			"placeCounter":"systemK11",
+			"name":"danger"
+		},{
+			"revealCounter":"systemI11",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2404.5",
+	"commentary":["Probably a good thing we <i>rarely</i> colonize a planet right away. Still, however beneficial that fold in space may be, it can also prove to be their undoing."],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"J10"
+		},{
+			"placeCounter":"SC1O",
+			"location":"K8",
+			"size":3
+		},{
+			"placeCounter":"Miner1O",
+			"location":"J5",
+			"size":1
+		},{
+			"placeGhost":"fleet1Y",
+			"location":"I11"
+		},{
+			"placeCounter":"fleet1Y",
+			"location":"I10"
+		},{
+			"removeCounter":"DD1Y"
+		},{
+			"removeCounter":"systemK11"
+		},{
+			"revealCounter":"systemI11",
+			"name":"fold"
+		}]},
+	{"heading":"Stardate 2404.8 (The Battle for Solaris)",
+	"commentary":[
+		"For with the present equipment and system layout, their pathway has become <i>limited</i> to a single colony of ours (until they can improve the former). Thus, their fleet makes landfall, and engages our flagship.",
+		"Their 30 Tech CP is good for Ship Size 2 (-10). They then rolled a 1, giving them Attack 1 (-20). This process spends all of their tech money. The 10 assigned CP is good for 1 Destroyer (-9), which they just unlocked, and nothing else.",
+		"Our Flagship then takes the first shooting, and rolls a 2 (hit &le;5), easily dispatching their straggler."],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"J10"
+		},{
+			"placeCounter":"SC1O",
+			"location":"J9",
+			"size":3
+		},{
+			"placeCounter":"CO8O",
+			"location":"J10"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"I5",
+			"size":1
+		},{
+			"resizeCounter":"SY1O",
+			"size":4
+		},{
+			"removeCounter":"fleet1Y"
+		},{
+			"placeCounter":"DD1Y",
+			"location":"J10"
+		},{
+			"revealCounter":"systemK4",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemJ7",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemI8",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemL8",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemJ10",
+			"name":"planetO5"
+		}]},
+	{"heading":"Stardate 2405.0",
+	"commentary":[
+		"Some of the advantages of focusing exclusively on technology is that we are not increasing our maintenance unnecessarily, and also that it is money we need not have to spend on upgrades; especially since both these mechanics are only effective to us.",
+		"To that end, we will buy Ship Size 3 (-15) and Attack 2 (-30). We will also buy an extra Ship Yard (-6) at our homeworld, since it is unaffected by the previous mechanics.",
+		"{prodTable}{techTable}",
+		"In addition to Varda's extra economic roll taking effect now, the 1 CP that they had leftover post-construction was returned to their Fleet bank. The Alien Players have rolled 6,10 (Charon) / 2,6,10 (Varda). Still, only Varda has money to conduct a fleet launch. A 7 was rolled, which was unsuccessful. Thus, the map remains devoid of hidden fleets... for now."],
+	"prodTable":
+		[{
+			"name":"CSY (Orange)","initCP":5,"colonyCP":45,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":45,"unitBuy":6
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Orange)","explore":1,"size":3,"atk":2,"move":2
+		},{
+			"name":"Charon (Blue)","minelay":1
+		},{
+			"name":"Varda (Yellow)","minelay":1,"size":2,"atk":1
+		}],
+	"alienTable":
+		[{
+			"name":"Charon (Blue)","eco":2,"queue":0,"fleet":0,"tech":70,"def":20,"delta":"TD"
+		},{
+			"name":"Varda (Yellow)","eco":3,"queue":0,"fleet":11,"tech":10,"def":40,"delta":"FtDh"
+		},{
+			"name":"(Rolls)","ecoPhase":5
+		}],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"J10"
+		},{
+			"placeCounter":"SC1O",
+			"location":"J9",
+			"size":3
+		},{
+			"removeCounter":"CO8O"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"I5",
+			"size":1
+		},{
+			"resizeCounter":"SY1O",
+			"size":5
+		},{
+			"removeCounter":"DD1Y"
+		},{
+			"revealCounter":"systemK4",
+			"name":"colony5O"
+		},{
+			"revealCounter":"systemJ7",
+			"name":"colony5O"
+		},{
+			"revealCounter":"systemI8",
+			"name":"colony5O"
+		},{
+			"revealCounter":"systemL8",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemJ10",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemI10",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2405.1",
+	"commentary":["The recent exposure of a quantum filament further limits their options. Granted, All Good Things is silent about this, but we can always borrow from the prime directive and treat them accordingly."],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"J9"
+		},{
+			"placeCounter":"SC1O",
+			"location":"J8",
+			"size":3
+		},{
+			"placeCounter":"Miner1O",
+			"location":"I6",
+			"size":1
+		},{
+			"placeCounter":"systemI6",
+			"name":"minerals5"
+		},{
+			"revealCounter":"systemI10",
+			"name":"quantumFilament"
+		},{
+			"revealCounter":"systemI9",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2405.4",
+	"commentary":["Speak of the devil. We found a space wreck."],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"J8"
+		},{
+			"placeCounter":"SC1O",
+			"location":"K7",
+			"size":3
+		},{
+			"placeCounter":"Miner1O",
+			"location":"J7",
+			"size":2
+		},{
+			"removeCounter":"systemI6"
+		},{
+			"revealCounter":"systemI9",
+			"name":"spaceWreck"
+		}]},
+	{"heading":"Stardate 2405.7",
+	"commentary":["The board is a bit... too quiet now."],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"J7"
+		},{
+			"placeCounter":"SC1O",
+			"location":"L7",
+			"size":3
+		},{
+			"removeCounter":"CA1O"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"J8",
+			"size":1
+		},{
+			"placeCounter":"systemJ8",
+			"name":"minerals5"
+		},{
+			"resizeCounter":"SY1O",
+			"size":5
+		},{
+			"revealCounter":"systemL8",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemJ10",
+			"name":"colony1"
+		}]},
+	{"heading":"Stardate 2406.0",
+	"commentary":[
+		"We have almost capped out our home system production. We have bought Movement 3 (-25). We then buy 2 Cruisers (-24) and yet another Ship Yard (-6).",
+		"{prodTable}{techTable}",
+		"The Alien Players have gained a natural economic roll. They have rolled 3,5,7 (Charon) / 5,8,10,10 (Varda). It is worth mentioning that Varda has acquired a significant overflow of CP thanks to being Defense capped.",
+		"This marks the first EP where both APs are now eligible for fleet launch. They rolled 6 (Charon) / 6 (Varda). Again, no launches take place."],
+	"prodTable":
+		[{
+			"name":"CSY (Orange)","initCP":1,"colonyCP":54,"mineralCP":5,"pipeCP":0,"maint":3,"bidCP":0,"techBuy":25,"unitBuy":30
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Orange)","explore":1,"size":3,"atk":2,"move":3
+		},{
+			"name":"Charon (Blue)","minelay":1
+		},{
+			"name":"Varda (Yellow)","minelay":1,"size":2,"atk":1
+		}],
+	"alienTable":
+		[{
+			"name":"Charon (Blue)","eco":3,"queue":0,"fleet":20,"tech":80,"def":20,"delta":"FT"
+		},{
+			"name":"Varda (Yellow)","eco":4,"queue":0,"fleet":51,"tech":20,"def":50,"delta":"FTD"
+		},{
+			"name":"(Rolls)","ecoPhase":6
+		}],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"J7"
+		},{
+			"placeCounter":"SC1O",
+			"location":"L7",
+			"size":3
+		},{
+			"placeCounter":"CA1O",
+			"location":"L7",
+			"size":2
+		},{
+			"placeCounter":"Miner1O",
+			"location":"J8",
+			"size":2
+		},{
+			"removeCounter":"systemJ8"
+		},{
+			"resizeCounter":"SY1O",
+			"size":6
+		},{
+			"revealCounter":"systemL8",
+			"name":"colony5O"
+		},{
+			"revealCounter":"systemJ10",
+			"name":"colony3"
+		}]},
+	{"heading":"Stardate 2406.3",
+	"commentary":["This is the point where the lack of fleet launches gets worrysome."],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"J6"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"I8",
+			"size":2
+		}]},
+	{"heading":"Stardate 2406.6",
+	"commentary":["Each economic phase where no fleet launch takes place <i>usually</i> means the next launch will be stronger."],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"J5"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"I9",
+			"size":1
+		},{
+			"placeCounter":"systemI9",
+			"name":"spaceWreck"
+		},{
+			"revealCounter":"systemI4",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2406.9",
+	"commentary":["Especially since the odds and effectiveness of their fleet banks gaining CP grows with each subsequent economic phase."],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"J4"
+		},{
+			"resizeCounter":"CA1O",
+			"size":2
+		},{
+			"placeCounter":"Miner1O",
+			"location":"J10",
+			"size":4
+		},{
+			"removeCounter":"systemI9"
+		},{
+			"removeCounter":"fleet1B"
+		},{
+			"revealCounter":"systemI4",
+			"name":"planetW18"
+		},{
+			"revealCounter":"systemJ10",
+			"name":"colony3"
+		}]},
+	{"heading":"Stardate 2407.0",
+	"commentary":[
+		"While the suspense builds, we cash in the space wreck that we recently uncovered. We rolled a 10, giving us Ship Yards 2. We take advantage of this acquisition, and build 4 more Cruisers (-48) at the homeworld.",
+		"{prodTable}{techTable}",
+		"At this point, it is no longer possible for Alien Players to accelerate their economy. 2 natural economic rolls are still available as the timeline progresses. They rolled 2,4,7 (Charon) / 4,4,9,10 (Varda). Unlike Alien Empires VP, Varda can continue to roll for Defense even though it is capped out, giving them an escalating advantage.",
+		"For fleet launches, they rolled 3 (Charon) / 6 (Varda). Charon finally launches their first fleet! On the Movement step, a 6 was rolled (skip &gt;4)."],
+	"prodTable":
+		[{
+			"name":"CSY (Orange)","initCP":2,"colonyCP":58,"mineralCP":5,"pipeCP":0,"maint":7,"bidCP":0,"techBuy":0,"unitBuy":48
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Orange)","explore":1,"size":3,"atk":2,"move":3,"SY":2
+		},{
+			"name":"Charon (Blue)","minelay":1
+		},{
+			"name":"Varda (Yellow)","minelay":1,"size":2,"atk":1
+		}],
+	"alienTable":
+		[{
+			"name":"Charon (Blue)","eco":3,"fleet":0,"tech":90,"def":20,"delta":"fTH","hidden":"40"
+		},{
+			"name":"Varda (Yellow)","eco":4,"fleet":91,"tech":30,"def":50,"delta":"FT"
+		},{
+			"name":"(Rolls)","ecoPhase":7
+		}],
+	"actions":
+		[{
+			"placeCounter":"CA1O",
+			"location":"L7",
+			"size":6
+		},{
+			"placeCounter":"Miner1O",
+			"location":"J10",
+			"size":1
+		},{
+			"placeCounter":"fleet1B",
+			"location":"H1",
+			"size":4
+		},{
+			"revealCounter":"systemJ10",
+			"name":"colony5O"
+		},{
+			"revealCounter":"systemK3",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2407.2",
+	"commentary":["We opt to upgrade our outdated Scouts, giving them the updated Movement and Attack equipment (-3)."],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"J4"
+		},{
+			"placeCounter":"SC1O",
+			"location":"L7",
+			"size":3
+		},{
+			"placeCounter":"CA1O",
+			"location":"K6",
+			"size":6
+		},{
+			"placeCounter":"Miner1O",
+			"location":"J11",
+			"size":1
+		},{
+			"placeCounter":"fleet1B",
+			"location":"H2",
+			"size":4
+		},{
+			"placeCounter":"systemK3",
+			"name":"danger"
+		},{
+			"revealCounter":"systemI3",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2407.5",
+	"commentary":["As outdated as our Flagship is, its Exploration equipment is still proving exceptionally useful."],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"I3"
+		},{
+			"placeGhost":"SC1O",
+			"location":"K6"
+		},{
+			"placeCounter":"SC1O",
+			"location":"J6",
+			"size":3
+		},{
+			"placeGhost":"CA1O",
+			"location":"J6"
+		},{
+			"placeCounter":"CA1O",
+			"location":"I5",
+			"size":6
+		},{
+			"placeGhost":"Miner1O",
+			"location":"I11"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"I12",
+			"size":1
+		},{
+			"placeCounter":"systemI12",
+			"name":"minerals10"
+		},{
+			"placeCounter":"fleet1B",
+			"location":"H3",
+			"size":4
+		},{
+			"removeCounter":"systemK3"
+		},{
+			"placeCounter":"systemI3",
+			"name":"danger"
+		},{
+			"revealCounter":"systemH4",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemH5",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2407.8 (The Battle for Sector H4)",
+	"commentary":[
+		"Of course, our Cruisers have Exploration, too... and that is not all. We have uncovered the first space station of the board. We opt to battle it with our cruisers.",
+		"Their space station rolls a 1 (hit &le;6). Our Cruisers then gain the fleet size bonus, and rolled 1,3,4,9,10,10 (3 hits &le;6), easily dispatching this station. We then scavenge 10 CP worth of debris."],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"J4"
+		},{
+			"placeGhost":"SC1O",
+			"location":"I5"
+		},{
+			"placeCounter":"SC1O",
+			"location":"I4",
+			"size":3
+		},{
+			"placeGhost":"CA1O",
+			"location":"H5"
+		},{
+			"removeCounter":"CA2O"
+		},{
+			"placeCounter":"CA1O",
+			"location":"H4",
+			"size":6
+		},{
+			"placeGhost":"Miner1O",
+			"location":"I11"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"J11",
+			"size":3
+		},{
+			"removeCounter":"systemI12"
+		},{
+			"placeCounter":"fleet1B",
+			"location":"I3",
+			"size":4
+		},{
+			"removeCounter":"fleet2B"
+		},{
+			"removeCounter":"systemI3"
+		},{
+			"placeCounter":"systemH4",
+			"name":"station10"
+		},{
+			"revealCounter":"systemH5",
+			"name":"planetW10"
+		}]},
+	{"heading":"Stardate 2408.0",
+	"commentary":[
+		"The debris proves to be a useful compliment to our income for this EP. Since arithmatic computatations cause us to be just a bit too short of a goal that would otherwise become viable; we scuttle 1 of our scouts, reducing our maintenance ever so slightly. We then buy Tactics 1 (-15) and 4 Cruisers (-48).",
+		"{prodTable}{techTable}",
+		"The Alien Players have rolled 1,3,4 (Charon) / 1,4,6,9 (Varda). For fleet launches, they rolled 1 (Charon) / 8 (Varda). Once again, the former launches a fleet. They then rolled a 1 on the Movement step (buy for -20)."],
+	"prodTable":
+		[{
+			"name":"CSY (Orange)","initCP":7,"colonyCP":60,"mineralCP":10,"pipeCP":0,"maint":14,"bidCP":0,"techBuy":15,"unitBuy":48
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Orange)","explore":1,"size":3,"atk":2,"move":3,"SY":2,"tac":1
+		},{
+			"name":"Charon (Blue)","minelay":1,"move":2
+		},{
+			"name":"Varda (Yellow)","minelay":1,"size":2,"atk":1
+		}],
+	"alienTable":
+		[{
+			"name":"Charon (Blue)","eco":3,"fleet":0,"tech":70,"def":20,"delta":"ftH","hidden":"40 / 30"
+		},{
+			"name":"Varda (Yellow)","eco":4,"fleet":111,"tech":50,"def":50,"delta":"FT"
+		},{
+			"name":"(Rolls)","ecoPhase":8
+		}],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"J4"
+		},{
+			"placeCounter":"SC1O",
+			"location":"I4",
+			"size":2
+		},{
+			"placeCounter":"CA1O",
+			"location":"H4",
+			"size":6
+		},{
+			"placeCounter":"CA2O",
+			"location":"L7",
+			"size":4
+		},{
+			"placeCounter":"Miner1O",
+			"location":"J11",
+			"size":3
+		},{
+			"placeCounter":"fleet1B",
+			"location":"I3",
+			"size":4
+		},{
+			"removeCounter":"CV1B"
+		},{
+			"removeCounter":"Ftr1B"
+		},{
+			"removeCounter":"DD1B"
+		},{
+			"placeCounter":"fleet2B",
+			"location":"H1",
+			"size":3
+		},{
+			"removeCounter":"systemH4"
+		},{
+			"revealCounter":"systemJ3",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemH3",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemG3",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemG4",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2408.1 (The Battle for Sector I3)",
+	"commentary":[
+		"We battle one of Charon's newest fleet before it can even resume its movement.",
+		"<ol><li><b>Preparation</b>: No priority counter tech applicable</li>",
+		"<li>Ship Size step automatic (70 tech CP &rarr; 60)</li>",
+		"<li>A 10 was rolled to buy Minesweeping 1 (60 &rarr; 50 CP)</li>",
+		"<li>An 8 was rolled to buy Fighter 1 (50 &rarr; 25 CP)</li>",
+		"<li>A 4 was rolled to buy Defense 1 (25 &rarr; 5 CP)</li>",
+		"<li>Since Carriers were just unlocked, one full ship is built (40 assigned CP &rarr; 13)</li>",
+		"<li>Destroyer is the largest ship they just unlocked (13 &rarr; 4 CP)<br /><br /></li>",
+		"<li><b>Round 1</b>: Their Fighters have the best weapon class. They rolled 1,10,6 against our scouts (1 hit &le;5)</li>",
+		"<li>Our Cruisers rolled 6,6,7,7,5/10 against their fighters/destroyer (3 hits &le;6)</li>",
+		"<li>Their Destroyer rolled a 6 against our last scout (&le;4 to hit)</li>",
+		"<li>Our Scout rolled an 8 against their Destroyer (&le;2 to hit)</li>",
+		"<li>Their Carrier rolled a 1 against our last scout (hit &le;3)<br /><br /></li>",
+		"<li><b>Round 2</b>: Our Cruisers gained the fleet size bonus, and rolled 4,7,2,3,5,3 (6 hits &le;7), finishing their fleet off</li></ol>"],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"J3"
+		},{
+			"placeCounter":"SC1O",
+			"location":"I3",
+			"size":2
+		},{
+			"placeCounter":"CA1O",
+			"location":"I3",
+			"size":6
+		},{
+			"placeCounter":"CA2O",
+			"location":"L8",
+			"size":4
+		},{
+			"placeCounter":"Miner1O",
+			"location":"J10",
+			"size":3
+		},{
+			"removeCounter":"fleet1B"
+		},{
+			"placeCounter":"CV1B",
+			"location":"I3"
+		},{
+			"placeCounter":"Ftr1B",
+			"location":"I3",
+			"size":3
+		},{
+			"placeCounter":"DD1B",
+			"location":"I3"
+		},{
+			"placeCounter":"fleet2B",
+			"location":"I1",
+			"size":3
+		},{
+			"placeCounter":"systemJ3",
+			"name":"danger"
+		},{
+			"placeCounter":"systemH3",
+			"name":"lost"
+		},{
+			"revealCounter":"systemG3",
+			"name":"station10"
+		},{
+			"revealCounter":"systemG4",
+			"name":"minerals10"
+		},{
+			"revealCounter":"systemJ2",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemI2",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2408.4 (The Battle for Sector G3)",
+	"commentary":["Next up in the hopper is a space station we recently unearthed. After their station rolls a 7 (&le;6 to hit), we rolled 3,5,6,6,6,6 (6 hits &le;6), easily eliminating this target and allowing us to scavenge another 10 CP worth of debris."],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"K3"
+		},{
+			"removeCounter":"SC1O"
+		},{
+			"placeGhost":"CA1O",
+			"location":"H4"
+		},{
+			"placeCounter":"CA1O",
+			"location":"G3",
+			"size":6
+		},{
+			"placeGhost":"CA2O",
+			"location":"K8"
+		},{
+			"placeCounter":"CA2O",
+			"location":"J9",
+			"size":4
+		},{
+			"placeCounter":"Miner1O",
+			"location":"J11",
+			"size":1
+		},{
+			"removeCounter":"CV1B"
+		},{
+			"removeCounter":"Ftr1B"
+		},{
+			"removeCounter":"DD1B"
+		},{
+			"placeCounter":"fleet2B",
+			"location":"I2",
+			"size":3
+		},{
+			"removeCounter":"CV2B"
+		},{
+			"removeCounter":"Ftr2B"
+		},{
+			"removeCounter":"systemJ3"
+		},{
+			"removeCounter":"systemH3"
+		},{
+			"placeCounter":"systemG3",
+			"name":"station10"
+		},{
+			"revealCounter":"systemJ2",
+			"name":"warp1"
+		},{
+			"revealCounter":"systemI2",
+			"name":"asteroids"
+		},{
+			"revealCounter":"systemK2",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemG2",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemF4",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2408.7 (The Battle for Sector J3)",
+	"commentary":[
+		"We finally take advantage of where their last fleet is positioned, and cut off a path to our home systems; forcing it to engage our flagship while moving only half of its maximum distance. Its 30 assigned CP is good for just a full carrier (-27).",
+		"<ol><li><b>Round 1</b>: Our Flagship has the Tactics advantage, and rolls a 7 against their fighters (&le;4 to hit)</li>",
+		"<li>Their Fighters then gain the fleet size bonus, and rolled 5,4,2 (3 hits &le;6), eliminating our flagship from circulation</li></ol>"],
+	"actions":
+		[{
+			"placeCounter":"FlagO",
+			"location":"J3"
+		},{
+			"removeCounter":"SC4O"
+		},{
+			"placeGhost":"CA1O",
+			"location":"H4"
+		},{
+			"placeCounter":"CA1O",
+			"location":"I3",
+			"size":6
+		},{
+			"placeCounter":"CA2O",
+			"location":"J10",
+			"size":4
+		},{
+			"removeCounter":"CA3O"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"J12",
+			"size":1
+		},{
+			"placeCounter":"systemJ12",
+			"name":"minerals10"
+		},{
+			"removeCounter":"fleet2B"
+		},{
+			"placeCounter":"CV1B",
+			"location":"J3"
+		},{
+			"placeCounter":"Ftr1B",
+			"location":"J3",
+			"size":3
+		},{
+			"removeCounter":"systemG3"
+		},{
+			"revealCounter":"systemK2",
+			"name":"quantumFilament"
+		},{
+			"placeCounter":"systemG2",
+			"name":"danger"
+		},{
+			"revealCounter":"systemF4",
+			"name":"asteroids"
+		}]},
+	{"heading":"Stardate 2409.0",
+	"commentary":[
+		"The loss of our Flagship, however unfortunate it may be, probably will not be in vain. We slowed them down just enough to buy some time and keep our options open.",
+		"Since Charon has gained the carrier advantage, we must negate it as soon as possible. This means we will buy Point-Defense 1 (-20). We then buy 2 Cruisers (-24) + 2 Scouts (-12).",
+		"{prodTable}{techTable}",
+		"The Alien Players have almost finished their penultimate chunk of natural infrastructure. They rolled 5,5,6 (Charon) / 6,6,10,10 (Varda). As per before, Charon's advantage means that their fleet launch threshold has been widened (+2) while the advantage is in effect (until we show our new toys) <i>and</i> they have the money to buy a full carrier (very barely true this EP).",
+		"With that in mind, they rolled 9 (Charon) / 10 (Varda) for fleet launch. Even despite the advantages, neither alien player launches this EP."],
+	"prodTable":
+		[{
+			"name":"CSY (Orange)","initCP":0,"colonyCP":60,"mineralCP":20,"pipeCP":0,"maint":20,"bidCP":0,"techBuy":20,"unitBuy":36
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Orange)","explore":1,"size":3,"atk":2,"move":3,"SY":2,"tac":1,"PD":1
+		},{
+			"name":"Charon (Blue)","minelay":1,"move":2,"size":2,"minesweep":1,"ftr":1,"def":1
+		},{
+			"name":"Varda (Yellow)","minelay":1,"size":2,"atk":1
+		}],
+	"alienTable":
+		[{
+			"name":"Charon (Blue)","eco":3,"fleet":27,"tech":15,"def":20,"delta":"Fth"
+		},{
+			"name":"Varda (Yellow)","eco":4,"fleet":151,"tech":70,"def":50,"delta":"FT"
+		},{
+			"name":"(Rolls)","ecoPhase":9
+		}],
+	"actions":
+		[{
+			"removeCounter":"FlagO"
+		},{
+			"placeCounter":"SC4O",
+			"location":"L7",
+			"size":2
+		},{
+			"placeCounter":"CA1O",
+			"location":"I3",
+			"size":6
+		},{
+			"placeCounter":"CA2O",
+			"location":"J10",
+			"size":4
+		},{
+			"placeCounter":"CA3O",
+			"location":"L7",
+			"size":2
+		},{
+			"placeCounter":"Miner1O",
+			"location":"J12",
+			"size":3
+		},{
+			"removeCounter":"systemJ12"
+		},{
+			"placeCounter":"CV1B",
+			"location":"J3"
+		},{
+			"placeCounter":"Ftr1B",
+			"location":"J3",
+			"size":3
+		},{
+			"removeCounter":"systemG2"
+		}]},
+	{"heading":"Stardate 2409.3",
+	"commentary":["We could intercept them right away, but we have a better idea. We will hold off on the intercept... for now."],
+	"actions":
+		[{
+			"placeCounter":"SC4O",
+			"location":"K6",
+			"size":2
+		},{
+			"placeCounter":"CA1O",
+			"location":"J4",
+			"size":6
+		},{
+			"placeCounter":"CA3O",
+			"location":"L8",
+			"size":2
+		},{
+			"placeCounter":"Miner1O",
+			"location":"J11",
+			"size":3
+		},{
+			"placeCounter":"CV1B",
+			"location":"K3"
+		},{
+			"placeCounter":"Ftr1B",
+			"location":"K3",
+			"size":3
+		}]},
+	{"heading":"Stardate 2409.6",
+	"commentary":["We can take advantage of their pathfinding system: They can choose any colony that they can reach before the next economic phase; but favor those that are <i>undefended</i>, followed by one that requires the fewest number of turns."],
+	"actions":
+		[{
+			"placeGhost":"SC4O",
+			"location":"K5"
+		},{
+			"placeCounter":"SC4O",
+			"location":"K4",
+			"size":2
+		},{
+			"placeCounter":"CA1O",
+			"location":"K4",
+			"size":6
+		},{
+			"placeGhost":"CA3O",
+			"location":"K8"
+		},{
+			"placeCounter":"CA3O",
+			"location":"K9",
+			"size":2
+		},{
+			"placeCounter":"Miner1O",
+			"location":"J10",
+			"size":3
+		},{
+			"placeCounter":"CV1B",
+			"location":"L4"
+		},{
+			"placeCounter":"Ftr1B",
+			"location":"L4",
+			"size":3
+		}]},
+	{"heading":"Stardate 2409.9 (The Battle for Sector L4)",
+	"commentary":[
+		"We take advantage of their logic, and bring our newest weapons into battle. Since Charon's fleet is known from before, we go straight into battle.",
+		"<ol><li><b>Round 1</b>: Our Scouts have activated the Point-Defense advantage. Having also barely acquired a Fleet Size Bonus, we rolled 3,3 against their fighters (2 hits &le;7)</li>",
+		"<li>Their last Fighter rolls a 5 against our scouts (hit &le;5)</li>",
+		"<li>Our Cruisers rolled 8,5,1,3,2,3 (5 hits &le;7), wiping their fleet out entirely</li></ol>"],
+	"actions":
+		[{
+			"placeCounter":"SC4O",
+			"location":"L4",
+			"size":2
+		},{
+			"placeCounter":"CA1O",
+			"location":"L4",
+			"size":6
+		},{
+			"placeCounter":"CA2O",
+			"location":"J10",
+			"size":4
+		},{
+			"placeCounter":"CA3O",
+			"location":"J10",
+			"size":2
+		},{
+			"placeCounter":"Miner1O",
+			"location":"K9",
+			"size":1
+		},{
+			"placeCounter":"systemK9",
+			"name":"minerals5"
+		},{
+			"removeCounter":"CO9O"
+		},{
+			"placeCounter":"CV1B",
+			"location":"L4"
+		},{
+			"placeCounter":"Ftr1B",
+			"location":"L4",
+			"size":3
+		},{
+			"removeCounter":"fleet2Y"
+		}]},
+	{"heading":"Stardate 2410.0",
+	"commentary":[
+		"Once more, we mananged to cleanse the board. However, our maintenance is approaching half of our colony income.",
+		"This is probably risky, given that we do not know <i>when</i> Varda will launch a massive fleet against us, but we must attempt to increase our income. It is past time we buy Terraforming 1 (-20), but we will make this a process and start with 1 Colony Ship (-8). We then buy one more Cruiser (-12) with the rest of the leftover money.",
+		"{prodTable}{techTable}",
+		"The Alien Players have finished their penultimate infrastructure, gaining a natural economic roll. They rolled 2,4,4,6 (Charon) / 7,8,8,8,9 (Varda). Not everyday all economic rolls go into a single bank (for each player).",
+		"At this point, our Point-Defense technology now matches Charon's Fighter technology, so they lost their carrier advantage. They rolled 7 (Charon) / 3 (Varda) for fleet launch. The latter finally launches a fleet! They then rolled an 8 on the Movement step (skip)."],
+	"prodTable":
+		[{
+			"name":"CSY (Orange)","initCP":4,"colonyCP":60,"mineralCP":10,"pipeCP":0,"maint":25,"bidCP":0,"techBuy":20,"unitBuy":20
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Orange)","explore":1,"size":3,"atk":2,"move":3,"SY":2,"tac":1,"PD":1,"terraform":1
+		},{
+			"name":"Charon (Blue)","minelay":1,"move":2,"size":2,"minesweep":1,"ftr":1,"def":1
+		},{
+			"name":"Varda (Yellow)","minelay":1,"size":2,"atk":1
+		}],
+	"alienTable":
+		[{
+			"name":"Charon (Blue)","eco":4,"fleet":67,"tech":15,"def":20,"delta":"F"
+		},{
+			"name":"Varda (Yellow)","eco":5,"fleet":0,"tech":120,"def":50,"delta":"fTH","hidden":"151"
+		},{
+			"name":"(Rolls)","ecoPhase":10
+		}],
+	"actions":
+		[{
+			"placeCounter":"SC4O",
+			"location":"L4",
+			"size":1
+		},{
+			"placeCounter":"CA1O",
+			"location":"L4",
+			"size":6
+		},{
+			"placeCounter":"CA2O",
+			"location":"J10",
+			"size":6
+		},{
+			"placeCounter":"CA3O",
+			"location":"L7",
+			"size":1
+		},{
+			"placeCounter":"Miner1O",
+			"location":"K9",
+			"size":2
+		},{
+			"removeCounter":"systemK9"
+		},{
+			"placeCounter":"CO9O",
+			"location":"L7"
+		},{
+			"removeCounter":"CV1B"
+		},{
+			"removeCounter":"Ftr1B"
+		},{
+			"placeCounter":"fleet2Y",
+			"location":"H13",
+			"size":16
+		},{
+			"revealCounter":"systemL3",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2410.2",
+	"commentary":["We feared a fleet this large could pose a problem, and it is likely it <i>will</i>. It could be worse though: their fleet could have gained up to <b>100</b> additional CP, with a theoretical average gain of 40 CP."],
+	"actions":
+		[{
+			"placeCounter":"SC4O",
+			"location":"L5",
+			"size":1
+		},{
+			"placeCounter":"CA1O",
+			"location":"L5",
+			"size":6
+		},{
+			"placeCounter":"CA2O",
+			"location":"I9",
+			"size":6
+		},{
+			"placeCounter":"CA3O",
+			"location":"L8",
+			"size":1
+		},{
+			"placeCounter":"Miner1O",
+			"location":"K8",
+			"size":2
+		},{
+			"placeCounter":"CO9O",
+			"location":"K7"
+		},{
+			"placeCounter":"fleet2Y",
+			"location":"I12",
+			"size":16
+		},{
+			"revealCounter":"systemL3",
+			"name":"nebula"
+		},{
+			"revealCounter":"systemH9",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemH10",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2410.5",
+	"commentary":["Still; 151 CP worth of assigned ships is potent enough that, combined with 120 CP of unknown technology, we probably should <i>not</i> engage with only 6-7 cruisers able to reach the colony closest to their homeworld."],
+	"actions":
+		[{
+			"placeCounter":"SC4O",
+			"location":"L7",
+			"size":1
+		},{
+			"placeGhost":"CA1O",
+			"location":"L6"
+		},{
+			"placeCounter":"CA1O",
+			"location":"L7",
+			"size":6
+		},{
+			"placeCounter":"CA2O",
+			"location":"I10",
+			"size":6
+		},{
+			"placeGhost":"CA3O",
+			"location":"K8"
+		},{
+			"placeCounter":"CA3O",
+			"location":"J9",
+			"size":1
+		},{
+			"placeCounter":"Miner1O",
+			"location":"J9",
+			"size":1
+		},{
+			"placeCounter":"systemJ9",
+			"name":"minerals5"
+		},{
+			"placeGhost":"fleet2Y",
+			"location":"I11"
+		},{
+			"placeCounter":"fleet2Y",
+			"location":"J11",
+			"size":16
+		},{
+			"removeCounter":"R2Y"
+		},{
+			"revealCounter":"systemH9",
+			"name":"station10"
+		},{
+			"revealCounter":"systemH10",
+			"name":"planetW9"
+		},{
+			"revealCounter":"systemH11",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2410.8",
+	"commentary":[
+		"<h3>The Battle for Sector H9</h3>",
+		"Instead of engaging Varda, yet another opportunity presented itself when we uncovered a <i>third</i> space station. We will engage it with our 7 Cruisers. After it rolls a 10 (&le;6 to hit), we then rolled 1,2,2,4,5,6,7 (6 hits &le;6). We easily dispatch the station and salvage yet another 10 CP worth of debris.",
+		"<h3>The Bombardment of Solaris</h3>",
+		"In return though, Varda is able to reach our colony uncontested. Before it can bombard though, it must build its ships. On the Ship Size step, a 4 was rolled (buy for -15). The remaining 105 CP is then spent as follows... a 4 for Defense 1 (-20), a 6 for Cloaking 1 (-30), a 3 for Defense 2 (-30), a 3 for Defense 3 (-25). This process spends its entire technology bank!",
+		"Since Cloaking was recently unlocked, and we lack Scanning to counter it, this fleet becomes a Raider Fleet... comprising of 12 raiders (-144), and nothing else. Their ships then rolled 1,2,2,4,4,5,6,6,7,9,10,10 (5 hits &le;5), easily glassing the colony."],
+	"actions":
+		[{
+			"placeCounter":"SC4O",
+			"location":"J8",
+			"size":1
+		},{
+			"removeCounter":"SC5O"
+		},{
+			"removeCounter":"DD1O"
+		},{
+			"placeGhost":"CA1O",
+			"location":"K7"
+		},{
+			"placeCounter":"CA1O",
+			"location":"J8",
+			"size":6
+		},{
+			"placeCounter":"CA2O",
+			"location":"H9",
+			"size":6
+		},{
+			"placeGhost":"CA3O",
+			"location":"I9"
+		},{
+			"placeCounter":"CA3O",
+			"location":"H9",
+			"size":1
+		},{
+			"placeCounter":"Miner1O",
+			"location":"I8",
+			"size":2
+		},{
+			"removeCounter":"systemJ9"
+		},{
+			"placeCounter":"CO9O",
+			"location":"K7"
+		},{
+			"removeCounter":"fleet2Y"
+		},{
+			"placeCounter":"R2Y",
+			"location":"J10",
+			"size":12
+		},{
+			"placeCounter":"systemH9",
+			"name":"station10"
+		},{
+			"revealCounter":"systemH11",
+			"name":"plasmaStorm"
+		},{
+			"revealCounter":"systemK7",
+			"name":"planetO9"
+		},{
+			"revealCounter":"systemJ10",
+			"name":"colony5O"
+		}]},
+	{"heading":"Stardate 2411.0",
+	"commentary":[
+		"This is a relatively unfavorable series of events, but it gave us <i>a lot</i> of important information. We should buy Scanning 1 right away (-20). We then buy 1 Destroyer (-10) + 4 Scouts (-24).",
+		"Now that the first cosmic storm is known, we rolled a 5. A planet blocks this move, so it remains stationary.",
+		"{prodTable}{techTable}",
+		"The Alien Players have rolled 2,2,5,6 (Charon) / 3,4,8,8,9 (Varda). Varda has also gained the Cloaking advantage (+2 to launch threshold), but we intend to negate it soon.",
+		"For fleet launch, they rolled 7 (Charon) / 10 (Varda). No launches take place this EP."],
+	"prodTable":
+		[{
+			"name":"CSY (Orange)","initCP":9,"colonyCP":55,"mineralCP":20,"pipeCP":0,"maint":27,"bidCP":0,"techBuy":20,"unitBuy":34
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Orange)","explore":1,"size":3,"atk":2,"move":3,"SY":2,"tac":1,"PD":1,"terraform":1,"scan":1
+		},{
+			"name":"Charon (Blue)","minelay":1,"move":2,"size":2,"minesweep":1,"ftr":1,"def":1
+		},{
+			"name":"Varda (Yellow)","minelay":1,"size":3,"atk":1,"def":3,"cloak":1
+		}],
+	"alienTable":
+		[{
+			"name":"Charon (Blue)","eco":4,"fleet":107,"tech":15,"def":20,"delta":"F"
+		},{
+			"name":"Varda (Yellow)","eco":5,"fleet":27,"tech":30,"def":50,"delta":"Fth"
+		},{
+			"name":"(Rolls)","ecoPhase":11
+		}],
+	"actions":
+		[{
+			"placeCounter":"SC4O",
+			"location":"J8",
+			"size":1
+		},{
+			"placeCounter":"SC5O",
+			"location":"L7",
+			"size":4
+		},{
+			"placeCounter":"DD1O",
+			"location":"L7"
+		},{
+			"placeCounter":"CA1O",
+			"location":"J8",
+			"size":6
+		},{
+			"placeCounter":"CA2O",
+			"location":"H9",
+			"size":6
+		},{
+			"placeCounter":"CA3O",
+			"location":"H9",
+			"size":1
+		},{
+			"placeCounter":"Miner1O",
+			"location":"I8",
+			"size":1
+		},{
+			"removeCounter":"CO9O"
+		},{
+			"placeCounter":"R2Y",
+			"location":"J10",
+			"size":12
+		},{
+			"removeCounter":"systemH9"
+		},{
+			"revealCounter":"systemK7",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemJ10",
+			"name":"planetO5"
+		},{
+			"revealCounter":"systemG8",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemG9",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2411.1",
+	"commentary":["Soon it will be time to catch the raiders with even more new weapons..."],
+	"actions":
+		[{
+			"placeCounter":"SC4O",
+			"location":"J8"
+		},{
+			"placeCounter":"SC5O",
+			"location":"L8",
+			"size":4
+		},{
+			"placeCounter":"DD1O",
+			"location":"L8"
+		},{
+			"placeCounter":"CA1O",
+			"location":"J8",
+			"size":6
+		},{
+			"placeCounter":"CA2O",
+			"location":"H8",
+			"size":6
+		},{
+			"placeCounter":"CA3O",
+			"location":"H10",
+			"size":1
+		},{
+			"placeCounter":"Miner1O",
+			"location":"H8",
+			"size":1
+		},{
+			"placeCounter":"systemH8",
+			"name":"minerals5"
+		},{
+			"placeCounter":"R2Y",
+			"location":"J9",
+			"size":12
+		},{
+			"revealCounter":"systemG8",
+			"name":"supernova"
+		},{
+			"revealCounter":"systemG9",
+			"name":"nebula"
+		},{
+			"revealCounter":"systemG7",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemG10",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2411.4 (The battle for Sector J9)",
+	"commentary":[
+		"Normally, Varda would use their cloaking to keep their 12 raiders (144 CP worth) out of battle with our fleet (worth 196 CP in total). But, we negate their Cloaking 1 with Scanning 1. And since their fleet has fought previously, we go straight to battle.",
+		"<ol><li><b>Round 1</b>: Since we are negating their cloaking advantages, we will screen our Destroyer each round as able</li>",
+		"<li>While we have the scanning advantage, our Cruisers have the best weapon class. We rolled 1,1,2,3,3,4,4,5,5,6,6,7,10 (9 hits &le;5)</li>",
+		"<li>Our Scouts then use their Tactics advantage, and rolled 1,2,3,5,9 (1 hit &le;1)</li>",
+		"<li>Their Raiders have rolled 3,2,7,9,8,9,1 against our scouts (3 hits &le;5)<br /><br /></li>",
+		"<li><b>Round 2</b>: Our Cruisers have gained the fleet size bonus, and rolled 1,1,2,3,4,4,4,5,5,7,8,8,9 (9 hits &le;6)</li>",
+		"<li>Our Scouts rolled 5,10 (0 hits &le;2)</li>",
+		"<li>Their Raiders have rolled 6,8,5 against our scouts (1 hit &le;5)<br /><br /></li>",
+		"<li><b>Round 3</b>: Our Cruisers have rolled 1,1,1,2,4,5,5,6,6,9,9,10,10 (9 hits &le;6), eliminating this raider fleet at last!</li></ol>"],
+	"actions":
+		[{
+			"placeCounter":"SC4O",
+			"location":"J9",
+			"size":1
+		},{
+			"placeCounter":"SC5O",
+			"location":"J9",
+			"size":4
+		},{
+			"placeGhost":"DD1O",
+			"location":"K8"
+		},{
+			"placeCounter":"DD1O",
+			"location":"J9"
+		},{
+			"placeCounter":"CA1O",
+			"location":"J9",
+			"size":6
+		},{
+			"placeGhost":"CA2O",
+			"location":"I8"
+		},{
+			"placeCounter":"CA2O",
+			"location":"J9",
+			"size":6
+		},{
+			"placeGhost":"CA3O",
+			"location":"I9"
+		},{
+			"placeCounter":"CA3O",
+			"location":"J9",
+			"size":1
+		},{
+			"placeCounter":"Miner1O",
+			"location":"I8",
+			"size":2
+		},{
+			"removeCounter":"systemH8"
+		},{
+			"placeCounter":"R2Y",
+			"location":"J9",
+			"size":12
+		},{
+			"placeCounter":"systemG7",
+			"name":"lost"
+		},{
+			"revealCounter":"systemG10",
+			"name":"blackHole"
+		}]},
+	{"heading":"Stardate 2411.7",
+	"commentary":["Our excellent execution was easily worth trading out a colony. Soon it will be time to regroup..."],
+	"actions":
+		[{
+			"placeCounter":"SC4O",
+			"location":"J7",
+			"size":2
+		},{
+			"removeCounter":"SC5O"
+		},{
+			"removeCounter":"SW1O"
+		},{
+			"placeCounter":"DD1O",
+			"location":"J7"
+		},{
+			"placeGhost":"CA1O",
+			"location":"J8"
+		},{
+			"placeCounter":"CA1O",
+			"location":"J7",
+			"size":6
+		},{
+			"placeCounter":"CA2O",
+			"location":"J7",
+			"size":7
+		},{
+			"removeCounter":"CA3O"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"H8",
+			"size":1
+		},{
+			"removeCounter":"R2Y"
+		},{
+			"removeCounter":"systemG7"
+		},{
+			"revealCounter":"systemK7",
+			"name":"colony1"
+		}]},
+	{"heading":"Stardate 2412.0",
+	"commentary":[
+		"We have acquired some breathing room. Perhaps we should prepare to pay one of their homeworlds a visit soon. To that end, we will buy Minesweeping 1 (-10). We then buy 4 Minesweepers (-24).",
+		"The plasma storm rolls a 6. This time, a quantum filament blocks its move.",
+		"{prodTable}{techTable}",
+		"The Alien Players have rolled 3,4,7,10 (Charon) / 2,2,2,3,6 (Varda). Now that Varda knows we have Scanning 1, it has lost its Cloaking advantage.",
+		"For fleet launch, they rolled 5 (Charon) / 10 (Varda). No launches take place still."],
+	"prodTable":
+		[{
+			"name":"CSY (Orange)","initCP":3,"colonyCP":56,"mineralCP":5,"pipeCP":0,"maint":29,"bidCP":0,"techBuy":10,"unitBuy":24
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Orange)","explore":1,"size":3,"atk":2,"move":3,"SY":2,"tac":1,"PD":1,"terraform":1,"scan":1,"minesweep":1
+		},{
+			"name":"Charon (Blue)","minelay":1,"move":2,"size":2,"minesweep":1,"ftr":1,"def":1
+		},{
+			"name":"Varda (Yellow)","minelay":1,"size":3,"atk":1,"def":3,"cloak":1
+		}],
+	"alienTable":
+		[{
+			"name":"Charon (Blue)","eco":4,"fleet":127,"tech":25,"def":40,"delta":"FTD"
+		},{
+			"name":"Varda (Yellow)","eco":5,"fleet":77,"tech":30,"def":50,"delta":"F"
+		},{
+			"name":"(Rolls)","ecoPhase":12
+		}],
+	"actions":
+		[{
+			"placeCounter":"SC4O",
+			"location":"J7",
+			"size":2
+		},{
+			"removeCounter":"SC5O"
+		},{
+			"placeCounter":"SW1O",
+			"location":"L7",
+			"size":4
+		},{
+			"placeCounter":"DD1O",
+			"location":"J7"
+		},{
+			"placeCounter":"CA1O",
+			"location":"J7",
+			"size":6
+		},{
+			"placeCounter":"CA2O",
+			"location":"J7",
+			"size":7
+		},{
+			"placeCounter":"Miner1O",
+			"location":"H8",
+			"size":1
+		},{
+			"revealCounter":"systemK7",
+			"name":"colony3"
+		}]},
+	{"heading":"Stardate 2412.3",
+	"commentary":["Since Charon has the larger fleet bank, we consider them to be the larger threat at present. Thus, we move towards their homeworld."],
+	"actions":
+		[{
+			"placeCounter":"SC4O",
+			"location":"K6",
+			"size":2
+		},{
+			"removeCounter":"SC6O"
+		},{
+			"placeCounter":"SW1O",
+			"location":"K6",
+			"size":4
+		},{
+			"placeCounter":"DD1O",
+			"location":"K6"
+		},{
+			"placeCounter":"CA1O",
+			"location":"K6",
+			"size":6
+		},{
+			"placeCounter":"CA2O",
+			"location":"K6",
+			"size":7
+		},{
+			"placeCounter":"Miner1O",
+			"location":"H7",
+			"size":1
+		},{
+			"removeCounter":"CO10O"
+		},{
+			"removeCounter":"CO11O"
+		},{
+			"removeCounter":"fleet3B"
+		},{
+			"placeCounter":"systemH7",
+			"name":"minerals5"
+		},{
+			"revealCounter":"systemK7",
+			"name":"colony3"
+		}]},
+	{"heading":"Stardate 2413.0",
+	"commentary":[
+		"With next to no action to speak of, we condense the rest of the turns and proceed directly to the next economic phase. We opt to be greedy and buy 2 Colony Ships (-16), followed by 2 Scouts (-12).",
+		"The plasma storm rolls a 2. This time, the supernova sends its greetings.",
+		"{prodTable}{techTable}",
+		"We have officially reached the late-game. The Alien Players can no longer increase their Defense banks (including overflowing into the Fleet bank). Still, they have rolled 1,2,6,10 (Charon) / 4,6,7,9,10 (Varda).",
+		"For fleet launch, they rolled 1 (Charon) / 8 (Varda). Surprise surprise; the player we intend to greet launches a fleet! On the Movement step, a 6 was rolled (skip)."],
+	"prodTable":
+		[{
+			"name":"CSY (Orange)","initCP":1,"colonyCP":58,"mineralCP":5,"pipeCP":0,"maint":33,"bidCP":0,"techBuy":0,"unitBuy":28
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Orange)","explore":1,"size":3,"atk":2,"move":3,"SY":2,"tac":1,"PD":1,"terraform":1,"scan":1,"minesweep":1
+		},{
+			"name":"Charon (Blue)","minelay":1,"move":2,"size":2,"minesweep":1,"ftr":1,"def":1
+		},{
+			"name":"Varda (Yellow)","minelay":1,"size":3,"atk":1,"def":3,"cloak":1
+		}],
+	"alienTable":
+		[{
+			"name":"Charon (Blue)","eco":4,"fleet":0,"tech":35,"def":40,"delta":"fTH","hidden":"157"
+		},{
+			"name":"Varda (Yellow)","eco":5,"fleet":97,"tech":60,"def":50,"delta":"FT"
+		},{
+			"name":"(Rolls)","ecoPhase":13
+		}],
+	"actions":
+		[{
+			"placeGhost":"CA1O",
+			"location":"K5"
+		},{
+			"placeGhost":"CA1O",
+			"location":"K4"
+		},{
+			"placeGhost":"CA1O",
+			"location":"K3"
+		},{
+			"placeCounter":"SC4O",
+			"location":"J3",
+			"size":2
+		},{
+			"placeCounter":"SC6O",
+			"location":"L7",
+			"size":2
+		},{
+			"placeCounter":"SW1O",
+			"location":"J3",
+			"size":4
+		},{
+			"placeCounter":"DD1O",
+			"location":"J3"
+		},{
+			"placeCounter":"CA1O",
+			"location":"J3",
+			"size":6
+		},{
+			"placeCounter":"CA2O",
+			"location":"J3",
+			"size":7
+		},{
+			"placeGhost":"Miner1O",
+			"location":"I6"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"J6",
+			"size":1
+		},{
+			"placeCounter":"CO10O",
+			"location":"L7"
+		},{
+			"placeCounter":"CO11O",
+			"location":"L7"
+		},{
+			"placeCounter":"fleet3B",
+			"location":"H1",
+			"size":16
+		},{
+			"removeCounter":"systemH7"
+		},{
+			"revealCounter":"systemK7",
+			"name":"colony5O"
+		}]},
+	{"heading":"Stardate 2413.2",
+	"commentary":["We have an idea regarding luring Charon out into the open..."],
+	"actions":
+		[{
+			"placeCounter":"SC4O",
+			"location":"I2",
+			"size":2
+		},{
+			"placeCounter":"SW1O",
+			"location":"I2",
+			"size":4
+		},{
+			"placeCounter":"DD1O",
+			"location":"I2"
+		},{
+			"placeCounter":"CA1O",
+			"location":"I2",
+			"size":6
+		},{
+			"placeCounter":"CA2O",
+			"location":"J2",
+			"size":7
+		},{
+			"placeCounter":"Miner1O",
+			"location":"I5",
+			"size":1
+		},{
+			"placeCounter":"CO10O",
+			"location":"K6"
+		},{
+			"placeCounter":"CO11O",
+			"location":"K6"
+		},{
+			"placeCounter":"fleet3B",
+			"location":"H2",
+			"size":16
+		},{
+			"removeCounter":"CV3B"
+		},{
+			"removeCounter":"Ftr3B"
+		},{
+			"removeCounter":"CA3B"
+		},{
+			"removeCounter":"DD3B"
+		},{
+			"revealCounter":"systemK1",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemJ1",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemI1",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2413.5 (The Battle for Sector H3)",
+	"commentary":[
+		"Now that our Destroyer has served its initial purpose, we can use it to <i>lure</i> Charon into battling it. Because we have shown Point-Defense, Charon skips the extra Fighter step. On the Ship Size step, a 7 was rolled (buy for -15). A 1 was then rolled (Attack 1 for -20), which spends all of its tech money.",
+		"Because we have previously shown Point-Defense previously, a 4 was rolled on whether to build a carrier fleet anyway (success &le;4). 5 full carriers were built (-135), followed by 1 cruiser (largest ship for -12) and 1 destroyer (leftover money for -9). Their Fighters rolled 1,1,2,3,3,3,4,5,5,7,7,9,9,10 (12 hits &le;7), achieving utter overkill!"],
+	"actions":
+		[{
+			"placeCounter":"SC4O",
+			"location":"I2",
+			"size":2
+		},{
+			"placeCounter":"SW1O",
+			"location":"I2",
+			"size":4
+		},{
+			"placeCounter":"DD1O",
+			"location":"H3"
+		},{
+			"placeCounter":"CA1O",
+			"location":"I2",
+			"size":6
+		},{
+			"placeCounter":"CA2O",
+			"location":"I2",
+			"size":7
+		},{
+			"placeCounter":"Miner1O",
+			"location":"H5",
+			"size":1
+		},{
+			"placeCounter":"CO10O",
+			"location":"J6"
+		},{
+			"placeCounter":"CO11O",
+			"location":"J6"
+		},{
+			"removeCounter":"fleet3B"
+		},{
+			"placeCounter":"CV3B",
+			"location":"H3",
+			"size":5
+		},{
+			"placeCounter":"Ftr3B",
+			"location":"H3",
+			"size":15
+		},{
+			"placeCounter":"CA3B",
+			"location":"H3"
+		},{
+			"placeCounter":"DD3B",
+			"location":"H3"
+		},{
+			"resizeCounter":"base1B",
+			"size":1
+		},{
+			"placeCounter":"systemK1",
+			"name":"danger"
+		},{
+			"revealCounter":"systemJ1",
+			"name":"warp2"
+		},{
+			"revealCounter":"systemI1",
+			"name":"minerals10"
+		},{
+			"revealCounter":"systemH2",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2413.8",
+	"commentary":[
+		"<h3>The First Battle for Terra</h3>",
+		"We take advantage of an opening that was made, and bring our Minesweepers to their homeworld, while the rest of the fleet clashes at where our Destroyer fell.",
+		"Having only minesweepers at their homeworld may be more advantageous than we give it credit, depending on their defense composition roll. A 7 was rolled, causing 40 CP to be spent alternating between bases and minelayers. 2 bases (-24) and 3 minelayers (-15) were bought this way.",
+		"After their ammunition was swept, their bases rolled 4,5,10/3,4,9 (4 hits &le;8, having combined 2 rounds worth), easily eliminating our stragglers. Still worth eliminating the uncertainty in our opinion.",
+		"<h3>The Battle for Sector H3</h3>",
+		"This may very well be our largest battle yet. Since their fleet is known from having taken out our destroyer, we proceed right away.",
+		"<ol><li><b>Round 1</b>: Our Scouts have the Point-Defense advantage, and shoot first. We rolled 3,5 (2 hits &le;6)</li>",
+		"<li>Their Fighters rolled 8,10,4,5 against our scouts (2 hits &le;6), followed by 3,5,6,7,9,9,9,9,10 against our cruisers (3 hits &le;6)</li>",
+		"<li>Some of our Cruisers have the Tactics advantage. The ones that do rolled 3,3,6,7,9,9 against their fighters (3 hits &le;6)</li>",
+		"<li>Their sole Cruiser rolled an 8 (&le;5 to hit)</li>",
+		"<li>The rest of our Cruisers rolled 1,4,4,7,8,9 against their fighters (3 hits &le;6)</li>",
+		"<li>Their sole Destroyer rolled an 8 (&le;5 to hit)</li>",
+		"<li>Their Carriers rolled 1,3,5,7,7 (2 hits &le;4)<br /><br /></li>",
+		"<li><b>Round 2</b>: Their Fighters rolled 1,1,2,5,7,9,10 (4 hits &le;6)</li>",
+		"<li>Our Tactics 1 Cruisers have rolled 1,6,9 against their fighters (2 hits &le;6)</li>",
+		"<li>Their Cruiser rolled a 6 (&le;5 to hit)</li>",
+		"<li>Our Tactics 0 Cruisers rolled 5,5,9,4,7,6 against their fighters (4 hits &le;6)</li>",
+		"<li>Their Destroyer rolled an 8 (&le;5 to hit)</li>",
+		"<li>Their Carriers rolled 2,4,7,7,8 (2 hits &le;4)<br /><br /></li>",
+		"<li><b>Round 3</b>: Their last Fighters rolled an 8 (&le;6 to hit)</li>",
+		"<li>Our Tactics 1 Cruisers have rolled 4/6 against their fighter/destroyer (2 hits &le;6)</li>",
+		"<li>Their Cruiser rolled an 8 (&le;5 to hit)</li>",
+		"<li>Our Tactics 0 Cruisers rolled 5,6,9,6,9,3 against their carriers (4 hits &le;6)</li>",
+		"<li>Their last Carrier rolled a 10 (&le;4 to hit)<br /><br /></li>",
+		"<li><b>Round 4</b>: Our Tactics 1 Cruisers gain the Fleet Size Bonus (8:2), and rolled 6/4 against their carrier/cruiser (2 hits &le;7/6)</li>",
+		"<li>Their Cruiser rolled a 3 (hit &le;5)</li>",
+		"<li>Our Tactics 0 Cruisers rolled 1,4,5,5,5,7 against their cruiser (5 hits &le;6). Their fleet has been eliminated!!</li></ol>"],
+	"actions":
+		[{
+			"placeCounter":"SC4O",
+			"location":"H3",
+			"size":2
+		},{
+			"placeGhost":"SW1O",
+			"location":"I1"
+		},{
+			"placeCounter":"SW1O",
+			"location":"H1",
+			"size":4
+		},{
+			"removeCounter":"DD1O"
+		},{
+			"placeCounter":"CA1O",
+			"location":"H3",
+			"size":6
+		},{
+			"placeCounter":"CA2O",
+			"location":"H3",
+			"size":7
+		},{
+			"removeCounter":"CA3O"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"G4",
+			"size":1
+		},{
+			"placeCounter":"systemG4",
+			"name":"minerals10"
+		},{
+			"placeCounter":"CO10O",
+			"location":"I5"
+		},{
+			"placeCounter":"CO11O",
+			"location":"I5"
+		},{
+			"placeCounter":"CV3B",
+			"location":"H3",
+			"size":5
+		},{
+			"placeCounter":"Ftr3B",
+			"location":"H3",
+			"size":15
+		},{
+			"placeCounter":"CA3B",
+			"location":"H3"
+		},{
+			"placeCounter":"DD3B",
+			"location":"H3"
+		},{
+			"resizeCounter":"base1B",
+			"size":3
+		},{
+			"placeGhost":"mines1B",
+			"location":"H1"
+		},{
+			"removeCounter":"fleet1B"
+		},{
+			"removeCounter":"fleet1Y"
+		},{
+			"removeCounter":"systemK1"
+		},{
+			"placeCounter":"systemH2",
+			"name":"danger"
+		}]},
+	{"heading":"Stardate 2414.0",
+	"commentary":[
+		"That was an intense battle we had against Charon's carrier fleet! We replace some of our losses, and build 3 Cruisers (-36).",
+		"The plasma storm rolls a 9. No attempt to move is made this time.",
+		"{prodTable}{techTable}",
+		"The Alien Players are almost completely done with their infrastructure. They have rolled 2,3,5,8 (Charon) / 3,4,9,9,10 (Varda).",
+		"Fleet Launch rolls are skipped this time. Starting with this economic phase, and repeating each subsequent even numbered EP, this process is now automatic. Instead, on the respective Movement steps, they rolled 7 (Charon) / 4 (Varda). The latter buys Movement 2 (-20).",
+		"Speaking of, since Varda recently unlocked the ability to build raider fleets, they normally would launch such a fleet here, building the ships right away. But, because our Scanning is at least as good as their Cloaking, this does not take place. Thus, their newest fleet becomes a regular fleet."],
+	"prodTable":
+		[{
+			"name":"CSY (Orange)","initCP":3,"colonyCP":60,"mineralCP":0,"pipeCP":0,"maint":16,"bidCP":0,"techBuy":0,"unitBuy":36
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Orange)","explore":1,"size":3,"atk":2,"move":3,"SY":2,"tac":1,"PD":1,"terraform":1,"scan":1,"minesweep":1
+		},{
+			"name":"Charon (Blue)","minelay":1,"move":2,"size":3,"minesweep":1,"ftr":1,"def":1,"atk":1
+		},{
+			"name":"Varda (Yellow)","minelay":1,"size":3,"atk":1,"def":3,"cloak":1,"move":2
+		}],
+	"alienTable":
+		[{
+			"name":"Charon (Blue)","eco":4,"fleet":0,"tech":45,"def":1,"delta":"fTdH","hidden":"31"
+		},{
+			"name":"Varda (Yellow)","eco":5,"fleet":0,"tech":70,"def":50,"delta":"fTH","hidden":"117"
+		},{
+			"name":"(Rolls)","ecoPhase":14
+		}],
+	"actions":
+		[{
+			"removeCounter":"SC4O"
+		},{
+			"placeCounter":"SC6O",
+			"location":"L7",
+			"size":2
+		},{
+			"removeCounter":"SW1O"
+		},{
+			"placeCounter":"CA1O",
+			"location":"H3",
+			"size":6
+		},{
+			"placeCounter":"CA2O",
+			"location":"H3",
+			"size":1
+		},{
+			"placeCounter":"CA3O",
+			"location":"L7",
+			"size":3
+		},{
+			"placeCounter":"Miner1O",
+			"location":"G4",
+			"size":3
+		},{
+			"removeCounter":"systemG4"
+		},{
+			"placeCounter":"CO10O",
+			"location":"I5"
+		},{
+			"placeCounter":"CO11O",
+			"location":"I5"
+		},{
+			"removeCounter":"CV3B"
+		},{
+			"removeCounter":"Ftr3B"
+		},{
+			"removeCounter":"CA3B"
+		},{
+			"removeCounter":"DD3B"
+		},{
+			"placeCounter":"fleet1B",
+			"location":"H1",
+			"size":4
+		},{
+			"removeCounter":"CA4B"
+		},{
+			"removeCounter":"SC4B"
+		},{
+			"removeCounter":"systemH2"
+		},{
+			"placeCounter":"fleet1Y",
+			"location":"H13",
+			"size":12
+		},{
+			"removeCounter":"systemH2"
+		}]},
+	{"heading":"Stardate 2414.1 (The Battle for Sector H2)",
+	"commentary":[
+		"Automatic fleet launches makes it difficult to defend... but it also effectively limits the amount of money they are able to accumulate in between automatic launches.",
+		"Meanwhile, we take advantage of Charon's pathfinding, now that it suddenly became limited when we colonized Gath (H5). On the Ship Size step, an 8 was rolled (skip). On the last step, they rolled an 8 (Figher 2 for -20), followed by a 9 (Point-Defense 1 for -20). They are no longer able to afford more technology, so we end this set of steps.",
+		"Even though they improved their Fighter technology, merely showing <i>any</i> Point-Defense necessitates that they roll to determine whether to build a carrier fleet. A 9 was rolled (failure &gt;4), so they forgo this composition. Instead, the largest ship they have unlocked is still a Cruiser. A 9 is then rolled for fleet composition. This causses them to field 2 Cruisers (-24) and 1 Scout (-6).",
+		"<ol><li><b>Round 1</b>: Our Cruisers have the Tactics and FSB advantages. We rolled a 6 against their scout (hit &le;7), followed by 6,8,8,8,10 against their cruisers (1 hit &le;6)</li>",
+		"<li>Their Cruisers rolled 4,5 (2 hits &le;6)<br /><br /></li>",
+		"<li><b>Round 2</b>: Our Cruisers rolled 2,4,5,5,7 (4 hits &le;6), finishing their puny fleet off</li></ol>"],
+	"actions":
+		[{
+			"placeCounter":"SC6O",
+			"location":"K7",
+			"size":2
+		},{
+			"placeCounter":"CA1O",
+			"location":"H2",
+			"size":6
+		},{
+			"placeCounter":"CA2O",
+			"location":"I3",
+			"size":1
+		},{
+			"placeCounter":"CA3O",
+			"location":"K7",
+			"size":3
+		},{
+			"placeCounter":"Miner1O",
+			"location":"H5",
+			"size":3
+		},{
+			"placeCounter":"CO10O",
+			"location":"I4"
+		},{
+			"placeCounter":"CO11O",
+			"location":"H5"
+		},{
+			"removeCounter":"fleet1B"
+		},{
+			"placeCounter":"CA4B",
+			"location":"H2",
+			"size":2
+		},{
+			"placeCounter":"SC4B",
+			"location":"H2"
+		},{
+			"placeCounter":"fleet1Y",
+			"location":"I12",
+			"size":12
+		}]},
+	{"heading":"Stardate 2414.4",
+	"commentary":["Now for the difficult part... defending against Varda's larger fleet."],
+	"actions":
+		[{
+			"placeCounter":"SC6O",
+			"location":"J7",
+			"size":2
+		},{
+			"placeGhost":"CA1O",
+			"location":"H3"
+		},{
+			"placeCounter":"CA1O",
+			"location":"I3",
+			"size":5
+		},{
+			"placeGhost":"CA2O",
+			"location":"I4"
+		},{
+			"placeCounter":"CA2O",
+			"location":"I5",
+			"size":1
+		},{
+			"placeCounter":"CA3O",
+			"location":"J7",
+			"size":3
+		},{
+			"placeCounter":"Miner1O",
+			"location":"H4",
+			"size":1
+		},{
+			"removeCounter":"CA4B"
+		},{
+			"removeCounter":"SC4B"
+		},{
+			"placeGhost":"fleet1Y",
+			"location":"I11"
+		},{
+			"placeCounter":"fleet1Y",
+			"location":"J11",
+			"size":12
+		}]},
+	{"heading":"Stardate 2414.7",
+	"commentary":["Fortunately, we get one last economic phase to regroup, before this whole mess blows up."],
+	"actions":
+		[{
+			"placeCounter":"SC6O",
+			"location":"J7",
+			"size":2
+		},{
+			"placeGhost":"CA1O",
+			"location":"I4"
+		},{
+			"placeCounter":"CA1O",
+			"location":"I5",
+			"size":5
+		},{
+			"placeGhost":"CA2O",
+			"location":"I6"
+		},{
+			"placeCounter":"CA2O",
+			"location":"J7",
+			"size":1
+		},{
+			"placeCounter":"CA3O",
+			"location":"J7",
+			"size":3
+		},{
+			"placeCounter":"Miner1O",
+			"location":"H3",
+			"size":1
+		},{
+			"placeCounter":"CO10O",
+			"location":"I4"
+		},{
+			"placeCounter":"CO11O",
+			"location":"H5"
+		},{
+			"placeGhost":"fleet1Y",
+			"location":"J10"
+		},{
+			"placeCounter":"fleet1Y",
+			"location":"J9",
+			"size":12
+		},{
+			"revealCounter":"systemI4",
+			"name":"planetW18"
+		},{
+			"revealCounter":"systemH5",
+			"name":"planetW10"
+		}]},
+	{"heading":"Stardate 2415.0",
+	"commentary":[
+		"The suspense builds still. We take advantage of the breathing room available, and buy another 4 Cruisers (-48).",
+		"The plasma storm rolls a 5. Yet again, planets do not budge an inch.",
+		"{prodTable}{techTable}",
+		"The Alien Players have maxed out their natural infrastructure. They have rolled 3,3,4,7,8 (Charon) / 1,3,3,4,6,9 (Varda).",
+		"Once more, fleet launches require a roll. And also here is where things get inconsistent. When determining whether a carrier fleet gets automatically built (CP permitting) or if extra Fighter tech is bought as a unique step depends on whether we show Point-Defense <i>at all</i>. For the purposes of fleet launch, it is whether their Fighter tech is greater than the Point-Defense we have shown.",
+		"With that out of the way, the alien players have rolled 8 (Charon) / 6 (Varda). Even with the Carrier advantage, no launch takes place this EP."],
+	"prodTable":
+		[{
+			"name":"CSY (Orange)","initCP":11,"colonyCP":60,"mineralCP":10,"pipeCP":0,"maint":20,"bidCP":0,"techBuy":0,"unitBuy":48
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Orange)","explore":1,"size":3,"atk":2,"move":3,"SY":2,"tac":1,"PD":1,"terraform":1,"scan":1,"minesweep":1
+		},{
+			"name":"Charon (Blue)","minelay":1,"move":2,"size":3,"minesweep":1,"ftr":2,"def":1,"atk":1,"PD":1
+		},{
+			"name":"Varda (Yellow)","minelay":1,"size":3,"atk":1,"def":3,"cloak":1,"move":2
+		}],
+	"alienTable":
+		[{
+			"name":"Charon (Blue)","eco":5,"fleet":41,"tech":15,"def":1,"delta":"Fth"
+		},{
+			"name":"Varda (Yellow)","eco":6,"fleet":50,"tech":80,"def":50,"delta":"FT","hidden":"117"
+		},{
+			"name":"(Rolls)","ecoPhase":15
+		}],
+	"actions":
+		[{
+			"placeCounter":"SC6O",
+			"location":"J7",
+			"size":2
+		},{
+			"placeCounter":"CA1O",
+			"location":"I5",
+			"size":5
+		},{
+			"placeCounter":"CA2O",
+			"location":"J7",
+			"size":4
+		},{
+			"placeCounter":"CA3O",
+			"location":"L7",
+			"size":4
+		},{
+			"placeCounter":"Miner1O",
+			"location":"H3",
+			"size":1
+		},{
+			"removeCounter":"CO10O"
+		},{
+			"removeCounter":"CO11O"
+		},{
+			"placeCounter":"fleet1Y",
+			"location":"J9",
+			"size":12
+		},{
+			"removeCounter":"CA4Y"
+		},{
+			"removeCounter":"DD4Y"
+		},{
+			"revealCounter":"systemI4",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemH5",
+			"name":"colony1"
+		}]},
+	{"heading":"Stardate 2415.3 (The Bombardment of Stellarsphere)",
+	"commentary":["Varda is now ready to conduct more bombardments. But first, it should spend its resources:",
+	"<ol><li>Rolled a 7 on the Ship Size step (skip)</li>",
+	"<li>Rolled a 5 for Tactics 1 (Attack 2 missing, so bought instead; 80 &rarr; 50 tech CP)</li>",
+	"<li>Rolled another 5 for Tactics 1 (prereqs met this time, 50 &rarr; 35 CP)</li>",
+	"<li>Rolled a 2 for Attack 3 (35 &rarr; 10 CP)</li>",
+	"<li>Emptied the technology bank by buying Minesweeping 1 (10 &rarr; 0 CP)</li>",
+	"<li>The largest ship is a Cruiser (117 &rarr; 105 assigned CP)</li>",
+	"<li>A 5 was rolled for fleet composition. Since Ship Size is the bottleneck, treat as largest ships</li>",
+	"<li>8 more cruisers are bought (105 &rarr; 9 CP)</li>",
+	"<li>1 destroyer is bought (9 &rarr; 0 CP)</li></ol>",
+	"That leaves only the bombardment process itself. Their Cruisers rolled 1,1,1,1,5,7,8,8,10 (5 hits &le;6), which already glasses this planet."],
+	"actions":
+		[{
+			"placeCounter":"SC6O",
+			"location":"K7",
+			"size":2
+		},{
+			"placeCounter":"CA1O",
+			"location":"J6",
+			"size":5
+		},{
+			"placeCounter":"CA2O",
+			"location":"K7",
+			"size":4
+		},{
+			"placeCounter":"CA3O",
+			"location":"K7",
+			"size":4
+		},{
+			"placeCounter":"Miner1O",
+			"location":"H2",
+			"size":1
+		},{
+			"removeCounter":"fleet1Y"
+		},{
+			"placeCounter":"CA4Y",
+			"location":"K8",
+			"size":9
+		},{
+			"placeCounter":"DD4Y",
+			"location":"K8"
+		},{
+			"revealCounter":"systemK8",
+			"name":"colony5O"
+		}]},
+	{"heading":"Stardate 2415.6P (The Avengement for Stellarsphere)",
+	"commentary":[
+		"We use our consolidated forces to battle the fleet that just took out a colony, in an effort to avenge the loss. Since their fleet just got exposed, we proceed right away.",
+		"<ol><li><b>Round 1</b>: Their Cruisers have gained the Tactics advantage outright this time, so they proceed first. They rolled 4,8,2/1,2,3,4,7,8 (7 hits &le;6)</li>",
+		"<li>Our Cruisers have already taken a beating, but respond with 5/2,2,2,2,4,4,9,9,10,10 (7 hits &le;6/4)<br /><br /></li>",
+		"<li><b>Round 2</b>: Their Cruisers have rolled 1,2,5,7,7,8 (3 hits &le;6)</li>",
+		"<li>Our Cruisers have rolled 1,1,2,7,8,9,10,10 (3 hits &le;4)<br /><br /></li>",
+		"<li><b>Round 3</b>: Their Cruisers have rolled 2,3,5,9,10 (3 hits &le;6)</li>",
+		"<li>Our Cruisers have rolled 2,5,6,7,7,9,10 (1 hit &le;4)<br /><br /></li>",
+		"<li><b>Round 4</b>: Their Cruisers have rolled 2,5,5,7 (3 hits &le;6)</li>",
+		"<li>Our Cruisers have rolled 1,4,7,9,10 (2 hits &le;4)<br /><br /></li>",
+		"<li><b>Round 5</b>: Their Cruisers have rolled 4,4,7 (2 hits &le;6)</li>",
+		"<li>Our Cruisers have rolled 4,5,8,10 (1 hit &le;4)<br /><br /></li>",
+		"<li><b>Round 6</b>: Their Cruisers have rolled 1,3,6 (3 hits &le;6)</li>",
+		"<li>Our Cruisers have rolled 3,7 (1 hit &le;4)<br /><br /></li>",
+		"<li><b>Round 7</b>: Their Cruisers have rolled 7,8 (0 hits &le;6)</li>",
+		"<li>Our Cruisers have rolled 1,6 (1 hit &le;4)<br /><br /></li>",
+		"<li><b>Round 8</b>: Their Cruisers have rolled 6,7 (1 hit &le;6)</li>",
+		"<li>Our Cruisers have rolled 5,10 (0 hits &le;4)<br /><br /></li>",
+		"<li><b>Round 9</b>: Their Cruisers have rolled 1,6 (2 hits &le;6)</li>",
+		"<li>Our last Cruiser has rolled a 1 (hit &le;4)<br /><br /></li>",
+		"<li><b>Round 10</b>: Their last Cruiser has rolled a 4 (hit &le;6), finishing our fleet off!</li></ol>"],
+	"actions":
+		[{
+			"placeCounter":"SC6O",
+			"location":"K8",
+			"size":2
+		},{
+			"placeGhost":"CA1O",
+			"location":"K6"
+		},{
+			"placeCounter":"CA1O",
+			"location":"L7",
+			"size":5
+		},{
+			"placeCounter":"CA2O",
+			"location":"K8",
+			"size":8
+		},{
+			"removeCounter":"CA3O"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"I1",
+			"size":1
+		},{
+			"placeCounter":"systemI1",
+			"name":"minerals10"
+		},{
+			"placeCounter":"CA4Y",
+			"location":"K8",
+			"size":9
+		},{
+			"placeCounter":"DD4Y",
+			"location":"K8"
+		},{
+			"revealCounter":"systemK8",
+			"name":"planetO7"
+		}]},
+	{"heading":"Stardate 2415.6A",
+	"commentary":["Unfortunate, but this was a <i>close</i> battle! The damage we did do may have made just the difference we need. But first, their last Cruiser makes one last bombardment roll against another planet. A 1 was rolled (hit), damaging our colony."],
+	"actions":
+		[{
+			"removeCounter":"SC6O"
+		},{
+			"placeCounter":"CA1O",
+			"location":"L7",
+			"size":5
+		},{
+			"removeCounter":"CA2O"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"I1",
+			"size":3
+		},{
+			"removeCounter":"systemI1"
+		},{
+			"placeCounter":"CA4Y",
+			"location":"K7",
+			"size":1
+		},{
+			"removeCounter":"DD4Y"
+		},{
+			"revealCounter":"systemK7",
+			"name":"colony5O"
+		}]},
+	{"heading":"Stardate 2415.9",
+	"commentary":["Our older Cruisers have finally caught up. After they rolled a 4 (hit), we rolled 2,2,3,7,8 (3 hits &le;5), finishing their fleet off!"],
+	"actions":
+		[{
+			"placeCounter":"CA1O",
+			"location":"K7",
+			"size":5
+		},{
+			"removeCounter":"CA2O"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"J2",
+			"size":3
+		},{
+			"placeCounter":"CA4Y",
+			"location":"K7",
+			"size":1
+		},{
+			"removeCounter":"fleet2B"
+		},{
+			"removeCounter":"fleet2Y"
+		},{
+			"revealCounter":"systemK7",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemI4",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemH5",
+			"name":"colony1"
+		}]},
+	{"heading":"Stardate 2416.0",
+	"commentary":[
+		"This does not bode well, having barely defended against Varda while having lost another colony. Hopefully it is not too late, but we should buy Defense 1 (-20), and then buy 3 Cruisers (-36).",
+		"The plasma storm rolls a 3. This time, the unexplored terrain blocks its move.",
+		"{prodTable}{techTable}",
+		"The Alien Players have rolled 2,4,5,6,8 (Charon) / 2,4,5,8,9,10 (Varda). Fleet Launches are automatic once more! On the Movement step, their rolls are 4 (Charon) / 8 (Varda). The former buys more Movement technology."],
+	"prodTable":
+		[{
+			"name":"CSY (Orange)","initCP":13,"colonyCP":55,"mineralCP":0,"pipeCP":0,"maint":10,"bidCP":0,"techBuy":20,"unitBuy":36
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Orange)","explore":1,"size":3,"atk":2,"move":3,"SY":2,"tac":1,"PD":1,"terraform":1,"scan":1,"minesweep":1,"def":1
+		},{
+			"name":"Charon (Blue)","minelay":1,"move":3,"size":3,"minesweep":1,"ftr":2,"def":1,"atk":1,"PD":1
+		},{
+			"name":"Varda (Yellow)","minelay":1,"size":3,"atk":3,"def":3,"cloak":1,"move":2,"tac":1,"minesweep":1
+		}],
+	"alienTable":
+		[{
+			"name":"Charon (Blue)","eco":5,"fleet":0,"tech":5,"def":1,"delta":"ftH","hidden":"81"
+		},{
+			"name":"Varda (Yellow)","eco":6,"fleet":0,"tech":30,"def":50,"delta":"fth","hidden":"80"
+		},{
+			"name":"(Rolls)","ecoPhase":16
+		}],
+	"actions":
+		[{
+			"placeCounter":"CA1O",
+			"location":"K7",
+			"size":5
+		},{
+			"placeCounter":"CA2O",
+			"location":"L7",
+			"size":3
+		},{
+			"placeCounter":"Miner1O",
+			"location":"J2",
+			"size":3
+		},{
+			"removeCounter":"CA4Y"
+		},{
+			"placeCounter":"fleet2B",
+			"location":"H1",
+			"size":9
+		},{
+			"placeCounter":"fleet2Y",
+			"location":"H13",
+			"size":8
+		},{
+			"revealCounter":"systemK7",
+			"name":"colony5O"
+		},{
+			"revealCounter":"systemI4",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemH5",
+			"name":"colony3"
+		}]},
+	{"heading":"Stardate 2416.2",
+	"commentary":["To think if Charon had just the <q>wrong</q> defense composition roll... we might have been able to eliminate them earlier in the journey."],
+	"actions":
+		[{
+			"placeCounter":"CA1O",
+			"location":"K6",
+			"size":5
+		},{
+			"placeCounter":"CA2O",
+			"location":"K6",
+			"size":3
+		},{
+			"placeCounter":"Miner1O",
+			"location":"J3",
+			"size":3
+		},{
+			"placeCounter":"fleet2B",
+			"location":"I1",
+			"size":9
+		},{
+			"placeCounter":"fleet2Y",
+			"location":"I12",
+			"size":8
+		}]},
+	{"heading":"Stardate 2416.5",
+	"commentary":["But, luck tends to better accomodate individuals who do <i>not</i> require it in their plans."],
+	"actions":
+		[{
+			"placeGhost":"CA1O",
+			"location":"K5"
+		},{
+			"placeCounter":"CA1O",
+			"location":"K4",
+			"size":5
+		},{
+			"placeCounter":"CA2O",
+			"location":"K4",
+			"size":3
+		},{
+			"placeCounter":"Miner1O",
+			"location":"J4",
+			"size":3
+		},{
+			"placeGhost":"fleet2B",
+			"location":"I2"
+		},{
+			"placeCounter":"fleet2B",
+			"location":"I3",
+			"size":9
+		},{
+			"removeCounter":"CA5B"
+		},{
+			"removeCounter":"DD5B"
+		},{
+			"removeCounter":"SC5B"
+		},{
+			"placeGhost":"fleet2Y",
+			"location":"I11"
+		},{
+			"placeCounter":"fleet2Y",
+			"location":"J11",
+			"size":8
+		}]},
+	{"heading":"Stardate 2416.8 (The Bombardment of Tycho)",
+	"commentary":[
+		"And it is because of the pathfinding options that Charon is able to assault a colony undefended. Since their tech bank is too small, they go straight to construction.",
+		"On the Carrier step, an 8 was rolled (failure &gt;4). Cruisers are tha largest ship they have unlocked, so they start with 1 (-12). A 4 was rolled for fleet composition. Since their Attack and Defense are too small, they treat it as largest fleet. This gives them 10 Scouts (-60) and 1 Destroyer (-9), spending all of their assigned money.",
+		"On the bombardment step, their ships rolled 1,10/2,3,4,4,4,6,6,8,9,10 (6 hits &le;5/4), easily glassing this colony."],
+	"actions":
+		[{
+			"placeCounter":"CA1O",
+			"location":"J4",
+			"size":5
+		},{
+			"placeCounter":"CA2O",
+			"location":"J4",
+			"size":3
+		},{
+			"removeCounter":"CA3O"
+		},{
+			"placeCounter":"Miner1O",
+			"location":"K4",
+			"size":3
+		},{
+			"removeCounter":"fleet2B"
+		},{
+			"placeCounter":"CA5B",
+			"location":"I4"
+		},{
+			"placeCounter":"DD5B",
+			"location":"I4"
+		},{
+			"placeCounter":"SC5B",
+			"location":"I4",
+			"size":10
+		},{
+			"placeGhost":"fleet2Y",
+			"location":"J10"
+		},{
+			"placeCounter":"fleet2Y",
+			"location":"J9",
+			"size":8
+		},{
+			"revealCounter":"systemI4",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemH5",
+			"name":"colony3"
+		}]},
+	{"heading":"Stardate 2417.0",
+	"commentary":[
+		"We are slowly faltering with each subsequent economic phase. We buy 4 Cruisers (-48), and nothing else.",
+		"The plasma storm rolls a 10. No attempt is made this time.",
+		"{prodTable}{techTable}",
+		"The Alien Players have rolled 3,4,6,8,10 (Charon) / 4,5,6,6,6,8 (Varda). Factoring the Carrier advantage that Charon still has, they then rolled 6 (Charon) / 9 (Varda) for fleet launch. None take place this EP."],
+	"prodTable":
+		[{
+			"name":"CSY (Orange)","initCP":2,"colonyCP":53,"mineralCP":10,"pipeCP":0,"maint":16,"bidCP":0,"techBuy":0,"unitBuy":48
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Orange)","explore":1,"size":3,"atk":2,"move":3,"SY":2,"tac":1,"PD":1,"terraform":1,"scan":1,"minesweep":1,"def":1
+		},{
+			"name":"Charon (Blue)","minelay":1,"move":3,"size":3,"minesweep":1,"ftr":2,"def":1,"atk":1,"PD":1
+		},{
+			"name":"Varda (Yellow)","minelay":1,"size":3,"atk":3,"def":3,"cloak":1,"move":2,"tac":1,"minesweep":1
+		}],
+	"alienTable":
+		[{
+			"name":"Charon (Blue)","eco":5,"fleet":40,"tech":15,"def":1,"delta":"FTh"
+		},{
+			"name":"Varda (Yellow)","eco":6,"fleet":60,"tech":30,"def":50,"delta":"F","hidden":"80"
+		},{
+			"name":"(Rolls)","ecoPhase":17
+		}],
+	"actions":
+		[{
+			"placeCounter":"CA1O",
+			"location":"J4",
+			"size":5
+		},{
+			"placeCounter":"CA2O",
+			"location":"J4",
+			"size":3
+		},{
+			"placeCounter":"CA3O",
+			"location":"L7",
+			"size":4
+		},{
+			"removeCounter":"Miner1O"
+		},{
+			"placeCounter":"CA5B",
+			"location":"I4"
+		},{
+			"placeCounter":"DD5B",
+			"location":"I4"
+		},{
+			"placeCounter":"SC5B",
+			"location":"I4",
+			"size":10
+		},{
+			"placeCounter":"fleet2Y",
+			"location":"J9",
+			"size":8
+		},{
+			"removeCounter":"BC5Y"
+		},{
+			"revealCounter":"systemI4",
+			"name":"planetW18"
+		},{
+			"revealCounter":"systemH5",
+			"name":"colony5O"
+		}]},
+	{"heading":"Stardate 2417.1",
+	"commentary":[
+		"<h3>The Avengement for Tycho</h3>",
+		"Once again, we are late to the party. Such is an unfortunate side effect of Charon having recently bought their next Movement level.",
+		"<ol><li><b>Round 1</b>: Our Cruisers still have the Tactics advantage over Charon. Thus, we rolled 3/1,3,5,6,6,6,8 (7 hits &le;6), focusing their sole destroyer down first</li>",
+		"<li>Their remaining ships rolled 9/1,4,7,9 (2 hits &le;5/4)<br /><br /></li>",
+		"<li><b>Round 2</b>: Our Cruisers rolled 3,9,7,4,2,10,1 (4 hits &le;6/5), cleaning up their scouts</li>",
+		"<li>Their Cruiser is all alone now. It rolled a 7 (&le;5 to hit)<br /><br /></li>",
+		"<li><b>Round 3</b>: Our Cruisers gained FSB, and rolled 2,5,8,8,9,10,10 (2 hits &le;6), finishing their fleet off</li></ol>",
+		"<h3>The Bombardment of Starfire</h3>",
+		"Yet, because of how difficult it is to defend two fronts, Varda now gets a chance to bombard. Before it proceeds, its nanomachines need to know what to build. On the Ship Size step, a 6 was rolled (success &le;6). Nothing else is affordable/fair game at this point.",
+		"Their largest ship is now a Battlecruiser, so they start there. For fleet composition, an 8 was rolled. At Largest Ships, they build a total of 5 Battlecruisers (-75) before their money is too small to even build a scout (5 &lt; 6).",
+		"On the bombardment step, their Battlecruisers rolled 2,3,4,6,10 (4 hits &le;7), pulverizing yet another colony."],
+	"actions":
+		[{
+			"placeCounter":"CA1O",
+			"location":"I4",
+			"size":5
+		},{
+			"placeCounter":"CA2O",
+			"location":"I4",
+			"size":3
+		},{
+			"placeCounter":"CA3O",
+			"location":"L7",
+			"size":4
+		},{
+			"placeCounter":"CA5B",
+			"location":"I4"
+		},{
+			"placeCounter":"DD5B",
+			"location":"I4"
+		},{
+			"placeCounter":"SC5B",
+			"location":"I4",
+			"size":10
+		},{
+			"removeCounter":"fleet2Y"
+		},{
+			"placeCounter":"BC5Y",
+			"location":"I8",
+			"size":5
+		},{
+			"revealCounter":"systemI8",
+			"name":"colony5O"
+		}]},
+	{"heading":"Stardate 2417.4 (The Bombardment of Mordant)",
+	"commentary":[
+		"Once again, it is not feasible to defend. Such is an unfortunate side effect of permanently having the initiative.",
+		"Their Battlecruisers have now met up with another colony. They rolled 5,6,6,8,10 (3 hits &le;7), glassing this planet too."],
+	"actions":
+		[{
+			"placeGhost":"CA2O",
+			"location":"I5"
+		},{
+			"placeCounter":"CA1O",
+			"location":"J6",
+			"size":4
+		},{
+			"placeCounter":"CA2O",
+			"location":"J6",
+			"size":3
+		},{
+			"placeCounter":"CA3O",
+			"location":"L7",
+			"size":4
+		},{
+			"removeCounter":"CA5B"
+		},{
+			"removeCounter":"DD5B"
+		},{
+			"removeCounter":"SC5B"
+		},{
+			"placeGhost":"BC5Y",
+			"location":"J8"
+		},{
+			"placeCounter":"BC5Y",
+			"location":"K7",
+			"size":5
+		},{
+			"revealCounter":"systemI8",
+			"name":"planetO6"
+		},{
+			"revealCounter":"systemK7",
+			"name":"colony5O"
+		}]},
+	{"heading":"Stardate 2417.4 (The Avengement for Mordant)",
+	"commentary":[
+		"Only after we have lost the planet does it become feasible to conduct a pincer counter-assault.",
+		"<ol><li><b>Round 1</b>: Their Battlecruisers have the best Weapon Class this time. They rolled 1,4,7,10,10 (3 hits &le;7)</li>",
+		"<li>Our Cruisers gain FSB, and rolled 1,1,1,2,2,4,6,8,10,10 (6 hits &le;5)<br /><br /></li>",
+		"<li><b>Round 2</b>: Their Battlecruisers rolled 8,10 (0 hits &le;7)</li>",
+		"<li>Our Cruisers rolled 1,2,3,4,5,6,7,7,9,9 (5 hits &le;5), finishing this fleet off also</li></ol>"],
+	"actions":
+		[{
+			"placeGhost":"CA2O",
+			"location":"J7"
+		},{
+			"placeCounter":"CA1O",
+			"location":"K7",
+			"size":4
+		},{
+			"placeCounter":"CA2O",
+			"location":"K7",
+			"size":3
+		},{
+			"placeCounter":"CA3O",
+			"location":"K7",
+			"size":4
+		},{
+			"placeCounter":"BC5Y",
+			"location":"K7",
+			"size":5
+		},{
+			"revealCounter":"systemK7",
+			"name":"planetO9"
+		}]},
+	{"heading":"Stardate 2417.7",
+	"commentary":["With more and more of our planets being glassed, we should make a swift move towards Charon, whom has previously spent their Defense bank."],
+	"actions":
+		[{
+			"placeGhost":"CA2O",
+			"location":"J7"
+		},{
+			"placeCounter":"CA1O",
+			"location":"J6",
+			"size":3
+		},{
+			"placeCounter":"CA2O",
+			"location":"J6",
+			"size":7
+		},{
+			"removeCounter":"CA3O"
+		},{
+			"removeCounter":"BC5Y"
+		},{
+			"removeCounter":"fleet3B"
+		},{
+			"removeCounter":"fleet3Y"
+		}]},
+	{"heading":"Stardate 2418.0",
+	"commentary":[
+		"The income continues to plummet. We are able to buy just 2 Cruisers this time (-24).",
+		"The plasma storm rolls another 10.",
+		"{prodTable}{techTable}",
+		"The Alien Players have rolled 1,1,7,8,9 (Charon) / 2,2,6,7,7,9 (Varda). This is another automatic fleet launch, but only Charon is eligible for the Movement step. A 3 was rolled (buy)."],
+	"prodTable":
+		[{
+			"name":"CSY (Orange)","initCP":1,"colonyCP":45,"mineralCP":0,"pipeCP":0,"maint":20,"bidCP":0,"techBuy":0,"unitBuy":24
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Orange)","explore":1,"size":3,"atk":2,"move":3,"SY":2,"tac":1,"PD":1,"terraform":1,"scan":1,"minesweep":1,"def":1
+		},{
+			"name":"Charon (Blue)","minelay":1,"move":4,"size":3,"minesweep":1,"ftr":2,"def":1,"atk":1,"PD":1
+		},{
+			"name":"Varda (Yellow)","minelay":1,"size":4,"atk":3,"def":3,"cloak":1,"move":2,"tac":1,"minesweep":1
+		}],
+	"alienTable":
+		[{
+			"name":"Charon (Blue)","eco":5,"fleet":0,"tech":0,"def":1,"delta":"ftH","hidden":"80"
+		},{
+			"name":"Varda (Yellow)","eco":6,"fleet":0,"tech":20,"def":50,"delta":"fth","hidden":"115"
+		},{
+			"name":"(Rolls)","ecoPhase":18
+		}],
+	"actions":
+		[{
+			"placeCounter":"CA1O",
+			"location":"J6",
+			"size":3
+		},{
+			"placeCounter":"CA2O",
+			"location":"J6",
+			"size":7
+		},{
+			"placeCounter":"CA3O",
+			"location":"L7",
+			"size":2
+		},{
+			"placeCounter":"fleet3B",
+			"location":"H1",
+			"size":8
+		},{
+			"placeCounter":"fleet3Y",
+			"location":"H13",
+			"size":12
+		}]},
+	{"heading":"Stardate 2418.3",
+	"commentary":["If only we were just a bit faster and/or closer to Charon..."],
+	"actions":
+		[{
+			"placeCounter":"CA1O",
+			"location":"J5",
+			"size":3
+		},{
+			"placeCounter":"CA2O",
+			"location":"J5",
+			"size":7
+		},{
+			"placeGhost":"fleet3B",
+			"location":"H2"
+		},{
+			"placeCounter":"fleet3B",
+			"location":"H3",
+			"size":8
+		},{
+			"placeCounter":"fleet3Y",
+			"location":"I12",
+			"size":12
+		}]},
+	{"heading":"Stardate 2418.6",
+	"commentary":["... then we might have been able to negate their fleet <i>before</i> assaulting their homeworld."],
+	"actions":
+		[{
+			"placeGhost":"CA2O",
+			"location":"I4"
+		},{
+			"placeCounter":"CA1O",
+			"location":"H4",
+			"size":3
+		},{
+			"placeCounter":"CA2O",
+			"location":"H4",
+			"size":7
+		},{
+			"placeGhost":"fleet3B",
+			"location":"I3"
+		},{
+			"placeCounter":"fleet3B",
+			"location":"J4",
+			"size":8
+		},{
+			"removeCounter":"CV6B"
+		},{
+			"removeCounter":"Ftr6B"
+		},{
+			"removeCounter":"CA6B"
+		},{
+			"placeGhost":"fleet3Y",
+			"location":"I11"
+		},{
+			"placeCounter":"fleet3Y",
+			"location":"J11",
+			"size":12
+		}]},
+	{"heading":"Stardate 2418.9 (The Bombardment of Arcadia)",
+	"commentary":[
+		"We are continuing with our risk though. (Not that we have a choice, the nebula protected their fleet last turn.) On the Carrier step, a 2 was rolled (success), they build 2 full carriers (-54) with the money available. Afterwards, they start off with 1 Cruiser, and then rolled an 8 to build a second cruiser (-24 total).",
+		"On the bomardment step, their Fighters rolled 1,5,7,7,7,10 (4 hits &le;7), easily glassing our colony."],
+	"actions":
+		[{
+			"placeGhost":"CA2O",
+			"location":"H3"
+		},{
+			"placeCounter":"CA1O",
+			"location":"H2",
+			"size":3
+		},{
+			"placeCounter":"CA2O",
+			"location":"H2",
+			"size":7
+		},{
+			"removeCounter":"base1O"
+		},{
+			"removeCounter":"fleet3B"
+		},{
+			"placeCounter":"CV6B",
+			"location":"K4",
+			"size":2
+		},{
+			"placeCounter":"Ftr6B",
+			"location":"K4",
+			"size":6
+		},{
+			"placeCounter":"CA6B",
+			"location":"K4",
+			"size":2
+		},{
+			"removeCounter":"fleet1B"
+		},{
+			"placeGhost":"fleet3Y",
+			"location":"J10"
+		},{
+			"placeCounter":"fleet3Y",
+			"location":"J9",
+			"size":12
+		},{
+			"removeCounter":"fleet1Y"
+		},{
+			"revealCounter":"systemK4",
+			"name":"colony5O"
+		}]},
+	{"heading":"Stardate 2419.0",
+	"commentary":[
+		"The plummetting continues, still. Since it appears we should hold the fortress, it is most beneficial we buy a Base this time (-12).",
+		"The plasma storm rolls a 6. Yet again the quantum filament blocks this move.",
+		"{prodTable}{techTable}",
+		"The Alien Players have rolled 2,3,8,9,10 (Charon) / 1,1,3,7,10,10 (Varda). For fleet launch, they rolled 1 (Charon) / 3 (Varda). Both players launch again! Only Varda is eligible for the Movement step though, of which an 8 was rolled (skip)."],
+	"prodTable":
+		[{
+			"name":"CSY (Orange)","initCP":2,"colonyCP":40,"mineralCP":0,"pipeCP":0,"maint":24,"bidCP":0,"techBuy":0,"unitBuy":12
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Orange)","explore":1,"size":3,"atk":2,"move":3,"SY":2,"tac":1,"PD":1,"terraform":1,"scan":1,"minesweep":1,"def":1
+		},{
+			"name":"Charon (Blue)","minelay":1,"move":4,"size":3,"minesweep":1,"ftr":2,"def":1,"atk":1,"PD":1
+		},{
+			"name":"Varda (Yellow)","minelay":1,"size":4,"atk":3,"def":3,"cloak":1,"move":2,"tac":1,"minesweep":1
+		}],
+	"alienTable":
+		[{
+			"name":"Charon (Blue)","eco":5,"fleet":0,"tech":10,"def":1,"delta":"fTh","hidden":"42"
+		},{
+			"name":"Varda (Yellow)","eco":6,"fleet":0,"tech":40,"def":50,"delta":"fTH","hidden":"115 / 40"
+		},{
+			"name":"(Rolls)","ecoPhase":19
+		}],
+	"actions":
+		[{
+			"placeCounter":"CA1O",
+			"location":"H2",
+			"size":3
+		},{
+			"placeCounter":"CA2O",
+			"location":"H2",
+			"size":7
+		},{
+			"placeCounter":"CA3O",
+			"location":"L7",
+			"size":2
+		},{
+			"placeCounter":"base1O",
+			"location":"L7"
+		},{
+			"placeCounter":"CV6B",
+			"location":"K4",
+			"size":2
+		},{
+			"placeCounter":"Ftr6B",
+			"location":"K4",
+			"size":6
+		},{
+			"placeCounter":"CA6B",
+			"location":"K4",
+			"size":2
+		},{
+			"placeCounter":"fleet1B",
+			"location":"H1",
+			"size":5
+		},{
+			"removeCounter":"CV1B"
+		},{
+			"removeCounter":"Ftr1B"
+		},{
+			"removeCounter":"CA1B"
+		},{
+			"placeCounter":"fleet3Y",
+			"location":"J9",
+			"size":12
+		},{
+			"placeCounter":"fleet1Y",
+			"location":"H13",
+			"size":4
+		},{
+			"revealCounter":"systemK4",
+			"name":"planetO1"
+		}]},
+	{"heading":"Stardate 2419.2",
+	"commentary":[
+		"<h3>The Battle for Terra</h3>",
+		"Even if we are screwed, we make one last hurrah against Charon! But first, they must already construct their newest ships. On the Carrier step, a 4 was rolled (success). After 1 full carrier is built (-27), they have enough money for 1 cruiser (-12), and nothing else.",
+		"<ol><li><b>Round 1</b>: Their Bases have the best weapon class this time. They rolled 1,6,8 (3 hits &le;8)</li>",
+		"<li>Their Fighters rolled 1,6,9 (2 hits &le;7)</li>",
+		"<li>Our Cruisers rolled 3,10,5,7,9,9,1/4 against their fighters/carrier (4 hits &le;6/6)</li>",
+		"<li>Their Cruiser rolled a 2 (hit &le;5)<br /><br /></li>",
+		"<li><b>Round 2</b>: Their Bases rolled 1,2,6 (3 hits &le;7)</li>",
+		"<li>Our Cruisers rolled 4,1/9,5,7,2 against their cruiser/bases (3 hits &le;5/4)<br /><br /></li>",
+		"<li><b>Round 3</b>: Their Bases rolled 1,3,5 (3 hits &le;7)</li>",
+		"<li>Our Cruisers gained FSB, and rolled 1,4,5,8 (3 hits &le;5)<br /><br /></li>",
+		"<li><b>Round 4</b>: Their Bases rolled 1,9 (1 hit &le;7)</li>",
+		"<li>Our Cruisers rolled 4,7,8 (1 hit &le;5)<br /><br /></li>",
+		"<li><b>Round 5</b>: Their Bases rolled 5,10 (1 hit &le;7)</li>",
+		"<li>Our Cruisers no longer have FSB, and rolled 1,7,8 (1 hit &le;4)<br /><br /></li>",
+		"<li><b>Round 6</b>: Their last Base rolls a 5 (hit &le;7)</li>",
+		"<li>Our Cruisers regain FSB, and rolled 3,5 (2 hits &le;5)<br /><br /></li>",
+		"<li><b>Round 7</b>: Their last Base rolls another 5 (hit &le;7)</li>",
+		"<li>Our Cruisers rolled 4,7 (1 hit &le;5), finishing off their protection, and leaving Terra exposed!<br /><br /></li>",
+		"<li><b>Bombardment Round</b>: The plan worked! Our victorious Cruisers rolled 4,10 on the named step! (1 hit &le;7)</li></ol>",
+		"<h3>The Bombardment of Xion</h3>",
+		"Now it is Charon's turn for <q>payback</q>. Their Fighters rolled 4,6,7,7,8,10 (4 hits &le;7), which are already enough to glass the next planet."],
+	"actions":
+		[{
+			"placeCounter":"CA1O",
+			"location":"H1",
+			"size":3
+		},{
+			"placeCounter":"CA2O",
+			"location":"H1",
+			"size":7
+		},{
+			"placeGhost":"CV6B",
+			"location":"K5"
+		},{
+			"placeCounter":"CV6B",
+			"location":"L6",
+			"size":2
+		},{
+			"placeCounter":"Ftr6B",
+			"location":"L6",
+			"size":6
+		},{
+			"placeCounter":"CA6B",
+			"location":"L6",
+			"size":2
+		},{
+			"removeCounter":"fleet1B"
+		},{
+			"placeCounter":"CV1B",
+			"location":"H1"
+		},{
+			"placeCounter":"Ftr1B",
+			"location":"H1",
+			"size":3
+		},{
+			"placeCounter":"CA1B",
+			"location":"H1"
+		},{
+			"placeCounter":"fleet3Y",
+			"location":"K8",
+			"size":12
+		},{
+			"removeCounter":"BB6Y"
+		},{
+			"removeCounter":"DD6Y"
+		},{
+			"removeCounter":"SC6Y"
+		},{
+			"placeCounter":"fleet1Y",
+			"location":"I12",
+			"size":4
+		},{
+			"placeCounter":"base1B",
+			"location":"H1",
+			"size":3
+		},{
+			"revealCounter":"systemH1",
+			"name":"home20B"
+		},{
+			"revealCounter":"systemL6",
+			"name":"colony5O"
+		}]},
+	{"heading":"Stardate 2419.5",
+	"commentary":[
+		"<h3>The Bombardment of Terra</h3>",
+		"Our bombardment of Terra continues. We rolled 3,4 (2 hits &le;7). One more hit before the next economic phase, and this homeworld is gone!",
+		"<h3>Alien Player Bombardments</h3>",
+		"Charon now bombards the next planet of Hyperion (J6). Their Fighters rolled 1,1,1,6,7,8 (5 hits &le;7), eliminating this planet also.",
+		"Before Varda can do anything to Galaxia, its fleet needs to be identified also. On the Ship Size step, a 1 was rolled (buy). Afterwards, a 7 was rolled, giving them Scanning 1. This process spends all of their tech money.",
+		"They just unlocked Battleships for construction, so they start with 1 (-20). They also build a Destroyer (-9) for <q>safekeeping</q>. For fleet composition, a 3 was rolled (largest fleet), so they go ham with 14 Scouts (-84). For bombardment, their ships rolled 7/7/1,1,2,3,4,6,7,7,7,8,8,9,10,10 (6 hits &le;8/5/4), sterilizing this planet also."],
+	"actions":
+		[{
+			"removeCounter":"CA1O"
+		},{
+			"placeCounter":"CA2O",
+			"location":"H1",
+			"size":2
+		},{
+			"placeGhost":"CV6B",
+			"location":"K6"
+		},{
+			"placeCounter":"CV6B",
+			"location":"J6",
+			"size":2
+		},{
+			"placeCounter":"Ftr6B",
+			"location":"J6",
+			"size":6
+		},{
+			"placeCounter":"CA6B",
+			"location":"J6",
+			"size":2
+		},{
+			"removeCounter":"CV1B"
+		},{
+			"removeCounter":"Ftr1B"
+		},{
+			"removeCounter":"CA1B"
+		},{
+			"removeCounter":"fleet3Y"
+		},{
+			"placeCounter":"BB6Y",
+			"location":"L8",
+			"size":1
+		},{
+			"placeCounter":"DD6Y",
+			"location":"L8",
+			"size":1
+		},{
+			"placeCounter":"SC6Y",
+			"location":"L8",
+			"size":14
+		},{
+			"placeGhost":"fleet1Y",
+			"location":"I11"
+		},{
+			"placeCounter":"fleet1Y",
+			"location":"J11",
+			"size":4
+		},{
+			"removeCounter":"base1B"
+		},{
+			"revealCounter":"systemH1",
+			"name":"home15B"
+		},{
+			"revealCounter":"systemL6",
+			"name":"planetO8"
+		},{
+			"revealCounter":"systemJ6",
+			"name":"colony5O"
+		},{
+			"revealCounter":"systemL8",
+			"name":"colony5O"
+		}]},
+	{"heading":"Stardate 2419.8",
+	"commentary":[
+		"<h3>The Bombardment of Terra</h3>",
+		"Our bombardment of Terra is almost done. We rolled 2,4 (2 hits &le;7), finishing this homeworld off for good!",
+		"<h3>The Combined Bombardment of Protostar</h3>",
+		"There is no explicit mention of how Charon and Varda should cooperate. Since the Alien Players share information with each other, it is easy to infer they are a team. It is most beneficial (in the short term) that we treat this as a Blood Brothers team.",
+		"Their strongest weapons rolled 10/1,4,5,6,6,7 (6 hits &le;8/7), pulverizing this colony with ease."],
+	"actions":
+		[{
+			"placeCounter":"CA2O",
+			"location":"H1",
+			"size":2
+		},{
+			"resizeCounter":"CA3O",
+			"location":"L7",
+			"size":4
+		},{
+			"placeCounter":"CV6B",
+			"location":"J7",
+			"size":2
+		},{
+			"placeCounter":"Ftr6B",
+			"location":"J7",
+			"size":6
+		},{
+			"placeCounter":"CA6B",
+			"location":"J7",
+			"size":2
+		},{
+			"placeGhost":"BB6Y",
+			"location":"K7"
+		},{
+			"placeCounter":"BB6Y",
+			"location":"J7",
+			"size":1
+		},{
+			"placeCounter":"DD6Y",
+			"location":"J7",
+			"size":1
+		},{
+			"placeCounter":"SC6Y",
+			"location":"J7",
+			"size":14
+		},{
+			"placeGhost":"fleet1Y",
+			"location":"J10"
+		},{
+			"placeCounter":"fleet1Y",
+			"location":"J9",
+			"size":4
+		},{
+			"removeCounter":"fleet2Y"
+		},{
+			"revealCounter":"systemH1",
+			"name":"home5B"
+		},{
+			"revealCounter":"systemJ6",
+			"name":"planetO3"
+		},{
+			"revealCounter":"systemL8",
+			"name":"planetO2"
+		},{
+			"revealCounter":"systemJ7",
+			"name":"colony5O"
+		}]},
+	{"heading":"Stardate 2420.0",
+	"commentary":[
+		"Our economy continues to tank, but we have accomplished a secondary objective! Thanks to these efforts, we scuttle one of those victorious cruisers, so that we can scramble 2 more Cruisers (-24) at our homeworld.",
+		"The plasma storm rolls another 6. Insanity at its finest.",
+		"{prodTable}{techTable}",
+		"Only Varda still has their homeworld. It has rolled 1,1,2,2,7,10. Fleet Launch is automatic this time, but its tech bank is too small to justify Movement investment."],
+	"prodTable":
+		[{
+			"name":"CSY (Orange)","initCP":6,"colonyCP":25,"mineralCP":0,"pipeCP":0,"maint":6,"bidCP":0,"techBuy":0,"unitBuy":24
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Orange)","explore":1,"size":3,"atk":2,"move":3,"SY":2,"tac":1,"PD":1,"terraform":1,"scan":1,"minesweep":1,"def":1
+		},{
+			"name":"Charon (Blue)","minelay":1,"move":4,"size":3,"minesweep":1,"ftr":2,"def":1,"atk":1,"PD":1,"isDead":true
+		},{
+			"name":"Varda (Yellow)","minelay":1,"size":4,"atk":3,"def":3,"cloak":1,"move":2,"tac":1,"minesweep":1
+		}],
+	"alienTable":
+		[{
+			"name":"Charon (Blue)","eco":5,"fleet":3,"tech":10,"def":1,"delta":"---"
+		},{
+			"name":"Varda (Yellow)","eco":6,"fleet":0,"tech":10,"def":50,"delta":"fth","hidden":"40 / 52"
+		},{
+			"name":"(Rolls)","ecoPhase":20
+		}],
+	"actions":
+		[{
+			"placeCounter":"CA2O",
+			"location":"H1",
+			"size":1
+		},{
+			"placeCounter":"CA3O",
+			"location":"L7",
+			"size":4
+		},{
+			"placeCounter":"CV6B",
+			"location":"J7",
+			"size":2
+		},{
+			"placeCounter":"Ftr6B",
+			"location":"J7",
+			"size":6
+		},{
+			"placeCounter":"CA6B",
+			"location":"J7",
+			"size":2
+		},{
+			"placeCounter":"BB6Y",
+			"location":"J7",
+			"size":1
+		},{
+			"placeCounter":"DD6Y",
+			"location":"J7",
+			"size":1
+		},{
+			"placeCounter":"SC6Y",
+			"location":"J7",
+			"size":14
+		},{
+			"placeCounter":"fleet1Y",
+			"location":"J9",
+			"size":4
+		},{
+			"placeCounter":"fleet2Y",
+			"location":"H13",
+			"size":6
+		},{
+			"revealCounter":"systemH1",
+			"name":"home0B"
+		},{
+			"revealCounter":"systemJ7",
+			"name":"planetO4"
+		}]},
+	{"heading":"Stardate 2420.1",
+	"commentary":["Even though Charon no longer has their homeworld, because we did not accomplish the primary objective; they are permitted to use the one last fleet still in service."],
+	"actions":
+		[{
+			"placeCounter":"CA2O",
+			"location":"I1"
+		},{
+			"placeGhost":"CV6B",
+			"location":"I6"
+		},{
+			"placeCounter":"CV6B",
+			"location":"I5",
+			"size":2
+		},{
+			"placeCounter":"Ftr6B",
+			"location":"I5",
+			"size":6
+		},{
+			"placeCounter":"CA6B",
+			"location":"I5",
+			"size":2
+		},{
+			"placeCounter":"BB6Y",
+			"location":"J6",
+			"size":1
+		},{
+			"placeCounter":"DD6Y",
+			"location":"J6",
+			"size":1
+		},{
+			"placeCounter":"SC6Y",
+			"location":"J6",
+			"size":14
+		},{
+			"placeCounter":"fleet1Y",
+			"location":"J8",
+			"size":4
+		},{
+			"placeCounter":"fleet2Y",
+			"location":"I12",
+			"size":6
+		}]},
+	{"heading":"Stardate 2420.4 (The Bombardment of Gath)",
+	"commentary":["Since Charon takes advantage of our last regular colony, Varda poises for likely one last strike. Charon's Fighters have rolled 1,3,3,4,5,8 (5 hits &le;7), easily wiping this colony."],
+	"actions":
+		[{
+			"placeGhost":"CA2O",
+			"location":"J2"
+		},{
+			"placeCounter":"CA2O",
+			"location":"J3"
+		},{
+			"placeCounter":"CV6B",
+			"location":"H5",
+			"size":2
+		},{
+			"placeCounter":"Ftr6B",
+			"location":"H5",
+			"size":6
+		},{
+			"placeCounter":"CA6B",
+			"location":"H5",
+			"size":2
+		},{
+			"placeCounter":"BB6Y",
+			"location":"K6",
+			"size":1
+		},{
+			"placeCounter":"DD6Y",
+			"location":"K6",
+			"size":1
+		},{
+			"placeCounter":"SC6Y",
+			"location":"K6",
+			"size":14
+		},{
+			"placeCounter":"fleet1Y",
+			"location":"K7",
+			"size":4
+		},{
+			"placeGhost":"fleet2Y",
+			"location":"I11"
+		},{
+			"placeCounter":"fleet2Y",
+			"location":"J11",
+			"size":6
+		},{
+			"revealCounter":"systemH5",
+			"name":"colony5O"
+		}]},
+	{"heading":"Stardate 2420.7 (The Battle for Vesta)",
+	"commentary":[
+		"Varda now strikes our homeworld with two fleets, one of which needs identifying. After building an obligatory Battleship, they rolled a 5. Since their Attack/Defense equipment is extremely strong, they capitalize on it and build an extra battleship.",
+		"<ol><li><b>Round 1</b>: Our Base has the Tactics advantage. We rolled a 6 against their destroyer (hit &le;8)</li>",
+		"<li>Their Battleships rolled 4,4,7 against our ship yards (3 hits &le;7)</li>",
+		"<li>Our Cruisers rolled 5,6,7,10 against their scouts (2 hits &le;6)</li>",
+		"<li>Our Ship Yards rolled 4,5,6 against their scouts (0 hits &le;3)</li>",
+		"<li>Their Scouts rolled 1,2,8,6,7,7,5,4,6,8,2/2 against our ship yards/cruisers (4 hits &le;3)<br /><br /></li>",
+		"<li><b>Round 2</b>: Our Base rolls an 8 against their scouts (hit &le;8)</li>",
+		"<li>Their Battleships gained FSB, and rolled 4,5,8 against our cruisers (3 hits &le;8)</li>",
+		"<li>Our Cruisers rolled 5,6 against their scouts (2 hits &le;6)</li>",
+		"<li>Their Scouts rolled 2,6,2,7,5,4,7,6,6 against our cruisers (3 hits &le;4)<br /><br /></li>",
+		"<li><b>Round 3</b>: Our Base rolls a 7 against their scouts (hit &le;8)</li>",
+		"<li>Their Battleships rolled 2/1,3 against our cruisers/base (3 hits &le;7/5)</li>",
+		"<li>Their Scouts rolled 1,1,1,4,4,8,8,9 against our base (3 hits &le;2), finishing our forces off<br /><br /></li>",
+		"<li><b>Bombardment Round</b>: Their victorious fleet rolls 4,9,10/2,3,4,8,9,9,10,10 (4 hits &le;8/4), barely sterilizing our homeworld!</li></ol>"],
+	"actions":
+		[{
+			"placeGhost":"CA2O",
+			"location":"K3"
+		},{
+			"placeCounter":"CA2O",
+			"location":"L4"
+		},{
+			"placeCounter":"CA3O",
+			"location":"L7",
+			"size":4
+		},{
+			"placeCounter":"SY1O",
+			"location":"L7",
+			"size":6
+		},{
+			"placeCounter":"base1O",
+			"location":"L7"
+		},{
+			"placeGhost":"CV6B",
+			"location":"I5"
+		},{
+			"placeCounter":"CV6B",
+			"location":"J6",
+			"size":2
+		},{
+			"placeCounter":"Ftr6B",
+			"location":"J6",
+			"size":6
+		},{
+			"placeCounter":"CA6B",
+			"location":"J6",
+			"size":2
+		},{
+			"placeCounter":"BB6Y",
+			"location":"L7",
+			"size":3
+		},{
+			"placeCounter":"DD6Y",
+			"location":"L7",
+			"size":1
+		},{
+			"placeCounter":"SC6Y",
+			"location":"L7",
+			"size":14
+		},{
+			"removeCounter":"fleet1Y"
+		},{
+			"placeGhost":"fleet2Y",
+			"location":"J10"
+		},{
+			"placeCounter":"fleet2Y",
+			"location":"J9",
+			"size":6
+		},{
+			"revealCounter":"systemH5",
+			"name":"planetW10"
+		},{
+			"revealCounter":"systemL7",
+			"name":"home20O"
+		}]},
+	{"heading":"Stardate 2421.0 (Game Over)",
+	"commentary":[
+		"With our homeworld knocked out, the scenario ends in defeat for us. Overall, All Good Things has made Alien Empires a lot tougher.",
+		"Arguably, Alien Player economics have now become at their strongest during the <q>mid-game</q>, when they have 3-4 natural economic rolls while able to build their Defense bank (economic phases 6-12). This is because <i>if</i> they top the bank off, they can potentially build their fleet/tech banks as if they 2-3 or even more extra economic rolls, compared to once they acquire their fifth and final natural economic roll (starting on EP 15).",
+		"As for whether we could have done any better, we did not exactly do a good job dedicating an Exploration ship to the southern group of hexes (where a third alien player would be on difficulty settings that call for it). There could have been more planets for us to exploit from there... planets that could have been safer from the alien players that are always in a scenario.",
+		"{prodTable}{techTable}"],
+	"prodTable":
+		[{
+			"name":"CSY (Orange)","initCP":1,"colonyCP":0,"mineralCP":0,"pipeCP":0,"maint":2,"bidCP":0,"techBuy":0,"unitBuy":0,"isDead":true
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Orange)","explore":1,"size":3,"atk":2,"move":3,"SY":2,"tac":1,"PD":1,"terraform":1,"scan":1,"minesweep":1,"def":1,"isDead":true
+		},{
+			"name":"Charon (Blue)","minelay":1,"move":4,"size":3,"minesweep":1,"ftr":2,"def":1,"atk":1,"PD":1,"isDead":true
+		},{
+			"name":"Varda (Yellow)","minelay":1,"size":4,"atk":3,"def":3,"cloak":1,"move":2,"tac":1,"minesweep":1
+		}],
+	"alienTable":
+		[{
+			"name":"Charon (Blue)","eco":5,"fleet":3,"tech":10,"def":1,"delta":"---"
+		},{
+			"name":"Varda (Yellow)","eco":6,"fleet":0,"tech":10,"def":50,"delta":"h","hidden":"52"
+		},{
+			"name":"(Rolls)","ecoPhase":21
+		}],
+	"actions":
+		[{
+			"removeCounter":"CA3O"
+		},{
+			"removeCounter":"SY1O"
+		},{
+			"removeCounter":"base1O"
+		},{
+			"removeCounter":"DD6Y"
+		},{
+			"resizeCounter":"SC6Y",
+			"size":8
+		},{
+			"revealCounter":"systemL7",
+			"name":"home0O"
+		}]}
+]}
