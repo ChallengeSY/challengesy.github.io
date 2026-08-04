@@ -11,7 +11,8 @@
 		"<li>If a game goes beyond 20 economic phases, APs simply repeat EPs 19-20 for purposes of economic rolls and fleet launch.</li>",
 		"<li>An AP will try to avoid cosmic storms. Quasars are treated similarly to nebulae. Folds in Space are used as pathfinding permits</li>",
 		"<li>If the AP is about to go beyond Ship Size 2, but Attack or Defense are still at level 0, and this is not the oldest scenario; then one of those is bought instead. Same goes for Ship Size &gt;4, while Attack and Defense are each below level 2</li>",
-		"<li>Missile Boats can be used against them, at least when not playing the oldest scenario. APs treat Jammer exclusively as a counter tech, regardless</li></ul>"],
+		"<li>Missile Boats can be used against them, at least when not playing the oldest scenario. APs treat Jammer exclusively as a counter tech, regardless</li>"],
+		"<li>Doomsday Machines are permitted to be used. The <a href=\"javascript:showBox('dmmp')\">MP</a> variant and mechanics are used if this is the case</li></ul>"],
 	"actions":
 		[{
 			"createPreset":"alienEmpiresSolo",
