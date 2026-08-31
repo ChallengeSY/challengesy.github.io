@@ -67,6 +67,7 @@ function setupGame() {
 	
 	if (getStorage("soakerHigh")) {
 		highScore = parseInt(getStorage("soakerHigh"));
+		document.getElementById("rivalScore").innerHTML = highScore;
 	}
 	
 	tabSect.appendChild(trFrag);
@@ -175,10 +176,9 @@ function applyCombo(localId, mouseUsed) {
 		if (updateScoreboard() <= 0) {
 			if (getScore("totalG") > highScore) {
 				updateStatus("New high score!");
-				if (highScore > 0) {
-				}
 				highScore = getScore("totalG");
 				setStorage("soakerHigh", highScore);
+				document.getElementById("rivalScore").innerHTML = highScore;
 			} else {
 				updateStatus("Game over!");
 			}
@@ -689,10 +689,8 @@ function toggleHelp() {
 
 	if (helpPanel.style.display == "block") {
 		helpPanel.style.display = "none";
-		helpButton.value = "Show help";
 	} else {
 		helpPanel.style.display = "block";
-		helpButton.value = "Hide help";
 	}
 }
 
