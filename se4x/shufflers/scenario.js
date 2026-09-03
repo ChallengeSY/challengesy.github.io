@@ -33,7 +33,7 @@ const itemCollection = [
 	{nameeS:"Smart", nameeL:"Smart Scientists"},
 	{nameeS:"Trained", nameeL:"Trained Defenders"},
 	{nameeS:"Weakness", nameeL:"Know the Weakness"},
-	{nameeS:"NoTP", nameeL:"No temporal Prime Directive"},
+	{nameeS:"NoTP", nameeL:"No Temporal Prime Directive"},
 	{nameeS:"Bloody", nameeL:"Bloody Combat"},
 	{nameeS:"Experienced", nameeL:"Experienced Crew"},
 	{nameeS:"Complicated", nameeL:"Life is Complicated"},

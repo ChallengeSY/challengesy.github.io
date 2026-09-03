@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta name="description" content="Space Empires Resourcepedia" />
+	<meta name="keywords" content="Talon" />
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+	<title>Talon Fleet Builder</title>
+
+	<link type="text/css" href="../nuCampaign/planets.css" rel="stylesheet" />
+	<script src="talFleetBldr.js"></script>
+	<script src="pedia.js"></script>
+</head>
+<body onload="setupBuilder()">
+<p id="banner"><a href="index.htm"><img src="banner.png" alt="Space Empires Resourcepedia" /></a></p>
+
+<hr />
+
+<h2>Talon Fleet Builder</h2>
+
+<table class="clean">
+<tr>
+<td rowspan="3">
+
+<fieldset>
+<legend>Team Forces</legend>
+<table class="clean">
+<thead>
+<tr>
+<td></td>
+<td></td>
+<th title="Cost to bring to a Talon battle">Cost</th>
+<th title="How many ships to assign to sector 1? (active battle if a non-Empire War battle)">Antares</th>
+<th><span title="How many ships to assign to sector 2?" id="head1">Badlands</span></th>
+<th><span title="How many ships to assign to sector 3?" id="head2">Maelstrom</span></th>
+<th><span title="How many ships to assign to sector 4?" id="head3">Orion</span></th>
+<th><span title="How many ships to assign to sector 5?" id="head4">Regulus</span></th>
+<th><span title="How many ships to assign to sector 6?" id="head5">Dornot</span></th>
+<th><span title="How many ships to assign to sector 7?" id="head6">Galgamis</span></th>
+<th><span title="How many ships to assign to sector 8?" id="head7">Ikrod</span></th>
+<th><span title="How many ships to assign to sector 9?" id="head8">Lundra</span></th>
+<th><span title="How many ships to assign to sector 10?" id="head9">Neckron</span></th>
+<th><span title="How many ships to assign to reserve?" id="headR">Reserve</span></th>
+</tr>
+</thead>
+<tfoot id="footLog">
+<tr>
+<th>Logistics total</th>
+<td></td>
+<td></td>
+<td class="numeric" id="foot0"></span></td>
+<td class="numeric" id="foot1"></span></td>
+<td class="numeric" id="foot2"></span></td>
+<td class="numeric" id="foot3"></span></td>
+<td class="numeric" id="foot4"></span></td>
+<td class="numeric" id="foot5"></span></td>
+<td class="numeric" id="foot6"></span></td>
+<td class="numeric" id="foot7"></span></td>
+<td class="numeric" id="foot8"></span></td>
+<td class="numeric" id="foot9"></span></td>
+<td class="numeric" id="footR"></span></td>
+</tr>
+</tfoot>
+<tbody id="plrShips">
+<!-- Bodies are initially empty; will be populated with rows upon load -->
+</tbody>
+</table>
+</fieldset>
+
+</td>
+<td valign="top">
+
+<fieldset>
+<legend>Team Summary</legend>
+<label for="faction">Faction</label>
+<select class="text" id="faction" onchange="showPlrRows()" onblur="showPlrRows()">
+<option>-- Select --</option>
+<option>Terran</option>
+<option>Talon</option>
+<option>AI</option>
+</select>
+<br />
+
+<label for="talon1Kbox">Talon 1000</label> <a href="javascript:showBox('Talon 1000')">(?)</a>
+<input type="checkbox" id="talon1Kbox" onclick="showPlrRows()" oninput="showPlrRows()" />
+<br />
+
+<label for="empireWarCt">Empire War sectors</label> <a href="javascript:showBox('Empire War')">(?)</a>
+<input class="text numeric" type="number" id="empireWarCt" onblur="applyTotals()" onchange="applyTotals()" value="0" min="0" max="10" size="5" />
+<br /><br />
+
+<b>Fleet Cost</b>: <span id="fleetCost">0 SP</span><br />
+<b>Logistics quota</b>: <span id="sectorQuota">0</span> <a href="javascript:showBox('LP');">LP</a> per sector
+</fieldset>
+
+</td>
+</tr>
+</table>
+
+<hr />
+
+<h2>Instructions</h2>
+<p>This Fleet Builder is designed to tally up totals for building <a href="javascript:showBox('Talon')">Talon</a> <a href="javascript:showBox('fleet')">fleets</a>. It also has support for <a href="javascript:showBox('empire war')">Empire War</a>, even allowing for a fair amount of flexibility.</p>
+
+</body>
+</html>
