@@ -36,7 +36,7 @@ const itemCollection = [
 	{nameeS:"SSPS", nameeL:"Self-Sustaining Power Source"},
 	{nameeS:"AdvSY", nameeL:"Advanced Shipyards"},
 	{nameeS:"Lorelei", nameeL:"Lorelei System"},
-	{nameeS:"WepCache", nameeL:"Advanced Weapons Cache"},
+	{nameeS:"WepCache", nameeL:"Ancient Weapons Cache"},
 	{nameeS:"QuanComp", nameeL:"Quantum Computing"},
 	{nameeS:"FocuPhaser", nameeL:"Focused Phasers"},
 	{nameeS:"SkipMsles", nameeL:"Skipper Missiles"},

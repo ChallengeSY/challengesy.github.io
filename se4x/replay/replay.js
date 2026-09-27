@@ -159,6 +159,8 @@ function autoNameCounter(localObj) {
 		localObj.title = "Homeworld (Size 10)"
 	} else if (localObj.src.indexOf("gfx/home5") >= 0) {
 		localObj.title = "Homeworld (Size 5)"
+	} else if (localObj.src.indexOf("gfx/colony10") >= 0) {
+		localObj.title = "Colony (Size 10)"
 	} else if (localObj.src.indexOf("gfx/colony5") >= 0) {
 		localObj.title = "Colony (Size 5)"
 	} else if (localObj.src.indexOf("gfx/colony3") >= 0) {
@@ -1097,7 +1099,7 @@ function readJson() {
 				
 				var availPoints = [activePlayer.initCP + Math.max(readValue(activePlayer.colonyCP,0) + readValue(activePlayer.mineralCP,0) + readValue(activePlayer.pipeCP,0) - LPconversion[0], 0),
 					readValue(activePlayer.initRP,0) + readValue(activePlayer.colonyRP,0),
-					readValue(activePlayer.initLP,0) + readValue(activePlayer.colonyLP,0) + LPconversion[1] - readValue(activePlayer.maint,0) - readValue(activePlayer.bidLP,0),
+					readValue(activePlayer.initLP,0) + readValue(activePlayer.colonyLP,0) + LPconversion[1] - readValue(activePlayer.maint,0),
 					readValue(activePlayer.initTP,0) + readValue(activePlayer.colonyTP,0)];
 				var leftoverPoints = [availPoints[0] - readValue(activePlayer.unitBuy,0),
 					availPoints[1] - readValue(activePlayer.techBuy,0),
@@ -1625,7 +1627,7 @@ function readJson() {
 				<th><a href=\"javascript:showBox('Minelaying')\">Minelay</a></th> \
 				<th><a href=\"javascript:showBox('Minesweeping')\">Sweep</a></th></tr>";
 				
-			var workTable, expansionTechs = false;
+			var workTable, expansionTechs = false, altFaction = false;
 			
 			if (curStage.techTableX) {
 				workTable = curStage.techTableX;
@@ -1657,6 +1659,8 @@ function readJson() {
 				
 				for (var a = 0; a < workTable.length; a++) {
 					var activePlayer = workTable[a];
+					altFaction = (activePlayer.name.search("(Orange)") >= 0 || activePlayer.name.search("(Gold)") >= 0);
+					var defaultLocks;
 					
 					if (readValue(activePlayer.isDead,false)) {
 						// Player is dead
@@ -1683,18 +1687,24 @@ function readJson() {
 							<td class=\"numeric\">"+readValue(activePlayer.minelay,0)+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.minesweep,0)+"</td></tr>";
 					} else {
+						if (altFaction) {
+							defaultLocks = ["&mdash;", 0];
+						} else {
+							defaultLocks = [0, "&mdash;"];
+						}
+						
 						constructTable = constructTable + "\
 							<td class=\"numeric\" colspan=\"2\">"+readValue(activePlayer.academy,0)+"</td> \
-							<td class=\"numeric\">"+readValue(activePlayer.boarding,0)+"</td> \
+							<td class=\"numeric\">"+readValue(activePlayer.boarding,defaultLocks[0])+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.security,0)+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.troops,1)+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.BCaux,0)+"</td> \
-							<td class=\"numeric\">"+readValue(activePlayer.BHJ,0)+"</td> \
+							<td class=\"numeric\">"+readValue(activePlayer.BHJ,"&mdash;")+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.advCon,0)+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.BBaux,0)+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.DNaux,0)+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.antiRep,0)+"</td> \
-							<td class=\"numeric\">"+readValue(activePlayer.missile,0)+"</td> \
+							<td class=\"numeric\">"+readValue(activePlayer.missile,defaultLocks[1])+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.jammer,0)+"</td> \
 							<td class=\"numeric\">"+readValue(activePlayer.supply,1)+"</td></tr>";
 					}
@@ -2450,7 +2460,7 @@ function readJson() {
 					}
 					
 					if (auxObj) {
-						if (workObj.src.search("warp") != -1 || auxObj.src.search("asteroids") != -1 || auxObj.src.search("planetW") != -1 ||
+						if (workObj.src.search("warp") != -1 || auxObj.src.search("asteroids") != -1 || auxObj.src.search("planetW") != -1 || auxObj.src.search("foldW") != -1 ||
 							auxObj.src.search("amoeba") != -1 || auxObj.src.search("Storm") != -1) {
 							auxObj.src = "gfx/tiles/borderW.png";
 						} else if (auxObj.src.search("home20B") != -1 || auxObj.src.search("home30B") != -1 ||
