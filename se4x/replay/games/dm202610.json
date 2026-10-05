@@ -1,0 +1,642 @@
+{"stages": [
+	{"heading":"Stardate 2400.0 (Introduction)",
+	"commentary":[
+		"Welcome to yet another Doomsday Machine playthrough. This playthrough mixes in Good Luck difficulty with a <q>what if</q> adaptation from AP Bot games."],
+	"dmTable":
+		[{
+			"soloSm":5,"ecoPhase":0
+		}],
+	"actions":
+		[{
+			"createPreset":"doomsdaySoloSm",
+			"useExpansion":true,
+			"playerColor":"G"
+		},{
+			"removeAllCounters":"MSaG"
+		},{
+			"removeCounter":"CA1G"
+		}]},
+	{"heading":"Stardate 2404.0 (Quick Start)",
+	"commentary":[
+		"Namely, adapting Quick Start from the AP Bot system. This process is relatively easy to do, because of how related these two systems are, when it comes to preparations. We can practically cut the opening out this way. But, it also means the preparation time we normally would have is already gone.",
+		"We use this oppportunity to buy Ship Size 3 (-25 total), Attack 2 (-50), and Defense 1 (-20). We then buy 1 Cruiser (-12) and 2 Pipelines (-6)."],
+	"prodTable":
+		[{
+			"name":"CSY (Green)","initCP":120,"colonyCP":0,"mineralCP":0,"pipeCP":0,"maint":0,"bidCP":0,"techBuy":95,"unitBuy":18
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Green)","size":3,"atk":2,"def":1
+		}],
+	"dmTable":
+		[{
+			"soloSm":5,"ecoPhase":4
+		}],
+	"actions":
+		[{
+			"removeCounter":"systemL4"
+		},{
+			"revealCounter":"systemL5",
+			"name":"blackHole"
+		},{
+			"revealCounter":"systemL6",
+			"name":"planetG3"
+		},{
+			"revealCounter":"systemL6",
+			"name":"colony5G"
+		},{
+			"revealCounter":"systemL8",
+			"name":"planetG9"
+		},{
+			"removeCounter":"systemL9"
+		},{
+			"removeCounter":"systemK4"
+		},{
+			"revealCounter":"systemK5",
+			"name":"planetG7"
+		},{
+			"revealCounter":"systemK5",
+			"name":"colony5G"
+		},{
+			"revealCounter":"systemK6",
+			"name":"planetG1"
+		},{
+			"revealCounter":"systemK6",
+			"name":"colony5G"
+		},{
+			"removeCounter":"systemK7"
+		},{
+			"removeCounter":"systemK8"
+		},{
+			"removeCounter":"systemK9"
+		},{
+			"revealCounter":"systemJ4",
+			"name":"planetG8"
+		},{
+			"revealCounter":"systemJ4",
+			"name":"colony1"
+		},{
+			"removeCounter":"systemJ5"
+		},{
+			"revealCounter":"systemJ6",
+			"name":"asteroids"
+		},{
+			"revealCounter":"systemJ7",
+			"name":"nebula"
+		},{
+			"removeCounter":"systemJ8"
+		},{
+			"revealCounter":"systemJ9",
+			"name":"asteroids"
+		},{
+			"revealCounter":"systemJ10",
+			"name":"planetG4"
+		},{
+			"revealCounter":"systemJ10",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemI5",
+			"name":"nebula"
+		},{
+			"revealCounter":"systemI6",
+			"name":"planetG5"
+		},{
+			"revealCounter":"systemI6",
+			"name":"colony5G"
+		},{
+			"revealCounter":"systemI7",
+			"name":"planetG2"
+		},{
+			"revealCounter":"systemI7",
+			"name":"colony5G"
+		},{
+			"removeCounter":"systemI8"
+		},{
+			"removeCounter":"systemH6"
+		},{
+			"revealCounter":"systemH7",
+			"name":"planetG6"
+		},{
+			"revealCounter":"systemH7",
+			"name":"colony1"
+		},{
+			"removeCounter":"systemH8"
+		},{
+			"placeCounter":"MS1G",
+			"location":"I6",
+			"name":"MSaG"
+		},{
+			"placeCounter":"MS2G",
+			"location":"I7",
+			"name":"MSaG"
+		},{
+			"placeCounter":"MS3G",
+			"location":"J7",
+			"name":"MSaG"
+		},{
+			"placeCounter":"MS4G",
+			"location":"K5",
+			"name":"MSaG"
+		},{
+			"placeCounter":"MS5G",
+			"location":"K6",
+			"name":"MSaG"
+		},{
+			"placeCounter":"MS6G",
+			"location":"L7",
+			"name":"MSaG"
+		},{
+			"placeCounter":"MS7G",
+			"location":"L7",
+			"name":"MSaG"
+		},{
+			"removeAllCounters":"COG"
+		},{
+			"resizeCounter":"SY1G",
+			"size":5
+		},{
+			"placeCounter":"CA1G",
+			"location":"L7"
+		},{
+			"placeCounter":"SC1G",
+			"location":"L4"
+		},{
+			"placeCounter":"SC2G",
+			"location":"J4"
+		},{
+			"placeCounter":"SC3G",
+			"location":"H7"
+		},{
+			"placeCounter":"Miner1G",
+			"location":"J4"
+		},{
+			"revealCounter":"systemL3",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemI4",
+			"name":"unexploredW"
+		},{
+			"revealCounter":"systemG7",
+			"name":"unexploredW"
+		}]},
+	{"heading":"Stardate 2404.2",
+	"commentary":["Our first trips into deep space were extremely short lived. Their Space Station rolled a 3, easily dispatching the one scout that would have otherwise had a <i>remote</i> chance to live."],
+	"actions":
+		[{
+			"placeCounter":"MS7G",
+			"location":"L6",
+			"name":"MSmG"
+		},{
+			"placeCounter":"SC1G",
+			"location":"L3"
+		},{
+			"placeCounter":"SC2G",
+			"location":"I4"
+		},{
+			"placeCounter":"SC3G",
+			"location":"G7"
+		},{
+			"removeCounter":"CA2G"
+		},{
+			"removeCounter":"Miner1G"
+		},{
+			"resizeCounter":"SY1G",
+			"size":5
+		},{
+			"revealCounter":"systemL3",
+			"name":"station10"
+		},{
+			"revealCounter":"systemI4",
+			"name":"plasmaStorm"
+		},{
+			"placeCounter":"systemG7",
+			"name":"danger"
+		},{
+			"revealCounter":"systemJ4",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemJ10",
+			"name":"colony1"
+		},{
+			"revealCounter":"systemH7",
+			"name":"colony1"
+		},{
+			"removeCounter":"DM1"
+		}]},
+	{"heading":"Stardate 2405.0",
+	"commentary":[
+		"As a consequence, we have skipped the rest of the economic phase, which would otherwise be completely devoid of any meaningful <q>actions</q> whatsoever. Thanks to being on Good Luck difficulty, the first DM is already here! A 4 was rolled, placing it acccordingly.",
+		"Anyway, we buy Defense 2 (-30), followed by 2 Cruisers (-24) and an extra homeworld Ship Yard (-6). Assuming cosmic storms are handled similarly to player ships, the plasma storm has no valid moves; so it will be stationary this entire playthrough."],
+	"prodTable":
+		[{
+			"name":"CSY (Green)","initCP":7,"colonyCP":58,"mineralCP":0,"pipeCP":5,"maint":2,"bidCP":0,"techBuy":30,"unitBuy":30
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Green)","size":3,"atk":2,"def":2
+		}],
+	"dmTable":
+		[{
+			"soloSm":5,"ecoPhase":5
+		}],
+	"actions":
+		[{
+			"revealCounter":"MS7G",
+			"name":"MSaG"
+		},{
+			"removeCounter":"SC1G"
+		},{
+			"removeCounter":"SC2G"
+		},{
+			"removeCounter":"SC3G"
+		},{
+			"placeCounter":"FlagG",
+			"location":"L7"
+		},{
+			"placeCounter":"CA2G",
+			"location":"L7",
+			"size":2
+		},{
+			"resizeCounter":"SY1G",
+			"size":6
+		},{
+			"removeCounter":"systemG7"
+		},{
+			"revealCounter":"systemJ4",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemJ10",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemH7",
+			"name":"colony3"
+		},{
+			"placeCounter":"DM1",
+			"location":"H4"
+		}]},
+	{"heading":"Stardate 2405.1",
+	"commentary":[
+		"Basically, this turn is proof of concept of the DM's immunity to plasma storms, as explicitly stated in the AGT books. They did gain vulnerabilities to quasars and ion storms; but neither of these two elements are present here, and these vulnerabilities only affect their battle performance: A DM can still escape an ion storm without fail."],
+	"actions":
+		[{
+			"placeCounter":"DM1",
+			"location":"I4"
+		}]},
+	{"heading":"Stardate 2405.4",
+	"commentary":["Already we have lost our first planet to this boss. Luckily, it was not fully developed, but it is still a loss."],
+	"actions":
+		[{
+			"placeCounter":"DM1",
+			"location":"J4"
+		},{
+			"resizeCounter":"CA2G",
+			"size":2
+		},{
+			"placeCounter":"systemJ4",
+			"name":"planetG8"
+		},{
+			"revealCounter":"systemJ4",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemJ10",
+			"name":"colony3"
+		},{
+			"revealCounter":"systemH7",
+			"name":"colony3"
+		}]},
+	{"heading":"Stardate 2406.0",
+	"commentary":["With relatively little action, we opt to skip ahead a bit more. Since we got exactly enough funds for this phase; we buy Ship Yards 2 (-20), followed by 4 Cruisers (-48)."],
+	"prodTable":
+		[{
+			"name":"CSY (Green)","initCP":8,"colonyCP":61,"mineralCP":0,"pipeCP":5,"maint":6,"bidCP":0,"techBuy":20,"unitBuy":48
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Green)","size":3,"atk":2,"def":2,"SY":2
+		}],
+	"dmTable":
+		[{
+			"soloSm":5,"ecoPhase":6
+		}],
+	"actions":
+		[{
+			"placeCounter":"FlagG",
+			"location":"L7"
+		},{
+			"placeCounter":"CA1G",
+			"location":"L7"
+		},{
+			"placeCounter":"CA2G",
+			"location":"L7",
+			"size":6
+		},{
+			"placeCounter":"DM1",
+			"location":"K4"
+		},{
+			"removeCounter":"systemJ4"
+		},{
+			"revealCounter":"systemJ10",
+			"name":"colony5G"
+		},{
+			"revealCounter":"systemH7",
+			"name":"colony5G"
+		}]},
+	{"heading":"Stardate 2406.3 (The Battle for Pollux)",
+	"commentary":[
+		"Taking advantage of our Pipeline network, we meet up with the <a href=\"javascript:showBox('dm1')\">first</a> DM at the second colony. Normally, uneven upgrades make it difficult to use our Battle Simulators; but our few different ship types, combined with the DM's low weapon class, allows us to <q>fake</q> it.",
+		"<ol><li><b>Round 1</b>: Our ships have the best weapon class, but the DM must roll for a weakness. A 1 was rolled (weak to fighters)</li>",
+		"<li>Our Flagship then rolls a 4 (&le;3 to hit)</li>",
+		"<li>Our Cruisers rolled 7,8,8,8,8,9,10 (0 hits &le;5)</li>",
+		"<li>The DM rolls 7,4,7 against our outdated cruiser (1 hit &le;5), thanks to missing defense equipment<br /><br /></li>",
+		"<li><b>Round 2</b>: Our Flagship rolls another 4 (&le;3 to hit)</li>",
+		"<li>Our Cruisers rolled 1,1,2,5,7,8,8 (4 hits &le;5)</li>",
+		"<li>The DM rolls a 3 against our sole outdated cruiser (hit &le;5), followed by 3,9 against our remaining cruisers (1 hit &le;4)<br /><br /></li>",
+		"<li><b>Round 3</b>: Our Flagship rolls a 3 (hit &le;3)</li>",
+		"<li>Our Cruisers rolled 1,3,5,5,7,8 (4 hits &le;5), finishing off the first DM!</li></ol>",
+		"We successfully destroyed this DM, denying them another planet. Taking advantage of our bulk simulations feature, we also learn that this is a perfectly average outcome, too."],
+	"actions":
+		[{
+			"placeGhost":"FlagG",
+			"location":"L6"
+		},{
+			"placeCounter":"FlagG",
+			"location":"K5"
+		},{
+			"placeCounter":"CA1G",
+			"location":"K5"
+		},{
+			"placeCounter":"CA2G",
+			"location":"K5",
+			"size":6
+		},{
+			"placeCounter":"DM1",
+			"location":"K5"
+		},{
+			"removeCounter":"DM2"
+		}]},
+	{"heading":"Stardate 2407.0",
+	"commentary":[
+		"We have skipped ahead to the next economic phase, where another DM appears on the board. A 4 was rolled, causing them to appear at the very same position as their predecessor.",
+		"This is ideal for us, as we can simply build even more Cruisers (-48)."],
+	"prodTable":
+		[{
+			"name":"CSY (Green)","initCP":0,"colonyCP":65,"mineralCP":0,"pipeCP":5,"maint":12,"bidCP":0,"techBuy":0,"unitBuy":48
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Green)","size":3,"atk":2,"def":2,"SY":2
+		}],
+	"dmTable":
+		[{
+			"soloSm":5,"ecoPhase":7
+		}],
+	"actions":
+		[{
+			"placeCounter":"FlagG",
+			"location":"L7"
+		},{
+			"removeCounter":"CA1G"
+		},{
+			"placeCounter":"CA2G",
+			"location":"L7",
+			"size":10
+		},{
+			"removeCounter":"DM1"
+		},{
+			"placeCounter":"DM2",
+			"location":"H4"
+		}]},
+	{"heading":"Stardate 2407.8 (The Battle for Pollux... again)",
+	"commentary":[
+		"Taking advantage of their tie-breaking rules (one of which is to target the colony closest to our homeworld), we skip straight to another battle.",
+		"<ol><li><b>Round 1</b>: Their DM rolls a 3 for weakness (minelayers)</li>",
+		"<li>Our Flagship has the best Weapon Class. This time, we upgraded it. We rolled a 5 (&le;4 to hit)</li>",
+		"<li>The DM rolls 1,5,7,10 against our cruisers (2 hits &le;5)</li>",
+		"<li>Our Cruisers rolled 1,2,2,5,5,7,8,10,10 (3 hits &le;4)<br /><br /></li>",
+		"<li><b>Round 2</b>: Our Flagship rolls another 5 (&le;4 to hit)</li>",
+		"<li>The DM rolls 2,2,3,7 against our cruisers (3 hits &le;5)</li>",
+		"<li>Our Cruisers rolled 1,3,4,6,7,8,8,10 (3 hits &le;4)<br /><br /></li>",
+		"<li><b>Round 3</b>: Our Flagship rolls a 10 (&le;4 to hit)</li>",
+		"<li>The DM rolls 4,7,7,9 against our cruisers (3 hits &le;5)</li>",
+		"<li>Our Cruisers rolled 1,1,2,2,3,3,6 (6 hits &le;4), pulverizing this <a href=\"javascript:showBox('dm3')\">second</a> DM!</li></ol>",
+		"For a bottom 7% battle, we did exceptionally well. One boss remains still."],
+	"actions":
+		[{
+			"placeCounter":"FlagG",
+			"location":"K5"
+		},{
+			"placeCounter":"CA2G",
+			"location":"K5",
+			"size":10
+		},{
+			"removeCounter":"CA3G"
+		},{
+			"placeGhost":"doomsday",
+			"location":"I4"
+		},{
+			"placeGhost":"doomsday",
+			"location":"J5"
+		},{
+			"placeCounter":"DM2",
+			"location":"K5"
+		}]},
+	{"heading":"Stardate 2408.0",
+	"commentary":["We get to take another breather, and build another 4 Cruisers (-48)."],
+	"prodTable":
+		[{
+			"name":"CSY (Green)","initCP":7,"colonyCP":65,"mineralCP":0,"pipeCP":5,"maint":14,"bidCP":0,"techBuy":0,"unitBuy":48
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Green)","size":3,"atk":2,"def":2,"SY":2
+		}],
+	"dmTable":
+		[{
+			"soloSm":5,"ecoPhase":8
+		}],
+	"actions":
+		[{
+			"placeCounter":"FlagG",
+			"location":"K5"
+		},{
+			"placeCounter":"CA2G",
+			"location":"K5",
+			"size":7
+		},{
+			"placeCounter":"CA3G",
+			"location":"L7",
+			"size":4
+		},{
+			"removeCounter":"DM2"
+		},{
+			"removeCounter":"DM3"
+		}]},
+	{"heading":"Stardate 2409.0",
+	"commentary":["With barely anything to do, we skip ahead yet again. The final machine rolls a 7, causing it to appear near the south-eastern entrance. We use our net income to buy the usual..."],
+	"prodTable":
+		[{
+			"name":"CSY (Green)","initCP":15,"colonyCP":65,"mineralCP":0,"pipeCP":5,"maint":22,"bidCP":0,"techBuy":0,"unitBuy":48
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Green)","size":3,"atk":2,"def":2,"SY":2
+		}],
+	"dmTable":
+		[{
+			"soloSm":5,"ecoPhase":9
+		}],
+	"actions":
+		[{
+			"placeCounter":"FlagG",
+			"location":"L7"
+		},{
+			"placeCounter":"CA2G",
+			"location":"L7",
+			"size":7
+		},{
+			"placeCounter":"CA3G",
+			"location":"L7",
+			"size":8
+		},{
+			"placeCounter":"DM3",
+			"location":"H10"
+		}]},
+	{"heading":"Stardate 2409.3",
+	"commentary":["The newest DM can consume another planet with impunity though."],
+	"actions":
+		[{
+			"placeGhost":"CA3G",
+			"location":"K6"
+		},{
+			"placeCounter":"FlagG",
+			"location":"J7"
+		},{
+			"placeCounter":"CA2G",
+			"location":"J7",
+			"size":15
+		},{
+			"removeCounter":"CA3G"
+		},{
+			"placeCounter":"DM3",
+			"location":"I9"
+		}]},
+	{"heading":"Stardate 2409.6",
+	"commentary":["... like so."],
+	"actions":
+		[{
+			"placeCounter":"FlagG",
+			"location":"I7"
+		},{
+			"placeCounter":"CA2G",
+			"location":"I7",
+			"size":15
+		},{
+			"placeCounter":"DM3",
+			"location":"J10"
+		},{
+			"placeCounter":"systemJ10",
+			"name":"planetG4"
+		},{
+			"revealCounter":"systemJ10",
+			"name":"colony5G"
+		}]},
+	{"heading":"Stardate 2409.9",
+	"commentary":["Luckily, the nearest colony rule now limits it to yet another planet."],
+	"actions":
+		[{
+			"removeCounter":"CA3G"
+		},{
+			"placeCounter":"DM3",
+			"location":"J9"
+		},{
+			"removeCounter":"systemJ10"
+		}]},
+	{"heading":"Stardate 2410.0",
+	"commentary":["We can still barely afford another 4 Cruisers (-48). These new bodies can easily reach the most vulnerable planet before it does."],
+	"prodTable":
+		[{
+			"name":"CSY (Green)","initCP":15,"colonyCP":60,"mineralCP":0,"pipeCP":5,"maint":30,"bidCP":0,"techBuy":0,"unitBuy":48
+		}],
+	"techTable":
+		[{
+			"name":"CSY (Green)","size":3,"atk":2,"def":2,"SY":2
+		}],
+	"dmTable":
+		[{
+			"soloSm":5,"ecoPhase":10
+		}],
+	"actions":
+		[{
+			"placeCounter":"FlagG",
+			"location":"I7"
+		},{
+			"placeCounter":"CA2G",
+			"location":"I7",
+			"size":15
+		},{
+			"placeCounter":"CA3G",
+			"location":"L7",
+			"size":4
+		},{
+			"placeCounter":"DM3",
+			"location":"J9"
+		}]},
+	{"heading":"Stardate 2410.2",
+	"commentary":["Soon, the likely final battle is upon us..."],
+	"actions":
+		[{
+			"placeCounter":"FlagG",
+			"location":"I7"
+		},{
+			"placeCounter":"CA2G",
+			"location":"I7",
+			"size":15
+		},{
+			"placeGhost":"CA3G",
+			"location":"K6"
+		},{
+			"placeCounter":"CA3G",
+			"location":"J7",
+			"size":4
+		},{
+			"placeCounter":"DM3",
+			"location":"J8"
+		}]},
+	{"heading":"Stardate 2410.5 (The Battle for Castor)",
+	"commentary":[
+		"We intercept them in space, and proceed accordingly.",
+		"<ol><li><b>Round 1</b>: Their DM rolls a 4 for weakness (minelayers)</li>",
+		"<li>The DM has the Tactics advantage this time, and rolls 1,4,8,8,10 against our cruisers (2 hits &le;6)</li>",
+		"<li>Since our Flagship and Cruisers have the same Attack strength, we roll them together. We rolled 2,2,2,3,4,4,4,5,5,5,5,6,6,7,7,7,9,9,10 (7 hits &le;4))<br /><br /></li>",
+		"<li><b>Round 2</b>: The DM rolls 3,3,4,4,6 against our cruisers (5 hits &le;6)</li>",
+		"<li>Our ships rolled 1,1,1,2,3,4,4,4,5,5,5,6,6,7,7,7,8 (8 hits &le;4), pulverizing the <a href=\"javascript:showBox('dm5')\">final</a> DM!</li></ol>"],
+	"actions":
+		[{
+			"placeCounter":"FlagG",
+			"location":"J8"
+		},{
+			"placeCounter":"CA2G",
+			"location":"J8",
+			"size":15
+		},{
+			"placeCounter":"CA3G",
+			"location":"J8",
+			"size":4
+		},{
+			"placeCounter":"DM3",
+			"location":"J8"
+		}]},
+	{"heading":"Stardate 2410.8 (Conclusion)",
+	"commentary":[
+		"Quick Start probably gave us a considerable advantage when it allowed us to not worry about colony ships and minerals. Additionally, All Good Things itself nerfed this scenario when they allow us to start with a Flagship <i>and</i> a 30 CP homeworld. The only counter-balance was the optional addition of DM bidding, which could have made a decent difference if we enabled it.",
+		"While the final battle was a below average battle (bottom 29%), it could still be much worse. Overall, it is hard to assess this properly when we made an intentional deviation to speed up the opening."],
+	"actions":
+		[{
+			"resizeCounter":"CA2G",
+			"size":16
+		},{
+			"removeCounter":"CA3G"
+		},{
+			"removeCounter":"DM3"
+		}]}
+]}
