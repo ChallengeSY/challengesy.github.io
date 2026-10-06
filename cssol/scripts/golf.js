@@ -20,7 +20,7 @@ wasteDealBy = 1;
 maxRedeals = 0;
 maxReserve = 0;
 prefilledReserve = 0;
-deckCost = 36;
+deckCost = 35;
 
 function changeDiff(firstTime) {
 	if (firstTime) {
