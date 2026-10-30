@@ -7,6 +7,7 @@ window.ondrop = deselectAll;
 
 selectedCard = [null, null];
 reverseRender = true;
+maxScore = 120;
 
 function setupGame() {
 	var tableauPanel = document.getElementById("tableau");
@@ -186,12 +187,12 @@ function playCard(event) {
 		selectY = -1;
 	} else {
 		var swapCard = solGame.tableau[selectX][selectY];
+		recordMove();
 
 		solGame.tableau[selectX][selectY] = solGame.tableau[x][y];
 		solGame.tableau[x][y] = swapCard;
 
 		playSound(cardDown);
-		incrementMove();
 		renderPlayarea();
 	}
 }
