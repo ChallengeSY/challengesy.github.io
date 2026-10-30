@@ -2,7 +2,7 @@
 	{"heading":"Stardate 2227.00X",
 	"commentary":[
 		"Welcome to yet another AI Solitaire battle, on Experienced difficulty. On the Astrometrics Lab step, a 10 was rolled (none). We randomly choose the Terran faction. On the SP step, a 3 was rolled (400 SP).",
-		"For our fleet, we rolled a 4. We field 1 Battlecruiser-X, 1 regular Battlecruiser, and 2 Destroyers. As this is our fleet, we can place them anywhere within our deployment zone; we need only to ensure they share the same direction.",
+		"For our fleet, we rolled a 4. We field 1 Battlecruiser-X, 1 regular Battlecruiser, and 2 Destroyers. As this is our fleet, we can place them anywhere within our deployment zone; we need only to ensure they each have a forward facing direction.",
 		"Ticlanat rolls a 7 for its fleet. This gives them 2 Light Cruisers + 4 Destroyers. The leftover 50 SP gives them an extra Destroyer. On the distance step, a 6 was rolled (row farthest from our deployment zone). On the side step, a 5 was rolled (right-hand side). On the formation step, a 3 was rolled (by type).",
 		"Luckily, we have built a unique Shuffler just for dealing AI ships, useful whenever they do <i>not</i> roll a balanced formation, and they have more than one type of ship. We use it to draw their first ship; somewhat surprisingly a Light Cruiser. Since the only types they have left are Destroyers, we simply deal the rest of the fleet accordingly."],
 	"scoreboard":

@@ -20,7 +20,7 @@
 	if (getParam("newSkill") != -1) {
 		seriesGame = 1;
 		seriesDiff = parseInt(getParam("newSkill"));
-		seriesSeason = 6;
+		seriesSeason = 7;
 		if (seriesDiff < 4) {
 			seriesLives = 3;
 		} else {
@@ -55,7 +55,7 @@
 	
 	switch (seriesGame) {
 		case 1:
-			if (seriesSeason < 3) {
+			if (seriesSeason < 3 || seriesSeason == 7) {
 				seriesName = "Klondike";
 				tableauStructure = [1,2,3,4,5,6,7];
 				downturnDepth = [6];
@@ -90,7 +90,7 @@
 			break;
 			
 		case 2:
-			if (seriesSeason == 1) {
+			if (seriesSeason == 1 || seriesSeason == 7) {
 				seriesName = "Yukon";
 				tableauStructure = [1,6,7,8,9,10,11];
 				downturnDepth = [0,1,2,3,4,5,6];
@@ -189,6 +189,15 @@
 				tableauMovement = "oneCard";
 				prefilledReserve = 2;
 				maxReserve = 4;
+			} else if (seriesSeason == 7) {
+				seriesName = "Relaxed Golf";
+				scoringModel = "golfUpDnAnyWrap";
+				tableauStructure = [5,5,5,5,5,5,5];
+				tableauBuilding = "none";
+				tableauMovement = "oneCard";
+				emptyPileRefills = "none";
+				stockDealTo = 1;
+				deckCost = 35;
 			}
 			break;
 	}
@@ -218,7 +227,7 @@
 	<input id="helpButton" class="button" type="button" value="Help" onclick="toggleHelp(false)" title="Toggles game instructions" />
 	<input id="undoMove" class="button" type="button" value="Undo" onclick="undoMove()" title="Undoes the last move" />
 	<br />Current Score: <span id="casualScore">0</span>
-	&mdash; Skill: <span id="seriesSkill">Regular</span>
+	&mdash; Skill: <span id="seriesSkill">???</span>
 	&mdash; Series Score: $<span id="seriesScore">0</span>
 	<span id="livesDisp">&mdash; Lives: <span id="seriesLives">0</span></span>
 	<input id="password" type="hidden" />
@@ -248,29 +257,29 @@
 </tr></thead>
 <tfoot><tr>
 	<td>Grand Total</td>
-	<td class="numeric">208</td>
+	<td class="numeric">139</td>
 	<td class="numeric">&mdash;</td>
-	<td class="numeric">168</td>
+	<td class="numeric">461</td>
 	<td class="numeric">1,000</td>
 </tr></tfoot>
 <tbody><tr>
-	<td>Westcliff</td>
+	<td>Klondike</td>
 	<td class="numeric">52</td>
 	<td class="numeric">3</td>
 	<td class="numeric">0</td>
 	<td class="numeric">156</td>
 </tr><tr>
-	<td>Courtyard</td>
-	<td class="numeric">104</td>
-	<td class="numeric">4</td>
-	<td class="numeric">0</td>
-	<td class="numeric">416</td>
-</tr><tr>
-	<td>Northwest Territory</td>
+	<td>Yukon</td>
 	<td class="numeric">52</td>
+	<td class="numeric">4</td>
+	<td class="numeric">128</td>
+	<td class="numeric">336</td>
+</tr><tr>
+	<td>Relaxed Golf</td>
+	<td class="numeric">35</td>
 	<td class="numeric">5</td>
-	<td class="numeric">168</td>
-	<td class="numeric">428</td>
+	<td class="numeric">333</td>
+	<td class="numeric">508</td>
 </tr></tbody>
 </table>
 

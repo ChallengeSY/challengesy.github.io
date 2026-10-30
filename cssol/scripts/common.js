@@ -1428,7 +1428,7 @@ function saveSeriesFile(gameWon) {
 		var cardsMod = 0;
 		switch (seriesGame) {
 			case 2:
-				if (seriesSeason < 3) {
+				if (seriesSeason < 3 || seriesSeason > 6) {
 					winBonus = 128;
 				} else if (seriesSeason < 5) {
 					winBonus = 52;
@@ -1440,10 +1440,12 @@ function saveSeriesFile(gameWon) {
 					cardsMod = -4;
 				} else if (seriesSeason == 2) {
 					winBonus = 248;
+				} else if (seriesSeason == 3 || seriesSeason == 4) {
+					winBonus = 64;
 				} else if (seriesSeason == 5 || seriesSeason == 6) {
 					winBonus = 168;
-				} else {
-					winBonus = 64;
+				} else if (seriesSeason == 7) {
+					winBonus = 333;
 				}
 				break;
 		}

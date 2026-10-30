@@ -325,6 +325,7 @@ function roboBuild(pileCount, reserveCount, wastePresent) {
 			finishPtr = null;
 		} else if (success == false) {
 			updateStatus("&emsp;");
+			endingCheck();
 			selectX = -1;
 			clearInterval(finishPtr);
 			finishPtr = null;
