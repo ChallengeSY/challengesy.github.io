@@ -33,9 +33,9 @@ function setupGame() {
 // Victory conditions
 
 function endingCheck() {
-	var movesPossible = false;
+	var movesPossible = true;
 	
-	if (solGame.moneyScore >= 125) {
+	if (solGame.moneyScore >= 120) {
 		gameWon();
 	}
 }
@@ -161,42 +161,38 @@ function playCard(event) {
 	var imgRef, selectionRef;
 	var baseID, x, y;
 
-	try {
-		baseID = this.id;
-		x = parseInt(baseID.substring(1,3));
-		y = parseInt(baseID.substring(3,5));
+	baseID = this.id;
+	x = parseInt(baseID.substring(1,3));
+	y = parseInt(baseID.substring(3,5));
 
-		imgRef = document.getElementById(baseID);
-		selectionRef = document.getElementById("x" + selectX + "y" + height[selectX]);
+	imgRef = document.getElementById(baseID);
+	selectionRef = document.getElementById("x" + x + "y" + y);
+	
+	if (solGame.gameActive == false) {
+		updateStatus("The game has already ended!");
+	} else if (selectX == -1) {
+		selectX = x;
+		selectY = y;
 		
-		if (solGame.gameActive == false) {
-			updateStatus("The game has already ended!");
-		} else if (selectX == -1) {
-			selectX = x;
-			selectY = y;
-			
-			if (selectX >= 0) {
-				imgRef = document.getElementById("x" + x + "y" + y)
-				selectCard(imgRef);
-			}
-		} else if (x == selectX && y == selectY) {
-			selectionRef = document.getElementById("x" + selectX + "y" + selectY);
-			deselectCard(selectionRef);
+		if (selectX >= 0) {
+			imgRef = document.getElementById("x" + x + "y" + y)
+			selectCard(imgRef);
+		}
+	} else if (x == selectX && y == selectY) {
+		selectionRef = document.getElementById("x" + selectX + "y" + selectY);
+		deselectCard(selectionRef);
 
-			selectX = -1;
-			selectY = -1;
-		} else {
-            var swapCard = solGame.tableau[selectX][selectY];
+		selectX = -1;
+		selectY = -1;
+	} else {
+		var swapCard = solGame.tableau[selectX][selectY];
 
-            solGame.tableau[selectX][selectY] = solGame.tableau[x][y];
-            solGame.tableau[x][y] = swapCard;
+		solGame.tableau[selectX][selectY] = solGame.tableau[x][y];
+		solGame.tableau[x][y] = swapCard;
 
-			playSound(cardDown);
-            incrementMove();
-            renderPlayarea();
-        }
-	} catch(err) {
-		throwError(err);
+		playSound(cardDown);
+		incrementMove();
+		renderPlayarea();
 	}
 }
 
@@ -214,62 +210,57 @@ function newGame(greetings, newSeed) {
 	passInvalid = false;
 	oldPassword = seedPassword;
 
-	try {
+	if (selectX != -1) {
+		updateStatus("A new game may not be started while there is a card selected.");
+	} else if (solGame.totalMoves == 0) {
+		solGame.gameActive = false;
+	} else if (solGame.gameActive && confirm(message)) {
+		playSound(gameLostSnd);
+		solGame.gameActive = false;
+	}
+
+	if (solGame.gameActive) {
+		seedPassword = oldPassword;
+		passField.value = seedPassword;
+	} else {
+		cardsDealt = 0;
+		resetInternals();
+		playDeck = new solDeck(1);
+		if (newSeed) {
+			shuffleDeck(1);
+		} else if (!readPass(1)) {
+			passInvalid = true;
+			shuffleDeck(1);
+		}
 		
-		if (selectX != -1) {
-			updateStatus("A new game may not be started while there is a card selected.");
-		} else if (solGame.totalMoves == 0) {
-			solGame.gameActive = false;
-		} else if (solGame.gameActive && confirm(message)) {
-			playSound(gameLostSnd);
-			solGame.gameActive = false;
+		// Reset tableau
+		for (var y = 0; y < 5; y++) {
+			for (var x = 0; x < 5; x++) {
+				solGame.tableau[x][y] = null;
+			}
 		}
-	
-		if (solGame.gameActive) {
-			seedPassword = oldPassword;
-			passField.value = seedPassword;
-		} else {
-			cardsDealt = 0;
-			resetInternals();
-			playDeck = new solDeck(1);
-			if (newSeed) {
-				shuffleDeck(1);
-			} else if (!readPass(1)) {
-				passInvalid = true;
-				shuffleDeck(1);
+					
+		// Sets up the tableau
+		for (var y = 0; y < 5; y++) {
+			for (var x = 0; x < 5; x++) {
+				solGame.tableau[x][y] = assignSeedCard();
 			}
-			
-			// Reset tableau
-			for (var y = 0; y < 5; y++) {
-				for (var x = 0; x < 5; x++) {
-					solGame.tableau[x][y] = null;
-				}
-			}
-						
-			// Sets up the tableau
-			for (var y = 0; y < 5; y++) {
-				for (var x = 0; x < 5; x++) {
-                    solGame.tableau[x][y] = assignSeedCard();
-				}
-			}
-			
-			renderPlayarea();
-			
-			if (greetings) {
-				updateStatus("Welcome to Poker Grid.");
-			} else if (!newSeed) {
-				if (passInvalid) {
-					updateStatus("Not a valid password. New game started");
-				} else {
-					updateStatus("Password successful");
-					solGame.recordWin = false;
-					solGame.recordPlay = false;
-				}
+		}
+		
+		renderPlayarea();
+		
+		if (greetings) {
+			updateStatus("Welcome to Poker Grid.");
+		} else if (!newSeed) {
+			if (passInvalid) {
+				updateStatus("Not a valid password. New game started");
 			} else {
-				updateStatus("Game started");
+				updateStatus("Password successful");
+				solGame.recordWin = false;
+				solGame.recordPlay = false;
 			}
+		} else {
+			updateStatus("Game started");
 		}
-	} catch(err) {
-		throwError(err);
 	}
 }
