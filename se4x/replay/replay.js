@@ -457,6 +457,12 @@ function autoNameCounter(localObj) {
 		stackable = true;
 	} else if (localObj.src.indexOf("gfx/talon/turn") >= 0) {
 		localObj.title = "Turn Radius Marker";
+	} else if (localObj.src.indexOf("gfx/talon/slip") >= 0) {
+		localObj.title = "Side Slip Marker";
+	} else if (localObj.src.indexOf("gfx/talon/initC") >= 0) {
+		localObj.title = "Change Initiative Marker";
+	} else if (localObj.src.indexOf("gfx/talon/initD") >= 0) {
+		localObj.title = "Defend Initiative Marker";
 	}
 
 	if (stackable) {
@@ -774,7 +780,12 @@ function paintTile(baseObj, paintPic) {
 				} else if (getPic.indexOf("border") >= 0 || getPic.indexOf("home") >= 0) {
 					applyPic = "asteroids"+getPic.charAt(getPic.length-5,1);
 				} else if (getPic.indexOf("planet") >= 0) {
-					applyPic = "asteroids"+getPic.charAt(getPic.length-6,1);
+					var readNumeral = parseInt(getPic.substr(getPic.length-6));
+					if (readNumeral >= 0) {
+						applyPic = "asteroids"+getPic.charAt(getPic.length-7,1);
+					} else {
+						applyPic = "asteroids"+getPic.charAt(getPic.length-6,1);
+					}
 				} else if (getPic.indexOf("colony5") >= 0) {
 					applyPic = "asteroids"+getPic.charAt(getPic.length-7,1);
 				}
@@ -1034,7 +1045,7 @@ function compareTalonShips() {
 function readValue(jsonValue, defaultValue) {
 	if (typeof jsonValue == "number" && isFinite(jsonValue)) {
 		return parseInt(jsonValue);
-	} else if (jsonValue) {
+	} else if (typeof jsonValue == "boolean" || jsonValue) {
 		return jsonValue;
 	}
 	
@@ -2272,6 +2283,8 @@ function readJson() {
 					convertName = "IC"+lastChar;
 				} else if (workId.startsWith("LC")) {
 					convertName = "LC"+lastChar;
+				} else if (workId.startsWith("LP")) {
+					convertName = "LP"+lastChar;
 				} else if (workId.startsWith("TC")) {
 					convertName = "TC"+lastChar;
 				} else if (workId.startsWith("MS")) {
@@ -2338,6 +2351,8 @@ function readJson() {
 					
 					var numId = workId.split("-")[1];
 					var shipCrits = readValue(actionPool[i].critDmg, []);
+					var sideSlipping = readValue(actionPool[i].slipping, false);
+					var initChange = readValue(actionPool[i].init, null);
 					
 					var shipDetails = [workObj.title + " " + numId, actionPool[i].pwrCurve, readValue(actionPool[i].shields, []),
 						readValue(actionPool[i].wepCharge, []), readValue(actionPool[i].hullDmg, 0), shipCrits, extraFeats];
@@ -2387,11 +2402,18 @@ function readJson() {
 						rotateCounter(critObj, rotationAngle);
 					}
 					
-					if (readValue(actionPool[i].init,null) != null) {
-						placeCounter(workId+"init", readX, readY, "init"+actionPool[i].init, 0, true);
+					if (sideSlipping) {
+						placeCounter(workId+"slip", readX, readY, "slip", 0, true);
 						
-						var critObj = document.getElementById(workId+"init");
-						rotateCounter(critObj, rotationAngle);
+						var auxObj = document.getElementById(workId+"slip");
+						rotateCounter(auxObj, rotationAngle);
+					}
+					
+					if (initChange != null) {
+						placeCounter(workId+"init", readX, readY, "init"+initChange, 0, true);
+						
+						var auxObj = document.getElementById(workId+"init");
+						rotateCounter(auxObj, rotationAngle);
 					}
 					
 					if (actionPool[i].pwrCurve) {
@@ -3203,6 +3225,7 @@ function readJson() {
 				expansionHWs = readValue(actionPool[i].useExpansion, true);
 				initFacilities = readValue(actionPool[i].facilities, 0);
 				doubleDS = readValue(actionPool[i].heavyTerrain, false);
+				var galCapitol = readValue(actionPool[i].galCapitol, true);
 				var plrSlots = [actionPool[i].playerTop, actionPool[i].playerBottom];
 				var plrColors = [plrSlots[0].charAt(0), plrSlots[1].charAt(0)];
 				var plrExtraHexes = [plrSlots[0].charAt(1), plrSlots[1].charAt(1)];
@@ -3217,7 +3240,7 @@ function readJson() {
 								placeSystemMarker(x,y,"unexplored"+plrColors[0]);
 							} else if (y >= 9) {
 								placeSystemMarker(x,y,"unexplored"+plrColors[1]);
-							} else if (x == 5 && y == 6) {
+							} else if (x == 5 && y == 6 && galCapitol) {
 								placeSystemMarker(x,y,"capitol");
 							} else {
 								placeSystemMarker(x,y,deepSpace);
