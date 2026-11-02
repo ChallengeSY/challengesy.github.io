@@ -40,12 +40,14 @@
 	<h4>Torpedo tubes</h4>
 	<p>Torpedo tubes do not roll dice until the ships become close enough to allow their use, and only if their ammo storage is not empty.</p>
 	
-	<p>While the conditions are met, the tube constantly charges, and rolls 1d17 (at a variable threshold) to determine whether to shoot (requires 31 ticks worth of charge). Additionally, if these weapons max their charge levels entirely (41 ticks worth), then it automatically shoots regardless of the previous roll.</p>
+	<p>While the conditions are met, the tube constantly charges, and rolls 1d17 (threshold varies by weapon type) to determine whether to shoot (requires 31 ticks worth of charge). Additionally, if these weapons max their charge levels entirely (41 ticks worth), then it automatically shoots regardless of the previous roll.</p>
 	
 	<p>Either way, when it shoots, it then rolls 1d100 to determine whether a hit was scored against the opposing ship (default &ge;35 to hit).</p>
 
 	<h4>Dogfights</h4>
-	<p>Finally, when two fighters are aligned vertically, one fighter automatically shoots down another. 1d100 is rolled to determine the victor (&ge;50 causes left-side to win).</p>
+	<p>Finally, when two fighters from opposing sides are aligned vertically, one fighter automatically shoots down another. 1d100 is rolled to determine the victor (&ge;50 causes left-side to win).</p>
+	
+	<p>Furthermore, if multiple dogfights occur in the same <q>column</q>, left-side fighters that are destroyed are permitted to keep shooting for the remainder of the tick. Right-side fighters are immediately destroyed and no longer play a role in the dice rolls.</p>
 
 	<h4>Fighter-resistant combatants</h4>
 	<p>If a fighter-resistant combatant (for example, a Jacker) is involved in a battle, then each fighter rolls 1d100 for each tick they are striking a resistant target (roll must exceed the resistance value to deal damage).</p>
