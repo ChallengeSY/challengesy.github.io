@@ -12,6 +12,7 @@ var scoreStockCards = false;
 var reserveFound = 0;
 var challengeDealing = false;
 var forceFinalBottom = false;
+var allowTableauWrapping = false;
 seriesPassword = "";
 
 function setupGame() {
@@ -625,7 +626,7 @@ function buildCheck(objA, objB, auxConn) {
 			case "downSuit":
 				if ((rankValue[getRank(objA)] == rankValue[getRank(objB)] + 1 ||
 					(objB.rank == "King" && objA.rank == "Ace")) &&
-					objA.suit == objB.suit && objB.rank != finalRank && objA.rank != baseRank) {
+					objA.suit == objB.suit && (objB.rank != finalRank && objA.rank != baseRank || allowTableauWrapping)) {
 					outcome = true;
 				}
 				buildTxt = "Build down by suit.";
@@ -642,7 +643,7 @@ function buildCheck(objA, objB, auxConn) {
 			case "downDiffSuit":
 				if ((rankValue[getRank(objA)] == rankValue[getRank(objB)] + 1 ||
 					(objB.rank == "King" && objA.rank == "Ace")) &&
-					objA.suit != objB.suit && objB.rank != finalRank && objA.rank != baseRank) {
+					objA.suit != objB.suit && (objB.rank != finalRank && objA.rank != baseRank || allowTableauWrapping)) {
 					outcome = true;
 				}
 				buildTxt = "Build down by any non-matching suit.";
@@ -650,7 +651,7 @@ function buildCheck(objA, objB, auxConn) {
 			case "downColor":
 				if ((rankValue[getRank(objA)] == rankValue[getRank(objB)] + 1 ||
 					(objB.rank == "King" && objA.rank == "Ace")) &&
-					getColor(objA) == getColor(objB) && objB.rank != finalRank && objA.rank != baseRank) {
+					getColor(objA) == getColor(objB) && (objB.rank != finalRank && objA.rank != baseRank || allowTableauWrapping)) {
 					outcome = true;
 				}
 				buildTxt = "Build down by color.";
@@ -658,7 +659,7 @@ function buildCheck(objA, objB, auxConn) {
 			case "downColorAlt":
 				if ((rankValue[getRank(objA)] == rankValue[getRank(objB)] + 1 ||
 					(objB.rank == "King" && objA.rank == "Ace")) &&
-					getColor(objA) != getColor(objB) && objB.rank != finalRank && objA.rank != baseRank) {
+					getColor(objA) != getColor(objB) && (objB.rank != finalRank && objA.rank != baseRank || allowTableauWrapping)) {
 					outcome = true;
 				}
 				buildTxt = "Build down by alternating colors.";
@@ -666,13 +667,18 @@ function buildCheck(objA, objB, auxConn) {
 			case "downAnySuit":
 				if ((rankValue[getRank(objA)] == rankValue[getRank(objB)] + 1 ||
 					(objB.rank == "King" && objA.rank == "Ace")) &&
-					objB.rank != finalRank && objA.rank != baseRank) {
+					(objB.rank != finalRank && objA.rank != baseRank || allowTableauWrapping)) {
 					outcome = true;
 				}
 				buildTxt = "Build down regardless of suit.";
 				break;
 		}
+		
+		if (allowTableauWrapping) {
+			buildTxt = buildTxt + " Wrapping enabled.";
+		}
 	}
+	
 
 	return outcome;
 }
@@ -891,7 +897,9 @@ function endingCheck() {
 											if (buildCheck(solGame.tableau[dx][solGame.height[dx]],solGame.tableau[x][y])) {
 												movesPossible[0]++;
 												
-												if ((solGame.height[x] == 0 && emptyPileRefills != "anyCard") || (y > 0 && (!buildCheck(solGame.tableau[x][y-1],solGame.tableau[x][y])) || y == solGame.downturn[x])) {
+												if (((solGame.height[x] == 0 && emptyPileRefills != "anyCard") ||
+													(y > 0 && (!buildCheck(solGame.tableau[x][y-1],solGame.tableau[x][y])) || y == solGame.downturn[x])) && 
+													((solGame.tableau[x][y].rank != finalRank && solGame.tableau[dx][solGame.height[dx]].rank != baseRank) || y > 0)) {
 													movesPossible[1]++;
 												}
 											}
@@ -1713,6 +1721,9 @@ function newGame(greetings, newSeed) {
 					break;
 				case "simonJester":
 					title = "Simon Jester";
+					break;
+				case "spidercells":
+					title = "SpiderCells Solitaire";
 					break;
 				case "skyscraper":
 					title = "Skyscraper Tower";

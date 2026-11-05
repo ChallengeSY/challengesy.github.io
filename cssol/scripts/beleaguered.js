@@ -22,28 +22,21 @@ maxReserve = 0;
 prefilledReserve = 0;
 deckCost = 52;
 
-reverseRender = true;
-setupApplied = false;
-
-function customRender() {
-	if (!setupApplied) {
-		for (var b = 0; b < 52; b++) {
-			for (var a = 0; a < tableauWidth; a++) {
-				if (b >= 19) {
-					reposElement("x"+a+"y"+b,-1,-1);
-				} else if (a % 2 == 0) {
-					reposElement("x"+a+"y"+b,(18-b)*FANNING_X,Math.floor(a/2)*140);
-				} else {
-					reposElement("x"+a+"y"+b,18*FANNING_X+COLUMN_WIDTH*2+b*FANNING_X,Math.floor(a/2)*140);
-				}
+function mutateSetup() {
+	for (var b = 0; b < 52; b++) {
+		for (var a = 0; a < tableauWidth; a++) {
+			if (b >= 19) {
+				reposElement("x"+a+"y"+b,-1,-1);
+			} else if (a % 2 == 0) {
+				reposElement("x"+a+"y"+b,(18-b)*FANNING_X,Math.floor(a/2)*140);
+			} else {
+				reposElement("x"+a+"y"+b,18*FANNING_X+COLUMN_WIDTH*2+b*FANNING_X,Math.floor(a/2)*140);
 			}
 		}
-		
-		for (var c = 0; c < 4; c++) {
-			reposElement("home"+c,18*FANNING_X+COLUMN_WIDTH,c*140);
-		}
-		
-		setupApplied = true;
+	}
+	
+	for (var c = 0; c < 4; c++) {
+		reposElement("home"+c,18*FANNING_X+COLUMN_WIDTH,c*140);
 	}
 }
 
