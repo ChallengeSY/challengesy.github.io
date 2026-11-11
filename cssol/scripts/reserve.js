@@ -65,6 +65,7 @@ function playReserve(event) {
 			deleteEntry();
 			
 			renderPlayarea();
+			endingCheck();
 		} else if (pairingGame) {
 			if (pairCheck(stockPile[solGame.wasteSize],solGame.reserveSlot[whichSlot])) {
 				recordMove();
@@ -127,6 +128,7 @@ function playReserve(event) {
 			solGame.tableau[selectX][solGame.height[selectX]] = null;
 
 			renderPlayarea();
+			endingCheck();
 		} else if (pairingGame) {
 			if (pairCheck(solGame.tableau[selectX][solGame.height[selectX]],solGame.reserveSlot[whichSlot])) {
 				recordMove();

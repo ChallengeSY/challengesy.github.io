@@ -13,6 +13,9 @@ var reserveFound = 0;
 var challengeDealing = false;
 var forceFinalBottom = false;
 var allowTableauWrapping = false;
+var freeSpaceMult = 2;
+var mountainWidth = 0;
+var shiftTopRow = false;
 seriesPassword = "";
 
 function setupGame() {
@@ -49,6 +52,12 @@ function setupGame() {
 		}
 		
 		topPadding = 140 + wizardDecks*10;
+		if (!golfGame && window.innerHeight && window.innerHeight <= 600) {
+			// Small height detected. Prohibit fanned waste pile in non-Golf games
+			if (stockDealTo == 1) {
+				stockDealTo = 0;
+			}
+		}
 	
 		if (stockDealTo == 0) {
 			// Create a stacked waste pile
@@ -124,6 +133,10 @@ function setupGame() {
 		if (stockDealTo >= 4) {
 			stockDealTo = 0;
 		}
+	}
+	
+	if (tableauBuilding == "dnUpSuit") {
+		freeSpaceMult = 13;
 	}
 	
 	screenColumns -= leftPadding;
@@ -280,6 +293,12 @@ function setupGame() {
 		}
 	} else if (pairingGame) {
 		scoreStockCards = (stockDealTo > 1 || emptyAutoRefills > 0 || reserveReusable > 0 || emptyPileRefills == "anyCard");
+		if (scoringModel == "pairAdd10butSelf") {
+			maxScore -= 4 * wizardDecks;
+		} else if (scoringModel == "pairSameSuit" && wizardDecks % 2 > 0) {
+			maxScore -= 4;
+		}
+		
 		if (!scoreStockCards) {
 			maxScore = Math.min(deckCost, maxScore);
 		}
@@ -702,6 +721,14 @@ function pairCheck(objA, objB, auxConn) {
 			}
 			buildTxt = "Remove pairs that match in suit.";
 			break;
+		case "pairAdd10butSelf":
+			if (rankValue[getRank(objA)] + rankValue[getRank(objB)] == 10) {
+				outcome = true;
+			} else if (rankValue[getRank(objA)] > 10 && rankValue[getRank(objA)] == rankValue[getRank(objB)]) {
+				outcome = true;
+			}
+			buildTxt = "Remove pairs that add up to ten. (Face cards are instead removed if they match in rank.)";
+			break;
 		case "pairAdd10":
 			if (rankValue[getRank(objA)] + rankValue[getRank(objB)] == 10) {
 				outcome = true;
@@ -760,7 +787,7 @@ function endingCheck() {
 				if (emptyPileRefills == "anyCard") {
 					movesPossible[0]++;
 					movesPossible[1]++;
-					moveCap = moveCap * 2;
+					moveCap = moveCap * freeSpaceMult;
 				}
 			}
 		}
@@ -934,6 +961,10 @@ function endingCheck() {
 			} catch(err) {
 				console.error("Error found at ("+x+","+y+"): "+err);
 			}
+		}
+		
+		if (allowAnyBaseRank && solGame.casualScore <= 0) {
+			setBaseRank("");
 		}
 		
 		if (movesPossible[0] <= 0) {
@@ -1131,7 +1162,7 @@ function playCard(event) {
 			if (emptyPileRefills == "anyCard") {
 				for (var m = 0; m < tableauWidth; m++) {
 					if (solGame.height[m] < 0) {
-						freeSpace = freeSpace * 2;
+						freeSpace = freeSpace * freeSpaceMult;
 					}
 				}
 			}
@@ -1147,6 +1178,12 @@ function playCard(event) {
 				selectX = -1;
 				event.preventDefault();
 				event.stopPropagation();
+			} else if (solGame.tableau[x][y].rank == "10" && scoringModel == "pairAdd10butSelf") {
+				updateStatus("This card has no valid mates!");
+
+				selectDepth = 0;
+				selectX = -1;
+				event.preventDefault();
 			} else if (solGame.tableau[x][y].rank == "King" && scoringModel == "pairAdd13") {
 				recordMove();
 				solGame.tableau[x][y] = null;
@@ -1167,7 +1204,7 @@ function playCard(event) {
 				endingCheck();
 			}
 			
-			canFillColumn = (spaceNeeded * 2 <= freeSpace || emptyPileRefills != "anyCard");
+			canFillColumn = (spaceNeeded * freeSpaceMult <= freeSpace || emptyPileRefills != "anyCard");
 			
 			switch(tableauMovement) {
 				case "yukonStyle":
@@ -1661,6 +1698,9 @@ function newGame(greetings, newSeed) {
 					break;
 				case "beleaguered":
 					title = "Beleaguered Castle";
+					break;
+				case "block10":
+					title = "Block Ten Solitaire";
 					break;
 				case "challengeFC":
 					title = "Challenge FreeCell";

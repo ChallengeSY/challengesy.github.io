@@ -23,19 +23,12 @@ maxReserve = 0;
 prefilledReserve = 0;
 deckCost = 24;
 
-reverseRender = true;
-setupApplied = false;
-
-function customRender() {
-	if (!setupApplied) {
-		for (var z = 0; z < 27; z++) {
-			reposElement("stock"+z,COLUMN_WIDTH*8+z,z);
-		}
-		
-		for (var h = 0; h < 8; h++) {
-			reposElement("home"+h,COLUMN_WIDTH*h,0);
-		}
-		
-		setupApplied = true;
+function mutateSetup() {
+	for (var z = 0; z < 27; z++) {
+		reposElement("stock"+z,COLUMN_WIDTH*8+z,z);
+	}
+	
+	for (var h = 0; h < 8; h++) {
+		reposElement("home"+h,COLUMN_WIDTH*h,0);
 	}
 }

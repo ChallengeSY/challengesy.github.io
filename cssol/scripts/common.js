@@ -169,6 +169,10 @@ function undoMove() {
 			if (!traditionalStock || stockDealTo < 0 || stockDealTo > 1) {
 				cardsDealt = wizardDecks*52 - solGame.stockRemain;
 			}
+		
+			if (allowAnyBaseRank && solGame.casualScore <= 0) {
+				setBaseRank("");
+			}
 		}
 
 		undoCount++;
@@ -738,16 +742,27 @@ function togglePass() {
 
 function resizeHeight() {
 	if (window.innerHeight) {
+		var banner = document.getElementById("banner");
 		var helpPanel = document.getElementById("helpPanel");
-		var heightModifier = 165;
+		var heightModifier = 165, bannerHeight = 0;
 		
 		var stockPile = document.getElementById("stock0");
 		var foundationPool = document.getElementById("home0");
+		
+		if (banner) {
+			if (window.innerHeight <= 600) {
+				bannerHeight = 0;
+				banner.style.display = "none";
+			} else {
+				bannerHeight = 85;
+				banner.style.display = "";
+			}
+		}
+		
+		heightModifier = 80 + bannerHeight;
 
-		if (helpPanel && helpPanel.style.display == "none") {
-			heightModifier = 165;
-		} else {
-			heightModifier = 165 + helpPanel.offsetHeight;
+		if (helpPanel && helpPanel.style.display != "none") {
+			heightModifier += helpPanel.offsetHeight;
 		}
 		
 		playHeight = window.innerHeight - heightModifier;
@@ -759,15 +774,15 @@ function resizeHeight() {
 			if (!stockPile || foundationPool ||
 				filepath.search("/games/scorpion") >= 0 || filepath.search("/games/tripeaks") >= 0) {
 				maxHeight = document.getElementById("tableau").style.maxHeight;
-				commandOffset = 85 + helpPanel.offsetHeight;
+				commandOffset = 71 + Math.ceil(bannerHeight/10) + helpPanel.offsetHeight;
 				
 				if (isFinite(parseInt(maxHeight)) && playHeight > parseInt(maxHeight)) {
-					commandOffset = window.innerHeight - parseInt(maxHeight) - 80;
+					commandOffset = window.innerHeight - parseInt(maxHeight) - 5 - bannerHeight;
 				}
 				
 				cmdPanel.style.bottom = commandOffset+"px";
-			} else if (!cmdPanel.style.top) {
-				cmdPanel.style.top = "90px";
+			} else {
+				cmdPanel.style.top = 13 + Math.max(bannerHeight-8,0) +"px";
 			}
 		}
 	}
