@@ -13,6 +13,7 @@ var reserveFound = 0;
 var challengeDealing = false;
 var forceFinalBottom = false;
 var allowTableauWrapping = false;
+var reserveFacedown = false;
 var freeSpaceMult = 2;
 var mountainWidth = 0;
 var shiftTopRow = false;
@@ -52,7 +53,7 @@ function setupGame() {
 		}
 		
 		topPadding = 140 + wizardDecks*10;
-		if (!golfGame && window.innerHeight && window.innerHeight <= 600) {
+		if (!golfGame && window.innerHeight && window.innerHeight <= 768) {
 			// Small height detected. Prohibit fanned waste pile in non-Golf games
 			if (stockDealTo == 1) {
 				stockDealTo = 0;
@@ -381,6 +382,7 @@ function dealStock() {
 				
 			} else if (solGame.redeals > 0) {
 				if (solGame.wasteSize >= 0) {
+					recordMove();
 					solGame.stockRemain = solGame.wasteSize + 1;
 					solGame.wasteSize = -1;
 					
@@ -389,6 +391,7 @@ function dealStock() {
 				}
 			}
 			renderPlayarea();
+			endingCheck();
 		} else if (stockDealTo == 3 && emptyTableau) {
 			if (solGame.stockRemain > 0) {
 				updateStatus("A new row may not be dealt while there are empty columns.");
@@ -971,6 +974,8 @@ function endingCheck() {
 			noMovesLeft();
 		} else if (movesPossible[1] <= 0) {
 			updateStatus("Warning! There appears to be no unique moves...");
+		} else if (movesPossible[0] <= 1 && solGame.totalMoves > 0) {
+			updateStatus("Tension is brewing...");
 		}
 	}
 }
@@ -1244,6 +1249,17 @@ function playCard(event) {
 							event.stopPropagation();
 							break;
 						}
+					}
+					break;
+				case "allOrNothing":
+					if (y > solGame.downturn[x] && y < solGame.height[x]) {
+						updateStatus("Only single cards or entire face-up tableau piles may be moved at once.");
+						
+						selectDepth = 0;
+						selectX = -1;
+						event.preventDefault();
+						event.stopPropagation();
+						break;
 					}
 					break;
 				default:

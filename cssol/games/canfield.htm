@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="description" content="JavaScript solitaire games" />
+	<meta name="keywords" content="Canfield" />
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>Canfield - CSSol</title>
+
+	<link type="text/css" href="../scripts/cards.css" rel="stylesheet" />
+	<link type="image/x-icon" href="../cssol.ico" rel="icon" />
+	<script type="text/javascript" src="../scripts/common.js"></script>
+	<script type="text/javascript" src="../scripts/reserve.js"></script>
+	<script type="text/javascript" src="../scripts/homepiles.js"></script>
+	<script type="text/javascript" src="../scripts/wizard.js"></script>
+	<script type="text/javascript" src="../scripts/canfield.js"></script>
+</head>
+<body>
+<p id="banner"><a href="index.php"><img src="../gfx/banner.png" alt="" /></a></p>
+<div id="tableau">
+	<div id="commandPanel">
+	<input id="newGame" class="button" type="button" value="New" onclick="newGame(false,true)" title="Starts a new game" />
+	<input id="restartGame" class="button" type="button" value="Restart" onclick="restartGame(false)" title="Restarts the game using the same password" />
+	<input id="autoBuild" class="button" type="button" value="Autobuild" onclick="autoFinish()" title="Automatically builds foundations where possible" />
+	<input id="helpButton" class="button" type="button" value="Help" onclick="toggleHelp()" title="Toggles game instructions" />
+	<input id="undoMove" class="button" type="button" value="Undo" onclick="undoMove()" title="Undoes the last move" />
+	<input id="passButton" class="button" type="button" value="Password" onclick="togglePass()" title="Toggles seed password display" />
+	&mdash; Score: <span id="casualScore">0</span>
+	<span id="passDisp"><br />Password: <input id="password" class="text" type="text" size="60" onchange="newGame(false,false)" /></span>
+	</div>
+
+	<!-- Playfield elements will be made here -->
+</div>
+
+<p id="statusBar"></p>
+
+<div id="helpPanel">
+<h2>Instructions</h2>
+<p>Canfield is a patience or solitaire card game with a very low probability of winning.</p>
+
+<p>To play the game, one must first deal thirteen cards faced up and then turned down. These cards would be the reserve, the top card of which is available for play. Then a card is placed on first of the four foundations to the right of the reserve. This card is the first card of its foundation and all other cards of the same rank must also start the other three foundations.</p>
+
+<p>Below the foundations are four piles, each starting with a card each. This will be the tableau and the top cards of each pile are available for play. Cards on the tableau are built down by alternating colors, while the foundations are built up by suit, wrapping from King to Ace if necessary. Any gaps on the tableau are filled from the reserve; in case the reserve is used up, cards from the waste pile are used. Cards on the reserve can also be distributed to the foundations or to the tableau. Cards on the tableau are also moved one unit, provided that the entire column has to be moved.</p>
+
+<p>When no more plays are possible on the tableau and no more cards can be placed to the foundations, especially from the reserve, one can deal cards from the stock (the undealt cards) three at a time into the waste pile and use these cards to build to the foundations or to the tableau. One can make unlimited redeals as long as there are moves, although Richard Canfield himself restricted the number of times that gamblers could redeal the stock.</p>
+
+<p>The game is won when all cards are placed in the foundations. But as Canfield knew very well, winning this game is unlikely, as one can manage to place an average of five to six cards.</p>
+
+<p class="footer">Documentation is &copy; <a href="http://en.wikipedia.org">Wikipedia Contributors</a>. Freely distributable under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons (BY SA) license 3.0</a></p>
+</div>
+
+</body>
+</html>

@@ -20,8 +20,8 @@
   font-family: "Ubuntu", sans-serif;
   font-size: 20pt;
   position: absolute;
-  width:  3.75em;
-  height: 5.00em;
+  width:  98px;
+  height: 133px;
 }
 
 .invis {
@@ -78,13 +78,13 @@
 }
 
 .indexA {
-  left: 0.25em;
-  top:  0.25em;
+  left: 2px;
+  top:  3px;
 }
 
 .indexB {
-  right:  0.25em;
-  bottom: 0.25em;
+  right:  2px;
+  bottom: 3px;
 }
 
 .ace {
@@ -98,29 +98,30 @@
 .face {
   border: 1px solid #000000;
   position: absolute;
-  left: 0.50em;
-  top:  0.45em;
-  width:  2.6em;
-  height: 4.0em;
+  width:  70px;
+  height: 107px;
+  left: 50%;
+  top:  50%;
+  transform: translate(-50%, -50%);
 }
 
-.spotA1 { position: absolute; left: 0.60em; top: 0.5em; }
-.spotA2 { position: absolute; left: 0.60em; top: 1.5em; }
-.spotA3 { position: absolute; left: 0.60em; top: 2.0em; }
-.spotA4 { position: absolute; left: 0.60em; top: 2.5em; }
-.spotA5 { position: absolute; left: 0.60em; top: 3.5em; }
+.spotA1 { position: absolute; left: 17px; top: 10px; }
+.spotA2 { position: absolute; left: 17px; top: 35px; }
+.spotA3 { position: absolute; left: 17px; top: 50%; transform: translate(0px, -50%); }
+.spotA4 { position: absolute; left: 17px; bottom: 35px; }
+.spotA5 { position: absolute; left: 17px; bottom: 10px; }
 
-.spotB1 { position: absolute; left: 50%; transform: translate(-50%, 0px); top: 0.5em; }
-.spotB2 { position: absolute; left: 50%; transform: translate(-50%, 0px); top: 1.0em; }
-.spotB3 { position: absolute; left: 50%; transform: translate(-50%, 0px); top: 2.0em; }
-.spotB4 { position: absolute; left: 50%; transform: translate(-50%, 0px); top: 3.0em; }
-.spotB5 { position: absolute; left: 50%; transform: translate(-50%, 0px); top: 3.5em; }
+.spotB1 { position: absolute; left: 50%; top: 10px; transform: translate(-50%, 0px); }
+.spotB2 { position: absolute; left: 50%; top: 25px; transform: translate(-50%, 0px); }
+.spotB3 { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+.spotB4 { position: absolute; left: 50%; bottom: 25px; transform: translate(-50%, 0px); }
+.spotB5 { position: absolute; left: 50%; bottom: 10px; transform: translate(-50%, 0px); }
 
-.spotC1 { position: absolute; right: 0.60em; top: 0.5em; }
-.spotC2 { position: absolute; right: 0.60em; top: 1.5em; }
-.spotC3 { position: absolute; right: 0.60em; top: 2.0em; }
-.spotC4 { position: absolute; right: 0.60em; top: 2.5em; }
-.spotC5 { position: absolute; right: 0.60em; top: 3.5em; }
+.spotC1 { position: absolute; right: 17px; top: 10px; }
+.spotC2 { position: absolute; right: 17px; top: 35px; }
+.spotC3 { position: absolute; right: 17px; top: 50%; transform: translate(0px, -50%); }
+.spotC4 { position: absolute; right: 17px; bottom: 35px; }
+.spotC5 { position: absolute; right: 17px; bottom: 10px; }
 
 @keyframes flashSelect {
 	0% {box-shadow: 0px 0px 2px 2px rgb(96,96,192);}

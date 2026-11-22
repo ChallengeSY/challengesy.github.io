@@ -5,8 +5,12 @@ var foundationsReusable = false;
 var buildFoundString = "";
 setBaseRank("Ace");
 
-function foundationCheck(objA, objB) {
+function foundationCheck(objA, objB, reverse) {
 	var buildLegal = false;
+	var buildDirect = 1;
+	if (reverse) {
+		buildDirect = -1;
+	}
 	
 	if (objA == null && baseRank == "") {
 		setBaseRank(objB.rank);
@@ -18,29 +22,53 @@ function foundationCheck(objA, objB) {
 	}
 	
 	if (scoringModel == "buildUpSuit") {
-		if (objA != null && objA.suit == objB.suit && 
-			rankValue[getRank(objA)] + 1 ==	rankValue[getRank(objB)]) {
-			buildLegal = true;
-		}
-		
-		if (objA != null && objA.suit == objB.suit && 
-			objA.rank == "King" && objB.rank == "Ace") {
-			buildLegal = true;
+		if (objA != null && objA.suit == objB.suit) {
+			if (rankValue[getRank(objA)] + buildDirect == rankValue[getRank(objB)]) {
+				buildLegal = true;
+			}
+			
+			if (objA.rank == "King" && objB.rank == "Ace" && buildDirect == 1) {
+				buildLegal = true;
+			}
 		}
 		
 		buildFoundString = "by suit";
-	} else if (scoringModel == "buildUpColorAlt") {
-		if (objA != null && getColor(objA) != getColor(objB) && 
-			rankValue[getRank(objA)] + 1 ==	rankValue[getRank(objB)]) {
-			buildLegal = true;
+	} else if (scoringModel == "buildUpColor") {
+		if (objA != null && getColor(objA) == getColor(objB)) {
+			if (rankValue[getRank(objA)] + buildDirect == rankValue[getRank(objB)]) {
+				buildLegal = true;
+			}
+			
+			if (objA.rank == "King" && objB.rank == "Ace" && buildDirect == 1) {
+				buildLegal = true;
+			}
 		}
 		
-		if (objA != null && getColor(objA) != getColor(objB) && 
-			objA.rank == "King" && objB.rank == "Ace") {
-			buildLegal = true;
+		buildFoundString = "by color";
+	} else if (scoringModel == "buildUpColorAlt") {
+		if (objA != null && getColor(objA) != getColor(objB)) {
+			if (rankValue[getRank(objA)] + buildDirect == rankValue[getRank(objB)]) {
+				buildLegal = true;
+			}
+			
+			if (objA.rank == "King" && objB.rank == "Ace" && buildDirect == 1) {
+				buildLegal = true;
+			}
 		}
 		
 		buildFoundString = "by alternating colors";
+	} else if (scoringModel == "buildUpAnySuit") {
+		if (objA != null) {
+			if (rankValue[getRank(objA)] + buildDirect == rankValue[getRank(objB)]) {
+				buildLegal = true;
+			}
+			
+			if (objA.rank == "King" && objB.rank == "Ace" && buildDirect == 1) {
+				buildLegal = true;
+			}
+		}
+		
+		buildFoundString = "regardless of suit";
 	} else {
 		return false;
 	}

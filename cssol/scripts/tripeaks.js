@@ -1,6 +1,7 @@
 var baseStatFile = "tripeaks";
 traditionalStock = false;
 rectangularTableau = false;
+allowAnyBaseRank = false;
 wizardDecks = 1;
 maxScore = 28;
 

@@ -1,5 +1,6 @@
 var reserveReusable = 0;
 var reserveStacked = null;
+var reserveToFoundation = false;
 
 function playReserve(event) {
 	var imgRef, selectionRef;

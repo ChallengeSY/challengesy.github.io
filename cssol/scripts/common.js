@@ -3,7 +3,7 @@ var seedSlot = new Array(312);
 var selectX, selectDepth, finishPtr, highestHeight, canFillColumn, seedPassword, oldPassword, cardsDealt;
 var baseStatFile, passField, clockPtr, forceRender, rectangularTableau, divFrag;
 const reserveStart = 50;
-const COLUMN_WIDTH = 110;
+const COLUMN_WIDTH = 107;
 const FANNING_X = 16;
 var FANNING_Y = (getStorage("pileDensity") && isFinite(getStorage("pileDensity")) ? getStorage("pileDensity") : 30);
 var abandonHandling = (getStorage("abandonPrompt") && isFinite(getStorage("abandonPrompt")) ? getStorage("abandonPrompt") : 1);
@@ -343,6 +343,7 @@ function renderPlayarea() {
 	
 	//Auto-refill empty tableau piles
 	if (emptyAutoRefills > 0 && (solGame.stockRemain > 0 || solGame.wasteSize >= 0)) {
+		// From the waste/stock pile
 		for (x = 0; x < 49; x++) {
 			searchElement = document.getElementById("x"+x+"y0");
 			if (searchElement && !solGame.tableau[x][0]) {
@@ -361,6 +362,40 @@ function renderPlayarea() {
 					} else if (solGame.wasteSize >= 0) {
 						solGame.tableau[x][i] = solGame.stockPile[solGame.wasteSize];
 						deleteEntry();
+					}
+				}
+			}
+		}
+	} else if (emptyAutoRefills < 0 && reserveStacked != null) {
+		for (x = 0; x < 49; x++) {
+			searchElement = document.getElementById("x"+x+"y0");
+			if (searchElement && !solGame.tableau[x][0]) {
+				var stackSizes = [0];
+				var workStack = -1;
+				
+				for (var j = 0; j < 48; j++) {
+					if (reserveStacked.indexOf(j) >= 0) {
+						workStack++;
+					}
+					
+					if (solGame.reserveSlot[j]) {
+						if (workStack >= stackSizes.length) {
+							stackSizes.push(0);
+						}
+						
+						stackSizes[workStack]++;
+					}
+				}
+				
+				console.log(stackSizes);
+				
+				for (var k = 0; k < stackSizes.length; k++) {
+					workStack = reserveStacked[k];
+					
+					if (stackSizes[k] > 0 && stackSizes[k] >= Math.max(...stackSizes)) {
+						solGame.tableau[x][0] = solGame.reserveSlot[workStack+stackSizes[k]-1];
+						solGame.reserveSlot[workStack+stackSizes[k]-1] = null;
+						break;
 					}
 				}
 			}
@@ -496,9 +531,19 @@ function renderPlayarea() {
 		
 		if (searchElement) {
 			if (solGame.reserveSlot[i]) {
-				newInner = solGame.reserveSlot[i].innerCode();
-				newTitle = solGame.reserveSlot[i].nameParse();
-				renderDiv(searchElement, "card");
+				if (!reserveFacedown || i == 48 || !solGame.reserveSlot[i+1] || reserveStacked.indexOf(i+1) >= 0) {
+					newInner = solGame.reserveSlot[i].innerCode();
+					newTitle = solGame.reserveSlot[i].nameParse();
+					renderDiv(searchElement, "card");
+				} else {
+					renderDiv(searchElement, "play" + (solGame.reserveSlot[i].deckID % 6));
+					
+					newInner = "";
+					newTitle = "Face-down card";
+					if (i >= 47 || (!solGame.reserveSlot[i+2] && facedownHints == 2) || facedownHints > 2) {
+						newTitle = "(" + solGame.reserveSlot[i].nameParse() + ")";
+					}
+				}
 				
 			} else {
 				newInner = "";
@@ -513,8 +558,8 @@ function renderPlayarea() {
 			
 			if (newInner != searchElement.innerHTML || forceRender) {
 				searchElement.innerHTML = newInner;
-				searchElement.title = newTitle;
 			}
+			searchElement.title = newTitle;
 		} else {
 			break;
 		}
@@ -777,7 +822,7 @@ function resizeHeight() {
 				commandOffset = 71 + Math.ceil(bannerHeight/10) + helpPanel.offsetHeight;
 				
 				if (isFinite(parseInt(maxHeight)) && playHeight > parseInt(maxHeight)) {
-					commandOffset = window.innerHeight - parseInt(maxHeight) - 5 - bannerHeight;
+					commandOffset = window.innerHeight - parseInt(maxHeight) - bannerHeight;
 				}
 				
 				cmdPanel.style.bottom = commandOffset+"px";
@@ -1322,6 +1367,10 @@ function readPass(numDecks) {
 	seedPassword = passField.value;
 	passwordValid = true;
 	
+	if (preferDeckId == -1) {
+		shuffleID -= numDecks;
+	}
+
 	for (var i = 0; i < 52; i++) {
 		cardCounts[i] = 0;
 	}
@@ -1365,11 +1414,17 @@ function readPass(numDecks) {
 			break;
 		}
 		
+		seedSlot[k].deckID = shuffleID;
+		
 		internalIndex = getSuit(seedSlot[k]) * 13 + getRank(seedSlot[k]);
 		if (++cardCounts[internalIndex] > numDecks) {
 			passwordValid = false;
 			break;
 		}
+	}
+	
+	if (preferDeckId == -1) {
+		shuffleID++;
 	}
 	
 	return passwordValid;
