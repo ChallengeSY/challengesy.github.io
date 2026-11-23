@@ -15,6 +15,8 @@ var numShoeDecks = ((curUTCday % 2 == 0) ? 6 : 4); // 2 extra decks are added on
 var dealerSoftSeventeen = (curUTCday == 0 || curUTCday == 2 || curUTCday == 5); // Hits on Soft 17s on Tue / Fri / Sun
 var surrenderEnabled = (curUTCday % 3 != 0); // Surrenders are unavailable on Weds and weekends
 
+wizardDecks = numShoeDecks;
+
 const maxPlrHands = 20;
 
 function setupGame() {
@@ -24,7 +26,7 @@ function setupGame() {
 	// Create tableau
 	for (var y = 0; y < 10; y++) {
 		for (var x = 0; x < maxPlrHands + 1; x++) {
-			leftPos = (y + 2) * COLUMN_WIDTH;
+			leftPos = (y + 1.5) * COLUMN_WIDTH;
 			topPos = (x > 0 ? (x + 0.2) * 140 : 0);
 			
 			createDivFrag("x"+x+"y"+y,leftPos,topPos,x);
@@ -34,7 +36,7 @@ function setupGame() {
 	}
 	
 	// Create stock pile
-	for (var i = 0; i < 104; i++) {
+	for (var i = 0; i < 40; i++) {
 		leftPos = i;
 		topPos = i;
 	

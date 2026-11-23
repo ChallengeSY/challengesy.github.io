@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="description" content="JavaScript solitaire games" />
+	<meta name="keywords" content="Terrace" />
+	<meta name="author" content="Paul Ruediger" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	
+	<title>Terrace - CSSol</title>
+
+	<link type="text/css" href="../scripts/cards.css" rel="stylesheet" />
+	<link type="image/x-icon" href="../cssol.ico" rel="icon" />
+	<script type="text/javascript" src="../scripts/common.js"></script>
+	<script type="text/javascript" src="../scripts/reserve.js"></script>
+	<script type="text/javascript" src="../scripts/homepiles.js"></script>
+	<script type="text/javascript" src="../scripts/wizard.js"></script>
+	<script type="text/javascript" src="../scripts/terrace.js"></script>
+</head>
+<body>
+<p id="banner"><a href="index.php"><img src="../gfx/banner.png" alt="" /></a></p>
+<div id="tableau">
+	<div id="commandPanel">
+	<input id="newGame" class="button" type="button" value="New" onclick="newGame(false,true)" title="Starts a new game" />
+	<input id="restartGame" class="button" type="button" value="Restart" onclick="restartGame(false)" title="Restarts the game using the same password" />
+	<input id="autoBuild" class="button" type="button" value="Autobuild" onclick="autoFinish()" title="Automatically builds foundations where possible" />
+	<input id="helpButton" class="button" type="button" value="Help" onclick="toggleHelp()" title="Toggles game instructions" />
+	<input id="undoMove" class="button" type="button" value="Undo" onclick="undoMove()" title="Undoes the last move" />
+	<input id="passButton" class="button" type="button" value="Password" onclick="togglePass()" title="Toggles seed password display" />
+	&mdash; Score: <span id="casualScore">0</span>
+	<span id="passDisp"><br />Password: <input id="password" class="text" type="text" size="60" onchange="newGame(false,false)" /></span>
+	</div>
+
+	<!-- Playfield elements will be made here -->
+</div>
+
+<p id="statusBar"></p>
+
+<div id="helpPanel">
+<h2>Instructions</h2>
+<p>The objective in Terrace is to carefully micromanage one tableau's so that all 104 cards are sent to the foundation piles. A rarity in its right, the foundation piles are built up by alternating colors.</p>
+
+<h3>Setup</h3>
+<p>First, 11 cards are dealt to a single, fanned reserve. Only the top card is available for play, and it may be played only onto a foundation pile.</p>
+
+<p>Second, four cards are dealt to the tableau piles. The player must pick one of these cards to act as the base rank. This base card moves up to the foundation pile to start the game. Six additional cards are dealt to the tableau, with each pile containing one card</p>
+
+<h3>Gameplay</h3>
+<p>The player can build down tableau piles by alternating colors, although multiple cards may not be moved at once. Empty tableau piles must be immediately filled with the top card from the waste pile (or stock, if waste is empty). If both stock and waste are empty, then empty tableau piles may not be filled</p>
+
+<p>The player may deal one card at a time from the stock to waste, with no redeals.</p>
+
+<?php include "docs.php"; ?>
+</div>
+
+</body>
+</html>

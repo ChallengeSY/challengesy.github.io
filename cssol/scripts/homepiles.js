@@ -153,9 +153,7 @@ function playFoundation(event) {
 		selectionRef = document.getElementById("open" + reserveID);
 		deselectCard(selectionRef);
 
-		if (solGame.casualScore == 0 && baseStatFile == "terrace") {
-			updateStatus("Invalid move. The first card must come from the tableau.");
-		} else if (foundationCheck(solGame.foundationPile[whichPile],solGame.reserveSlot[reserveID])) {
+		if (foundationCheck(solGame.foundationPile[whichPile],solGame.reserveSlot[reserveID])) {
 			recordMove();
 			updateStatus("&emsp;");
 			solGame.foundationPile[whichPile] = solGame.reserveSlot[reserveID];

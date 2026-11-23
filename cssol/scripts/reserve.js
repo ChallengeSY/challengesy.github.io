@@ -1,6 +1,6 @@
 var reserveReusable = 0;
 var reserveStacked = null;
-var reserveToFoundation = false;
+var reserveTerrace = false;
 
 function playReserve(event) {
 	var imgRef, selectionRef;
@@ -18,20 +18,36 @@ function playReserve(event) {
 
 	if (!solGame.gameActive) {
 		updateStatus("The game has already ended!");
+		event.preventDefault();
+		event.stopPropagation();
+	} else if (reserveTerrace && solGame.casualScore <= 0) {
+		updateStatus("The reserve pool is not usable until at least 1 card has been scored.");
+		skipSounds = 2;
+		event.preventDefault();
+		event.stopPropagation();
 	} else if (reserveStacked != null && solGame.reserveSlot[whichSlot+1] != null && !newSubRestack(whichSlot+1)) {
 		updateStatus("Reserve cards must be unobstructed first before they are usable");
 		skipSounds = 2;
+		event.preventDefault();
+		event.stopPropagation();
 	} else if (selectDepth > 0) {
 		updateStatus("Multiple cards may not be moved to a reserve slot at once");
 	} else if (solGame.reserveSlot[whichSlot] == null && reserveReusable == 0) {
 		updateStatus("Manual reserve pool refilling is disabled.");
 		skipSounds = 2;
+		event.preventDefault();
+		event.stopPropagation();
 	} else if (solGame.reserveSlot[whichSlot] == null && whichSlot >= reserveReusable) {
 		updateStatus("Manual refilling of that reserve slot is disabled.");
 		skipSounds = 2;
+		event.preventDefault();
+		event.stopPropagation();
 	} else if (selectX == -1) {
 		if (solGame.reserveSlot[whichSlot] == null) {
 			updateStatus("There are no cards in the empty reserve slot to interact.");
+			skipSounds = 2;
+			event.preventDefault();
+			event.stopPropagation();
 		} else if (solGame.reserveSlot[whichSlot].rank == "King" && scoringModel == "pairAdd13") {
 			recordMove();
 			solGame.reserveSlot[whichSlot] = null;

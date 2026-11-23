@@ -570,7 +570,7 @@ function renderPlayarea() {
 		searchElement = document.getElementById("stock"+i);
 		
 		if (searchElement) {
-			if (solGame.stockRemain > 3*i) {
+			if (solGame.stockRemain > (2+wizardDecks)*i) {
 				var checkWaste = document.getElementById("waste0");
 				var backID = 0;
 				
@@ -581,7 +581,7 @@ function renderPlayarea() {
 					backID = nextCard.deckID % 6;
 				}
 				
-				if (solGame.stockRemain > 3*(i+1)) {
+				if (solGame.stockRemain > (2+wizardDecks)*(i+1)) {
 					renderDiv(searchElement,"playStack");
 				} else {
 					renderDiv(searchElement,"play" + backID);
@@ -628,15 +628,15 @@ function renderPlayarea() {
 						push = FANNING_X * fanStack;
 						
 						if (fanStack <= 0) {
-							leftPos = baseLeftPos + Math.floor(i/3);
-							topPos = baseTopPos + Math.floor(i/3);
+							leftPos = baseLeftPos + Math.floor(i/(2+wizardDecks));
+							topPos = baseTopPos + Math.floor(i/(2+wizardDecks));
 						} else {
-							leftPos = baseLeftPos + Math.floor((i-fanStack)/3) + push;
-							topPos = baseTopPos + Math.floor((i-fanStack)/3);
+							leftPos = baseLeftPos + Math.floor((i-fanStack)/(2+wizardDecks)) + push;
+							topPos = baseTopPos + Math.floor((i-fanStack)/(2+wizardDecks));
 						}
 					} else {
-						leftPos = baseLeftPos + Math.floor(i/3);
-						topPos = baseTopPos + Math.floor(i/3);
+						leftPos = baseLeftPos + Math.floor(i/(2+wizardDecks));
+						topPos = baseTopPos + Math.floor(i/(2+wizardDecks));
 					}
 				}
 
