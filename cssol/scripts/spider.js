@@ -32,17 +32,14 @@ function customRender() {
 	}
 	
 	if (solGame.difficulty < 3) {
-		if (solGame.difficulty == 1) {
-			useSuits[0] = solGame.tableau[0][0].suit;
-		} else {
-			useSuits[getColor(solGame.tableau[0][0])] = solGame.tableau[0][0].suit;
-		}
-		
 		for (var h = 0; h < 8; h++) {
 			if (solGame.foundationPile[h]) {
-				if (useSuits[getColor(solGame.foundationPile[h])] == null) {
+				if (solGame.difficulty == 1) {
+					useSuits[0] = solGame.foundationPile[h].suit;
+				} else if (useSuits[getColor(solGame.foundationPile[h])] == null) {
 					useSuits[getColor(solGame.foundationPile[h])] = solGame.foundationPile[h].suit;
 				}
+
 			}
 		}
 		
@@ -55,7 +52,11 @@ function customRender() {
 						emptyRow = false;
 						
 						if (solGame.difficulty == 1) {
-							solGame.tableau[x][y].suit = useSuits[0];
+							if (useSuits[0] == null) {
+								useSuits[0] = solGame.tableau[x][y].suit;
+							} else {
+								solGame.tableau[x][y].suit = useSuits[0];
+							}
 						} else if (solGame.difficulty == 2) {
 							if (useSuits[getColor(solGame.tableau[x][y])] == null) {
 								useSuits[getColor(solGame.tableau[x][y])] = solGame.tableau[x][y].suit;

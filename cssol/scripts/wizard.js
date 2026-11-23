@@ -43,7 +43,7 @@ function setupGame() {
 
 	if (deckCost < maxScore) {
 		// Create stock pile
-		for (var i = 0; i < Math.ceil((maxScore - deckCost)/3); i++) {
+		for (var i = 0; i < Math.ceil((maxScore - deckCost)/(wizardDecks+2)); i++) {
 			leftPos = i;
 			topPos = i;
 		
@@ -52,7 +52,7 @@ function setupGame() {
 			tableauPanel.appendChild(divFrag);
 		}
 		
-		topPadding = 140 + wizardDecks*10;
+		topPadding = 145 + wizardDecks*5;
 		if (!golfGame && window.innerHeight && window.innerHeight <= 768) {
 			// Small height detected. Prohibit fanned waste pile in non-Golf games
 			if (stockDealTo == 1) {
@@ -63,8 +63,8 @@ function setupGame() {
 		if (stockDealTo == 0) {
 			// Create a stacked waste pile
 			for (var i = 0; i < maxScore; i++) {
-				leftPos = COLUMN_WIDTH + Math.floor(i/3);
-				topPos = Math.floor(i/3);
+				leftPos = COLUMN_WIDTH + Math.floor(i/(2+wizardDecks));
+				topPos = Math.floor(i/(2+wizardDecks));
 
 				createDivFrag("waste"+i,leftPos,topPos,i);
 				autoAddEvents(divFrag);
@@ -869,7 +869,7 @@ function endingCheck() {
 						movesPossible[1]++;
 						moveCap++;
 					}
-				} else if (reserveStacked == null || solGame.reserveSlot[r+1] == null || newSubRestack(r+1)) {
+				} else if (!reserveTerrace && (reserveStacked == null || solGame.reserveSlot[r+1] == null || newSubRestack(r+1))) {
 					for (var dx = 0; dx < tableauWidth; dx++) {
 						if (solGame.height[dx] >= 0) {
 							if (buildCheck(solGame.tableau[dx][solGame.height[dx]],solGame.reserveSlot[r])) {
@@ -1061,7 +1061,10 @@ function playCard(event) {
 			}
 
 		} else if (selectX >= reserveStart) {
-			if ((solGame.reserveSlot[selectX-reserveStart].rank == finalRank && emptyPileRefills == "finalRank") || emptyPileRefills == "anyCard") {
+			if (reserveTerrace) {
+				updateStatus("Invalid move. No building onto the tableau from the reserve pool");
+				deselectCard(selectionRef);
+			} else if ((solGame.reserveSlot[selectX-reserveStart].rank == finalRank && emptyPileRefills == "finalRank") || emptyPileRefills == "anyCard") {
 				recordMove();
 				solGame.height[x]++;
 				solGame.tableau[x][0] = solGame.reserveSlot[selectX-reserveStart];
@@ -1344,6 +1347,9 @@ function playCard(event) {
 			playSound(scoreCard);
 			renderPlayarea();
 			endingCheck();
+		} else if (reserveTerrace) {
+			updateStatus("Invalid move. No building onto the tableau from the reserve pool");
+			deselectCard(selectionRef);
 		} else if (buildCheck(solGame.tableau[x][solGame.height[x]],solGame.reserveSlot[selectX-reserveStart])) {
 			recordMove();
 			solGame.height[x]++;
@@ -1770,10 +1776,9 @@ function newGame(greetings, newSeed) {
 					title = "Seahaven Towers";
 					break;
 				case "spider1":
-					title = "Black Widow Solitaire";
-					break;
+					// Fall thru
 				case "spider2":
-					title = "Tarantula Solitaire";
+					title = "Spider Solitaire";
 					break;
 				case "simonJester":
 					title = "Simon Jester";
