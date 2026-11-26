@@ -1,5 +1,5 @@
 var scriptTime = new Date();
-var seedSlot = new Array(312);
+var seedSlot = [];
 var selectX, selectDepth, finishPtr, highestHeight, canFillColumn, seedPassword, oldPassword, cardsDealt;
 var baseStatFile, passField, clockPtr, forceRender, rectangularTableau, divFrag;
 const reserveStart = 50;
