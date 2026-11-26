@@ -68,7 +68,7 @@
 	visibility: hidden;
 }
 
-.red, .hearts, .diamonds { color: #ff0000; }
+.reds, .hearts, .diamonds { color: #ff0000; }
 
 .indexA, .indexB {
   font-size: 50%;

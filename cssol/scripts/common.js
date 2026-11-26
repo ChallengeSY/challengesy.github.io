@@ -16,6 +16,7 @@ var emptyAutoRefills = 0;
 var undoCount = 0;
 var playHeight = 500;
 var wasteDealBy = 1;
+var useJokers = [0, 0];
 var wasteFanned = false;
 var reverseRender = false;
 var downturnPattern = "solid";
@@ -218,11 +219,12 @@ function resetInternals() {
 
 //Restarts game
 function restartGame(penalize) {
-	var preserveWin, gameTime;
+	var preserveWin, gameTime, moveCount;
 
 	//Records eligibility to win and game time
 	preserveWin = solGame.recordWin;
 	gameTime = solGame.dealTime;
+	moveCount = solGame.totalMoves + undoCount;
 	
 	if (!preserveWin && baseStatFile == "seriesPlay") {
 		updateStatus("You may not restart a Series game that has been won.");
@@ -235,12 +237,12 @@ function restartGame(penalize) {
 		//Restarts a game using the same seed
 		if (!solGame.gameActive || penalize || solGame.totalMoves == 0) {
 			newGame(false,false);
-			undoCount++;
 		}
 		
 		if (solGame.totalMoves == 0) {
 			solGame.recordWin = preserveWin;
 			solGame.dealTime = gameTime;
+			undoCount = moveCount;
 			updateStatus("Restart successful");
 		}
 	}
@@ -759,7 +761,7 @@ function emptyFoundationSlot() {
 }
 
 function emptyStockPile() {
-	var redealSymbol = "<span class=\"red\">&#10006;</span>";
+	var redealSymbol = "<span class=\"reds\">&#10006;</span>";
 	
 	if (solGame.redeals > 0) {
 		redealSymbol = "<span style=\"color: lime;\">&#10004;</span>";
@@ -1126,11 +1128,18 @@ function solDeck(numDecks) {
 
 	// Generate the array of solCard objects
 	var cardCount = 0;
-	for (var k = 0; k < numDecks; k++) {
+	for (var d = 0; d < numDecks; d++) {
 		for (var i = 0; i < 4; i++) {
 			for (var j = 0; j < 13; j++) {
-				this.cards[cardCount] = new solCard(suits[i], ranks[j], shuffleID);
-				cardCount++;
+				this.cards[cardCount++] = new solCard(suits[i], ranks[j], shuffleID);
+			}
+		}
+		for (var k = 0; k < Math.max(...useJokers); k++) {
+			if (k < useJokers[0]) {
+				this.cards[cardCount++] = new solCard("Black", "Joker", shuffleID);
+			}
+			if (k < useJokers[1]) {
+				this.cards[cardCount++] = new solCard("Red", "Joker", shuffleID);
 			}
 		}
 		if (preferDeckId == -1) {
@@ -1178,6 +1187,8 @@ solCard.prototype.innerCode = function() {
 	
 	if (useJokeStyle) {
 		switch (this.suit) {
+			case "Black":
+				// Fall thru
 			case "Spade":
 				jokeSuit = "diamond";
 				break;
@@ -1193,7 +1204,10 @@ solCard.prototype.innerCode = function() {
 		}
 	}
 
-	if (this.suit == "Diamond") {
+	if (this.rank == "Joker") {
+		cornerRank = "&#9884;";
+		suitPip = "";
+	} else if (this.suit == "Diamond") {
 		suitPip = "&diams;";
 	}
 	var cornerIndex = cornerRank + "<br />" + suitPip;
@@ -1215,6 +1229,10 @@ solCard.prototype.innerCode = function() {
 			"<div class=\"indexB\">" + cornerIndex + "</div>\n";
 
 		switch (this.rank) {
+			case "Joker":
+				innerShell = innerShell +
+					"<div class=\"ace\">" + cornerRank + "</div>\n";
+				break;
 			case "Ace":
 				innerShell = innerShell +
 					"<div class=\"ace\">" + suitPip + "</div>\n";
@@ -1312,21 +1330,29 @@ solCard.prototype.innerCode = function() {
 solCard.prototype.passValue = function () {
 	var passStr = this.suit.substring(0,1);
 	
-	if (this.rank == "10") passStr += "T";
-	else passStr += this.rank.substring(0,1);
+	if (this.rank == "Joker") {
+		passStr += "O";
+	} else if (this.rank == "10") {
+		passStr += "T";
+	} else {
+		passStr += this.rank.substring(0,1);
+	}
 	
 	return passStr.toUpperCase();
 }
 	
 solCard.prototype.nameParse = function () {
 	var fullName = this.rank + " of " + this.suit + "s";
+	if (this.rank == "Joker") {
+		fullName = this.rank + " - " + this.suit;
+	}
 
 	return fullName;
 }
 
 //Data extraction
 function getSuit(object) {
-	var suits = ["Club", "Diamond", "Heart", "Spade"];
+	var suits = ["Club", "Diamond", "Heart", "Spade", "Black", "Red"];
 	
 	for (var i = 0; i < 4; i++) {
 		if (object.suit == suits[i]) {
@@ -1336,7 +1362,7 @@ function getSuit(object) {
 }
 
 function getColor(object) {
-	if (getSuit(object) == 0 || getSuit(object) == 3) {
+	if (getSuit(object) == 0 || getSuit(object) == 3 || getSuit(object) == 4) {
 		return 0;
 	} else {
 		return 1;
@@ -1344,24 +1370,29 @@ function getColor(object) {
 }
 
 function getRank(object) {
-	var ranks = ["2", "3", "4", "5", "6", "7", "8",
+	var ranks = ["Joker", "2", "3", "4", "5", "6", "7", "8",
 		"9", "10", "Jack", "Queen", "King", "Ace"];
 	
-	for (var i = 0; i < 13; i++) {
+	for (var i = 0; i < 14; i++) {
 		if (object.rank == ranks[i]) {
-			return i;
+			return i-1;
 		}
 	}
+}
+
+function jokerInvolved(objA, objB) {
+	return (objA.rank == "Joker" || objB.rank == "Joker");
 }
 
 function shuffleDeck(decks) {
 	passField = document.getElementById("password");
 	bestCasual = 0;
+	var numJokers = useJokers.reduce((accumulator, currentValue) => accumulator + currentValue,0);
 
 	playDeck.shuffle();
 	seedPassword = "";
 
-	for (var j = 0; j < 52 * decks; j++) {
+	for (var j = 0; j < (52 + numJokers) * decks; j++) {
 		seedSlot[j] = playDeck.dealCard();
 		seedPassword += seedSlot[j].passValue();
 	}
@@ -1375,8 +1406,9 @@ function shuffleDeck(decks) {
 function readPass(numDecks) {
 	var suitIndex, rankIndex, internalIndex, startChar, cardCounts, passwordValid;
 	passField = document.getElementById("password");
+	var numJokers = useJokers.reduce((accumulator, currentValue) => accumulator + currentValue,0);
 	
-	cardCounts = new Array(52);
+	cardCounts = [];
 	seedPassword = passField.value;
 	passwordValid = true;
 	
@@ -1384,13 +1416,16 @@ function readPass(numDecks) {
 		shuffleID -= numDecks;
 	}
 
-	for (var i = 0; i < 52; i++) {
+	for (var i = 0; i < 54; i++) {
 		cardCounts[i] = 0;
 	}
 	
-	for (var k = 0; k < 52 * numDecks; k++) {
+	var maxCards = 52*numDecks + numJokers
+	
+	for (var k = 0; k < maxCards; k++) {
 		startChar = k*2;
 	
+		internalIndex = 0;
 		suitIndex = seedPassword.substring(startChar,startChar+1);
 		rankIndex = seedPassword.substring(startChar+1,startChar+2);
 		if (typeof seedSlot[k] === "undefined") {
@@ -1405,12 +1440,34 @@ function readPass(numDecks) {
 			seedSlot[k].suit = "Diamond";
 		} else if (suitIndex == "C") {
 			seedSlot[k].suit = "Club";
+		} else if (suitIndex == "B") {
+			seedSlot[k].suit = "Black";
+		} else if (suitIndex == "R") {
+			seedSlot[k].suit = "Red";
 		} else {
 			passwordValid = false;
 			break;
 		}
 		
-		if (rankIndex == "A") {
+		if (rankIndex == "O") {
+			seedSlot[k].rank = "Joker";
+			if (suitIndex == "B") {
+				internalIndex = 53;
+				if (++cardCounts[internalIndex] > numJokers[0]*numDecks) {
+					passwordValid = false;
+					break;
+				}
+			} else if (suitIndex == "R") {
+				internalIndex = 54;
+				if (++cardCounts[internalIndex] > numJokers[1]*numDecks) {
+					passwordValid = false;
+					break;
+				}
+			} else {
+				passwordValid = false;
+				break;
+			}
+		} else if (rankIndex == "A") {
 			seedSlot[k].rank = "Ace";
 		} else if (rankIndex == "T") {
 			seedSlot[k].rank = "10";
@@ -1429,10 +1486,18 @@ function readPass(numDecks) {
 		
 		seedSlot[k].deckID = shuffleID;
 		
-		internalIndex = getSuit(seedSlot[k]) * 13 + getRank(seedSlot[k]);
-		if (++cardCounts[internalIndex] > numDecks) {
-			passwordValid = false;
-			break;
+		if (internalIndex == 0) {
+			if (suitIndex == "B" || suitIndex == "R") {
+				passwordValid = false;
+				break;
+			} else {
+				internalIndex = getSuit(seedSlot[k]) * 13 + getRank(seedSlot[k]);
+			}
+			
+			if (++cardCounts[internalIndex] > numDecks) {
+				passwordValid = false;
+				break;
+			}
 		}
 	}
 	

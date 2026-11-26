@@ -595,7 +595,7 @@ function buildCheck(objA, objB, auxConn) {
 				case "golfUpDnAnyNoking":
 					buildTxt = "No building allowed on a King.";
 					
-					if (getRank(objB) == 11) {
+					if (getRank(objB) == 11 && !jokerInvolved(objA, objB)) {
 						outcome = false;
 						break;
 					}
@@ -611,6 +611,9 @@ function buildCheck(objA, objB, auxConn) {
 
 					// Fall through, unless a King-Ace loop has been discovered
 				case "golfUpDnAnyWrap":
+					if (jokerInvolved(objA, objB)) {
+						outcome = true;
+					}
 					if (getRank(objA) == getRank(objB) - 1) {
 						outcome = true;
 					}
@@ -627,6 +630,9 @@ function buildCheck(objA, objB, auxConn) {
 					break;
 				case "golfUpAny":
 					outcome = (getRank(objA) == getRank(objB) + 1 || (getRank(objA) == 0 && getRank(objB) == 12));
+					if (jokerInvolved(objA, objB)) {
+						outcome = true;
+					}
 					buildTxt = "Build up regardless of suit. Wrapping enabled.";
 					break;
 			}
@@ -768,7 +774,7 @@ function pairCheck(objA, objB, auxConn) {
 			break;
 	}
 
-	return outcome;
+	return (outcome || jokerInvolved(objA, objB));
 }
 
 // Check for victory conditions and available moves
@@ -1406,7 +1412,8 @@ function playCard(event) {
 }
 
 function newGame(greetings, newSeed) {
-	var imgRef, passInvalid, message, newCard, acesFound, downturnPattern;
+	var imgRef, passInvalid, message, newCard, acesFound, downturnLoop;
+	var numJokers = useJokers.reduce((accumulator, currentValue) => accumulator + currentValue,0);
 	
 	if (newSeed) {
 		message = "Abort this game and start a new game?";
@@ -1519,7 +1526,7 @@ function newGame(greetings, newSeed) {
 			}
 		}
 		
-		downturnPattern = downturnDepth.length;
+		downturnLoop = downturnDepth.length;
 
 		// Sets up the tableau
 		if (tableauStructure) {
@@ -1537,7 +1544,7 @@ function newGame(greetings, newSeed) {
 						}
 					
 						solGame.tableau[x][y] = newCard;
-						solGame.downturn[x] = Math.min(y,downturnDepth[x % downturnPattern]);
+						solGame.downturn[x] = Math.min(y,downturnDepth[x % downturnLoop]);
 					}
 				}
 			}
@@ -1641,7 +1648,7 @@ function newGame(greetings, newSeed) {
 		}
 		
 		//Empties out the waste pile and create a stock pile
-		solGame.stockRemain = wizardDecks * 52 - cardsDealt;
+		solGame.stockRemain = wizardDecks * 52 + numJokers - cardsDealt;
 		solGame.wasteSize = -1;
 		if (golfGame) {
 			if (solGame.stockRemain > 0) {

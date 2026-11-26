@@ -547,7 +547,7 @@ function handSize(id) {
 }
 
 function handWon(id) {
-	var outcomeSymbol = "<span class=\"red\">&#10006;</span>";
+	var outcomeSymbol = "<span class=\"reds\">&#10006;</span>";
 	
 	if (handMods[id] != "surrender" && getScore(id) <= 21 && (getScore(id) > getScore(0) || getScore(0) >= 22 || handMods[id] == "blackjack")) {
 		outcomeSymbol = "<span style=\"color: lime;\">&#10004;</span>";
