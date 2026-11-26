@@ -193,13 +193,13 @@ function acceptInsurance() {
 	
 	if (getScore(0) == 21) {
 		playSound(scoreCard);
-		solGame.casualScore = solGame.casualScore + moneyRequired;
-		solGame.moneyScore = solGame.moneyScore + moneyRequired;
+		solGame.casualScore += moneyRequired;
+		solGame.moneyScore += moneyRequired;
 		customRender(false);
 		updateStatus("The dealer has a blackjack. You won $"+moneyRequired+" from the side bet. " + addBluButton("checkDealerHand(true);", "Continue"));
 	} else {
 		playSound(redealSnd);
-		solGame.moneyScore = solGame.moneyScore - sideBet;
+		solGame.moneyScore -= sideBet;
 		customRender(true);
 		updateStatus("The dealer does not a blackjack. You lost $"+sideBet+" from the side bet. " + addBluButton("checkDealerHand(true);", "Continue"));
 	}
@@ -480,7 +480,7 @@ function endRound() {
 		appendStatus("<br /><b>Warning!</b> The minimum base bet has increased to $" + moneyMin + "!");
 	}
 	if (solGame.moneyScore < moneyMin) {
-		appendStatus("<br /><b>Game over!</b> You have ran out of money. You can tap <q>New Round</q> to restart at $100, but doing so will reset your casual score.");
+		appendStatus("<br /><b>Game over!</b> You have ran out of money. You can tap <q>New</q> to restart at $100, but doing so will reset your casual score.");
 		moneyMin = 1;
 		scoreThresh = 200;
 		solGame.moneyScore = 100;

@@ -65,7 +65,7 @@ function endingCheck() {
 			longestStreak = tallyStreak;
 		}
 		gameWon();
-		updateStatus("Congratulations! You've won with a longest streak of "+ longestStreak +" cards in "+ getDealTime() +"!");
+		updateStatus("Congratulations! You've won with a longest streak of "+ longestStreak +" cards in "+ getDealTime() +" and in "+ (solGame.totalMoves + undoCount) +" moves1!");
 	} else if (solGame.stockRemain == 0) {
 		for (var y = 0; y < 4; y++) {
 			for (var x = 0; x < 10; x++) {

@@ -18,6 +18,7 @@ var playHeight = 500;
 var wasteDealBy = 1;
 var wasteFanned = false;
 var reverseRender = false;
+var downturnPattern = "solid";
 var pairingGame = false;
 var golfGame = false;
 var tallyStreak, longestStreak;
@@ -234,6 +235,7 @@ function restartGame(penalize) {
 		//Restarts a game using the same seed
 		if (!solGame.gameActive || penalize || solGame.totalMoves == 0) {
 			newGame(false,false);
+			undoCount++;
 		}
 		
 		if (solGame.totalMoves == 0) {
@@ -420,7 +422,8 @@ function renderPlayarea() {
 				if (solGame.tableau[x][y]) {
 					renderDiv(searchElement,"play" + (solGame.tableau[x][y].deckID % 6));
 					
-					if (y < solGame.downturn[x]) {
+					if (y < solGame.downturn[x] &&
+						(downturnPattern == "solid" || downturnPattern == "odd" && y % 2 == 0 || downturnPattern == "even" && y % 2 == 1)) {
 						newInner = "";
 						newTitle = "Face-down card";
 						if ((y + 1 == solGame.downturn[x] && facedownHints == 2) || facedownHints > 2) {
@@ -479,8 +482,12 @@ function renderPlayarea() {
 		//Reveal unobstructed downturned cards for rectangular tableaux
 		for (var x = 0; x < 49; x++) {
 			if (solGame.height[x] + 1 == solGame.downturn[x] && solGame.downturn[x] > 0) {
-				solGame.downturn[x]--;
-				var deltaY = solGame.height[x] - 1;
+				if (downturnPattern == "solid") {
+					solGame.downturn[x]--;
+				} else {
+					solGame.downturn[x] = Math.max(solGame.downturn[x] - 2,0);
+				}
+				var deltaY = solGame.downturn[x] - 1;
 				
 				searchElement = document.getElementById("x"+x+"y"+solGame.height[x]);
 				newInner = solGame.tableau[x][solGame.height[x]].innerCode();
@@ -817,7 +824,8 @@ function resizeHeight() {
 		
 		if (cmdPanel) {
 			if (!stockPile || foundationPool ||
-				filepath.search("/games/scorpion") >= 0 || filepath.search("/games/tripeaks") >= 0) {
+				filepath.search("/games/scorpion") >= 0 || filepath.search("/games/trillium") >= 0 ||
+				filepath.search("/games/tripeaks") >= 0) {
 				maxHeight = document.getElementById("tableau").style.maxHeight;
 				commandOffset = 71 + Math.ceil(bannerHeight/10) + helpPanel.offsetHeight;
 				
@@ -910,7 +918,12 @@ function getDealTime() {
 function gameWon() {
 	if (solGame.recordWin || baseStatFile == "wizard") {
 		solGame.recordWin = false;
-		updateStatus("Congratulations!! You won the game in " + getDealTime() + "!");
+		var compliment = "Congratulations!";
+		if (undoCount <= 0) {
+			compliment = "Perfect!!";
+		}
+		
+		updateStatus(compliment+" You won the game in "+getDealTime()+" and in "+(solGame.totalMoves + undoCount)+" moves!");
 		exportLog(1);
 	} else {
 		updateStatus("Congratulations! You won the game!<br />To qualify, please start a <b>new game</b> without using the password feature");

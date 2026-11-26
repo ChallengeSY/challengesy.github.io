@@ -310,7 +310,9 @@
 <td><select class="text" name="scoring" id="scoring" onchange="computeCost(false)">
 <optgroup label="Multi-Foundation games">
 	<option value="buildUpSuit">Build Foundations up by suit</option>
+	<option value="buildUpColor">Build Foundations up by color</option>
 	<option value="buildUpColorAlt">Build Foundations up by alternating colors</option>
+	<option value="buildUpAnySuit">Build Foundations up regardless of suit</option>
 	<option value="buildKASpider">Build Foundations with King-Ace piles</option>
 	<option value="noneScoreSpider">No Foundations, score King-Ace piles</option>
 </optgroup>
@@ -351,9 +353,9 @@ The Final Rank is one rank "lower" than the Base Rank. (Example: Kings are consi
 <tr>
 <td><b>Starting Cards</b></td>
 <td><select class="text" name="foundationStart" id="foundationStart" onchange="computeCost(false)">
-<option value="0">Empty piles</option>
-<option value="1" disabled="disabled">One card</option>
-<option value="4">Four per deck</option>
+	<option value="0">Empty piles</option>
+	<option value="1" disabled="disabled">One card</option>
+	<option value="4">Four per deck</option>
 </select></td>
 </tr>
 <tr>
@@ -366,8 +368,8 @@ The Final Rank is one rank "lower" than the Base Rank. (Example: Kings are consi
 <tr>
 <td><b>Tableau Shape</b></td>
 <td><select class="text" name="tableauShape" id="tableauShape" onchange="setDefaultDepth(); computeCost(false)">
-<option value="0">Rectangular</option>
-<option value="1">Trapezoidal</option>
+	<option value="0">Rectangular</option>
+	<option value="1">Trapezoidal</option>
 </select>
 
 <label for="tableauDepth">Depth</label>
@@ -385,10 +387,16 @@ The Final Rank is one rank "lower" than the Base Rank. (Example: Kings are consi
 </tr>
 <tr>
 <td><b>Downturned cards</b></td>
-<td><input class="text" type="text" name="downturn" id="downturn" size="25" value="0" /></td>
+<td><input class="text" type="text" name="downturn" id="downturn" size="25" value="0" />
+<select class="text" name="downturnPatt" id="downturnPatt">
+	<option value="solid" selected="selected">Solid</option>
+	<option value="odd">Striped odd</option>
+	<option value="even">Striped even</option>
+</select></td>
 </tr>
 <tr>
-<td colspan="2" class="helptxt">Comma separated values determine how many cards to turn face down. Pattern repeats as many times as is necessary.</td>
+<td colspan="2" class="helptxt">Comma separated values determine how many cards to turn face down. Pattern repeats as many times as is necessary.
+<br />Can be striped to allow some cards to remain face up.</td>
 </tr>
 <tr>
 <td><b>Final Rank cards in the tableau</b></td>
@@ -400,30 +408,30 @@ The Final Rank is one rank "lower" than the Base Rank. (Example: Kings are consi
 <tr>
 <td><b>Tableau Building</b></td>
 <td><select class="text" name="tableauBuilding" id="tableauBuilding" onchange="checkConflicts()">
-<option value="none">No building</option>
-<option value="downSuit">Down by suit</option>
-<option value="dnUpSuit">Up or down by suit</option>
-<option value="downDiffSuit">Down by any suit but own</option>
-<option value="downColor">Down by color</option>
-<option value="downColorAlt" selected="selected">Down by alternating colors</option>
-<option value="downAnySuit">Down regardless of suit</option>
+	<option value="none">No building</option>
+	<option value="downSuit">Down by suit</option>
+	<option value="dnUpSuit">Up or down by suit</option>
+	<option value="downDiffSuit">Down by any suit but own</option>
+	<option value="downColor">Down by color</option>
+	<option value="downColorAlt" selected="selected">Down by alternating colors</option>
+	<option value="downAnySuit">Down regardless of suit</option>
 </select></td>
 </tr>
 <tr>
 <td><b>Movement</b></td>
 <td><select class="text" name="movement" id="movement" onchange="checkConflicts()">
-<option value="oneCard">One card at a time</option>
-<option value="builds" selected="selected">Can move builds</option>
-<option value="spiderStyle">In-suit builds only</option>
-<option value="yukonStyle">Any number of face up cards</option>
+	<option value="oneCard">One card at a time</option>
+	<option value="builds" selected="selected">Can move builds</option>
+	<option value="spiderStyle">In-suit builds only</option>
+	<option value="yukonStyle">Any number of face up cards</option>
 </select></td>
 </tr>
 <tr>
 <td><b>Empty Piles</b></td>
 <td><select class="text" name="tableauEmpty" id="tableauEmpty" onchange="checkConflicts()">
-<option value="anyCard">Refillable by any card</option>
-<option value="finalRank">Refillable only by Final Rank</option>
-<option value="none">May not be Refilled</option>
+	<option value="anyCard">Refillable by any card</option>
+	<option value="finalRank">Refillable only by Final Rank</option>
+	<option value="none">May not be Refilled</option>
 </select>
 
 <label for="emptyAutorefill">Auto-refill</label>
@@ -450,13 +458,13 @@ Depending on how the stock pile is handled, this also determines the goal of a P
 <tr>
 <td><b>Deal to</b></td>
 <td><select class="text" name="stockDealTo" id="stockDealTo" onchange="checkConflicts()">
-<option value="-1">None</option>
-<option value="0" selected="selected">Waste, stacked</option>
-<option value="1">Waste, fanned</option>
-<option value="2">Tableau; allow empty piles</option>
-<option value="3">Tableau; prohibit empty piles</option>
-<option value="4">Reserve, trapdoor</option>
-<option value="5">Reserve, stacked</option>
+	<option value="-1">None</option>
+	<option value="0" selected="selected">Waste, stacked</option>
+	<option value="1">Waste, fanned</option>
+	<option value="2">Tableau; allow empty piles</option>
+	<option value="3">Tableau; prohibit empty piles</option>
+	<option value="4">Reserve, trapdoor</option>
+	<option value="5">Reserve, stacked</option>
 </select></td>
 </tr>
 <tr>

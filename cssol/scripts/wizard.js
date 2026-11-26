@@ -1412,6 +1412,9 @@ function newGame(greetings, newSeed) {
 		message = "Abort this game and start a new game?";
 	} else {
 		message = "Inputting in a password will end this game. Confirm?";
+		if (baseStatFile == "seriesPlay") {
+			undoCount = 1;
+		}
 	}
 	
 	passInvalid = false;
