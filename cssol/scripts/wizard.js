@@ -640,13 +640,13 @@ function buildCheck(objA, objB, auxConn) {
 	} else if (auxConn == "suit") {
 		if ((rankValue[getRank(objA)] == rankValue[getRank(objB)] + 1 ||
 			objB.rank == "King" && objA.rank == "Ace") &&
-			objA.suit == objB.suit && (objB.rank != finalRank && objA.rank != baseRank)) {
+			objA.suit == objB.suit && ((objB.rank != finalRank && objA.rank != baseRank) || allowTableauWrapping)) {
 			outcome = true;
 		}
 	} else if (auxConn == "color") {
 		if ((rankValue[getRank(objA)] == rankValue[getRank(objB)] + 1 ||
 			objB.rank == "King" && objA.rank == "Ace") &&
-			getColor(objA) == getColor(objB) && (objB.rank != finalRank && objA.rank != baseRank)) {
+			getColor(objA) == getColor(objB) && (objB.rank != finalRank && objA.rank != baseRank || allowTableauWrapping)) {
 			outcome = true;
 		}
 	} else {
@@ -654,7 +654,7 @@ function buildCheck(objA, objB, auxConn) {
 			case "downSuit":
 				if ((rankValue[getRank(objA)] == rankValue[getRank(objB)] + 1 ||
 					(objB.rank == "King" && objA.rank == "Ace")) &&
-					objA.suit == objB.suit && (objB.rank != finalRank && objA.rank != baseRank || allowTableauWrapping)) {
+					objA.suit == objB.suit && ((objB.rank != finalRank && objA.rank != baseRank) || allowTableauWrapping)) {
 					outcome = true;
 				}
 				buildTxt = "Build down by suit.";
@@ -934,7 +934,7 @@ function endingCheck() {
 												movesPossible[0]++;
 												
 												if (((solGame.height[x] == 0 && emptyPileRefills != "anyCard") ||
-													(y > 0 && (!buildCheck(solGame.tableau[x][y-1],solGame.tableau[x][y])) || y == solGame.downturn[x])) && 
+													(y > 0 && (!buildCheck(solGame.tableau[x][y-1],solGame.tableau[x][y],checkAux)) || y == solGame.downturn[x])) && 
 													((solGame.tableau[x][y].rank != finalRank && solGame.tableau[dx][solGame.height[dx]].rank != baseRank) || y > 0)) {
 													movesPossible[1]++;
 												}
@@ -962,6 +962,7 @@ function endingCheck() {
 								if (foundationCheck(solGame.foundationPile[f], solGame.tableau[x][solGame.height[x]])) {
 									movesPossible[0]++;
 									movesPossible[1]++;
+									break;
 								}
 							}
 						}
@@ -1566,7 +1567,7 @@ function newGame(greetings, newSeed) {
 							
 							if (testCard && cardsDealt <= wizardDecks*52) {
 								solGame.tableau[x][y] = testCard;
-								solGame.downturn[x] = Math.min(y,downturnDepth[x % downturnPattern]);
+								solGame.downturn[x] = Math.min(y,downturnDepth[x % downturnLoop]);
 							}
 						}
 					}
@@ -1586,7 +1587,7 @@ function newGame(greetings, newSeed) {
 							}
 						
 							solGame.tableau[x][y] = newCard;
-							solGame.downturn[x] = Math.min(y,downturnDepth[x % downturnPattern]);
+							solGame.downturn[x] = Math.min(y,downturnDepth[x % downturnLoop]);
 						}
 					}
 				}
@@ -1606,7 +1607,7 @@ function newGame(greetings, newSeed) {
 						}
 					
 						solGame.tableau[x][y] = newCard;
-						solGame.downturn[x] = Math.min(y,downturnDepth[x % downturnPattern]);
+						solGame.downturn[x] = Math.min(y,downturnDepth[x % downturnLoop]);
 					}
 				}
 			}

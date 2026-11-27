@@ -27,7 +27,7 @@ var dynamicDealCt = false;
 var skipSounds = 0;
 var shuffleID = Math.floor(Math.random()*6);
 var scoringModel = "buildUpSuit";
-var rankValue = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1];
+var rankValue = [-1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1];
 
 var filepath = window.location.pathname;
 var playDeck, searchElement, baseRank, finalRank, tableauWidth;
@@ -1354,7 +1354,7 @@ solCard.prototype.nameParse = function () {
 function getSuit(object) {
 	var suits = ["Club", "Diamond", "Heart", "Spade", "Black", "Red"];
 	
-	for (var i = 0; i < 4; i++) {
+	for (var i = 0; i < 6; i++) {
 		if (object.suit == suits[i]) {
 			return i;
 		}
@@ -1375,7 +1375,7 @@ function getRank(object) {
 	
 	for (var i = 0; i < 14; i++) {
 		if (object.rank == ranks[i]) {
-			return i-1;
+			return i;
 		}
 	}
 }
