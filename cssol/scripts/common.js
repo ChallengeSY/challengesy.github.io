@@ -27,7 +27,7 @@ var dynamicDealCt = false;
 var skipSounds = 0;
 var shuffleID = Math.floor(Math.random()*6);
 var scoringModel = "buildUpSuit";
-var rankValue = [-1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1];
+var rankValue = [-1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 
 var filepath = window.location.pathname;
 var playDeck, searchElement, baseRank, finalRank, tableauWidth;
@@ -1119,8 +1119,8 @@ function solDeck(numDecks) {
 
 	this.cards = new Array(numDecks * 52);
 	var suits = ["Club", "Diamond", "Heart", "Spade"];
-	var ranks = ["2", "3", "4", "5", "6", "7", "8", "9",
-		"10", "Jack", "Queen", "King", "Ace"];
+	var ranks = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9",
+		"10", "Jack", "Queen", "King"];
 	
 	if (preferDeckId >= 0) {
 		shuffleID = preferDeckId - 1;
@@ -1370,14 +1370,18 @@ function getColor(object) {
 }
 
 function getRank(object) {
-	var ranks = ["Joker", "2", "3", "4", "5", "6", "7", "8",
-		"9", "10", "Jack", "Queen", "King", "Ace"];
+	var ranks = ["Joker", "Ace", "2", "3", "4", "5", "6", "7", "8",
+		"9", "10", "Jack", "Queen", "King"];
 	
 	for (var i = 0; i < 14; i++) {
 		if (object.rank == ranks[i]) {
 			return i;
 		}
 	}
+}
+
+function buildWrap(objA, objB) {
+	return (objA.rank == "Ace" && objB.rank == "King");
 }
 
 function jokerInvolved(objA, objB) {

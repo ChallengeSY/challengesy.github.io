@@ -59,13 +59,16 @@ function setupGame() {
 // Victory conditions
 	
 function endingCheck() {
-	var movesPossible = false, imgRef;
+	var movesPossible = false, ableToRecord;
 	if (solGame.casualScore >= maxScore) {
 		if (tallyStreak > longestStreak) {
 			longestStreak = tallyStreak;
 		}
+		ableToRecord = solGame.recordWin;
 		gameWon();
-		updateStatus("Congratulations! You've won with a longest streak of "+ longestStreak +" cards in "+ getDealTime() +" and in "+ (solGame.totalMoves + undoCount) +" moves1!");
+		if (ableToRecord) {
+			updateStatus("Congratulations! You've won with a longest streak of "+ longestStreak +" cards in "+ getDealTime() +" and in "+ (solGame.totalMoves + undoCount) +" moves!");
+		}
 	} else if (solGame.stockRemain == 0) {
 		for (var y = 0; y < 4; y++) {
 			for (var x = 0; x < 10; x++) {
@@ -116,7 +119,7 @@ function adjacentRanks(objA, objB) {
 			outcome = true;
 		}
 		
-		if (getRank(objA) + getRank(objB) == 12 && (getRank(objB) == 12 || getRank(objB) == 0)) {
+		if (buildWrap(objA,objB) || buildWrap(objB,objA)) {
 			outcome = true;
 		}
 	}

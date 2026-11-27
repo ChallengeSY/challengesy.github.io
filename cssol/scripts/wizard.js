@@ -496,7 +496,7 @@ function playWaste(event) {
 		selectionRef = document.getElementById("open" + (selectX - reserveStart));
 	}
 
-	if (solGame.gameActive == false) {
+	if (!solGame.gameActive) {
 		if (baseStatFile != "seriesPlay") {
 			updateStatus("The game has already ended!");
 		}
@@ -595,7 +595,7 @@ function buildCheck(objA, objB, auxConn) {
 				case "golfUpDnAnyNoking":
 					buildTxt = "No building allowed on a King.";
 					
-					if (getRank(objB) == 11 && !jokerInvolved(objA, objB)) {
+					if (getRank(objB) == 13 && !jokerInvolved(objA, objB)) {
 						outcome = false;
 						break;
 					}
@@ -604,7 +604,7 @@ function buildCheck(objA, objB, auxConn) {
 				case "golfUpDnAnyNowrap":
 					buildTxt = "Build up or down regardless of suit. Wrapping disabled.";
 					
-					if (getRank(objA) + getRank(objB) == 23) {
+					if (buildWrap(objA,objB) || buildWrap(objB,objA)) {
 						outcome = false;
 						break;
 					}
@@ -620,7 +620,7 @@ function buildCheck(objA, objB, auxConn) {
 					if (getRank(objA) == getRank(objB) + 1) {
 						outcome = true;
 					}
-					if (getRank(objA) + getRank(objB) == 12 && (getRank(objB) == 12 || getRank(objB) == 0)) {
+					if (buildWrap(objA,objB) || buildWrap(objB,objA)) {
 						outcome = true;
 					}
 					
@@ -629,7 +629,7 @@ function buildCheck(objA, objB, auxConn) {
 					}
 					break;
 				case "golfUpAny":
-					outcome = (getRank(objA) == getRank(objB) + 1 || (getRank(objA) == 0 && getRank(objB) == 12));
+					outcome = (getRank(objA) == getRank(objB) + 1 || buildWrap(objA,objB));
 					if (jokerInvolved(objA, objB)) {
 						outcome = true;
 					}
@@ -1037,7 +1037,7 @@ function playCard(event) {
 		selectionRef = document.getElementById("waste" + solGame.wasteSize);
 	}
 	
-	if (solGame.gameActive == false) {
+	if (!solGame.gameActive) {
 		if (baseStatFile != "seriesPlay") {
 			updateStatus("The game has already ended!");
 		}
@@ -1126,7 +1126,7 @@ function playCard(event) {
 		selectX = -1;
 	} else if (selectX == -1) {
 		if (golfGame) {
-			if (solGame.gameActive == false) {
+			if (!solGame.gameActive) {
 				if (baseStatFile != "seriesPlay") {
 					updateStatus("The game has already ended!");
 				}
