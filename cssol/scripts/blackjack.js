@@ -5,6 +5,7 @@ window.onkeydown = readKeyInput;
 
 var numHands = 1, activeHand = 0, burnCard = 0, moneyMin = 1, scoreThresh = 200, moneyRequired = 0, wagerAmt = 0, moneyRaiseReq = 0, handSplit = 0;
 var roundActive = false, dealerAI = 0, opposingHands = 0, shoeExhausted = false;
+var rankValue = [-1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
 
 var handMods = [];
 
@@ -507,13 +508,10 @@ function aceFound(id) {
 }
 
 function firstTwoIdentical(id) {
-	var rankValue = new Array(2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1);
-	
 	return (rankValue[getRank(solGame.tableau[id][0])] == rankValue[getRank(solGame.tableau[id][1])]);
 }
 
 function getScore(id) {
-	var rankValue = new Array(2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1);
 	var handScore = 0;
 	
 	for (b = 0; b < 10; b++) {
